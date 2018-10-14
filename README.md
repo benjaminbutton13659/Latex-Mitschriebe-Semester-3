@@ -19,6 +19,4 @@ New versions of the script will be available as soon as we have had the time to 
 ## Acknowledgments
 
 Hat tip to anyone who is helping to improve the code and helps us find mistakes
-=======
-# Latex-Mitschriebe-Semester-3
-Scripts from the lectures B.Sc. in Physics WiSe 2018
+
