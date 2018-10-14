@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Scripts from the lectures B.Sc. in Physics WiSe 2018 3rd Semester
 
 Theoretical Physics II and Experimental Physics III
@@ -23,4 +22,3 @@ Hat tip to anyone who is helping to improve the code and helps us find mistakes
 =======
 # Latex-Mitschriebe-Semester-3
 Scripts from the lectures B.Sc. in Physics WiSe 2018
->>>>>>> 4f156ce9ef30553ed9a3d6b8e1189a2b66ed063a
