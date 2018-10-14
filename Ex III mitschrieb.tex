@@ -25,10 +25,19 @@
 
 \usepackage{url}
 
+\usetikzlibrary{arrows}
+
 
 %Environments und Newcommands:
 
 % Allgemein:
+
+% zu zeigen symbol
+\newcommand{\zz}{\fontfamily{cmss} \selectfont{Z\kern-.61em\raise-0.7ex\hbox{Z}:}}
+% build over
+\newcommand{\bov}[2]{\buildrel{#2} \over{#1}}
+% better looking := (defined as)
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}}=}
 
 \newcommand{\hfw}{\color{RubineRed}\tx{ $\star$hier fehlt was$\star$ } \color{black}}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
@@ -83,7 +92,6 @@
 \newcommand{\intt}[2]{\int_{#1}^{#2}}
 
 
-
 % Boxen:
 
 \tcbuselibrary{theorems}
@@ -103,6 +111,16 @@
 % mahlt eine box um mathe innerhalb mathmode
 \newcommand{\rmbox}[1]{\tcboxmath[colback=white,colframe=red!75!black]{#1}}
 
+% super box (looks like regular boxed but wraps around anything)
+\newenvironment{supbox}{\begin{tcolorbox}[colback=white,colframe=black,sharp corners,boxrule=.5pt]}{\end{tcolorbox}}
+
+% array type box with title
+\newenvironment{zebox}[1]{\begin{array}{|c|}
+		\multicolumn{1}{l}{\tx{#1}} \\
+		\hline
+		\displaystyle
+	}{\\ \hline
+\end{array}}
 
 % evtl: \renewcommand{\boxed}{\rmbox}
 
@@ -132,26 +150,3 @@
 %\addcontentsline{toc}{section}{Literatur}
 
 \end{document}
-
-
-
-
-%LA: 1. zeile
-
-\PassOptionsToPackage{dvipsnames}{xcolor}
-
-%Theo:
-
-\usetikzlibrary{decorations.pathmorphing,patterns}
-\usetikzlibrary{arrows}
-\usepackage[margin=1in]{geometry}
-\setlength{\parskip}{1em}
-
-% Ex:
-
-\usepackage{tocloft}
-\usepackage[margin=1in]{geometry}
-
-\addtolength{\cftchapnumwidth}{10pt}
-\addtolength{\cftsecnumwidth}{10pt}
-\addtolength{\cftsubsecnumwidth}{10pt}
