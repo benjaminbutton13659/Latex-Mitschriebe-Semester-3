@@ -133,17 +133,223 @@
 %\renewcommand{\thechapter}{\Roman{chapter}}
 
 \title{
-	{\Huge Theoretische Physik II}\\[1em]
+	{\Huge Theoretische Physik II\\[3pt]Elektrodynamik}\\[1em]
 	{\Large Vorlesung von Prof. Dr. Michael Thoss im Wintersemester 2018}}
 \author{Markus Österle\\ Andréz Gockel}
 \date{15.10.2018}
 \maketitle
 \tableofcontents
 
-\chapter{Hello World}
 %\addcontentsline{toc}{section}{section die nur im Inhaltsverzeichniss ist}
 
+% 15.10.18
 
+\pagebreak
+\noindent
+\begin{Huge}
+	\textbf{Einführung und Überblick} \\[5pt]
+\end{Huge}
+
+
+% chapter 0
+
+
+%\addcontentsline{toc}{Chapter}{Einführung und Überblick}
+% soll als chapter ins inhaltsverzeichniss sorgt aber für error da es kein chapter davor gibt (und einführung ist kein chapter weil das zu viel platz braucht und es so auf eine Seite passt)
+Es gibt vier fundamentale Wechselwirkungen:
+\begin{itemize}
+	\item starke Wechselwirkung
+	\item \textbf{elektromagnetische Wechselwirkung}
+	\item schwache Wechselwirkung
+	\item Gravitation
+\end{itemize}
+$\phantom{0}$\\[5pt]
+\begin{Large}
+	\textbf{Rückblick: Theoretische Physik I} \\[5pt]
+\end{Large}
+\textbf{Punktmechanik:} Bahnkurven von Körpern\\
+\textbf{Bewegungsgleichung:}
+\begin{equation*}
+m\ddot{\vec{r}} = \vec{F}
+\end{equation*}
+\\[5pt]
+\begin{Large}
+	\textbf{Elektrodynamik} \\[5pt]
+\end{Large}
+grundlegende Größen: \textbf{Felder}
+\begin{equation*}
+\begin{array}{cc}
+\vec{E}(\vec{r},t) & \vec{B}(\vec{r},t) \\[5pt]
+\tx{elektrisches Feld} &  \tx{Magnetfeld}
+\end{array}
+\end{equation*}
+$ \rightarrow $ Feldtheorie\\[10pt]
+\begin{large}
+	\textbf{Exp: Definition als Messgröße} \\[5pt]
+\end{large}
+Kraft auf Ladung:
+\begin{equation*}
+\vec{F} = q (\vec{E}(\vec{r},t) + \vec{r} \times \vec{B}(\vec{r},t))
+\end{equation*}
+Mathematisch: Feldgleichungen - Maxwellgleichungen
+\begin{align}
+\begin{array}{ccc}
+\ \ \, \vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho & & \phantom{0,} \vec{\nabla} \times \vec{E} + \frac{\partial \vec{B}}{\partial t} = 0 \\
+\vec{\nabla} \cdot \vec{B} = 0 & & \vec{\nabla} \times \vec{B} - \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t} = \mu_0 \vec{j}
+\end{array}
+\end{align}
+
+
+% korekt alignen unten auch nochmal
+
+\noindent
+$ \rho :$ Ladungsdichte, $ \vec{j} $ Stromdichte
+\\[10pt]
+\begin{Large}
+	\textbf{Aufbau der Vorlesung}
+\end{Large}
+\begin{itemize}
+	\item[1./2.] Elektrostatische und Magnetostatische Phänomene
+	\begin{equation*}
+	\frac{\partial \vec{E}}{\partial t} = 0 = \frac{\partial \vec{B}}{\partial t}
+	\end{equation*}
+	\begin{equation*}
+	\begin{array}{ccc}
+	\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho & & \vec{\nabla} \cdot \vec{B} = 0\\
+	\vec{\nabla} \times \vec{E} = 0 \quad \ & & \ \ \vec{\nabla} \times \vec{B} = \mu_0 \vec{j}\\[5pt]
+	\tx{elektrostatik} & & \tx{magnetostatik}
+	\end{array}
+	\end{equation*}	
+	\item[3.] zeitabhängige elektrische/magnetische Felder
+	\item[4.] Relativistische Formulierungen der Elektrodynamik
+\end{itemize}
+
+\chapter{Elektrostatik}
+
+Wir beschäftigen uns in diesem Kapitel mit \textbf{ruhenden Ladungen} und \textbf{zeitunabhängigen Feldern}. Das Grundproblem beteht darin, dass wir eine Ladungsverteilung haben und das Elektrische Feld und dessen Potential bestimmen wollen.
+
+
+% tickz 1
+
+
+
+el. Feld $ \vec{E}(\vec{r}) $ und el. Potential $ \Phi(\vec{r}) $
+
+
+\section{Elektrisches und Coulombsches Gesetz}
+
+\textbf{Ladungen:} Beobachtungstatsachen:
+\begin{enumerate}[i)]
+	\item zwei Arten ,,$ + $`` und ,,$ - $``
+	\item geschlossenes System:\\
+	Ladung erhalten $ q = \sum_i q_i = \const $
+	\item Ladung ist quantisiert in Einheiten der Elemantarlaung:
+	$$ q = n e \quad n \in \mathbb{Z} , \ e = 1{,}602 \cdot 10^{-19} \, \tx{C} $$
+	$ n = -1 $ wäre ein Beispiel für ein Elektron als eine Punktladung
+\end{enumerate}
+Bei einer kontinuierlichen Ladungsverteilung kann die Ladung über Ladungsdichte und Volumen ausgedrückt werden:
+\begin{equation*}
+\tx{Ladungsdichte } \rho(\vec{r}) = \frac{\tx{Ladung}}{\tx{Volumen}} = \frac{\Delta q}{\Delta V}
+\end{equation*}
+
+% tikz 2
+
+Die Gesamtladung in dem begrenzten Volumen erhält man dann durch Integration:
+\begin{equation*}
+Q = \int \limits_V d^3 r \rho(\vec{r})
+\end{equation*}
+\textbf{Coulombsches Gesetz}\\
+Die Kraft, welche eine am Ort $ \vec{r}_2 $ lokalisierte Punktladung auf eine Punktladung am Ort $ \vec{r}_1 $ ausübt ist gegeben durch:
+\begin{equation*}
+\vec{F}_{12} = k \frac{q_1 q_2}{|\vec{r}_1 - \vec{r}_2|^2} \underbrace{\frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|}}_{\vec{e}_{\vec{r}_{12}}}
+\end{equation*}
+\begin{enumerate}[i)]
+	\item $ \vec{F}_{12} \sim q_1 q_2 $
+	\item $ \vec{F}_{12} \sim \frac{1}{|\vec{r}_1 - \vec{r}_2|^2}$
+	\item $ \vec{F}_{12} \sim q_1 q_2 \, \vec{e}_{\vec{r}_{12}} $
+	\item $ \vec{F}_{12} = - \vec{F}_{21} $
+\end{enumerate}
+Es gilt das Superpositionsprinzip. Das heißt man kann durch die vektorielle Addition der Kräfte die Gesamtkraft ermitteln.
+\begin{equation*}
+\vec{F}_1 = k \sum \limits_{j=2}^{N} \frac{q_1 q_j}{r_{1j}^2} \vec{e}_{r_{1j}}
+\end{equation*}
+\textbf{zur Konstanten $ k $}
+Die Konstante ist abhängig von dem verwendeten Maßsystemen.
+\begin{enumerate}[i)]
+	\item Gauß-System (cgs)
+	\begin{equation*}
+	k \equiv 1
+	\end{equation*}
+	\begin{equation*}
+	\tx{dyn} = \frac{g \cdot \tx{cm}}{s^2} = 10^{-5} \, \tx{N}
+	\end{equation*}
+	\begin{equation*}
+	1 \tx{dyn} = \frac{(1 \tx{ESE})^2}{\tx{cm}^2} \qquad 1 \tx{ESE} = \frac{g^{\frac{1}{2}} \tx{cm}^{\frac{3}{2}}}{s}
+	\end{equation*}
+	\item SI (MKSA-System)\\
+	Def. $ A = \tx{Ampére} $ über Kraft zweier Stromdurchflossener Leiter aufeinander.
+
+% tikz 4
+
+	\begin{equation*}
+	\frac{\Delta F}{\Delta l} = 2 \cdot 10^{-7} \, \frac{\tx{N}}{\tx{m}} \quad \rightarrow \quad I = 1A
+	\end{equation*}
+	\begin{equation*}
+	\tx{Strom} = \frac{\tx{Ladung}}{\tx{Zeit}} \quad \Rightarrow \quad 1 \tx{A} = \frac{1 \tx{C}}{1 \tx{s}} \quad \rightarrow \quad e = 1{,}602 \cdot 10^{-19} \, \tx{C}
+	\end{equation*}
+	\begin{equation*}
+	\frac{\Delta F}{\Delta l} = k \frac{2 I^2}{c^2 d}\qquad c \approx 3 \cdot 10^{8} \, \frac{\tx{m}}{\tx{s}}
+	\end{equation*}
+	\begin{equation*}
+	\rightarrow k = 2 \cdot 10^{-7} \frac{\tx{N}}{\tx{m}} \frac{c^2 1 m}{2 (1 \tx{A})^2} = 10^{-7} c^2 \, \frac{\tx{N}}{\tx{A}^2} \qquad k = \frac{1}{4 \pi \epsilon_0}
+	\end{equation*}
+	Damit erhalten wir für die Dielektrizitätskonstante des Vakuums:
+	\begin{equation*}
+	\epsilon_0 = 8{,}85 \cdot 10^{-12} \frac{\tx{C}^2}{\tx{N} \tx{m}^2}
+	\end{equation*}
+\end{enumerate}
+
+\section{Elektrisches Feld}
+\subsection{Feld eines Systems von Punktladungen}
+$ N $ Ladungen $ q_1, \dots, q_N $ die an den Orten $ \vec{r}_1,\dots,\vec{r}_N $ ruhen. Nun bringen wir eine Testladung $ q $ beim Ort $ \vec{r} $ mit ein.
+
+% tikz 5
+
+Die Kraft von $ q_1,q_2 $ auf $ q $ ist dann:
+\begin{equation*}
+\vec{F} = \frac{1}{4 \pi \epsilon_0} q \sum\limits^{N}_{j=1} q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3} = q \vec{E}(\vec{r})
+\end{equation*}
+Also ist das elektrische Feld:
+\begin{equation*}
+\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \sum\limits_{j=1}^{N} q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3}}
+\end{equation*}
+\emph{Bemerkung:}
+\begin{enumerate}[i)]
+	\item Testladung klein (formal: $ \lim_{q\to0}\frac{\vec{F}}{q} $)
+	\item math. $ \vec{E}(\vec{r}) $ Vektorpfeil\\
+	\begin{equation*}
+	\tx{kartesisch:} \quad \vec{E}(\vec{r}) = \begin{pmatrix}
+	E_x(\vec{r}) \\ E_y(\vec{r}) \\ E_z(\vec{r})
+	\end{pmatrix}
+	\end{equation*}
+	\item Wechselwirkungsprozess: 2 Teile
+	\begin{equation*}
+	q_j \rightarrow \vec{E}(\vec{r}) \rightarrow \vec{F} = q \vec{E} (\vec{r})
+	\end{equation*}
+	\item Superpositionsprinzip gilt
+\end{enumerate}
+\subsection{Feld einer kontinuierlichen Ladungsverteilung $ \rho(\vec{r}) $}
+\begin{equation*}
+\vec{E}(\vec{r}) = k \underbrace{\int\limits_V}_{\substack{\tx{schließt alle} \\ \tx{Ladungen ein}}} d^3 r \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\end{equation*}
+
+% tikz 6
+
+\begin{align*}
+\vec{E}(\vec{r}) &= k\sum_j\Delta q_j\frac{\vec{r}-\vec{r}_j}{|\vec{r}-\vec{r}_j|^3}\\
+&= k\sum_j\Delta V_j\rho(\vec{r}_j)\frac{\vec{r}-\vec{r})j}{|\vec{r}-\vec  {r}_j|^3}\\
+\scriptstyle{\tx{mit } \Delta V_j \to 0}\ \ &\rightarrow k\int_V d^3r'\rho(\vec{r}')\frac{\vec{r}-\vec{r}'}{|\vec{r}  -\vec{r}'|^3}
+\end{align*}
 
 
 %\bibliographystyle{plain}
