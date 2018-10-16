@@ -129,7 +129,7 @@
 
 \begin{document}
 	
-%\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thechapter}{\Roman{chapter}}
 
 \title{
 	{\Huge Experimentalphysik III}\\[1em]
@@ -139,10 +139,90 @@
 \maketitle
 \tableofcontents
 
-\chapter{Hello World}
+
+%16.10.18
+
+\chapter{Spezielle Relativitätstheorie}
 %\addcontentsline{toc}{section}{section die nur im Inhaltsverzeichniss ist}
 
+\section{Vorgeschichte}
 
+\textbf{1861-1867: Maxwell Gleichungen}\\
+Vor Maxwell brauchten alle bekannten Wellen (Wasserwellen, Schall) ein Medium oder Trägerstoff. Daher stammte die Annahme, auch elektro-magnetische Wellen also Licht bräuchte ein Medium: der Äther. Somit wollte man experimentell zu zeigen, wie schnell wir uns durch den Äther bewegen und welches das Inertialsystem, das ausgezeichnete Bezugssystem des Äthers ist.\\
+%Man stellte jedoch fest, dass es kein solches Inertialsystem gibt und Geschwindigkeiten nur relativ zueinander existieren und nicht absolut sind.
+Mit dem Ziel den Äther nachzuweisen wurde das Michelson-Morley Experiment durchgeführt.
+
+\subsection{Experiment von Michelson-Morley}%I.1.a
+
+Die Idee des Experimentes war es die Bewegung der Erde relativ zum Äther zu messen.\\
+\textbf{Anforderungen:}
+\begin{itemize}
+	\item Erde $ 30 \, \tx{km} \slash \tx{s} $
+	\item Licht $ 3 \cdot 10^{5} \, \tx{km} \slash \tx{s}  $
+	\item[$ \Rightarrow $] relative Auflösung von circa $ 10^{-4} $ nötig
+\end{itemize}
+%
+%
+% insert image von Folie interferrometer
+%
+%
+\textbf{Prinzip}:\\
+Lichtlaufzeiten:\\
+Arm parallel zum Ätherwind
+\begin{equation*}
+t_2 = \frac{L_2}{c+v} + \frac{L_2}{c-v} = \frac{2cL_2}{(c^2-v^2)} = \frac{2 L_2}{c} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}^2}
+\end{equation*}
+Arm senkrecht zum Ätherwind
+\begin{equation*}
+t_1 = 2 \frac{L_1'}{c}
+\end{equation*}
+Nebenrechnung:
+\begin{equation*}
+L'^2 = L^2 + (vt)^2 \quad \Rightarrow \quad (ct)^2 = L^2 + (vt)^2 \quad \Rightarrow \quad t = \frac{L}{\sqrt{c^2 - v^2}}
+\end{equation*}
+\begin{equation*}
+t_1 = \frac{2 L}{\sqrt{c^2 - v^2}}
+\end{equation*}
+Somit ist die Zeitdifferenz der beiden Lichtstrahlen
+\begin{equation*}
+\Delta t = t_2 - t_1 = \frac{2L}{c} \ \frac{1 - \sqrt{1 - \frac{v^2}{c^2}}}{1 - \frac{v^2}{c^2}} \approx \frac{2L}{c} \left(\frac{1}{2} \frac{v^2}{c^2}\right) = \frac{lV^2}{C^2}
+\end{equation*}
+Hieraus können wir nun den Phasenunterschied der beiden Strahlen berechnen
+\begin{equation*}
+\Delta \varphi = 2 \pi \frac{c \Delta t}{\lambda}
+\end{equation*}
+Abschätzung:
+\begin{equation*}
+L = 2 \times 11 \, \tx{m} \ , \ v = 30 \, \tx{km} \slash \tx{s} \ , \ \lambda = 500 \, \tx{nm} \ \Rightarrow \ \Delta \varphi \slash \pi \approx 0{,}88
+\end{equation*}
+\textbf{Auflösung}
+\begin{equation*}
+\frac{\Delta \varphi}{\pi} \approx \frac{1}{4}
+\end{equation*}
+\textbf{Ergebnis:}\\
+Es gibt keine Verschiebung des Interferenzmusters.\\[5pt]
+\textbf{Konsequenz:}\\
+$ \Rightarrow $ Es gibt keinen Ätherwind.\\
+$ \Rightarrow $ Es gibt kein ausgezeichnetes Bezugssystem. Alle Bezugssysteme sind gleichwertig.\\[5pt]
+\textbf{Aber:}\\
+Kontraktionshypothese von Fitzgerald z Lorenz\\
+Wenn der Arm in Richtung der Äthers um Faktor $ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} $ \\
+Arm parallel zum Ä.W.:
+\begin{equation*}
+t_2 = \frac{2cL_2}{c^2 - v^2} \frac{1}{\gamma} = \frac{2 L_2}{\sqrt{denc^2 - v^2}}
+\end{equation*}
+Arm senkrecht zum Ä.W.:
+\begin{equation*}
+t_1 = \frac{2L_1}{\sqrt{c^2 - v^2}}
+\end{equation*}
+\textbf{Aber:}\\
+Äther nicht beobachtbar
+
+\subsection{Lorenz-Invarianz der Maxwell-Gleichungen}%I.1.b
+
+Maxwell-Gleichungen sind Lorenz-invariant und nicht Galilei-invariant.
+
+Beispiel: Relativität der Feder.
 
 
 %\bibliographystyle{plain}
