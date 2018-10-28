@@ -1,3 +1,4 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
 \documentclass[titlepage,11pt,a4paper,ngerman]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,7 +17,6 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
 \usepackage{tcolorbox}
-
 
 \usepackage[margin=1in]{geometry}
 
@@ -87,10 +87,15 @@
 \newcommand{\uind}{U_{\tx{ind}}}
 \newcommand{\folie}[1]{\color{gray}[Folie: #1]\color{black}}
 
-% anderz
+% ANDREZ
 \newcommand{\summ}[2]{\sum_{#1}^{#2}}
 \newcommand{\intt}[2]{\int_{#1}^{#2}}
-
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\lcom}[1]{\color{MidnightBlue}#1\color{black}}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\vabla}{\boldsymbol{\nabla}}
+\newcommand{\bei}[1]{\emph{Beispiel:}}
+\newcommand{\bem}[1]{\emph{Bemerkung:}}
 
 % Boxen:
 
@@ -114,6 +119,8 @@
 % super box (looks like regular boxed but wraps around anything)
 \newenvironment{supbox}{\begin{tcolorbox}[colback=white,colframe=black,sharp corners,boxrule=.5pt]}{\end{tcolorbox}}
 
+\newcommand{\bbb}[2]{\begin{tcolorbox}[colback=white,colframe=black,fonttitle=\bfseries,title=#1,sharp corners,tcbox raise base]#2\end{tcolorbox}}
+
 % array type box with title
 \newenvironment{zebox}[1]{\begin{array}{|c|}
 		\multicolumn{1}{l}{\tx{#1}} \\
@@ -124,12 +131,42 @@
 
 % evtl: \renewcommand{\boxed}{\rmbox}
 
+\tikzset{
+	annotated cuboid/.pic={
+		\tikzset{%
+			every edge quotes/.append style={midway, auto},
+			/cuboid/.cd,
+			#1
+		}
+		\draw [every edge/.append style={pic actions, densely dashed, opacity=.5}, pic actions]
+		(0,0,0) coordinate (o) -- ++(-\cubescale*\cubex,0,0) coordinate (a) -- ++(0,-\cubescale*\cubey,0) coordinate (b) edge coordinate [pos=1] (g) ++(0,0,-\cubescale*\cubez)  -- ++(\cubescale*\cubex,0,0) coordinate (c) -- cycle
+		(o) -- ++(0,0,-\cubescale*\cubez) coordinate (d) -- ++(0,-\cubescale*\cubey,0) coordinate (e) edge (g) -- (c) -- cycle
+		(o) -- (a) -- ++(0,0,-\cubescale*\cubez) coordinate (f) edge (g) -- (d) -- cycle;
+		\path [every edge/.append style={pic actions, |-|}]
+		%(b) +(0,-5pt) coordinate (b1) edge ["\cubex \cubeunits"'] (b1 -| c)
+		%(b) +(-5pt,0) coordinate (b2) edge ["\cubey \cubeunits"] (b2 |- a)
+		%(c) +(3.5pt,-3.5pt) coordinate (c2) edge ["\cubez \cubeunits"'] ([xshift=3.5pt,yshift=-3.5pt]e)
+		;
+	},
+	/cuboid/.search also={/tikz},
+	/cuboid/.cd,
+	width/.store in=\cubex,
+	height/.store in=\cubey,
+	depth/.store in=\cubez,
+	units/.store in=\cubeunits,
+	scale/.store in=\cubescale,
+	width=10,
+	height=10,
+	depth=10,
+	units=cm,
+	scale=.1,
+}
 
 
 \hbadness=99999
 
 \begin{document}
-	
+
 %\renewcommand{\thechapter}{\Roman{chapter}}
 
 \title{
@@ -140,168 +177,199 @@
 \maketitle
 \tableofcontents
 
+\setcounter{chapter}{-1}
+\chapter{Einführung}
+
 %\addcontentsline{toc}{section}{section die nur im Inhaltsverzeichniss ist}
+%\bibliographystyle{plain}
+%\bibliography{literature}
+%\addcontentsline{toc}{section}{Literatur}
 
-% 15.10.18
+\section{Zur Vorlesung}
 
-\pagebreak
+\begin{description}
+	\item[Dozent] Michael Thoss
+	\item[Übungen] Donnerstag/Freitag (ILIAS) beginnt 18./19.10.18
+	\item[Übungsleiter] Jakob Bätge
+	\item[Abgabe der Hausaufgaben] bus Dienstag 12:00 - Briefkasten GuMi
+	\item[Klausur] 13.02.19, 10-12 Uhr, Hörsaal Anatomie (Nachklausur: 26.19, 10-12 Uhr)
+	\item[Ankündigungen] ILIAS Pass: theophy2.thoss18
+	\item[Angaben] Vorlesung: 4 SWS, Übung: 2 SWS, ECTS: 7 
+	\item[Vorkenntnisse] Mathematik: Analysis für Physiker (Vektor Rechnung), Theoretische Physik I, Experimental Physik II. 
+\end{description}
+
+\begin{tcolorbox}[colback=white,colframe=black,fonttitle=\bfseries,title=Hinweis zu den Übungen,sharp corners,tcbox raise base]
+	\begin{itemize}
+		\item[-] Keine Anwesenheitspflicht.
+		\item[-] Keine Punktzahl nötig für Klausurzulassung.
+		\item[-] Kann auch wehrend Übungen abgegeben werden.
+	\end{itemize}
+\end{tcolorbox}
 \noindent
-\begin{Huge}
-	\textbf{Einführung und Überblick} \\[5pt]
-\end{Huge}
-
-
-% chapter 0
-
-
-%\addcontentsline{toc}{Chapter}{Einführung und Überblick}
-% soll als chapter ins inhaltsverzeichniss sorgt aber für error da es kein chapter davor gibt (und einführung ist kein chapter weil das zu viel platz braucht und es so auf eine Seite passt)
-Es gibt vier fundamentale Wechselwirkungen:
+Lehrbücher: 
 \begin{itemize}
-	\item starke Wechselwirkung
-	\item \textbf{elektromagnetische Wechselwirkung}
-	\item schwache Wechselwirkung
+	\item W. Nolting, \textit{Grundkurs Theoretische Physik 3: Elektrodynamik} (Springer)
+	\item D.J. Griffiths, \textit{Elektrodynamik: Eine Einführung} (Pearson) 
+	\item T. Fließbach, \textit{Elektrodynamik} (Spektrum Akademischer Verlag)
+	\item J.D. Jackson, \textit{Klassische Elektrodynamik} (Walter de Gruyter) \lcom{geht dieser Vorlesung hinaus}
+\end{itemize}
+
+\section{Einführung und Überblick}
+
+Die vier fundamentalen Wechselwirkungen (WW):
+\begin{itemize}
+	\item Starke WW
+	\item \textbf{Elektromagnetische WW}\  \lcom{Wird in dieser Vorlesung betrachtet}
+	\item Schwache WW
 	\item Gravitation
 \end{itemize}
-$\phantom{0}$\\[5pt]
-\begin{Large}
-	\textbf{Rückblick: Theoretische Physik I} \\[5pt]
-\end{Large}
-\textbf{Punktmechanik:} Bahnkurven von Körpern\\
-\textbf{Bewegungsgleichung:}
-\begin{equation*}
-m\ddot{\vec{r}} = \vec{F}
-\end{equation*}
-\\[5pt]
-\begin{Large}
-	\textbf{Elektrodynamik} \\[5pt]
-\end{Large}
-grundlegende Größen: \textbf{Felder}
-\begin{equation*}
-\begin{array}{cc}
-\vec{E}(\vec{r},t) & \vec{B}(\vec{r},t) \\[5pt]
-\tx{elektrisches Feld} &  \tx{Magnetfeld}
-\end{array}
-\end{equation*}
-$ \rightarrow $ Feldtheorie\\[10pt]
-\begin{large}
-	\textbf{Exp: Definition als Messgröße} \\[5pt]
-\end{large}
-Kraft auf Ladung:
-\begin{equation*}
-\vec{F} = q (\vec{E}(\vec{r},t) + \vec{r} \times \vec{B}(\vec{r},t))
-\end{equation*}
-Mathematisch: Feldgleichungen - Maxwellgleichungen
-\begin{align}
-\begin{array}{ccc}
-\ \ \, \vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho & & \phantom{0,} \vec{\nabla} \times \vec{E} + \frac{\partial \vec{B}}{\partial t} = 0 \\
-\vec{\nabla} \cdot \vec{B} = 0 & & \vec{\nabla} \times \vec{B} - \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t} = \mu_0 \vec{j}
-\end{array}
-\end{align}
 
-
-% korekt alignen unten auch nochmal
-
-\noindent
-$ \rho :$ Ladungsdichte, $ \vec{j} $ Stromdichte
-\\[10pt]
-\begin{Large}
-	\textbf{Aufbau der Vorlesung}
-\end{Large}
+\subsection{Rückblick}
+Theoretische Physik 1: 
 \begin{itemize}
-	\item[1./2.] Elektrostatische und Magnetostatische Phänomene
-	\begin{equation*}
-	\frac{\partial \vec{E}}{\partial t} = 0 = \frac{\partial \vec{B}}{\partial t}
-	\end{equation*}
-	\begin{equation*}
-	\begin{array}{ccc}
-	\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho & & \vec{\nabla} \cdot \vec{B} = 0\\
-	\vec{\nabla} \times \vec{E} = 0 \quad \ & & \ \ \vec{\nabla} \times \vec{B} = \mu_0 \vec{j}\\[5pt]
-	\tx{elektrostatik} & & \tx{magnetostatik}
-	\end{array}
-	\end{equation*}	
-	\item[3.] zeitabhängige elektrische/magnetische Felder
-	\item[4.] Relativistische Formulierungen der Elektrodynamik
+	\item Mechanik 
+	\item Punktmechanik: Bahnkurven von Körpern
+	\item Bewegungsgleichung: $m \vec{\ddot r} = \vec{F}$
 \end{itemize}
+\subsection{Elektrodynamik}
+\begin{itemize}
+	\item Grundlegende Größen
+	\item Felder
+	\item 
+	\begin{equation*}
+	\begin{array}{cc}
+	\vec{E}(\vec{r},t)\ \ \  & \vec{B}(\vec{r},t) \\[5pt]
+	\tx{elektrisches Feld \ \ \ } &  \tx{Magnetfeld}
+	\end{array}
+	\end{equation*}
+	\item[$\boldsymbol{\rightarrow}$] Feldtheorie \lcom{sehr wichtiges Konzept}
+\end{itemize}
+\lcom{Wie sind Elektrische Felder definiert?}\\
+Experimentelle Definition als Messgröße: Kraft auf Ladung
+$$\vec{F} = q(\vec{E}(\vec{r},t) + \vec{v} \times \vec{B}(\vec{r},t))$$
+Theoretische Definition ist Mathematisch: Feldgleichungen-Maxwellgleichungen
+$$ \ \qquad \vec\nabla \cdot\vec{E} = \frac{1}{\epsilon_0}\rho \qquad \qquad \ \qquad  \vec\nabla\cdot\vec{B} = 0$$
+$$\vec\nabla\times\vec{E} + \prt{\vec{B}}{t} = 0 \qquad \vec\nabla\times\vec{B} - \mu_0 \epsilon_0 \prt{\vec{E}}{t} = \mu_0 \vec{j}$$
+Hierbei steht $\rho$ für die Ladungsdichte und $\vec{j}$ für die Stromdichte.
+
+\section{Aufbau der Vorlesung}
+\textbf{1./2.} Statische Phänomene: $ \ \prt{\vec{E}}{t} = 0 = \prt{\vec{B}}{t}$
+$$\Rightarrow \vec\nabla\cdot\vec{E} = \frac{1}{\epsilon_0}\rho \qquad\ \vec\nabla \cdot \vec{B} = 0$$
+$$\ \ \, \quad\underbrace{\vec\nabla\times\vec{E} = 0}_{\textrm{1. Elektrostatik}} \qquad \underbrace{\vec\nabla\times\vec{B} = 0}_{\textrm{2. Magnetostatik}}$$
+\textbf{3.} Zeitabhängige magnetische/elektrische Felder\\
+\textbf{4.} Relativistische Formulierung der Elektrodynamik
 
 \chapter{Elektrostatik}
 
-Wir beschäftigen uns in diesem Kapitel mit \textbf{ruhenden Ladungen} und \textbf{zeitunabhängigen Feldern}. Das Grundproblem beteht darin, dass wir eine Ladungsverteilung haben und das Elektrische Feld und dessen Potential bestimmen wollen.
-
-
-% tickz 1
-
-
-
-el. Feld $ \vec{E}(\vec{r}) $ und el. Potential $ \Phi(\vec{r}) $
-
-
-\section{Elektrisches und Coulombsches Gesetz}
-
-\textbf{Ladungen:} Beobachtungstatsachen:
+Wir beschäftigen uns in diesem Kapitel mit \textbf{ruhenden Ladungen} und \textbf{zeitunabhängigen Feldern}. Das Grundproblem besteht darin, dass wir eine Ladungsverteilung haben und das Elektrische Feld und dessen Potential bestimmen wollen.\\[5pt]
+\FloatBarrier
+\begin{wrapfigure}{r}{3cm}
+	\vspace{-1.2cm}
+	\fbox{\begin{tikzpicture}
+		\draw node[circle,fill,inner sep=1pt,label=left:$q_1$](a){} -- (1,0);
+		\draw[xshift=0.5cm,yshift=0.7cm] node[circle,fill,inner sep=1pt,label=right:$q_2$](a){} -- (1,0);
+		\draw[xshift=0.5cm,yshift=-0.2cm] node[circle,fill,inner sep=1pt,label=right:$q_3$](a){} -- (1,0);
+		\end{tikzpicture}}
+\end{wrapfigure}
+\FloatBarrier
+$\rightarrow$ Feld $\vec{E}(\vec{r})$, el. Potential $\Phi(\vec{r})$
+\section{Elektrische und Coulombsches Gesetz}
+Ladung: Beobachtungstatsachen:
 \begin{enumerate}[i)]
-	\item zwei Arten ,,$ + $`` und ,,$ - $``
-	\item geschlossenes System:\\
-	Ladung erhalten $ q = \sum_i q_i = \const $
-	\item Ladung ist quantisiert in Einheiten der Elemantarlaung:
-	$$ q = n e \quad n \in \mathbb{Z} , \ e = 1{,}602 \cdot 10^{-19} \, \tx{C} $$
-	$ n = -1 $ wäre ein Beispiel für ein Elektron als eine Punktladung
+	\item Zwei Arten ,,+``, ,,-``
+	\item Abgeschlossenes System: Ladung erhalten: $q = \sum_i q_i = \const$
+	\item Ladung ist quantisiert in Einheiten der Elementarladung: $$q = ne,\ n \in \mathbb{Z},\ e = 1,602\cdot 10^{-19}\,\textrm{C}$$ 
+	$n = -1$: für ein Elektron wäre ein Beispiel einer Punktladung
 \end{enumerate}
-Bei einer kontinuierlichen Ladungsverteilung kann die Ladung über Ladungsdichte und Volumen ausgedrückt werden:
-\begin{equation*}
-\tx{Ladungsdichte } \rho(\vec{r}) = \frac{\tx{Ladung}}{\tx{Volumen}} = \frac{\Delta q}{\Delta V}
-\end{equation*}
 
-% tikz 2
+\begin{minipage}{.6\linewidth}
+	Kontinuierliche Ladungsverteilung Ladungsdichte\\
+	$\rho(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Volumen}} = \frac{\Delta q}{\Delta V}$
+	Gesamtladung in $V$: $$Q = \int_V d^3 r\, \rho(\vec{r})$$
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	\hspace{30pt}
+	
+	%T2 done
+	
+	\begin{tikzpicture}
+	\node at (1.5,1.5) (a) {};
+	\draw  plot [smooth cycle, tension=1] coordinates { (0,0) (.5,1.5) (.5,2.5) (2,2) (3,2) (2.5,1) (1.5,0) };
+	\pic at (a) {annotated cuboid={width=3,height=3,depth=3}};
+	\draw[] (a) node[right,xshift=10pt] {$ \Delta V $};
+	\draw[] (a) node[right,xshift=-10pt,yshift=10pt] {$ \Delta q $};
+	\draw[->] (3,.5) to[out=180,in=-10] (1.5,.7);
+	\node[right] at (3,.5) (b) {$ V $};
+	\draw[thick,->] (-.5,-.5) -- (-.5,2) node[anchor=south east] {y};
+	\draw[thick,->] (-.5,-.5) -- (2,-.5) node[anchor=north west] {x};
+	\draw[thick,->] (-.5,-.5) -- (1.24,1.24) node[below,xshift=-10,yshift=-20pt] {$ \vec{r} $};
+	\end{tikzpicture}
+\end{minipage}
 
-Die Gesamtladung in dem begrenzten Volumen erhält man dann durch Integration:
-\begin{equation*}
-Q = \int \limits_V d^3 r \rho(\vec{r})
-\end{equation*}
-\textbf{Coulombsches Gesetz}\\
-Die Kraft, welche eine am Ort $ \vec{r}_2 $ lokalisierte Punktladung auf eine Punktladung am Ort $ \vec{r}_1 $ ausübt ist gegeben durch:
-\begin{equation*}
-\vec{F}_{12} = k \frac{q_1 q_2}{|\vec{r}_1 - \vec{r}_2|^2} \underbrace{\frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|}}_{\vec{e}_{\vec{r}_{12}}}
-\end{equation*}
-\begin{enumerate}[i)]
-	\item $ \vec{F}_{12} \sim q_1 q_2 $
-	\item $ \vec{F}_{12} \sim \frac{1}{|\vec{r}_1 - \vec{r}_2|^2}$
-	\item $ \vec{F}_{12} \sim q_1 q_2 \, \vec{e}_{\vec{r}_{12}} $
-	\item $ \vec{F}_{12} = - \vec{F}_{21} $
+\subsection{Coulombsches Gesetz}
+
+\begin{minipage}{.585\linewidth}
+	Die Kraft, welche eine am Ort $\vec{r}_2$ lokalisierte Punktladung auf eine Punktladung am Ort $\vec{r}_1$ ausübt, ist gegeben durch:
+	$$\vec{F}_{12} = k \frac{q_1 q_2}{|\vec{r}_1 - \vec{r}_2|^2} \underbrace{\frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|}}_{\vec{e}_{r_{12}}}$$
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	
+	%T3 done
+	
+	\hspace{30pt}
+	\begin{tikzpicture}
+	\node at (1,2) (a) {};
+	\node at (2,1) (b) {};
+	\draw[thick,->] (0,0) -- (0,2.5);
+	\draw[thick,->] (0,0) -- (2.5,0);
+	\draw[->] (0,0) -- (a) node[above] {$ q_1 $};
+	\draw[->] (0,0) -- (b) node[right] {$ q_2 $};
+	\node at (.5,1) (c) {};
+	\node at (1,.5) (d) {};
+	\draw[] (c) node[above,yshift=5,xshift=-3] {$ \vec{r}_1 $};
+	\draw[] (d) node[below,yshift=2,xshift=5] {$ \vec{r}_2 $};
+	\end{tikzpicture}
+\end{minipage}
+
+\begin{enumerate}
+	\item $\vec{F}_{12} \sim q_1 q_2$
+	\item $\vec{F}_{12} \sim \frac{1}{|\vec{r}_1 - \vec{r}_2|^2}$
+	\item $\vec{F}_{12} \sim q_1 q_2\, \vec{e}_{r_{12}}$
+	\item $\vec{F}_{12} = -\vec{F}_{21}$
 \end{enumerate}
-Es gilt das Superpositionsprinzip. Das heißt man kann durch die vektorielle Addition der Kräfte die Gesamtkraft ermitteln.
-\begin{equation*}
-\vec{F}_1 = k \sum \limits_{j=2}^{N} \frac{q_1 q_j}{r_{1j}^2} \vec{e}_{r_{1j}}
-\end{equation*}
-\textbf{zur Konstanten $ k $}
+Es gilt das Superpositionsprinzip: Das heißt, durch vektorielle Addition der Kräfte kann die Gesamtkraft ermittelt werden.
+
+$$\vec{F}_1 = k \summ{j = 2}{N} \frac{q_1 q_j}{r_{1j}^2}\vec{e}_{r_{1j}}$$
+
+\paragraph{Zur Konstanten $k$:}
 Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 \begin{enumerate}[i)]
-	\item Gauß-System (cgs)
+	\item Gauß-System (cgs): $k \equiv 1$, dyn = $\frac{\textrm{g}\cdot \textrm{cm}}{\textrm{s}^2} = 10^{-5}\,\textrm{N}$
+	1 dyn = $\frac{(1\textrm{ESE})^2}{\textrm{cm}^2} \quad 1\textrm{ESE} = \frac{\sqrt{\textrm{g}\cdot \textrm{cm}^3}}{\textrm{s}}$
+	\item SI (MKSA-System): Definition von A = Amp\`ere 
+	
+	
+	% T4 done 
+	
+	\vspace{-15pt}
+	$$\frac{\Delta F}{\Delta l}= 2 \cdot 10^{-7}\,\frac{\textrm{N}}{\textrm{m}} \qquad \qquad \begin{tikzpicture}
+	\draw (0,0) -- (3,0);
+	\draw (0,1) -- (3,1);
+	\draw[thick,<->] (.75,0) -- (.75,1) node[anchor=north east,yshift=-6pt] {1 m};
+	\draw[thick,->] (2,0) -- (2,.3);
+	\draw[thick,->] (2,1) -- (2,.7);
+	\draw[->] (2,0) -- (2.5,0) node[above] {$ I $};
+	\draw[->] (2,1) -- (2.5,1) node[above] {$ I $};
+	\end{tikzpicture}$$
+	Strom = $\frac{\textrm{Ladung}}{\textrm{Zeit}}$ $\Rightarrow$  \ 
+	$
+	1 \tx{A} = \frac{1 \tx{C}}{1 \tx{s}} \quad \rightarrow \quad e = 1{,}602 \cdot 10^{-19} \, \tx{C} \qquad c \approx 3 \cdot 10^{8} \, \frac{\tx{m}}{\tx{s}}
+	$\\[5pt]
+	$
+	\frac{\Delta F}{\Delta l} = k \frac{2 I^2}{c^2 d} \qquad \rightarrow k = 2 \cdot 10^{-7} \ \frac{\tx{N}}{\tx{m}} \frac{c^2 1 \tx{m}}{2 (1 \tx{A})^2} = 10^{-7} c^2 \, \frac{\tx{N}}{\tx{A}^2}
+	$
 	\begin{equation*}
-	k \equiv 1
-	\end{equation*}
-	\begin{equation*}
-	\tx{dyn} = \frac{g \cdot \tx{cm}}{s^2} = 10^{-5} \, \tx{N}
-	\end{equation*}
-	\begin{equation*}
-	1 \tx{dyn} = \frac{(1 \tx{ESE})^2}{\tx{cm}^2} \qquad 1 \tx{ESE} = \frac{g^{\frac{1}{2}} \tx{cm}^{\frac{3}{2}}}{s}
-	\end{equation*}
-	\item SI (MKSA-System)\\
-	Def. $ A = \tx{Ampére} $ über Kraft zweier Stromdurchflossener Leiter aufeinander.
-
-% tikz 4
-
-	\begin{equation*}
-	\frac{\Delta F}{\Delta l} = 2 \cdot 10^{-7} \, \frac{\tx{N}}{\tx{m}} \quad \rightarrow \quad I = 1A
-	\end{equation*}
-	\begin{equation*}
-	\tx{Strom} = \frac{\tx{Ladung}}{\tx{Zeit}} \quad \Rightarrow \quad 1 \tx{A} = \frac{1 \tx{C}}{1 \tx{s}} \quad \rightarrow \quad e = 1{,}602 \cdot 10^{-19} \, \tx{C}
-	\end{equation*}
-	\begin{equation*}
-	\frac{\Delta F}{\Delta l} = k \frac{2 I^2}{c^2 d}\qquad c \approx 3 \cdot 10^{8} \, \frac{\tx{m}}{\tx{s}}
-	\end{equation*}
-	\begin{equation*}
-	\rightarrow k = 2 \cdot 10^{-7} \frac{\tx{N}}{\tx{m}} \frac{c^2 1 m}{2 (1 \tx{A})^2} = 10^{-7} c^2 \, \frac{\tx{N}}{\tx{A}^2} \qquad k = \frac{1}{4 \pi \epsilon_0}
+	k = \frac{1}{4 \pi \epsilon_0}
 	\end{equation*}
 	Damit erhalten wir für die Dielektrizitätskonstante des Vakuums:
 	\begin{equation*}
@@ -309,21 +377,40 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 	\end{equation*}
 \end{enumerate}
 
+
 \section{Elektrisches Feld}
 \subsection{Feld eines Systems von Punktladungen}
-$ N $ Ladungen $ q_1, \dots, q_N $ die an den Orten $ \vec{r}_1,\dots,\vec{r}_N $ ruhen. Nun bringen wir eine Testladung $ q $ beim Ort $ \vec{r} $ mit ein.
 
-% tikz 5
-
-Die Kraft von $ q_1,q_2 $ auf $ q $ ist dann:
-\begin{equation*}
-\vec{F} = \frac{1}{4 \pi \epsilon_0} q \sum\limits^{N}_{j=1} q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3} = q \vec{E}(\vec{r})
-\end{equation*}
-Also ist das elektrische Feld:
-\begin{equation*}
-\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \sum\limits_{j=1}^{N} q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3}}
-\end{equation*}
-\emph{Bemerkung:}
+\begin{minipage}{.5\linewidth}
+	$N$-Ladungen $q_1, \dots, q_N$ ruhen an den Orten $\vec{r}_1, \dots, \vec{r}_N$. Nun bringen wir eine Testladung $q$ am Ort $\vec{r}$ mit ein. 
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	
+	%T5 done
+	
+	\hspace{50pt}
+	\begin{tikzpicture}
+	\node at (3,1) (a) {};
+	\node at (2.5,2) (b) {};
+	\node at (1,2) (c) {};
+	\draw[thick,->] (0,0) -- (0,2.5) node[anchor=south east] {y};
+	\draw[thick,->] (0,0) -- (2.5,0) node[anchor=north west] {x};
+	\draw[->] (0,0) -- (a) node[above] {$ q_1 $};
+	\draw[->] (0,0) -- (b) node[right] {$ q_2 $};
+	\draw[->] (0,0) -- (c) node[above] {$ q $};
+	\node at (1.5,.5) (c) {};
+	\node at (1.25,1) (d) {};
+	\node at (.5,1) (e) {};
+	\draw[] (c) node[below,xshift=10pt] {$ \vec{r}_1 $};
+	\draw[] (d) node[below,xshift=5pt] {$ \vec{r}_2 $};
+	\draw[] (e) node[left] {$ \vec{r} $};
+	\end{tikzpicture}
+\end{minipage}
+Kraft von $q_1,\ q_2$ auf $q$
+$$\vec{F} = \frac{1}{4\pi \epsilon_0} q \summ{j = 1}{N} q_n \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3} = q \vec{E}(\vec{r})$$
+Somit ist das elektrisches Feld:
+$$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3}}$$
+\textbf{\emph{Bemerkung}}
 \begin{enumerate}[i)]
 	\item Testladung klein (formal: $ \lim_{q\to0}\frac{\vec{F}}{q} $)
 	\item math. $ \vec{E}(\vec{r}) $ Vektorpfeil\\
@@ -338,22 +425,572 @@ Also ist das elektrische Feld:
 	\end{equation*}
 	\item Superpositionsprinzip gilt
 \end{enumerate}
-\subsection{Feld einer kontinuierlichen Ladungsverteilung $ \rho(\vec{r}) $}
+
+\subsection[Feld einer kontinuierlichen Ladungsverteilung]{Feld einer kontinuierlichen Ladungsverteilung $\rho(\vec{r})$}
+
+
+\begin{minipage}{.5\linewidth}
+	$$\vec{E}(\vec{r}) =\frac{1}{4 \pi \epsilon_0} \ub{\int\limits_V}_{\mathclap{\substack{\tx{schließt alle} \\ \tx{Ladungen ein}}}} d^3 r'\, \rho(\vec{r}')\frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3}$$
+	$\rho(\vec{r}_j) = \frac{\Delta q_j}{\Delta V_j}$
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	
+	%T6 done
+	
+	\hspace{50pt}
+	\begin{tikzpicture}
+	\node at (1.5,1.5) (a) {};
+	\draw  plot [smooth cycle, tension=1] coordinates { (0,0) (.5,1) (.5,2.5) (2,2.2) (3,2) (2.5,.5) (1.5,-.2) };
+	\pic at (a) {annotated cuboid={width=3,height=3,depth=3}};
+	\draw[] (a) node[right,xshift=10pt] {$ \Delta V $};
+	\draw[] (a) node[right,xshift=-10pt,yshift=10pt] {$ \Delta q_j $};
+	\draw[->] (3,.5) to[out=180,in=-40] (2.2,.8);
+	\node[right] at (3,.5) (b) {$ V $};
+	\draw[thick,->] (-.5,-.5) -- (-.5,2) node[anchor=south east] {y};
+	\draw[thick,->] (-.5,-.5) -- (2,-.5) node[anchor=north west] {x};
+	\draw[thick,->] (-.5,-.5) -- (.25,.25) node[anchor=south east] {z};
+	\draw[] (1,0) node[above] {$ \rho(\vec{r}) $};
+	\end{tikzpicture}
+\end{minipage}
+
+\begin{align*}
+\vec{E}(\vec{r}) &= k\sum_j\Delta q_j\frac{\vec{r}-\vec{r}_j}{|\vec{r}-\vec{r}_j|^3}\\
+&= k\sum_j\Delta V_j\rho(\vec{r}_j)\frac{\vec{r}-\vec{r}_j}{|\vec{r}-\vec  {r}_j|^3}\\
+\scriptstyle{\tx{mit } \Delta V_j \to 0}\ \ &\rightarrow k\int_V d^3r'\rho(\vec{r}')\frac{\vec{r}-\vec{r}'}{|\vec{r}  -\vec{r}'|^3}
+\end{align*}
+
+%%%%%% Vorlesung 2
+
+% Wiederholung:
+% $\vec{F} = q\vec{E}$ punktladungen %
+% \fbox{\begin{tikzpicture}
+%	\draw node[circle,fill,inner sep=1pt,label=left:$q_1$](a){} -- (1,0);
+%	\draw[xshift=0.5cm,yshift=0.7cm] node[circle,fill,inner sep=1pt,label=right:$q_2$](a){} -- (1,0);
+%	\draw[xshift=0.5cm,yshift=-0.2cm] node[circle,fill,inner sep=1pt,label=right:$q_3$](a){} -- (1,0);
+%\end{tikzpicture}}
+%
+%
+
+\subsection{Ladungsdichte einer Punktladung}
+\paragraph{Deltafunktion}
+
+
+%% T1
+
+
+$$\rho (\vec{r}) = q \delta(\vec{r}-\vec{r}_0)$$
+Punktladung in $\vec{r}_0 \Rightarrow \rho(\vec{r}) = 0 \quad \vec{r} \neq \vec{r}_0$
+
+Ladungsdichte divergiert in $\vec{r}_0$
+$$\rho(\vec{r}_0) = \infty$$
+
+Modell für Punktladung:
+Ladung $q$ in Kugel mit Radius $\epsilon$  um $\vec{r}_0,\ \epsilon \rightarrow 0$
+$$\rho_2 (\vec{r}) = \left\{ \begin{array}{cc}
+\frac{q}{v_k} & |\vec{r}| \leq \epsilon\\
+0 & \textrm{sonst}	
+\end{array} \right\} = \frac{q}{\frac{4}{3}\pi \epsilon^3}\underbrace{\Theta}_{\hspace{20pt}\mathclap{\textrm{Stufenfunktion}}}(\epsilon - |\vec{r}|)$$
+
+$$\rho(\vec{r}) = \lim_{\epsilon \rightarrow 0}\ \rho_\epsilon (\vec{r}) = \left\{ \begin{array}{cc}
+\infty & \vec{r} = 0\\
+0 & \vec{r} \neq 0
+\end{array}\right.$$
+Divergenz muss so sein, dass $$ \int_V d^3r\ \rho(\vec{r}) = q$$
+% unter dem V: \vec{F}_0 \in V
+
+\paragraph{Definition Delta-Funktion (Diracsche Deltafunktion)}
+
+\begin{enumerate}
+	\item 
+	$$\delta (\vec{r} - \vec{r}_0) = \left\{ \begin{array}{cc}
+	\infty & \vec{r} \neq \vec{r}_0 \\
+	0 & \vec{r} = \vec{r}_0
+	\end{array}\right.$$
+	\item 
+	$$\int_V d^3 r\ f(\vec{r}) \delta(\vec{r}$$ %%% hier fehlt was
+\end{enumerate}
+
+
+% tafel 2 nochmal ?
+
+
+\paragraph{Mathematik}
+Distribution - Funktional
+
+Funktional: Abb. Funktionen $\mapsto \mathbb R, \mathbb C$
+$$\delta_{\vec{r}_0}: f \mapsto f(\vec{r}_0)$$
+
+\paragraph{Physik}
+
+$$\int d^3 r\ f(\vec{r}) \delta (\vec{r}-\vec{r}_0) = f(\vec{r})$$
+$\delta$-Fkt. als Grenzwert einer Folge von Funktionen im Integral
+$$\int d^3 r\ f(\vec{r}) \delta (\vec{r} - \vec{r}_0) = \lim_{\epsilon \to 0} \quad \int d^3\ f(\vec{r} g_\epsilon(\vec{r}-\vec{r}_0) $$
+mit
+$$\lim_{\epsilon \to 0} g_\epsilon (\vec{r}-\vec{r}_0) =  \left\{ \begin{array}{cc}
+0 & \vec{r} \neq \vec{r}_0 \\
+\infty & \vec{r} = \vec{r}_0
+\end{array}\right.$$
+$$\int_V d^3 r\ g_\epsilon (\vec{r}-\vec{r}_0) = 1$$
+
+Beispiel: $g_\epsilon (\vec{r}-\vec{r}_0) = \frac{\Theta(\epsilon - |\vec{r}|}{\frac{4}{3}\pi \epsilon^3}$
+
+Mehrere Punktladungen $q_j$ in $\vec{r}_j$
+$$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
+$$\Rightarrow \vec{E}(\vec{r}) = \kq \int_V d^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+% align here 
+$$= \kq \int_V d^3 r'\ \sum_j q_j \delta(\vec{r} - \vec{r}_j) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+%% hier fehlt was
+
+\subsection{Flächenladungsdichte}
+%% T2
+
+$\sigma(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Fläche}} = \frac{\Delta q}{\Delta A}$
+
+erzeugte elektrisches Feld:
+$$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelement}}}\ \sigma (\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+% oberflächenitegral
+
+Beispiel: Elektrisches Feld einer homogenen Flächenladung
+%% T3
+$\sigma = \const$ in $x$-$y$-Ebene
+$$\vec{E}(\vec{r}) = \kq \intt{-\infty}{\infty}dx'\intt{-\infty}{\infty}dy'\ \sigma \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \vec{r}' = (x', y', 0)$$
+Symmetrie: $\vec{E}$ unabhängig von $x,y \qquad \vec{r} = (0,0,z)$
+$$\vec{r} - \vec{r}' = (-x',-y',z),\ |\vec{r} - \vec{r}'|^3 = (x'^2+y'^2+z^2)^{\nicefrac{3}{2}}$$
+$$E_x \sim \sigma \intt{-\infty}{\infty}dx'\intt{-\infty}{\infty}dy'\ \frac{(x')}{(x'^2 + y'^2 + z'^2)^{\nicefrac{3}{2}}} = 0 = E_y$$
+
+$\vec{E} = (0,0,E_z)$
+
+$$E_z = \kq \sigma \intt{-\infty}{\infty}dx'\underbrace{\intt{-\infty}{\phantom{-}\infty}dy'\ \frac{(x')}{(x'^2 + y'^2 + z'^2)^{\nicefrac{3}{2}}}}_{\frac{1}{x'^2 +z'^2}\left.\frac{x'}{(x'^2 + y'^2 + z'^2)^{\nicefrac{3}{2}}} \right\rvert_{-\infty}^{\infty} = }$$
+%%% hier fehlt was im underbrace
+%%% make align
+%%% hier fehlt der rest der tafel
+%% T4
+%%% rest dieser tafel
+%%%% remove phantoms
+%% T5
+
+\subsection{Linenladungsdichte}
+%% T6
+$\lambda(\vec{r} = \frac{\textrm{Ladung}}{\textrm{Länge}} = \frac{\Delta q}{\Delta s}$
+$$\vec{E}(\vec{r}) = \kq \underbrace{\int_\gamma}_{\mathclap{\textrm{Linienintegral}}} ds'\ \lambda(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+
+Beispiel: Elektrisches Feld einer homogenen Linienladung
+$\lambda = \const$
+%% T7
+
+\begin{align*}
+\vec{E}(\vec{r}) &= \kq \int_\gamma ds'\ \lambda \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \gamma: z' \mapsto \vec{r}'(z') = \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}\\
+&= \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}dz'\ \frac{\vec{r} - \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}}
+\end{align*}
+$\tilde{z} = z' - z$
+$$E_x = \frac{\lambda x}{4 \pi \epsilon_0}\intt{-\infty}{\infty}dz'\ \frac{1}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}} = \frac{\lambda}{4 \pi \epsilon_0}\intt{-\infty}{\infty}d\tilde{z}\ \frac{1}{(x^2 + y^2 + \tilde{z}^2)^{\nicefrac{3}{2}}} = \frac{\lambda}{2 \pi \epsilon_0} \frac{x}{x^2 + y^2}$$
+$$E_y = \frac{\lambda}{2 \pi \epsilon_0}\frac{x}{x^2 + y^2}$$
+$$E_z = \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}dz'\ \frac{z-z'}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}} = 0$$
+$$\vec{E}(\vec{r}) \frac{\lambda}{2 \pi \epsilon_0} \frac{1}{XXX}$$
+%%%% hier fehlt was
+
+\section{Feldgleichungen und elektrostatische Potential}
+$$\vec{E}(\vec{r}) = \kq \int d^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+\subsection{Elektrostatisches Potential}
+elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \nabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$
+$$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\nabla\frac{1}{|\vec{r}-\vec{r}'|}$$
+$$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} = - \bigg(-\frac{1}{2}\bigg) \frac{2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
+$$\Rightarrow \vec{E}(\vec{r}) = \kq \int d^3 r'\ \rho(\vec{r}') \bigg(-\nabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = \nabla_F \kq \int d^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
+$\rightarrow$ elektrostatisches Potential
+$$\phi(\vec{r}) = \kq \int d^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} + c$$
+übliche Konvention: $c = 0\ (\phi(\vec{r})\buildrel{\rightarrow}\over{|\vec{r}| \to \infty} 0)$
+
+Potential einer Punktladung in $\vec{r}_0$:
+$$\rho(\vec{r}) = q \delta(\vec{r}-\vec{r}_0)$$
+$$\phi(\vec{r}) = \kq \int_{\mathbb R^3} d^3 r'\ \frac{q\delta(\vec{r}' - \vec{r}_0)}{|\vec{r}-\vec{r}'|} = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
+
+$$\vec{E}$$
+%%% hier fehlt end
+
+
+%%%% Vorlesung 3
+
+\lcom{(Funktional-analysis Siegfried Großmann Springer)\\
+	(Landau-Lipschitz Buch geht weit der Vorlesung hinaus)}
+
+\subsection{Feldgleichugn (differentielle Form)}
+
+\paragraph{Rotation (Wirbel)}
+$$\textrm{rot}\, \vec{E} \nabla \times \vec{E} = \vec{e}_x \bigg(\prt{E_z}{y} - \prt{E_x}{z}\bigg) + \vec{e}_y \bigg(\prt{E_x}{z} - \prt{E_z}{x}\bigg) + \vec{e}_z \bigg(\prt{E_y}{x} - \prt{E_x}{y}\bigg) \Rightarrow \nabla \times$$
+$$\Rightarrow \nabla \times \vec{E} = - \nabla \times (\nabla\phi) = 0$$
+
+Mathe: Es sind äquivalent 
+\begin{enumerate}[i]
+	\item $\vec{E} = - \nabla\phi$
+	\item $\nabla \times \vec{E} = 0$ (auf einfach zusammenhäng. Gebiet)
+	\item Kurvenintegral $\int_\gamma d\vec{r} \cdot \vec{E}$ ist wegunabhängig %%% T1
+	$$\intt{\vec{r}_1}{\vec{r}_2} d\vec{r} \cdot \vec{E} = - \intt{\vec{r}_1}{\vec{r}_2} dt \underbrace{\frac{d\vec{r}}{dt}\times \nabla\phi(\vec{r}(t))}_{\frac{d\phi}{dt}} = \underbrace{(\phi(\vec{r}_2) - \phi(\vec{r}_1))}_{\textrm{Potentialdifferenz}} $$
+\end{enumerate}
+
+\subsection{Divergenz (Quellen)}
+
+$$\div \vec{E} = \nabla \cdot \vec{E} = \prt{E_x}{x} + \prt{E_y}{y} + \prt{E_z}{z}$$
+
+\begin{align*}
+\nabla \cdot \vec{E}(\vec{r}) &= \nabla_{\vec{r}} \cdot \kq \int d^3r'\ \rho(\vec{r}') \frac{1}{|\vec{r} - \vec{r}'|^3}\\
+&= \kq \int_V d^3 r' \rho (\vec{r}') \nabla_{\vec{r}} \cdot \frac{1}{|\vec{r} - \vec{r}'|^3}
+\end{align*}
+
+$x$-Anteil:
+\begin{align*}
+\frac{\partial}{\partial x}\frac{x-x'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} &= \frac{1 \cdot [\dots]^{\nicefrac{3}{2}}(x - x')(x - x')^{\nicefrac{3}{2}}\cdot 2[\dots]^{\nicefrac{1}{2}}}{[\dots]^3}\\
+&= \frac{[\dots]^{\nicefrac{1}{2}}((x - x')^2 + (y - y')^2 + (z - z')^2 - 3(x - x')^2)}{[\dots]^{\nicefrac{3}{2}}}\\
+&= \frac{(y - y')^2 + (z - z')^2 - 2(x - x')^2}{[\dots]^{\nicefrac{3}{2}}}
+\end{align*}
+
+$$\frac{\partial}{\partial y} \frac{y-y'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x - x')^2 + (z - z')^2 - 2(y - y')^2}{[\dots]^{\nicefrac{3}{2}}}$$ 
+
+$$\frac{\partial}{\partial z} \frac{z-z'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x - x')^2 + (y - y')^2 - 2(z - z')^2}{[\dots]^{\nicefrac{3}{2}}}$$ 
+
+$$\nabla \cdot \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = 0 \quad \textrm{falls} \quad \vec{r} \neq \vec{r}'$$
+
+$$\Rightarrow \textrm{falls} \quad \vec{r} \notin V, \textrm{ d.h. } \vec{r} \textrm{ in Gebiet ohne Ladungsdichte } \rho(\vec{r}) = 0$$
+
+$$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$ %%%
+
+%%%%%
+
+$\vec{r} \in V$: Grenzwertbetrachtung (Regularisierung des Integranden)\\
+statt
+$$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}}$$
+betrachten wir:
+$$\vec{f}_a (\vec{r}-\vec{r}') = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{\vec{r}-\vec{r}'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} \quad a \in \mathbb R,\ a>0$$
+
+am Ende Grenzwert $\displaystyle{\lim_{a \to 0}}$
+$$\nabla \cdot \vec{E} (\vec{r}) = \kq \lim_{a \to 0} \int_V d^3r'\ \rho(\vec{r}')\ \rmbox{\hspace{-10pt}\nabla_{\vec{r}}\cdot f_a(\vec{r}-\vec{r}')}$$
+
+\begin{align*}
+\prt{}{x} \frac{x-x'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} &= \frac{[\dots +a^2]^{\nicefrac{3}{2}} - (x - x') \frac{3}{2} \cdot 2(x-x') [\dots + a^2]^{\nicefrac{3}{2}}}{[\dots + a^2]^3}\\
+&= \frac{(y - y')^2 + (z - z')^2 + a^2 - 2(x - x')^2}{[\dots + a^2]^{\nicefrac{3}{2}}}
+\end{align*}
+
+$$\nabla_{\vec{r}} \cdot f_a(\vec{r}-\vec{r}') = \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}$$
+$$\lim_{a \to 0} f_a(\vec{r}-\vec{r}') = \left\{ \begin{array}{cc}
+0 & \vec{r} \neq \vec{r}'\\
+\infty & \vec{r} = \vec{r}'	
+\end{array} \right.$$
+$$\Rightarrow \textrm{zum Integral } \int_V d^3r' \dots \textrm{ trägt (in Limes }a \to 0) \textrm{ nur der Bereich } \vec{r}' \approx \vec{r} \textrm{ bei}$$
+$$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$
+
+$$\lim_{a \to 0} \int_V d^3 r'\ \rho(\vec{r}') \nabla_{\vec{r}} \cdot f_a(\vec{r}- \vec{r}') = \lim_{a \to 0} \int_{K_R (F)} d^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}} + \lim_{a \to 0} $$ %%%
+
+%%%%%%%%
+
+
+% unter diesem ist alles korrekt 
+
+\begin{enumerate}
+	\item Integral:
+	\begin{align*}
+	\int_{K_R (0)} d^3 \tilde r\ \rho(\vec{r}) \frac{3a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}} &= \rho(\vec{r}) \underbrace{\intt{0}{R} d\tilde r\ \frac{3a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}}}_{\left[\frac{\tilde r^3}{(\vec{\tilde{r}}^2 + a^2)^{\nicefrac{3}{2}}}\right]_0^R} \underbrace{\int d \equaltoup{\Omega}{\mathclap{\sin \theta d \theta d \varphi}}}_{= 4\pi}\\
+	&= 4 \pi \rho(\vec{r}) \frac{R^3}{(R^2 + a^2)^{\nicefrac{3}{2}}} \underset{a \to 0}{\longrightarrow} 4 \pi \rho(\vec{r})
+	\end{align*} 
+	\item Integral:
+	$$\int_{K_R (0)} d^3 \tilde{r}\ \equalto{\vec{\tilde{r}}}{\tilde{r}\vec{e}_{\vec{\tilde{r}}}} \cdot \nabla_{\vec{r}} \rho(\vec{r}) \frac{3 a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}} = \underbrace{\intt{0}{R} d \tilde r\ \frac{3a^2 \tilde r^3}{(\tilde r^2 + a^2)^{\nicefrac{3}{2}}}}_{\frac{2}{3}a -3a^2 \left(\frac{R^2 +\frac{2}{3}a^2}{(R^2 + a^2)^{\nicefrac{3}{2}}}\right)} \underbrace{\int d \Omega\ \vec{e}_{\tilde{r}} \cdot \nabla \rho(\vec{r})}_{\textrm{unabh. von } a} \underset{a \to 0}{\longrightarrow} 0$$
+	gilt auch für alle höheren Terme
+\end{enumerate}
+
+$$\lim_{a \to 0} \int_V d^3 r' \rho(\vec{r}) \nabla_{\vec{r}}\cdot \frac{(\vec{r}-\vec{r}'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} = 4 \pi \rho (\vec{r})$$
+$$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = \kq \lim_{a \to 0} '' = \frac{1}{\epsilon_0} \rho(\vec{r})$$
+
+\rbox{$$\nabla \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \quad \vec{r} \in \mathbb R^3$$}
+
+\subsection{Zusammenfassung:}
+
+\paragraph{Feldgleichungen der Elektrostatik}
+Mathe: partielle DGL
+\rbox{$$\nabla \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \textrm{ inhomogene DGL}$$ 
+	$$\nabla \times \vec{E}(\vec{r}) = 0\textrm{ homogene DGL}$$}
+DGL für Potential $\phi$: 
+$\vec{E} = - \nabla \phi$
+
+\begin{align*}\nabla \cdot \vec{E} = \nabla \cdot (- \nabla \phi) &= - \nabla \cdot \begin{pmatrix} 
+\partial_x \phi \\
+\partial_y \phi \\ 
+\partial_z \phi 
+\end{pmatrix} \\
+&= - \underbrace{\left( \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial  z^2} \right) }_{=: \Delta \phi}\end{align*}
+
+Partielle DGL 2. Ordnung:
+\frbox{Poissongleichung}{$$\Delta \phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho(\vec{r})$$}
+
+für Gebiete mit $\rho (\vec{r}) = 0$:
+$$\Delta \phi (\vec{r}) = 0 \qquad \textrm{Laplacegleichung}$$
+
+\paragraph{Darstellung der Deltafunktion:}
+
+$$\lim_{a \to 0} \int_{\mathbb{R}^3} d^3r'\ \rho(\vec{r}')\underbrace{\nabla_{\vec{r}} \cdot \frac{(\vec{r} - \vec{r}')}{[(\vec{r} - \vec{r}')^2 + a^2]^{\nicefrac{3}{2}}}}_{\frac{3 a^2}{[(\vec{r} - \vec{r}')^2 + a^2]^{\nicefrac{5}{2}}} =: g_a(\vec{r}' - \vec{r})} = 4 \pi \rho(\vec{r})$$
+
+$$\frac{1}{4 \pi} g_a \textrm{ liefert Grenzwertdarstellung der $\delta$-funktion.}$$
+
+$$\lim_{a\to 0} \int_{\mathbb{R}^3} d^3r'\ \rho(\vec{r}') \frac{1}{4\pi}g_a(\vec{r}'-\vec{r})=\rho(\vec{r})$$
+
+$$\lim_{a \to 0} g_a(\vec{r}' - \vec{r}) = \left\{ \begin{array}{cc}
+0 		& \vec{r} \neq  \vec{r}'\\
+\infty 	& \vec{r} = 	\vec{r}'
+\end{array} \right.$$
+
+$$\delta(\vec{r}) = \lim_{a \to 0} \frac{1}{4 \pi} \nabla_{\vec{r}} \cdot \frac{r^2}{(r^2+a^2)^{\nicefrac{3}{2}}}$$
+
+$$\overset{\textrm{formal}}{=} \frac{1}{4 \pi} \nabla \cdot \underbrace{\frac{\vec{r}}{r^3}}_{\mathclap{= - \nabla \frac{1}{r}}} = - \frac{1}{4 \pi} \nabla \cdot \bigg(\nabla \frac{1}{r}\bigg) = \frac{-1}{4 \pi} \Delta \frac{1}{r} \Rightarrow \Delta \frac{1}{r} = -4 \pi \delta(\vec{r})$$
+
+z.B. Potential einer Punktladung $\rho$ q in $\vec{r}_0$:
+$$\phi(\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
+$$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}_0|} }_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} = - \frac{1}{\epsilon_0} \underbrace{q \delta(\vec{r} - \vec{r}_0)}_{= \rho(\vec{r})} = \frac{1}{\epsilon_0} \rho(\vec{r})$$
+
+%%%%%%%%% Vorlesung 4
+
+\bbb{Wiederholung}{\begin{align*}
+	\vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \rho(\vec{r})\\
+	\vec{\nabla} \times \vec{E}(\vec{r}) &= 0 \\[10pt]
+	\Rightarrow \quad \vec{E} &= - \vec{\nabla} \Phi \\
+	\Rightarrow \quad \Delta \Phi (\vec{r}) &= - \frac{1}{\epsilon_0} \rho(\vec{r})
+	\end{align*}
+}
+
+\subsection{Integralsätze der Vektoranalysis}
+
+\paragraph{1) Gaußscher Satz:} 
+Sei $\vec{A}(\vec{r})$ ein Vektorfeld im Volumen $V \subset \mathbb R^3$, so gilt:
+$$\int_V d^3r\ \nabla \cdot \vec{A}(\vec{r}) = \int_{\partial V} d\vec{f}\ \cdot \vec{A}(\vec{r})$$
+$$\partial V \tx{ Rand von } V$$
+$$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\textrm{nach aussen orientierter Normaleneinheutsvektor}}}\ df$$
+%%%% T1
+
+\noindent
+\emph{Bemerkung:}\\
+\begin{enumerate}[i)]
+	\item Analogie 1D: Fundamentalsatz der Integralrechnung:
+	\begin{equation*}
+	\int_{a}^{b} dx \frac{df}{dx} = f(b) - f(a)
+	\end{equation*}
+	\item Geometrische / physikalische Integration:\\
+	Fluss des Vektorfeldes $ \vec{A} $ durch $ \partial V $
+	\begin{equation*}
+	\int_{\partial V} d\vec{f} \cdot \vec{A}
+	\end{equation*}
+	Integral über die Quellen von $ \vec{A} $
+	\begin{equation*}
+	\int_V d^3r \vec{\nabla} \cdot \vec{A}
+	\end{equation*}
+	\begin{equation*}
+	\vec{A} = \const \rightarrow \vec{\nabla} \cdot \vec{A} = 0
+	\end{equation*}
+	\emph{Beispiel:} Geschwindigkeit einer Flüssigkeit: $ \vec{A}(\vec{r}) = \vec{v}(\vec{r}) $\\
+	
+	% tikz 1 T1
+	
+	$$ \vec{v} = \const \quad \vec{\nabla} \cdot \vec{v} = 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} = 0 $$
+	$ \Rightarrow $ Es gibt keine Quellen von $ \vec{v} $
+	
+	% tikz 2 T2
+	
+	$$ \vec{\nabla} \cdot \vec{r} \neq 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} \neq 0 $$
+	\item
+	
+	% tikz 3 T3
+	
+	\begin{align*}
+	\int_V d^3r \vec{\nabla} \cdot \vec{A}(\vec{r})  =  \int_{0}^{\Delta x} dx \int_{0}^{\Delta y} dy \int_{0}^{\Delta z} \left(\frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}\right)  \\
+	\end{align*}
+	\begin{align*}
+	&\int_{0}^{\Delta z} dz \int_{0}^{\Delta y} dy \ub{\int_{0}^{\Delta x} dx \frac{\partial A_x}{\partial x}}_{A_x(\Delta x , y , z) - A_x(0,y,z)}\\
+	& = \int_{0}^{\Delta z} dz \int_{0}^{\Delta y} A_x(\Delta x,y,z) - \int_{0}^{\Delta z} dz \int_{0}^{\Delta y} dy A_x(0,y,z)\\
+	& = \int_{F^+_A} d\vec{f} \cdot \vec{A} + \int_{F^-_A} d\vec{f} \cdot \vec{A}
+	\end{align*}
+	\begin{equation*}
+	F_x^+: \quad d\vec{f} = \vec{e}_x dy dz \qquad F_x^-: \quad d\vec{f} = - \vec{e}_x dy dz
+	\end{equation*}
+	ebenso gilt dann für die anderen Koordinaten:
+	\begin{align*}
+	\int_{0}^{\Delta x} dx \int_{0}^{\Delta z} dz \int_{0}^{\Delta y} dy \frac{\partial A_y}{\partial y} &= \int_{F^+_y} d\vec{f} \cdot \vec{A} + \int_{F^-_y} d\vec{f} \cdot \vec{A} \\
+	\int_{0}^{\Delta x} dx \int_{0}^{\Delta y} dy \int_{0}^{\Delta z} dz \frac{\partial A_z}{\partial z} &= \int_{F^+_z} d\vec{f} \cdot \vec{A} + \int_{F^-_z} d\vec{f} \cdot \vec{A} \\
+	\end{align*}
+\end{enumerate}
+
+$$\Rightarrow \int_V d^3 r \nabla \cdot \vec{A} = \int_{\partial V} d \vec{f} \cdot \vec{A}$$
+
+\paragraph{2) Stokescher Satz}
+Sei $\vec{A}(\vec{r})$ ein Vektorfeld, $F$ eine Fläche mit Randkurve $\partial F$, so gilt:
+$$\int\limits_{\mathclap{\textrm{Linienintegral}\rightarrow\,\partial F \phantom{\textrm{Linienintegral}\rightarrow\,}}} d\vec{r} \vec{A}(\vec{r}) = \int\limits_{\mathclap{\phantom{\, \leftarrow \textrm{Oberflächenint.}} F\, \leftarrow \textrm{Oberflächenint.}}} d \vec{f} \cdot (\nabla \times \vec{A}(\vec{r}))$$
+%%%% T5
+$$d\vec{f} = \vec{n} df$$
+Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
+
+\emph{Beispiel:}
 \begin{equation*}
-\vec{E}(\vec{r}) = k \underbrace{\int\limits_V}_{\substack{\tx{schließt alle} \\ \tx{Ladungen ein}}} d^3 r \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\vec{A}(\vec{r}) = \begin{pmatrix}
+-y \\ x \\ 0
+\end{pmatrix}
 \end{equation*}
 
 % tikz 6
 
+\begin{equation*}
+\vec{\nabla} \times \vec{A} = \begin{pmatrix}
+\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} \\
+\frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x} \\
+\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 0 \\ 1 + 1
+\end{pmatrix} = 2 \vec{e}_z
+\end{equation*}
+
+% tikz 7
+
+\begin{equation*}
+\vec{r}(\varphi) = R \begin{pmatrix}
+\cos \varphi \\ \sin \varphi \\ 0
+\end{pmatrix} \qquad \varphi \in [0,2\pi]
+\end{equation*}
+\begin{equation*}
+\frac{\partial \vec{r}}{\partial \varphi} = R \begin{pmatrix}
+- \sin \varphi \\ \cos \varphi \\ 0
+\end{pmatrix}
+\end{equation*}
 \begin{align*}
-\vec{E}(\vec{r}) &= k\sum_j\Delta q_j\frac{\vec{r}-\vec{r}_j}{|\vec{r}-\vec{r}_j|^3}\\
-&= k\sum_j\Delta V_j\rho(\vec{r}_j)\frac{\vec{r}-\vec{r})j}{|\vec{r}-\vec  {r}_j|^3}\\
-\scriptstyle{\tx{mit } \Delta V_j \to 0}\ \ &\rightarrow k\int_V d^3r'\rho(\vec{r}')\frac{\vec{r}-\vec{r}'}{|\vec{r}  -\vec{r}'|^3}
+\int_{\partial F} d \vec{r} \cdot \vec{A}(\vec{r}) &= \int_{0}^{2 \pi} d \varphi \frac{\partial \vec{r}}{\partial \varphi} \cdot \vec{A}( \vec{r} ( \varphi)) \\
+&= \int_{0}^{2 \pi} d \varphi R ( + \sin^2 \varphi + \cos^2 \varphi) = 2 \pi R^2\\
+\int_F d\vec{f} \ob{\left(\vec{\nabla} \times  \vec{A}\right)}^{2 \vec{e}_z} &= 2 \pi R^2
 \end{align*}
 
+Vektorfeld ohne Wirbel z.B. $\vec{A} = \const$\\ %%%% T8
+$\nabla \times \vec{A} = 0$\\ %%%% T9
+\bem  %%%% T10,11
 
-%\bibliographystyle{plain}
-%\bibliography{literature}
-%\addcontentsline{toc}{section}{Literatur}
+\subsection{Integrale Form der Feldgleichung}
+\subsection{Gaußsches Gesetz}
+\begin{equation*}
+\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0}
+\end{equation*}
+
+% tikz mit unförmigem volumen und einem V drinnen
+
+\begin{align*}
+\int_{V} d^3 r \vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \int_{V} d^3 r \rho (\vec{r}) = \frac{1}{\epsilon_0} Q_V\\
+&= \int_V d\vec{f} \cdot \vec{E}(\vec{r})
+\end{align*}
+
+\begin{equation*}
+\rmbox{\int_{\partial V} d \vec{f} \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon} Q_V}
+\end{equation*}
+
+\subsubsection{Berechnung elektrischer Felder für hochsymmetrische Ladungsverteilungen}
+\emph{Beispiel:}\\
+Homogen geladene Kugel mit Radius $ R $ und Gesamtladung $ Q $. Damit ist die Ladungsdichte innerhalb der Kugel:
+\begin{equation*}
+\rho = \frac{Q}{V} = \frac{Q}{\frac{4}{3} \pi R^3}
+\end{equation*}
+
+% tikz T12
+
+\begin{equation*}
+\vec{E}(\vec{r}) = E_r (r) \vec{e}_r
+\end{equation*}
+\begin{equation*}
+\vec{r} = r \begin{pmatrix}
+\sin \theta \cos \varphi \\ \sin \theta \sin \varphi \\ \cos \theta
+\end{pmatrix}
+\end{equation*}
+$ \vec{e}_r = \frac{\vec{r}}{r} $
+
+Fluss von $\vec{E}$ durch Oberfläche einer Kugel mit Radius $r$ %%%% T13
+$$d \vec{f} = \vec{e}_r r^2 \sin \theta d \theta d \varphi \Rightarrow d \vec{f} \cdot \vec{E} = E_r(r)r^2\sin \theta d \theta d \varphi $$
+
+\begin{align*}
+\int_{\partial K_r (0)} d\vec{f}\ \vec{E} &= \int_0^T d \theta \ \intt{0}{2 \pi} d \varphi E_r (r) r^2 \sin \theta\\
+&= E_r (r) r^2 4 \pi\\
+&= \frac{1}{\epsilon_0} Q_{K_r (0)} = \frac{1}{\epsilon_0} \int_{K_r (0)} d^3 r\ \rho(\vec{r}) = \frac{1}{\epsilon_0} \left\{ \begin{array}{cc}
+Q & r > R\\
+Q \frac{r^3}{R^3} & r \leq R 		
+\end{array}\right.
+\end{align*}
+
+$$\Rightarrow E_r(r) = \frac{Q}{4 \pi \epsilon_0}\left\{ \begin{array}{cc}
+\frac{1}{r^2} & r > R\\
+\frac{r}{R^3} & r \leq R 		
+\end{array}\right.$$ %%%% T14 
+
+\subsection{Satz von Stokes}
+\begin{equation*}
+\vec{\nabla} \times \vec{E} = 0
+\end{equation*}
+\textbf{Definition:} $ \gamma = \partial F $\\
+$ \int_\gamma $ ist dann ein Linienintegral über eine geschlossene Kurve
+\begin{equation*}
+\rmbox{\int_\gamma d \vec{r} \cdot \vec{E} = \int_F d\vec{f} \cdot (\vec{\nabla} \times \vec{E}) = 0}
+\end{equation*}
+
+\subsection{Zusammenfassung: Feldgleichungen der Elektrostatik}
+
+\textbf{differentielle Darstellung:}
+\begin{equation*}
+\vec{\nabla}\cdot \vec{E} = \frac{1}{\epsilon_0} \rho \quad \vec{\nabla} \times \vec{E} = 0 \quad \rightarrow \quad \vec{E} = - \vec{\nabla} \Phi \quad \rightarrow \quad \Delta \Phi = - \frac{1}{\epsilon_0} \rho
+\end{equation*}
+\textbf{Integral Darstellung:}
+\begin{equation*}
+\int_{\partial V} d\vec{f} \cdot \vec{E} = \frac{1}{\epsilon_0} Q_V \qquad , \qquad \oint_\gamma d\vec{r} \cdot \vec{E} = 0
+\end{equation*}
+
+\section{Elektrostatische Energie}
+\textbf{potentielle Energie einer Punktladung im äußeren elektrischen Feld}\\
+Kraft auf Ladung $ q $:
+\begin{equation*}
+\vec{F} = q \vec{E}
+\end{equation*}
+Die Arbeit bei Verschiebung der Ladung von $ \vec{a} $ nach $ \vec{b} $
+\begin{align*}
+W &= - \int_{\vec{a}}^{\vec{b}} d\vec{r} \cdot \vec{F} = - q \int_{\vec{a}}^{\vec{b}} d\vec{r} \cdot \vec{E}(\vec{r})\\
+&= q \int_{\vec{a}}^{\vec{b}} d\vec{r} \cdot \vec{\nabla} \Phi = q \ub{( \Phi(\vec{b}) - \Phi(\vec{a})}_{\tx{Potentialdifferenz}}
+\end{align*}
+Die Arbeit um $ q $ aus dem unendlichen $ \infty $ nach $ \vec{r} $ zu bringen ist dann:
+
+% tikz T16
+\begin{equation*}
+W = q (\Phi(\vec{r}) - \Phi(\infty))
+\end{equation*}
+Zur Referenz: $ \Phi(\infty) = 0 $\\
+Damit ist die Energie der Ladung $ q $ im äußeren Feld:
+\begin{equation*}
+\Rightarrow W = q (\Phi(\vec{r}))
+\end{equation*}
+\begin{equation*}
+\vec{E} = - \vec{\nabla} \Phi
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
