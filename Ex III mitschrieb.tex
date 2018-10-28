@@ -22,6 +22,7 @@
 
 \usepackage{placeins}
 \usepackage{booktabs}
+\usepackage{wasysym}
 
 \usepackage{url}
 
@@ -90,7 +91,9 @@
 % anderz
 \newcommand{\summ}[2]{\sum_{#1}^{#2}}
 \newcommand{\intt}[2]{\int_{#1}^{#2}}
-
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\lcom}[1]{\color{MidnightBlue}#1\color{black}}
+\renewcommand{\epsilon}{\varepsilon}
 
 % Boxen:
 
@@ -223,6 +226,101 @@ t_1 = \frac{2L_1}{\sqrt{c^2 - v^2}}
 Maxwell-Gleichungen sind Lorenz-invariant und nicht Galilei-invariant.
 
 Beispiel: Relativität der Feder.
+
+$\Rightarrow$ Im Laborsystem: $\vec{F}=q(\vec{v}\times\vec{B})$
+
+$\Rightarrow$ Im Ruhesystem: $v'=0\Rightarrow F_L=0$ \lightning
+
+$\Rightarrow$ ein zusätzliches $E'$-Feld, $\vec{F}_q=q\vec{E}$
+
+$\Rightarrow$ neue „Transformationsgleichungen“
+
+\textbf{Transformation}
+\begin{itemize}
+	\item $K$: „ruhende“ Bezugssystem
+	\item $K'$: „sich in Bezug auf $K$ konstant entlang der $x$-Achse bewegendes“ Bezugssystem
+\end{itemize}
+
+$$\vec{E}'=(E_x,\gamma(E_y-vB_z),\gamma(E_z-vB_y))^\top$$
+$$\vec{B}'=(B_x,\gamma(B_y+\nicefrac{v}{c^2}E_z),\gamma(B_z-\nicefrac{v}{c^2}E_y))^\top$$
+
+\subsection{Einstein und die Patente}
+% andres komments und Folien
+
+Einstein arbeitete um ... beim Patentamt in .... Zu dieser Zeit wurden häufig neue Patente zur Synchronisierung verschiedenen Uhren angemeldet, was zu Einsteins Inspiration und seinen späteren Entdeckungen führte.
+
+
+% andrez 1
+
+
+\subsection{Was ist ein Inertialsystem}
+
+Bezugssystem in welchem das Trägheitsgesetz gilt.\\[10pt]
+\textbf{Konsequenzen:}\\[5pt]
+$\Rightarrow$ Inertialsystem bewegen sich gradlinig - gleichförmig gegeneinander
+
+\subsubsection{Klassisches Relativitätsprinzip}
+Grundgesetze der Physik nicht in allen Inertialsystemen gleich (Form invariant)
+
+\subsection{Galilei-Transformation}
+\begin{align*}
+\vec r' &= \vec{r} - \vec{v} t \\
+t' &= t
+\end{align*}
+$ \vec{v} $: Geschwindigkeit vom $ \vec{O}' $ gegenüber $ \vec{O} $\\[5pt]
+Test:
+\begin{equation*}
+k: \quad \vec{F} = m \vec{a} \quad \Leftrightarrow \quad k': \quad \vec{F}' = m \vec{a}'
+\end{equation*}
+\begin{equation*}
+\vec{a}' = \frac{d^2 \vec{v}'}{dt'^2} = \frac{d^2 \vec{r}}{dt^2} = \vec{a}
+\end{equation*}
+\textbf{Bemerkungen}
+\begin{itemize}
+	\item Invarianz unter Drehungen $ \Rightarrow $ Tensoren
+\end{itemize}
+
+\subsubsection{Transformation der Geschwindigkeit}
+\begin{equation*}
+\vec{v}' = \frac{d\vec{v}'}{dt'} = \frac{d\vec{v}'}{dt} \frac{dt}{dt'} = \frac{d\vec{v}'}{dt} = \frac{d\vec{v}}{dt} - \vec{u} = \vec{v} - \vec{u}
+\end{equation*}
+$ \Rightarrow $ Lichtgeschwindigkeit ist NICHT konstant !%$ \buildrel \mathcal{O} \over{\textbf{.}} $
+
+\subsection{Lorenz-Transformation (LT)} % check if I.2.4
+
+\begin{equation*}
+\begin{pmatrix}
+x' \\ y' \\ z' \\ t'
+\end{pmatrix} = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix}
+1&0&0&-u\\
+0&1&0&0\\
+0&0&1&0\\
+-\frac{u}{c^2}&0&0&1
+\end{pmatrix} \begin{pmatrix}
+x\\y\\z\\t
+\end{pmatrix} \qquad \tx{LT}
+\end{equation*}
+
+
+% andrez 2 punkt 4 und 5 n telegramm
+
+
+Transformation der Geschwindigkeiten\\
+NR:
+\begin{align*}
+\frac{dx'}{dt} &= \gamma \left(\frac{dx}{dt} - u\right) = \gamma (v_x - u)\\
+\frac{dt'}{dt} &= \gamma \left(1 - \frac{u}{c^2} v_x\right)
+\end{align*}
+$ \Rightarrow $
+\begin{align*}
+v_x' &= \frac{dx'}{dt'} = \frac{dx'}{dt} \frac{dt}{dt'} = \frac{v_x - u}{1 - \frac{uv_x}{c^2}} \\
+v_y' &= \frac{dy'}{dt'} = \frac{dy'}{dt} \frac{dt}{dt'} = \frac{1}{\gamma} \frac{v_y}{1 - \frac{uv_x}{c^2}}\\
+v_z' &= \frac{dz'}{dt'} = \frac{dz'}{dt} \frac{dt}{dt'} = \frac{1}{\gamma} \frac{v_z}{1 - \frac{uv_x}{c^2}}
+\end{align*}
+
+
+% andrez 3
+
 
 
 %\bibliographystyle{plain}
