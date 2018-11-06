@@ -25,6 +25,8 @@
 
 \usepackage{url}
 
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{arrows}
 
 
@@ -1352,8 +1354,7 @@ Randbedingungen:
 \textbf{Idee:} Ersetze ursprüngliche Problem durch ''Fiktives'' Problem mit zusätzlichen Ladungen außerhalb von $V$, welche die Randbedingungen simulieren.\\[5pt]
 Potential der Punkladungen in $\vec{r}_0$:
 $$\Phi_q (\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$ 
-addiere Ladung $-q$ in $\vec{r}'_0 = (-d, 0, 0) = -\vec{r}_0$
-% T4
+addiere Ladung $-q$ in $\vec{r}'_0 = (-d, 0, 0) = -\vec{r}_0$\\[5pt]
 
 \begin{equation*}
 \pofr = \kq \left( \frac{q}{|\vec{r} - \vec{r}_0|} - \frac{q}{|\vec{r}+\vec{r}_0|} \right)
@@ -1388,13 +1389,10 @@ Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 	\vec{E} = - \vec{\nabla} \Phi = \frac{q}{4 \pi \epsilon_0} \left(\frac{(x-d,y,z)}{|\vec{r} - \vec{r}_0|^3} - \frac{(x+d,y,z)}{|\vec{r} + \vec{r}_0|^3}\right)
 	\end{equation*}
 	An der Oberfläche $ x \to 0 $, $ x \ge 0 $\\
-	$ |\vec{r} \pm \vec{r}_0|^3 \rightarrow (d^2 + y^2 + z^2) $
+	$ |\vec{r} \pm \vec{r}_0|^3 \rightarrow (d^2 + y^2 + z^2) $\\
 	\begin{equation*}
 	\eofr \bigg|_{\vec{r} \in \partial V} = - \frac{qd}{2 \pi \epsilon_0} \frac{1}{(d^2 + y^2 + z^2) ^{3/2}} \vec{e}_x
 	\end{equation*}
-	
-	\noindent
-	%T 5
 	\lcom{Durch das externe elektrische Feld verschieben sich die Ladungsträger im Metall und es entsteht eine Influenzladung an der Oberfläche.}
 	\item \textbf{Influenzladung auf Metalloberfläche}
 	$$\vec{E}_+ - \equalto{\vec{E}_-}{0} = \frac{\sigma}{\epsilon_0} \vec{n} \qquad \vec{n} = \vec{e}_x$$

@@ -28,7 +28,7 @@
 \usepackage{url}
 
 \usetikzlibrary{calc}
-
+\usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{arrows}
 
 
@@ -881,7 +881,7 @@ t(\vec{x}) = \frac{1}{c_{\tx{Vakuum}}} \int_{P_1}^{P_2} n(\vec{x(\tau)}) \sqrt{\
 \begin{minipage}{.4\linewidth}
 	% T3 % folie:
 	\centering
-	\begin{tikzpicture}[scale=1.5]
+	\begin{tikzpicture}[scale=1.75]
 	\node at (0,0) (m) {};
 	\node at (-1,0) (l) {};
 	\node at (1,0) (r) {};
@@ -911,9 +911,14 @@ Extremum:\\
 \begin{equation*}
 \Rightarrow \ub{\frac{x}{\sqrt{a^2 + x^2}}}_{\sin \alpha} = \ub{\frac{b-x}{\sqrt{d^2 + (b-x)^2}}}_{\sin \beta}
 \end{equation*}
-\frbox{Reflexionsgesetz}{\begin{equation*}
-\sin \alpha = \sin \beta
-\end{equation*}}
+\begin{minipage}{.2\linewidth}
+	$ \phantom{M} $
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+	\frbox{Reflexionsgesetz}{\begin{equation*}
+		\sin \alpha = \sin \beta
+		\end{equation*}}
+\end{minipage}\\[5pt]
 \lcom{Einfallswinkel gleich Ausfallswinkel.}
 
 \subsection{Brechungsgesetz von Snellius}
@@ -922,21 +927,80 @@ Extremum:\\
 n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 \end{equation*}
 
-% T4 
+% T4:
+\begin{minipage}{\linewidth}
+	% T4:
+	\centering
+	\begin{tikzpicture}[scale=1.5]
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-.75,.4) (A) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1,-.75) (B) {};
+	\node[anchor=south east] at (A) {A};
+	\node[anchor=north west] at (B) {B};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-.5,0) (a) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (.5,0) (b) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-.9,0) (c) {};
+	\draw[thick] (A) -- (b) -- (B) -- (a) -- (A);
+	\draw[thick] (A) -- (c) -- (B);
+	\draw (-1.5,0) -- (1.5,0);
+	\filldraw[draw=none,pattern=north east lines] (-1.25,0) rectangle (1.25,-.8);
+	\node at (-2,.5) {$ c_1 n_1 $};
+	\node at (-2,-.5) {$ c_2 n_2 $};
+	\draw[dashed] (0,-1) -- (0,1);
+	\end{tikzpicture} \hspace{80pt}
+	\begin{tikzpicture}[scale=1.5]
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-1,.75) (A) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1,-.75) (B) {};
+	\node[anchor=south east] at (A) {A};
+	\node[anchor=north west] at (B) {B};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-.5,0) (a) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (.5,0) (b) {};
+	\draw (A) -- (b) -- (B) -- (a) -- (A);
+	\draw (-1.5,0) -- (1.5,0);
+	\draw[thick,dashed] (A) -- (-1,0);
+	\draw[dashed] (0,-1) -- (0,1);
+	\draw[thick,->] (-1,0) -- (b) node[anchor=south west] {$ x $};
+	\end{tikzpicture} \hspace{30pt}
+\end{minipage}\\[10pt]
 \noindent
 Berechnung des Laufzeit des Lichts
 \begin{equation*}
 t(x) = \frac{\sqrt{x^2 + a^2}}{c_1} + \frac{\sqrt{(b-x)^2 + d^2}}{c_2} = \frac{1}{c} \left(n_1 \sqrt{x^2 + a^2} + n_2 \sqrt{(b-x)^2 + d^2}\right)
 \end{equation*}
 \folie{zu Brechung}
-
-%T5
-
-\noindent
 $ \frac{dt}{dx} = 0 $
-\frbox{Brechungsgesetz}{\begin{equation*}
-\Rightarrow n_1 \sin \alpha = n_2 \sin \beta
-\end{equation*}}
+
+\begin{minipage}{.6\linewidth}
+	\frbox{Brechungsgesetz}{\begin{equation*}
+		\Rightarrow n_1 \sin \alpha = n_2 \sin \beta
+		\end{equation*}}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	%T5:
+	\centering
+	\begin{tikzpicture}[scale=1.5]
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-1,.75) (A) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1.5,-.5) (B) {};
+	\node[anchor=south east] at (A) {A};
+	\node[anchor=north west] at (B) {B};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-1,0) (a) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1.5,0) (b) {};
+	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (0,0) (o) {};
+	\draw[thick] (A) -- (o) -- (B);
+	\draw (A) -- (a) -- (o) -- (b) -- (B);
+	\draw (-1.5,0) -- (2,0);
+	\draw[thick,dashed] (A) -- (-1,0);
+	\draw[dashed] (0,-1) -- (0,1);
+	\draw (0,-.7) arc (-90:-25:23pt);
+	\draw (0,.7) arc (90:143.5:20pt);
+	\node at (-.2,.35) {$ \alpha $};
+	\node at (.3,-.4) {$ \beta $};
+	\node[left] at (-1,.375) {$ a $};
+	\node[below] at (-.5,0) {$ x $};
+	\node[above] at (.75,0) {$ b $};
+	\node[right] at (1.5,-.25) {$ d $};
+	\end{tikzpicture}
+\end{minipage}
+
 
 \section{Einfache Anwendungen}
 
@@ -950,7 +1014,14 @@ $ \rightarrow $ siehe Experimentalphysik II\\
 
 \subsection{Optisches Prisma}
 
-% T6 
+% T6:
+\begin{tikzpicture}
+	%\tikz\draw (0,0) -- (-60:1cm) -- (45:1cm);
+	%\draw (0,0) -- (-120:1cm);
+	%\draw    (0cm,0cm) -- (30:1cm) -- (60:1cm) -- (90:1cm) -- (120:1cm) -- (150:1cm) -- (180:1cm);
+	\draw (0,1) -- (210:1cm) -- (330:1cm) -- (90:1cm);
+	\draw (2,2) -- ++(120:1cm) -- ++(240:1cm) -- ++(360:1cm);
+\end{tikzpicture}
 
 \lcom{Bei Drehung des Prismas kann der Winkel $ \delta $ verändert werden. Hier gibt es es ein Minimum, jedoch kann er nie null werden, da das Licht nie gerade durch das Prisma hindurch kommen kann.}
 
@@ -1063,8 +1134,201 @@ Winkel $ \delta $:
 % T10 
 
 \begin{enumerate}
-	\item[(vi)] $ \delta = \frac{h}{f} $
+	\item[(vi)] $ \delta \approx \frac{h}{f} $
 \end{enumerate}
+
+
+% 6.11.18 Vorlesung 7
+
+\frbox{Linsenschleiferformel}{\begin{equation*}
+\Rightarrow \quad \frac{1}{f} = \frac{n_2 - n_1}{n_1} \left(\frac{1}{R_1} - \frac{1}{R_2}\right)
+\end{equation*}}
+$ \Rightarrow $ Die Brennweite $ f $ ist unabhängig von $ h $. \lcom{Hätte wir oben keine Näherungen für die Winkelfunktionen benutzt (bei allen Rundungssymbolen), dann wäre die Brennweite abhängig von der Höhe $ h $. Hier sehen wir, dass die Gleichung für eine dünne Linse nur eine annäherung an echte Linsen ist.}\\[10pt]
+\textbf{Def: Brechkraft}
+\begin{equation*}
+D = \frac{n}{f}
+\end{equation*}
+\emph{Bemerkung:}\\
+$ D = D_{\tx{Vorne}} + D_{\tx{Hinten}} $
+
+\subsection{Abbildung (am Beispiel einer Sammellinse)}
+
+%T1
+
+\noindent
+Berechnung:
+\begin{enumerate}[i)]
+	\item $ \delta = \alpha + \beta $
+	\item $ \alpha \approx \frac{h}{a} \quad \beta \approx \frac{h}{b} $
+	\item $ \delta \approx \frac{h}{f} $
+\end{enumerate}
+\frbox{Abbildungsgesetz}{\begin{equation*}
+\Rightarrow \frac{1}{f} = \frac{1}{a} + \frac{1}{b}
+\end{equation*}}
+\textbf{Abbildung eines Gegenstands $ G $:}\\
+Graphisch:
+\begin{enumerate}[(1)]
+	\item parallel ein $ \rightarrow $ durch Brennpunkt aus
+	\item durch Brennpunkt ein $ \rightarrow $ parallel aus
+	\item Zentralstrahl läuft gerade
+\end{enumerate}
+
+% T2
+
+\textbf{Rechnerisch}
+\begin{enumerate}[(i)]
+	\item $ \frac{1}{f} = \frac{1}{a} + \frac{1}{b} $
+	\item $ \frac{A}{a} = \frac{B}{b} $
+\end{enumerate}
+
+\section{Abbildungsfehler}
+
+$ \Rightarrow $ Beschränkung durch Beschreibung mit geometrischer Optik\\
+$ \Rightarrow $ Näherungen (dünne Linse)
+
+\subsection{Dicke Linsen}
+
+\folie{Dicke Linsen}\\
+Brechung der Lichtstrahlen an zwei Hauptebenen
+% Bilder von Volie Dicke Linsen einfügen
+
+\subsection{Sphärische Abberation}
+
+\folie{Sphärische Abberation}
+
+\subsection{Chromatische Abbreration}
+
+\folie{Chromatische Abberation}\\
+optische Dispersion
+
+\subsection{Astigmatismus}
+
+\folie{Astigmatismus}
+
+\subsection{Absorption}
+
+Bei verunreinigten Stoffen wird Licht absorbiert.
+
+\subsection{Beugung}
+
+\lcom{Werden wir später behandeln.}
+
+\subsection{Optisches Auflösungsvermögen}
+
+\rbox{Mit freilaufenden Wellen lassen sich keine Strukturen auflösen, die deutlich kleiner sind als die Wellenlänge $ \lambda $ sind.}
+
+\section{Optische Instrumente}
+
+\subsection{Vergrößerung}
+
+\textbf{Sehwinkel}
+%T3
+\begin{equation*}
+\tan\alpha = \frac{\tx{Größe des Objekts}}{\tx{Entfernung des Objekts}}
+\end{equation*}
+\textbf{Winkelvergrößerung}
+\begin{equation*}
+V = \frac{\tx{Sehwiinkel mit Instrument}}{\tx{Sehwinkel ohne Instrument}}
+\end{equation*}
+\textbf{Lateralvergrößerung oder Abbildungsmaßstab}
+\begin{equation*}
+L = \frac{\tx{Bildgröße}}{\tx{Gegenstandsgröße}}
+\end{equation*}
+
+\subsection{Das menschliche Auge}
+
+\folie{menschliches Auge}\\
+Hornhaut \& Linse. Die Hornhaut hat den größten Beitrag zur Brechung\\[5pt]
+\textbf{Definition: Brennweite der deutlichen Sehweite}
+\begin{equation*}
+25 \, \tx{cm}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \tan \alpha_{\tx{Auge}} = \frac{G}{25 \, \tx{cm}}
+\end{equation*}
+Vergrößerung
+\begin{equation*}
+V = \frac{\tx{Sehwinkel mit Instrument}}{\alpha_{\tx{Auge}}} = (\tx{Sehwinkel mit Instrument}) \frac{25 \, \tx{cm}}{G}
+\end{equation*}
+
+\subsection{Optisches Instrument mit einer Linse: Lupe}
+
+%T4 Bs
+
+Gegenstand nahezu in Brennebenen, $ g < f $\\
+Graphisch: siehe oben\\
+Rechnerisch: Abbildungsgesetz der Lupe $ \frac{1}{g} - \frac{1}{b} = \frac{1}{f} $\\
+Abbildungsmaßstab
+\begin{equation*}
+\frac{B}{G} = \frac{b}{g} = \frac{f}{f-g} = \frac{f+b}{f}
+\end{equation*}
+Vergrößerung:\\
+Sehwinkel des Instruments
+\begin{equation*}
+\alpha \approx \tan \alpha = \frac{G}{f} \qquad (g \approx f)
+\end{equation*}
+\begin{equation*}
+\Rightarrow V = \frac{\alpha}{\alpha_{\tx{Auge}}} = \frac{G}{f} \frac{25 \, \tx{cm}}{g} = \frac{25 \, \tx{cm}}{f}
+\end{equation*}
+
+\subsection{Optische Instrumente mit zwei Linsen}
+
+zwei Linsen $ = $ drei Fälle:\\[5pt]
+Doppellinse, Fernrohr, Mikroskop\\[5pt]
+\begin{enumerate}[1)]
+	\item \textbf{Doppellinse: Abstand der Linse $ \ll $ Brennweiten $ f_1,f_2 $}\\
+	\folie{zu Doppellinsen}
+	%T5
+	\begin{equation*}
+	\frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2}
+	\end{equation*}
+	Berechnung:
+	\begin{equation*}
+	b_1 \ \tx{der 1ten Linsen} = \tx{virtuelle Gegenstandsweite} \ a_2 = b_1 - D \ \tx{der zweiten Linse}
+	\end{equation*}
+	\begin{itemize}
+		\item[1. Linse] $ \frac{1}{a} + \frac{1}{b_1} = \frac{1}{f_1} $
+		\item[2. Linse] $ -\frac{1}{b_1 - D} + \frac{1}{b} = \frac{1}{f_2} $
+	\end{itemize}
+	\begin{equation*}
+	\Rightarrow \qquad \rmbox{\frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2}} \qquad \rmbox{D_{\tx{ges}} = D_1 + D_2}
+	\end{equation*}
+	\item \textbf{Fernrohr (Kepler): Abstand der Linsen $ = $ Summe der Brennweiten $ f_1 + f_2 $}\\
+	
+	%T6
+	$ \Rightarrow $ Zwischenbild in der Brennebene\\[10pt]
+	Sehwinkel vor Objektiv:
+	\begin{equation*}
+	\alpha \approx \frac{B}{f_1}
+	\end{equation*}
+	Sehwinkel nach Okular:
+	\begin{equation*}
+	\beta \approx \frac{B}{f_2}
+	\end{equation*}
+	$ \Rightarrow $ Vergrößerung $ V = \frac{\beta}{\alpha} = \frac{B}{f_2} \frac{f_1}{B} = \frac{f_1}{f_2} $
+	\emph{Bemerkung:}
+	\begin{itemize}
+		\item Kepler Fernrohr: Bild wird invertiert
+		\item Galilei Fernrohr: Sammellinse und Zerstreuungslinse\\
+		keine Invertierung und kürzere Bauweise
+		\item Fernglas:\\
+		\folie{Galilei Fernrohr und Fernrohr mit drei Linsen}
+	\end{itemize}
+	\item \textbf{Mikroskop: Abstand der Linsen $ \gg $ Summe der Brennweiten $ f_2 + f_1 $}\\
+	Gegenstand nah am Objektiv
+	
+	% T7
+	
+	\folie{anderes Bildschema Mikroskop} Veränderung durch Änderung der Tubuslänge\\
+	Verstärkung durch Objektiv $ V_1 = \frac{B}{G} = \frac{b}{f_1} $\\
+	Verstärkung durch Okular $ V_2 = \frac{25 \, \tx{cm}}{f_2} $\\
+	$ \Rightarrow $ Vergrößerung: $$ V = V_1 V_2 = \frac{t \cdot 25 \, \tx{cm}}{f_1 f_2} $$
+	$ t \approx 28 \, \tx{cm} $ wurde so definiert um den Vergleich von Geräten zu vereinfachen.
+\end{enumerate}
+
+
+
+
 
 
 
