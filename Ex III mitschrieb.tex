@@ -932,6 +932,7 @@ n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 	% T4:
 	\centering
 	\begin{tikzpicture}[scale=1.5]
+	\draw[draw=none,fill=gray!10] (-1.5,0) rectangle (1.5,-1);
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-.75,.4) (A) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1,-.75) (B) {};
 	\node[anchor=south east] at (A) {A};
@@ -942,12 +943,14 @@ n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 	\draw[thick] (A) -- (b) -- (B) -- (a) -- (A);
 	\draw[thick] (A) -- (c) -- (B);
 	\draw (-1.5,0) -- (1.5,0);
-	\filldraw[draw=none,pattern=north east lines] (-1.25,0) rectangle (1.25,-.8);
+	\filldraw[draw=none,pattern=north east lines] (-1.5,0) rectangle (1.5,-.1);
 	\node at (-2,.5) {$ c_1 n_1 $};
 	\node at (-2,-.5) {$ c_2 n_2 $};
 	\draw[dashed] (0,-1) -- (0,1);
 	\end{tikzpicture} \hspace{80pt}
 	\begin{tikzpicture}[scale=1.5]
+	\draw[draw=none,fill=gray!10] (-1.5,0) rectangle (1.5,-1);
+	\filldraw[draw=none,pattern=north east lines] (-1.5,0) rectangle (1.5,-.1);
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-1,.75) (A) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1,-.75) (B) {};
 	\node[anchor=south east] at (A) {A};
@@ -978,6 +981,7 @@ $ \frac{dt}{dx} = 0 $
 	%T5:
 	\centering
 	\begin{tikzpicture}[scale=1.5]
+	\draw[draw=none,fill=gray!10] (-1.5,0) rectangle (2,-.8);
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-1,.75) (A) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1.5,-.5) (B) {};
 	\node[anchor=south east] at (A) {A};
