@@ -300,7 +300,7 @@ Ladung: Beobachtungstatsachen:
 \begin{minipage}{.4\linewidth}
 	\hspace{30pt}
 	
-	%T2 done
+	%T2 done:
 	
 	\begin{tikzpicture}
 	\node at (1.5,1.5) (a) {};
@@ -324,7 +324,7 @@ Ladung: Beobachtungstatsachen:
 \end{minipage}
 \begin{minipage}{.4\linewidth}
 	
-	%T3 done
+	%T3 done:
 	
 	\hspace{30pt}
 	\begin{tikzpicture}
@@ -359,7 +359,7 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 	\item SI (MKSA-System): Definition von A = Amp\`ere 
 	
 	
-	% T4 done 
+	% T4 done: 
 	
 	\vspace{-15pt}
 	$$\frac{\Delta F}{\Delta l}= 2 \cdot 10^{-7}\,\frac{\textrm{N}}{\textrm{m}} \qquad \qquad \begin{tikzpicture}
@@ -396,7 +396,7 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 \end{minipage}
 \begin{minipage}{.5\linewidth}
 	
-	%T5 done
+	%T5 done:
 	
 	\hspace{50pt}
 	\begin{tikzpicture}
@@ -445,7 +445,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 \end{minipage}
 \begin{minipage}{.4\linewidth}
 	
-	%T6 done
+	%T6 done:
 	
 	\hspace{50pt}
 	\begin{tikzpicture}
@@ -473,7 +473,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 
 \subsection{Ladungsdichte einer Punktladung}
 
-%% T1 done
+%% T1 done:
 \begin{wrapfigure}{r}{0.3\textwidth}
 \begin{tikzpicture}
 	\draw[->] (0,0) -- (0,2);
@@ -497,7 +497,13 @@ $$\rho_2 (\vec{r}) = \left\{ \begin{array}{cc}
 0 & \textrm{sonst}	
 \end{array} \right\} = \frac{q}{\frac{4}{3}\pi \epsilon^3}\underbrace{\Theta (\epsilon - |\vec{r}|)}_{\mathclap{\textrm{Stufenfunktion}}}$$
 
+
+
+
 %% T?
+
+
+
 
 $$\rho(\vec{r}) = \lim_{\epsilon \rightarrow 0}\ \rho_\epsilon (\vec{r}) = \left\{ \begin{array}{cc}
 \infty & \vec{r} = 0\\
@@ -551,7 +557,13 @@ $$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
 \end{align*}
 
 \subsection{Flächenladungsdichte}
+
+
+
 %% T2
+
+
+
 
 $\sigma(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Fläche}} = \frac{\Delta q}{\Delta A}$
 
@@ -559,7 +571,17 @@ erzeugtes elektrisches Feld:
 $$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelement}}}\ \sigma (\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
 
 \bei Elektrisches Feld einer homogenen Flächenladung
+
+
+
+
+
 %% T3 -- $\sigma = \const$ in $x$-$y$-Ebene
+
+
+
+
+
 $$\vec{E}(\vec{r}) = \kq \intt{-\infty}{+\infty}dx'\intt{-\infty}{+\infty}dy'\ \sigma \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \vec{r}' = (x', y', 0)$$
 Symmetrie: $\vec{E}$ unabhängig von $x,y \qquad \vec{r} = (0,0,z)$
 $$\vec{r} - \vec{r}' = (-x',-y',z),\ |\vec{r} - \vec{r}'|^3 = (x'^2+y'^2+z^2)^{\nicefrac{3}{2}}$$
@@ -623,7 +645,7 @@ $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \
 
 %%%% Vorlesung 3
 
-\lcom{(Funktional-analysis Siegfried Großmann Springer)\\
+\lcom{(Funktional-Analysis Siegfried Großmann Springer)\\
 	(Landau-Lipschitz Buch geht weit der Vorlesung hinaus)}
 
 \subsection{Feldgleichugn (differentielle Form)}
@@ -635,8 +657,13 @@ $$\Rightarrow \nabla \times \vec{E} = - \nabla \times (\nabla\phi) = 0$$
 Mathe: Es sind äquivalent 
 \begin{enumerate}[i]
 	\item $\vec{E} = - \nabla\phi$
-	\item $\nabla \times \vec{E} = 0$ (auf einfach zusammenhäng. Gebiet)
-	\item Kurvenintegral $\int_\gamma d\vec{r} \cdot \vec{E}$ ist wegunabhängig %%% T1
+	\item $\nabla \times \vec{E} = 0$ (auf einfach zusammenhängendem Gebiet)
+	\item Kurvenintegral $\int_\gamma d\vec{r} \cdot \vec{E}$ ist Wegunabhängig 
+	
+	
+	%%% T1
+	
+	
 	$$\intt{\vec{r}_1}{\vec{r}_2} d\vec{r} \cdot \vec{E} = - \intt{\vec{r}_1}{\vec{r}_2} dt \underbrace{\frac{d\vec{r}}{dt}\times \nabla\phi(\vec{r}(t))}_{\frac{d\phi}{dt}} = \underbrace{(\phi(\vec{r}_2) - \phi(\vec{r}_1))}_{\textrm{Potentialdifferenz}} $$
 \end{enumerate}
 
@@ -664,7 +691,12 @@ $$\nabla \cdot \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = 0 \quad \text
 
 $$\Rightarrow \textrm{falls} \quad \vec{r} \notin V, \textrm{ d.h. } \vec{r} \textrm{ in Gebiet ohne Ladungsdichte } \rho(\vec{r}) = 0$$
 
-$$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$ %%% T?
+$$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$ 
+
+
+%%% T?
+
+
 
 $\vec{r} \in V$: Grenzwertbetrachtung (Regularisierung des Integranden)\\
 statt
@@ -686,7 +718,11 @@ $$\lim_{a \to 0} f_a(\vec{r}-\vec{r}') = \left\{ \begin{array}{cc}
 \infty & \vec{r} = \vec{r}'	
 \end{array} \right.$$
 $$\Rightarrow \textrm{zum Integral } \int_V d^3r' \dots \textrm{ trägt (in Limes }a \to 0) \textrm{ nur der Bereich } \vec{r}' \approx \vec{r} \textrm{ bei}$$
-$$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$ %% T?
+$$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$
+
+
+%% T?
+
 
 \begin{align*}
  	\hspace{100pt} &\lim_{a \to 0} \int_V d^3 r'\ \rho(\vec{r}') \nabla_{\vec{r}} \cdot f_a(\vec{r}- \vec{r}')\\
@@ -1089,7 +1125,7 @@ $$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
 
 \begin{minipage}{.6\linewidth}
 	\textbf{\emph{Beispiel: Plattenkondensator}}\\
-	Fläc2he $F$, Ladung $\rightarrow\ r = \frac{q}{F}\ \rightarrow\ \vec{E} = \frac{r}{\epsilon_0} \vec{e}_x$\\[5pt]
+	Fläche $F$, Ladung $\rightarrow\ r = \frac{q}{F}\ \rightarrow\ \vec{E} = \frac{r}{\epsilon_0} \vec{e}_x$\\[5pt]
 	$ \rightarrow $ Die Energiedichte ist: $ w = \frac{\epsilon_0}{2} \vec{E}^2 = \frac{\sigma^2}{2 \epsilon_0} $ (nicht für Punktladungen)\\[5pt]
 	$ \rightarrow $ Die Energie beträgt: $ W = \int d^3 r w(\vec{r}) = l \cdot F \cdot \frac{\sigma^2}{2 \epsilon_0} $
 \end{minipage}
@@ -1539,8 +1575,6 @@ Es gilt (HA):
 \Phi(\vec{r}) &= \int_V d^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}')\\
 &\ \ \ \, - \epsilon_0 \int_{\partial V} df' \Phi_0(\vec{r}') \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}')
 \end{align*}}
-
-% bild
 
 
 
