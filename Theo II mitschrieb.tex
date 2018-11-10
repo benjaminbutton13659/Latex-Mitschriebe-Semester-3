@@ -28,6 +28,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathreplacing}
 
 
 %Environments und Newcommands:
@@ -53,6 +54,8 @@
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\ub}[1]{\underbrace{#1}}
 \newcommand{\ob}[1]{\overbrace{#1}}
+
+\newcommand{\dd}{\tx{d}}
 
 %Mathe:
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
@@ -103,7 +106,7 @@
 \newcommand{\lcom}[1]{\color{MidnightBlue}#1\color{black}}
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\vabla}{\boldsymbol{\nabla}}
-\newcommand{\bei}{\emph{Beispiel:}}
+\newcommand{\bei}{\emph{Beispiel: }}
 \newcommand{\bem}{\emph{Bemerkung:}}
 \renewcommand{\paragraph}[1]{\subsubsection{#1}}
 
@@ -140,6 +143,9 @@
 \end{array}}
 
 % evtl: \renewcommand{\boxed}{\rmbox}
+
+\def\centerarc[#1](#2)(#3:#4:#5)% Syntax: [draw options] (center) (initial angle:final angle:radius)
+{ \draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
 
 \tikzset{
 	annotated cuboid/.pic={
@@ -469,28 +475,30 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 \scriptstyle{\tx{mit } \Delta V_j \to 0}\ \ &\rightarrow k\int_V d^3r'\rho(\vec{r}')\frac{\vec{r}-\vec{r}'}{|\vec{r}  -\vec{r}'|^3}
 \end{align*}
 
-%%%%%% Vorlesung 2
+%%%%%% Vorlesung 2 %18.10.18
 
 \subsection{Ladungsdichte einer Punktladung}
 
-%% T1 done:
-\begin{wrapfigure}{r}{0.3\textwidth}
-\begin{tikzpicture}
+\begin{minipage}{.6\linewidth}
+	\paragraph{Deltafunktion}
+	
+	$$\rho (\vec{r}) = q \delta(\vec{r}-\vec{r}_0)$$
+	Punktladung in $\vec{r}_0 \Rightarrow \rho(\vec{r}) = 0 \quad \vec{r} \neq \vec{r}_0$\\
+	Ladungsdichte divergiert in $\vec{r}_0$
+	$$\rho(\vec{r}_0) = \infty$$
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	%% T1 done:
+	\centering
+	\begin{tikzpicture}
 	\draw[->] (0,0) -- (0,2);
 	\draw[->] (0,0) -- (2,0);
 	\draw[->] (0,0) -- (1.5,1.5) node [right] {$q$};
 	\draw (1,1) node [above,left] {$\vec{r}_0$};
-\end{tikzpicture}
-\end{wrapfigure}
+	\end{tikzpicture}
+\end{minipage}
 
-\paragraph{Deltafunktion}
-
-$$\rho (\vec{r}) = q \delta(\vec{r}-\vec{r}_0)$$
-Punktladung in $\vec{r}_0 \Rightarrow \rho(\vec{r}) = 0 \quad \vec{r} \neq \vec{r}_0$\\
-Ladungsdichte divergiert in $\vec{r}_0$
-$$\rho(\vec{r}_0) = \infty$$
-
-Modell für Punktladung:
+Modell für Punktladung:\\
 Ladung $q$ in Kugel mit Radius $\epsilon$  um $\vec{r}_0,\ \epsilon \rightarrow 0$
 $$\rho_2 (\vec{r}) = \left\{ \begin{array}{cc}
 \frac{q}{v_k} & |\vec{r}| \leq \epsilon\\
@@ -498,11 +506,7 @@ $$\rho_2 (\vec{r}) = \left\{ \begin{array}{cc}
 \end{array} \right\} = \frac{q}{\frac{4}{3}\pi \epsilon^3}\underbrace{\Theta (\epsilon - |\vec{r}|)}_{\mathclap{\textrm{Stufenfunktion}}}$$
 
 
-
-
 %% T?
-
-
 
 
 $$\rho(\vec{r}) = \lim_{\epsilon \rightarrow 0}\ \rho_\epsilon (\vec{r}) = \left\{ \begin{array}{cc}
@@ -559,28 +563,47 @@ $$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
 \subsection{Flächenladungsdichte}
 
 
-
-%% T2
-
-
-
-
-$\sigma(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Fläche}} = \frac{\Delta q}{\Delta A}$
-
+\begin{minipage}{.5\linewidth}
+	$\sigma(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Fläche}} = \frac{\Delta q}{\Delta A}$
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%% T2 eig T1:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (0,1);
+		\draw[->] (0,0) -- (1,0);
+		\draw[->] (0,0) -- (-.5,-.5);
+		\draw (.5,.2) -- ++(30:1.3) -- ++(90:1) -- ++(-150:1.3) -- (.5,.2);
+		\draw (.9,.7) -- ++(30:.3) -- ++(90:.3) -- ++ (-150:.3) -- (.9,.7);
+		\draw[thick,->] (0,0) -- (.9,.7) node[yshift=-7pt,xshift=-18pt] {$ \vec{r} $};
+		\draw ($ (.9,.7) + (30:.3) + (90:.3) + (-120:.15) $) to[out=65,in=150] (2,2) node[right] {$ \Delta A $};
+		\draw ($ (.5,.2) + (33:1.1) $) to[out=-50,in=-150] (2,.5) node[right] {$ A $};
+		\draw ($ (.9,.7) + (30:.3) + (90:.3) + (-100:.2) $) to[out=20,in=180] (2.2,1.35) node[right] {$ \Delta q $};
+	\end{tikzpicture}
+\end{minipage}
 erzeugtes elektrisches Feld:
 $$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelement}}}\ \sigma (\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
 
-\bei Elektrisches Feld einer homogenen Flächenladung
-
-
-
-
-
-%% T3 -- $\sigma = \const$ in $x$-$y$-Ebene
-
-
-
-
+\begin{minipage}{.65\linewidth}
+	\hspace{-20pt}
+	\bei Elektrisches Feld einer homogenen Flächenladung
+\end{minipage}
+\begin{minipage}{.35\linewidth}
+	%% T3 eig T2: -- $\sigma = \const$ in $x$-$y$-Ebene
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (0,1) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ y $};
+		\draw[->] (0,0) -- (-1,-1) node[anchor=north east] {$ x $};
+		\node at (2,1) {$ \substack{\sigma = \const \tx{in} \\ x\tx{-}y \tx{-Ebene} } $};
+		\draw (-.3,-.3) -- ++(1.8,0);
+		\draw (-.6,-.6) -- ++(1.8,0);
+		\draw (-.9,-.9) -- ++(1.8,0);
+		\draw (1.8,0) -- ++(-.9,-.9);
+		\draw (1.2,0) -- ++(-.9,-.9);
+		\draw (.6,0) -- ++(-.9,-.9);
+	\end{tikzpicture}
+\end{minipage}
 
 $$\vec{E}(\vec{r}) = \kq \intt{-\infty}{+\infty}dx'\intt{-\infty}{+\infty}dy'\ \sigma \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \vec{r}' = (x', y', 0)$$
 Symmetrie: $\vec{E}$ unabhängig von $x,y \qquad \vec{r} = (0,0,z)$
@@ -592,33 +615,95 @@ $\vec{E} = (0,0,E_z)$
 \begin{align*}
  	E_z &= \kq \sigma_z \intt{-\infty}{+\infty}dx'\underbrace{\intt{-\infty}{+\infty}dy'\ \frac{(x')}{(x'^2 + y'^2 + z'^2)^{\nicefrac{3}{2}}}}_{\mathclap{\frac{1}{x'^2 +z^2}\left.\frac{y'}{(x'^2 + y'^2 + z^2)^{\nicefrac{3}{2}}} \right\rvert_{-\infty}^{+\infty} = \frac{1}{x'^2 +z^2}\left.\frac{\textrm{sgn}(y')}{\sqrt{1 + \frac{x'^2 + z^2}{y'^2}}} \right\rvert_{-\infty}^{+\infty} = \frac{2}{x'^2 +z^2}}}\\
  	&= \frac{1}{2 \pi \epsilon_0} \sigma_z \underbrace{\intt{-\infty}{+\infty} dx'\ \frac{1}{x'^2 + z^2}}_{\left. \frac{1}{z} \arctan \left(\frac{x'}{2}\right)\right\rvert_{-\infty}^{+\infty} = \frac{1}{z} \textrm{sgn}(z)\pi}\\
- 	&= \frac{\sigma}{2 \epsilon_0} \textrm{sgn}(z)
+ 	E_z &= \frac{\sigma}{2 \epsilon_0} \textrm{sgn}(z)
 \end{align*}
 
-Grenzfläche: $z \rightarrow 0$
-$$\vec{E} \underset{z \to 0} \longrightarrow \left\{ \begin{array}{cc}
+\begin{minipage}{.6\linewidth}
+	Grenzfläche: $z \rightarrow 0$
+	$$\vec{E} \underset{z \to 0} \longrightarrow \left\{ \begin{array}{cc}
 	\frac{\sigma}{2 \epsilon_0} \vec{e}_z & z > 0\\
 	-\frac{\sigma}{2 \epsilon_0} \vec{e}_z & z < 0
-\end{array}\right.$$
-$$\vec{E}_{\perp_+} - \vec{E}_{\perp_-} = \frac{\sigma}{\epsilon_0}, \qquad \vec{E}_\parallel = 0$$
+	\end{array}\right.$$
+	$$\vec{E}_{\perp_+} - \vec{E}_{\perp_-} = \frac{\sigma}{\epsilon_0}, \qquad \vec{E}_\parallel = 0$$
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	% T3:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,-1.2) -- (0,1.2) node[above] {$ E_z $};
+		\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ z $};
+		\draw[thick] (2,.8) -- (0,.8) ;
+		\draw (0,.8) -- (-.15,.8) node[left] {$ \frac{\sigma}{2 \epsilon_0} $};
+		\draw[thick] (-2,-.8) -- (0,-.8);
+		\draw (0,-.8) -- (.15,-.8) node[right] {$\frac{\sigma}{2 \epsilon_0}$};
+	\end{tikzpicture}
+\end{minipage}
 
-%% T4 plattenkondensator
 
-%% T5
+%% T4: plattenkondensator
+
+%% T5:
+\begin{center}
+\begin{tikzpicture}
+	\coordinate (o) at (-8,0);
+	\draw[thick,->] ($ (o) + (-.5,0)$) -- ++(2.5,0) node[anchor=north west] {$ z $};
+	\draw ($ (o) + (0,-1) $) -- ++(0,2) node[above] {$ \sigma $};
+	\draw ($ (o) + (1.5,-1) $) -- ++(0,2) node[above] {$ -\sigma $};
+	
+	\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ z $};
+	\draw[->] (0,-1) -- (0,1.5) node[anchor=south east] {$ E_z $};
+	\draw[very thick] (-2,0) -- (-.75,0);
+	\draw[very thick] (.75,0) -- (2,0);
+	\draw[very thick] (-.75,1) -- (.75,1) node[anchor=south west] {$ \frac{\sigma}{\epsilon_0} $};
+	\draw[ultra thick,draw=orange,dashed] (-2,.5) -- (.75,.5);
+	\draw[ultra thick,draw=orange,dashed] (.75,-.5) -- (2,-.5) node[right] {$ - \sigma $};
+	\draw[very thick,draw=black!25!green,dashed] (-.75,-.5) -- (-2,-.5) node[left] {$ \sigma $};
+	\draw[very thick,draw=black!25!green,dashed] (2,.5) -- (-.75,.5);
+	\draw (.75,-.1) -- (.75,.1);
+	\draw (-.75,-.1) -- (-.75,.1);
+	\draw (-.1,.5) -- (.1,.5) node[right,xshift=55pt] {$ \frac{\sigma}{2 \epsilon_0} $};
+	\draw (-.1,-.5) -- (.1,-.5) node[right,xshift=-2pt] {$ \frac{- \sigma}{2 \epsilon_0} $};
+\end{tikzpicture}
+\end{center}
 
 \subsection{Linenladungsdichte}
-%% T6
-$\lambda(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Länge}} = \frac{\Delta q}{\Delta s}$
-$$\vec{E}(\vec{r}) = \kq \underbrace{\int_\gamma}_{\mathclap{\textrm{Linienintegral}}} ds'\ \lambda(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
 
-Beispiel: Elektrisches Feld einer homogenen Linienladung
+\begin{minipage}{.5\linewidth}
+	$$\lambda(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Länge}} = \frac{\Delta q}{\Delta s}$$
+	$$\vec{E}(\vec{r}) = \kq \underbrace{\int_\gamma}_{\mathclap{\textrm{Linienintegral}}} ds'\ \lambda(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%% T6:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (0,1);
+		\draw[->] (0,0) -- (1,0);
+		\coordinate (m) at (2,3);
+		\draw[thick,->] (0,0) -- (m) node[xshift=-30pt,yshift=-35pt] {$ \vec{r} $};
+		\draw ($ (m) + (45:0.2) $) -- ++(180:.3) node[anchor=south east] {$ \Delta s $} -- ++(-90:.3) -- ++(0:.3) -- ++(90:.3) node[anchor=north west] {$ \Delta q $};
+		\draw[thick] (-.5,1.5) to[out=80,in=-170] (1,2.7) to[out=10,in=-160] (m) to[out=20,in=-100] (3,4) node[right] {$ \gamma $};
+	\end{tikzpicture}\vspace{15pt}
+\end{minipage}
 
-%% T7 $\lambda = \const$
+\emph{Beispiel:} Elektrisches Feld einer homogenen Linienladung $ \lambda = \const $
 
-\begin{align*}
-\vec{E}(\vec{r}) &= \kq \int_\gamma ds'\ \lambda \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \gamma: z' \mapsto \vec{r}'(z') = \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}\\
-&= \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}dz'\ \frac{\vec{r} - \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}}
-\end{align*}
+\begin{minipage}{.2\linewidth}
+	%% T7 $\lambda = \const$
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (1,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,0) -- (.75,.75) node[anchor=south west] {$ y $};
+		\draw[->] (0,0) -- (0,3) node[anchor=south west] {$ z $};
+		\draw[very thick,draw=red] (0,0) -- (0,2.5) node[left,yshift=-30pt] {$ \lambda $};
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.8\linewidth}
+	\begin{align*}
+	\vec{E}(\vec{r}) &= \kq \int_\gamma ds'\ \lambda \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \gamma: z' \mapsto \vec{r}'(z') = \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}\\
+	&= \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}dz'\ \frac{\vec{r} - \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}}
+	\end{align*}
+\end{minipage}
+
 $\tilde{z} = z' - z$:
 $$E_x = \frac{\lambda x}{4 \pi \epsilon_0}\intt{-\infty}{\infty}dz'\ \frac{1}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}} = \frac{\lambda x}{4 \pi \epsilon_0}\underbrace{\intt{-\infty}{\infty}d\tilde{z}\ \frac{1}{(x^2 + y^2 + \tilde{z}^2)^{\nicefrac{3}{2}}}}_{\frac{2}{x^2 + y^2}} = \frac{\lambda}{2 \pi \epsilon_0} \frac{x}{x^2 + y^2}$$
 $$E_y = \frac{\lambda}{2 \pi \epsilon_0}\frac{x}{x^2 + y^2}$$
@@ -631,7 +716,7 @@ $$\vec{E}(\vec{r}) = \kq \int d^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|
 \subsection{Elektrostatisches Potential}
 elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \nabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$
 $$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\nabla\frac{1}{|\vec{r}-\vec{r}'|}$$
-$$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} = - \bigg(-\frac{1}{2}\bigg) \frac{2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
+$$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} =  \frac{- \left(-\frac{1}{2}\right) \quad 2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
 $$\Rightarrow \vec{E}(\vec{r}) = \kq \int d^3 r'\ \rho(\vec{r}') \bigg(-\nabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = \nabla_F \kq \int d^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
 $\rightarrow$ elektrostatisches Potential
 $$\phi(\vec{r}) = \kq \int d^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} + c$$
@@ -643,7 +728,7 @@ $$\phi(\vec{r}) = \int_{\mathbb R^3} d^3 r'\ \frac{q\delta(\vec{r}' - \vec{r}_0)
 
 $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3}$$
 
-%%%% Vorlesung 3
+%%%% Vorlesung 3 22.10.18
 
 \lcom{(Funktional-Analysis Siegfried Großmann Springer)\\
 	(Landau-Lipschitz Buch geht weit der Vorlesung hinaus)}
@@ -662,6 +747,8 @@ Mathe: Es sind äquivalent
 	
 	
 	%%% T1
+	
+	
 	
 	
 	$$\intt{\vec{r}_1}{\vec{r}_2} d\vec{r} \cdot \vec{E} = - \intt{\vec{r}_1}{\vec{r}_2} dt \underbrace{\frac{d\vec{r}}{dt}\times \nabla\phi(\vec{r}(t))}_{\frac{d\phi}{dt}} = \underbrace{(\phi(\vec{r}_2) - \phi(\vec{r}_1))}_{\textrm{Potentialdifferenz}} $$
@@ -698,6 +785,8 @@ $$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$
 
 
 
+
+
 $\vec{r} \in V$: Grenzwertbetrachtung (Regularisierung des Integranden)\\
 statt
 $$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}}$$
@@ -724,6 +813,8 @@ $$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$
 %% T?
 
 
+
+
 \begin{align*}
  	\hspace{100pt} &\lim_{a \to 0} \int_V d^3 r'\ \rho(\vec{r}') \nabla_{\vec{r}} \cdot f_a(\vec{r}- \vec{r}')\\
 	&= \lim_{a \to 0} \int_{K_R (\vec{r})} d^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}\\
@@ -738,10 +829,6 @@ $$\int_{K_R (\vec{r})} d^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2
 Taylorentwicklung von $\rho(\vec{r} + \vec{\tilde{r}})$ zum $\vec{\tilde{r}} = 0$
 $$\rho(\vec{r} + \vec{\tilde{r}}) = \rho(\vec{r}) + \vec{\tilde{r}} \cdot \vabla \rho(\vec{r}) + \dots$$
 $$= \int_{K_R (0)} d^3 \tilde{r} \ (\rho(\vec{r}) + \vec{\tilde{r}} \cdot \vabla \rho(\vec{r}) + \dots) \frac{3a^2}{[\vec{\tilde{r}}^2 + a^2]^{\nicefrac{5}{2}}}$$
-%%%%%%%%
-
-
-% unter diesem ist alles korrekt 
 
 \begin{enumerate}
 	\item Integral:
@@ -819,6 +906,10 @@ Sei $\vec{A}(\vec{r})$ ein Vektorfeld im Volumen $V \subset \mathbb R^3$, so gil
 $$\int_V d^3r\ \nabla \cdot \vec{A}(\vec{r}) = \int_{\partial V} d\vec{f}\ \cdot \vec{A}(\vec{r})$$
 $$\partial V \tx{ Rand von } V$$
 $$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\textrm{nach aussen orientierter Normaleneinheutsvektor}}}\ df$$
+
+
+
+
 %%%% T1
 
 \noindent
@@ -890,6 +981,10 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 
 % tikz 6
 
+
+
+
+
 \begin{equation*}
 \vec{\nabla} \times \vec{A} = \begin{pmatrix}
 \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} \\
@@ -901,6 +996,10 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \end{equation*}
 
 % tikz 7
+
+
+
+
 
 \begin{equation*}
 \vec{r}(\varphi) = R \begin{pmatrix}
@@ -1077,30 +1176,37 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 
 \paragraph{Energie einer kontinuierlichen lokalisierten Ladungsverteilung}
 
-%% T2:
-\begin{tikzpicture}
-\draw  plot [smooth cycle, tension=.7] coordinates { (0,0) (.25,.5) (.25,1) (.75,.75) (1,0) (.5,-.25)};
-\node at (.5,.35) {$ \rho $};
-\end{tikzpicture}
+\begin{minipage}{.3\linewidth}
+	%% T2:
+	\centering
+	\begin{tikzpicture}
+	\draw  plot [smooth cycle, tension=.7] coordinates { (0,0) (.25,.5) (.25,1) (.75,.75) (1,0) (.5,-.25)};
+	\node at (.5,.35) {$ \rho $};
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.7\linewidth}
+	\begin{align*}
+	W &= \frac{1}{8 \pi \epsilon_0} \int d^3r\ \int d^3r'\ \frac{\rho(\vec{r}) \rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}\\
+	&= \frac{1}{2} \int d^3r\ \rho(\vec{r}) \kq \underbrace{\int_{\mathbb R^3} d^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
+	\end{align*}
+\end{minipage}
 
-\begin{align*}
-W &= \frac{1}{8 \pi \epsilon_0} \int d^3r\ \int d^3r'\ \frac{\rho(\vec{r}) \rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}\\
-&= \frac{1}{2} \int d^3r\ \rho(\vec{r}) \kq \underbrace{\int_{\mathbb R^3} d^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
-\end{align*}
-
-%% T3:
-\begin{tikzpicture}
-\draw  plot [smooth cycle, tension=.7] coordinates { (0,0) (.25,.5) (.25,1) (.75,.75) (1,0) (.5,-.25)};
-\node at (.5,.35) {$ \rho $};
-\draw[thick] (-.5,-1) to[out=20,in=160] (1.5,-1);
-\draw[thick] (-1,-.5) to[out=70,in=-70] (-1,1.5);
-\draw[thick,->] (-.5,-1) to[out=20,in=180] (.5,-.8);
-\draw[thick,->] (-1,-.5) to[out=70,in=-90] (-.8,.5);
-\node at (-1.4,.5) {$ \vec{E}_{\tx{ext}} $};
-\end{tikzpicture}
-
-$$W_{\textrm{ext}} = \int d^3 r\ \rho(\vec{r}) \Phi_{\textrm{ext}}(\vec{r})$$
-
+\begin{minipage}{.5\linewidth}
+	%% T3:
+	\centering
+	\begin{tikzpicture}
+	\draw  plot [smooth cycle, tension=.7] coordinates { (0,0) (.25,.5) (.25,1) (.75,.75) (1,0) (.5,-.25)};
+	\node at (.5,.35) {$ \rho $};
+	\draw[thick] (-.5,-1) to[out=20,in=160] (1.5,-1);
+	\draw[thick] (-1,-.5) to[out=70,in=-70] (-1,1.5);
+	\draw[thick,->] (-.5,-1) to[out=20,in=180] (.5,-.8);
+	\draw[thick,->] (-1,-.5) to[out=70,in=-90] (-.8,.5);
+	\node at (-1.4,.5) {$ \vec{E}_{\tx{ext}} $};
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	$$W_{\textrm{ext}} = \int d^3 r\ \rho(\vec{r}) \Phi_{\textrm{ext}}(\vec{r})$$
+\end{minipage}
 
 \subsubsection{Energie $ W $ durch $ \vec{E} $ ausdrücken:}
 
@@ -1258,16 +1364,44 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\end{tikzpicture}
 \end{minipage}
 
+\begin{minipage}{.4\linewidth}
+	%andrez 5:
+	\paragraph{Normalkomponente $\vec{E}_\perp$}
+	
+	Gaußscher Satz für $V$:
+	\vspace{50pt}
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+	%% T12:
+	\centering
+	\begin{tikzpicture}
+	\coordinate (o) at (0,0);
+	\coordinate (O) at (-4,-2);
+	\draw[fill=gray!7.5] (-3,-1.4) -- (1.5,-1.4) -- (3,1.4) -- (-1.5,1.4) -- (-3,-1.4);
+	\draw[->] (O) -- ++(.4,0);
+	\draw[->] (O) -- ++(0,.4);
+	\draw[->] (O) -- ++(.3,.3);
+	\draw[red,fill=red!5] (o) ellipse (1cm and .5cm);
+	\draw[red,fill=red!5] ($ (o) + (0,2) $) ellipse (1cm and .5cm);
+	\draw[red,dashed,fill=red!5] ($ (o) + (0,-2) $) ellipse (1cm and .5cm);
+	\draw[red] (-1,2) -- (-1,0);
+	\draw[red] (1,2) -- (1,0);
+	\draw[red,dashed] (-1,-2) -- (-1,0);
+	\draw[red,dashed] (1,-2) -- (1,0);
+	\draw[red,thick,->] (o) -- ++(0,3) node[anchor=west] {$ \vec{n}_+ $};
+	\draw[blue,thick,->] (o) -- ++(0,-3) node[anchor=east] {$ \vec{n}_- $};
+	\draw[thick,->] (O) -- (o) node[xshift=-60pt,yshift=-20pt] {$ \vec{r} $};
+	\node[right] at (o) {$ F $};
+	\node[anchor=north west] at ($ (o) + (0,1.2) $) {$ \partial V_+ $};
+	\node[anchor=north west] at ($ (o) + (0,-.8) $) {$ \partial V_- $};
+	\draw[decorate, decoration={brace,amplitude=10pt,mirror,raise=2pt}, xshift=-4pt,red]  (-1,2) -- node[left=12pt] {$\Delta z$}  (-1,-2);
+	\node at (2.2,1) {$ \sigma(\vec{r}) $};
+	\draw ($ (o) + (.5,.3) $) to[out=30,in=150] (2.7,0) node[right] {$ V = \Delta z \cdot F $};
+	\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] at (0,-2) {};
+	\node[circle,fill=red,inner sep=1pt,minimum size=1pt] at (0,2) {};
+	\end{tikzpicture}
+\end{minipage}
 
-
-
-
-%andrez 5:
-\paragraph{Normalkomponente $\vec{E}_\perp$}
-
-%% T12
-
-Gaußscher Satz für $V$:
 \begin{align*}
 \int_V d^3 r'\ \vabla \cdot \vec{E}(\vec{r}) &= \int_{\partial V} d\vec{f}'\ \vec{E}(\vec{r})\\
 &=\custo{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}\atop \longrightarrow}{\int_{\textrm{Mantel}} d\vec{f}'\ \vec{E}}{\hspace{-23.5pt}0} + \custo{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}\atop \longrightarrow}{\int_{\partial V_+} d\vec{f}'\ \vec{E}(\vec{r})}{\int_F df'\ \vec{n} \cdot \vec{E}_+} + \custo{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}\atop \longrightarrow}{\int_{\partial V_-} d\vec{f}'\ \vec{E}}{- \int_F df'\ \vec{n} \cdot \vec{E}_-}
@@ -1288,18 +1422,68 @@ $ \vec{E}_{\pm} $ ist das Feld auf beiden Seiten der Grenzfläche
 E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\perp_-} (\vec{r}) = \frac{1}{\epsilon_0} \sigma(\vec{r})
 \end{equation*}
 
+%T 13 und Tafel vor M4:
 
-
-%T 13 und Tafel vor M4 
-
-
+\begin{minipage}{.4\linewidth}
+	\paragraph{Tangentialkomponente $ E\parallel $}
+	
+	Satz von Stokes:
+	\vspace{50pt}
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+	\centering
+	\begin{tikzpicture}[scale=1.25]
+		\draw (-2,1) to[out=-10,in=135] (0,0) to[out=-45,in=100] (1,-2);
+		%\draw (-.3,1.25) -- (1.25,.3) -- (.3,-1.25) -- (-1.25,-.3) -- (-.3,1.25);
+		\draw[->] ($ (0,0) + (-.25,1.25) + (-45:2cm) + (-135:1.5cm) $) -- ($ (0,0) + (-.25,1.25) + (-45:2cm) + (-135:.6cm) $);
+		\draw[->] ($ (0,0) + (-.25,1.25) + (-45:2cm) $) -- ($ (0,0) + (-.25,1.25) + (-45:1cm) $);
+		\draw[->] ($ (0,0) + (-.25,1.25) $) -- ($ (0,0) + (-.25,1.25) + (-135:.75cm) $);
+		\draw[->] ($ (0,0) + (-.25,1.25) + (-135:1.5cm) $) -- ($ (0,0) + (-.25,1.25) + (-135:1.5cm) + (-45:1cm) $);
+		\draw[draw=none,fill=gray,opacity=.1] ($ (0,0) + (-.25,1.25) $) -- ++(-135:1.5cm) -- ++(-45:2cm) -- ++(45:1.5cm) -- ++(135:2cm);
+		\draw ($ (0,0) + (-.25,1.25) $) -- ++(-135:1.5cm) -- ++(-45:2cm) -- ++(45:1.5cm) -- ++(135:2cm);
+		\draw[decorate, decoration={brace,amplitude=10pt,raise=2pt},red] ($ (0,0) + (-.25,1.25) $) -- node[above=10pt,xshift=13pt] {$ L $} ($ (0,0) + (-.25,1.25) + (-45:2cm) $);
+		\draw[decorate, decoration={brace,amplitude=10pt,mirror,raise=2pt},red] ($ (0,0) + (-.25,1.25) $) -- node[above=10pt,xshift=-12pt] {$ \Delta z $} ($ (0,0) + (-.25,1.25) + (-135:1.5cm) $);
+		\node at (1,-1) {$ \gamma $};
+		\coordinate (O) at (-1.5,-1.5);
+		\draw[->] (O) -- ++(.4,0);
+		\draw[->] (O) -- ++(0,.4);
+		\draw[->] (O) -- ++(.25,.25);
+		\node[anchor=north east] at (O) {$ O $};
+		\draw[thick,->] (O) -- (0,0) node[anchor=north east,yshift=-15pt,xshift=-25pt] {$ \vec{r} $};
+		\draw[thick,->] (0,0) -- ++(135:.75cm) node[anchor=south west,yshift=-10pt,xshift=5pt] {$ \vec{E} $};
+		\node at (-2,.3) {$ \sigma $};
+	\end{tikzpicture}
+\end{minipage}
+\begin{equation*}
+0 = \oint_r d\vec{r} \vec{E}(\vec{r}') = \ub{
+	\int\limits_{\begin{tikzpicture}[scale=.7]
+		\draw[dashed] (0,0) -- (1,0) -- (1,.7) -- (0,.7) -- (0,0);
+		\draw[thick,->] (1,0) -- (1,.7);
+		\end{tikzpicture}} \dots + 
+	\int\limits_{\begin{tikzpicture}[scale=.7]
+		\draw[dashed] (0,0) -- (1,0) -- (1,.7) -- (0,.7) -- (0,0);
+		\draw[thick,->] (0,0) -- (0,.7);
+		\end{tikzpicture}} \dots}_{= 0 \tx{ für } \Delta z \to 0} + \ub{
+	\int\limits_{\begin{tikzpicture}[scale=.7]
+		\draw[dashed] (0,0) -- (1,0) -- (1,.7) -- (0,.7) -- (0,0);
+		\draw[thick,->] (1,.7) -- (0,.7);
+		\end{tikzpicture}} d\vec{r}' \vec{E} + 
+	\int\limits_{\begin{tikzpicture}[scale=.7]
+		\draw[dashed] (0,0) -- (1,0) -- (1,.7) -- (0,.7) -- (0,0);
+		\draw[thick,->] (0,0) -- (1,0);
+		\end{tikzpicture}} d\vec{r}' \vec{E} }_{
+	\int\limits_{\begin{tikzpicture}[scale=.4]
+		\draw[dashed] (0,0) -- (1,0) -- (1,.7) -- (0,.7) -- (0,0);
+		\draw[thick,->] (1,0) -- (0,0);
+		\end{tikzpicture}} d\vec{r}' (\vec{E}_+ -  \vec{E}_-)}
+\end{equation*}
 \begin{equation*}
 0 = \oint_\gamma d\vec{r}' \cdot \vec{E} \buildrel \Delta z \to 0 \over \longrightarrow \int_{-\frac{L}{2}}^{-\frac{L}{2}} ds \vec{t} \cdot \left(\vec{E}_+ - \vec{E}_-\right) \buildrel L \to 0 \over \longrightarrow L \vec{t} \cdot \left(\vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r})\right) = 0
 \end{equation*}
 \begin{equation*}
 \rightarrow \vec{t} \cdot (\vec{E}_+ (\vec{r}) - \vec{E}_- (\vec{r}) = 0
 \end{equation*}
-$ \rightarrow $ Die Tangentialkomponente ist stetig
+$\rightarrow $ Die Tangentialkomponente ist stetig
 \begin{equation*}
 E_{\parallel_{+}} = E_{\parallel_{-}}
 \end{equation*}
@@ -1307,25 +1491,78 @@ Insgesamt ergibt sich damit:
 \begin{equation*}
 \vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r}) = \frac{\sigma}{\epsilon_0} \vec{n}
 \end{equation*}
-Das elektrische Potential $ \Phi $ ist damit stetig.
-\begin{equation*}
-\ub{\Phi(\vec{r}_b) - \Phi(\vec{r}_a)}_{\Phi_+(\vec{r}) - \Phi_-(\vec{r})} = \int_{\vec{r}_a}^{\vec{r}_b} d\vec{r}' \cdot \vec{E} \quad \buildrel \Delta z \to 0 \over \longrightarrow 0
-\end{equation*}
 
-% T14 
+\begin{minipage}{.6\linewidth}
+	Das elektrische Potential $ \Phi $ ist damit stetig.
+	\begin{equation*}
+	\ub{\Phi(\vec{r}_b) - \Phi(\vec{r}_a)}_{\Phi_+(\vec{r}) - \Phi_-(\vec{r})} = \int_{\vec{r}_a}^{\vec{r}_b} d\vec{r}' \cdot \vec{E} \quad \buildrel \Delta z \to 0 \over \longrightarrow 0
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	% T14:
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=gray!10] (-1.2,-.7) -- (.8,-.7) -- (1.2,.7) -- (-.8,.7) -- (-1.2,-.7);
+		\draw[thick,<-] (0,0) -- (1.5,-1) node[anchor=west] {$ \vec{r} $};
+		\node[anchor=south west] at (1,.7) {$ \sigma $};
+		\draw[thick,->] (0,0) -- (0,1) node[anchor=south west] {$ \vec{r}_n $};
+		\draw[thick,dashed] (0,0) -- (0,-.7);
+		\draw[thick,->] (0,-.7) -- (0,-1) node[anchor=north west] {$ \vec{r}_a $};
+		%\draw[decorate, decoration={brace,amplitude=10pt,raise=2pt},red] ($ (0,0) + (-.25,1.25) $) -- node[above=10pt,xshift=13pt] {$ L $} ($ (0,0) + (-.25,1.25) + (-45:2cm) $);
+		\draw[decorate, decoration={brace,amplitude=10pt,mirror,raise=2pt+10pt}] (0,1) -- node[left,xshift=-28pt] {$ \Delta z $} (0,-1);
+	\end{tikzpicture}
+\end{minipage}
 
 % andrez 6 oder 5:
 \paragraph{Randbedingungen an el. Leitern}
 
-Leiter: Material mit freibeweglichen Ladungsträgern (Metall)\\
-%% T15
-Eigenschaften von $\vec{E}$ im Leiter:
-\begin{enumerate}[i)]
-	\item $\vec{E} = 0$
-	\item $0 = \vabla \cdot \vec{E} = \frac{1}{\epsilon_0} \rho, \qquad \rho(\vec{r}) = 0$
-	\item Nettoladung befinden sich an Oberfläche %% T16
-	\item Potential $\Phi(\vec{r}_b) - \Phi(\vec{r}_a) = 0 \quad \rightarrow \quad \Phi(\vec{r}) = \const$ %% T17
-\end{enumerate}
+\begin{minipage}{.6\linewidth}
+	Leiter: Material mit freibeweglichen Ladungsträgern (Metall)\\
+	Eigenschaften von $\vec{E}$ im Leiter:
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	%% T15:
+	\centering
+	\begin{tikzpicture}
+		\draw[thick] (0,0) arc (90:0:2.5cm);
+		\draw[draw=none,pattern=north east lines] (0,0) arc (90:0:2.5cm) -- ++(-2.5,0) -- (0,0);
+		\node[right] at (1.5,0) {Vakuum};
+		\node[fill=white,opacity=.8,rounded corners] at (1,-2) {Leiter};
+		\node[fill=white,opacity=.8,rounded corners] at (1,-1) {$ \vec{E} = 0 $};
+	\end{tikzpicture}
+\end{minipage}\\[10pt]
+
+\begin{minipage}{.6\linewidth}
+	\begin{enumerate}[i)]
+		\item $\vec{E} = 0$
+		\item $0 = \vabla \cdot \vec{E} = \frac{1}{\epsilon_0} \rho, \qquad \rho(\vec{r}) = 0$
+		\item Nettoladung befinden sich an Oberfläche %T16
+		\item Potential $\Phi(\vec{r}_b) - \Phi(\vec{r}_a) = 0 \quad \rightarrow \quad \Phi(\vec{r}) = \const$ % T17
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+		%% T16:
+		\centering
+		\begin{tikzpicture}[scale=.8]
+		\draw[pattern=north east lines] (0,0) circle (1cm);
+		\draw[fill=white,opacity=.6,draw=none] (0,0) circle (.995cm);
+		\foreach \x/\xtext in {0/$+$,45/$+$,90/$+$,135/$+$,180/$+$,225/$+$,270/$+$,315/$+$}
+		\node at (\x:.8cm) {\xtext};
+		\draw[<-] (-45:1.2cm) -- ++(.5,-.2) node[right] {$ \substack{\tx{Flächenladung} \\ \sigma} $};
+		\end{tikzpicture}\\
+		%% T17:
+		\begin{tikzpicture}[scale=.8]
+		\draw[pattern=north east lines] (0,0) circle (1cm);
+		\draw[fill=white,opacity=.7,draw=none] (0,0) circle (.995cm);
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] (b) at (-.7,.25) {};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] (a) at (.7,.25) {};
+		\draw (a) --(b);
+		\node[below] at (a) {$ \vec{r_a} $};
+		\node[below] at (b) {$ \vec{r_b} $};
+		\end{tikzpicture}\hspace{66pt}
+\end{minipage}
+
+
 
 \paragraph{Randbedingungen}
 %% T18
@@ -1334,21 +1571,6 @@ $$\vec{E}_- = 0$$
 $$\rightarrow \vec{E}_+(\vec{r}) = \frac{\sigma(\vec{r})}{\epsilon_0} \vec{n} {(\vec{r})}$$
 \folie{Ladung an Oberfläche eines Leiters}
 
-
-
-
-
-
-
-% für tikz13 
-\begin{equation*}
-\int\limits_{\begin{tikzpicture}[scale=.5]
-	\draw (0,0) -- (1,0);
-	\draw (1,0) -- (1,1);
-	\draw (1,1) -- (0,1);
-	\draw (0,1) -- (0,0);
-	\end{tikzpicture}}
-\end{equation*}
 
 % 5.11.18
 
@@ -1385,6 +1607,8 @@ Zwei Fälle:
 \end{enumerate}
 
 %T2
+
+
 \lcom{Wir beschränken uns vorwiegend auf den ersten Fall. }
 \lcom{Zur Lösung dieser Probleme gibt es einige Methoden. Zum Einstieg und zur Wiederholung betrachten wir zunächst die Methode der Spiegelladung. }
 
@@ -1572,8 +1796,8 @@ Es gilt (HA):
 \end{equation*}
 
 \rbox{\begin{align*}
-\Phi(\vec{r}) &= \int_V d^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}')\\
-&\ \ \ \, - \epsilon_0 \int_{\partial V} df' \Phi_0(\vec{r}') \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}')
+\Phi(\vec{r}) &= \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}')\\
+&\ \ \ \, - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}') \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}')
 \end{align*}}
 
 

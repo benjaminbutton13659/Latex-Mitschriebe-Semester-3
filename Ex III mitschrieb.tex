@@ -30,6 +30,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathreplacing}
 
 
 %Environments und Newcommands:
@@ -54,6 +55,8 @@
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\ub}[1]{\underbrace{#1}}
 \newcommand{\ob}[1]{\overbrace{#1}}
+
+\newcommand{\dd}{\tx{d}}
 
 %Mathe:
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
@@ -132,6 +135,39 @@
 
 % evtl: \renewcommand{\boxed}{\rmbox}
 
+\def\centerarc[#1](#2)(#3:#4:#5)% Syntax: [draw options] (center) (initial angle:final angle:radius)
+{ \draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
+
+\tikzset{
+	annotated cuboid/.pic={
+		\tikzset{%
+			every edge quotes/.append style={midway, auto},
+			/cuboid/.cd,
+			#1
+		}
+		\draw [every edge/.append style={pic actions, densely dashed, opacity=.5}, pic actions]
+		(0,0,0) coordinate (o) -- ++(-\cubescale*\cubex,0,0) coordinate (a) -- ++(0,-\cubescale*\cubey,0) coordinate (b) edge coordinate [pos=1] (g) ++(0,0,-\cubescale*\cubez)  -- ++(\cubescale*\cubex,0,0) coordinate (c) -- cycle
+		(o) -- ++(0,0,-\cubescale*\cubez) coordinate (d) -- ++(0,-\cubescale*\cubey,0) coordinate (e) edge (g) -- (c) -- cycle
+		(o) -- (a) -- ++(0,0,-\cubescale*\cubez) coordinate (f) edge (g) -- (d) -- cycle;
+		\path [every edge/.append style={pic actions, |-|}]
+		%(b) +(0,-5pt) coordinate (b1) edge ["\cubex \cubeunits"'] (b1 -| c)
+		%(b) +(-5pt,0) coordinate (b2) edge ["\cubey \cubeunits"] (b2 |- a)
+		%(c) +(3.5pt,-3.5pt) coordinate (c2) edge ["\cubez \cubeunits"'] ([xshift=3.5pt,yshift=-3.5pt]e)
+		;
+	},
+	/cuboid/.search also={/tikz},
+	/cuboid/.cd,
+	width/.store in=\cubex,
+	height/.store in=\cubey,
+	depth/.store in=\cubez,
+	units/.store in=\cubeunits,
+	scale/.store in=\cubescale,
+	width=10,
+	height=10,
+	depth=10,
+	units=cm,
+	scale=.1,
+}
 
 \hbadness=99999
 
@@ -831,7 +867,7 @@ $ n_2 $: optisch dünner
 \begin{minipage}{.4\linewidth}
 	% T1:
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=1.5]
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (0,0) (A) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (2,-.3) (B) {};
 	\node[left] at (A) {A};
@@ -927,12 +963,11 @@ Extremum:\\
 n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 \end{equation*}
 
-% T4:
 \begin{minipage}{\linewidth}
 	% T4:
 	\centering
 	\begin{tikzpicture}[scale=1.5]
-	\draw[draw=none,fill=gray!10] (-1.5,0) rectangle (1.5,-1);
+	\draw[draw=none,fill=gray!10] (-1.5,0) rectangle (1.5,-1.1);
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-.75,.4) (A) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1,-.75) (B) {};
 	\node[anchor=south east] at (A) {A};
@@ -949,7 +984,7 @@ n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 	\draw[dashed] (0,-1) -- (0,1);
 	\end{tikzpicture} \hspace{80pt}
 	\begin{tikzpicture}[scale=1.5]
-	\draw[draw=none,fill=gray!10] (-1.5,0) rectangle (1.5,-1);
+	\draw[draw=none,fill=gray!10] (-1.5,0) rectangle (1.5,-1.1);
 	\filldraw[draw=none,pattern=north east lines] (-1.5,0) rectangle (1.5,-.1);
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-1,.75) (A) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1,-.75) (B) {};
@@ -972,12 +1007,12 @@ t(x) = \frac{\sqrt{x^2 + a^2}}{c_1} + \frac{\sqrt{(b-x)^2 + d^2}}{c_2} = \frac{1
 \folie{zu Brechung}
 $ \frac{dt}{dx} = 0 $
 
-\begin{minipage}{.6\linewidth}
+\begin{minipage}{.55\linewidth}
 	\frbox{Brechungsgesetz}{\begin{equation*}
 		\Rightarrow n_1 \sin \alpha = n_2 \sin \beta
 		\end{equation*}}
 \end{minipage}
-\begin{minipage}{.4\linewidth}
+\begin{minipage}{.45\linewidth}
 	%T5:
 	\centering
 	\begin{tikzpicture}[scale=1.5]
@@ -1002,9 +1037,10 @@ $ \frac{dt}{dx} = 0 $
 	\node[below] at (-.5,0) {$ x $};
 	\node[above] at (.75,0) {$ b $};
 	\node[right] at (1.5,-.25) {$ d $};
-	\end{tikzpicture}
+	\node at (-1.7,-.25) {$ n_2 $};
+	\node at (-1.7,.25) {$ n_1 $};
+\end{tikzpicture}
 \end{minipage}
-
 
 \section{Einfache Anwendungen}
 
@@ -1017,24 +1053,48 @@ $ \rightarrow $ siehe Experimentalphysik II\\
 \end{equation*}
 
 \subsection{Optisches Prisma}
-
-% T6:
-\begin{tikzpicture}
-	%\tikz\draw (0,0) -- (-60:1cm) -- (45:1cm);
-	%\draw (0,0) -- (-120:1cm);
-	%\draw    (0cm,0cm) -- (30:1cm) -- (60:1cm) -- (90:1cm) -- (120:1cm) -- (150:1cm) -- (180:1cm);
-	\draw (0,1) -- (210:1cm) -- (330:1cm) -- (90:1cm);
-	\draw (2,2) -- ++(120:1cm) -- ++(240:1cm) -- ++(360:1cm);
-\end{tikzpicture}
-
 \lcom{Bei Drehung des Prismas kann der Winkel $ \delta $ verändert werden. Hier gibt es es ein Minimum, jedoch kann er nie null werden, da das Licht nie gerade durch das Prisma hindurch kommen kann.}
 
 \subsubsection{Beobachtung I}
-Die Ablenkung ist minimal für den symmetrischen  Strahlengang
-\begin{equation*}
-\sin \frac{\delta_{\tx{min}} + \gamma}{2} = n \sin \frac{\gamma}{2}
-\end{equation*}
-\folie{Demtröder: Prisma}\\
+
+\begin{minipage}{.55\linewidth}
+	Die Ablenkung ist minimal für den symmetrischen  Strahlengang
+	\begin{equation*}
+	\sin \frac{\delta_{\tx{min}} + \gamma}{2} = n \sin \frac{\gamma}{2}
+	\end{equation*}
+	\folie{Demtröder: Prisma}
+	\vspace{40pt}
+\end{minipage}
+\begin{minipage}{.45\linewidth}
+	% T6:
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=gray!10] (2,0) -- ++(120:4cm) -- ++(240:4cm) -- ++(360:4cm);
+		\coordinate (d) at ($(60:2cm) + (120:2cm)$);
+		\coordinate (a) at (120:2cm); %($ (-2,0)!.4!(d) $);
+		\coordinate (c) at (60:2cm);
+		\coordinate (b) at ($ (2,0)!.6!(d) $) {};
+		\draw[dashed] ($(a) + (150:1cm)$) -- ++(-30:2cm);
+		\draw[dashed] ($(b) + (30:1cm)$) -- ++(210:2cm);
+		\draw[thick] (3,1.5) -- (b) -- (a) -- ++(220:2cm);
+		\draw[dashed] (a) -- ++(40:4cm);
+		\centerarc[](a)(150:220:.8cm);
+		\node[left,xshift=-5pt,yshift=-2pt] at (a) {$ \alpha_1 $};
+		\centerarc[](a)(-30:10:.8cm);
+		\node[anchor=north west,yshift=-4pt] at (a) {$ \beta_1 $};
+		\centerarc[](b)(190:210:.8cm);
+		\node[anchor=north east,yshift=-5pt] at (b) {$ \beta_2 $};
+		\centerarc[](b)(30:-14:.9cm);
+		\node[right,xshift=8pt,yshift=1pt] at (b) {$ \alpha_2 $};
+		\coordinate (o) at (-.26,2.34) {};
+		\centerarc[](o)(40:-14:2.5cm);
+		\node at ($ (b) + (1.7,.8) $) {$ \delta $};
+		\centerarc[](d)(-120:-60:.6cm);
+		\node[below,yshift=-3pt] at (d) {$ \gamma $};
+		\node[above] at (-1,0) {$ n = n_2 $};
+		\node[below] at (-1.5,-.3) {$ n = n_1 $};
+	\end{tikzpicture}
+\end{minipage}
 \textbf{Berechnung:}
 \begin{enumerate}[(i)]
 	\item $ \gamma = \beta_1 + \beta_2 $
@@ -1112,34 +1172,132 @@ $ \sin(x) \approx x \qquad \cos(x) \approx 1 \qquad \tan(x) \approx x $\\[5pt]
 \textbf{Berechnung:}\\
 Ablenkung des Strahls
 
-% T8 
+\begin{minipage}{.5\linewidth}
+	\begin{enumerate}
+		\item[(i)] $ \delta = \alpha_1 - \beta_1 + \alpha_2 - \beta_2 $
+		\item[(ii)] $ \beta_1 + \beta_2 = \gamma $
+		\item[(iii)] $ n_1 \alpha_1 \approx n_2 \beta_1 \qquad n_2 \beta_2 \approx n_1 \alpha_2 $
+		\begin{equation*}
+		\Rightarrow \quad \delta = \gamma\left(\frac{n_2}{n_1} - 1\right)
+		\end{equation*}
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	% T8:
+	\centering
+	\begin{tikzpicture}
+		\draw[dashed] (0,4) arc (150:170:400pt);
+		\draw[dashed] (0,4) arc (30:10:400pt);
+		\centerarc[](0,4)(-118:-62:.8cm);
+		\node[below,yshift=-7pt] at (0,4) {$ \gamma $};
+		%\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (1.55,0) {};
+		%\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (.95,2) {};
+		\coordinate (x) at (1.55,0);
+		\coordinate (x2) at (-1.55,0);
+		\coordinate (y) at (.95,2);
+		\coordinate (y2) at (-.95,2);
+		\draw[fill=gray!10] (x) -- (y) -- (y2) -- (x2) -- (x);
+		\coordinate (b) at ($ (x)!.6!(y) $);
+		\coordinate (a) at ($ (x2)!.4!(y2) $);
+		%\draw(a) -- (b);
+		% winkel der seiten ist 107 grad bzw 73 grad
+		\draw[dashed] ($(a) + (163:1cm)$) -- ++(-17:2cm);
+		\draw[dashed] ($(b) + (197:1cm)$) -- ++(17:2.75cm);
+		\draw[thick] (3,.5) -- (b) -- (a) -- ++(220:2.5cm);
+		\draw[dashed] (a) -- ++(40:5cm);
+		\centerarc[](a)(163:220:.8cm);
+		\node[left,xshift=-5pt,yshift=-2pt] at (a) {$ \alpha_1 $};
+		\centerarc[](a)(-17:10:.8cm);
+		\node[anchor=north west,yshift=-4pt] at (a) {$ \beta_1 $};
+		\centerarc[](b)(190:197:.8cm);
+		\node[anchor=north east,yshift=-5pt] at (b) {$ \beta_2 $};
+		\centerarc[](b)(17:-20:.9cm);
+		\node[right,xshift=8pt,yshift=-1pt] at (b) {$ \alpha_2 $};
+		\centerarc[](b)(17:-20:1.5cm);
+		\node[right,xshift=25pt,yshift=2pt] at (b) {$ \delta_2 $};
+		\centerarc[](a)(40:12:4.02cm);
+		\node[right,xshift=87pt,yshift=45pt] at (a) {$ \delta_1 $};
+		\coordinate (o) at (-.22,1.71) {};
+		%\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (-.22,1.71) {};
+		%\draw (b) -- ++(160:3cm);
+		\centerarc[](o)(40:-20:3.4cm);
+		\node at ($ (b) + (2.2,1) $) {$ \delta $};
+		\node[above] at (1,0) {$ n_2 $};
+		\node[below] at (1.2,-.3) {$ n_1 $};
+	\end{tikzpicture}
+\end{minipage}
 
-\begin{enumerate}[(i)]
-	\item $ \delta = \alpha_1 - \beta_1 + \alpha_2 - \beta_2 $
-	\item $ \beta_1 + \beta_2 = \gamma $
-	\item $ n_1 \alpha_1 \approx n_2 \beta_1 \qquad n_2 \beta_2 \approx n_1 \alpha_2 $
-	\begin{equation*}
-	\Rightarrow \quad \delta = \gamma\left(\frac{n_2}{n_1} - 1\right)
-	\end{equation*}
-\end{enumerate}
-Winkel $ \gamma $: 
+\noindent
+Winkel $ \gamma $:\\[10pt]
+\begin{minipage}{.035\linewidth}
+	$ \phantom{.} $
+\end{minipage}
+\begin{minipage}{.475\linewidth}
+	\begin{enumerate}
+		\item[(iv)] $ \gamma = \gamma_1 + \gamma_2 $
+		\item[(v)] $ \gamma_1 \approx \frac{h}{R_1} \quad ;\quad \gamma_2 \approx \frac{h}{R_2} $
+		\begin{equation*}
+		\Rightarrow \qquad \gamma = h \left(\frac{1}{R_1} - \frac{1}{R_2}\right)
+		\end{equation*}
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%T9:
+	\centering
+	\begin{tikzpicture}[decoration=brace,scale=.8]
+		\coordinate (a) at ( .25,0) {};
+		\coordinate (b) at (-.25,0) {};
+		\draw[fill=gray!10,draw=none] ($(b)+(135:2cm) + (-0.02,0)$) rectangle ($(a)+(-28:3cm)$);
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (a) {};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (b) {};
+		\centerarc[thick,fill=gray!10](a)(-28:28:3cm);
+		\centerarc[thick,fill=gray!10](b)(135:225:2cm);
+		\draw[dashed] (-3,0) -- (4,0);
+		\draw (a) -- ++(19:3cm);
+		\draw (b) -- ++(150:2cm);
+		\draw[color=gray!70] ($(b)+(135:2cm)$) -- ($(a)+(28:3cm)$);
+		\draw[color=gray!70] ($(b)+(225:2cm)$) -- ($(a)+(-28:3cm)$);
+		\draw[red] (-2.5,0) -- (-2.5,1);
+		\draw[red] (-2.6,1) -- (-2.4,1);
+		\draw[red,dashed] (-2.5,1) -- (-2,1);
+		\draw[decorate, xshift=-4pt,red]  (-2.5,0) -- node[left=0.4pt] {$h$}  (-2.5,1);
+		\node[below] at (-1.25,0) {$ R_1 $};
+		\node[below] at (1.8,0) {$ R_2 $};
+		\centerarc[](b)(180:150:1.2cm);
+		\centerarc[](a)(0:19:1.5cm);
+		\node[right,yshift=4pt,xshift=17pt] at (a) {$ \gamma_2 $};
+		\node[left,yshift=4pt,xshift=-10pt] at (b) {$ \gamma_1 $};
+	\end{tikzpicture}
+\end{minipage}
 
-% T9
+\noindent
+Winkel $ \delta $:\\[10pt]
+\begin{minipage}{.035\linewidth}
+	$ \phantom{.} $
+\end{minipage}
+\begin{minipage}{.475\linewidth}
+	\begin{enumerate}
+		\item[(vi)] $ \delta \approx \frac{h}{f} $
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%T10:
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=gray!10] (0,0) ellipse (.2cm and 1.7cm);
+		\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ y $};
+		\draw[red] (-2,1.2) -- (0,1.2) -- (2,-1.2);
+		\draw[red,thick,<->] (0,0) -- (1,0) node[below,xshift=-14pt] {$ f $};
+		\draw[red,thick,<->] (-1,0) -- (-1,1.2) node[left,yshift=-17pt] {$ h $};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (1,0) {};
+		\draw[blue,dashed] (0,1.2) -- (2,1.2);
+		\centerarc[blue](0,1.2)(0:-50:1cm);
+		\node[blue] at (.6,.9) {$ \delta $};
+	\end{tikzpicture}
+\end{minipage}
 
-\begin{enumerate}
-	\item[(iv)] $ \gamma = \gamma_1 + \gamma_2 $
-	\item[(v)] $ \gamma_1 \approx \frac{h}{R_1} \quad ;\quad \gamma_2 \approx \frac{h}{R_2} $
-	\begin{equation*}
-	\Rightarrow \qquad \gamma = h \left(\frac{1}{R_1} - \frac{1}{R_2}\right)
-	\end{equation*}
-\end{enumerate}
-Winkel $ \delta $:
 
-% T10 
-
-\begin{enumerate}
-	\item[(vi)] $ \delta \approx \frac{h}{f} $
-\end{enumerate}
 
 
 % 6.11.18 Vorlesung 7
@@ -1157,15 +1315,43 @@ $ D = D_{\tx{Vorne}} + D_{\tx{Hinten}} $
 
 \subsection{Abbildung (am Beispiel einer Sammellinse)}
 
-%T1
+\begin{minipage}{.5\linewidth}
+	Berechnung:
+	\begin{enumerate}[i)]
+		\item $ \delta = \alpha + \beta $
+		\item $ \alpha \approx \frac{h}{a} \quad \beta \approx \frac{h}{b} $
+		\item $ \delta \approx \frac{h}{f} $
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%T1:
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=gray!10] (0,0) ellipse (.2cm and 1.7cm);
+		\draw[dashed]  (0,-2) -- (0,2);
+		\draw (-3,0) -- (3,0);
+		\coordinate (A) at (-2.5,0);
+		\coordinate (B) at (2.5,0);
+		\node[below] at (A) {$ A $};
+		\node[below] at (B) {$ B $};
+		\draw[thick] ($ (A) + (0,-.1) $) -- ++(0,.2);
+		\draw[thick] ($ (B) + (0,-.1) $) -- ++(0,.2);
+		\coordinate (M) at (0,1);
+		\draw (A) -- (M) -- (B);
+		\node[below] at ($ (0,0)!.5!(A) $) {$ a $};
+		\node[below] at ($ (0,0)!.5!(B) $) {$ b $};
+		\draw[dashed,thick] (M) -- ++($ (B) + (M) $);
+		\centerarc[](M)(22:-22:1cm);
+		\node[right,xshift=10pt] at (M) {$ \delta $};
+		\centerarc[](A)(22:0:1.5cm);
+		\node[right,xshift=20pt,yshift=5pt] at (A) {$ \alpha $};
+		\centerarc[](B)(158:180:1.5cm);
+		\node[left,xshift=-25pt,yshift=6pt] at (B) {$ \beta $};
+		\draw (A) -- ++(-158:1cm);
+		\draw (B) -- ++(-22:1cm);
+	\end{tikzpicture}
+\end{minipage}
 
-\noindent
-Berechnung:
-\begin{enumerate}[i)]
-	\item $ \delta = \alpha + \beta $
-	\item $ \alpha \approx \frac{h}{a} \quad \beta \approx \frac{h}{b} $
-	\item $ \delta \approx \frac{h}{f} $
-\end{enumerate}
 \frbox{Abbildungsgesetz}{\begin{equation*}
 \Rightarrow \frac{1}{f} = \frac{1}{a} + \frac{1}{b}
 \end{equation*}}
@@ -1177,13 +1363,49 @@ Graphisch:
 	\item Zentralstrahl läuft gerade
 \end{enumerate}
 
-% T2
+\begin{minipage}{.5\linewidth}
+	\textbf{Rechnerisch}
+	\begin{enumerate}[(i)]
+		\item $ \frac{1}{f} = \frac{1}{a} + \frac{1}{b} $
+		\item $ \frac{A}{a} = \frac{B}{b} $
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	% T2:
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=gray!10] (0,0) ellipse (.2cm and 1.7cm);
+		\draw[dashed]  (0,-2) -- (0,2);
+		\draw (-3,0) -- (3,0);
+		\coordinate (A) at (-2.5,1);
+		\coordinate (B) at (2.5,-1);
+		\node[above] at (A) {$ A $};
+		\node[below] at (B) {$ B $};
+		\draw[thick] ($ (-2.5,0) + (0,-.1) $) -- ++(0,.2);
+		\draw[thick] ($ (2.5,0) + (0,-.1) $) -- ++(0,.2);
+		\coordinate (M) at (0,1);
+		\coordinate (m) at (0,-1);
+		\draw (A) -- (M) -- (B);
+		\draw (A) -- (B);
+		\draw (A) -- (m) -- (B);
+		\node[below] at ($ (0,0)!.5!(-2.5,0) $) {$ f $};
+		\node[above] at ($ (0,0)!.5!(2.5,0) $) {$ f $};
+		\draw[thick] ($ (1.25,0) + (45:.1) $) -- ++(-135:.2);
+		\draw[thick] ($ (1.25,0) + (-45:.1) $) -- ++(135:.2);
+		\draw[thick] ($ (-1.25,0) + (45:.1) $) -- ++(-135:.2);
+		\draw[thick] ($ (-1.25,0) + (-45:.1) $) -- ++(135:.2);
+		\node[below] at (-2,0) {$ a $};
+		\node[below] at (2,0) {$ b $};
+		\draw[very thick,->] (-2.5,0) -- (A);
+		\draw[very thick,->] (2.5,0) -- (B);
+		\node[circle,draw=black,inner sep=1pt] at (-1,1.5) {1};
+		\node[circle,draw=black,inner sep=1pt] at (-.6,.7) {2};
+		\node[circle,draw=black,inner sep=1pt] at (-.7,-1) {3};
+	\end{tikzpicture}
+\end{minipage}
 
-\textbf{Rechnerisch}
-\begin{enumerate}[(i)]
-	\item $ \frac{1}{f} = \frac{1}{a} + \frac{1}{b} $
-	\item $ \frac{A}{a} = \frac{B}{b} $
-\end{enumerate}
+
+
 
 \section{Abbildungsfehler}
 
@@ -1225,8 +1447,18 @@ Bei verunreinigten Stoffen wird Licht absorbiert.
 
 \subsection{Vergrößerung}
 
-\textbf{Sehwinkel}
-%T3
+\textbf{Sehwinkel:}
+%T3:
+\hspace{40pt}
+\begin{tikzpicture}
+	\draw ($ (-.5,0) + (25:.7cm) $) -- ++(-155:.7cm) -- ++(-25:.7cm);
+	\centerarc[](-.5,0)(-25:25:.5cm);
+	\draw (3,0) -- (0,0) -- (3,1);
+	\draw[thick,->] (3,0) -- (3,1) node[right,yshift=-15pt] {$ G $};
+	\centerarc[](0,0)(0:18.5:1.5cm);
+	\node[yshift=5pt,xshift=30pt] at (0,0) {$ \alpha $};
+\end{tikzpicture}
+
 \begin{equation*}
 \tan\alpha = \frac{\tx{Größe des Objekts}}{\tx{Entfernung des Objekts}}
 \end{equation*}
@@ -1257,7 +1489,7 @@ V = \frac{\tx{Sehwinkel mit Instrument}}{\alpha_{\tx{Auge}}} = (\tx{Sehwinkel mi
 
 \subsection{Optisches Instrument mit einer Linse: Lupe}
 
-%T4 Bs
+%T4 Bs in seiner folie nachschauen
 
 Gegenstand nahezu in Brennebenen, $ g < f $\\
 Graphisch: siehe oben\\
