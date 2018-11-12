@@ -42,6 +42,9 @@
 % better looking := (defined as)
 \newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}}=}
 \newcommand*{\eqdef}{=\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.}\hbox{\scriptsize.}}}}
+% integral differential d
+\newcommand{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\difi}[1]{\mathrm{d}#1\mathop{}\!}
 
 \newcommand{\hfw}{\color{RubineRed}\tx{ $\star$hier fehlt was$\star$ } \color{black}}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
@@ -2040,7 +2043,33 @@ $$ \Phi(0) = c_1 = \Phi_1  \qquad \Phi(l_x) = \Phi_1 + c_2 l_x = \Phi_2 $$
 
 % 12.11.18
 
-%andrez 1
+\bbb{Wiederholung}{$$\Delta \Phi(\vec{r}) = 0 + \textrm{Randbedingungen}$$
+$$\Phi = \Phi(x,y) = f(x)g(y)$$
+$$\Phi_n(x,y) = A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)$$
+$$n \in \mathbb N$$
+$$\Phi(x,y) = \sum_n A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)$$
+$$A_n = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \intt{0}{l_x}\textrm{d}x\ \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x)$$} % T1 = T6 letzten vorlesung
+
+\subsection{Vollständige Orthonormale Funktionensysteme (VONS)}
+Betrachte Funktionen $g(x),h(x)$ auf $I = [a,b] \subset \mathbb R$
+$$h,g \cdot I \to \mathbb R\ (\mathbb C)$$
+Skalarprodukt: $(g,h) = \int_a^b \textrm{d}x\ g^* (x) h(x)$\\
+$(g,h) = 0$: $g$ und $h$ orthogonal, $(g,g) = 1:\ g$ normiert\\
+Norm: $||g|| = \sqrt{(g,g)}$
+
+Ein abzählbarer Satz von Funktionen $\{f_n\} = \{f_1, f_2, \dots \}$\\
+Heißt orthonormiert falls: $(f_m,f_n) = \delta_{nm}\ \rightarrow$ \underline{orthonormalsystem}\\
+\underline{Vollständigkeit:} Ein Satz von Funktionen heißt vollständig (VONS) falls \underline{jede} quadratintegrable\footnote{$\textrm{Falls }\int \textrm{d}x\ |g(x)|^2 \textrm{ existiert}$} Funktion $g: I \to \mathbb R (\mathbb C)$ in der Form $g(x) = \summ{n = 1}{\infty} a_n f_n(x)$ dargestellt werden kann.\\
+Genauer: $\lim\limits_{n \to \infty} \intt{a}{b} \textrm{d}x\ |\ g(x) - \summ{n = 1}{\infty} a_n f_n(x)| = 0$
+Bestimmung der Koeffizient an:
+$$g(x) = \sum_n a_n f_n(x)\ | \int \textrm{d}x\ f_m^*(x)$$
+$$\intt{a}{b}\textrm{d}x\ f_m^* (x) g(x) = \summ{n = 1}{\infty} \underbrace{\intt{a}{b} \textrm{d}x\ f_m^* (x)f_n(x)}_{= \delta_{nm}} = a_m$$
+\begin{align*}
+ 	g(x) &= \sum_n a_n f_n (x) = \sum_n (f_n,g)f_n(x)\\
+ 	&= \sum_n \intt{a}{b} \textrm{d}x'\ f_n^* (x') g(x') f_n(x)\\
+ 	&= \intt{a}{b} \textrm{d}x'\ g(x') \underbrace{\summ{n = 1}{\infty} f_n(x)f_n^*(x')}_{= \delta(x - x')}
+\end{align*}
+\frbox{Vollständigkeitsrelation}{$$\summ{n = 1}{\infty}f_n(x)f_n^*(x') = \delta(x - x')$$}
 
 \emph{Beispiele:}
 \begin{enumerate}[1)]
@@ -2072,7 +2101,45 @@ $ \Delta \Phi = 0 $
 \end{pmatrix}
 \end{equation*}
 
-% andrez 2 
+$$\Phi = \Phi(r,\theta, \varphi)$$
+$$\Delta \Phi = 0$$
+$$\rightarrow \frac{1}{r} \prt{^2}{r^2}(r \Phi) + \frac{1}{r^2 \sin \theta} \prt{}{\theta} \left( \sin \theta \prt{\Phi}{\theta}\right) + \frac{1}{r^2 \sin^2 \theta} \prt{^2 \Phi}{\varphi^2} = 0$$
+$$\frac{1}{r} \prt{^2}{r^2} (r \Phi) = \frac{1}{r^2} \prt{}{r} \left(r^2 \prt{\Phi}{r}\right)$$
+Separationsansatz:
+$$\Phi(r,\theta,\varphi) = \frac{U(r)}{r} P(\cos\theta)Q(\varphi)$$
+1. Term:
+$$\frac{1}{r} \prt{^2}{r^2} (\cancel{r} \frac{U(r)}{\cancel{r}} P(\cos\theta)Q(\varphi)) = P(\cos\theta)Q(\varphi)\frac{1}{r}\frac{\textrm{d}^2 U}{\textrm{d} r^2}$$
+$$\Rightarrow 0 = PQ \frac{1}{r} \frac{\textrm{d}^2 U}{\textrm{d} r^2} + UQ \frac{1}{r^3 \sin \theta}\frac{\textrm{d}}{\textrm{d}\theta} \left(\sin\theta \frac{\textrm{d} P}{\textrm{d} \theta} \right) + UP \frac{1}{r^3 \sin^2 \theta} \frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2} \qquad \bigg\rvert \cdot \frac{r^3 \sin^2 \theta}{UPQ}$$
+$$\Rightarrow \underbrace{- r^2 \sin^2 \theta \frac{1}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} - \sin \theta \frac{1}{P}\frac{\textrm{d}^2}{\textrm{d} \theta}\left( \sin \theta \frac{\textrm{d} P}{\textrm{d} \theta} \right)}_{\textrm{unabhängig von } \varphi} = \underbrace{\frac{1}{Q} \frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2}}_{\mathclap{\textrm{unabhängig von }r,\theta}} = \const = -m^2$$
+für $Q$:
+\begin{enumerate}[i)]
+	\item $$\frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2} + m^2 Q = 0$$ Lösung: $$Q(\varphi) = e^{im\varphi} = \cos(m\varphi) + i\sin(m\varphi)$$
+	 	$$Q(\varphi + 2 \pi) = Q(\varphi) \quad e^{im(\varphi + 2\pi)} = e^{im\varphi} \Rightarrow \Rightarrow m = \mathbb Z$$
+	 	$$\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} + \frac{1}{P\sin\theta} \frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right) = \frac{m^2}{\sin^2\theta}$$
+	 	$$\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} = - \frac{1}{P\sin\theta}\frac{\textrm{d} P}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right)$$ % montegue
+	 \item $$\frac{\textrm{d}^2 U}{\textrm{d} r^2}\qquad \frac{\lambda}{r^2} = 0$$
+	 	$\rightarrow$ Lösung für $\lambda = l(l + 1)$
+	 	$$U(r) = a_l r^{l + 1} + b_l r^{-l}$$
+	 	$\rightarrow$ \underline{Spezielle Lösung für $m = 0$:}
+	 	$$\Phi(r,\theta) = \frac{U(r)}{r}P_l (\cos\theta) = (a_l r^l + b_l r^{-l - 1}) P_l (\cos\theta)$$
+	 	allg. Lösung: $\Delta\Phi = 0$ für $\prt{\Phi}{\varphi} = 0$
+	 	$$\Phi(r,\theta) = \summ{l = 0}{\infty} (\custo{\to}{a_l}{\mathclap{\hspace{30pt}\textrm{durch Randbedingungen festgelegt}}} r^l + \custo{\to}{b_l}{} r^{-l - 1}) P_l(\cos\theta)$$
+	 \item $$\frac{1}{\sin\theta} \frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta}\right) + \left(\lambda - \frac{m^2}{\sin^2\theta}\right)P(\cos\theta) = 0$$
+	 	$$x \defeq \cos\theta \quad P(x): \textrm{ DGL für } P(x) \quad \frac{\textrm{d}}{\textrm{d} \theta} P(x(\theta)) = \frac{\textrm{d}P}{\textrm{d}x} \frac{\textrm{d}x}{\textrm{d}\theta} = -\sin \theta \frac{\textrm{d}P}{\textrm{d}x}$$
+	 	$$\frac{\textrm{d}}{\textrm{d} x} = -\sin\theta \frac{\textrm{d}}{\textrm{d}\theta} \Rightarrow - \frac{\textrm{d}}{\textrm{d}x} \left( - \equalto{\sin^2\theta}{1 - x^2} \frac{\textrm{d}P}{\textrm{d}x} \right) + \left(\lambda - \frac{m^2}{1-x^2}\right) P(x) = 0$$
+\end{enumerate}
+\frbox{Zugeordnete Legendresche DGL}{$$\Rightarrow \frac{\textrm{d}}{\textrm{d}x} \left( (1-x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \left( \lambda - \frac{m^2}{1 - x^2} \right) P(x) = 0$$} % T2
+Spezialfall: \underline{Zylindersymmetrische Probleme}: $\Phi$ unabhängig von $\varphi\quad \rightarrow$ Legendre-Polynome
+$$\prt{\Phi}{\varphi}= 0, \quad Q(\varphi) = e^{im\varphi} \Rightarrow m = 0 \Rightarrow \frac{\textrm{d}}{\textrm{d}x}\left( (1 - x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \lambda P (x) = 0$$
+\frbox{Legendresche DGL}{$$(1-x^2) \frac{\textrm{d}^2P}{\textrm{d}x^2} - 2x \frac{\textrm{d}P}{\textrm{d}x} + \lambda P(x) = 0$$}
+Potenzreihenansatz: $P(x) = \summ{k = 0}{\infty} a_k x^k$
+\begin{itemize}
+	\item[$\rightarrow$] Fließbach
+	\item[$\rightarrow$] Legendre Polynome
+	\item[$\rightarrow$] relevante Lösung nur für $\lambda = l(l + 1) \qquad l \in \mathbb N$
+\end{itemize}
+
+
 
 
 
