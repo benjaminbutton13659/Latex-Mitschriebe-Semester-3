@@ -311,7 +311,7 @@ Ladung: Beobachtungstatsachen:
 \begin{minipage}{.4\linewidth}
 	\hspace{30pt}
 	
-	%T2 done:
+	%t2 done:
 	
 	\begin{tikzpicture}
 	\node at (1.5,1.5) (a) {};
@@ -335,7 +335,7 @@ Ladung: Beobachtungstatsachen:
 \end{minipage}
 \begin{minipage}{.4\linewidth}
 	
-	%T3 done:
+	%t3 done:
 	
 	\hspace{30pt}
 	\begin{tikzpicture}
@@ -370,7 +370,7 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 	\item SI (MKSA-System): Definition von A = Amp\`ere 
 	
 	
-	% T4 done: 
+	%t4 done: 
 	
 	\vspace{-15pt}
 	$$\frac{\Delta F}{\Delta l}= 2 \cdot 10^{-7}\,\frac{\textrm{N}}{\textrm{m}} \qquad \qquad \begin{tikzpicture}
@@ -407,7 +407,7 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 \end{minipage}
 \begin{minipage}{.5\linewidth}
 	
-	%T5 done:
+	%t5 done:
 	
 	\hspace{50pt}
 	\begin{tikzpicture}
@@ -456,7 +456,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 \end{minipage}
 \begin{minipage}{.4\linewidth}
 	
-	%T6 done:
+	%t6 done:
 	
 	\hspace{50pt}
 	\begin{tikzpicture}
@@ -493,7 +493,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 	$$\rho(\vec{r}_0) = \infty$$
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	%% T1 done:
+	%t1 done:
 	\centering
 	\begin{tikzpicture}
 	\draw[->] (0,0) -- (0,2);
@@ -572,7 +572,7 @@ $$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
 	$\sigma(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Fläche}} = \frac{\Delta q}{\Delta A}$
 \end{minipage}
 \begin{minipage}{.5\linewidth}
-	%% T2 eig T1:
+	%t2 eig %t1:
 	\centering
 	\begin{tikzpicture}
 		\draw[->] (0,0) -- (0,1);
@@ -594,7 +594,7 @@ $$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelem
 	\bei Elektrisches Feld einer homogenen Flächenladung
 \end{minipage}
 \begin{minipage}{.35\linewidth}
-	%% T3 eig T2: -- $\sigma = \const$ in $x$-$y$-Ebene
+	%t3 eig %t2: -- $\sigma = \const$ in $x$-$y$-Ebene
 	\centering
 	\begin{tikzpicture}
 		\draw[->] (0,0) -- (0,1) node[anchor=south east] {$ z $};
@@ -632,7 +632,7 @@ $\vec{E} = (0,0,E_z)$
 	$$\vec{E}_{\perp_+} - \vec{E}_{\perp_-} = \frac{\sigma}{\epsilon_0}, \qquad \vec{E}_\parallel = 0$$
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	% T3:
+	%t3:
 	\centering
 	\begin{tikzpicture}
 		\draw[->] (0,-1.2) -- (0,1.2) node[above] {$ E_z $};
@@ -645,15 +645,15 @@ $\vec{E} = (0,0,E_z)$
 \end{minipage}
 
 
-%% T4: plattenkondensator
+%t4: plattenkondensator
 
-%% T5:
+%t5:
 \begin{center}
 \begin{tikzpicture}
 	\coordinate (o) at (-8,0);
 	\draw[thick,->] ($ (o) + (-.5,0)$) -- ++(2.5,0) node[anchor=north west] {$ z $};
-	\draw ($ (o) + (0,-1) $) -- ++(0,2) node[above] {$ \sigma $};
-	\draw ($ (o) + (1.5,-1) $) -- ++(0,2) node[above] {$ -\sigma $};
+	\draw[very thick] ($ (o) + (0,-1) $) -- ++(0,2) node[above] {$ \sigma $};
+	\draw[very thick] ($ (o) + (1.5,-1) $) -- ++(0,2) node[above] {$ -\sigma $};
 	
 	\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ z $};
 	\draw[->] (0,-1) -- (0,1.5) node[anchor=south east] {$ E_z $};
@@ -693,7 +693,7 @@ $\vec{E} = (0,0,E_z)$
 \emph{Beispiel:} Elektrisches Feld einer homogenen Linienladung $ \lambda = \const $
 
 \begin{minipage}{.2\linewidth}
-	%% T7 $\lambda = \const$
+	%t7 $\lambda = \const$
 	\centering
 	\begin{tikzpicture}
 		\draw[->] (0,0) -- (1,0) node[anchor=north west] {$ x $};
@@ -751,7 +751,7 @@ Mathe: Es sind äquivalent
 	\item Kurvenintegral $\int_\gamma d\vec{r} \cdot \vec{E}$ ist Wegunabhängig 
 	
 	
-	%%% T1
+	%T1
 	
 	
 	
@@ -786,7 +786,7 @@ $$\Rightarrow \textrm{falls} \quad \vec{r} \notin V, \textrm{ d.h. } \vec{r} \te
 $$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$ 
 
 
-%%% T?
+%T?
 
 
 
@@ -815,7 +815,7 @@ $$\Rightarrow \textrm{zum Integral } \int_V d^3r' \dots \textrm{ trägt (in Lime
 $$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$
 
 
-%% T?
+%T?
 
 
 
@@ -894,7 +894,7 @@ z.B. Potential einer Punktladung $\rho$ q in $\vec{r}_0$:
 $$\phi(\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 $$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}_0|} }_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} = - \frac{1}{\epsilon_0} \underbrace{q \delta(\vec{r} - \vec{r}_0)}_{= \rho(\vec{r})} = \frac{1}{\epsilon_0} \rho(\vec{r})$$
 
-%%%%%%%%% Vorlesung 4
+%%%%%%%%% Vorlesung 4 25.10.18
 
 \bbb{Wiederholung}{\begin{align*}
 	\vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \rho(\vec{r})\\
@@ -915,7 +915,7 @@ $$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\textrm{nach aussen orienti
 
 
 
-%%%% T1
+%T1
 
 \noindent
 \emph{Bemerkung:}\\
@@ -938,17 +938,17 @@ $$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\textrm{nach aussen orienti
 	\end{equation*}
 	\emph{Beispiel:} Geschwindigkeit einer Flüssigkeit: $ \vec{A}(\vec{r}) = \vec{v}(\vec{r}) $\\
 	
-	% tikz 1 T1
+	%T1
 	
 	$$ \vec{v} = \const \quad \vec{\nabla} \cdot \vec{v} = 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} = 0 $$
 	$ \Rightarrow $ Es gibt keine Quellen von $ \vec{v} $
 	
-	% tikz 2 T2
+	%T2
 	
 	$$ \vec{\nabla} \cdot \vec{r} \neq 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} \neq 0 $$
 	\item
 	
-	% tikz 3 T3
+	%T3  5 T4 fehlt
 	
 	\begin{align*}
 	\int_V d^3r \vec{\nabla} \cdot \vec{A}(\vec{r})  =  \int_{0}^{\Delta x} dx \int_{0}^{\Delta y} dy \int_{0}^{\Delta z} \left(\frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}\right)  \\
@@ -973,7 +973,11 @@ $$\Rightarrow \int_V d^3 r \nabla \cdot \vec{A} = \int_{\partial V} d \vec{f} \c
 \paragraph{2) Stokescher Satz}
 Sei $\vec{A}(\vec{r})$ ein Vektorfeld, $F$ eine Fläche mit Randkurve $\partial F$, so gilt:
 $$\int\limits_{\mathclap{\textrm{Linienintegral}\rightarrow\,\partial F \phantom{\textrm{Linienintegral}\rightarrow\,}}} d\vec{r} \vec{A}(\vec{r}) = \int\limits_{\mathclap{\phantom{\, \leftarrow \textrm{Oberflächenint.}} F\, \leftarrow \textrm{Oberflächenint.}}} d \vec{f} \cdot (\nabla \times \vec{A}(\vec{r}))$$
-%%%% T5
+
+
+%T5
+
+
 $$d\vec{f} = \vec{n} df$$
 Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 
@@ -984,7 +988,7 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \end{pmatrix}
 \end{equation*}
 
-% tikz 6
+%T6
 
 
 
@@ -1000,7 +1004,7 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \end{pmatrix} = 2 \vec{e}_z
 \end{equation*}
 
-% tikz 7
+%T7
 
 
 
@@ -1022,9 +1026,11 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \int_F d\vec{f} \ob{\left(\vec{\nabla} \times  \vec{A}\right)}^{2 \vec{e}_z} &= 2 \pi R^2
 \end{align*}
 
-Vektorfeld ohne Wirbel z.B. $\vec{A} = \const$\\ %%%% T8
-$\nabla \times \vec{A} = 0$\\ %%%% T9
-\bem  %%%% T10,11
+Vektorfeld ohne Wirbel z.B. $\vec{A} = \const$\\
+%T8
+$\nabla \times \vec{A} = 0$\\
+%T9
+\bem  %T10 , %T11
 
 \subsection{Integrale Form der Feldgleichung}
 \subsection{Gaußsches Gesetz}
@@ -1032,7 +1038,7 @@ $\nabla \times \vec{A} = 0$\\ %%%% T9
 \vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0}
 \end{equation*}
 
-% tikz mit unförmigem volumen und einem V drinnen
+%T tikz mit unförmigem volumen und einem V drinnen
 
 \begin{align*}
 \int_{V} d^3 r \vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \int_{V} d^3 r \rho (\vec{r}) = \frac{1}{\epsilon_0} Q_V\\
@@ -1050,7 +1056,7 @@ Homogen geladene Kugel mit Radius $ R $ und Gesamtladung $ Q $. Damit ist die La
 \rho = \frac{Q}{V} = \frac{Q}{\frac{4}{3} \pi R^3}
 \end{equation*}
 
-% tikz T12
+%T12
 
 \begin{equation*}
 \vec{E}(\vec{r}) = E_r (r) \vec{e}_r
@@ -1062,7 +1068,12 @@ Homogen geladene Kugel mit Radius $ R $ und Gesamtladung $ Q $. Damit ist die La
 \end{equation*}
 $ \vec{e}_r = \frac{\vec{r}}{r} $
 
-Fluss von $\vec{E}$ durch Oberfläche einer Kugel mit Radius $r$ %%%% T13
+Fluss von $\vec{E}$ durch Oberfläche einer Kugel mit Radius $r$
+
+
+%T13
+
+
 $$d \vec{f} = \vec{e}_r r^2 \sin \theta d \theta d \varphi \Rightarrow d \vec{f} \cdot \vec{E} = E_r(r)r^2\sin \theta d \theta d \varphi $$
 
 \begin{align*}
@@ -1077,7 +1088,13 @@ Q \frac{r^3}{R^3} & r \leq R
 $$\Rightarrow E_r(r) = \frac{Q}{4 \pi \epsilon_0}\left\{ \begin{array}{cc}
 \frac{1}{r^2} & r > R\\
 \frac{r}{R^3} & r \leq R 		
-\end{array}\right.$$ %%%% T14 
+\end{array}\right.$$
+
+
+
+
+%T14 
+
 
 \subsection{Satz von Stokes}
 \begin{equation*}
@@ -1427,7 +1444,7 @@ $ \vec{E}_{\pm} $ ist das Feld auf beiden Seiten der Grenzfläche
 E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\perp_-} (\vec{r}) = \frac{1}{\epsilon_0} \sigma(\vec{r})
 \end{equation*}
 
-%T 13 und Tafel vor M4:
+%t13 und Tafel vor M4:
 
 \begin{minipage}{.4\linewidth}
 	\paragraph{Tangentialkomponente $ E\parallel $}
@@ -2156,7 +2173,7 @@ $$\intt{a}{b}\textrm{d}x\ f_m^* (x) g(x) = \summ{n = 1}{\infty} \underbrace{\int
 	$ (f_n,f_m) = \delta_{nm} $\\
 	$ g: \quad I \rightarrow \mathbb{R} \quad g(0) ) 0 = g(l) $
 	\begin{equation*}
-	g(x) = \sum_{n} an \sqrt{\frac{l}{2}} \sin \left(\frac{n \pi x}{l}\right)
+	g(x) = \sum_{n} a_n \sqrt{\frac{l}{2}} \sin \left(\frac{n \pi x}{l}\right)
 	\end{equation*}
 	\item Fourierreihe: $ \{f_n\} $:
 	$ n=0: \quad \frac{1}{\sqrt{l}} $
