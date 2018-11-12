@@ -1514,7 +1514,7 @@ Insgesamt ergibt sich damit:
 \end{minipage}
 
 % andrez 6 oder 5:
-\paragraph{Randbedingungen an el. Leitern}
+\subsection{Randbedingungen an el. Leitern}
 
 \begin{minipage}{.6\linewidth}
 	Leiter: Material mit freibeweglichen Ladungsträgern (Metall)\\
@@ -1682,10 +1682,25 @@ Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 % andrez 5:
 \subsubsection{Eindeutigkeit der Lösung des Randwertproblems}
 Dirichlet-Randwertproblem: 
-\begin{align*}
-\Delta \pofr = -\frac{1}{\epsilon_0} \rho(\vec{r}) &\qquad \vec{r} \in V\\
-\pofr = \Phi_0 (\vec{r}) \quad \; &\qquad \vec{r} \in \partial V \quad \;
-\end{align*}
+\begin{minipage}{.5\linewidth}
+	\begin{align*}
+	\Delta \pofr = -\frac{1}{\epsilon_0} \rho(\vec{r}) &\qquad \vec{r} \in V\\
+	\pofr = \Phi_0 (\vec{r}) \quad \; &\qquad \vec{r} \in \partial V \quad \;
+	\end{align*}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\draw (0,1) -- (0,-1);
+		\draw[draw = none,pattern = north east lines] (-.3,1) rectangle (0,-1);
+		\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (p) at (-.1,0) {};
+		\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (q) at (1,0) {};
+		\node[right] at (q) {$ q $};
+		\node at (1,.5) {$ V $};
+		\node at (0,1.3) {$ \partial V $};
+		\draw[thick] (p) to[out=135,in=-10] (-.5,.3) node[left] {$ \Phi_0 $};
+	\end{tikzpicture}
+\end{minipage}
 Annahme: $\Phi_1,\ \Phi_2$ lösen RWP
 \begin{align*}
 \textrm{d.h. }\qquad \Delta\Phi_1(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) = \Delta \Phi_2 (\vec{r}) &\qquad \vec{r} \in V\\
@@ -1795,10 +1810,269 @@ Es gilt (HA):
 \Delta_{\vec{r}} \gre(\vec{r},\vec{r}') = \Delta_{\vec{r}'} \gre(\vec{r},\vec{r}')
 \end{equation*}
 
-\rbox{\begin{align*}
-\Phi(\vec{r}) &= \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}')\\
-&\ \ \ \, - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}') \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}')
-\end{align*}}
+\rbox{\begin{equation*}
+\Phi(\vec{r}) = \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}') \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}')
+\end{equation*}}
+
+
+% 8.11.18
+
+\emph{Bemerkungen:}
+\begin{enumerate}[i)]
+	\item Spezialfälle:
+	\begin{enumerate}[1)]
+		\begin{minipage}{.5\linewidth}
+			\item $ V $ Ladungsfrei ($ \rho(\vec{r}) = 0 $ in $ V $)
+			\begin{equation*}
+			\rightarrow \Phi(\vec{r}) = - \epsilon \int_{\partial V} \dd f' \Phi_0(\vec{r}) \frac{\partial \mathcal{G}}{\partial n'} (\vec{r},\vec{r}')
+			\end{equation*}
+		\end{minipage}
+		\begin{minipage}{.5\linewidth}
+			%t1:
+			\centering
+			\begin{tikzpicture}[scale=1.5]
+				\draw[draw=none,pattern=north east lines,rounded corners] ($(-.7,.5) + (-.1,.1)$) rectangle ($(.7,-.5) + (.1,-.1)$);
+				\draw[fill=gray!10] (-.7,.5) rectangle (.7,-.5);
+				\draw (-.7,-.5) -- (.7,-.5) -- (.7,.5) -- (-.7,.5) -- (-.7,-.5);
+				\node[left] at (-.7,0) {$ \Phi_1 $};
+				\node[right] at (.7,0) {$ \Phi_1 $};
+				\node[above] at (0,.5) {$ \Phi_2 $};
+				\node[below] at (0,-.5) {$ \Phi_2 $};
+				\node at (0,0) {$ V $};
+			\end{tikzpicture}
+		\end{minipage}
+		%T2
+		\begin{align*}
+		\Rightarrow \Phi(\vec{r}) &= - \epsilon \Phi_0 \ub{\int_{\partial V} \dd f' \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}') }_{\int \dd f' \vec{n} \cdot \vec{\nabla}_{\vec{r}'} \gre}\\
+		&= - \epsilon \Phi_0 \int \dd \vec{f}' \cdot \vec{\nabla}_{\vec{r}'} \gre \\
+		&\buildrel \mathclap{\tx{S.v.G.}} \over = \int_V \dd^3 \vec{r}' \ub{\vec{\nabla}_{\vec{r}'} \cdot (\vec{\nabla}_{\vec{r}'} \mathcal{G})}_{\Delta_{\vec{r}'} \cdot \mathcal{G} = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')}\\
+		&= - \frac{1}{\epsilon_0}\\
+		\Rightarrow \Phi(\vec{r}) &= \Phi_0
+		\end{align*}
+		\item $ V = \mathbb{R}^3 $, lokalisierte Ladungsverteilung $ \rho $
+		\begin{equation*}
+		\Phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 \vec{r}' \frac{\rho(\vec{r})}{|\vec{r} - \vec{r}'|}
+		\end{equation*}
+		\begin{equation*}
+		\gre(\vec{r},\vec{r}') = \kq \frac{1}{|\vec{r} - \vec{r}'|} \qquad \int_{\partial V} \dots \rightarrow 0
+		\end{equation*}
+		eine spezielle Lösung für $ \gre $
+	\end{enumerate}
+	\item $ \gre $ ist auch die Lösung einer inhomogenen partiellen DGL
+	\begin{equation*}
+	\gre(\vec{r},\vec{r}') = \ub{\gre_s(\vec{r},\vec{r}')}_{\substack{\tx{spezielle} \\ \tx{Lösung der} \\ \tx{inhomogenen} \\ \tx{DGL}}} + \ub{F(\vec{r},\vec{r}')}_{\substack{\tx{Lösung} \\ \tx{zugehörigen} \\ \tx{homogenen} \\ \tx{DGL}}}
+	\end{equation*}
+	\begin{align*}
+	\Delta_{\vec{r}'} \gre_s(\vec{r},\vec{r}') &= - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')\\
+	\Delta_{\vec{r}'} F(\vec{r},\vec{r}') \, &= 0
+	\end{align*}
+	\begin{equation*}
+	\gre_j(\vec{r},\vec{r}') = \kq \frac{1}{|\vec{r} - \vec{r}'|} \qquad \tx{Laplace anwenden !}
+	\end{equation*}
+	\begin{equation*}
+	\gre(\vec{r},\vec{r}') = \ub{\kq \frac{1}{|\vec{r}}_{\tx{immer zur Lösung}} - \ub{\vec{r}'|} + F(\vec{r},\vec{r}')}_{\substack{\tx{so wählen, dass} \\ \tx{Randbedingungen erfüllt}}}
+	\end{equation*}
+	$ F(\vec{r},\vec{r}') $ so wählen, dass die Randbedingungen erfüllt sind: $ \gre(\vec{r},\vec{r}') = 0 \quad \vec{r} \in \partial V $.
+\end{enumerate}
+
+\subsection{Greensche Funktion des Dirichlet Randwertproblems einer Ebene}
+
+
+\begin{minipage}{.6\linewidth}
+	\begin{align*}
+	\Delta_{\vec{r}'} \gre(\vec{r},\vec{r}') &= - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') & \vec{r},\vec{r}' \in V \\
+	\gre(\vec{r},\vec{r}') &= 0 & \vec{r} \in \partial V \, \tx{ \scriptsize{(z=0)}} , \quad \vec{r} \in V
+	\end{align*}
+	\begin{equation*}
+	V=\{\vec{r} \in \mathbb{R}^3 | z < 0\}
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%t3:
+	\centering
+	\begin{tikzpicture}
+		\draw[draw=none,pattern=north east lines] (-.7,0) -- (2.7,0) -- ++(-1.2,-1.2) -- ++(-3.4,0);
+		\draw[draw=none,fill=white,opacity=.6] (-.7,0) -- (2.7,0) -- ++(-1.2,-1.2) -- ++(-3.4,0);
+		\draw[->] (0,0) -- (0,1.5) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (-1.5,-1.5) node[anchor=north east] {$ x $};
+		\draw[->] (-1,0) -- (3,0) node[anchor=north west] {$ y $};
+		\node at (2,-.4) {$ \partial V $};
+		\draw[thick,->] (0,0) -- (.7,.5) node[left,yshift=3pt] {$ \vec{r}' $};
+		\draw[thick,->] (0,0) -- (.7,-1);
+		\node[fill=white,opacity=.8,rounded corners] at (0,-.7) {$ \tilde{\vec{r}}' $};
+		\node[fill=black,circle,inner sep=1pt,minimum size=1pt] at (.7,-.3) {};
+		\node[fill=black,circle,inner sep=1pt,minimum size=1.5pt] (q1) at (.7,.5) {};
+		\node[fill=black,circle,inner sep=1pt,minimum size=1.5pt] (q2) at (.7,-1) {};
+		\node[anchor=south west] at (q1) {$ q = 1 $};
+		\node[anchor=north west,yshift=-3pt] at (q2) {$ \substack{ \tx{\normalsize{$ - q $}} \\ \mathclap{\tx{\scriptsize{Spiegelladung}}}} $};
+		\draw[thick,dashed] (.7,.5) -- (.7,-1);
+		\draw[thick,->] (0,0) -- (-.7,.9) node[left] {$ \vec{r} $};
+	\end{tikzpicture}
+\end{minipage}
+Analog: Punktladung ,,$ q = 1 $`` in $ \vec{r}' $ vor leitender Ebene mit Potential 0
+\begin{equation*}
+\Phi(\vec{r}) = \frac{q}{4 \pi \epsilon_0} \left(\frac{1}{|\vec{r} - \vec{r}'|} - \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}\right) \qquad \tilde{\vec{r}}' = (x',y',-z')
+\end{equation*}
+\rbox{\begin{equation*}
+\gre(\vec{r},\vec{r}') = \frac{1}{q} \Phi(\vec{r}) = \kq \left(\frac{1}{|\vec{r} - \vec{r}'|} - \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}\right)
+\end{equation*}}
+
+\emph{Beweis:}
+\begin{equation*}
+\Delta_{\vec{r}} = \kq \bigg(\equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|}}{- 4 \pi \delta(\vec{r} - \vec{r}')} - \equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}}{- 4 \pi \delta(\vec{r} - \tilde{\vec{r}}') = 0 }\bigg) = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
+\end{equation*}
+1. Teil: $ \vec{r} \in \partial V \ : \quad z = 0 \ ,\qquad$ 2. Teil = 0: $ \tilde{\vec{r}}' \notin V $.
+\begin{align*}
+\frac{1}{|\vec{r} - \vec{r}'|} &= \frac{1}{\sqrt{(x-x')^2 + (y - y')^2 + (z')^2}} = \frac{1}{\sqrt{(x-x')^2 + (y-y')^2 + (-z)^2}}\\
+&= \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}
+\end{align*}
+$ \gre(\vec{r},\vec{r}') = 0 \quad \vec{r} \in \partial V $\\[5pt]
+\emph{Bemerkung:}
+\begin{enumerate}[i)]
+	\item $ \hspace{1.5pt} \gre(\vec{r},\vec{r}') = \phantom{-} \kq \frac{1}{|\vec{r} - \vec{r}'|} + F(\vec{r},\vec{r}') $\\
+	$ F(\vec{r},\vec{r}') = - \kq \frac{1}{|\vec{r} - \tilde{\vec{r}}'|} $\\
+	$ \Delta_{\vec{r}} F(\vec{r},\vec{r}') = 0 $
+	\item Symmetrie der Greenschen Funktion (Reziprozitätsrelation):
+	\begin{equation*}
+	\gre(\vec{r},\vec{r}') = \gre(\vec{r}',\vec{r})
+	\end{equation*}
+	$ \rightarrow $ formale Lösung des Randwertproblems für eine beliebige Ladungsverteilung und Randwerte $ \Phi_0(\vec{r}) $ in der Ebene:
+	
+	\begin{minipage}{.55\linewidth}
+			\begin{equation*}
+			\Phi(\vec{r}) = \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi(\vec{r}') \prt{\gre}{n'}
+			\end{equation*}
+			\begin{equation*}
+			\rho \equiv 0 \ \ \ \Rightarrow \ \ \ \Phi(\vec{r}) = \epsilon_0 \hspace{-15pt} \int\limits_{\sqrt{x^2 + y^2} \le R} \hspace{-15pt} \dd y' \dd x' \Phi_0(x',y',0) \prt{\gre}{n'}
+			\end{equation*}
+	\end{minipage}
+	\begin{minipage}{.45\linewidth}
+		%t4:
+		\centering
+		\begin{tikzpicture}
+			\draw[draw=none,pattern=north east lines] ($ (-1.3,0) + (.6,.6) $) -- ++(3.1,0) -- ++(-1.4,-1.4) -- ++(-3.1,0);
+			\draw[draw=none,fill=white,opacity=.7]  ($ (-1.3,0) + (.6,.6) $) -- ++(3.1,0) -- ++(-1.4,-1.4) -- ++(-3.1,0);
+			\draw[fill=white] (0,0)ellipse (1cm and .5cm);
+			\draw[->] (0,0) -- (0,1) node[anchor=south east] {$ z $};
+			\draw[->] (.7,.7) -- (-1,-1) node[anchor=north east] {$ x $};
+			\draw[->] (-1.5,0) -- (2,0) node[anchor=north west] {$ y $};
+			\draw[pattern=north west lines] (0,0) ellipse (1cm and .5cm);
+			\draw[thick] (0,0) -- (.45,-.45) node[fill=black,circle,inner sep=1pt,minimum size=1pt] {};
+			\node[below,fill=white,opacity=.8,inner sep=2pt,rounded corners] at (.3,-.5) {$ R $};
+			\node[fill=white,opacity=.8,inner sep=2pt,rounded corners] at (2,.5) {$ \Phi \equiv 0 $};
+			\draw (-.5,.3) to[out=100,in=-10] (-1,1) node[left] {$ \Phi_0(x,y,0) $};
+		\end{tikzpicture}
+	\end{minipage}
+\end{enumerate}
+
+\subsection{Separation der Variablen und Entwicklung nach orthogonalen Funktionen}
+
+\textbf{Eine allgemeine Methode zur Lösung partieller DGL.}\\[5pt]
+Zur Vereinfachung: \textbf{Laplace.Gl $ \boldsymbol{ \Delta \Phi = 0 \ +} $ Randbedingung}\\[5pt]
+Verbindung zur Poisson-Gl: $ \Delta \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho(\vec{r}) $
+\begin{equation*}
+\Phi(\vec{r}) = \Phi_s(\vec{r}) + \Phi_{\tx{hom}} \qquad \Phi(\vec{r}) = \kq \int \dd^3 r' \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} + \Phi_{\tx{hom}}
+\end{equation*}
+
+\subsubsection{Motivation: 1-Dim Randwertproblem}
+
+\begin{minipage}{.5\linewidth}
+	%t5:
+	\centering
+	\begin{tikzpicture}
+		\coordinate (a) at (-1,0);
+		\coordinate (b) at (1,0);
+		\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw ($ (a) + (0,-1) $) -- ++(0,2) node[anchor=south east] {$ \Phi_1 $};
+		\draw ($ (b) + (0,-1) $) -- ++(0,2) node[anchor=south west] {$ \Phi_2 $};
+		\node[anchor=north west] at (a) {$ 0 $};
+		\node[anchor=north east] at (b) {$ l_x $};
+		\draw[draw=none,pattern=north east lines] ($ (a) + (0,-1) $) rectangle ++ (-.3,2);
+		\draw[draw=none,pattern=north east lines] ($ (b) + (0,-1) $) rectangle ++ (.3,2);
+		\draw[thick] ($ (a) + (45:.1) $) -- ++(-135:.2);
+		\draw[thick] ($ (a) + (-45:.1) $) -- ++(135:.2);
+		\draw[thick] ($ (b) + (45:.1) $) -- ++(-135:.2);
+		\draw[thick] ($ (b) + (-45:.1) $) -- ++(135:.2);
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	$$ \Phi(x) = ? \qquad \rho = 0 $$
+	\begin{equation*}
+	\Delta \Phi(x) = \frac{\dd^2 \Phi}{\dd x^2} = 0
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \Phi(x) = c_1 + c_2 x
+	\end{equation*}
+\end{minipage}
+Randbedingungen:\\
+$$ \Phi(0) = c_1 = \Phi_1  \qquad \Phi(l_x) = \Phi_1 + c_2 l_x = \Phi_2 $$
+\begin{equation*}
+\rightarrow c_2 = \frac{\Phi_2 - \Phi_1}{l_x} \quad \rightarrow \quad \Phi(x) = \Phi_1 + \frac{\Phi_2 - \Phi_1}{l_x} x
+\end{equation*}
+\begin{equation*}
+\Rightarrow \vec{E} = - \vec{\nabla} \Phi = - \frac{\Phi_2 - \Phi_1}{l_x} \vec{e}_x
+\end{equation*}
+
+\subsubsection{2-Dim Randwertproblem}
+
+\begin{minipage}{.5\linewidth}
+	%t6:
+	\centering
+	\begin{tikzpicture}
+		\coordinate (x) at (2,0);
+		\coordinate (y) at (0,1.5);
+		\draw ($ (y) + (0,-.2) $) -- (0,1.5) node[anchor=south east] {$ y $};
+		\draw ($ (x) + (-.2,0) $) -- (2,0) node[anchor=north west] {$ x $};
+		\draw ($ (y) + (0,-.2) $) -- ++(.2,.2);
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	Wir suchen: $ \Phi = \Phi(x,y) \quad $ mit $ \rho = 0 $
+	\begin{equation*}
+	0 = \Delta \Phi = \frac{\partial ^2 \Phi}{\partial x^2} + \frac{\partial^2 \Phi}{\partial y^2}
+	\end{equation*}
+\end{minipage}
+
+
+
+
+
+% 12.11.18
+
+%andrez 1
+
+\emph{Beispiele:}
+\begin{enumerate}[1)]
+	\item 
+	\begin{equation*}
+	f_n(x) = \sqrt{\frac{l}{2}} \sin\left(\frac{n \pi x}{l}\right) \qquad I = [0,l] 
+	\end{equation*}
+	$ (f_n,f_m) = \delta_{nm} $\\
+	$ g: \quad I \rightarrow \mathbb{R} \quad g(0) ) 0 = g(l) $
+	\begin{equation*}
+	g(x) = \sum_{n} an \sqrt{\frac{l}{2}} \sin \left(\frac{n \pi x}{l}\right)
+	\end{equation*}
+	\item Fourierreihe: $ \{f_n\} $:
+	$ n=0: \quad \frac{1}{\sqrt{l}} $
+	\begin{equation*}
+	n \in \mathbb{N}: \qquad \sqrt{\frac{2}{l}} \sin \left(\frac{n \pi x}{l}\right) \qquad \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right) \qquad I = [0,l]
+	\end{equation*}
+	\begin{equation*}
+	g(x) = a_0 \frac{1}{\sqrt{l}} + \sum_{n=1}^{\infty} \left[a_n \sqrt{\frac{2}{l}} \sin \left(\frac{2 \pi x}{l}\right) + b_n \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right)\right]
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Laplace-Gleichung in Kugelkoordinaten}
+
+$ \Delta \Phi = 0 $ 
+\begin{equation*}
+\vec{r} = r \begin{pmatrix}
+\sin \theta \cos \varphi \\ \sin \theta \sin \varphi \\ \cos \theta
+\end{pmatrix}
+\end{equation*}
+
+% andrez 2 
 
 
 
