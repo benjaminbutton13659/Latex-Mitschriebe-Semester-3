@@ -58,6 +58,7 @@
 \newcommand{\ub}[1]{\underbrace{#1}}
 \newcommand{\ob}[1]{\overbrace{#1}}
 
+
 \newcommand{\dd}{\tx{d}}
 
 %Mathe:
@@ -65,7 +66,7 @@
 \newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
 \newcommand{\equaltoup}[2]{\overset{\scriptstyle\underset{\mkern4mu\verteq}{#2}}{#1}}
 \newcommand{\custo}[3]{\underset{\scriptstyle\overset{\mkern4mu\rotatebox{-90}{$\,#1$}}{#3}}{#2}}
-\newcommand{\custoup}[3]{\overset{\scriptstyle\overset{\mkern4mu\rotatebox{-90}{$\,#1$}}{#3}}{#2}}
+\newcommand{\custoup}[3]{\overset{\scriptstyle\underset{\mkern4mu\rotatebox{-90}{$\hspace{-3pt} #1$}}{#3}}{#2}}
 \newcommand{\casess}[4]{\left\{ \begin{array}{ll} {#1} & {#2} \\ {#3} & {#4} \end{array} \right.}
 
 
@@ -76,6 +77,7 @@
 \newcommand{\ham}{\mathcal{H}}
 \newcommand{\gre}{\mathcal{G}}
 \newcommand{\prt}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\prd}[2]{\frac{\tx{d} #1}{\tx{d} #2}}
 \newcommand{\eofr}{\vec{E}(\vec{r})}
 \newcommand{\pofr}{\Phi(\vec{r})}
 \renewcommand{\Phi}{\varPhi}
@@ -191,8 +193,8 @@
 \title{
 	{\Huge Theoretische Physik II\\[3pt]Elektrodynamik}\\[1em]
 	{\Large Vorlesung von Prof. Dr. Michael Thoss im Wintersemester 2018}}
-\author{Markus Österle\\ Andréz Gockel}
-\date{15.10.2018}
+\author{Markus Österle \hspace{5pt} Andréz Gockel}
+\date{ \today}%15.10.2018}
 \maketitle
 \tableofcontents
 
@@ -1820,6 +1822,8 @@ Es gilt (HA):
 
 % 8.11.18
 
+% Wiederholung nachholen
+
 \emph{Bemerkungen:}
 \begin{enumerate}[i)]
 	\item Spezialfälle:
@@ -1879,7 +1883,6 @@ Es gilt (HA):
 \end{enumerate}
 
 \subsection{Greensche Funktion des Dirichlet Randwertproblems einer Ebene}
-
 
 \begin{minipage}{.6\linewidth}
 	\begin{align*}
@@ -2008,7 +2011,7 @@ Verbindung zur Poisson-Gl: $ \Delta \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho(
 	\Rightarrow \Phi(x) = c_1 + c_2 x
 	\end{equation*}
 \end{minipage}
-Randbedingungen:\\
+\textbf{Randbedingungen:}\\
 $$ \Phi(0) = c_1 = \Phi_1  \qquad \Phi(l_x) = \Phi_1 + c_2 l_x = \Phi_2 $$
 \begin{equation*}
 \rightarrow c_2 = \frac{\Phi_2 - \Phi_1}{l_x} \quad \rightarrow \quad \Phi(x) = \Phi_1 + \frac{\Phi_2 - \Phi_1}{l_x} x
@@ -2023,11 +2026,22 @@ $$ \Phi(0) = c_1 = \Phi_1  \qquad \Phi(l_x) = \Phi_1 + c_2 l_x = \Phi_2 $$
 	%t6:
 	\centering
 	\begin{tikzpicture}
-		\coordinate (x) at (2,0);
-		\coordinate (y) at (0,1.5);
-		\draw ($ (y) + (0,-.2) $) -- (0,1.5) node[anchor=south east] {$ y $};
-		\draw ($ (x) + (-.2,0) $) -- (2,0) node[anchor=north west] {$ x $};
-		\draw ($ (y) + (0,-.2) $) -- ++(.2,.2);
+		\coordinate (x) at (3.5,0);
+		\coordinate (y) at (0,2.5);
+		\draw[draw=none,pattern=north east lines,rounded corners] ($ (0,0) + (-.3,-.3) $) rectangle ($ (x) + (y) + (.3,.3)$);
+		\draw[draw=none,fill=white,opacity=.5,rounded corners] ($ (0,0) + (-.3,-.3) $) rectangle ($ (x) + (y) + (.3,.3)$);
+		\draw[draw=none,fill=white] (0,0) rectangle ($ (x) + (y) $);
+		\node[xshift=-10pt,left] at ($ (0,0)!.5!(y) $) {$ \Phi = 0 $};
+		\node[xshift=10pt,right] at ($ (x) + (y) - (0,0)!.5!(y) $) {$ \Phi = 0 $};
+		\node[yshift=-10pt,below] at ($ (0,0)!.5!(x) $) {$ \Phi = 0 $};
+		\node[yshift=10pt,above] at ($ (y) + (0,0)!.5!(x) $) {$ \Phi_R(x) $};
+		\draw[->] (-.5,0) -- ($ (x) + (.6,0) $) node[anchor=north west] {$ x $};
+		\draw[->] (0,-.5) -- ($ (y) + (0,.6) $) node[anchor=south east] {$ y $};
+		\draw ($ (x) + (0,.1)$) -- ++(0,-.3) node[below,yshift=-5pt] {$ l_x $};
+		\draw ($ (y) + (.1,0) $) -- ++(-.3,0) node[left,xshift=-5pt] {$ l_y $};
+		\draw (y) -- ($ (x) + (y) $);
+		\draw (x) -- ($ (x) + (y) $);
+		\node at ($ (0,0)!.5!(x) + (0,0)!.5!(y) $) {$ V $};
 	\end{tikzpicture}
 \end{minipage}
 \begin{minipage}{.5\linewidth}
@@ -2036,10 +2050,72 @@ $$ \Phi(0) = c_1 = \Phi_1  \qquad \Phi(l_x) = \Phi_1 + c_2 l_x = \Phi_2 $$
 	0 = \Delta \Phi = \frac{\partial ^2 \Phi}{\partial x^2} + \frac{\partial^2 \Phi}{\partial y^2}
 	\end{equation*}
 \end{minipage}
-
-
-
-
+\textbf{Randbedingungen:}\\
+\begin{enumerate}[i)]
+	\item $ \Phi(\vec{r}) = 0 \phantom{\Phi_R(x)} \qquad y = 0 $
+	\item $ \Phi(\vec{r}) = 0 \phantom{\Phi_R(x)} \qquad x = 0 $
+	\item $ \Phi(\vec{r}) = 0 \phantom{\Phi_R(x)} \qquad x = l_x $
+	\item $ \Phi(\vec{r}) = \Phi_R(x) \phantom{0} \qquad y = l_y $
+\end{enumerate}
+\textbf{Separationsansatz:}
+$ \Phi(x,y) = f(x) g(x) $
+\begin{align*}
+0 = \Delta \Phi &= \left(\prt{^2}{x^2} + \prt{^2}{y^2}\right) f(x) g(y)\\
+&= \prt{^2 f}{x^2} g(y) + f(x) \prt{^2 g}{y^2}\\
+&= \Delta \Phi = \prd{^2 f}{x^2} g(y) + f(x) \prd{^2 g}{y^2}
+\end{align*}
+\begin{equation*}
+\rmbox{0 = \Delta \Phi = \prd{^2 f}{x^2} g(y) + f(x) \prd{^2 g}{y^2} } \qquad \left\rvert \cdot \, \frac{1}{f\,g} \right.
+\end{equation*}
+umformen:
+\begin{equation*}
+\Rightarrow \ub{\frac{1}{f(x)} \prd{^2 f}{x^2}}_{\tx{Fkt. von} x} = - \ub{\frac{1}{g(y)} \prd{^2 g}{y^2}}_{\tx{Fkt. von} y} = \const = - \alpha ^2
+\end{equation*}
+\begin{equation*}
+\prd{^2 f}{x^2} = - \alpha^2 f(x) \quad \tx{mit } e^{i\alpha x} \qquad \prd{^2 g}{y^2} = \alpha^2 g(y) \quad \tx{mit } e^{\alpha y}
+\end{equation*}
+\begin{equation*}
+e^{i \alpha x} \Rightarrow f(x) = a \sin(\alpha x) + b cos(\alpha x) \qquad e^{\alpha y} \Rightarrow g(x) = c \sinh(\alpha y) + d \cosh(\alpha y)
+\end{equation*}
+$ \Phi(x,y) = f(x) \cdot g(y) $
+\textbf{Randbedingungen:}
+\begin{enumerate}[i)]
+	\item $ 0 = \Phi(x,0) = f(x) \cdot d \quad \Rightarrow d = 0 $
+	\item $ 0 = \Phi(0,y) = b \cdot g(y) \quad \Rightarrow b = 0 $
+	\begin{equation*}
+	\Rightarrow \Phi(x,y) = a \sin(\alpha x) c \sinh(\alpha y) = \equalto{A}{a\cdot c} \sin(\alpha x) \sinh(\alpha y)
+	\end{equation*}
+	\item $ 0 = \Phi(l_x,y) = A \sin(\alpha l_x) \sinh(\alpha y) $
+	$ \rightarrow \sin(\alpha l_x) = 0 \quad \Rightarrow \quad \alpha = \frac{n \pi}{l_x} \qquad n \in \mathbb{Z} (\tx{oder } n \in \mathbb{N}) $
+	\begin{equation*}
+	\rightarrow \Phi_n(x,y) = A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_y}\right)
+	\end{equation*}
+	\item $ \Phi(x,l_y) = \Phi_R(x) $
+	\begin{equation*}
+	\Rightarrow \Phi_R(x) \custo{\leftarrow}{=}{} A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi l_y}{l_x}\right) \qquad \forall x \in [0,l_y]
+	\end{equation*}
+	im allgemeinen ist dies nicht möglich, aber da es sich um eine lineare DGL ($ \Delta \Phi = 0 $) handelt:\\
+	$ \rightarrow $ Linearkombinationen von Lösungen sind auch Lösungen
+\end{enumerate}
+\textbf{Ansatz für allgemeine Lösung:}
+\begin{equation*}
+\rmbox{\Phi(x,y) = \sum_{n=1}^{\infty} A_n \sin \left(\frac{n \pi x}{l_x}\right) \sinh \left(\frac{n \pi y}{l_x}\right)}
+\end{equation*}
+Der Ansatz erfüllt $ \Delta \Phi = 0 $ und erfüllt die Randbedingungen i), ii), iii). Um iv) zu erfüllen fordern wir:
+\begin{equation*}
+\rmbox{\Phi_R(x) \buildrel ! \over = \ub{\sum_{n=1}^{\infty} A_n \sin\left(\frac{n \pi x}{l_x}\right)}_{\tx{Entwicklung}} \ub{\sinh\left(\frac{n \pi l_y}{l_x}\right)}_{\const}}
+\end{equation*}
+Der erste Teil des Ausdrucks entspricht der Entwicklung von $ \Phi_R(x) $ nach Funktionen $ \sin \left(\frac{n \pi x}{l_x}\right) $ also einer Fourier-Reihe.\\[5pt]
+\textbf{Bestimmung von $ A_n $:}
+Multipliziere mit $ \sin\left(\frac{n \pi x}{l_x}\right) \quad m \in \mathbb{N} $ und danach Integration:
+\begin{align*}
+\int_{0}^{l_x} \dd x \sin\left(\frac{m \pi x}{l_x}\right) \Phi_R (x) &= \sum_{n=1}^{\infty} A_n \sinh\left(\frac{m \pi l_y}{l_x}\right) \int_{0}^{l_x} \dd x \ub{\custoup{\leftarrow}{\sin\left(\frac{m \pi x}{l_x}\right)}{\qquad \qquad \quad \mathclap{\tx{zueinander orthogonale Vektoren}}} \custoup{\leftarrow}{\sin\left(\frac{n \pi x}{l_x}\right)}{}}_{= \frac{l_x}{2} \delta_{nm}}\\
+&= A_m \frac{l_x}{2} \sinh\left(\frac{n \pi l_y}{l_x}\right)
+\end{align*}
+\begin{equation*}
+A_m = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \int_{0}^{l_x} \dd x \sin \left(\frac{n \pi x}{l_x}\right) \Phi_R(x)
+\end{equation*}
+in $ \Phi(x,y) $ einsetzen\\[5pt]
 
 % 12.11.18
 
@@ -2048,7 +2124,7 @@ $$\Phi = \Phi(x,y) = f(x)g(y)$$
 $$\Phi_n(x,y) = A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)$$
 $$n \in \mathbb N$$
 $$\Phi(x,y) = \sum_n A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)$$
-$$A_n = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \intt{0}{l_x}\textrm{d}x\ \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x)$$} % T1 = T6 letzten vorlesung
+$$A_n = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \intt{0}{l_x}\textrm{d}x\ \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x)$$} % t1 = t6 letzten vorlesung
 
 \subsection{Vollständige Orthonormale Funktionensysteme (VONS)}
 Betrachte Funktionen $g(x),h(x)$ auf $I = [a,b] \subset \mathbb R$
@@ -2058,7 +2134,7 @@ $(g,h) = 0$: $g$ und $h$ orthogonal, $(g,g) = 1:\ g$ normiert\\
 Norm: $||g|| = \sqrt{(g,g)}$
 
 Ein abzählbarer Satz von Funktionen $\{f_n\} = \{f_1, f_2, \dots \}$\\
-Heißt orthonormiert falls: $(f_m,f_n) = \delta_{nm}\ \rightarrow$ \underline{orthonormalsystem}\\
+Heißt orthonormiert falls: $(f_m,f_n) = \delta_{nm}\ \rightarrow$ \underline{Orthonormalsystem}\\
 \underline{Vollständigkeit:} Ein Satz von Funktionen heißt vollständig (VONS) falls \underline{jede} quadratintegrable\footnote{$\textrm{Falls }\int \textrm{d}x\ |g(x)|^2 \textrm{ existiert}$} Funktion $g: I \to \mathbb R (\mathbb C)$ in der Form $g(x) = \summ{n = 1}{\infty} a_n f_n(x)$ dargestellt werden kann.\\
 Genauer: $\lim\limits_{n \to \infty} \intt{a}{b} \textrm{d}x\ |\ g(x) - \summ{n = 1}{\infty} a_n f_n(x)| = 0$
 Bestimmung der Koeffizient an:
