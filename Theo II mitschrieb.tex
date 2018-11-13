@@ -1553,7 +1553,7 @@ Insgesamt ergibt sich damit:
 		\node[fill=white,opacity=.8,rounded corners] at (1,-1) {$ \vec{E} = 0 $};
 	\end{tikzpicture}
 \end{minipage}\\[10pt]
-
+\noindent
 \begin{minipage}{.6\linewidth}
 	\begin{enumerate}[i)]
 		\item $\vec{E} = 0$
@@ -1584,8 +1584,6 @@ Insgesamt ergibt sich damit:
 		\end{tikzpicture}\hspace{66pt}
 \end{minipage}
 
-
-
 \paragraph{Randbedingungen}
 %% T18
 $$\vec{E}_+ - \vec{E}_- = \frac{\sigma^-}{\epsilon_0} \vec{n}$$
@@ -1610,16 +1608,28 @@ Für eine gegebene lokale Ladungsverteilung $ \rho $ gilt:
 \rightarrow \Phi(\vec{r}) \buildrel |\vec{r}| \rightarrow 0 \over \longrightarrow 0
 \end{equation*}
 Typische Problemstellung:\\
-Ladungsverteilung $\rho$ + Werte des Potentials auf Randfläche
-
-\bei\\ % T1
-
-Randwertproblem: Gegeben: $\rho(\vec{r}')$ im Raumbereich $V$\\
-$\Phi(\vec{r})$ oder $\vec{E}(\vec{r})$ auf Randfläche $\partial V$
-
-Gesucht: $\Phi(\vec{r}),\ \vec{E}(\vec{r})$ überall in $V$
-
-\noindent
+Ladungsverteilung $\rho$ + Werte des Potentials auf Randfläche\\[5pt]
+\bei\\
+\begin{minipage}{.6\linewidth}
+	Randwertproblem: Gegeben: $\rho(\vec{r}')$ im Raumbereich $V$\\
+	$\Phi(\vec{r})$ oder $\vec{E}(\vec{r})$ auf Randfläche $\partial V$\\
+	Gesucht: $\Phi(\vec{r}),\ \vec{E}(\vec{r})$ überall in $V$
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	%t1:
+	\centering
+	\begin{tikzpicture}
+		\draw[pattern=north east lines] (0,0) circle (.7cm);
+		\draw[thick] (-.7,0) -- ++(-.5,0) -- ++(0,-1);
+		\coordinate (e) at (-1.2,-1);
+		\draw[thick] ($ (e) + (-.25,0) $) -- ++(.5,0);
+		\draw[thick] ($ (e) + (-.125,0) + (0,-.1) $) -- ++(.25,0);
+		\draw[thick] ($ (e) + (-.0625,0) + (0,-.2) $) -- ++(.125,0);
+		\draw (.25,.15) to[out=55,in=190] (1.2,.8) node[right] {$ \Phi = 0 $};
+		\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (q) at (1.5,0) {};
+		\node[right] at (q) {$ q $};
+	\end{tikzpicture}
+\end{minipage}
 Zwei Fälle:
 \begin{enumerate}[i)]
 	\item $ \Phi(\vec{r}) $ ist auf der Randfläche gegeben\\
@@ -1627,10 +1637,23 @@ Zwei Fälle:
 	\item $ \vec{E}(\vec{r}) $ ist auf der Randfläche gegeben\\
 	$ \rightarrow $ \textbf{Neumannsche Randbedingung}
 \end{enumerate}
-
-%T2
-
-
+\noindent
+\begin{minipage}{.6\linewidth}
+	Gegeben sei: $ \vec{n} \cdot \vec{E} $ dies ist gleich der \textbf{Normalenableitung}:
+	\begin{equation*}
+	\vec{n} \cdot \vec{E} = - \vec{n} \vabla \Phi = - \prt{\Phi}{n}
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	%t2:
+	\centering
+	\begin{tikzpicture}
+		\draw[draw=none,pattern=north east lines] (0,0) -- (120:1.5cm) arc (120:-20:1.5cm) -- (0,0);
+		\draw ($ (0,0) + (120:1.5cm)$) arc (120:-20:1.5cm);
+		\draw[thick,->] ($ (50:1.5cm) $) -- ++(50:1cm) node[xshift=-15pt,yshift=-5pt] {$ \vec{n} $};
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}
 \lcom{Wir beschränken uns vorwiegend auf den ersten Fall. }
 \lcom{Zur Lösung dieser Probleme gibt es einige Methoden. Zum Einstieg und zur Wiederholung betrachten wir zunächst die Methode der Spiegelladung. }
 
@@ -1638,7 +1661,13 @@ Zwei Fälle:
 
 \subsubsection{Punktladung vor leitender, geerdeter Metallplatte}
 
-%T3 
+%t3:
+\begin{tikzpicture}
+	\draw[thick,->] (-.7,0) -- (2,0) node[anchor=north west] {$ x $};
+	\draw ($ (-.1,0) + (0,-1.5) $) -- ++(0,3);
+	\draw ($ (.1,0) + (0,-1.5) $) -- ++(0,3);
+	\draw[draw=none,pattern=north east lines] ($ (-.1,0) + (0,-1.5)  $) rectangle ($ (.1,0) + (0,1.5) $);
+\end{tikzpicture} 
 
 \begin{equation*}
 \vec{\Delta} \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho (\vec{r}) = - \frac{q}{\epsilon_0} \delta(\vec{r} - \vec{r}_0)

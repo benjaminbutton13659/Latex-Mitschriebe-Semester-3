@@ -73,6 +73,7 @@
 \newcommand{\lag}{\mathcal{L}}
 \newcommand{\ham}{\mathcal{H}}
 \newcommand{\prt}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\prd}[2]{\frac{\tx{d} #1}{\tx{d} #2}}
 
 %LA:
 \newenvironment{bew}[1]{\subsection{Bew: #1}}{\hfill$\square$}
@@ -1790,6 +1791,126 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 	$ \Rightarrow $ Vergrößerung: $$ V = V_1 V_2 = \frac{t \cdot 25 \, \tx{cm}}{f_1 f_2} $$
 	$ t \approx 28 \, \tx{cm} $ wurde so definiert um den Vergleich von Geräten zu vereinfachen.
 \end{enumerate}
+
+
+% 13.11.18
+
+% andrez 1
+
+
+% f = varphi a ? = alpha
+
+\subsection{beugung am Einzelspalt}
+
+Brechung der Intensitätsverteilungen $ I(\alpha) $, in 6 Schritten
+
+\begin{enumerate}[(1)]
+	\item Strahl über Spalt wird in $ N $ Teilstrahlen zerlegt im Abstand: $ \Delta b = \frac{b}{N} $
+	\item Amplitude eines Teilstrahls = $ a = \frac{\sqrt{I_0}}{N} $
+	\item Gangunterschied benachbarter Strahlen: $ x = \Delta b \sin \alpha $
+	\item Phasenunterschied benachbarter Strahlen: $ \Delta \varphi = k x = k \Delta b \sin \alpha  $
+	\item Gesamtamplitude $ \widehat{=} $ Summe der $ N $ Teilstrahlen
+	\begin{equation*}
+	\Rightarrow \quad A = a \sum_{n=0}^{N-1} e^{-i(\omega t + f_n)} = a e_{-i \omega t} \sum_{n=0}^{N-1} e^{i n \Delta \varphi}
+	\end{equation*}
+	$ f_n $ ist die Phase des $ n $-ten Strahls
+	\begin{equation*}
+	A = e^{-i\omega t} \frac{e^{i N \Delta \varphi}}{e^{i \Delta \varphi}} = a e^{- i \omega t} e^{i \frac{N \Delta \varphi}{2}} \frac{\sin\left(\frac{N}{2} \Delta \varphi\right)}{\sin\left(\frac{1}{2} \Delta \varphi\right)}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad I(\alpha) = A^2 = a^2 \frac{\sin^2\left(\frac{N}{2} \Delta \varphi \right)}{\sin^2 \left(\frac{1}{2} \Delta \varphi \right)} = a^2 \frac{\sin^2 (x)}{\sin^2 \left(\frac{x}{N}\right)} \qquad x \defeq \pi \frac{b}{\lambda} \sin \alpha
+	\end{equation*}
+	\item Grenzübergang $ \Delta b \rightarrow 0 $ oder $ N \rightarrow \infty $:
+	\begin{equation*}
+	\Rightarrow \quad \sin^2(\frac{x}{N}) = \frac{x^2}{N^2}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad I(\alpha)  = N^2 a^2 \frac{\sin^2(x)}{x^2}
+	\end{equation*}
+	\textbf{Lösung:}
+	\begin{equation*}
+	\rmbox{I(x) = I_0 \frac{\sin^2(x)}{x^2}} \qquad x \defeq \pi \frac{b}{\lambda} \sin \alpha
+	\end{equation*}
+\end{enumerate}
+\textbf{Diskussion:}\\[5pt]
+Hauptmaxima: $ x = 0 \quad \rightarrow \quad \alpha = 0 $\\
+Minima: $ \sin x = 0 \quad \rightarrow \quad x = n \pi \quad \Rightarrow \quad \sin \alpha = n \frac{\lambda}{b} $\\
+Nebenmaxima: $ |\sin \alpha| = 1 \quad \rightarrow \quad x = \left(n + \frac{1}{2}\right) \pi \quad \Rightarrow \quad  \sin \alpha = \left(n + \frac{1}{2}\right) \frac{\lambda}{b} $\\[5pt]
+\lcom{Die Gleichungen sind unabhängig vom Abstand des Schirms. Die stammt aus der Annahme es handelt sich um Ebene Wellen, es nur die nur im Fernbereich gibt. Daher gelten unsere Gleichungen und Annahmen auch nur im Fernbereich. Ist der Abstand zum Schirm nicht Wesentlich größer als die Spaltbreite oder der Abstand der Spalten, gelten sie nicht mehr. Mehr dazu im Abschnitt Interferenz und Beugung II.}\\[5pt]
+ACHTUNG:\\
+Implizit Annahme ebener Wellen $ \Rightarrow $ Rechnung nur richtig im Fernbereich \mau
+
+\subsection{Beugung am Gitter}
+
+\textbf{Definition:}\\
+Gitter: Regelmäßige Anordnung von ,,Strichen``
+\folie{Licht am optische Gitter} (wieder Annahme ebener Wellen)\\
+Brechungs
+\begin{enumerate}[(1)]
+	\item Überlagerung von $ N $ Strahlen im Abstand $ d $
+	\item Amplitude eines Strahls $ a = \sqrt{I_0} $
+	\item Gangunterschied von benachbarten Strahlen $ x = d \sin \alpha $
+\end{enumerate}	
+Weiter wie beim Einzelspalt:
+\begin{enumerate}[(4)]
+	\item[(4)] Phasenunterschied $ \Delta \varphi = k x = k d \sin \alpha $
+	\item[(5)] Gesamtamplitude $ \widehat{=} $ Summe der Teilstrahlen
+	\begin{equation*}
+	\Rightarrow \quad A = a e^{i \omega t} \sum_{n=0}^{N-1} e^{i n \Delta \varphi}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad A(\alpha) = A_0 \frac{\sin \left(\pi \frac{N d}{\lambda} \sin \alpha \right)}{\sin \left( \pi \frac{d}{\lambda} \sin \alpha \right)} \qquad A_0: \tx{ geeignet definiert}
+	\end{equation*}
+	\begin{equation*}
+	I(\alpha) = A^2
+	\end{equation*}
+	\folie{Interferenzmuster in Abhängigkeit der Spaltenzahl}
+\end{enumerate}
+\textbf{Diskussion:}\\[5pt]
+Hauptmaxima: Nenner klein $ \pi \frac{d}{\lambda} \sin \alpha = m \pi $
+\begin{equation*}
+\Rightarrow \qquad \sin \alpha = m \frac{\lambda}{d}
+\end{equation*}
+Nebenmaxima: Zähler klein $ \Rightarrow \pi \frac{N d}{\lambda} \sin \alpha = m \pi $
+\begin{equation*}
+\Rightarrow \qquad \sin \alpha = m \frac{\lambda}{N d}
+\end{equation*}
+Breite der Hauptmaxima:\\
+Verhält sich wie der Abstand benachbarter Nebenmaxima
+\begin{equation*}
+\Rightarrow \qquad B = \frac{2 \lambda}{N d}
+\end{equation*}
+Dispersion der Hauptmaxima ($ \lambda $ bzw. $ \omega $ Abhängigkeit)\\
+Lage: $ \sin \alpha = m \frac{\lambda}{b} $
+\begin{equation*}
+\Rightarrow \quad \frac{\dd \alpha}{\dd \lambda} = \frac{m}{d} \arccos \alpha \quad \Rightarrow \quad \frac{\dd \alpha}{\dd \lambda} > 0
+\end{equation*}
+
+% andrez comment
+
+\subsection{Beugung am Raum- oder Oberflächengitter}
+
+\textbf{Definition:}\\
+Raumgitter: Kristall $ \widehat{=} $ regelmäßige Anordnung von Atomen im 3D Raum \folie{Diamant Kristallgitter}
+\begin{equation*}
+\Rightarrow \quad 2 d \sin \alpha = m \lambda \qquad \tx{Bragg-Bedingung}
+\end{equation*}
+$ d $ ist der Abstand von zwei Kristall-Ebenen oder Netzebenen 
+
+% \Versuch
+% unten angstöm ändern evtl
+
+\noindent
+Typischer Zahlenwert:
+\begin{equation*}
+d \approx 1 \, \overset{\circ}{\tx{A}} \quad \Rightarrow \quad \lambda \approx 1 \, \overset{\circ}{\tx{A}} \quad \approx \quad \tx{Röntgenstrahlung oder X-Ray}
+\end{equation*}
+
+% Versuch\
+Versuch: Kristall Struktur Messung it Röntgenstrahlung\\
+Anwendung von Kristallen: Röntgenstrukturanalyse mittels Röntgendefraktometer\\
+X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit den Elektronen also der Lorenz-Lorentz-Oszillator $ \vec{F} = q \vec{E} $. Die Röntgenstrahlung Wechselwirkt also mit den Ladungen. Was wir beobachten ist also die Lage der Elektronen also nur indirekt die Lage der Atome.}
+
 
 
 
