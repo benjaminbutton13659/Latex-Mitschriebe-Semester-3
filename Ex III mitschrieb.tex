@@ -94,6 +94,7 @@
 \newcommand{\kq}{\frac{1}{4\pi\epsilon_0}}
 \newcommand{\uind}{U_{\tx{ind}}}
 \newcommand{\folie}[1]{\color{gray}[Folie: #1]\color{black}}
+\newcommand{\versuch}[1]{\color{red!50!black} Versuch: \color{black} #1\\ }
 
 % anderz
 \newcommand{\summ}[2]{\sum_{#1}^{#2}}
@@ -1795,12 +1796,30 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 
 % 13.11.18
 
-% andrez 1
+\section{Inteferenz und Beugung I}
+\subsection{Inteferenz am Doppelspalt}
+
+Berechnung der Maxima und Minima
+\begin{description}
+	\item[Gangunterschied] $x = d \sin \alpha$
+\end{description}
+Maxima wenn $x$ ein Vielfaches von $\lambda$ ist (konstruktive inteferenz)
+\begin{itemize}
+	\item[$\rightarrow$] $x = n \lambda$
+	\item[$\Rightarrow$] Maxima: $\sin\alpha = n \frac{\lambda}{d}$
+	\item[$\Rightarrow$] Minima: $\sin\alpha = \left(n + \frac{1}{2}\right)\frac{\lambda}{d}$
+\end{itemize}
+
+Triviale aber Wichtige Feststellung: nicht nur $d$, nicht nur $\lambda$, sondern $\frac{\lambda}{d}$\\
+\emph{Bemerkung: } $$k= \frac{2\pi}{\lambda}$$
+$$\Rightarrow \quad kx = 2 \pi n$$
+$$\Delta f = 2\pi n = kx = \frac{2 \pi}{\lambda}x$$
+Feststellung: Ortsraum $k$-Raum reziprok 
 
 
 % f = varphi a ? = alpha
 
-\subsection{beugung am Einzelspalt}
+\subsection{Beugung am Einzelspalt}
 
 Brechung der Intensitätsverteilungen $ I(\alpha) $, in 6 Schritten
 
@@ -1886,7 +1905,7 @@ Lage: $ \sin \alpha = m \frac{\lambda}{b} $
 \Rightarrow \quad \frac{\dd \alpha}{\dd \lambda} = \frac{m}{d} \arccos \alpha \quad \Rightarrow \quad \frac{\dd \alpha}{\dd \lambda} > 0
 \end{equation*}
 
-% andrez comment
+\lcom{Wenn ihr eine scharfe Linie wollt sollte euch sofort Gitter einfallen. }
 
 \subsection{Beugung am Raum- oder Oberflächengitter}
 
@@ -1897,7 +1916,7 @@ Raumgitter: Kristall $ \widehat{=} $ regelmäßige Anordnung von Atomen im 3D Ra
 \end{equation*}
 $ d $ ist der Abstand von zwei Kristall-Ebenen oder Netzebenen 
 
-% \Versuch
+\versuch{Doppelspalt}
 % unten angstöm ändern evtl
 
 \noindent
@@ -1906,8 +1925,8 @@ Typischer Zahlenwert:
 d \approx 1 \, \overset{\circ}{\tx{A}} \quad \Rightarrow \quad \lambda \approx 1 \, \overset{\circ}{\tx{A}} \quad \approx \quad \tx{Röntgenstrahlung oder X-Ray}
 \end{equation*}
 
-% Versuch\
-Versuch: Kristall Struktur Messung it Röntgenstrahlung\\
+\versuch{Gitter}
+\versuch{Kristall Struktur Messung it Röntgenstrahlung}\\
 Anwendung von Kristallen: Röntgenstrukturanalyse mittels Röntgendefraktometer\\
 X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit den Elektronen also der Lorentz-Lorenz-Oszillator $ \vec{F} = q \vec{E} $. Die Röntgenstrahlung Wechselwirkt also mit den Ladungen. Was wir beobachten ist also die Lage der Elektronen also nur indirekt die Lage der Atome.}
 
