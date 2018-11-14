@@ -1429,7 +1429,6 @@ E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\pe
 \noindent
 \begin{minipage}{.4\linewidth}
 	\paragraph{Tangentialkomponente $ E\parallel $}
-	
 	Satz von Stokes:
 	\vspace{50pt}
 \end{minipage}
@@ -1523,7 +1522,7 @@ Insgesamt ergibt sich damit:
 	Eigenschaften von $\vec{E}$ im Leiter:
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	%% T15:
+	%t15:
 	\centering
 	\begin{tikzpicture}
 		\draw[thick] (0,0) arc (90:0:2.5cm);
@@ -1542,7 +1541,7 @@ Insgesamt ergibt sich damit:
 	\end{enumerate}
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-		%% t16:
+		%t16:
 		\centering
 		\begin{tikzpicture}[scale=.8]
 		\draw[pattern=north east lines] (0,0) circle (1cm);
@@ -1826,7 +1825,6 @@ $$\Rightarrow \quad \int_V d^3 r\ ((\vabla \psi)^2 + \psi(\vec{r}) \underbrace{\
 \psi(\vec{r}) = \const \qquad \psi(\vec{r}) = 0 \ \tx{in} \ V \ \ \Rightarrow \ \ \Phi_1(\vec{r}) = \Phi_2(\vec{r})
 \end{equation*}
 
-
 \subsection{Formale Lösungen des elektrostatischen Randwertproblems mit \\ Greenschen Funktionen}
 GF: generelle Methode um inhomogene DGL zu lösen
 \begin{equation*}
@@ -1858,7 +1856,6 @@ $$\Delta_{\vec{r}} \pofr = \int d^3 r'\ \underbrace{(\Delta_{\vec{r}} \mathcal G
 \begin{equation*}
 \pofr \buildrel |\vec{r}| \to \infty \over \longrightarrow 0
 \end{equation*}
-
 
 % andrez 8:
 $$\rightarrow\ \Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')$$
@@ -1908,7 +1905,11 @@ Es gilt (HA):
 
 % 8.11.18
 
+
+
 % Wiederholung nachholen
+
+
 
 \emph{Bemerkungen:}
 \begin{enumerate}[i)]
@@ -1934,7 +1935,14 @@ Es gilt (HA):
 				\node at (0,0) {$ V $};
 			\end{tikzpicture}
 		\end{minipage}
+		
+		
+		
 		%T2
+		
+		
+		
+		
 		\begin{align*}
 		\Rightarrow \Phi(\vec{r}) &= - \epsilon \Phi_0 \ub{\int_{\partial V} \dd f' \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}') }_{\int \dd f' \vec{n} \cdot \vec{\nabla}_{\vec{r}'} \gre}\\
 		&= - \epsilon \Phi_0 \int \dd \vec{f}' \cdot \vec{\nabla}_{\vec{r}'} \gre \\
@@ -2008,7 +2016,6 @@ Analog: Punktladung ,,$ q = 1 $`` in $ \vec{r}' $ vor leitender Ebene mit Potent
 \rbox{\begin{equation*}
 \gre(\vec{r},\vec{r}') = \frac{1}{q} \Phi(\vec{r}) = \kq \left(\frac{1}{|\vec{r} - \vec{r}'|} - \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}\right)
 \end{equation*}}
-
 \emph{Beweis:}
 \begin{equation*}
 \Delta_{\vec{r}} = \kq \bigg(\equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|}}{- 4 \pi \delta(\vec{r} - \vec{r}')} - \equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}}{- 4 \pi \delta(\vec{r} - \tilde{\vec{r}}') = 0 }\bigg) = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')

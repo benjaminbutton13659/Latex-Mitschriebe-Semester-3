@@ -1839,7 +1839,14 @@ $$v_1 = \sqrt{\frac{2eU_0}{m}}, \quad v_2 = \sqrt{\frac{2e(U+U_0)}{m}}$$
 
 Lange Spule = homogenes Magnetfeld\\
 Lorentz Kraft $\Rightarrow$ Spiralbahnen der Elektronen $\Rightarrow$ Bild wird gedreht\\
-$\Rightarrow$ kleine Spule = inhomogene Magnetfelder $\Rightarrow$ ?? %% was
+$\Rightarrow$ kleine Spule = inhomogene Magnetfelder $\Rightarrow$ ?? \\
+
+
+
+%% was fehlt da oben
+
+
+
 \folie{Elektronen in Magnetfeldern}
 \subsection{Elektronenmikroskope}
 \folie{Elektronmikroskop}
@@ -2068,6 +2075,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 % 14.11.18
 
 % andrez comment 1
+
 \noindent
 \subsubsection{\emph{Beispiel:} \textbf{Srukturanalyse von Kristallen}}
 \begin{itemize}
@@ -2148,7 +2156,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 	\Rightarrow \qquad 2d\sqrt{n^2 \sin^2 \alpha} = m \lambda
 	\end{equation*}
 \end{enumerate}
-Test:\\
+\textbf{Test:}\\
 Annahme: keine Absorption in der Glasplatte: \lcom{Die Intensitäten der Reflexion und die der Streuung sollten sich zu Gesamtintensität aufsummieren. }
 \begin{equation*}
 \Rightarrow \tx{ zu erwarten: } \quad I = I_{\tx{reflektiert}} + I_{\tx{transmittiert}}
@@ -2156,8 +2164,11 @@ Annahme: keine Absorption in der Glasplatte: \lcom{Die Intensitäten der Reflexi
 Wie erwartet da wo die Transmission Maximal ist ist die Reflexion minimal und umgekehrt. Immer um $ \frac{\lambda}{2} $ verschoben.
 \subsubsection{Anwendung}
 \begin{itemize}
-	\item \folie{Fres'nelscher Doppelspiegel}
+	\item \versuch{Interferenz mit zwei angewinkelten Spiegeln Fres'nelscher Doppelspiegel}
+	\folie{Fres'nelscher Doppelspiegel}
 	\item \folie{Newton's Ringe}
+	\item \versuch{Seifenblase} die in Regenbogenfarben schillert
+	\item \versuch{Interferenz an Planparalleser Folie} (mit grünem Laserlicht demonstriert)
 \end{itemize}
 
 \subsection{Vielstrahlinterferenz, Fabry-Parot Interferometer}
@@ -2168,23 +2179,19 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 \begin{enumerate}[(1)]
 	\item Intensitäten der jeweiligen Teilstrahlen berücksichtigen\\
 	$ \Rightarrow $ Reflexionskoeffizient $ R $
-	
-	
-	% make align:
-	
-	
-	
+	\begin{align*}
+	|A_1| &= \sqrt{R} |A_0|\\
+	|B_1| &= \sqrt{1 - R} |A_0|\\
+	|D_1| &= \sqrt{1-R} |A_0| = (1-R) |A_0|\\
+	|C_1| &= \sqrt{R} |B_1| = \sqrt{R}\sqrt{1 - R} |A_0|\\
+	|A_2| &= \sqrt{1 - R} |C_1|\\
+	|B_1| &= \sqrt{R} |C_1| = R \sqrt{1 - R} |A_0|
+	\end{align*}
+	\vspace{10pt}
+	$\Rightarrow \quad |A_{m+1}| = \sqrt{1-R} |C_m| = \sqrt{1-R} \sqrt{R} |B_m| = \sqrt{1-R} \sqrt{R} \sqrt{R} |C_{m-1}| = R |A_m|$
+	\vspace{5pt}
 	\begin{equation*}
-	|A_1| = \sqrt{R} |A_0| \quad |B_1| = \sqrt{1 - R} |A_0| \quad |D_1| = \sqrt{1-R} |A_0| = (1-R) |A_0|
-	\end{equation*}
-	\begin{equation*}
-	|C_1| = \sqrt{R} |B_1| = \sqrt{R}\sqrt{1 - R} |A_0| \quad |A_2| = \sqrt{1 - R} |C_1| \quad |B_1| = \sqrt{R} |C_1| = R \sqrt{1 - R} |A_0|
-	\end{equation*}
-	\begin{equation*}
-	\Rightarrow \qquad |A_{m+1}| = \sqrt{1-R} |C_m| = \sqrt{1-R} \sqrt{R} |B_m| = \sqrt{1-R} \sqrt{R} \sqrt{R} |C_{m-1}| = R |A_m|
-	\end{equation*}
-	\begin{equation*}
-	\Rightarrow \qquad |D_{m+1}| = R |D_m|
+	\Rightarrow \qquad |A_{m+1}| = R |A_m| \qquad |D_{m+1}| = R |D_m|
 	\end{equation*}
 	\item Gangunterschied benachbarter Strahlen (siehe Platte)
 	\begin{equation*}
@@ -2213,17 +2220,22 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 \subsubsection{Ergebnis}
 
 Fabry Airy ??? Formeln
+Hier fehlt eine Gleichung:
 
 %big box 
 
-
-\begin{equation*}
-I_R = I_0 \frac{F \sin^2 \left(\frac{\Delta \varphi}{2}\right)}{1 + F \sin^2\left(\frac{\Delta \varphi}{2}\right)}
-\end{equation*}
-
-\begin{equation*}
-Hier fehlt eine Gleichung: I_T = I_0 XXX\frac{XXX}{1 + F \sin^2 \left(\frac{\Delta \varphi}{2}\right)}
-\end{equation*}
+\begin{center}
+	\begin{minipage}{.5\linewidth}
+		\rbox{
+			\begin{equation*}
+			I_R = I_0 \frac{F \sin^2 \left(\frac{\Delta \varphi}{2}\right)}{1 + F \sin^2\left(\frac{\Delta \varphi}{2}\right)}
+			\end{equation*}
+			\begin{equation*}
+			I_T = I_0 XXX\frac{XXX}{1 + F \sin^2 \left(\frac{\Delta \varphi}{2}\right)}
+			\end{equation*}
+		}
+	\end{minipage}
+\end{center}
 % end box
 
 \begin{equation*}
@@ -2240,26 +2252,10 @@ $$ \epsilon = 4 \arcsin\sqrt{\frac{1}{F}} \approx \frac{4}{\sqrt{F}} $$
 \folie{Maxima beim FWHM}\\
 \textbf{Anwendung: Fabry Parot Interferometer}\\[5pt]
 \folie{zu Fabry-Parot Interferometern}\\[5pt]
-
-Versuche
-
 \versuch{Natrium-Dampf-Lampe Interferenz}
-\folie{Interferenz mit einer Natrium-Dampf-Lampe}
+\folie{Interferenz mit einer Natrium-Dampf-Lampe}\\
 \versuch{Abpumpen der Luft beim Interferenzmuster der Natrium-Dampf-Lampe}
 \lcom{Dar Muster verändert sich erheblich obwohl der Unterschied der Brechungsindizes so gering war. ALso hat das Farbinterferometer eine sehr hohe Auflösung. }
-
-
-
-Versuche :
-
-Seifenblase
-
-interferenz an planparalleser Folie
-
-interferenz mit doppelspiegel Fres'nelscher Doppelspiegel
-
-
-
 
 
 
