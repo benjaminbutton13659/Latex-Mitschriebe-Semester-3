@@ -195,7 +195,7 @@
 	{\Huge Experimentalphysik III}\\[1em]
 	{\Large Vorlesung von Prof. Dr. Oliver Waldmann im Wintersemester 2018}}
 \author{Markus Österle \hspace{5pt} Andréz Gockel}
-\date{ \today}%16.10.2018}
+\date{ \today}% Startum 16.10.2018}
 \maketitle
 \tableofcontents
 
@@ -648,6 +648,7 @@ $ t = 0 $
 Lichtlaufzeit berücksichtigen
 
 \subsection{Doppler Effekt}
+\subsubsection{Klassischer Doppler Effekt}
 \begin{equation*}
 f_B = f_S \frac{c + v_B}{c - v_S}
 \end{equation*}
@@ -656,7 +657,7 @@ f_B = f_S \frac{c + v_B}{c - v_S}
 	\item bewegter Sender: $ v_B = 0 \Rightarrow f_B = f_S \frac{1}{1 - \frac{v_S}{c}} \approx f_S \left(1 + \frac{v_S}{c} + \frac{v_S^2}{c^2} + \dots \right) $
 \end{itemize}
 
-\subsubsection{Relativistischer Dopplereffekt}
+\subsubsection{Relativistischer Doppler Effekt}
 \begin{equation*}
 f_B = f_S \frac{\sqrt{1 - \frac{v^2}{c^2}}}{1 - \cos \alpha \frac{u}{c}}
 \end{equation*}
@@ -664,13 +665,17 @@ f_B = f_S \frac{\sqrt{1 - \frac{v^2}{c^2}}}{1 - \cos \alpha \frac{u}{c}}
 	\item $ \cos \alpha = \pm 1 $: longitudinaler DE
 	\item $ \cos \alpha = 0 $: transversaler DE
 \end{itemize}
+\folie{Relativistischer DE}\ zum Beispiel: Michelson-Interferometer\\
+\lcom{Laufzeit des Lichtes muss bei Lorenz-kontraktion ein berechnet werden. In QM wird gezeigt das alles wärme Energie abstrahlt. Jetzt betrachten wir Farben.}\\
+\folie{Video zu Bewegte Strahlung}
 
-\subsection{Abberation des Lichts}
+\subsection{Aberration des Lichts}
 
-\folie{Folien zur Abberation des Lichts}
-% folien
+\folie{Folien zur Aberration des Lichts, Fernrohr}
+% folien ok?
 
 \section{Relativistische Dynamik}
+\lcom{Wir wollen jetzt die Newton Gleichungen Lorenz-invariant hinbekommen. Wobei wir das Fundamentale und die Erhaltungssätze nicht ''kaputt'' machen wollen.}\\
 Newton: \begin{equation*}
 \vec{F} = m \vec{a}
 \end{equation*}
@@ -702,24 +707,23 @@ Im Laborsystem gilt $ \vec{p}_{\tx{vorher}} = \vec{p}_{\tx{nacher}} $:
 Im Ruhesystem von Körper $ A $ gilt dann:
 \begin{equation*}
 u = - v_1 \quad , \quad v_1' = 0
-\end{equation*}
-\begin{equation*}
+\quad
 \Rightarrow \quad (m_1 + m_2) v_1 = m_2 v_2'
 \end{equation*}
 Klassisch gilt somit:
 \begin{equation*}
 m_1 = m_2 = m_0
+\qquad
+v_2' = v_2 + v = 2v \quad \checkmark
 \end{equation*}
-\begin{equation*}
-v_2' = v_2 + v = 2v
-\end{equation*}
+
 In der \textbf{SRT} gelten aber folgende Additionstheoreme für Geschwindigkeiten:
 \begin{equation*}
 v_2' = \frac{v_2 - u}{1 - v_2 \frac{u}{c^2}} = \frac{2 v}{1 + \frac{v^2}{c^2}}
 \end{equation*}
 Dies liefert jedoch einen Widerspruch mit unserem zuvorigen Ergebnis.
 \begin{equation*}
-\Rightarrow v_2' < 2v \quad \tx{\lightning}
+\Rightarrow v_2' < 2v \quad \tx{\lightning\ Impulsbilanz nicht erfüllt}
 \end{equation*}
 
 \subsubsection{Relativistischer Impuls}
@@ -2057,12 +2061,12 @@ Raumgitter: Kristall $ \widehat{=} $ regelmäßige Anordnung von Atomen im 3D Ra
 \end{equation*}
 $ d $ ist der Abstand von zwei Kristall-Ebenen oder Netzebenen 
 \versuch{Doppelspalt}
-% unten angstöm ändern evtl
+% unten angstöm ändern evtl OK DONE -az
 
 \noindent
 Typischer Zahlenwert:
 \begin{equation*}
-d \approx 1 \, \overset{\circ}{\tx{A}} \quad \Rightarrow \quad \lambda \approx 1 \, \overset{\circ}{\tx{A}} \quad \approx \quad \tx{Röntgenstrahlung oder X-Ray}
+d \approx 1 \, \tx{\AA} \quad \Rightarrow \quad \lambda \approx 1 \,  \tx{\AA} \quad \approx \quad \tx{Röntgenstrahlung oder X-Ray}
 \end{equation*}
 \versuch{Gitter}
 \versuch{Kristall Struktur Messung it Röntgenstrahlung}\\
@@ -2074,7 +2078,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 
 % 14.11.18
 
-% andrez comment 1
+% andrez comment 1 %% mehr lügen! hier gibts keine kommentare -az
 
 \noindent
 \subsubsection{\emph{Beispiel:} \textbf{Srukturanalyse von Kristallen}}
@@ -2092,18 +2096,19 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 	\item Spin: magnetische Dipol-Dipol-WW
 	\begin{itemize}
 		\item Streuung an Elektronenspins
-		\item $ \Rightarrow $ Mangetismus
+		\item $ \Rightarrow $ Magnetismus
 	\end{itemize}
 \end{itemize}
+\lcom{Wie gut kommen Elektronen durch material durch? Überhaupt nicht gut, bei Isolatoren ist es in dem sehr kleinen 0,000... \AA Bereich, bei metallen trifft das Elektron gleich auf den ''Elektronen See''.}
 \subsubsection{\emph{Beispiel:} \textbf{Untersuchung von Oberflächen LEED} (Low Energy Electron Diffraction)}
 \begin{itemize}
 	\item $ e^- $:
 	\begin{itemize}
 		\item Streuung an der Elektronenhülle
-		\item Eindringtiefe $ \approx 100 \, \overset{\circ}{\tx{A}} \Rightarrow $ Oberflächenanalyse
+		\item Eindringtiefe $ \approx 100 \, \tx{\AA} \Rightarrow $ Oberflächenanalyse
 	\end{itemize}
 \end{itemize}
-\lcom{Die \textbf{Energie von Raumtemperatur} ist ungefähr \underline{$ \frac{1}{40} \, e \tx{V} $}. Sollte man Wissen.}\\
+\lcom{Die \textbf{Energie von Raumtemperatur} ist ungefähr $ \frac{1}{40} \, \tx{eV} $. Sollte man Wissen.}\\
 \folie{zu LEED}
 
 \subsection{Interferenz an planparallelen Glasplatten}
@@ -2134,7 +2139,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 	\begin{equation*}
 	\Rightarrow \Delta \varphi = k x  + \pi
 	\end{equation*}
-	\item Für konstruktive Interferenz (Maximua): $ \Delta \varphi = m 2 \pi $
+	\item Für konstruktive Interferenz (Maxima): $ \Delta \varphi = m 2 \pi $
 	\begin{equation*}
 	\Rightarrow \qquad 2 d \sqrt{n^2 - \sin^2 \alpha} = \left(m + \frac{1}{2}\right) \lambda
 	\end{equation*}
@@ -2171,7 +2176,7 @@ Wie erwartet da wo die Transmission Maximal ist ist die Reflexion minimal und um
 	\item \versuch{Interferenz an Planparalleser Folie} (mit grünem Laserlicht demonstriert)
 \end{itemize}
 
-\subsection{Vielstrahlinterferenz, Fabry-Parot Interferometer}
+\subsection{Vielstrahlinterferenz, Fabry-P\'erot-Interferometer}
 
 \folie{Vielstrahlinterferenz an Planparallelen Platten}\\
 \lcom{Die Interferenz ähnelt der bei einem Gitter. Der große Unterschied liegt darin, dass die Intensität der Teilstrahlen mit zunehmenden Reflexionen abnimmt. }\\
@@ -2208,7 +2213,7 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 	\end{equation*}
 	$ N $: Anzahl der betrachteten Teilstrahlen\\
 	$ \color{red} \pm \color{black} $: Berücksichtigt die Phasensprünge
-	\item Grenzübergang $ N \to \infty $ (unendlichlange Glasplatte):
+	\item Grenzübergang $ N \to \infty $ (unendlich lange Glasplatte):
 	\begin{equation*}
 	\Rightarrow \qquad A = \pm A_0 \sqrt{R} \frac{1 - e^{i \Delta \varphi}}{1 - R e^{i \Delta \varphi}}
 	\end{equation*}
@@ -2219,8 +2224,8 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 
 \subsubsection{Ergebnis}
 
-Fabry Airy ??? Formeln
-Hier fehlt eine Gleichung:
+Fabry Airy ??? Formeln % sowas gibt es nicht???
+Hier fehlt eine Gleichung: % warum???
 
 %big box 
 
@@ -2250,12 +2255,12 @@ Maxima: $$ 2 n d = m \lambda $$
 FWHM (full width at half maximum)
 $$ \epsilon = 4 \arcsin\sqrt{\frac{1}{F}} \approx \frac{4}{\sqrt{F}} $$
 \folie{Maxima beim FWHM}\\
-\textbf{Anwendung: Fabry Parot Interferometer}\\[5pt]
-\folie{zu Fabry-Parot Interferometern}\\[5pt]
+\textbf{Anwendung: Fabry-P\'erot-Interferometer}\\[5pt]
+\folie{zu Fabry-P\'erot-Interferometern}\\[5pt]
 \versuch{Natrium-Dampf-Lampe Interferenz}
 \folie{Interferenz mit einer Natrium-Dampf-Lampe}\\
 \versuch{Abpumpen der Luft beim Interferenzmuster der Natrium-Dampf-Lampe}
-\lcom{Dar Muster verändert sich erheblich obwohl der Unterschied der Brechungsindizes so gering war. ALso hat das Farbinterferometer eine sehr hohe Auflösung. }
+\lcom{Das Muster verändert sich erheblich obwohl der Unterschied der Brechungsindizes so gering war. Also hat das Farbinterferometer eine sehr hohe Auflösung. }
 
 
 
