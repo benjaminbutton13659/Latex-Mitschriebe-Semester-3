@@ -22,6 +22,7 @@
 
 \usepackage{placeins}
 \usepackage{booktabs}
+\usepackage{wasysym}
 
 \usepackage{url}
 
@@ -57,7 +58,6 @@
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\ub}[1]{\underbrace{#1}}
 \newcommand{\ob}[1]{\overbrace{#1}}
-
 
 \newcommand{\dd}{\tx{d}}
 
@@ -103,6 +103,7 @@
 \newcommand{\kq}{\frac{1}{4\pi\epsilon_0}}
 \newcommand{\uind}{U_{\tx{ind}}}
 \newcommand{\folie}[1]{\color{gray}[Folie: #1]\color{black}}
+\newcommand{\versuch}[1]{\color{red!50!black} Versuch: \color{black} #1\\ }
 
 % ANDREZ
 \newcommand{\summ}[2]{\sum_{#1}^{#2}}
@@ -114,6 +115,8 @@
 \newcommand{\bei}{\emph{Beispiel: }}
 \newcommand{\bem}{\emph{Bemerkung:}}
 \renewcommand{\paragraph}[1]{\subsubsection{#1}}
+
+\newcommand{\mau}{$\buildrel \mathcal{O} \over{\textbf{.}}$}
 
 % Boxen:
 
@@ -182,7 +185,6 @@
 	units=cm,
 	scale=.1,
 }
-
 
 \hbadness=99999
 
@@ -1661,22 +1663,38 @@ Zwei Fälle:
 
 \subsubsection{Punktladung vor leitender, geerdeter Metallplatte}
 
-%t3:
-\begin{tikzpicture}
-	\draw[thick,->] (-.7,0) -- (2,0) node[anchor=north west] {$ x $};
-	\draw ($ (-.1,0) + (0,-1.5) $) -- ++(0,3);
-	\draw ($ (.1,0) + (0,-1.5) $) -- ++(0,3);
-	\draw[draw=none,pattern=north east lines] ($ (-.1,0) + (0,-1.5)  $) rectangle ($ (.1,0) + (0,1.5) $);
-\end{tikzpicture} 
-
-\begin{equation*}
-\vec{\Delta} \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho (\vec{r}) = - \frac{q}{\epsilon_0} \delta(\vec{r} - \vec{r}_0)
-\end{equation*}
-$ \vec{r} \in V  \qquad \vec{r}_0 = (d,0,0) \qquad V = \{\vec{r} \in \mathbb{R}^3 , x > 0\}$\\
-Randbedingungen:
-\begin{equation*}
-\pofr = 0 \quad \tx{für} \quad \vec{r} \in \partial V ,\quad \quad \tx{d.h.} \ \vec{r} = (0,y,z)
-\end{equation*}
+\begin{minipage}{.6\linewidth}
+	\begin{equation*}
+	\vec{\Delta} \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho (\vec{r}) = - \frac{q}{\epsilon_0} \delta(\vec{r} - \vec{r}_0)
+	\end{equation*}
+	$ \vec{r} \in V  \qquad \vec{r}_0 = (d,0,0) \qquad V = \{\vec{r} \in \mathbb{R}^3 , x > 0\}$\\[5pt]
+	Randbedingungen:
+	\begin{equation*}
+	\pofr = 0 \quad \tx{für} \quad \vec{r} \in \partial V ,\quad \quad \tx{d.h.} \ \vec{r} = (0,y,z)
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	%t3:
+	\centering
+	\begin{tikzpicture}
+		\draw[thick,->] (-.7,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw ($ (-.1,0) + (0,-1.5) $) -- ++(0,3);
+		\draw ($ (.1,0) + (0,-1.5) $) -- ++(0,3);
+		\draw[draw=none,pattern=north east lines] ($ (-.1,0) + (0,-1.5)  $) rectangle ($ (.1,0) + (0,1.5) $);
+		\draw[thick] (0,-.1) -- (0,.1) node[anchor=north east] {$ 0 $};
+		\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (q) at (1.5,0) {};
+		\node[above] at (q) {$ q $};
+		\draw[decorate, decoration={brace,amplitude=5pt,mirror,raise=2pt}, yshift=-4pt,black] (0,0) -- node[below=10pt] {$ d $} (1.5,0);
+		\coordinate (e) at (-1,-1.5);
+		\draw[thick] (e) -- ++(0,.7) -- ++(.9,0);
+		\draw[thick] ($ (e) + (-.25,0) $) -- ++(.5,0);
+		\draw[thick] ($ (e) + (-.125,0) + (0,-.1) $) -- ++(.25,0);
+		\draw[thick] ($ (e) + (-.0625,0) + (0,-.2) $) -- ++(.125,0);
+		\draw (0,.5) to[out=120,in=10] (-1.2,.8) node[left] {$ \Phi = 0 $};
+		\node at (1.8,1.2) {$ V \ \ \Phi(\vec{r}) = ? $};
+	\end{tikzpicture}
+	\vspace{10pt}
+\end{minipage}\\
 \textbf{Idee:} Ersetze ursprüngliche Problem durch ''Fiktives'' Problem mit zusätzlichen Ladungen außerhalb von $V$, welche die Randbedingungen simulieren.\\[5pt]
 Potential der Punkladungen in $\vec{r}_0$:
 $$\Phi_q (\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$ 
@@ -1694,7 +1712,7 @@ Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 \subsubsection{Diskussion der Lösung}
 \begin{enumerate}[i)]
 	\item \textbf{Struktur}
-	$$\pofr = \underbrace{\kq \frac{1}{|\vec{r}-\vec{r}_0|}}_{\eqdef\ \Phi_{\textrm{s}}(\vec{r})} + \underbrace{\frac{(-q)}{4 \pi \epsilon_0} \frac{1}{|\vec{r}-\vec{r}_0|}}_{\eqdef\ \Phi_{\textrm{hom}}(\vec{r})}$$ 
+	$$\pofr = \underbrace{\frac{q}{4 \pi \epsilon_0} \frac{1}{|\vec{r}-\vec{r}_0|}}_{\eqdef\ \Phi_{\textrm{s}}(\vec{r})} + \underbrace{\frac{(-q)}{4 \pi \epsilon_0} \frac{1}{|\vec{r}+\vec{r}_0|}}_{\eqdef\ \Phi_{\textrm{hom}}(\vec{r})}$$ 
 	$ \vec{r} \in V $
 	\begin{equation*}
 	\Delta \Phi_\tx{s}(\vec{r}) = - \frac{1}{\epsilon_0} \rho(\vec{r}) \quad \tx{Poisson-Gleichung}
@@ -1923,14 +1941,14 @@ Es gilt (HA):
 	\gre_j(\vec{r},\vec{r}') = \kq \frac{1}{|\vec{r} - \vec{r}'|} \qquad \tx{Laplace anwenden !}
 	\end{equation*}
 	\begin{equation*}
-	\gre(\vec{r},\vec{r}') = \ub{\kq \frac{1}{|\vec{r}}_{\tx{immer zur Lösung}} - \ub{\vec{r}'|} + F(\vec{r},\vec{r}')}_{\substack{\tx{so wählen, dass} \\ \tx{Randbedingungen erfüllt}}}
+	\gre(\vec{r},\vec{r}') = \ub{\kq \frac{1}{|\vec{r} - \vec{r}'|}}_{\tx{immer zur Lösung}} \quad + \ub{F(\vec{r},\vec{r}')}_{\substack{\tx{so wählen, dass} \\ \tx{Randbedingungen erfüllt}}}
 	\end{equation*}
 	$ F(\vec{r},\vec{r}') $ so wählen, dass die Randbedingungen erfüllt sind: $ \gre(\vec{r},\vec{r}') = 0 \quad \vec{r} \in \partial V $.
 \end{enumerate}
 
 \subsection{Greensche Funktion des Dirichlet Randwertproblems einer Ebene}
 
-\begin{minipage}{.6\linewidth}
+\begin{minipage}{.55\linewidth}
 	\begin{align*}
 	\Delta_{\vec{r}'} \gre(\vec{r},\vec{r}') &= - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') & \vec{r},\vec{r}' \in V \\
 	\gre(\vec{r},\vec{r}') &= 0 & \vec{r} \in \partial V \, \tx{ \scriptsize{(z=0)}} , \quad \vec{r} \in V
@@ -1939,7 +1957,7 @@ Es gilt (HA):
 	V=\{\vec{r} \in \mathbb{R}^3 | z < 0\}
 	\end{equation*}
 \end{minipage}
-\begin{minipage}{.5\linewidth}
+\begin{minipage}{.45\linewidth}
 	%t3:
 	\centering
 	\begin{tikzpicture}
@@ -2104,7 +2122,7 @@ $$ \Phi(0) = c_1 = \Phi_1  \qquad \Phi(l_x) = \Phi_1 + c_2 l_x = \Phi_2 $$
 	\item $ \Phi(\vec{r}) = \Phi_R(x) \phantom{0} \qquad y = l_y $
 \end{enumerate}
 \textbf{Separationsansatz:}
-$ \Phi(x,y) = f(x) g(x) $
+$ \Phi(x,y) = f(x) g(y) $
 \begin{align*}
 0 = \Delta \Phi &= \left(\prt{^2}{x^2} + \prt{^2}{y^2}\right) f(x) g(y)\\
 &= \prt{^2 f}{x^2} g(y) + f(x) \prt{^2 g}{y^2}\\
@@ -2123,7 +2141,7 @@ umformen:
 \begin{equation*}
 e^{i \alpha x} \Rightarrow f(x) = a \sin(\alpha x) + b cos(\alpha x) \qquad e^{\alpha y} \Rightarrow g(x) = c \sinh(\alpha y) + d \cosh(\alpha y)
 \end{equation*}
-$ \Phi(x,y) = f(x) \cdot g(y) $
+$ \Phi(x,y) = f(x) \cdot g(y) $\\[5pt]
 \textbf{Randbedingungen:}
 \begin{enumerate}[i)]
 	\item $ 0 = \Phi(x,0) = f(x) \cdot d \quad \Rightarrow d = 0 $
@@ -2174,25 +2192,27 @@ $$A_n = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \intt{0}{l_x}\text
 
 \subsection{Vollständige Orthonormale Funktionensysteme (VONS)}
 Betrachte Funktionen $g(x),h(x)$ auf $I = [a,b] \subset \mathbb R$
-$$h,g \cdot I \to \mathbb R\ (\mathbb C)$$
+$$h,g: \quad I \to \mathbb R\ (\mathbb C)$$
 Skalarprodukt: $(g,h) = \int_a^b \textrm{d}x\ g^* (x) h(x)$\\
 $(g,h) = 0$: $g$ und $h$ orthogonal, $(g,g) = 1:\ g$ normiert\\
 Norm: $||g|| = \sqrt{(g,g)}$
 
+\noindent
 Ein abzählbarer Satz von Funktionen $\{f_n\} = \{f_1, f_2, \dots \}$\\
 Heißt orthonormiert falls: $(f_m,f_n) = \delta_{nm}\ \rightarrow$ \underline{Orthonormalsystem}\\
 \underline{Vollständigkeit:} Ein Satz von Funktionen heißt vollständig (VONS) falls \underline{jede} quadratintegrable\footnote{$\textrm{Falls }\int \textrm{d}x\ |g(x)|^2 \textrm{ existiert}$} Funktion $g: I \to \mathbb R (\mathbb C)$ in der Form $g(x) = \summ{n = 1}{\infty} a_n f_n(x)$ dargestellt werden kann.\\
-Genauer: $\lim\limits_{n \to \infty} \intt{a}{b} \textrm{d}x\ |\ g(x) - \summ{n = 1}{\infty} a_n f_n(x)| = 0$
-Bestimmung der Koeffizient an:
-$$g(x) = \sum_n a_n f_n(x)\ | \int \textrm{d}x\ f_m^*(x)$$
+Genauer: $\lim\limits_{n \to \infty} \intt{a}{b} \textrm{d}x\ |\ g(x) - \summ{n = 1}{\infty} a_n f_n(x)| = 0$\\[5pt]
+Bestimmung der Koeffizient $ a_n $:
+$$g(x) = \sum_n a_n f_n(x)\ \qquad \left| \int \textrm{d}x\ f_m^*(x) \right.$$
 $$\intt{a}{b}\textrm{d}x\ f_m^* (x) g(x) = \summ{n = 1}{\infty} \underbrace{\intt{a}{b} \textrm{d}x\ f_m^* (x)f_n(x)}_{= \delta_{nm}} = a_m$$
 \begin{align*}
  	g(x) &= \sum_n a_n f_n (x) = \sum_n (f_n,g)f_n(x)\\
  	&= \sum_n \intt{a}{b} \textrm{d}x'\ f_n^* (x') g(x') f_n(x)\\
  	&= \intt{a}{b} \textrm{d}x'\ g(x') \underbrace{\summ{n = 1}{\infty} f_n(x)f_n^*(x')}_{= \delta(x - x')}
 \end{align*}
+da $ \int_{a}^{b} \dd x' g(x') = g(x) $
 \frbox{Vollständigkeitsrelation}{$$\summ{n = 1}{\infty}f_n(x)f_n^*(x') = \delta(x - x')$$}
-
+\noindent
 \emph{Beispiele:}
 \begin{enumerate}[1)]
 	\item 
@@ -2204,43 +2224,60 @@ $$\intt{a}{b}\textrm{d}x\ f_m^* (x) g(x) = \summ{n = 1}{\infty} \underbrace{\int
 	\begin{equation*}
 	g(x) = \sum_{n} a_n \sqrt{\frac{l}{2}} \sin \left(\frac{n \pi x}{l}\right)
 	\end{equation*}
-	\item Fourierreihe: $ \{f_n\} $:
+	\item Fourierreihe: $ \{f_n\} $:\\
 	$ n=0: \quad \frac{1}{\sqrt{l}} $
 	\begin{equation*}
-	n \in \mathbb{N}: \qquad \sqrt{\frac{2}{l}} \sin \left(\frac{n \pi x}{l}\right) \qquad \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right) \qquad I = [0,l]
+	n \in \mathbb{N}: \qquad \sqrt{\frac{2}{l}} \sin \left(\frac{n \pi x}{l}\right) \ \ ; \qquad \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right) \qquad I = [0,l]
 	\end{equation*}
 	\begin{equation*}
 	g(x) = a_0 \frac{1}{\sqrt{l}} + \sum_{n=1}^{\infty} \left[a_n \sqrt{\frac{2}{l}} \sin \left(\frac{2 \pi x}{l}\right) + b_n \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right)\right]
 	\end{equation*}
+	\vspace{5pt}
 \end{enumerate}
 
 \subsection{Laplace-Gleichung in Kugelkoordinaten}
 
-$ \Delta \Phi = 0 $ 
-\begin{equation*}
-\vec{r} = r \begin{pmatrix}
-\sin \theta \cos \varphi \\ \sin \theta \sin \varphi \\ \cos \theta
-\end{pmatrix}
-\end{equation*}
-
-$$\Phi = \Phi(r,\theta, \varphi)$$
-$$\Delta \Phi = 0$$
+\begin{minipage}{.5\linewidth}
+	%t1:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (0,2) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ y $};
+		\draw[->] (0,0) -- (-1,-1) node[anchor=north east] {$ x $};
+		\draw[thick,->] (0,0) -- node[above=10pt] {$ \vec{r} $} (1.5,1);
+		\draw[dashed] (0,0) -- (1.5,-1) -- (1.5,1);
+		\centerarc[](0,0)(90:33:1cm);
+		\centerarc[](0,0)(-135:-33:.85cm);
+		\node[xshift=10pt,yshift=17pt] at (0,0) {$ \theta $};
+		\node[below,yshift=-8pt] at (0,0) {$ \varphi $};
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\vec{r} = r \begin{pmatrix}
+	\sin \theta \cos \varphi \\ \sin \theta \sin \varphi \\ \cos \theta
+	\end{pmatrix}
+	\end{equation*}\\
+	$$\Phi (\vec{r}) = \Phi(r,\theta, \varphi)$$
+	$$\Delta \Phi = 0$$
+	\vspace{5pt}
+\end{minipage}\\
 $$\rightarrow \frac{1}{r} \prt{^2}{r^2}(r \Phi) + \frac{1}{r^2 \sin \theta} \prt{}{\theta} \left( \sin \theta \prt{\Phi}{\theta}\right) + \frac{1}{r^2 \sin^2 \theta} \prt{^2 \Phi}{\varphi^2} = 0$$
 $$\frac{1}{r} \prt{^2}{r^2} (r \Phi) = \frac{1}{r^2} \prt{}{r} \left(r^2 \prt{\Phi}{r}\right)$$
-Separationsansatz:
+\subsubsection{Separationsansatz:}
 $$\Phi(r,\theta,\varphi) = \frac{U(r)}{r} P(\cos\theta)Q(\varphi)$$
 1. Term:
-$$\frac{1}{r} \prt{^2}{r^2} (\cancel{r} \frac{U(r)}{\cancel{r}} P(\cos\theta)Q(\varphi)) = P(\cos\theta)Q(\varphi)\frac{1}{r}\frac{\textrm{d}^2 U}{\textrm{d} r^2}$$
+$$\frac{1}{r} \prt{^2}{r^2} \left(\cancel{r} \frac{U(r)}{\cancel{r}} P(\cos\theta)Q(\varphi)\right) = P(\cos\theta)Q(\varphi)\frac{1}{r}\frac{\textrm{d}^2 U}{\textrm{d} r^2}$$
 $$\Rightarrow 0 = PQ \frac{1}{r} \frac{\textrm{d}^2 U}{\textrm{d} r^2} + UQ \frac{1}{r^3 \sin \theta}\frac{\textrm{d}}{\textrm{d}\theta} \left(\sin\theta \frac{\textrm{d} P}{\textrm{d} \theta} \right) + UP \frac{1}{r^3 \sin^2 \theta} \frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2} \qquad \bigg\rvert \cdot \frac{r^3 \sin^2 \theta}{UPQ}$$
-$$\Rightarrow \underbrace{- r^2 \sin^2 \theta \frac{1}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} - \sin \theta \frac{1}{P}\frac{\textrm{d}^2}{\textrm{d} \theta}\left( \sin \theta \frac{\textrm{d} P}{\textrm{d} \theta} \right)}_{\textrm{unabhängig von } \varphi} = \underbrace{\frac{1}{Q} \frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2}}_{\mathclap{\textrm{unabhängig von }r,\theta}} = \const = -m^2$$
+$$\Rightarrow \underbrace{- r^2 \sin^2 \theta \frac{1}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} - \sin \theta \frac{1}{P}\frac{\textrm{d}^2}{\textrm{d} \theta}\left( \sin \theta \frac{\textrm{d} P}{\textrm{d} \theta} \right)}_{\textrm{unabhängig von } \varphi} = \underbrace{\frac{1}{Q} \frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2}}_{\mathclap{\textrm{unabhängig von }r,\theta}} = \const \defeq -m^2$$
 für $Q$:
 \begin{enumerate}[i)]
 	\item $$\frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2} + m^2 Q = 0$$ Lösung: $$Q(\varphi) = e^{im\varphi} = \cos(m\varphi) + i\sin(m\varphi)$$
-	 	$$Q(\varphi + 2 \pi) = Q(\varphi) \quad e^{im(\varphi + 2\pi)} = e^{im\varphi} \Rightarrow \Rightarrow m = \mathbb Z$$
+	 	$$Q(\varphi + 2 \pi) = Q(\varphi) \quad e^{im(\varphi + 2\pi)} = e^{im\varphi} \quad \Rightarrow \quad m = \mathbb Z$$
 	 	$$\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} + \frac{1}{P\sin\theta} \frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right) = \frac{m^2}{\sin^2\theta}$$
-	 	$$\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} = - \frac{1}{P\sin\theta}\frac{\textrm{d} P}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right)$$ % montegue
-	 \item $$\frac{\textrm{d}^2 U}{\textrm{d} r^2}\qquad \frac{\lambda}{r^2} = 0$$
-	 	$\rightarrow$ Lösung für $\lambda = l(l + 1)$
+	 	$$\ub{\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2}}_{\tx{unabh. von } \theta } = - \ub{\frac{1}{P\sin\theta}\frac{\textrm{d} P}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right)}_{\tx{unabh. von } V} = \const. \defeq \lambda$$
+	 \item $$\frac{\textrm{d}^2 U}{\textrm{d} r^2} - \frac{\lambda}{r^2} U(r) = 0$$
+	 	$\rightarrow$ Lösung für $\lambda = l(l + 1) \qquad$ (Warum das so ist, ist  in iii) erklärt)
 	 	$$U(r) = a_l r^{l + 1} + b_l r^{-l}$$
 	 	$\rightarrow$ \underline{Spezielle Lösung für $m = 0$:}
 	 	$$\Phi(r,\theta) = \frac{U(r)}{r}P_l (\cos\theta) = (a_l r^l + b_l r^{-l - 1}) P_l (\cos\theta)$$
@@ -2248,17 +2285,35 @@ für $Q$:
 	 	$$\Phi(r,\theta) = \summ{l = 0}{\infty} (\custo{\to}{a_l}{\mathclap{\hspace{30pt}\textrm{durch Randbedingungen festgelegt}}} r^l + \custo{\to}{b_l}{} r^{-l - 1}) P_l(\cos\theta)$$
 	 \item $$\frac{1}{\sin\theta} \frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta}\right) + \left(\lambda - \frac{m^2}{\sin^2\theta}\right)P(\cos\theta) = 0$$
 	 	$$x \defeq \cos\theta \quad P(x): \textrm{ DGL für } P(x) \quad \frac{\textrm{d}}{\textrm{d} \theta} P(x(\theta)) = \frac{\textrm{d}P}{\textrm{d}x} \frac{\textrm{d}x}{\textrm{d}\theta} = -\sin \theta \frac{\textrm{d}P}{\textrm{d}x}$$
-	 	$$\frac{\textrm{d}}{\textrm{d} x} = -\sin\theta \frac{\textrm{d}}{\textrm{d}\theta} \Rightarrow - \frac{\textrm{d}}{\textrm{d}x} \left( - \equalto{\sin^2\theta}{1 - x^2} \frac{\textrm{d}P}{\textrm{d}x} \right) + \left(\lambda - \frac{m^2}{1-x^2}\right) P(x) = 0$$
+	 	\begin{equation*}
+	 	\dd x = - \frac{1}{\sin\theta} \prd{}{\theta}
+	 	\end{equation*}
+	 	$$\Rightarrow - \frac{\textrm{d}}{\textrm{d}x} \bigg( - \equalto{\sin^2\theta}{1 - x^2} \frac{\textrm{d}P}{\textrm{d}x} \bigg) + \left(\lambda - \frac{m^2}{1-x^2}\right) P(x) = 0$$
 \end{enumerate}
-\frbox{Zugeordnete Legendresche DGL}{$$\Rightarrow \frac{\textrm{d}}{\textrm{d}x} \left( (1-x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \left( \lambda - \frac{m^2}{1 - x^2} \right) P(x) = 0$$} % T2
-Spezialfall: \underline{Zylindersymmetrische Probleme}: $\Phi$ unabhängig von $\varphi\quad \rightarrow$ Legendre-Polynome
-$$\prt{\Phi}{\varphi}= 0, \quad Q(\varphi) = e^{im\varphi} \Rightarrow m = 0 \Rightarrow \frac{\textrm{d}}{\textrm{d}x}\left( (1 - x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \lambda P (x) = 0$$
+\frbox{Zugeordnete Legendresche DGL}{$$\Rightarrow \frac{\textrm{d}}{\textrm{d}x} \left( (1-x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \left( \lambda - \frac{m^2}{1 - x^2} \right) P(x) = 0$$} 
+
+\begin{minipage}{.6\linewidth}
+	Spezialfall: \textbf{Zylindersymmetrische Probleme}: $\Phi$ unabhängig von $\varphi$\\
+	$\rightarrow$ \textbf{Legendre-Polynome}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	%t2:
+	\centering
+	\begin{tikzpicture}[scale=1.25]
+		\draw[->] (-1,0) -- (1,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-1) -- (0,1) node[anchor=south east] {$ z $};
+		\draw[thick,->] (-.8,-.5) -- node[left] {$ \rho $} (-.8,.8) node[anchor=south east] {$ \vec{E}_0 $};
+		\draw[pattern=north east lines] (0,0) circle (.6cm);
+	\end{tikzpicture}
+\end{minipage}
+$$\prt{\Phi}{\varphi}= 0, \quad Q(\varphi) = e^{im\varphi} \Rightarrow m = 0 \Rightarrow Q(\varphi) = 1$$
+$$\frac{\textrm{d}}{\textrm{d}x}\left( (1 - x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \lambda P (x) = 0$$
 \frbox{Legendresche DGL}{$$(1-x^2) \frac{\textrm{d}^2P}{\textrm{d}x^2} - 2x \frac{\textrm{d}P}{\textrm{d}x} + \lambda P(x) = 0$$}
 Potenzreihenansatz: $P(x) = \summ{k = 0}{\infty} a_k x^k$
 \begin{itemize}
 	\item[$\rightarrow$] Fließbach
 	\item[$\rightarrow$] Legendre Polynome
-	\item[$\rightarrow$] relevante Lösung nur für $\lambda = l(l + 1) \qquad l \in \mathbb N$
+	\item[$\rightarrow$] relevante Lösung nur für $\lambda = l(l + 1) \qquad l \in \mathbb N_0$
 \end{itemize}
 
 
