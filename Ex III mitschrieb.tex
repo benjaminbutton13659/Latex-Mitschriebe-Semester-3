@@ -1103,7 +1103,6 @@ Extremum:\\
 \begin{equation*}
 n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 \end{equation*}
-
 \begin{minipage}{\linewidth}
 	%t4:
 	\centering
@@ -1146,8 +1145,7 @@ Berechnung des Laufzeit des Lichts
 t(x) = \frac{\sqrt{x^2 + a^2}}{c_1} + \frac{\sqrt{(b-x)^2 + d^2}}{c_2} = \frac{1}{c} \left(n_1 \sqrt{x^2 + a^2} + n_2 \sqrt{(b-x)^2 + d^2}\right)
 \end{equation*}
 \folie{zu Brechung}
-$ \frac{dt}{dx} = 0 $
-
+$ \frac{dt}{dx} = 0 $\\
 \begin{minipage}{.55\linewidth}
 	\frbox{Brechungsgesetz}{\begin{equation*}
 		\Rightarrow n_1 \sin \alpha = n_2 \sin \beta
@@ -1166,7 +1164,7 @@ $ \frac{dt}{dx} = 0 $
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (1.5,0) (b) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (0,0) (o) {};
 	\draw[thick] (A) -- (o) -- (B);
-	\draw (A) -- (a) -- (o) -- (b) -- (B);
+	\draw[thick,dashed] (b) -- (B);
 	\draw (-1.5,0) -- (2,0);
 	\draw[thick,dashed] (A) -- (-1,0);
 	\draw[dashed] (0,-1) -- (0,1);
@@ -1289,7 +1287,6 @@ $ \Rightarrow $ Experimentalphysik II
 \subsection{Brennpunkt und Brennebene}
 \folie{zur Sammel- und Streulinsen}\\
 Wir betrachten zunächst den Strahlengang einer Linse:\\
-
 \rbox{\begin{minipage}{\linewidth}
 		\lcom{Lieblingsprüfungsfrage: Parallel einfallendes Licht, das nicht parallel zur optischen Achse verläuft, in eine Sammellinse. Strahlen werden immer noch fokussiert aber Brennpunkt verschoben. Konstruktion mit Zentralstrahlengang \mau}
 	\end{minipage}}
@@ -1312,8 +1309,7 @@ Näherungen der ,,dünnen`` Linse\\[5pt]
 alle Winkel sind klein $ \rightarrow $ trigonometrische Näherungen\\
 $ \sin(x) \approx x \qquad \cos(x) \approx 1 \qquad \tan(x) \approx x $\\[5pt]
 \textbf{Berechnung:}\\
-Ablenkung des Strahls
-
+Ablenkung des Strahls\\
 \begin{minipage}{.5\linewidth}
 	\begin{enumerate}
 		\item[(i)] $ \delta = \alpha_1 - \beta_1 + \alpha_2 - \beta_2 $
@@ -1367,9 +1363,7 @@ Ablenkung des Strahls
 		\node[above] at (1,0) {$ n_2 $};
 		\node[below] at (1.2,-.3) {$ n_1 $};
 	\end{tikzpicture}
-\end{minipage}
-
-\noindent
+\end{minipage}\\
 Winkel $ \gamma $:\\[10pt]
 \begin{minipage}{.035\linewidth}
 	$ \phantom{.} $
@@ -1410,9 +1404,7 @@ Winkel $ \gamma $:\\[10pt]
 		\node[right,yshift=4pt,xshift=17pt] at (a) {$ \gamma_2 $};
 		\node[left,yshift=4pt,xshift=-10pt] at (b) {$ \gamma_1 $};
 	\end{tikzpicture}
-\end{minipage}
-
-\noindent
+\end{minipage}\\
 Winkel $ \delta $:\\[10pt]
 \begin{minipage}{.035\linewidth}
 	$ \phantom{.} $
@@ -1438,9 +1430,6 @@ Winkel $ \delta $:\\[10pt]
 		\node[blue] at (.6,.9) {$ \delta $};
 	\end{tikzpicture}
 \end{minipage}
-
-
-
 
 % 6.11.18 Vorlesung 7
 
@@ -1504,7 +1493,6 @@ Graphisch:
 	\item durch Brennpunkt ein $ \rightarrow $ parallel aus
 	\item Zentralstrahl läuft gerade
 \end{enumerate}
-
 \begin{minipage}{.5\linewidth}
 	\textbf{Rechnerisch}
 	\begin{enumerate}[(i)]
@@ -1545,9 +1533,6 @@ Graphisch:
 		\node[circle,draw=black,inner sep=1pt] at (-.7,-1) {3};
 	\end{tikzpicture}
 \end{minipage}
-
-
-
 
 \section{Abbildungsfehler}
 
@@ -1720,7 +1705,6 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 	\Rightarrow \qquad \rmbox{\frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2}} \qquad \rmbox{D_{\tx{ges}} = D_1 + D_2}
 	\end{equation*}
 	\item \textbf{Fernrohr (Kepler): Abstand der Linsen $ = $ Summe der Brennweiten $ f_1 + f_2 $}\\
-	
 	\begin{minipage}{.5\linewidth}
 		$ \Rightarrow $ Zwischenbild in der Brennebene\\[10pt]
 		Sehwinkel vor Objektiv:
@@ -1779,7 +1763,6 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 	\end{itemize}
 	\item \textbf{Mikroskop: Abstand der Linsen $ \gg $ Summe der Brennweiten $ f_2 + f_1 $}\\
 	Gegenstand nah am Objektiv
-	
 	% t7:
 	\begin{center}
 	\begin{tikzpicture}
@@ -1968,6 +1951,7 @@ Feststellung: Ortsraum $k$-Raum reziprok
 
 
 % f = varphi a ? = alpha
+
 
 \subsection{Beugung am Einzelspalt}
 

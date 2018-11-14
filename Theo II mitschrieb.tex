@@ -304,7 +304,6 @@ Ladung: Beobachtungstatsachen:
 	\item Ladung ist quantisiert in Einheiten der Elementarladung: $$q = ne,\ n \in \mathbb{Z},\ e = 1,602\cdot 10^{-19}\,\textrm{C}$$ 
 	$n = -1$: für ein Elektron wäre ein Beispiel einer Punktladung
 \end{enumerate}
-
 \begin{minipage}{.6\linewidth}
 	Kontinuierliche Ladungsverteilung Ladungsdichte\\
 	$\rho(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Volumen}} = \frac{\Delta q}{\Delta V}$
@@ -336,9 +335,7 @@ Ladung: Beobachtungstatsachen:
 	$$\vec{F}_{12} = k \frac{q_1 q_2}{|\vec{r}_1 - \vec{r}_2|^2} \underbrace{\frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|}}_{\vec{e}_{r_{12}}}$$
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	
 	%t3 done:
-	
 	\hspace{30pt}
 	\begin{tikzpicture}
 	\node at (1,2) (a) {};
@@ -408,9 +405,7 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 	$N$-Ladungen $q_1, \dots, q_N$ ruhen an den Orten $\vec{r}_1, \dots, \vec{r}_N$. Nun bringen wir eine Testladung $q$ am Ort $\vec{r}$ mit ein. 
 \end{minipage}
 \begin{minipage}{.5\linewidth}
-	
 	%t5 done:
-	
 	\hspace{50pt}
 	\begin{tikzpicture}
 	\node at (3,1) (a) {};
@@ -451,15 +446,12 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 
 \subsection[Feld einer kontinuierlichen Ladungsverteilung]{Feld einer kontinuierlichen Ladungsverteilung $\rho(\vec{r})$}
 
-
 \begin{minipage}{.5\linewidth}
 	$$\vec{E}(\vec{r}) =\frac{1}{4 \pi \epsilon_0} \ub{\int\limits_V}_{\mathclap{\substack{\tx{schließt alle} \\ \tx{Ladungen ein}}}} d^3 r'\, \rho(\vec{r}')\frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3}$$
 	$\rho(\vec{r}_j) = \frac{\Delta q_j}{\Delta V_j}$
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	
 	%t6 done:
-	
 	\hspace{50pt}
 	\begin{tikzpicture}
 	\node at (1.5,1.5) (a) {};
@@ -569,7 +561,6 @@ $$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
 
 \subsection{Flächenladungsdichte}
 
-
 \begin{minipage}{.5\linewidth}
 	$\sigma(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Fläche}} = \frac{\Delta q}{\Delta A}$
 \end{minipage}
@@ -590,9 +581,7 @@ $$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
 \end{minipage}
 erzeugtes elektrisches Feld:
 $$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelement}}}\ \sigma (\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
-
 \begin{minipage}{.65\linewidth}
-	\hspace{-20pt}
 	\bei Elektrisches Feld einer homogenen Flächenladung
 \end{minipage}
 \begin{minipage}{.35\linewidth}
@@ -624,7 +613,6 @@ $\vec{E} = (0,0,E_z)$
  	&= \frac{1}{2 \pi \epsilon_0} \sigma_z \underbrace{\intt{-\infty}{+\infty} dx'\ \frac{1}{x'^2 + z^2}}_{\left. \frac{1}{z} \arctan \left(\frac{x'}{2}\right)\right\rvert_{-\infty}^{+\infty} = \frac{1}{z} \textrm{sgn}(z)\pi}\\
  	E_z &= \frac{\sigma}{2 \epsilon_0} \textrm{sgn}(z)
 \end{align*}
-
 \begin{minipage}{.6\linewidth}
 	Grenzfläche: $z \rightarrow 0$
 	$$\vec{E} \underset{z \to 0} \longrightarrow \left\{ \begin{array}{cc}
@@ -645,10 +633,7 @@ $\vec{E} = (0,0,E_z)$
 		\draw (0,-.8) -- (.15,-.8) node[right] {$\frac{\sigma}{2 \epsilon_0}$};
 	\end{tikzpicture}
 \end{minipage}
-
-
 %t4: plattenkondensator
-
 %t5:
 \begin{center}
 \begin{tikzpicture}
@@ -680,7 +665,7 @@ $\vec{E} = (0,0,E_z)$
 	$$\vec{E}(\vec{r}) = \kq \underbrace{\int_\gamma}_{\mathclap{\textrm{Linienintegral}}} ds'\ \lambda(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
 \end{minipage}
 \begin{minipage}{.5\linewidth}
-	%% T6:
+	%t6:
 	\centering
 	\begin{tikzpicture}
 		\draw[->] (0,0) -- (0,1);
@@ -690,10 +675,8 @@ $\vec{E} = (0,0,E_z)$
 		\draw ($ (m) + (45:0.2) $) -- ++(180:.3) node[anchor=south east] {$ \Delta s $} -- ++(-90:.3) -- ++(0:.3) -- ++(90:.3) node[anchor=north west] {$ \Delta q $};
 		\draw[thick] (-.5,1.5) to[out=80,in=-170] (1,2.7) to[out=10,in=-160] (m) to[out=20,in=-100] (3,4) node[right] {$ \gamma $};
 	\end{tikzpicture}\vspace{15pt}
-\end{minipage}
-
-\emph{Beispiel:} Elektrisches Feld einer homogenen Linienladung $ \lambda = \const $
-
+\end{minipage}\\
+\emph{Beispiel:} Elektrisches Feld einer homogenen Linienladung $ \lambda = \const $\\
 \begin{minipage}{.2\linewidth}
 	%t7 $\lambda = \const$
 	\centering
@@ -753,6 +736,7 @@ Mathe: Es sind äquivalent
 	\item Kurvenintegral $\int_\gamma d\vec{r} \cdot \vec{E}$ ist Wegunabhängig 
 	
 	
+	
 	%T1
 	
 	
@@ -786,6 +770,7 @@ $$\nabla \cdot \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = 0 \quad \text
 $$\Rightarrow \textrm{falls} \quad \vec{r} \notin V, \textrm{ d.h. } \vec{r} \textrm{ in Gebiet ohne Ladungsdichte } \rho(\vec{r}) = 0$$
 
 $$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$ 
+
 
 
 %T?
@@ -1167,7 +1152,7 @@ Zunächst: $\underbrace{i - 1}_{\mathclap{\textrm{erzeugen am Ort } \vec{r}_i}}$
 Das Potential
 $$\Phi(\vec{r}_i) = \kq \summ{j = 1}{i - 1} \frac{q_i}{|\vec{r}_j - \vec{r}_i|}$$ 
 
-%% T1:
+%t1:
 \begin{tikzpicture}
 \draw[thick,->] (0,0) -- (1,1) node[above] {$ q_1 $};
 \draw[thick,->] (0,0) -- (2,1) node[right] {$ q_2 $};
@@ -1201,7 +1186,7 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 \paragraph{Energie einer kontinuierlichen lokalisierten Ladungsverteilung}
 
 \begin{minipage}{.3\linewidth}
-	%% T2:
+	%t2:
 	\centering
 	\begin{tikzpicture}
 	\draw  plot [smooth cycle, tension=.7] coordinates { (0,0) (.25,.5) (.25,1) (.75,.75) (1,0) (.5,-.25)};
@@ -1213,10 +1198,9 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 	W &= \frac{1}{8 \pi \epsilon_0} \int d^3r\ \int d^3r'\ \frac{\rho(\vec{r}) \rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}\\
 	&= \frac{1}{2} \int d^3r\ \rho(\vec{r}) \kq \underbrace{\int_{\mathbb R^3} d^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
 	\end{align*}
-\end{minipage}
-
-\begin{minipage}{.5\linewidth}
-	%% T3:
+\end{minipage}\\
+\begin{minipage}{.3\linewidth}
+	%t3:
 	\centering
 	\begin{tikzpicture}
 	\draw  plot [smooth cycle, tension=.7] coordinates { (0,0) (.25,.5) (.25,1) (.75,.75) (1,0) (.5,-.25)};
@@ -1228,7 +1212,7 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 	\node at (-1.4,.5) {$ \vec{E}_{\tx{ext}} $};
 	\end{tikzpicture}
 \end{minipage}
-\begin{minipage}{.5\linewidth}
+\begin{minipage}{.7\linewidth}
 	$$W_{\textrm{ext}} = \int d^3 r\ \rho(\vec{r}) \Phi_{\textrm{ext}}(\vec{r})$$
 \end{minipage}
 
@@ -1246,15 +1230,12 @@ Zur Umformung oben wurde benutzt:
 \end{equation*}
 Damit ergibt sich für die Energie einer Verteilung von Punktladungen 
 
-
 % andrez 3:
 $$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int d^3 r\ \vec{E}^2(\vec{r})} \qquad \textrm{nicht für Punkladungen}$$
-Energiedichte des elektrostatischen Feldes
-$$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
-
-
 \begin{minipage}{.6\linewidth}
-	\textbf{\emph{Beispiel: Plattenkondensator}}\\
+	Energiedichte des elektrostatischen Feldes
+	$$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
+	\textbf{\emph{Beispiel: }Plattenkondensator}\\
 	Fläche $F$, Ladung $\rightarrow\ r = \frac{q}{F}\ \rightarrow\ \vec{E} = \frac{r}{\epsilon_0} \vec{e}_x$\\[5pt]
 	$ \rightarrow $ Die Energiedichte ist: $ w = \frac{\epsilon_0}{2} \vec{E}^2 = \frac{\sigma^2}{2 \epsilon_0} $ (nicht für Punktladungen)\\[5pt]
 	$ \rightarrow $ Die Energie beträgt: $ W = \int d^3 r w(\vec{r}) = l \cdot F \cdot \frac{\sigma^2}{2 \epsilon_0} $
@@ -1263,7 +1244,7 @@ $$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
 	$ \phantom{M} $
 \end{minipage}
 \begin{minipage}{.3\linewidth}
-	%% T4 T5:
+	%t4: %t5:
 	\begin{tikzpicture}
 	\draw[thick,->] (-1,0) -- (3,0);
 	\draw (-.05,0) rectangle (.05,1.5) node[above] {$ \sigma $};
@@ -1293,8 +1274,8 @@ $$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
 \Phi(\vec{r}) - \Phi(0) = - \int_{0}^{\vec{r}} d\vec{r}' \cdot \vec{E} (\vec{r}') = - \int_{0}^{x} dx' \frac{\sigma}{\epsilon_0} = - \frac{\sigma}{\epsilon} x
 \end{equation*}
 
-% T6:
-% T7:
+%t6:
+%t7:
 $$
 \begin{tikzpicture}
 \draw[->] (0,0) -- (0,1) node[anchor=south east] {$ z $};
@@ -1308,7 +1289,7 @@ $$
 \begin{tikzpicture}
 \draw[->] (-.5,0) -- (1.5,0) node[anchor=north west] {$ x $};
 \draw[->] (0,-1) -- (0,1) node[anchor=south east] {$ \Phi $};
-\draw (0,0) -- (1,-1);
+\draw[thick] (0,0) -- (1,-1);
 \draw[dashed] (1,-1) -- (1,.2) node[anchor=north west,yshift=-5pt] {$ l $};
 \end{tikzpicture}
 $$
@@ -1335,7 +1316,7 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 \emph{Beispiel:} Wir betrachten eine homogene Flächenladung.\\[10pt]
 \begin{minipage}{.4\linewidth}
 	%%% dat tafel dude
-	% T 8 - 11 auf blatt:
+	%t8: - %t11: auf blatt:
 	\begin{tikzpicture}
 	\draw (-1,-1) to[out=45,in=180] (1.2,0);
 	\draw (-1.2,-.4) to[out=45,in=180] (1,.6);
@@ -1374,7 +1355,6 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 \vec{E}_\perp &= \pm \frac{\sigma}{2 \epsilon_0} \vec{e}_z\\
 \vec{E}_\parallel &= 0
 \end{align*}
-
 \begin{minipage}{.6\linewidth}
 	Das elektrische Feld $ \vec{E}_\parallel $ ist gleich der Ableitung des elektrischen Potentials:\\
 	Das elektrische Potential ist also stetig.
@@ -1386,8 +1366,7 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\draw[thick,->] (-1,0) -- (1.2,0) node[anchor=south east] {$ \Phi(z) $};
 	\draw (-1,-.7) -- (0,0) -- (1,-.7);
 	\end{tikzpicture}
-\end{minipage}
-
+\end{minipage}\\
 \begin{minipage}{.4\linewidth}
 	%andrez 5:
 	\paragraph{Normalkomponente $\vec{E}_\perp$}
@@ -1396,7 +1375,7 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\vspace{50pt}
 \end{minipage}
 \begin{minipage}{.6\linewidth}
-	%% T12:
+	%t12:
 	\centering
 	\begin{tikzpicture}
 	\coordinate (o) at (0,0);
@@ -1446,8 +1425,8 @@ $ \vec{E}_{\pm} $ ist das Feld auf beiden Seiten der Grenzfläche
 E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\perp_-} (\vec{r}) = \frac{1}{\epsilon_0} \sigma(\vec{r})
 \end{equation*}
 
-%t13 und Tafel vor M4:
-
+%t13: und Tafel vor M4:
+\noindent
 \begin{minipage}{.4\linewidth}
 	\paragraph{Tangentialkomponente $ E\parallel $}
 	
@@ -1515,7 +1494,6 @@ Insgesamt ergibt sich damit:
 \begin{equation*}
 \vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r}) = \frac{\sigma}{\epsilon_0} \vec{n}
 \end{equation*}
-
 \begin{minipage}{.6\linewidth}
 	Das elektrische Potential $ \Phi $ ist damit stetig.
 	\begin{equation*}
@@ -1523,7 +1501,7 @@ Insgesamt ergibt sich damit:
 	\end{equation*}
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	% T14:
+	%t14:
 	\centering
 	\begin{tikzpicture}
 		\draw[fill=gray!10] (-1.2,-.7) -- (.8,-.7) -- (1.2,.7) -- (-.8,.7) -- (-1.2,-.7);
@@ -1555,17 +1533,16 @@ Insgesamt ergibt sich damit:
 		\node[fill=white,opacity=.8,rounded corners] at (1,-1) {$ \vec{E} = 0 $};
 	\end{tikzpicture}
 \end{minipage}\\[10pt]
-\noindent
 \begin{minipage}{.6\linewidth}
 	\begin{enumerate}[i)]
 		\item $\vec{E} = 0$
 		\item $0 = \vabla \cdot \vec{E} = \frac{1}{\epsilon_0} \rho, \qquad \rho(\vec{r}) = 0$
-		\item Nettoladung befinden sich an Oberfläche %T16
-		\item Potential $\Phi(\vec{r}_b) - \Phi(\vec{r}_a) = 0 \quad \rightarrow \quad \Phi(\vec{r}) = \const$ % T17
+		\item Nettoladung befinden sich an Oberfläche %t16
+		\item Potential $\Phi(\vec{r}_b) - \Phi(\vec{r}_a) = 0 \quad \rightarrow \quad \Phi(\vec{r}) = \const$ % t17
 	\end{enumerate}
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-		%% T16:
+		%% t16:
 		\centering
 		\begin{tikzpicture}[scale=.8]
 		\draw[pattern=north east lines] (0,0) circle (1cm);
@@ -1574,7 +1551,7 @@ Insgesamt ergibt sich damit:
 		\node at (\x:.8cm) {\xtext};
 		\draw[<-] (-45:1.2cm) -- ++(.5,-.2) node[right] {$ \substack{\tx{Flächenladung} \\ \sigma} $};
 		\end{tikzpicture}\\
-		%% T17:
+		%% t17:
 		\begin{tikzpicture}[scale=.8]
 		\draw[pattern=north east lines] (0,0) circle (1cm);
 		\draw[fill=white,opacity=.7,draw=none] (0,0) circle (.995cm);
@@ -1697,12 +1674,30 @@ Zwei Fälle:
 \end{minipage}\\
 \textbf{Idee:} Ersetze ursprüngliche Problem durch ''Fiktives'' Problem mit zusätzlichen Ladungen außerhalb von $V$, welche die Randbedingungen simulieren.\\[5pt]
 Potential der Punkladungen in $\vec{r}_0$:
-$$\Phi_q (\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$ 
-addiere Ladung $-q$ in $\vec{r}'_0 = (-d, 0, 0) = -\vec{r}_0$\\[5pt]
-
-\begin{equation*}
-\pofr = \kq \left( \frac{q}{|\vec{r} - \vec{r}_0|} - \frac{q}{|\vec{r}+\vec{r}_0|} \right)
-\end{equation*}
+$$\Phi_q (\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
+\noindent
+\begin{minipage}{.5\linewidth}
+	addiere Ladung $-q$ in $\vec{r}'_0 = (-d, 0, 0) = -\vec{r}_0$\\[5pt]
+	\begin{equation*}
+	\pofr = \kq \left( \frac{q}{|\vec{r} - \vec{r}_0|} - \frac{q}{|\vec{r}+\vec{r}_0|} \right)
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%t4:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-1) -- (0,1) node[anchor=south east] {$ y $};
+		\coordinate (q) at (1.5,0);
+		\coordinate (-q) at (-1.5,0);
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (-q) {};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (q) {};
+		\node[above] at (-q) {$ -q $};
+		\node[above] at (q) {$ q $};
+		\draw[decorate,decoration={brace,amplitude=5pt,raise=2pt},yshift=-4pt,black] (0,0) -- node[below=10pt] {$ d $} (-1.5,0);
+		\draw[decorate,decoration={brace,amplitude=5pt,mirror,raise=2pt},yshift=-4pt,black] (0,0) -- node[below=10pt] {$ d $} (1.5,0);
+	\end{tikzpicture}
+\end{minipage}\\
 Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 \begin{align*}
 \vec{\Delta} \Phi &= \frac{q}{4 \pi \epsilon_0} \Bigg( \ub{\Delta \frac{1}{|\vec{r} - \vec{r}_0|}}_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} - \ub{- \Delta \frac{1}{|\vec{r} + \vec{r}_0|}}_{= - 4 \pi \delta(\vec{r} + \vec{r}_0)}\Bigg)\\
@@ -1727,17 +1722,44 @@ Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 	$ \Phi_{\tx{hom}} $ wird so gewählt, dass die Randbedingungen erfüllt werden:
 	\begin{equation*}
 	\vec{r} \in \partial V: \quad \Phi_\tx{o} (\vec{r}) = \Phi_\tx{s}(\vec{r}) + \Phi_{\tx{hom}}(\vec{r})
-	\end{equation*}
+	\end{equation*}	
 	\item \textbf{Elektrisches Feld}
 	\begin{equation*}
 	\vec{E} = - \vec{\nabla} \Phi = \frac{q}{4 \pi \epsilon_0} \left(\frac{(x-d,y,z)}{|\vec{r} - \vec{r}_0|^3} - \frac{(x+d,y,z)}{|\vec{r} + \vec{r}_0|^3}\right)
 	\end{equation*}
 	An der Oberfläche $ x \to 0 $, $ x \ge 0 $\\
 	$ |\vec{r} \pm \vec{r}_0|^3 \rightarrow (d^2 + y^2 + z^2) $\\
-	\begin{equation*}
-	\eofr \bigg|_{\vec{r} \in \partial V} = - \frac{qd}{2 \pi \epsilon_0} \frac{1}{(d^2 + y^2 + z^2) ^{3/2}} \vec{e}_x
-	\end{equation*}
-	\lcom{Durch das externe elektrische Feld verschieben sich die Ladungsträger im Metall und es entsteht eine Influenzladung an der Oberfläche.}
+	\begin{minipage}{.5\linewidth}
+		\begin{equation*}
+		\eofr \bigg|_{\vec{r} \in \partial V} = - \frac{qd}{2 \pi \epsilon_0} \frac{1}{(d^2 + y^2 + z^2) ^{3/2}} \vec{e}_x
+		\end{equation*}
+		\lcom{Durch das externe elektrische Feld verschieben sich die Ladungsträger im Metall und es entsteht eine Influenzladung an der Oberfläche.}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		\centering
+		%t5: \draw  plot [smooth cycle, tension=1] coordinates { (0,0) (.5,1.5) (.5,2.5) (2,2) (3,2) (2.5,1) (1.5,0) };
+		\begin{tikzpicture}
+			\draw[->] (-.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
+			\coordinate (q) at (1.5,0);
+			\node[circle,fill=black,inner sep=1pt,minimum size=2pt] at (q) {};
+			\node[yshift=15pt,xshift=30pt] at (q) {$ q > 0 $};
+			\draw[->] (0,-2) -- (0,2) node[anchor=south west] {$ z $};
+			\draw[draw=none,pattern=north west lines] (-.3,1.5) node[above,xshift=-5pt] {$ \sigma(z) $} rectangle (0,-1.5);
+			\draw[thick,->] (q) to[out=180,in=0] (0,0);
+			\draw[thick,->] (q) to[out=155,in=0] (0,.20);
+			\draw[thick,->] (q) to[out=90,in=0] (0,.50);
+			\draw[thick,->,looseness=1.3] (q) to[out=65,in=0] (0,.85);
+			\draw[thick,->,looseness=1.6] (q) to[out=45,in=0] (0,1.3);
+			\draw[thick,->,looseness=1.3] (q) to[out=25,in=-45] ($ (q) + (.4,1) $);
+			\draw[thick,->] (q) to[out=-155,in=0] (0,-.20);
+			\draw[thick,->] (q) to[out=-90,in=0] (0,-.50);
+			\draw[thick,->,looseness=1.3] (q) to[out=-65,in=0] (0,-.85);
+			\draw[thick,->,looseness=1.6] (q) to[out=-45,in=0] (0,-1.3);
+			\draw[thick,->,looseness=1.3] (q) to[out=-25,in=45] ($ (q) + (.4,-1) $);
+			\coordinate (n) at (-.5,0);
+			\node[rounded corners,align=center,left] at (n) {$ \vec{E}_{\parallel} = 0 $ \\ \\ $ \vec{E}_{\perp} \neq 0 $};
+		\end{tikzpicture}
+	\end{minipage}
 	\item \textbf{Influenzladung auf Metalloberfläche}
 	$$\vec{E}_+ - \equalto{\vec{E}_-}{0} = \frac{\sigma}{\epsilon_0} \vec{n} \qquad \vec{n} = \vec{e}_x$$
 	$\vec{r} \in \partial V$:
@@ -2006,8 +2028,7 @@ $ \gre(\vec{r},\vec{r}') = 0 \quad \vec{r} \in \partial V $\\[5pt]
 	\begin{equation*}
 	\gre(\vec{r},\vec{r}') = \gre(\vec{r}',\vec{r})
 	\end{equation*}
-	$ \rightarrow $ formale Lösung des Randwertproblems für eine beliebige Ladungsverteilung und Randwerte $ \Phi_0(\vec{r}) $ in der Ebene:
-	
+	$ \rightarrow $ formale Lösung des Randwertproblems für eine beliebige Ladungsverteilung und Randwerte $ \Phi_0(\vec{r}) $ in der Ebene:\\
 	\begin{minipage}{.55\linewidth}
 			\begin{equation*}
 			\Phi(\vec{r}) = \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi(\vec{r}') \prt{\gre}{n'}
@@ -2290,8 +2311,7 @@ für $Q$:
 	 	\end{equation*}
 	 	$$\Rightarrow - \frac{\textrm{d}}{\textrm{d}x} \bigg( - \equalto{\sin^2\theta}{1 - x^2} \frac{\textrm{d}P}{\textrm{d}x} \bigg) + \left(\lambda - \frac{m^2}{1-x^2}\right) P(x) = 0$$
 \end{enumerate}
-\frbox{Zugeordnete Legendresche DGL}{$$\Rightarrow \frac{\textrm{d}}{\textrm{d}x} \left( (1-x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \left( \lambda - \frac{m^2}{1 - x^2} \right) P(x) = 0$$} 
-
+\frbox{Zugeordnete Legendresche DGL}{$$\Rightarrow \frac{\textrm{d}}{\textrm{d}x} \left( (1-x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \left( \lambda - \frac{m^2}{1 - x^2} \right) P(x) = 0$$}
 \begin{minipage}{.6\linewidth}
 	Spezialfall: \textbf{Zylindersymmetrische Probleme}: $\Phi$ unabhängig von $\varphi$\\
 	$\rightarrow$ \textbf{Legendre-Polynome}
