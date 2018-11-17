@@ -288,6 +288,7 @@ Wir beschäftigen uns in diesem Kapitel mit \textbf{ruhenden Ladungen} und \text
 \FloatBarrier
 \begin{wrapfigure}{r}{3cm}
 	\vspace{-1.2cm}
+	%t1:
 	\fbox{\begin{tikzpicture}
 		\draw node[circle,fill,inner sep=1pt,label=left:$q_1$](a){} -- (1,0);
 		\draw[xshift=0.5cm,yshift=0.7cm] node[circle,fill,inner sep=1pt,label=right:$q_2$](a){} -- (1,0);
@@ -311,9 +312,7 @@ Ladung: Beobachtungstatsachen:
 \end{minipage}
 \begin{minipage}{.4\linewidth}
 	\hspace{30pt}
-	
-	%t2 done:
-	
+	%t2:
 	\begin{tikzpicture}
 	\node at (1.5,1.5) (a) {};
 	\draw  plot [smooth cycle, tension=1] coordinates { (0,0) (.5,1.5) (.5,2.5) (2,2) (3,2) (2.5,1) (1.5,0) };
@@ -335,7 +334,7 @@ Ladung: Beobachtungstatsachen:
 	$$\vec{F}_{12} = k \frac{q_1 q_2}{|\vec{r}_1 - \vec{r}_2|^2} \underbrace{\frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|}}_{\vec{e}_{r_{12}}}$$
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	%t3 done:
+	%t3:
 	\hspace{30pt}
 	\begin{tikzpicture}
 	\node at (1,2) (a) {};
@@ -362,15 +361,13 @@ Es gilt das Superpositionsprinzip: Das heißt, durch vektorielle Addition der Kr
 $$\vec{F}_1 = k \summ{j = 2}{N} \frac{q_1 q_j}{r_{1j}^2}\vec{e}_{r_{1j}}$$
 
 \paragraph{Zur Konstanten $k$:}
+
 Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 \begin{enumerate}[i)]
 	\item Gauß-System (cgs): $k \equiv 1$, dyn = $\frac{\textrm{g}\cdot \textrm{cm}}{\textrm{s}^2} = 10^{-5}\,\textrm{N}$
 	1 dyn = $\frac{(1\textrm{ESE})^2}{\textrm{cm}^2} \quad 1\textrm{ESE} = \frac{\sqrt{\textrm{g}\cdot \textrm{cm}^3}}{\textrm{s}}$
 	\item SI (MKSA-System): Definition von A = Amp\`ere 
-	
-	
-	%t4 done: 
-	
+	%t4:
 	\vspace{-15pt}
 	$$\frac{\Delta F}{\Delta l}= 2 \cdot 10^{-7}\,\frac{\textrm{N}}{\textrm{m}} \qquad \qquad \begin{tikzpicture}
 	\draw (0,0) -- (3,0);
@@ -397,7 +394,6 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 	\end{equation*}
 \end{enumerate}
 
-
 \section{Elektrisches Feld}
 \subsection{Feld eines Systems von Punktladungen}
 
@@ -405,7 +401,7 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 	$N$-Ladungen $q_1, \dots, q_N$ ruhen an den Orten $\vec{r}_1, \dots, \vec{r}_N$. Nun bringen wir eine Testladung $q$ am Ort $\vec{r}$ mit ein. 
 \end{minipage}
 \begin{minipage}{.5\linewidth}
-	%t5 done:
+	%t5:
 	\hspace{50pt}
 	\begin{tikzpicture}
 	\node at (3,1) (a) {};
@@ -451,7 +447,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 	$\rho(\vec{r}_j) = \frac{\Delta q_j}{\Delta V_j}$
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	%t6 done:
+	%t6:
 	\hspace{50pt}
 	\begin{tikzpicture}
 	\node at (1.5,1.5) (a) {};
@@ -585,7 +581,7 @@ $$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelem
 	\bei Elektrisches Feld einer homogenen Flächenladung
 \end{minipage}
 \begin{minipage}{.35\linewidth}
-	%t3 eig %t2: -- $\sigma = \const$ in $x$-$y$-Ebene
+	%t3 eig %t2:
 	\centering
 	\begin{tikzpicture}
 		\draw[->] (0,0) -- (0,1) node[anchor=south east] {$ z $};
@@ -633,8 +629,7 @@ $\vec{E} = (0,0,E_z)$
 		\draw (0,-.8) -- (.15,-.8) node[right] {$\frac{\sigma}{2 \epsilon_0}$};
 	\end{tikzpicture}
 \end{minipage}
-%t4: plattenkondensator
-%t5:
+%t4: %t5:
 \begin{center}
 \begin{tikzpicture}
 	\coordinate (o) at (-8,0);
@@ -678,7 +673,7 @@ $\vec{E} = (0,0,E_z)$
 \end{minipage}\\
 \emph{Beispiel:} Elektrisches Feld einer homogenen Linienladung $ \lambda = \const $\\
 \begin{minipage}{.2\linewidth}
-	%t7 $\lambda = \const$
+	%t7:
 	\centering
 	\begin{tikzpicture}
 		\draw[->] (0,0) -- (1,0) node[anchor=north west] {$ x $};
@@ -702,8 +697,11 @@ $$\vec{E}(\vec{r}) = \frac{\lambda}{2 \pi \epsilon_0} \frac{1}{x^2 + y^2} \begin
 $$\rho = \sqrt{x^2 + y^2} = \frac{\lambda}{2 \pi \epsilon_0} \frac{1}{\rho}\vec{e}_\rho, \qquad \vec{e}_\rho = \begin{pmatrix}\cos \varphi\\ \sin \varphi\\ 0\end{pmatrix}$$
 
 \section{Feldgleichungen und elektrostatische Potential}
+
 $$\vec{E}(\vec{r}) = \kq \int d^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+
 \subsection{Elektrostatisches Potential}
+
 elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \nabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$
 $$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\nabla\frac{1}{|\vec{r}-\vec{r}'|}$$
 $$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} =  \frac{- \left(-\frac{1}{2}\right) \quad 2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
@@ -1176,7 +1174,6 @@ W = \sum_{i=2}^{N} W_i &= \frac{1}{4 \pi \epsilon_0} \sum_{i=2}^{N} \sum_{j=1}^{
 \Rightarrow W = \frac{1}{8 \pi \epsilon_0} \sum_{\substack{i,j\\i\neq j}} \frac{q_i q_j}{r_{ij}}
 \end{equation*}
 
-
 % andrez 2:
 \begin{align*}
 W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \neq i}} \kq \frac{q_i}{r_{ij}}\bigg)}_{\Phi_{/ \hspace{-3.5pt}i}(\vec{r}_i)}\\
@@ -1274,8 +1271,7 @@ $$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int d^3 r\ \vec{E}^2(\vec{r
 \Phi(\vec{r}) - \Phi(0) = - \int_{0}^{\vec{r}} d\vec{r}' \cdot \vec{E} (\vec{r}') = - \int_{0}^{x} dx' \frac{\sigma}{\epsilon_0} = - \frac{\sigma}{\epsilon} x
 \end{equation*}
 
-%t6:
-%t7:
+%t6: %t7:
 $$
 \begin{tikzpicture}
 \draw[->] (0,0) -- (0,1) node[anchor=south east] {$ z $};
@@ -1315,8 +1311,7 @@ $$\vec{E} = \kq q \frac{\vec{r}}{r^3} \qquad \int d^3 r\ \vec{E}^2 = \int d^3 r\
 $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 \emph{Beispiel:} Wir betrachten eine homogene Flächenladung.\\[10pt]
 \begin{minipage}{.4\linewidth}
-	%%% dat tafel dude
-	%t8: - %t11: auf blatt:
+	%t8: %t9: %t10: %t11:
 	\begin{tikzpicture}
 	\draw (-1,-1) to[out=45,in=180] (1.2,0);
 	\draw (-1.2,-.4) to[out=45,in=180] (1,.6);
@@ -1550,7 +1545,7 @@ Insgesamt ergibt sich damit:
 		\node at (\x:.8cm) {\xtext};
 		\draw[<-] (-45:1.2cm) -- ++(.5,-.2) node[right] {$ \substack{\tx{Flächenladung} \\ \sigma} $};
 		\end{tikzpicture}\\
-		%% t17:
+		%t17:
 		\begin{tikzpicture}[scale=.8]
 		\draw[pattern=north east lines] (0,0) circle (1cm);
 		\draw[fill=white,opacity=.7,draw=none] (0,0) circle (.995cm);
@@ -1563,7 +1558,9 @@ Insgesamt ergibt sich damit:
 \end{minipage}
 
 \paragraph{Randbedingungen}
-%% T18
+
+%T18
+
 $$\vec{E}_+ - \vec{E}_- = \frac{\sigma^-}{\epsilon_0} \vec{n}$$
 $$\vec{E}_- = 0$$
 $$\rightarrow \vec{E}_+(\vec{r}) = \frac{\sigma(\vec{r})}{\epsilon_0} \vec{n} {(\vec{r})}$$
@@ -2164,7 +2161,7 @@ $$ \Phi(0) = c_1 = \Phi_1  \qquad \Phi(l_x) = \Phi_1 + c_2 l_x = \Phi_2 $$
 \Rightarrow \vec{E} = - \vec{\nabla} \Phi = - \frac{\Phi_2 - \Phi_1}{l_x} \vec{e}_x
 \end{equation*}
 
-\subsubsection{2-Dim Randwertproblem}
+\subsubsection{2-Dim Randwertproblem} \label{tikz}
 
 \begin{minipage}{.5\linewidth}
 	%t6:
@@ -2268,7 +2265,8 @@ $$\Phi = \Phi(x,y) = f(x)g(y)$$
 $$\Phi_n(x,y) = A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)$$
 $$n \in \mathbb N$$
 $$\Phi(x,y) = \sum_n A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)$$
-$$A_n = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \intt{0}{l_x}\textrm{d}x\ \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x)$$} % t1 = t6 letzten vorlesung
+$$A_n = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \intt{0}{l_x}\textrm{d}x\ \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x)$$
+Zu dem Problem gehört die Skizze aus Abschnitt \ref{tikz}: 2-Dim Randwertproblem.}
 
 \subsection{Vollständige Orthonormale Funktionensysteme (VONS)}
 Betrachte Funktionen $g(x),h(x)$ auf $I = [a,b] \subset \mathbb R$
