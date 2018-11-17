@@ -886,7 +886,7 @@ $$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - 
 \bbb{Wiederholung}{\begin{align*}
 	\vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \rho(\vec{r})\\
 	\vec{\nabla} \times \vec{E}(\vec{r}) &= 0 \\[10pt]
-	\Rightarrow \quad \vec{E} &= - \vec{\nabla} \Phi \\
+	\Rightarrow \qquad \quad \vec{E} &= - \vec{\nabla} \Phi \\
 	\Rightarrow \quad \Delta \Phi (\vec{r}) &= - \frac{1}{\epsilon_0} \rho(\vec{r})
 	\end{align*}
 }
@@ -1771,14 +1771,15 @@ Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 
 % andrez 5:
 \subsubsection{Eindeutigkeit der Lösung des Randwertproblems}
-Dirichlet-Randwertproblem:\\
-\begin{minipage}{.5\linewidth}
+
+\begin{minipage}{.6\linewidth}
+	\textbf{Dirichlet-Randwertproblem:}
 	\begin{align*}
 	\Delta \pofr = -\frac{1}{\epsilon_0} \rho(\vec{r}) &\qquad \vec{r} \in V\\
 	\pofr = \Phi_0 (\vec{r}) \quad \; &\qquad \vec{r} \in \partial V \quad \;
 	\end{align*}
 \end{minipage}
-\begin{minipage}{.5\linewidth}
+\begin{minipage}{.4\linewidth}
 	\centering
 	\begin{tikzpicture}
 		\draw (0,1) -- (0,-1);
@@ -1794,17 +1795,17 @@ Dirichlet-Randwertproblem:\\
 Annahme: $\Phi_1,\ \Phi_2$ lösen RWP
 \begin{align*}
 \textrm{d.h. }\qquad \Delta\Phi_1(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) = \Delta \Phi_2 (\vec{r}) &\qquad \vec{r} \in V\\
-\Phi_1 (\vec{r}) = \Phi_0(\vec{r}) = \Phi_2(\vec{r}) &\qquad \vec{r} \in \partial V
+\Phi_1 (\vec{r}) = \Phi_0(\vec{r}) = \Phi_2(\vec{r}) \quad \ &\qquad \vec{r} \in \partial V
 \end{align*}
 Setze :
 \begin{equation*}
-\psi(\vec{r}) \defeq \Phi_1(\vec{r}) - \Phi_2(\vec{r})
+\ (\vec{r}) \defeq \Phi_1(\vec{r}) - \Phi_2(\vec{r})
 \end{equation*}
 \begin{equation*}
-\Delta \Phi(\vec{r}) = 0 \quad \vec{r} \in V
+\Delta \Phi(\vec{r}) = 0 \quad \vec{r} \in V 
 \end{equation*}
 \begin{equation*}
-\vec{r} \in \partial V \quad \psi(\vec{r}) = \Phi_1(\vec{r}) - \Phi_2(\vec{r}) = 0
+\vec{r} \in \partial V \quad \varPsi(\vec{r}) = \Phi_1(\vec{r}) - \Phi_2(\vec{r}) = 0
 \end{equation*}
 
 \subsubsection{Greensche Identität:}
@@ -1816,16 +1817,16 @@ $ g,h $ Funktionen an V:
 \end{align*}
 
 % andrez 6 % lost board von jan holen:
-$h = g = \psi$
-$$\Rightarrow \quad \int_V d^3 r\ ((\vabla \psi)^2 + \psi(\vec{r}) \underbrace{\Delta \psi(\vec{r})}_{=0}) = \int_{\partial V} df\ \underbrace{\psi(\vec{r})}_{=0} \frac{\partial \psi(\vec{r})}{\partial n} $$
+$h = g = \varPsi$
+$$\Rightarrow \quad \int_V d^3 r\ ((\vabla \varPsi)^2 + \varPsi(\vec{r}) \underbrace{\Delta \varPsi(\vec{r})}_{=0}) = \int_{\partial V} df\ \underbrace{\varPsi(\vec{r})}_{=0} \frac{\partial \varPsi(\vec{r})}{\partial n} $$
 \begin{equation*}
-\Rightarrow \int_V d^3 r \left(\vec{\nabla} \psi(\vec{r}) \right)^2 = 0 \Rightarrow \vec{\nabla} \psi(\vec{r}) = 0 \qquad \vec{r} \in V
+\Rightarrow \int_V d^3 r \left(\vec{\nabla} \varPsi(\vec{r}) \right)^2 = 0 \Rightarrow \vec{\nabla} \varPsi(\vec{r}) = 0 \qquad \vec{r} \in V
 \end{equation*}
 \begin{equation*}
-\psi(\vec{r}) = \const \qquad \psi(\vec{r}) = 0 \ \tx{in} \ V \ \ \Rightarrow \ \ \Phi_1(\vec{r}) = \Phi_2(\vec{r})
+\varPsi(\vec{r}) = \const \qquad \varPsi(\vec{r}) = 0 \ \tx{in} \ V \ \ \Rightarrow \ \ \Phi_1(\vec{r}) = \Phi_2(\vec{r})
 \end{equation*}
 
-\subsection{Formale Lösungen des elektrostatischen Randwertproblems mit \\ Greenschen Funktionen}
+\subsection{Formale Lösungen des elektrostatischen Randwertproblems mit \\ Greenschen Funktionen (GF)}
 GF: generelle Methode um inhomogene DGL zu lösen
 \begin{equation*}
 \Delta \pofr = - \frac{1}{\epsilon_0} \rho(\vec{r})
@@ -1834,6 +1835,7 @@ Greensche Funktionen der Poisson-Gleichung: $ \gre(\vec{r},\vec{r}') $ mit
 \frbox{Greensche Funktionen der Poisson-Gleichung}{\begin{equation*}
 \Delta_{\vec{r}} \gre(\vec{r},\vec{r}') = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
 \end{equation*}}
+\noindent
 \lcom{Diese Gleichung geht vor einer Punktladung mit $ q=1 $ aus, ist hier aber zunächst einmal eine Definition.}
 
 % andrez 7:
@@ -1863,11 +1865,32 @@ $$\mathcal G(\vec{r}, \vec{r}') \underset{|\vec{r}| \to \infty} \longrightarrow 
 
 \subsubsection{Dirichlet-Randwertproblem}
 
-$$\Delta \pofr = -\frac{1}{\epsilon_0} \rho(\vec{r}) \quad \vec{r} \in V$$
-$$\pofr = \Phi_0(\vec{r}) \quad \vec{r} \in \partial V$$
-GF: $$\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') = \ \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') \quad \vec{r},\vec{r}' \in V$$
-$$\mathcal G(\vec{r}, \vec{r}') = 0 \textrm{ für } \substack{\vec{r} \in \partial V \\ \vec{r}' \in V}$$
+\begin{minipage}{.6\linewidth}
+	\begin{align*}
+	\Delta \pofr = -\frac{1}{\epsilon_0} \rho(\vec{r}) &\qquad \vec{r} \in V\\
+	\pofr = \Phi_0 (\vec{r}) \quad \; &\qquad \vec{r} \in \partial V \quad \;
+	\end{align*}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	\centering
+	\begin{tikzpicture}
+	\draw (0,1) -- (0,-1);
+	\draw[draw = none,pattern = north east lines] (-.3,1) rectangle (0,-1);
+	\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (p) at (-.1,0) {};
+	\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (q) at (1,0) {};
+	\node[right] at (q) {$ q $};
+	\node at (1,.5) {$ V $};
+	\node at (0,1.3) {$ \partial V $};
+	\draw[thick] (p) to[out=135,in=-10] (-.5,.3) node[left] {$ \Phi_0 $};
+	\end{tikzpicture}
+\end{minipage}
+\textbf{Green'sche Funktionen (GF):}
+\begin{align*}
+\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') &= \ \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') \quad \vec{r},\vec{r}' \in V\\
+\mathcal G(\vec{r}, \vec{r}') &= 0 \qquad \textrm{ für } \qquad \vec{r} \in \partial V \ \  \vec{r}' \in V
+\end{align*}
 \lcom{Hiermit haben wir das Grenzwertproblem auf eine Integration zurückgeführt. Dies werden wir nun Beweisen:}\\[5pt]
+\textbf{Beiweis:}\\
 Die 2. Greensche Identität lautet: 
 \begin{align*}
 &\ \ \ \, \int_V d^3 r' \left( g(\vec{r}') \Delta_{\vec{r}'} h(\vec{r}')  - h(\vec{r}') \Delta_{\vec{r}'} g(\vec{r}') \right)\\
@@ -1898,19 +1921,44 @@ Es gilt (HA):
 \Delta_{\vec{r}} \gre(\vec{r},\vec{r}') = \Delta_{\vec{r}'} \gre(\vec{r},\vec{r}')
 \end{equation*}
 
-\rbox{\begin{equation*}
-\Phi(\vec{r}) = \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}') \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}')
-\end{equation*}}
+\frbox{Potential bei Randwertproblem}{
+\begin{equation}
+\pofr = \int_{V} \dd^3 r' \grr \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}') \prt{}{n'} \grr \tag{1}
+\label{pot}
+\end{equation}}
 
 
 % 8.11.18
 
 
-
-% Wiederholung nachholen
-
-
-
+\bbb{Wiederholung}{
+	\begin{minipage}{.6\linewidth}
+		\begin{align*}
+		\Delta \pofr = -\frac{1}{\epsilon_0} \rho(\vec{r}) &\qquad \vec{r} \in V\\
+		\pofr = \Phi_0 (\vec{r}) \quad \; &\qquad \vec{r} \in \partial V \quad \;
+		\end{align*}
+	\end{minipage}
+	\begin{minipage}{.4\linewidth}
+		\centering
+		\begin{tikzpicture}
+		\draw (0,1) -- (0,-1);
+		\draw[draw = none,pattern = north east lines] (-.3,1) rectangle (0,-1);
+		\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (p) at (-.1,0) {};
+		\node[fill=black,circle,inner sep=1pt,minimum size=1pt] (q) at (1,0) {};
+		\node[right] at (q) {$ q $};
+		\node at (1,.5) {$ V $};
+		\node at (0,1.3) {$ \partial V $};
+		\draw[thick] (p) to[out=135,in=-10] (-.5,.3) node[left] {$ \Phi_0 $};
+		\end{tikzpicture}
+	\end{minipage}
+	Green'sche Funktionen:
+	\begin{align*}
+	\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') &= \ \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') \quad \vec{r},\vec{r}' \in V\\
+	\mathcal G(\vec{r}, \vec{r}') &= 0 \qquad \textrm{ für } \qquad \vec{r} \in \partial V \ \  \vec{r}' \in V
+	\end{align*}
+	Wenn die Green'sche Funktion $ \gre $ die Bedingungen erfüllt, können wir das Potential so schreiben wie in Gleichung \eqref{pot}.
+}
+\noindent
 \emph{Bemerkungen:}
 \begin{enumerate}[i)]
 	\item Spezialfälle:
@@ -1934,22 +1982,26 @@ Es gilt (HA):
 				\node[below] at (0,-.5) {$ \Phi_2 $};
 				\node at (0,0) {$ V $};
 			\end{tikzpicture}
+		\end{minipage}\\
+		\begin{minipage}{.4\linewidth}
+			\centering
+			%t2:
+			\begin{tikzpicture}
+				\draw[scale=1.4,looseness=1.5,draw=none,pattern=north east lines] (-.5,0) to[out=90,in=180] (0,1.3) to[out=0,in=70] (.5,0) to[out=-110,in=0] (-.3,-.9) to[out=180,in=-90] (-.5,0);
+				\draw[looseness=1.5,fill=white] (-.5,0) to[out=90,in=180] (0,1.5) to[out=0,in=70] (.5,0) to[out=-110,in=0] (-.3,-1) to[out=180,in=-90] (-.5,0);
+				\node at (0,0) {$ V $};
+				\draw[thick] (.5,0) to[out=50,in=180] (1,.3) node[right] {$ \Phi_0 = \const $};
+			\end{tikzpicture}
 		\end{minipage}
-		
-		
-		
-		%T2
-		
-		
-		
-		
-		\begin{align*}
-		\Rightarrow \Phi(\vec{r}) &= - \epsilon \Phi_0 \ub{\int_{\partial V} \dd f' \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}') }_{\int \dd f' \vec{n} \cdot \vec{\nabla}_{\vec{r}'} \gre}\\
-		&= - \epsilon \Phi_0 \int \dd \vec{f}' \cdot \vec{\nabla}_{\vec{r}'} \gre \\
-		&\buildrel \mathclap{\tx{S.v.G.}} \over = \int_V \dd^3 \vec{r}' \ub{\vec{\nabla}_{\vec{r}'} \cdot (\vec{\nabla}_{\vec{r}'} \mathcal{G})}_{\Delta_{\vec{r}'} \cdot \mathcal{G} = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')}\\
-		&= - \frac{1}{\epsilon_0}\\
-		\Rightarrow \Phi(\vec{r}) &= \Phi_0
-		\end{align*}
+		\begin{minipage}{.6\linewidth}
+			\begin{align*}
+			\Rightarrow \Phi(\vec{r}) &= - \epsilon \Phi_0 \ub{\int_{\partial V} \dd f' \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}') }_{\int \dd f' \vec{n} \cdot \vec{\nabla}_{\vec{r}'} \gre}\\
+			&= - \epsilon \Phi_0 \int \dd \vec{f}' \cdot \vec{\nabla}_{\vec{r}'} \gre \\
+			&\buildrel \mathclap{\tx{S.v.G.}} \over = \int_V \dd^3 \vec{r}' \ub{\vec{\nabla}_{\vec{r}'} \cdot (\vec{\nabla}_{\vec{r}'} \mathcal{G})}_{\Delta_{\vec{r}'} \cdot \mathcal{G} = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')}\\
+			&= - \frac{1}{\epsilon_0}\\
+			\Rightarrow \Phi(\vec{r}) &= \Phi_0
+			\end{align*}
+		\end{minipage}
 		\item $ V = \mathbb{R}^3 $, lokalisierte Ladungsverteilung $ \rho $
 		\begin{equation*}
 		\Phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 \vec{r}' \frac{\rho(\vec{r})}{|\vec{r} - \vec{r}'|}
@@ -2246,7 +2298,7 @@ da $ \int_{a}^{b} \dd x' g(x') = g(x) $
 	\item 
 	\begin{equation*}
 	f_n(x) = \sqrt{\frac{l}{2}} \sin\left(\frac{n \pi x}{l}\right) \qquad I = [0,l] 
-	\end{equation*}
+	\end{equation*}Bedeutung der einzelnen Terme
 	$ (f_n,f_m) = \delta_{nm} $\\
 	$ g: \quad I \rightarrow \mathbb{R} \quad g(0) ) 0 = g(l) $
 	\begin{equation*}
@@ -2292,7 +2344,9 @@ da $ \int_{a}^{b} \dd x' g(x') = g(x) $
 \end{minipage}\\
 $$\rightarrow \frac{1}{r} \prt{^2}{r^2}(r \Phi) + \frac{1}{r^2 \sin \theta} \prt{}{\theta} \left( \sin \theta \prt{\Phi}{\theta}\right) + \frac{1}{r^2 \sin^2 \theta} \prt{^2 \Phi}{\varphi^2} = 0$$
 $$\frac{1}{r} \prt{^2}{r^2} (r \Phi) = \frac{1}{r^2} \prt{}{r} \left(r^2 \prt{\Phi}{r}\right)$$
+
 \subsubsection{Separationsansatz:}
+
 $$\Phi(r,\theta,\varphi) = \frac{U(r)}{r} P(\cos\theta)Q(\varphi)$$
 1. Term:
 $$\frac{1}{r} \prt{^2}{r^2} \left(\cancel{r} \frac{U(r)}{\cancel{r}} P(\cos\theta)Q(\varphi)\right) = P(\cos\theta)Q(\varphi)\frac{1}{r}\frac{\textrm{d}^2 U}{\textrm{d} r^2}$$
@@ -2305,7 +2359,7 @@ für $Q$:
 	 	$$\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} + \frac{1}{P\sin\theta} \frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right) = \frac{m^2}{\sin^2\theta}$$
 	 	$$\ub{\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2}}_{\tx{unabh. von } \theta } = - \ub{\frac{1}{P\sin\theta}\frac{\textrm{d} P}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right)}_{\tx{unabh. von } V} = \const. \defeq \lambda$$
 	 \item $$\frac{\textrm{d}^2 U}{\textrm{d} r^2} - \frac{\lambda}{r^2} U(r) = 0$$
-	 	$\rightarrow$ Lösung für $\lambda = l(l + 1) \qquad$ (Warum das so ist, ist  in iii) erklärt)
+	 	$\rightarrow$ Lösung für $\lambda = l(l + 1) \qquad$ (Warum das eine Lösung ist, wird  in iii) erklärt)
 	 	$$U(r) = a_l r^{l + 1} + b_l r^{-l}$$
 	 	$\rightarrow$ \underline{Spezielle Lösung für $m = 0$:}
 	 	$$\Phi(r,\theta) = \frac{U(r)}{r}P_l (\cos\theta) = (a_l r^l + b_l r^{-l - 1}) P_l (\cos\theta)$$
@@ -2342,5 +2396,145 @@ Potenzreihenansatz: $P(x) = \summ{k = 0}{\infty} a_k x^k$
 	\item[$\rightarrow$] Legendre Polynome
 	\item[$\rightarrow$] relevante Lösung nur für $\lambda = l(l + 1) \qquad l \in \mathbb N_0$
 \end{itemize}
+
+
+% 15.10.18
+
+\bbb{Wiederholung}{
+\textbf{Laplace-Gleichung in Kugelkoordinaten}
+\begin{equation*}
+\Delta \Phi = 0 \qquad \Phi(r,\theta,\varphi)
+\end{equation*}
+\begin{equation*}
+\Phi(r,\theta,\varphi) = \frac{U(r)}{r} P(\cos\theta) Q(\varphi)
+\end{equation*}
+\begin{enumerate}[i)]
+	\item \begin{equation*}
+	\prd{^2Q}{\varphi^2} + m^2 Q = 0 \qquad m \in \mathbb{Z}
+	\end{equation*}
+	\begin{equation*}
+	\rightarrow Q(\varphi) = e ^{i m \varphi}
+	\end{equation*}
+	\item \begin{equation*}
+	\prd{^2 U}{r^2} - \frac{\lambda}{r^2} U = 0 \qquad \lambda = l (l+1) \quad l \in \mathbb{N}_0
+	\end{equation*}
+	\begin{equation*}
+	U(r) = a_l r^{l+1} + b_l r^{-l}
+	\end{equation*}
+	\item \begin{equation*}
+	\frac{1}{\sin \theta} \prd{}{\theta} \left(\sin \theta \prd{P}{\theta} \right) + \left(\lambda - \frac{m^2}{\sin^2 \theta}\right) P(\cos\theta) = 0
+	\end{equation*}
+	\textbf{Zylindersymmetrische Probleme:}
+	$ \prd{\Phi}{\varphi} = 0 \quad \rightarrow \quad m = 0 $\\
+	$ \rightarrow P_l(\cos\theta) : $ Legendre-Polynome\\
+	$ \rightarrow $ allgemeine Lösung:
+	\begin{equation*}
+	\rmbox{\Phi(r,\theta) = \sum_{l=0}^{\infty} \left(a_l r^l + b_l r^{-l-1}\right) P_l(\cos\theta)}
+	\end{equation*}
+\end{enumerate}
+}
+\noindent
+\subsubsection{\emph{Beispiel:} \textbf{Leitende Kugel im homogenen Feld}}
+
+%T1
+
+\begin{equation*}
+\vec{E}_{\tx{ext}} = E_0 \vec{e}_z
+\end{equation*}
+\begin{equation*}
+\Phi(\vec{r}) = \Phi_0 \qquad |\vec{r}| \le R
+\end{equation*}
+Die Frage ist jetzt was ist das äußere Potential und das äußere $ \vec{E} $-Feld:
+\begin{equation*}
+\Phi(\vec{r}) \quad \tx{für} \quad |\vec{r}| > R \qquad \rightarrow \vec{E}(\vec{r})
+\end{equation*}
+Lösung des Randwertproblems $ \Delta \Phi(\vec{r}) = 0 $ für $ |\vec{r}| > R $ mit der \textbf{Randbedingungen}:
+$$ \Phi(\vec{r}) = \Phi_0 \tx{ für }  |\vec{r}| = R $$
+$$ \Phi(\vec{r}) \buildrel |\vec{r}| \to \infty \over \longrightarrow - E_0 z + \const = - E_0 r \cos\theta + \Phi_1 $$
+Aufgrund der Zylindersymmetrie des Problems ist $ \Phi $ eine Funktion von $ \theta $ und $ r $: $ \Phi(r,\theta) $
+\begin{equation*}
+\rightarrow \Phi(r,\theta) = \sum_{l=0}^{\infty} \left(a_l r^l + b_l r^{-l-1}\right) P_l(\cos\theta)
+\end{equation*}
+\begin{enumerate}[i)]
+	\item $ r = R $
+	\begin{align*}
+	\Phi(R,\theta) &= \sum_{l=0}^{\infty} \left(a_l R^l + b_l R^{-l-1}\right) P_l(\cos\theta)\\
+	&\overset{!}{=} \Phi_0 \cdot 1 = \Phi_0 P_0(\cos\theta) 
+	\end{align*}
+	an Beide Seiten Multiplizieren wir$ \int_{-1}^{1} \dd (\cos \theta) P_n (\cos\theta) $ für $ n = 0,1,2,3,\dots $
+	\begin{align*}
+	\sum_{l=0}^{\infty} \left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{nl} \frac{2}{2n+1}} &= \Phi_0 \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{n0} \frac{2}{2n+1} = 2 \delta_{n_0}}
+	\end{align*}
+	
+	% andrez 1 teil 2 des aligns
+	
+	\item $ r \to \infty $
+	\begin{align*}
+	\pofr &\rightarrow -E_0 r \cos\theta + \Phi_1\\
+	&= - E_0 r P_1(\cos\theta) + \Phi_1 P_0(\cos\theta) \buildrel r \to \infty \over \longleftarrow \sum_{l=0}^{\infty} \left(a_l r^l + \frac{b_l}{R^{l+1}}\right) P_l(\cos\theta)
+	\end{align*}
+	\begin{equation*}
+	\Rightarrow \sum_{l=0}^{\infty} \left(a_l r^l + \frac{b_l}{R^{l+1}}\right) \delta_{nl} \frac{2}{2n+1} \buildrel r \to \infty \over \longrightarrow 2 \Phi_1 \delta_{n0} - E_0 r \delta_{n1} \frac{2}{2n+1} = 2 \Phi_1 \delta_{n0} - \frac{2}{3} E_0 r \delta_{n1} \qquad n = 0,1,2,\dots
+	\end{equation*}
+	\begin{align*}
+	&\underline{n = 0:} \quad \left(a_0 + \frac{b_0}{r}\right) 2 \buildrel r \to \infty \over \longrightarrow 2 \Phi_1 \qquad \quad \ \ \Rightarrow \qquad a_0 = \Phi_1\\
+	&\underline{n = 1:} \quad \left(a_1 r + \frac{b_1}{r^2}\right)\cancel{\frac{2}{3}} \buildrel r \to \infty \over \longrightarrow - \cancel{\frac{2}{3}} E_0 r \quad \Rightarrow \ \, \ \quad \quad \ \  a_1 = E_0\\
+	&\underline{n > 1:} \quad \left(a_n r^n + \frac{b_n}{r^{n+1}}\right) \frac{2}{2n+1} \buildrel r \to \infty \over \longrightarrow \quad \Rightarrow \quad \ a_n = 0
+	\end{align*}
+
+	\begin{align*}
+	\rightarrow \ \ b_0 &= R(\Phi_0 - \Phi_1)\\
+	b_1 &= - R^3 \qquad \ \, a_1 = E_0 R^3\\
+	n>1: \ \ b_n &= - R^{2n+1} \quad a_n = 0
+	\end{align*}
+	\begin{equation*}
+	\Phi(r,\theta) = \left[\Phi_1 + \frac{R(\Phi_0 - \Phi_1)}{r}\right] \ub{P_0(\cos\theta)}_{=1} + \left[-E_0 r + \frac{E_0 R^3}{r^2}\right] \ub{P_1(\cos\theta)}_{\cos\theta}
+	\end{equation*}
+	\frbox{Potential einer Kugel im homogenen $ \vec{E} $-Feld}{\begin{equation*}
+	\rightarrow\Phi(r,\theta) = \Phi_1 + (\Phi_0 - \Phi_1) \frac{R}{r} - E_0 r\cos\theta + E_0\frac{R^3}{r^2} \cos\theta
+	\end{equation*}}
+\end{enumerate}
+Diskussion der \textbf{Bedeutung der einzelnen Terme}:
+\begin{itemize}
+	\item 	$ \Phi_1 $ ist eine Konstante die auf das Potential keine physikalische Auswirkung hat.
+	\item $ -E_0 r \cos\theta $ ist das Potential des äußeren Feldes.
+	\item $ \Phi_0 - \Phi_1 $ ist das Potential einer möglichen Gesamtladung auf der Kugel.
+	\item $ E_0\frac{R^3}{r^2} \cos \theta $ ist der Beitrag der Ladungsverschiebung auf der Kugel. Also das Potential der Influenzierten Ladungen.
+\end{itemize}
+
+%T2
+
+\noindent
+Eine Kugel mit Ladung $ Q $ ohne äußeres Feld ($ E_0 = 0 $):
+\begin{align*}
+\rightarrow\pofr &= \frac{1}{4 \pi \epsilon} \frac{Q}{r} + \const\\
+&\overset{!}{=} \Phi_1 + (\Phi_0 - \Phi_1) \frac{R}{r}
+\end{align*}
+\begin{equation*}
+\rightarrow \const = \Phi_1 \qquad \Phi_0 - \Phi_1 = \frac{Q}{4 \pi \epsilon_0 R}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \Phi_1 = \Phi_0 - \frac{Q}{4 \pi \epsilon_0 R}
+\end{equation*}
+Eine ungeladene Kugel: $ Q = 0 \quad \rightarrow \Phi_1 = \Phi_0 $
+\begin{equation*}
+\rightarrow \rmbox{\Phi(r,\theta) = \Phi_0 - E_0 r \cos\theta + E_0 \frac{R^3}{r^2} \cos \theta}
+\end{equation*}
+
+\subsubsection{Lösung für $ m \neq 0 $ (Potenzreihenansatz)}
+
+
+% andrez 2 allgemeiner fall:
+
+
+\subsubsection{Allgemeine Lösung der Laplace-Gleichung in Kugelkoordinaten:}
+
+\begin{equation*}
+\rmbox{\Phi(r,\theta,\varphi) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \left(a_{lm} r^l + \frac{b_{lm}}{r^{l+1}}\right) \mathcal{Y}_{lm} (\theta,\varphi)}
+\end{equation*}
+$ \Delta \Phi = 0 $
+
+
+
 
 \end{document}
