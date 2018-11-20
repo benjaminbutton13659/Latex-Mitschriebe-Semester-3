@@ -20,3 +20,4 @@ New versions of the script will be available as soon as we have had the time to 
 
 Hat tip to anyone who is helping to improve the code and helps us find mistakes
 
+![alt text](https://i.kym-cdn.com/photos/images/facebook/000/963/597/16f.jpg)
