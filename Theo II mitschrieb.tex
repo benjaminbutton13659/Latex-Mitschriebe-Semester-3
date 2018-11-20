@@ -2434,7 +2434,23 @@ Potenzreihenansatz: $P(x) = \summ{k = 0}{\infty} a_k x^k$
 \noindent
 \subsubsection{\emph{Beispiel:} \textbf{Leitende Kugel im homogenen Feld}}
 
-%T1
+% t1
+%\begin{wrapfigure}{r}{0.2\textwidth}
+%\vspace{-90pt}
+%\centering
+%\fbox{
+\begin{tikzpicture}
+	\draw[shade, ball color=gray!50!white] (0,0) circle (1cm) node[yshift=.5cm,right] {$\Phi_0$};
+	\draw[->] (0,0) -- (0,2) node[above] {$z$};
+	\draw[->] (0,0) -- (2,0) node[right] {$x$};
+	\draw[-] (0,0) -- ++(200:1) node[xshift=.5cm] {$R$};
+	\draw[->,thick] (-1.1,-1) -- (-1.1,1) node[above] {$\vec{E}_\textrm{ext}$};
+	\draw[fill] (0,0) circle (0.02cm);
+\end{tikzpicture}
+%}
+%\caption{Leitende Kugel im Homogenen Feld}
+%\end{wrapfigure}
+%\vspace{50pt}
 
 \begin{equation*}
 \vec{E}_{\tx{ext}} = E_0 \vec{e}_z
@@ -2461,10 +2477,17 @@ Aufgrund der Zylindersymmetrie des Problems ist $ \Phi $ eine Funktion von $ \th
 	\end{align*}
 	an Beide Seiten Multiplizieren wir$ \int_{-1}^{1} \dd (\cos \theta) P_n (\cos\theta) $ für $ n = 0,1,2,3,\dots $
 	\begin{align*}
-	\sum_{l=0}^{\infty} \left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{nl} \frac{2}{2n+1}} &= \Phi_0 \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{n0} \frac{2}{2n+1} = 2 \delta_{n_0}}
+	\sum_{l=0}^{\infty} \left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{nl} \frac{2}{2n+1}} &= \Phi_0 \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{n0} \frac{2}{2n+1} = 2 \delta_{n_0}}\\
+	\Rightarrow \summ{l = 0}{\infty} \frac{2}{2l + 1}\left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \delta_{nl} &= 2 \Phi_0 \delta_{n0} \qquad n = 0, 1, 2,\dots
 	\end{align*}
 	
-	% andrez 1 teil 2 des aligns
+	% :andrez 1 teil 2 des aligns:
+	
+	$$\begin{array}{lcl}
+		\underline{n = 0:} & 2\left(a_0 R^0 + \displaystyle\frac{b_0}{R}\right) = 2 \Phi_0 &\Rightarrow b_0 = R(\Phi_0 - a_0)\\
+		&&\\
+		\underline{n \neq 0:} & \displaystyle\frac{2}{2n+1}\left(a_n R^n + \frac{b_n}{R^{n+1}}\right) = 0 &\Rightarrow b_n = R^{2n+1}a_n
+	\end{array}$$
 	
 	\item $ r \to \infty $
 	\begin{align*}
@@ -2502,7 +2525,20 @@ Diskussion der \textbf{Bedeutung der einzelnen Terme}:
 	\item $ E_0\frac{R^3}{r^2} \cos \theta $ ist der Beitrag der Ladungsverschiebung auf der Kugel. Also das Potential der Influenzierten Ladungen.
 \end{itemize}
 
-%T2
+% t2
+\hfill%
+\begin{tikzpicture}
+	\draw[shade, ball color=gray!50!white] (0,0) circle (1cm);
+	\draw[->,thick] (-1.1,-1) -- (-1.1,1) node[above] {$E_0\vec{e}_z$};
+	\draw (0,0) node[blue,xshift=-.5cm,yshift=-.5cm] {$-$};
+	\draw (0,0) node[blue,yshift=-.6cm] {$-$};
+	\draw (0,0) node[blue,xshift=.5cm,yshift=-.5cm] {$-$};
+	\draw (0,0) node[red,xshift=-.5cm,yshift=.5cm] {$+$};
+	\draw (0,0) node[red,yshift=.6cm] {$+$};
+	\draw (0,0) node[red,xshift=.5cm,yshift=.5cm] {$+$};
+\end{tikzpicture}
+\vspace{-40pt}
+
 
 \noindent
 Eine Kugel mit Ladung $ Q $ ohne äußeres Feld ($ E_0 = 0 $):
@@ -2525,6 +2561,15 @@ Eine ungeladene Kugel: $ Q = 0 \quad \rightarrow \Phi_1 = \Phi_0 $
 
 
 % andrez 2 allgemeiner fall:
+$\rightarrow$ Zugeordnete Legendre-Polynome
+$$P^m_l (x) \qquad x = \cos\theta$$
+$\bullet$ Allgemeine Struktur:
+$$P_l^m \sim (1-x^2)^{|m|/2} \times \textrm{ Polynom } (l-|m|)\textrm{ten Grades}$$
+Zusammenfassung der Funktionen:
+$$ P, \theta \textrm{ in Produkt: } P_l^m (\cos\theta) Q_m (\varphi)$$
+\subsubsection{$\Rightarrow$ Kugelflächenfunktionen}
+$$\mathcal Y_{lm} (\theta,\varphi) = \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}} P_l^m (\cos\theta)e^{im\varphi}$$
+$$l = 0,1,2,\dots \qquad m = 0,\pm 1,\pm 2,\dots,\pm l \qquad \theta \in [0,\pi] \qquad \varphi \in [0,2\pi]$$
 
 
 \subsubsection{Allgemeine Lösung der Laplace-Gleichung in Kugelkoordinaten:}
