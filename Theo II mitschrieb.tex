@@ -2479,6 +2479,8 @@ Aufgrund der Zylindersymmetrie des Problems ist $ \Phi $ eine Funktion von $ \th
 	&\underline{n = 1:} \quad \left(a_1 r + \frac{b_1}{r^2}\right)\cancel{\frac{2}{3}} \buildrel r \to \infty \over \longrightarrow - \cancel{\frac{2}{3}} E_0 r \quad \Rightarrow \ \, \ \quad \quad \ \  a_1 = E_0\\
 	&\underline{n > 1:} \quad \left(a_n r^n + \frac{b_n}{r^{n+1}}\right) \frac{2}{2n+1} \buildrel r \to \infty \over \longrightarrow \quad \Rightarrow \quad \ a_n = 0
 	\end{align*}
+	
+	% aufhübschen da oben
 
 	\begin{align*}
 	\rightarrow \ \ b_0 &= R(\Phi_0 - \Phi_1)\\
@@ -2531,6 +2533,123 @@ Eine ungeladene Kugel: $ Q = 0 \quad \rightarrow \Phi_1 = \Phi_0 $
 \rmbox{\Phi(r,\theta,\varphi) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \left(a_{lm} r^l + \frac{b_{lm}}{r^{l+1}}\right) \mathcal{Y}_{lm} (\theta,\varphi)}
 \end{equation*}
 $ \Delta \Phi = 0 $
+
+
+% Theo Vorlesung 19.11.2018
+
+\section{Multipolentwicklung}
+
+%T1
+
+\[q=\int\dd^3r'\rho(\vec{r}')\]
+\[\vec{r}\gg R\ \quad \Phi(\vec{r})\approx\frac{1}{4\pi\epsilon_0}\frac{q}{r}\]
+statische, lokalisierte Ladungsverteilung\\
+
+%T2
+
+
+\[\rho(\vec{r})=\begin{cases}\textrm{beliebig}&r<R\\0&r>R\end{cases}\]
+\[\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\int_V\dd^3r'\frac{\rho(\vec{r}')}{|\vec{r}-\vec{r}'|}\]
+F"ur $r>R:\ |\vec{r}'|<|\vec{r}|\rightarrow$ Taylorentwicklung von $\frac{1}{|\vec{r}-\vec{r}'|}$ in $\vec{r'} \rightarrow$ d.h. in $ x_1',x_2',x_3'$ \\
+\[\frac{1}{|\vec{r}-\vec{r}'|}=\frac{1}{\sqrt{(x_1-x_1'^2)+(x_2-x_2'^2)+(x_3-x_3'^2)}} \qquad \qquad \qquad \vec{r}=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\]
+Taylorentwicklung:
+\[f(\vec{r}')=f(x_1',x_2',x_3')=f(0,0,0)+\sum_{i=1}^3x_i'\frac{\partial f}{\partial x_i}(0)+\frac{1}{2}\sum_{i,j=1}^3x_i'x_j'\frac{\partial^2f}{\partial x_i'\partial x_j'}(0)+\ldots\]
+Zuerst berechnen wir die einzelnen Terme:
+\[f(\vec{r}')=\frac{1}{|\vec{r}-\vec{r}'|}:\ f(0)=\frac{1}{r} \qquad \ \ \  \frac{\partial f}{\partial x_i'}=\frac{(x_i-x_i')}{|\vec{r}-\vec{r}'|^3}\bigg|_0=\frac{x_i}{r^3} \qquad \ \ \ \frac{\partial^2f}{\partial x_i'x_j'}(0)=\ldots=\frac{3x_ix_j-r^2 \delta_{ij}}{r^5}\]
+Für $|\vec{r}|<|\vec{r}'|$:
+\vspace{-15pt} \[\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\int\dd^3r\rho(\vec{r}')\Bigg\{\frac{1}{r}+\sum_{i=1}^3\frac{x_i'x_i}{r^3}+\frac{1}{2}\sum_{i,j}x_i'x_j'\frac{3x_ix_j-\custoup{\rightarrow}{r^2\delta_{ij}}{}}{r^5}+\ldots\Bigg\}\]
+Den letzten (mit einem Pfeil markierten) Term schauen wir uns jetzt noch einmal genauer an.
+\[\sum_{i,j}x_i'x_j'r^2\delta_{ij}=r^2\underbrace{\sum_ix_i'^2}_{=r'^2}=r^2r'^2=r'^2\sum_ix_i^2=\sum_{i,j}r'^2x_ix_j\delta_{ij}\]
+Somit können wir den letzten Term umschreiben als:
+\[\sum_{i,j}x_i'x_j'\frac{(3x_ix_j-r^2\delta_{ij})}{r^5}=\sum_{i,j}x_ix_j\frac{(3x_i'x_j'-r'^3\delta_{ij})}{r^5}\]
+Das Potential unserer Ladungsverteilung im externen $ \vec{E} $-Feld ergibt sich dann als:
+\begin{small}
+	\[\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\Bigg\{\frac{1}{r} \underbrace{\int\dd^3r'\rho(\vec{r}')}_{\mathclap{\substack{ q \textrm{ Gesamtladung} \\  \tx{(Monopol)}}}} +\sum_{i=1}^3\frac{x_i}{r^3} \underbrace{\int\dd^3r'x_i'\rho(\vec{r}')}_{\mathclap{\substack{p_i \textrm{ Dipolmoment} \\ \vec{p}=(p_1,p_2,p_3)}}}  +\frac{1}{2}\sum_{i,j}\frac{x_ix_j}{r^5}\underbrace{\int\dd^3r'\rho(\vec{r}')(3x_i'x_j'-r'^2\delta_{ij})}_{\mathclap{\eqdef\ Q_{ij}\textrm{ Quadrupolmoment}}}+\ldots\Bigg\}\]
+\end{small}
+\[\Rightarrow\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\left\{\frac{q}{r}+\frac{\vec{r}\cdot\vec{p}}{r^3}+\frac{1}{2}\sum_{i,j}\frac{x_ix_j}{r^5}Q_{ij}+\ldots\right\}\]
+\textbf{Diskussion}:
+\begin{enumerate}[i)]
+	\item \textbf{Monopol} \[\Phi_M(\vec{r})=\frac{1}{4\pi\epsilon_0}\frac{q}{r} \qquad \propto\frac{1}{r}\textrm{ dominiert f"ur }q\neq0\]
+	\[\rightarrow\vec{E}_M(\vec{r})=-\vec{\nabla}\Phi_M=\frac{q}{4\pi\epsilon_0}\frac{\vec{r}}{r^3} \qquad \propto\frac{1}{r^2}\]
+	\item \textbf{Dipol} \[\Phi_D(\vec{r})=\frac{1}{4\pi\epsilon_0}\frac{\vec{r}\cdot\vec{p}}{r^3} \qquad \propto\frac{1}{r^2}\]
+	Das elektrische Feld:
+	\[\vec{E}_D=-\vec{\nabla}\Phi_D\]
+	\begin{align*}
+	\vec{\nabla}_{\vec{r}} \left(\vec{p}\cdot\frac{\vec{r}}{r^3}\right) : \ \frac{\partial}{\partial x} \left(p_x\frac{x}{r^3}+p_y\frac{y}{r^3}+p_z\frac{z}{r^3}\right) &= \left(\frac{p}{r^3} -3 p_x \frac{xx}{r^5}-3p_y\frac{yx}{r^5} -3p_z \frac{zx}{r^5} \right)\\
+	&= \frac{p_x}{r^3} -3 \frac{\vec{p}\cdot\vec{r}}{r^5}x\\
+	\frac{\partial}{\partial y}(\ldots) &= \frac{p_y}{r^3}-3\frac{\vec{p}\cdot\vec{r}}{r^5}y \\
+	\frac{\partial}{\partial z} (\ldots) &= \frac{p_z}{r^3} -3 \frac{\vec{p}\cdot\vec{r}}{r^5} z 
+	\end{align*}
+	\[\Rightarrow\vec{\nabla}_{\vec{r}}\left(\vec{p}\cdot\frac{\vec{r}}{r^5}\right)=\frac{\vec{p}}{r^3}-3\frac{\vec{p}\cdot\vec{r}}{r^5}\vec{r}\]
+	$$\vec{E}_{D} = - \vec{\nabla} \Phi_D= \frac{1}{4\pi\epsilon_0} \left[\frac{3(\vec{p}\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{p}}{r^4}\right] \qquad \propto \frac{1}{r^3} \quad \vec{r}\neq0$$
+	\emph{Beispiel} für die Realisierung eines Dipols:\\
+	\textbf{Punktladungen:} $q_0,-q_0$ in $\vec{r}_+,\vec{r}_-$\\
+	
+	%T3
+	
+	Gesamtladung: $q=q_0-q_0=0$\\
+	\[\rightarrow\Phi_M(\vec{r})\equiv0\]
+	\[\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\left(\frac{q_0}{|\vec{r}-\vec{r}_+|}-\frac{q_0}{|\vec{r}-\vec{r}_i|}\right)=\frac{1}{4\pi\epsilon_0}\left(\frac{\vec{r}\cdot\vec{p}}{r^3}+\ldots\right)\]
+	\[\rho(\vec{r}')=q_0\delta(\vec{r}'-\vec{r}_+)-q_0\delta(\vec{r}'-\vec{r}_-)\]
+	\[\rmbox{\vec{p}=\int\dd^3r'\rho(\vec{r}')\vec{r}'=q_0\vec{r}_+-q_0\vec{r}_-=q_0\vec{d}}\]
+	mehrere Punktladungen $q_i$ in $\vec{r}_i$\\
+	\[\rightarrow\vec{p}=\sum_iq_i\vec{r}_i\]
+	\item \textbf{Quadrupolmoment}
+	\[Q_{ij}=\int\dd^3r'\rho(\vec{r}')(3x_i'x_j'-r'^3\delta_{ij})\]
+	Quadrupoltensor $Q=\begin{pmatrix}Q_{11}& \color{black!50!green} Q_{12}& \color{black!30!red} Q_{13}\\\color{black!50!green} Q_{21} &Q_{22}& \color{black!30!blue} Q_{23}\\\color{black!30!red} Q_{31} & \color{black!30!blue} Q_{32} & Q_{33}\end{pmatrix}$\\ 
+	\textbf{Eigenschaften}
+	\begin{enumerate}[i)]
+		\item Spurfrei: $\mathrm{tr}(Q)=\sum_iQ_{ij}=0 \quad \Rightarrow $ mindestens 2 unabhängige Elemente
+		\item Symmetrisch: $Q_{ij}=Q_{ji} \quad \Rightarrow 3 $ unabhängige Elemente
+	\end{enumerate}
+	$\Rightarrow$ 5 unabhängige Elemente\\[5pt]
+	
+	Ableitung in Kugelkoordinaten\\
+	$\Rightarrow$ Sphärische Multipolmomente
+\end{enumerate}
+
+\subsection{Multipolentwicklung der Energie der Ladungsverteilung im äußeren Feld}
+
+%T4
+
+$\vec{E}=-\vec{\nabla}\Phi$\\ %zu tikz
+Energie:
+\begin{equation}
+W=\int\dd^3r\rho(\vec{r})\Phi(\vec{r})
+\label{W}
+\end{equation}
+Wir stellen uns vor, das $ \vec{E} $-Feld wird von sehr weit entfernten Ladungen erzeugt. Wir machen somit also die Annahme, dass sich $\Phi(\vec{r})$ in dem Gebiet,wo $ \rho(\vec{r}) $ sich nur wenig ändert.\\
+$\rightarrow$ Taylorentwicklung von $\Phi(\vec{r})$ um $\vec{r}=0$\\
+\begin{align*}
+\Phi(\vec{r}) &= \Phi(0) + \vec{r} \cdot \vec{\nabla} \Phi(0) + \frac{1}{2} \sum_{i,j} x_i x_j \frac{\partial^2\Phi}{\partial x_i\partial x_j} (0) + \ldots \\
+&= \Phi(0) - \vec{r} \cdot \vec{E} (0) - \underbrace{\frac{1}{2} \sum_{i,j} x_i x_j \frac{\partial E_j}{\partial x_i} (0)}_{} + \ldots\\
+& \qquad \qquad \qquad \qquad = \frac{1}{6} \sum_{i,j} (3 x_i x_j - r^2 \delta_{ij}) \frac{\partial E_j}{\partial x_i} (0) 
+\end{align*}
+Dies gilt, da:
+$$\sum_{i,j}r^2\delta_{ij}\frac{\partial E_j}{\partial x_i}(0)=r^2\underbrace{\sum_i\frac{\partial E_i}{\partial x_i}(0)}_{\mathclap{\vec{\nabla}\cdot\vec{E}(0)=0}}$$
+$ \vec{\nabla} \cdot \vec{E} = 0 $ gilt, da $ \vec{E} $ ein äußeres Feld ist.
+Damit erhalten wir dann für die Energie mit Formel \eqref{W}:
+\begin{align*}
+\rightarrow W &= \Phi(0)\underbrace{\int\dd^3r\rho(\vec{r})}_{=q}-\vec{E}(0)\cdot\underbrace{\int\dd^3r\vec{r}\rho(\vec{r})}_{=\vec{p}}-\frac{1}{6}\sum_{i,j}\frac{\partial E_j}{\partial x_i}(0)\underbrace{\int\dd^3r(3x_ix_j-r^2\delta_{ij})\rho(\vec{r})}_{=Q_{ij}}+\ldots \\
+&= \custo{\substack{\vspace{10pt}\\ \nwarrow} }{q}{\mathclap{\tx{Ladung}}\qquad} \custo{\substack{\leftarrow}}{\Phi(0)}{\ \ \mathclap{\tx{Potential}}} \quad - \quad \custo{\substack{\leftarrow}}{\vec{p}}{\ \ \mathclap{\tx{Dipol}}} \cdot \custo{\substack{\swarrow\\ \vspace{5pt}}}{\vec{E}(0)}{\qquad \mathclap{\tx{Feld}}} \quad - \quad \frac{1}{6} \sum_{i,j} 
+\custo{\substack{\vspace{7pt} \\ \nwarrow}}{Q_{ij}}{\mathclap{\substack{\\[5pt]\tx{Quadrupol}}} \quad} \custo{\substack{\swarrow \\ \vspace{5pt}}}{\frac{\partial E_j}{\partial x_i} (0)}{\qquad \quad \mathclap{\tx{Feldgradient}}} + \ldots
+\end{align*}
+
+\subsubsection{Wechselwirkungsenergie zweier Dipole}
+
+Betrachte 2 Punktdipole $\vec{p}_1,\vec{p}_2$ in $\vec{r}_1,\vec{r}_2$\\
+
+%T5
+
+\noindent
+$\vec{p}_2$ erzeugt am Ort $\vec{r}_1$ das "au\ss ere" Feld\\
+\[\vec{E}(\vec{r}_1)=\frac{1}{4\pi\epsilon_0}\left[\frac{3(\vec{p}_2\cdot\vec{r}_{12})\vec{r}_{12}}{r_{12}^5}-\frac{\vec{p}_2}{r_{12}^3}\right]\]
+\[\rightarrow W=-\vec{p}_1\cdot\vec{E}(\vec{r}_1)=\frac{1}{4\pi\epsilon_0}\left[\frac{\vec{p}_1\cdot\vec{p}_2}{r_{12}^3}-\frac{3(\vec{p}_2\cdot\vec{r}_{12})(\vec{p}_1\cdot\vec{r}_{12})}{r_{15}^5}\right] \qquad \propto\frac{1}{r_{12}^3}\]
+Je nach Orientierung der Dipole ist diese Wechselwirkung anziehend oder absto\ss end.\\
+z.B.: $\vec{p}_1,\vec{p}_2\perp\vec{r}_{12}$
+\[\rightarrow W=\frac{1}{4\pi\epsilon_0}\frac{\vec{p}_1\cdot\vec{p}_2}{r_{12}^3}\begin{cases}>0&\uparrow\uparrow \qquad \tx{abstoßend}\\<0&\uparrow\downarrow \qquad \tx{anziehend}\end{cases}\]
+
+%evtl %T5
 
 
 

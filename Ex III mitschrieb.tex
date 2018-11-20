@@ -2254,11 +2254,172 @@ FWHM (full width at half maximum)
 $$ \epsilon = 4 \arcsin\sqrt{\frac{1}{F}} \approx \frac{4}{\sqrt{F}} $$
 \folie{Maxima beim FWHM}\\
 \textbf{Anwendung: Fabry-P\'erot-Interferometer}\\[5pt]
-\folie{zu Fabry-P\'erot-Interferometern}\\[5pt]
+\folie{zu Fabry-P\'erot-Interferometern}\\
 \versuch{Natrium-Dampf-Lampe Interferenz}
 \folie{Interferenz mit einer Natrium-Dampf-Lampe}\\
 \versuch{Abpumpen der Luft beim Interferenzmuster der Natrium-Dampf-Lampe}
 \lcom{Das Muster verändert sich erheblich obwohl der Unterschied der Brechungsindizes so gering war. Also hat das Farbinterferometer eine sehr hohe Auflösung. }
+
+\section{Interferenz und Beugung II - Huygen'sches Prinzip}
+
+\subsection{Huygen'sches Prinzip}
+
+\rbox{Jeder Punkt einer Wellenfront ist Ausgangspunkt einer neuen Elementarwelle.}
+\noindent
+\emph{Beispiel:} Brechung\\
+Erklärung über Ausbreitung ebener Wellen \folie{Brechung mit Ebenen Wellen}
+
+% Bild von Folie
+
+\subsection{Interferenz am Doppelspalt}
+
+Jeder Spalt, wenn er klein genug ist, wird als ,,Sender`` einer Elementarwelle angesehen.\\
+$ \Rightarrow $ Überlagerung von zwei Kugelwellen.\\
+\folie{zu Doppelspalt mit Kugelwellen}
+% Bild von Folie einfügen
+
+\subsection{Beugung}
+
+Beugung bezeichnet das Phänomen, das Licht (und andere Wellen) in Bereiche vordringt, in welche es als Strahl betrachtet nicht vordringen dürfte.\\
+\lcom{Beugung tritt immer an Stellen auf, an denen die Transmission einer Welle verhindert wird. Dies ist z.B. der Fall an Kanten bei denen an einer Seite komplette Abschattung und an der anderen komplette Transmission stattfindet.}\\
+\lcom{Interferenz tritt dann auf, wenn es zwei solche Stellen gibt an denen Beugung auftritt.}\\
+\versuch{Laser mit Kante und später Loch-/Kreisblende und später Stecknadelkopf}
+\lcom{Man sieht auch ein dieser einzelnen Kante Interferenz. Dies zu verstehen ist Ziel der heutigen Vorlesung. Das Interferenzmuster ist die Fouriertransformation einer Stufenfunktion. Bei der Lochblende einer Fouriertransformation eines ,,Loches``.}\\
+\folie{Doppelspalt Beugung} \folie{Einzelspalt}\\
+
+\subsection{Allgemeine Behandlung der Beugung}
+
+\lcom{Zur Verallgemeinerung Behandeln wir nun das Kirchhoff'sche Beugungsintegral}
+
+\subsubsection{Kirchhoff'sches Beugungsintegral}
+
+\lcom{In verschiedenen Büchern treten häufig andere Formel des Gleichen Integrals auf.}\\
+\folie{Beugungsintegral}\\
+\lcom{Die Blende wird als eine Transmissionsfunktion beschrieben. Zu jedem Punkt aus dem Schirm gibt es dann ein Integral der Intensitäten aller Elementarwellen aus der Blende.}
+
+% Bild eiinfügen
+
+\noindent
+Blendenöffnung bei $ z = 0 $\\
+Beobachtungsschirm bei $ z = z' = z_0 $
+\frbox{Kirchhoff'sches Beugungsintegral}{
+\begin{equation*}
+\vec{E}(\vec{x}') = \frac{ik}{2 \pi} \int Q \tau(x,y) \vec{E}_{\tx{ein}} (\vec{x}) \frac{e^{-ikr}}{r} \dd \sigma 
+\end{equation*}}
+$ Q \defeq $ Neigungsfaktor\\
+$ \tau \; \defeq $ Transmissionsfunktion mit $ \left\{ \begin{array}{ll}
+\tau = 1 : & \tx{vollständige Transmission} \\ \tau = 0 : & \tx{undürchlässig}
+\end{array} \right. $\\
+$ r \ \defeq $ Abstand des Punkts $ \vec{x} $ und $ \vec{x}' $
+\begin{equation*}
+r^2 = (\vec{x} - \vec{x}')^2 = (x-x')^2 + (y-y')^2 + z'^2
+\end{equation*}
+\textbf{Sketch der Herleitung}
+\begin{enumerate}[(1)]
+	\item Für das von der Blende bei $ z = 0 $ durchgelassene Licht gilt:
+	\begin{equation*}
+	E_{\tx{Blende}} (x,y) = E_{\tx{ein}} (x,y,z=0) e^{i\varphi (x,y,z=0)}
+	\end{equation*}
+	\item Jeder Punkt der Öffnung erzeugt eine Elementarwelle
+	\begin{equation*}
+	\dd E(x',y',z') \propto Q \tau(x,y) E_{\tx{ein}} (x,y) \frac{e^{-ikr}}{r} \ub{\dd x \dd y}_{d\sigma}
+	\end{equation*}
+	\begin{equation*}
+	Q \propto \frac{1}{2} (\cos \theta_1 + \cos \theta)
+	\end{equation*}
+	\item Insgesamt:
+	\begin{equation*}
+	E(x,y',z') \propto \int Q \tau(x,y) E_{\tx{ein}} \frac{e^{-ikr}}{r} \dd \sigma
+	\end{equation*}
+	\item  Vektoren und Beträge ,,richtig```machen.
+\end{enumerate}
+\textbf{Grenzfälle:}\\
+\begin{itemize}
+	\item Frauenhofer-Beugung:\\
+	Abstand des Schirms von der Blende sehr groß gegenüber Öffnung der Blende.
+	\begin{equation*}
+	z' \gg x,y \qquad z_0 \gg \frac{b^2}{\lambda}
+	\end{equation*}
+	\item Fresnel Beugung:\\
+	Abstand des Schirms von Blende klein.
+	\begin{equation*}
+	z' \ll x,y \qquad z_0 \ll \frac{b^2}{\lambda}
+	\end{equation*}
+	\item Überganszone $ z_0 \approx \frac{b^2}{\lambda} $
+\end{itemize}
+\folie{Folie Nah-/Übergangs-/Fernbereich}
+
+\subsection{Allgemeines Ergebnis für die Beugung im Fernbereich, Frauenhofer Beugung}
+
+Fernbereich: $ z' \gg x,y $
+\begin{equation*}
+r = \sqrt{(x-x')^2 + (y-y')^2 + z'^2}
+\end{equation*}
+\lcom{Zur Näherung: Näherungen zu machen ist nicht sehr einfach und der Prozess nicht sehr präzise zu Beschreiben. Es ist nicht leicht eine gute Näherung zu finden. Man muss dabei darauf Achten, dass man durch seine Näherung nicht interessante physikalische Zusammenhänge ,,Wegnähert``. In unserem Fall muss die $ e $-Funktion genau genähert werden, das r im Nenner nur grob.}\\
+präziser Nähern wir $ z' \gg \frac{1}{\lambda} (x^2 + y^2) $
+\begin{equation*}
+r \approx z' \left(1 - \frac{xx'}{z'^2} - \frac{yy'}{z'^2} + \frac{x'^2 + y'^2}{2 z'^2}\right)
+\end{equation*}
+Im Nenner $ r \approx z' $\\
+In dieser Näherung auch $ Q \approx 1 $
+
+\subsubsection{Beugungsintegral für Frauenhofer Beugung}
+
+Nebenrechnung: $ \frac{e^{-ikr}}{r} \approx \frac{e^{-ikz'}}{z'} e^{ik\frac{x'}{z'}x} e^{ik\frac{y'}{z'}y} e^{-ik \frac{1}{2 z'} (x'^2 + y'^2)} $\\
+Die ersten Beiden Faktoren hiervon landen später im Vorfaktor $ A $.
+\begin{equation*}
+\vec{E}(\vec{x}) = \ub{A(\vec{x}')}_{\mathclap{\substack{\tx{alles Lästige} \\ \tx{geht dort rein}}}} \int \tau(x,y) \vec{E}_{\tx{ein}}(x,y) e^{i k \frac{x'}{z'} x} e^{ik\frac{y'}{z'}y} \dd x \dd y
+\end{equation*}
+Fourier Integral:
+\begin{equation*}
+\vec{F} (u,v) \equiv \int \tau(x,y) \vec{E}_{\tx{ein}} (x,y) e^{iux} e^{ivy} \dd x \dd y
+\end{equation*}
+\frbox{Beugungsintegral für Frauenhofer Beugung}{
+\begin{equation*}
+\Rightarrow \quad \vec{E}(\vec{x}') = A(\vec{x}') \vec{F} \left(k \frac{x'}{z'} , k \frac{y'}{z'}\right)
+\end{equation*}}
+
+% evtl frbox oben auch
+
+\emph{Beispiel:} Einfachspalt
+\begin{align*}
+\tx{Ortsraum} \qquad &\Leftrightarrow \qquad \tx{Fourier Raum}\\
+\tau(x,y) = \casess{1}{\forall  \frac{-b}{2} \le x \le \frac{b}{2}}{0}{\tx{sonst.}} \qquad &\Leftrightarrow \qquad \vec{F}(k) = \frac{\sin x}{x} \qquad x = \frac{\pi}{b} k \frac{x'}{z'}\\
+\tx{breiter Spalt} \qquad &\Leftrightarrow \qquad \tx{schmale Interferenzstrukur}\\
+\tx{schmaler} \qquad &\Leftrightarrow \qquad \tx{breites}
+\end{align*}
+\begin{equation*}
+\Delta x \Delta h < \const
+\end{equation*}
+
+\subsection{Auflösungsvermögen optischer Instrumente}
+
+\lcom{Es ist Wichtig zu Wissen von welcher Art von Vergrößerung geredet wird. Welche wir hier benutzen wird später genauer erklärt.}
+
+\subsubsection{Lochkurven}
+
+\folie{Zu Lochkurven und Darstellung mit Lochblenden}\\
+\versuch{Darstellung von Dia mit Lochblende}
+
+\subsubsection{Rayleight Kriterium}
+
+\rbox{Zwei Punkte sind gerade dann noch unterscheidbar, wenn das Beugungsmaximum des einen Punktes in das 1.-te Beugungsminimum des anderen Punktes fällt.}
+\noindent
+\folie{Auflösung: Überlagerung von Beugungsmustern}\\
+\lcom{Diese Definition ist nichts eindeutiges. Es ist nur eine Möglichkeit an einem Breiten Übergang von Scharf bis Unscharf.}
+
+\subsubsection{Ein anderes Kriterium}
+Abstand der Hauptmaxima muss größer sein als deren Halbwertsbreite.
+
+
+
+
+
+
+
+
+
+
 
 
 
