@@ -8,7 +8,7 @@ Theoretical Physics II and Experimental Physics III
 
 ## Latest Version
 
-New versions of the script will be available as soon as we have had the time to Tex the lectures. This might take up to a few days after the lecture.
+New versions of the script will be available as soon as we have had the time to TeX the lectures. This might take up to a few days after the lecture.
 
 ## Authors
 
@@ -16,8 +16,12 @@ New versions of the script will be available as soon as we have had the time to 
 
 * **Andrez Gockel**
 
+Become an author yourself by creating pull requests!
+
 ## Acknowledgments
 
-Hat tip to anyone who is helping to improve the code and helps us find mistakes
+Hat tip to anyone who is helping to improve the code and find mistakes.
 
-![alt text](https://i.kym-cdn.com/photos/images/facebook/000/963/597/16f.jpg)
+## Note to coauthors:
+
+Any unauthorized commits will be discarted with the next update of the repository. Please only use pull requests for any unsceduled changes.
