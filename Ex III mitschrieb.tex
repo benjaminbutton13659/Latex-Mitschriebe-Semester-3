@@ -103,7 +103,7 @@
 \newcommand{\kq}{\frac{1}{4\pi\epsilon_0}}
 \newcommand{\uind}{U_{\tx{ind}}}
 \newcommand{\folie}[1]{\color{gray}[Folie: #1]\color{black}}
-\newcommand{\versuch}[1]{\color{red!50!black} Versuch: \color{black} #1\\ }
+\newcommand{\versuch}[1]{\color{red!50!black} \textbf{Versuch:} \color{black} #1\\ }
 
 % ANDREZ
 \newcommand{\summ}[2]{\sum_{#1}^{#2}}
@@ -2260,6 +2260,8 @@ $$ \epsilon = 4 \arcsin\sqrt{\frac{1}{F}} \approx \frac{4}{\sqrt{F}} $$
 \versuch{Abpumpen der Luft beim Interferenzmuster der Natrium-Dampf-Lampe}
 \lcom{Das Muster verändert sich erheblich obwohl der Unterschied der Brechungsindizes so gering war. Also hat das Farbinterferometer eine sehr hohe Auflösung. }
 
+% Vorlesung %20.11.18
+
 \section{Interferenz und Beugung II - Huygen'sches Prinzip}
 
 \subsection{Huygen'sches Prinzip}
@@ -2414,7 +2416,252 @@ Fourier Integral:
 Abstand der Hauptmaxima muss größer sein als deren Halbwertsbreite.
 
 
+% Vorlesung %21.11.18
 
+\subsection{Räumlichhes Auflösungsvermögen}
+
+\emph{Beispiel:} Linse\\
+\folie{Zu Bündelung von Licht mit einer Linse}\\[5pt]
+\versuch{Laser: Beugung an der Doppellochplatte}
+\lcom{Je näher die Löcher in der Blende zueinander rücken, desto ausgeprägter wird das Interferenzmuster}\\
+Beugung an einer Lochblende:\\
+1. Maximum:
+\begin{equation*}
+r \sin \alpha = 0{,}61 \lambda
+\end{equation*}
+\textbf{Auflösung einer Lochblende}
+\begin{equation*}
+\Rightarrow \quad \sin \alpha_{\tx{min}} = 1{,}22 \frac{\lambda}{D}
+\end{equation*}
+$ D: $ Durchmesser des Lochs\\
+\textbf{Auflösung einer Linse}
+\begin{equation*}
+\Rightarrow \quad \sin \alpha_{\tx{min}} = 1{,}22 \frac{\lambda}{D}
+\end{equation*}
+$ D: $ Durchmesser der Linse\\
+\textbf{Auflösung eines Fernrohrs}\\
+Das durch das Objektiv erzeugte Zwischenbild ist bereits beugungsverbreitert.
+\begin{equation*}
+\Rightarrow \quad \sin \alpha_{\tx{min}} = 1{,}22 \frac{\lambda}{D}
+\end{equation*}
+$ D: $ Durchmesser des Objektivs
+\textbf{Auflösung eines Mikroskops}\\
+Im Unterschied zu vorher ist das einfallende Licht nicht parallel. \folie{zur Auflösung am Mikroskop}
+\begin{enumerate}[(1)]
+	\item \begin{equation*}
+	d = b \alpha_{\tx{min}}
+	\end{equation*}
+	\begin{align*}
+	\Rightarrow \alpha_{\tx{min}} &= 1{,}22 \frac{\lambda}{D} \\
+	\Rightarrow \quad \: \, d &= 1{,}22 \frac{b \lambda}{D}
+	\end{align*}
+	$ D: $ Durchmesser des Objektivs
+	\item Für den Abstand $ \delta_x $ \textbf{vor} dem Objektiv gilt
+	\begin{equation*}
+	\delta_x \approx \frac{\varphi_1}{b} d = 1{,}22 \frac{\varphi_1 \lambda}{D}
+	\end{equation*}
+	\item Öffnungswinkel $ \varphi $
+	\begin{equation*}
+	\sin \varphi \apprge \frac{D}{2 \varphi_1}
+	\end{equation*}
+\end{enumerate}
+\begin{center}
+	\begin{minipage}{.5\linewidth}
+		\frbox{Auflösung eines Mikroskop}{
+		\begin{equation*}
+		\delta_x \approx 0{,}61 \, \frac{\lambda}{n \sin\varphi}
+		\end{equation*}	
+		}
+	\end{minipage}
+\end{center}
+$ n \sin \varphi : $ numerische Apertur\\
+\lcom{Der \textbf{Gültigkeitsbereich der Formel} ist der \textbf{Fernbereich} (Frauenhofer Beugung). Wir versuchen Bessere Ergebnisse zu erzielen indem wir Situationen Betrachten, die außerhalb dieses Gültigkeitsbereichs liegen. In diesem Fall nutzen wir die Nahfeld Mikroskopie, wo die Fresnel'sche Beugung auftritt und wir darüber eine höhere Auflösung erzielen können,}\\[5pt]
+\textbf{Verbesserungen} der beugungsbegrenzten Auflösung:
+\begin{itemize}
+	\item kleines $ \lambda $
+	\begin{itemize}
+		\item[$ \rightarrow $] Elektronenmikroskop ($ 1 \, \tx{nm} $)
+		\item[$ \rightarrow $] Röntgen (in Entwicklung)
+	\end{itemize}
+	\item Immersionsöl mit Brechungsindex von $ n \approx 1{,}5 $
+	\item Nahfeldmikroskopie\\
+	Die obigen Überlegungen basieren auf der Frauenhofer Beugung.
+\end{itemize}
+
+\noindent
+\lcom{Was im nächtes Kapitel nicht behandelt wird. Polarisation,Doppelbrechung ,nichtlineare optik}
+
+\chapter{Licht - Materie Wechselwirkung}
+
+\section{lineare und zirkulare Polarisation}
+
+EM-Welle
+\begin{equation*}
+\Rightarrow \vec{E},\vec{B},\vec{k}
+\end{equation*}
+\textbf{Definition: } Polarisation $ \widehat{=} $ Richtung von $ \vec{E} $\\
+transversale Wellen: $ \vec{E} \perp \vec{k} \quad \Leftrightarrow \quad \vec{E} \cdot \vec{k} = 0 $\\
+longitudinale Wellen: $ \vec{E} \parallel \vec{k} \quad \Leftrightarrow \quad \vec{E} \times \vec{k} = 0 \quad \Leftrightarrow \quad \left(\vec{E} \cdot \vec{k}\right) \vec{k} = \vec{k}^2 \vec{E} $\\
+\lcom{Für die Behauptung, dass EM-Wellen Transversalwellen haben wir die Annahme getroffen, dass wir uns im Vakuum befinden. In Materie ist die Ausbreitungsgeschwindigkeit kleiner als $ c $ und der $ \vec{k} $-Vektor hat eine Komponente parallel zur Ausbreitungsrichtung. $ \Rightarrow $ longitudinale EM-Wellen (eigentlich keine EM-Wellen sondern anderer Name).}\\
+$ \Rightarrow \vec{k} = (0,0,k) $
+
+\subsection{Lineare Polarisation}
+
+\folie{linear polarisierte EM-Welle}
+\begin{equation*}
+\vec{E} = E_0 \begin{pmatrix}
+\cos \tilde{d} \\ \sin \tilde{d} \\ ß
+\end{pmatrix} \cos \left(\omega t - k z + \varphi \right)
+\end{equation*}
+
+\subsection{Zirklulare Polarisation}
+
+\folie{zirkular polarisierte EM-Welle}
+\begin{equation*}
+\vec{E} = E_0 \begin{pmatrix}
+\cos \left(\omega t - kz + \varphi \right) \\ \pm\sin\left(\omega t - k z + \varphi\right) \\ 0
+\end{pmatrix}
+\end{equation*}
+
+\subsection{Zusammenhang zwischen linear und zirkular polarisierten Wellen}
+
+\rbox{Jede linear polarisierte Welle kann in zwei entgegengesetzt zirkular polarisierte Wellen halber Amplitude zerlegt werden und umgekehrt.}
+\emph{Beispiel:} Zerlegung von linearer in zirkulare Polarisation.
+$ \cos\left( x + \frac{\pi}{2}\right) + \cos\left( x - \frac{\pi}{2}\right) = 0 $
+\begin{align*}
+\vec{E}(\vec{x},t) &= A \begin{pmatrix}
+\cos\left(\omega t - k z + \varphi\right) \\ 0 \\ 0
+\end{pmatrix} \\
+&= \frac{A}{2} \begin{pmatrix}
+\cos\left(\omega t - k z + \varphi \right) \\ \cos\left(\omega t - k z + \varphi + \frac{\pi}{2}\right) \\ 0
+\end{pmatrix} + \frac{A}{2} \begin{pmatrix}
+\cos \left(\omega t - k z + \varphi\right) \\ \cos \left(\omega t -  z + \varphi + \frac{\pi}{2}\right)
+\end{pmatrix}
+\end{align*}
+
+\subsection{Polarisation beim Durchgang durch Materie}
+
+\subsubsection{Doppelbrechung:}
+
+\begin{equation*}
+l_x \neq l_y
+\end{equation*}
+\begin{equation*}
+\vec{E}(\vec{x},t) = \begin{pmatrix}
+A_x \cos\left(\omega t - \color{black!30!red}k_x\color{black}z + \varphi_x\right) \\ A_y \cos\left(\omega t - \color{black!30!red}k_y\color{black}z + \varphi_y \right) \\ 0
+\end{pmatrix}
+\end{equation*}
+
+\subsubsection{optische Aktivität}
+
+Die Ausbreitungsgeschwindigkeit bzw. der Wellenvektor für rechts und links zirkulare Polarisation unterschiedlich.
+
+\begin{align*}
+\Rightarrow \quad \vec{E}(\vec{x},t) &= \frac{A}{2} \begin{pmatrix}
+\cos\left(\omega t - kz .....\right)
+\end{pmatrix} .....
+\end{align*}
+
+% fill in from phone picture
+
+\section{Polarisation durch Brechung und Reflexion}
+
+(siehe EX II)
+
+\subsection{Maxwell Gleichungen in Materie}
+
+\begin{equation*}
+\tx{div} \vec{D} = \rho_0 \qquad \tx{div} \vec{B} = 0
+\end{equation*}
+\begin{equation*}
+\tx{rot} \vec{E} = - \prt{}{t} \vec{B} \qquad \tx{rot} \vec{H} = \vec{j} + \prt{}{t} \vec{D}
+\end{equation*}
+plus:
+\begin{align*}
+\vec{F} &= q \left(\vec{v} \times \vec{B}\right) \\
+\vec{F} &= q \vec{E}
+\end{align*}
+\begin{equation*}
+\rho = \rho_0 + \rho_{\tx{pol}} = \frac{1}{\epsilon} \rho_0 \qquad \vec{j} = \vec{j}_0 \vec{j}_{\tx{mag}} = \mu \vec{j}_0
+\end{equation*}
+Es fehlen hier noch einige Zusammenhänge die selbstverständlich immer noch gelten z.B.:
+\begin{equation*}
+\tx{div} \vec{E} = \frac{1}{\epsilon_0} \rho \qquad \tx{rot} \vec{B} = \mu_0 \vec{j} + \frac{1}{c^2} \prt{}{t} \vec{E} 
+\end{equation*}
+\begin{equation*}
+\vec{D} = \epsilon_0 \vec{E} + \vec{P} \qquad \vec{B} = \mu_0\left(\vec{H} + \vec{M}\right)
+\end{equation*}
+alle sechs Felder: $\vec D  \vec E \vec P \ \ \vec M \vec H \vec B$ jeweils vier mal 6 Gleichungen\\
+plus:
+\begin{equation*}
+\tx{Materialgleichungen z.B.:} \quad \vec{D} (\vec{E}) \ , \ \vec{P}(\vec{E}) \ , \dots
+\end{equation*}
+
+\subsection{Erinnerung: Polarisation bei Brechung und Reflexion}
+
+\folie{Brechung und Reflexion bei parallelem und orthogonalem $ \vec{E} $-Feld in der Einfallsebene}\\
+\folie{Einfallswinkel und Reflexionswinkel (Brewsterwinkel)}
+
+\subsubsection{Physikalische Ursache: Stetigkeits \& Randbedingungen}
+
+Gewöhnliche partielle Diff-Gleichungen
+\begin{enumerate}[$ \Rightarrow $]
+	\item viele Lösungen
+	\item Anfangsbed, Randbed., Stetigkeitsbed.
+\end{enumerate}
+\begin{minipage}{.6\linewidth}
+	\emph{Beispiele:}
+	\begin{itemize}
+		\item Metall:
+		Randbedingung aus Elektrostatik überlegt 
+		\item Ein- und Ausschaltvorgänge bei RLC Gleichungen
+		Anfang: Schalter offen, Spule ,,aufgeladen``
+		\begin{equation*}
+		\Rightarrow I = \frac{U}{(R_i + R)}
+		\end{equation*}
+		Dann: Schalter schließen $ \Rightarrow U = 0 $
+		$ \Rightarrow $ wie verhält sich aber $ I , U_{\tx{Spule}}, \dots $ ?\\
+		Energie der Spule ist stetig $ \ \ E_{\tx{Spule}} = \frac{1}{2} L I^2 $
+		\begin{equation*}
+		\Rightarrow I_{\tx{Spule}} \tx{ stetig}
+		\end{equation*}
+	\end{itemize}
+	
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	\centering
+	%t1:
+	\begin{tikzpicture}
+	\centerarc[pattern = north east lines](0,0)(200:90:2cm);
+	\draw[very thick,->] (135:2cm) -- node[anchor=south west] {$ \vec{E} $} ++(135:1.2cm);
+	\centerarc[](135:2cm)(135:40:.3cm);
+	\node[fill=black,circle,inner sep=.5pt,minimum size=.5pt] at ($ (135:2cm) + (.01,.15) $) {};
+	\draw[white] (0,0) -- (0,-1.2);
+	\end{tikzpicture}
+	%t2:
+	%\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (-2,0)--(a);
+	\begin{tikzpicture}
+	\coordinate (u) at (0,0);
+	\coordinate (r1) at (1,1.5);
+	\coordinate (r2) at (3.5,1.25);
+	\coordinate (l) at (3.5,-.25);
+	\coordinate (s) at (2.5,.5);
+	\draw[thick] ($ (u) + (-.5,.1) $) -- ++(1,0);
+	\draw[thick] ($ (u) + (-.4,-.1) $) -- ++(.8,0);
+	\draw[thick] ($ (r1) + (0,-.2) $) rectangle node[] {$ R $} ($ (r1) + (1,.2) $);
+	\draw[thick] ($ (r2) + (-.2,0) $) rectangle node[] {$ R $} ($ (r2) + (.2,-1) $);
+	\draw[decoration={aspect=0.5, segment length=2mm, amplitude=2mm,coil},decorate,thick] (l) -- node[right=10pt] {$ L $} ($ (l) + (0,-1) $);
+	\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (s) {};
+	\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at ($ (s) + (0,-1) $) {};
+	\draw ($ (u) + (0,.11) $) -- (0,1.5) -- (r1);
+	\draw ($ (r1) + (1,0) $) -- (3.5,1.5) -- (r2);
+	\draw ($ (r2) + (0,-1) $) -- (l);
+	\draw ($ (l) + (0,-1) $) -- (3.5,-1.5) -- (0,-1.5) -- ($ (u) + (0,-.1) $);
+	\draw ($ (s) + (0,1) $) -- (s);
+	\draw ($ (s) + (0,-2) $) -- ($ (s) + (0,-1) $) -- ++(135:1.2cm);
+	\node at (-1,0) {$ U $};
+	\end{tikzpicture}
+\end{minipage}
 
 
 
