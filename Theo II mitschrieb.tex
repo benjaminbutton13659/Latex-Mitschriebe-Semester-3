@@ -470,7 +470,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 \scriptstyle{\tx{mit } \Delta V_j \to 0}\ \ &\rightarrow k\int_V d^3r'\rho(\vec{r}')\frac{\vec{r}-\vec{r}'}{|\vec{r}  -\vec{r}'|^3}
 \end{align*}
 
-%%%%%% Vorlesung 2 %18.10.18
+% Vorlesung 2 %18.10.18
 
 \subsection{Ladungsdichte einer Punktladung}
 
@@ -483,7 +483,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 	$$\rho(\vec{r}_0) = \infty$$
 \end{minipage}
 \begin{minipage}{.4\linewidth}
-	%t1 done:
+	%t1:
 	\centering
 	\begin{tikzpicture}
 	\draw[->] (0,0) -- (0,2);
@@ -508,7 +508,7 @@ $$\rho(\vec{r}) = \lim_{\epsilon \rightarrow 0}\ \rho_\epsilon (\vec{r}) = \left
 \infty & \vec{r} = 0\\
 0 & \vec{r} \neq 0
 \end{array}\right.$$
-Divergenz muss so sein, dass $$ \int\limits_{V \atop \vec{r}_0 \in V} d^3r\ \rho(\vec{r}) = q$$
+Divergenz muss so sein, dass $$ \int\limits_{\substack{V \\ \vec{r}_0 \in V}} d^3r\ \rho(\vec{r}) = q$$
 
 \paragraph{Definition Delta-Funktion (Diracsche Deltafunktion)}
 
@@ -716,10 +716,17 @@ $$\phi(\vec{r}) = \int_{\mathbb R^3} d^3 r'\ \frac{q\delta(\vec{r}' - \vec{r}_0)
 
 $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3}$$
 
-%%%% Vorlesung 3 22.10.18
+% Vorlesung 3 22.10.18
 
+\noindent
 \lcom{(Funktional-Analysis Siegfried Großmann Springer)\\
-	(Landau-Lipschitz Buch geht weit der Vorlesung hinaus)}
+(Landau-Lipschitz Buch geht weit der Vorlesung hinaus)}
+
+
+
+%T äquipotentialflächen jan
+
+
 
 \subsection{Feldgleichugn (differentielle Form)}
 
@@ -776,13 +783,12 @@ $$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$
 
 
 
-
+\noindent
 $\vec{r} \in V$: Grenzwertbetrachtung (Regularisierung des Integranden)\\
 statt
 $$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}}$$
 betrachten wir:
 $$\vec{f}_a (\vec{r}-\vec{r}') = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{\vec{r}-\vec{r}'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} \quad a \in \mathbb R,\ a>0$$
-
 am Ende Grenzwert $\displaystyle{\lim_{a \to 0}}$
 $$\nabla \cdot \vec{E} (\vec{r}) = \kq \lim_{a \to 0} \int_V d^3r'\ \rho(\vec{r}')\ \rmbox{\hspace{-10pt}\nabla_{\vec{r}}\cdot f_a(\vec{r}-\vec{r}')}$$
 
@@ -800,7 +806,8 @@ $$\Rightarrow \textrm{zum Integral } \int_V d^3r' \dots \textrm{ trägt (in Lime
 $$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$
 
 
-%T?
+
+%T zum integral jan
 
 
 
@@ -810,10 +817,8 @@ $$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$
 	&= \lim_{a \to 0} \int_{K_R (\vec{r})} d^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}\\
  	&+ \underbrace{\lim_{a \to 0} \int_{V / K_R (\vec{r})} d^3 r' \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}}_{= 0}
 \end{align*}
-
 Wähle $R$ klein genug, dass man innerhalb $K_R (\vec{r})$\\
 $\rho(\vec{r}')$ in Taylorreihe um $\vec{r}$ entwickeln kann.
-
 $$\vec{\tilde{r}} = \vec{r}' - \vec{r},\ d^3 r' = d^3 \tilde{r}$$
 $$\int_{K_R (\vec{r})} d^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}} = \int_{K_R (0)} d^3 \tilde{r} \ \rho(\vec{r} + \vec{\tilde{r}}) \frac{3a^2}{[\vec{\tilde{r}}^2 + a^2]^{\nicefrac{5}{2}}}$$
 Taylorentwicklung von $\rho(\vec{r} + \vec{\tilde{r}})$ zum $\vec{\tilde{r}} = 0$
@@ -842,19 +847,18 @@ $$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = \kq \lim_{a \to 0} '' = \frac{1}{\
 Mathe: partielle DGL
 \rbox{$$\nabla \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \textrm{ inhomogene DGL}$$ 
 	$$\nabla \times \vec{E}(\vec{r}) = 0\textrm{ homogene DGL}$$}
+\noindent
 DGL für Potential $\phi$: 
 $\vec{E} = - \nabla \phi$
-
 \begin{align*}\nabla \cdot \vec{E} = \nabla \cdot (- \nabla \phi) &= - \nabla \cdot \begin{pmatrix} 
 \partial_x \phi \\
 \partial_y \phi \\ 
 \partial_z \phi 
 \end{pmatrix} \\
 &= - \underbrace{\left( \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial  z^2} \right) }_{=: \Delta \phi}\end{align*}
-
 Partielle DGL 2. Ordnung:
 \frbox{Poissongleichung}{$$\Delta \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho(\vec{r})$$}
-
+\noindent
 für Gebiete mit $\rho (\vec{r}) = 0$:
 $$\Delta \phi (\vec{r}) = 0 \qquad \textrm{Laplacegleichung}$$
 
@@ -879,7 +883,7 @@ z.B. Potential einer Punktladung $\rho$ q in $\vec{r}_0$:
 $$\phi(\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 $$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}_0|} }_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} = - \frac{1}{\epsilon_0} \underbrace{q \delta(\vec{r} - \vec{r}_0)}_{= \rho(\vec{r})} = \frac{1}{\epsilon_0} \rho(\vec{r})$$
 
-%%%%%%%%% Vorlesung 4 25.10.18
+% Vorlesung 4 25.10.18
 
 \bbb{Wiederholung}{\begin{align*}
 	\vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \rho(\vec{r})\\
@@ -895,7 +899,7 @@ $$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - 
 Sei $\vec{A}(\vec{r})$ ein Vektorfeld im Volumen $V \subset \mathbb R^3$, so gilt:
 $$\int_V d^3r\ \nabla \cdot \vec{A}(\vec{r}) = \int_{\partial V} d\vec{f}\ \cdot \vec{A}(\vec{r})$$
 $$\partial V \tx{ Rand von } V$$
-$$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\textrm{nach aussen orientierter Normaleneinheutsvektor}}}\ df$$
+$$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\substack{\textrm{nach außen orientierter} \\ \tx{Normaleneinheutsvektor}}}}\ df$$
 
 
 
@@ -923,17 +927,17 @@ $$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\textrm{nach aussen orienti
 	\end{equation*}
 	\emph{Beispiel:} Geschwindigkeit einer Flüssigkeit: $ \vec{A}(\vec{r}) = \vec{v}(\vec{r}) $\\
 	
-	%T1
+	%T1 az
 	
 	$$ \vec{v} = \const \quad \vec{\nabla} \cdot \vec{v} = 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} = 0 $$
 	$ \Rightarrow $ Es gibt keine Quellen von $ \vec{v} $
 	
-	%T2
+	%T2 az
 	
 	$$ \vec{\nabla} \cdot \vec{r} \neq 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} \neq 0 $$
 	\item
 	
-	%T3  5 T4 fehlt
+	%T3   T4 fehlt
 	
 	\begin{align*}
 	\int_V d^3r \vec{\nabla} \cdot \vec{A}(\vec{r})  =  \int_{0}^{\Delta x} dx \int_{0}^{\Delta y} dy \int_{0}^{\Delta z} \left(\frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}\right)  \\
@@ -960,7 +964,7 @@ Sei $\vec{A}(\vec{r})$ ein Vektorfeld, $F$ eine Fläche mit Randkurve $\partial 
 $$\int\limits_{\mathclap{\textrm{Linienintegral}\rightarrow\,\partial F \phantom{\textrm{Linienintegral}\rightarrow\,}}} d\vec{r} \vec{A}(\vec{r}) = \int\limits_{\mathclap{\phantom{\, \leftarrow \textrm{Oberflächenint.}} F\, \leftarrow \textrm{Oberflächenint.}}} d \vec{f} \cdot (\nabla \times \vec{A}(\vec{r}))$$
 
 
-%T5
+%T5 jan 6793
 
 
 $$d\vec{f} = \vec{n} df$$
@@ -973,7 +977,7 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \end{pmatrix}
 \end{equation*}
 
-%T6
+%T6 jan 6793
 
 
 
@@ -989,8 +993,9 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \end{pmatrix} = 2 \vec{e}_z
 \end{equation*}
 
-%T7
 
+
+%T7 Photo von andrez 25.10.18
 
 
 
@@ -1012,9 +1017,17 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \end{align*}
 
 Vektorfeld ohne Wirbel z.B. $\vec{A} = \const$\\
+
+
 %T8
+
+
 $\nabla \times \vec{A} = 0$\\
+
+
 %T9
+
+
 \bem  %T10 , %T11
 
 \subsection{Integrale Form der Feldgleichung}
@@ -1023,7 +1036,9 @@ $\nabla \times \vec{A} = 0$\\
 \vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0}
 \end{equation*}
 
+
 %T tikz mit unförmigem volumen und einem V drinnen
+
 
 \begin{align*}
 \int_{V} d^3 r \vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \int_{V} d^3 r \rho (\vec{r}) = \frac{1}{\epsilon_0} Q_V\\
@@ -1813,7 +1828,7 @@ $ g,h $ Funktionen an V:
 &= \int_{\partial V} d\vec{f} g(\vec{r}) \ub{\vec{n} \cdot \vec{\nabla} h(\vec{r})}_{= \frac{\partial h}{\partial n} (\vec{r})}
 \end{align*}
 
-% andrez 6 % lost board von jan holen:
+% andrez 6:
 $h = g = \varPsi$
 $$\Rightarrow \quad \int_V d^3 r\ ((\vabla \varPsi)^2 + \varPsi(\vec{r}) \underbrace{\Delta \varPsi(\vec{r})}_{=0}) = \int_{\partial V} df\ \underbrace{\varPsi(\vec{r})}_{=0} \frac{\partial \varPsi(\vec{r})}{\partial n} $$
 \begin{equation*}
@@ -1898,7 +1913,8 @@ g(\vec{r}') \defeq \Phi(\vec{r}') \qquad h(\vec{r}') \defeq \gre(\vec{r}',\vec{r
 \end{equation*}
 \begin{align*}
 \Rightarrow & \ \ \ \, \int_V d^3 r' \Bigg[ \Phi(\vec{r}') \ub{\Delta_{\vec{r}'} \gre(\vec{r}',\vec{r})}_{= -\frac{1}{\epsilon_0} \delta(\vec{r}' - \vec{r})} - \gre(\vec{r}',\vec{r}) \ub{\Delta_{\vec{r}'} \Phi(\vec{r}')}_{= - \frac{1}{\epsilon_0} \rho(\vec{r}')} \Bigg]\\
-&= \int_{\partial V} d\vec{f}' \Bigg[ \ub{\Phi(\vec{r}')}_{= \Phi_0(\vec{r}')} \vec{\nabla}_{\vec{r}'} \gre(\vec{r}',\vec{r}) - \ub{\gre(\vec{r}',\vec{r})}_{= 0} \vec{\nabla}_{\vec{r}'} \Phi(\vec{r}') \Bigg]\\ % check if last phi(r') is right % andrez 9:
+&= \int_{\partial V} d\vec{f}' \Bigg[ \ub{\Phi(\vec{r}')}_{= \Phi_0(\vec{r}')} \vec{\nabla}_{\vec{r}'} \gre(\vec{r}',\vec{r}) - \ub{\gre(\vec{r}',\vec{r})}_{= 0} \vec{\nabla}_{\vec{r}'} \Phi(\vec{r}') \Bigg]\\
+% andrez 9:
 \Rightarrow &= - \frac{1}{\epsilon_0} \pofr + \frac{1}{\epsilon_0} \int_V d^3 r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r})\\
 &= \int_{\partial V} d \vec{f}'\ \Phi_0 (\vec{r}') \vabla_{\vec{r}'} \mathcal G(\vec{r}, \vec{r}')\\
 &= \int_{\partial V} d \vec{f}'\ \Phi_0 (\vec{r}') \prt{\mathcal G}{n'}(\vec{r}, \vec{r}')
@@ -2764,6 +2780,215 @@ Damit erhalten wir dann für die Energie mit Formel \eqref{W}:
 Je nach Orientierung der Dipole ist diese Wechselwirkung anziehend oder absto\ss end.\\
 z.B.: $\vec{p}_1,\vec{p}_2\perp\vec{r}_{12}$
 \[\rightarrow W=\frac{1}{4\pi\epsilon_0}\frac{\vec{p}_1\cdot\vec{p}_2}{r_{12}^3}\begin{cases}>0&\uparrow\uparrow \qquad \tx{abstoßend}\\<0&\uparrow\downarrow \qquad \tx{anziehend}\end{cases}\]
+
+
+% Vorlesung 22.11.18
+
+\section{Elektrostatik in Materie - Dielektrika}
+
+\textbf{Definition: Dielektrika}\\
+Nichtleitende Substanzen (Gase, Flüssigkeiten, Festkörper). Die Ladungsträger sind also fest gebunden.\\[5pt]
+äußere Felder $ \Rightarrow $ Polarisation\\[5pt]
+Mehanismen
+\begin{enumerate}[i)]
+	\item \textbf{Verschiebungspolarisation} (Deformationspolarisation)\\
+	neutrales Atom
+	%T1 
+	\item \textbf{Orientierungspolarisation}\\
+	Molekül mit permanentem Dipolmoment z.B. Wasser
+	%T2
+	%T3
+\end{enumerate}
+Phänomenologie: Experimentalphysik\\
+Plattenkondensator:\\
+\textbf{ohne Medium:}
+
+%T4
+
+\begin{equation*}
+E = \frac{\sigma}{\epsilon_0} = \frac{q}{\epsilon_0 F}
+\end{equation*}
+\begin{equation*}
+\Phi = - \frac{\sigma x }{\epsilon_0}
+\end{equation*}
+\begin{equation*}
+U = \frac{q d}{\epsilon_0 F}
+\end{equation*}
+\begin{equation*}
+C = \frac{q}{U} = \epsilon_0 \frac{F}{d}
+\end{equation*}
+\textbf{mit Medium}
+
+%T5
+
+\begin{equation*}
+\tilde{C} > C \qquad \tilde{C} = \epsilon \frac{F}{d} \quad \epsilon > \epsilon_0
+\end{equation*}
+$ q = \const $
+\begin{equation*}
+\tilde{U} = \frac{qd}{\epsilon F} < U
+\end{equation*}
+\begin{equation*}
+\tilde{E} = \frac{q}{\epsilon F} = \frac{\sigma}{\epsilon} < E
+\end{equation*}
+\begin{equation*}
+\tilde{E} = E + E_p = E - \frac{1}{\epsilon_0} P
+\end{equation*}
+
+\subsection{Makroskopische Feldgleichungen der Elektrostatik}
+
+Ausgangspunkt: allgemeine (mikroskopische) Feldgleichungen
+\begin{equation*}
+\left.\begin{array}{c}
+\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho \\[10pt]
+\vec{\nabla} \times \vec{E} = 0
+\end{array}\right\} \underset{\substack{\rho \\ \tx{bekannt}}}{\rightarrow} \begin{array}{l}
+\vec{E}(\vec{r}) = \kq \int \dd ^3 r' \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \\[10pt]
+\, \Phi(\vec{r}) = \kq \int \dd ^3 r' \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
+\end{array}
+\end{equation*}
+Makroskopische Messungen: $ \approx 10^{23} $ Teilchen\\
+$ \rightarrow $ Mittlung über mikroskopische Details.
+
+\subsection{Mittelung von Funktionen}
+
+Wir haben eine physikalische Größe $ A(\vec{r}) $ und wollen diese Mitteln.
+\begin{align*}
+\langle A \rangle (\vec{r}) &\defeq \int_{\mathbb{R}^3} \dd ^3 r' f(\vec{r} - \vec{r}') A(\vec{r}') \\
+&= \int_{\mathbb{R}^3} \dd^3 r' f(\vec{r}') A(\vec{r} - \vec{r}')
+\end{align*}
+$ f : $ legt Bereich fest, über den gemittelt wird\\
+Eigenschaften:
+\begin{enumerate}[i)]
+	\item $ \int \dd^3 r' f(\vec{r}') = 1 $
+	\item $ f(\vec{r}) \ge 0 $
+	\item Eine glatte Funktion, die sich auf molekularer Skala (nm) wenig ändert.
+\end{enumerate}
+
+%T6
+
+mit $ L, \Delta L \gg a $\\
+Wir schauen uns nun an wie die Ableitung einer gemittelten Funktion aussieht.
+\begin{align*}
+\prt{}{x_i} \langle A \rangle (\vec{r}) &= \prt{}{x_i} \int \dd ^3 r' f(\vec{r}') A(\underset{\downarrow}{\vec{r}} - \vec{r}') \\
+&= \int \dd ^3 r' f(\vec{r}') \prt{A}{x_i} (\vec{r} - \vec{r}') \\
+&= \langle \prt{A}{x_i} \rangle (\vec{r})
+\end{align*}
+\begin{align*}
+\vabla \cdot \vec{E} = \frac{1}{\epsilon_0} \rho \quad &\Rightarrow \quad \vabla \cdot \langle \vec{E} \rangle = \frac{1}{\epsilon_0} \langle \rho \rangle \\
+\vabla \times \vec{E} = 0 \quad &\Rightarrow \quad \vabla \times \langle \vec{E} \rangle = 0
+\end{align*}
+\begin{equation*}
+\rightarrow \quad \langle \vec{E} \rangle = - \vabla \langle \Phi \rangle
+\end{equation*}
+
+\subsection{Bestimmung von $ \boldsymbol{ \langle \rho \rangle } $}
+
+Aufteilung der Materie in Untereinheiten:\\
+\textbf{Festkörper:}\\
+Elementarzellen:\\
+
+%T7
+
+\textbf{Gas:}\\
+Moleküle\\
+
+%T8
+
+$ \rho_n : $ Ladungsdichte des $ n $-ten Moleküls bzgl. des Schwerpunktes $ \vec{r}_n $. Die gesamte Ladungsdichte ist somit:
+\begin{equation*}
+\rho_g(\vec{r}) = \sum_{n} \rho_n (\vec{r} - \vec{r}_n)
+\end{equation*}
+$ \rho_g (\vec{r}) $ sind hierbei alle gebundenen Ladungen.\\
+Zusätzlich gibt es möglicherweise freie Ladungsträger $ \rho_f(\vec{r}) $\\
+$ \Rightarrow $ gesamte Ladungsdichte
+\begin{equation*}
+\rho(\vec{r}) = \rho_f(\vec{r}) + \rho_g(\vec{r})
+\end{equation*}
+Mittlung von $ \rho_g $ über einen makroskopisch kleinen aber mikroskopisch großen Bereich:
+\begin{align*}
+\langle \rho_g \rangle (\vec{r}) &= \int \dd^3 r' f(\vec{r}') \rho_g (\vec{r} - \vec{r}') \\
+&= \int \dd^3 r' f(\vec{r}) \sum_{n} \rho_n (\vec{r} - \vec{r}' - \vec{r}_n) \\
+&= \sum_{n} \int_{\mathbb{R}^3} \dd^3 r' f(\vec{r}') \rho_n (\vec{r} - \vec{r}' - \vec{r}_n)
+\end{align*}
+Nun Betrachten wir den letzten Term:
+\begin{align*}
+\int \dd^3 r' f(\vec{r}') \rho_n (\ub{\vec{r} - \vec{r}' - \vec{r}_n}_{= \tilde{\vec{r}}}) &= \int \dd ^3 r' \ub{f(\vec{r} - \vec{r}_n - \tilde{\vec{r}})}_{\substack{\tx{ändert sich} \\ \tx{wenig auf} \\ \tx{mol. Skala}}} \ub{\rho_n(\tilde{\vec{r}})}_{\substack{\tx{lokalisiert auf} \\ \tx{molekularer Skala a} \\ \rho_n(\tilde{\vec{r}})\approx 0 \tx{für} |\tilde{\vec{r}}| \gg a }}\\
+\tx{Taylorentwicklung in } \tilde{\vec{r}}: &\quad f(\vec{r} - \vec{r}_n - \tilde{\vec{r}}) = f(\vec{r} - \vec{r}_n) - \tilde{\vec{r}} \cdot \vabla f(\vec{r} - \vec{r}_n) + \dots \\
+&= f(\vec{r} - \vec{r}_n) \ub{\int \dd^3 \tilde{r} \rho_n(\tilde{\vec{r}})}_{= q_n} - \vabla f(\vec{r} - \vec{r}_n) \cdot \ub{\int \dd ^3 r' \tilde{r} \tilde{\vec{r}} \rho_n(\tilde{\vec{r}})}_{= \vec{p}_m \tx{Dipolmoment}} + \dots \\
+& \tx{Höhere Terme werden vernachlässigen z.B. das Quadrupolmoment.} \\
+&= f(\vec{r} - \vec{r}_n) q_n - \ub{\vabla f(\vec{r} - \vec{r}_n) \cdot \vec{p}_m}_{= \vabla \cdot (\vec{p}_n f(\vec{r} - \vec{r}_n))} + \dots \\
+&= \int \dd^3r' q_n \delta(\vec{r}' - \vec{r}_n) f(\vec{r} - \vec{r}') - \vabla \cdot \int \dd^3r' \vec{p}_n \delta(\vec{r}' - \vec{r}_n) f(\vec{r} - \vec{r}') + \dots \\
+&= \langle \custo{\Rightarrow}{q_n}{\mathclap{\tx{Gesamtladung im SP}}} \delta(\vec{r}' - \vec{r}_n) \rangle (\vec{r}) - \vabla \cdot \langle \custo{\Rightarrow}{\vec{p}_n}{\mathclap{\tx{Dipolmoment im SP}}} \delta(\vec{r}' - \vec{r}_n) \rangle (\vec{r}) + \dots
+\end{align*}
+\begin{align*}
+\langle \rho_g \rangle &= \sum_n \int \dots \\
+&= \langle \sum_n q_n \delta(\vec{r}' - \vec{r}_n) \rangle (\vec{r}) - \vabla \cdot \langle \sum_n \vec{p}_n \delta(\vec{r}' - \vec{r}_n) \rangle(\vec{r}) + \dots
+\end{align*}
+Der \textbf{erste Term} steht für die mittlere Gesamtladung der gegebenen Ladungen $ = 0 $ für:
+\begin{enumerate}[i)]
+	\item neutrale Untereinheiten
+	\item makroskopisch neutraler Körper
+\end{enumerate}
+Der \textbf{zweite Term} wird Definiert als das makroskopische Dipolmoment $ \eqdef \vec{P} (\vec{r}) = \frac{\tx{Dipolmoment}}{\tx{Volumen}} $
+\begin{align}
+\vec{P}(\vec{r}) &= \sum_n \vec{p}_n \int \dd^3r' \delta(\vec{r}' - \vec{r}_n) f(\vec{r} - \vec{r}')\\
+&= \sum_n \vec{p}_n f(\vec{r} - \vec{r}_n) \approx \frac{1}{V} \sum_{m,\vec{r}_n \in V} \vec{p}_n
+\end{align}
+
+%T9
+
+\begin{equation*}
+f(\vec{r} - \vec{r}_n) \approx \left\{ \begin{array}{cc}
+\frac{1}{V} & |\vec{r} - \vec{r}_n| \le L \\[5pt]
+0 & \tx{sonst}
+\end{array}\right.
+\end{equation*}
+$ \rightarrow $ gemittelte (makroskopische) Ladungsdichte:
+\begin{align*}
+\langle \rho \rangle (\vec{r}) &= \langle \rho_f \rangle(\vec{r}) + \ub{\langle \sum_n q_n \delta(\vec{r}' - \vec{r}_n) \rangle(\vec{r})}_{\substack{\tx{Gesamtladung} \\ \tx{oft } = 0}} - \vabla \cdot \vec{P} + \dots
+\end{align*}
+\frbox{Gemittelte makroskopische Ladungsverteilung}{
+\begin{equation*}
+\langle \rho \rangle (\vec{r}) = \langle \rho_f \rangle (\vec{r}) - \vabla \cdot \vec{P}(\vec{r}) + \dots
+\end{equation*}
+}
+Daraus folgt:
+\begin{equation*}
+\rightarrow \quad \vabla \cdot \langle\vec{E} \rangle (\vec{r}) = \frac{1}{\epsilon_0} \langle\rho \rangle (\vec{r}) = \frac{1}{\epsilon_0} \langle \rho_f \rangle (\vec{r}) - \frac{1}{\epsilon_0} \vabla \cdot \vec{P}(\vec{r}) + \dots
+\end{equation*}
+Dies können wir umformen in etwas, das der Maxwellgleichung ähnelt:
+\begin{equation*}
+\vabla \cdot \ub{(\epsilon_0 \langle \vec{E} \rangle + \vec{P} + \dots)}_{\defeq \vec{D}(\vec{r})} = \langle \rho_f \rangle (\vec{r})
+\end{equation*}
+$ \vec{D}(\vec{r}) \defeq $ dielektrische Verschiebung.
+\begin{equation*}
+\rightarrow \quad \vabla \cdot \vec{D}(\vec{r}) = \langle \rho_f \rangle (\vec{r})
+\end{equation*}
+
+\subsection{Makroskopische Feldgleichungen der Elektrostatik}
+
+\begin{equation*}
+\vabla \cdot \vec{D}(\vec{r}) = \rho_f (\vec{r})
+\end{equation*}
+\begin{equation*}
+\vabla \times \vec{E}(\vec{r}) = 0
+\end{equation*}
+\begin{equation*}
+\vec{D} = \epsilon_0 \vec{E} + \vec{P} + \dots
+\end{equation*}
+Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes auch in Integraler Form schreiben:
+\begin{equation*}
+\int_{\partial V} d\vec{f} \cdot \vabla \cdot \vec{D} = \int \dd^3 r \rho_f(\vec{r}) = q_{f_V}
+\end{equation*}
+\begin{equation*}
+\oint_{\partial F} d\vec{r} \cdot \vabla \times \vec{E} = 0
+\end{equation*}
+
+
+
+
+
 
 
 
