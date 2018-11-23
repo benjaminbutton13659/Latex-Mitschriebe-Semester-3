@@ -24,4 +24,4 @@ Hat tip to anyone who is helping to improve the code and find mistakes.
 
 ## Note to coauthors:
 
-Any unauthorized commits will be discarted immediately with the next update of the repository. Please only use pull requests for any unsceduled changes.
+Any unauthorized commits will be discarted immediately with the next update of the repository. Please only use pull requests for any unscheduled changes.
