@@ -2801,39 +2801,89 @@ Mehanismen
 \end{enumerate}
 Phänomenologie: Experimentalphysik\\
 Plattenkondensator:\\
-\textbf{ohne Medium:}
 
-%T4
+\begin{minipage}{.5\linewidth}
+	\flushleft
+	\textbf{ohne Medium:}\\
+	%t4:
+	\centering
+	\begin{tikzpicture}
+		\draw[very thick] (-1.3,-2) -- (-1.3,2) node[above] {$ \sigma $};
+		\draw[very thick] (1.3,-2) -- (1.3,2) node[above] {$ - \sigma $};
+		\draw[->] (-1.3,-2.5) -- ++(4,0) node[right] {$ x $};
+		\draw ($ (1.3,-2.5) + (0,.1) $) -- ($ (1.3,-2.5) + (0,-.1) $) node[below] {$ d $};
+		\draw ($ (-1.3,-2.5) + (0,.1) $) -- ($ (-1.3,-2.5) + (0,-.1) $) node[below] {$ 0 $};
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		\draw[->] (-1.1,\y) -- (1.1,\y);
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		%\node at (-1.8,\y) {$ + $};
+		\draw[fill = white!20!red] (-1.6,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		%\node at (1.8,\y) {$ - $};
+		\draw[fill = white!20!blue] (1.6,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+		\node[above] at (0,2) {$ \vec{E} $};
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\flushleft
+	\textbf{mit Medium:}\\
+	%t5:
+	\centering
+	\begin{tikzpicture}
+		\draw[very thick] (-1.5,-2) -- (-1.5,2) node[above] {$ \sigma $};
+		\draw[very thick] (1.5,-2) -- (1.5,2) node[above] {$ - \sigma $};
+		\draw[->] (-1.5,-2.5) -- ++(4,0) node[right] {$ x $};
+		\draw ($ (1.5,-2.5) + (0,.1) $) -- ($ (1.5,-2.5) + (0,-.1) $) node[below] {$ d $};
+		\draw ($ (-1.5,-2.5) + (0,.1) $) -- ($ (-1.5,-2.5) + (0,-.1) $) node[below] {$ 0 $};
+		\draw[fill=gray!10] (-1.1,-2) rectangle (1.1,2); 
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		\draw[->] (-1.3,\y) -- (1.3,\y);
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		%\node at (-1.8,\y) {$ + $};
+		\draw[fill = white!20!red] (-1.8,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		%\node at (1.8,\y) {$ - $};
+		\draw[fill = white!20!blue] (1.8,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+		\node[above] at (0,2) {$ \vec{\tilde{E}} $};
+		\coordinate (ar) at (0,-.5);
+		\draw[->] ($ (ar) + (-.3,0) $) -- node[above] {$\vec{p}$} ($ (ar) + (.3,0) $);
+		\foreach \y in {-1.2,0,1.2}
+		\shadedraw[right color=white!10!red, left color=white!20!blue,draw=black] (-.55,\y) ellipse (.45cm and .2cm) node[] {$ \color{white} - \ + \color{black} $};
+		\foreach \y in {-1.2,0,1.2}
+		\shadedraw[right color=white!10!red, left color=white!20!blue,draw=black] (.55,\y) ellipse (.45cm and .2cm) node[] {$ \color{white} - \ + \color{black} $};
+	\end{tikzpicture}
+\end{minipage}
 
-\begin{equation*}
-E = \frac{\sigma}{\epsilon_0} = \frac{q}{\epsilon_0 F}
-\end{equation*}
-\begin{equation*}
-\Phi = - \frac{\sigma x }{\epsilon_0}
-\end{equation*}
-\begin{equation*}
-U = \frac{q d}{\epsilon_0 F}
-\end{equation*}
-\begin{equation*}
-C = \frac{q}{U} = \epsilon_0 \frac{F}{d}
-\end{equation*}
-\textbf{mit Medium}
-
-%T5
-
-\begin{equation*}
-\tilde{C} > C \qquad \tilde{C} = \epsilon \frac{F}{d} \quad \epsilon > \epsilon_0
-\end{equation*}
-$ q = \const $
-\begin{equation*}
-\tilde{U} = \frac{qd}{\epsilon F} < U
-\end{equation*}
-\begin{equation*}
-\tilde{E} = \frac{q}{\epsilon F} = \frac{\sigma}{\epsilon} < E
-\end{equation*}
-\begin{equation*}
-\tilde{E} = E + E_p = E - \frac{1}{\epsilon_0} P
-\end{equation*}
+\noindent
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	E = \frac{\sigma}{\epsilon_0} = \frac{q}{\epsilon_0 F}
+	\end{equation*}
+	\begin{equation*}
+	\Phi = - \frac{\sigma x }{\epsilon_0}
+	\end{equation*}
+	\begin{equation*}
+	U = \frac{q d}{\epsilon_0 F}
+	\end{equation*}
+	\begin{equation*}
+	C = \frac{q}{U} = \epsilon_0 \frac{F}{d}
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\tilde{C} > C \qquad \tilde{C} = \epsilon \frac{F}{d} \quad \epsilon > \epsilon_0
+	\end{equation*}
+	$$ q = \const $$
+	\begin{equation*}
+	\tilde{U} = \frac{qd}{\epsilon F} < U
+	\end{equation*}
+	\begin{equation*}
+	\tilde{E} = \frac{q}{\epsilon F} = \frac{\sigma}{\epsilon} < E
+	\end{equation*}
+	\begin{equation*}
+	\tilde{E} = E + E_p = E - \frac{1}{\epsilon_0} P
+	\end{equation*}
+\end{minipage}
 
 \subsection{Makroskopische Feldgleichungen der Elektrostatik}
 
@@ -2858,16 +2908,35 @@ Wir haben eine physikalische Größe $ A(\vec{r}) $ und wollen diese Mitteln.
 &= \int_{\mathbb{R}^3} \dd^3 r' f(\vec{r}') A(\vec{r} - \vec{r}')
 \end{align*}
 $ f : $ legt Bereich fest, über den gemittelt wird\\
-Eigenschaften:
-\begin{enumerate}[i)]
-	\item $ \int \dd^3 r' f(\vec{r}') = 1 $
-	\item $ f(\vec{r}) \ge 0 $
-	\item Eine glatte Funktion, die sich auf molekularer Skala (nm) wenig ändert.
-\end{enumerate}
 
-%T6
+\begin{minipage}{.5\linewidth}
+	Eigenschaften:
+	\begin{enumerate}[i)]
+		\item $ \int \dd^3 r' f(\vec{r}') = 1 $
+		\item $ f(\vec{r}) \ge 0 $
+		\item Eine glatte Funktion, die sich auf molekularer Skala (nm) wenig ändert.
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	%t6:
+	\centering
+	\begin{tikzpicture}
+	\draw[->] (0,-.3) -- (0,2.5) node[anchor=south east] {$ y $};
+	\draw[->] (-3,0) -- (3,0) node[anchor=north west] {$ x $};
+	\draw[thick] (-2.5,0) to[out=0,in=-100] (-2,.8) to[out=80,in=180] (-1.5,1.6) -- (1.5,1.6) to[out=0,in=100] (2,.8) to[out=-80,in=180] (2.5,0);
+	\draw[<->] (-1.5,2) -- node[above,xshift=10pt] {$ L $} ++(3,0);
+	\foreach \x in {-2.5,1.5}
+	\draw[<->] (\x,.7) -- ++(1,0) node[above] {$ \Delta L $};
+	\foreach \x\y in {.5/.7,.675/.4,.95/.6}
+	\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (\x,\y) {};
+	\draw (.5,.7) -- (.675,.4) -- (.95,.6);
+	\draw[<->] ($ (.5,.7) + (0,.2) $) -- node[above] {$ a $} ($ (.95,.6) + (.06,.16) $);
+	\draw (1.855,1.355) to[out=60,in=-170] (3,2) node[right] {$ f(\vec{r}) $};
+	\end{tikzpicture}\\
+	\flushleft
+	mit $ L, \Delta L \gg a $
+\end{minipage}
 
-mit $ L, \Delta L \gg a $\\
 Wir schauen uns nun an wie die Ableitung einer gemittelten Funktion aussieht.
 \begin{align*}
 \prt{}{x_i} \langle A \rangle (\vec{r}) &= \prt{}{x_i} \int \dd ^3 r' f(\vec{r}') A(\underset{\downarrow}{\vec{r}} - \vec{r}') \\
