@@ -1936,11 +1936,11 @@ Brechung der Intensitätsverteilungen $ I(\alpha) $, in 6 Schritten
 	\item Phasenunterschied benachbarter Strahlen: $ \Delta \varphi = k x = k \Delta b \sin \alpha  $
 	\item Gesamtamplitude $ \widehat{=} $ Summe der $ N $ Teilstrahlen
 	\begin{equation*}
-	\Rightarrow \quad A = a \sum_{n=0}^{N-1} e^{-i(\omega t + f_n)} = a e_{-i \omega t} \sum_{n=0}^{N-1} e^{i n \Delta \varphi}
+	\Rightarrow \quad A = a \sum_{n=0}^{N-1} e^{-i(\omega t + f_n)} = a e^{-i \omega t} \sum_{n=0}^{N-1} e^{i n \Delta \varphi}
 	\end{equation*}
-	$ f_n $ ist die Phase des $ n $-ten Strahls
+	$ f_n $ ist die Phase des $ n $-ten Teilstrahls
 	\begin{equation*}
-	A = e^{-i\omega t} \frac{e^{i N \Delta \varphi}}{e^{i \Delta \varphi}} = a e^{- i \omega t} e^{i \frac{N \Delta \varphi}{2}} \frac{\sin\left(\frac{N}{2} \Delta \varphi\right)}{\sin\left(\frac{1}{2} \Delta \varphi\right)}
+	A = e^{-i\omega t} \frac{e^{i N \Delta \varphi}-1}{e^{i \Delta \varphi}-1} = a e^{- i \omega t} e^{i \frac{N \Delta \varphi}{2}} \frac{\sin\left(\frac{N}{2} \Delta \varphi\right)}{\sin\left(\frac{1}{2} \Delta \varphi\right)}
 	\end{equation*}
 	\begin{equation*}
 	\Rightarrow \quad I(\alpha) = A^2 = a^2 \frac{\sin^2\left(\frac{N}{2} \Delta \varphi \right)}{\sin^2 \left(\frac{1}{2} \Delta \varphi \right)} = a^2 \frac{\sin^2 (x)}{\sin^2 \left(\frac{x}{N}\right)} \qquad x \defeq \pi \frac{b}{\lambda} \sin \alpha
@@ -1954,13 +1954,13 @@ Brechung der Intensitätsverteilungen $ I(\alpha) $, in 6 Schritten
 	\end{equation*}
 	\textbf{Lösung:}
 	\begin{equation*}
-	\rmbox{I(x) = I_0 \frac{\sin^2(x)}{x^2}} \qquad x \defeq \pi \frac{b}{\lambda} \sin \alpha
+	\rmbox{I(\alpha) = I_0 \frac{\sin^2(x)}{x^2}} \qquad x \defeq \pi \frac{b}{\lambda} \sin \alpha
 	\end{equation*}
 \end{enumerate}
 \textbf{Diskussion:}\\[5pt]
 Hauptmaxima: $ x = 0 \quad \rightarrow \quad \alpha = 0 $\\
 Minima: $ \sin x = 0 \quad \rightarrow \quad x = n \pi \quad \Rightarrow \quad \sin \alpha = n \frac{\lambda}{b} $\\
-Nebenmaxima: $ |\sin \alpha| = 1 \quad \rightarrow \quad x = \left(n + \frac{1}{2}\right) \pi \quad \Rightarrow \quad  \sin \alpha = \left(n + \frac{1}{2}\right) \frac{\lambda}{b} $\\[5pt]
+Nebenmaxima: $ |\sin x| = 1 \quad \rightarrow \quad x = \left(n + \frac{1}{2}\right) \pi \quad \Rightarrow \quad  \sin \alpha = \left(n + \frac{1}{2}\right) \frac{\lambda}{b} $\\[5pt]
 \lcom{Die Gleichungen sind unabhängig vom Abstand des Schirms. Die stammt aus der Annahme es handelt sich um Ebene Wellen, es nur die nur im Fernbereich gibt. Daher gelten unsere Gleichungen und Annahmen auch nur im Fernbereich. Ist der Abstand zum Schirm nicht Wesentlich größer als die Spaltbreite oder der Abstand der Spalten, gelten sie nicht mehr. Mehr dazu im Abschnitt Interferenz und Beugung II.}\\[5pt]
 ACHTUNG:\\
 Implizit Annahme ebener Wellen $ \Rightarrow $ Rechnung nur richtig im Fernbereich \mau
@@ -1981,7 +1981,7 @@ Weiter wie beim Einzelspalt:
 	\item[(4)] Phasenunterschied $ \Delta \varphi = k x = k d \sin \alpha $
 	\item[(5)] Gesamtamplitude $ \widehat{=} $ Summe der Teilstrahlen
 	\begin{equation*}
-	\Rightarrow \quad A = a e^{i \omega t} \sum_{n=0}^{N-1} e^{i n \Delta \varphi}
+	\Rightarrow \quad A = a e^{-i \omega t} \sum_{n=0}^{N-1} e^{i n \Delta \varphi}
 	\end{equation*}
 	\begin{equation*}
 	\Rightarrow \quad A(\alpha) = A_0 \frac{\sin \left(\pi \frac{N d}{\lambda} \sin \alpha \right)}{\sin \left( \pi \frac{d}{\lambda} \sin \alpha \right)} \qquad A_0: \tx{ geeignet definiert}
@@ -2100,7 +2100,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 	x = 2 d n \cos \beta = 2 d \sqrt{n^2 - \sin^2 \alpha}
 	\end{equation*}
 	\item Phasenunterschied\\
-	Phasenunterschied aufgrund des Gangunterschieds $ \Delta \varpi = kx = \frac{2\pi}{\lambda} x $\\
+	Phasenunterschied aufgrund des Gangunterschieds $ \Delta \varphi = kx = \frac{2\pi}{\lambda} x $\\
 	$ \approx $ senkrechter Einfall:\\
 	Phasensprung um $ \pi $ bei der Reflexion am optisch dichteren Medium \color{red!75!black} \mau \color{black}
 	\begin{equation*}
@@ -2156,7 +2156,7 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 	\begin{align*}
 	|A_1| &= \sqrt{R} |A_0|\\
 	|B_1| &= \sqrt{1 - R} |A_0|\\
-	|D_1| &= \sqrt{1-R} |A_0| = (1-R) |A_0|\\
+	|D_1| &= \sqrt{1-R} |B_1| = (1-R) |A_0|\\
 	|C_1| &= \sqrt{R} |B_1| = \sqrt{R}\sqrt{1 - R} |A_0|\\
 	|A_2| &= \sqrt{1 - R} |C_1|\\
 	|B_1| &= \sqrt{R} |C_1| = R \sqrt{1 - R} |A_0|
@@ -2408,7 +2408,7 @@ Das durch das Objektiv erzeugte Zwischenbild ist bereits beugungsverbreitert.
 \begin{equation*}
 \Rightarrow \quad \sin \alpha_{\tx{min}} = 1{,}22 \frac{\lambda}{D}
 \end{equation*}
-$ D: $ Durchmesser des Objektivs
+$ D: $ Durchmesser des Objektivs\\
 \textbf{Auflösung eines Mikroskops}\\
 Im Unterschied zu vorher ist das einfallende Licht nicht parallel. \folie{zur Auflösung am Mikroskop}
 \begin{enumerate}[(1)]
@@ -2426,7 +2426,7 @@ Im Unterschied zu vorher ist das einfallende Licht nicht parallel. \folie{zur Au
 	\end{equation*}
 	\item Öffnungswinkel $ \varphi $
 	\begin{equation*}
-	\sin \varphi \apprge \frac{D}{2 \varphi_1}
+	\sin \varphi \approx \frac{D}{2 \varphi_1}
 	\end{equation*}
 \end{enumerate}
 \begin{center}
@@ -2474,7 +2474,7 @@ $ \Rightarrow \vec{k} = (0,0,k) $
 \folie{linear polarisierte EM-Welle}
 \begin{equation*}
 \vec{E} = E_0 \begin{pmatrix}
-\cos \tilde{d} \\ \sin \tilde{d} \\ 0
+\cos \tilde{\varphi} \\ \sin \tilde{\varphi} \\ 0
 \end{pmatrix} \cos \left(\omega t - k z + \varphi \right)
 \end{equation*}
 
@@ -2500,8 +2500,7 @@ $ \cos\left( x + \frac{\pi}{2}\right) + \cos\left( x - \frac{\pi}{2}\right) = 0 
 &= \frac{A}{2} \begin{pmatrix}
 \cos\left(\omega t - k z + \varphi \right) \\ \cos\left(\omega t - k z + \varphi + \frac{\pi}{2}\right) \\ 0
 \end{pmatrix} + \frac{A}{2} \begin{pmatrix}
-\cos \left(\omega t - k z + \varphi\right) \\ \cos \left(\omega t -  z + \varphi + \frac{\pi}{2}\right) \\
-0
+\cos \left(\omega t - k z + \varphi\right) \\ \cos \left(\omega t -  k z + \varphi - \frac{\pi}{2}\right) \\ 0
 \end{pmatrix}
 \end{align*}
 
@@ -2524,11 +2523,17 @@ Die Ausbreitungsgeschwindigkeit bzw. der Wellenvektor für rechts und links zirk
 
 \begin{align*}
 \Rightarrow \quad \vec{E}(\vec{x},t) &= \frac{A}{2} \begin{pmatrix}
-\cos\left(\omega t - kz .....\right)
-\end{pmatrix} .....
+\cos\left(\omega t - \color{black!30!red}k^+\color{black}z + \varphi\right) \\ \cos\left(\omega t -\color{black!30!red}k^+\color{black}z + \varphi + \frac{\pi}{2}\right) \\ 0
+\end{pmatrix} + \frac{A}{2} \begin{pmatrix}
+\cos\left(\omega t - \color{black!30!red}k^-\color{black}z + \varphi\right) \\ \cos\left(\omega t - \color{black!30!red}k^-\color{black}z+\varphi-\frac{\pi}{2}\right) \\ 0
+\end{pmatrix}\\
+&=A \begin{pmatrix}
+\cos\left(\delta kz\right) \\ \cos\left(\delta kz\right) \\ 0
+\end{pmatrix} \cos\left(\omega t - \overline{k}z + \varphi\right)
 \end{align*}
 \begin{equation*}
-k^+ = \overline{k} + \delta l \qquad k^- = \overline{k} - \delta k
+
+k^+ = \overline{k} + \delta k \qquad k^- = \overline{k} - \delta k
 \end{equation*}
 
 \section{Polarisation durch Brechung und Reflexion}
@@ -2541,7 +2546,7 @@ k^+ = \overline{k} + \delta l \qquad k^- = \overline{k} - \delta k
 \tx{div} \vec{D} = \rho_0 \qquad \tx{div} \vec{B} = 0
 \end{equation*}
 \begin{equation*}
-\tx{rot} \vec{E} = - \prt{}{t} \vec{B} \qquad \tx{rot} \vec{H} = \vec{j} + \prt{}{t} \vec{D}
+\tx{rot} \vec{E} = - \prt{}{t} \vec{B} \qquad \tx{rot} \vec{H} = \vec{j}_0 + \prt{}{t} \vec{D}
 \end{equation*}
 plus:
 \begin{align*}
