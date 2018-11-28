@@ -163,7 +163,7 @@
 			#1
 		}
 		\draw [every edge/.append style={pic actions, densely dashed, opacity=.5}, pic actions]
-		(0,0,0) coordinate (o) -- ++(-\cubescale*\cubex,0,0) coordinate (a) -- ++(0,-\cubescale*\cubey,0) coordinate (b) edge coordinate [pos=1] (g) ++(0,0,-\cubescale*\cubez)  -- ++(\cubescale*\cubex,0,0) coordinate (c) -- cycle
+		(0,0,0) coordinate (o) -- ++(-\cubescale*\cubex,0,0) coordinate (a) -- ++(0,-\cubescale*\cubey,0) coordinate (b) edge coordinate [pos=1] (g) ++(0,0,-\cubescale*\cubez)  -- ++(\cubescale*\cubex,0,0) coordinate (c) -- 
 		(o) -- ++(0,0,-\cubescale*\cubez) coordinate (d) -- ++(0,-\cubescale*\cubey,0) coordinate (e) edge (g) -- (c) -- cycle
 		(o) -- (a) -- ++(0,0,-\cubescale*\cubez) coordinate (f) edge (g) -- (d) -- cycle;
 		\path [every edge/.append style={pic actions, |-|}]
@@ -2559,9 +2559,9 @@ Diskussion der \textbf{Bedeutung der einzelnen Terme}:
 	\begin{tikzpicture}
 		\draw[shade, ball color=gray!40!white] (0,0) circle (1cm);
 		\draw[->,thick] (-1.1,-1) -- (-1.1,1) node[above] {$E_0\vec{e}_z$};
-		\draw (0,0) node[blue,xshift=-.5cm,yshift=-.5cm] {$-$};
-		\draw (0,0) node[blue,yshift=-.6cm] {$-$};
-		\draw (0,0) node[blue,xshift=.5cm,yshift=-.5cm] {$-$};
+		\draw (0,0) node[white!10!blue,xshift=-.5cm,yshift=-.5cm] {$-$};
+		\draw (0,0) node[white!10!blue,yshift=-.6cm] {$-$};
+		\draw (0,0) node[white!10!blue,xshift=.5cm,yshift=-.5cm] {$-$};
 		\draw (0,0) node[red,xshift=-.5cm,yshift=.5cm] {$+$};
 		\draw (0,0) node[red,yshift=.6cm] {$+$};
 		\draw (0,0) node[red,xshift=.5cm,yshift=.5cm] {$+$};
@@ -2845,8 +2845,8 @@ Plattenkondensator:\\
 		%\node at (1.8,\y) {$ - $};
 		\draw[fill = white!20!blue] (1.8,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
 		\node[above] at (0,2) {$ \vec{\tilde{E}} $};
-		\coordinate (ar) at (0,-.5);
-		\draw[->] ($ (ar) + (-.3,0) $) -- node[above] {$\vec{p}$} ($ (ar) + (.3,0) $);
+		\coordinate (ar) at (0,-.7);
+		\draw[->] ($ (ar) + (-.3,0) $) -- node[above] {$\vec{P}$} ($ (ar) + (.3,0) $);
 		\foreach \y in {-1.2,0,1.2}
 		\shadedraw[right color=white!10!red, left color=white!20!blue,draw=black] (-.55,\y) ellipse (.45cm and .2cm) node[] {$ \color{white} - \ + \color{black} $};
 		\foreach \y in {-1.2,0,1.2}
@@ -2953,17 +2953,42 @@ Wir schauen uns nun an wie die Ableitung einer gemittelten Funktion aussieht.
 
 \subsection{Bestimmung von $ \boldsymbol{ \langle \rho \rangle } $}
 
-Aufteilung der Materie in Untereinheiten:\\
-\textbf{Festkörper:}\\
-Elementarzellen:\\
-
-%T7
-
-\textbf{Gas:}\\
-Moleküle\\
-
-%T8
-
+\begin{minipage}{.5\linewidth}
+	Aufteilung der Materie in Untereinheiten:\\
+	\textbf{Festkörper:}\\
+	Elementarzellen:
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t7:
+	\begin{tikzpicture}[scale=.75]
+		\foreach \x in {.5,1.5,2.5}
+		\draw (\x,0) -- ++(0,3);
+		\foreach \y in {.5,1.5,2.5}
+		\draw (0,\y) -- ++(3,0);
+		\draw[draw=none,pattern=north east lines] (.5,.5) rectangle (1.5,1.5);
+	\end{tikzpicture}
+	\vspace{10pt}
+\end{minipage}
+\noindent
+\begin{minipage}{.5\linewidth}
+	\textbf{Gas:}\\
+	Moleküle
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t8:
+	\begin{tikzpicture}[scale=.75]
+		\draw (0,0) circle (1cm);
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] (O) at (0,0) {};
+		\coordinate (o) at (2,-1.2);
+		\draw[thick,->] (o) -- node[anchor=south west] {$ \vec{r}_n $ Schwerpunkt} (O);
+		\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (-.5,-.5);
+		\draw (-.55,-.5) to[out=150,in=60] (-2,-.7) node[below] {$ \vec{r} - \vec{r}_n $};
+		\draw (.5,.7) to[out=80,in=200] (1,1.5) node[right] {$ \rho_n $};
+	\end{tikzpicture}
+	\vspace{10pt}
+\end{minipage}\\
 $ \rho_n : $ Ladungsdichte des $ n $-ten Moleküls bzgl. des Schwerpunktes $ \vec{r}_n $. Die gesamte Ladungsdichte ist somit:
 \begin{equation*}
 \rho_g(\vec{r}) = \sum_{n} \rho_n (\vec{r} - \vec{r}_n)
@@ -3004,15 +3029,25 @@ Der \textbf{zweite Term} wird Definiert als das makroskopische Dipolmoment $ \eq
 \vec{P}(\vec{r}) &= \sum_n \vec{p}_n \int \dd^3r' \delta(\vec{r}' - \vec{r}_n) f(\vec{r} - \vec{r}')\\
 &= \sum_n \vec{p}_n f(\vec{r} - \vec{r}_n) \approx \frac{1}{V} \sum_{m,\vec{r}_n \in V} \vec{p}_n
 \end{align}
-
-%T9
-
-\begin{equation*}
-f(\vec{r} - \vec{r}_n) \approx \left\{ \begin{array}{cc}
-\frac{1}{V} & |\vec{r} - \vec{r}_n| \le L \\[5pt]
-0 & \tx{sonst}
-\end{array}\right.
-\end{equation*}
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	f(\vec{r} - \vec{r}_n) \approx \left\{ \begin{array}{cc}
+	\frac{1}{V} & |\vec{r} - \vec{r}_n| \le L \\[5pt]
+	0 & \tx{sonst}
+	\end{array}\right.
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t9:
+	\begin{tikzpicture}
+		\draw[->] (0,-.3) -- (0,2.5) node[anchor=south east] {$ y $};
+		\draw[->] (-3,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[thick] (-2.5,0) to[out=0,in=-100] (-2,.8) to[out=80,in=180] (-1.5,1.6) -- (1.5,1.6) to[out=0,in=100] (2,.8) to[out=-80,in=180] (2.5,0);
+		\draw[<->] (-1.5,2) -- node[above,xshift=30pt] {$ L \ \ \rightarrow V $} ++(3,0);
+		\draw (-1.855,1.355) to[out=120,in=-10] (-3,2) node[left] {$ f(\vec{r}) $};
+	\end{tikzpicture}
+\end{minipage}\\
 $ \rightarrow $ gemittelte (makroskopische) Ladungsdichte:
 \begin{align*}
 \langle \rho \rangle (\vec{r}) &= \langle \rho_f \rangle(\vec{r}) + \ub{\langle \sum_n q_n \delta(\vec{r}' - \vec{r}_n) \rangle(\vec{r})}_{\substack{\tx{Gesamtladung} \\ \tx{oft } = 0}} - \vabla \cdot \vec{P} + \dots
@@ -3047,12 +3082,403 @@ $ \vec{D}(\vec{r}) \defeq $ dielektrische Verschiebung.
 \vec{D} = \epsilon_0 \vec{E} + \vec{P} + \dots
 \end{equation*}
 Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes auch in Integraler Form schreiben:
+
+\noindent
+\begin{minipage}{.6\linewidth}
+	\begin{equation*}
+	\int_{\partial V} d\vec{f} \cdot \vabla \cdot \vec{D} = \int \dd^3 r \rho_f(\vec{r}) = q_{f_V}
+	\end{equation*}
+	\begin{equation*}
+	\oint_{\partial F} d\vec{r} \cdot \vabla \times \vec{E} = 0
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	\centering
+	%t10:
+	\begin{tikzpicture}[scale=.7]
+	\node at (-2.3,0) {Gauß};
+	\draw  plot [smooth cycle, tension=1] coordinates { (-.3,-2) (-.3,-1) (-1,0) (-.3,1) (1,1.3) (.6,0) (1.3,-1) (.5,-1.6) };
+	\node at (0,0) {$ V $};
+	\end{tikzpicture}
+	%t11:
+	\begin{tikzpicture}[scale=.7]
+	\node at (-2.3,0) {Stokes};
+	\draw (0,0) circle (1cm);
+	\draw[->] (1,0) -- (1,.01) node[right] {$ \partial F $};
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}
+
+% Vorlesung 26.11.18
+
+\bbb{Wiederholung}{
+\textbf{Makroskopische Feldgleichungen der Elektrostatik}
 \begin{equation*}
-\int_{\partial V} d\vec{f} \cdot \vabla \cdot \vec{D} = \int \dd^3 r \rho_f(\vec{r}) = q_{f_V}
+\vabla \times \vec{E}(\vec{r}) = 0 \qquad \langle E \rangle (\vec{r})
 \end{equation*}
 \begin{equation*}
-\oint_{\partial F} d\vec{r} \cdot \vabla \times \vec{E} = 0
+\vabla \cdot \vec{D} (\vec{r}) = \rho_f(\vec{r})
 \end{equation*}
+\begin{equation*}
+\vec{D} = \epsilon_0 \vec{E} + \vec{P}
+\end{equation*}
+\lcom{Wir haben hier jetzt zwei Feldgleichungen für zwei Vektorfelder. Dies reicht nicht aus um beide Vektorfelder eindeutig zu bestimmen. Hierfür müssen wir die Wirbel und Quellen beider Felder beschreiben. $ \vec{E} $ und $ \vec{D} $ sind also nicht unabhängig sondern miteinander verknüpft.}
+}
+\noindent
+\textbf{Bem: (Schlussfolgerungen aus den Feldgleichungen der Elektrostatik)}
+\begin{enumerate}[i)]
+	\item \lcom{Es sieht so aus als ob $ \vec{D} $ nur von der freien Ladungsdichte abhängt, dies ist aber nur in manchen fällen so (Plattenkondensator).}
+	
+	\noindent
+	\begin{minipage}{.5\linewidth}
+		Es gilt nur wenn $ \vec{\nabla} \times \vec{D} = 0 $\\
+		\textbf{Gegenbeispiel:}
+		homogen polarisierte Kugel:
+		\begin{equation*}
+		\vec{E} = - \frac{1}{\epsilon_0} \vec{P} \qquad \tx{in der Kugel}
+		\end{equation*}
+		\begin{equation*}
+		\rightarrow \quad \vec{D} = \epsilon_0 \vec{E} + \vec{P} = \frac{2}{3} \vec{P}
+		\end{equation*}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		\centering
+		%t1:
+		\begin{tikzpicture}
+			\draw (0,0) circle (1.5 cm);
+			\draw[->] (.2,-.5) -- node[left] {$ \vec{P} $} ++(0,1);
+			\draw[->] (2,.5) -- node[right] {$ \vec{E} $} ++(0,-1);
+			\foreach \y in {-.6,.6}
+			\shadedraw[top color=white!10!red, bottom color=white!20!blue,draw=black] (-.55,\y) ellipse (.2cm and .45cm) node[] {$ \substack{ \color{white} + \color{black} \\[5pt] \color{white} - \color{black}} $};
+			\foreach \x in {-.6,.6}
+			\shadedraw[top color=white!10!red, bottom
+			color=white!20!blue,draw=black] (+.55,\x) ellipse (.2cm and .45cm) 	node[] {$ \substack{ \color{white} + \color{black} \\[5pt] \color{white} - \color{black}} $};
+			\draw[->] (.9,-.4) -- node[right] {$ \vec{D} $} ++(0,.8);
+		\end{tikzpicture}
+	\end{minipage}
+	\item \begin{equation*}
+	\vec{E} = \frac{1}{\epsilon_0} (\vec{D} - \vec{P})
+	\end{equation*}
+	$ \vec{E} $ hängt über die Polarisation direkt von dem Medium ab.
+	\begin{align*}
+	\vabla \cdot \vec{E} &= \frac{1}{\epsilon_0} \vabla \cdot \vec{D} - \frac{1}{\epsilon_0} \vec{\nabla} \cdot \vec{P} \\
+	&= \frac{1}{\epsilon_0} \rho_f - \frac{1}{\epsilon_0} \vabla \cdot \vec{P}
+	\end{align*}
+	$ \rightarrow $ Polarisationsladungsdichte $ \rho_p = - \vec{\nabla} \cdot \vec{P} $
+	\begin{equation*}
+	\Rightarrow \quad \vabla \cdot \vec{E} = \frac{1}{\epsilon_0} (\rho_f + \rho_p)
+	\end{equation*}
+	\item Die Polarisation wirkt wie ein inneres Zusatzfeld, das sich mit  dem durch $ \rho_f $ erzeugten Feld $ \vec{E}_0 $ überlagert.
+	$ \vec{E} = \vec{E}_0 + \vec{E}_p $\\
+	\begin{minipage}{.5\linewidth}
+		Im Plattenkondensator:
+		\begin{equation*}
+		\vec{E}_p = - \frac{1}{\epsilon_0} \vec{P}
+		\end{equation*}
+		\begin{equation*}
+		\vec{E} = \vec{E}_0 - \frac{1}{\epsilon_0} \vec{P}
+		\end{equation*}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		\centering
+		%t2:
+		\begin{tikzpicture}
+			\draw[very thick] (-1.5,-2) -- (-1.5,2) node[above] {$ \sigma $};
+			\draw[very thick] (1.5,-2) -- (1.5,2) node[above] {$ - \sigma $};
+			\node[above] at (1.5,2.4) {$ - \rho_f $};
+			\node[above] at (-1.5,2.4) {$ \rho_f $};
+			%axis:
+			%\draw[->] (-1.5,-2.5) -- ++(4,0) node[right] {$ x $};
+			%\draw ($ (1.5,-2.5) + (0,.1) $) -- ($ (1.5,-2.5) + (0,-.1) $) node[below] {$ d $};
+			%\draw ($ (-1.5,-2.5) + (0,.1) $) -- ($ (-1.5,-2.5) + (0,-.1) $) node[below] {$ 0 $};
+			\draw[fill=gray!10] (-1.1,-2) rectangle (1.1,2); 
+			\foreach \y in {-1.8,-.6,.6,1.8}
+			\draw[->] (-1.3,\y) -- (1.3,\y);
+			\foreach \y in {-1.8,-.6,.6,1.8}
+			%\node at (-1.8,\y) {$ + $};
+			\draw[fill = white!20!red] (-1.8,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+			\foreach \y in {-1.8,-.6,.6,1.8}
+			%\node at (1.8,\y) {$ - $};
+			\draw[fill = white!20!blue] (1.8,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+			\node[above] at (0,2) {$ \vec{E}_0 $};
+			\coordinate (ar) at (0,-.5);
+			\draw[->,color=blue] ($ (ar) + (.3,-.3) $) -- node[above] {$\vec{E}_P $} ++(-.6,0);
+			\draw[->,red] ($ (ar) + (-.3,1) $) -- node[above] {$\vec{P} $} ++(.6,0);
+			\foreach \y in {-1.2,0,1.2}
+			\shadedraw[right color=white!10!red, left color=white!20!blue,draw=black] (-.55,\y) ellipse (.45cm and .2cm) node[] {$ \color{white} - \ + \color{black} $};
+			\foreach \y in {-1.2,0,1.2}
+			\shadedraw[right color=white!10!red, left color=white!20!blue,draw=black] (.55,\y) ellipse (.45cm and .2cm) node[] {$ \color{white} - \ + \color{black} $};
+		\end{tikzpicture}
+	\end{minipage}
+	\item Potential
+	\begin{equation*}
+	\vabla \times \langle \vec{E} \rangle = 0
+	\end{equation*}
+	\begin{equation*}
+	\langle \vec{E} \rangle = - \vabla \langle \Phi \rangle
+	\end{equation*}
+	Einfach aber zu viel Zeitaufwand für die Vorlesung
+	\begin{align*}
+	\langle \Phi \rangle &= \kq \int \dd^3  r' \frac{\langle \rho \rangle (\vec{r}')}{|\vec{r} - \vec{r}'|} \\
+	&= \kq \int \dd ^3 r' \frac{1}{|\vec{r} - \vec{r}'|}\left(\rho_f(\vec{r}') - \vabla \cdot \vec{P}(\vec{r}' + \dots \right)
+	\end{align*}
+	\item \textbf{Zusammenhang zwischen $ \vec{P} $ und $ \vec{E} $: Suszeptibilität}
+	\begin{equation*}
+	\vec{P} = \vec{P(\vec{E})} \qquad \vec{P}(\vec{E} = 0) = 0
+	\end{equation*}
+	Entwicklung von $ \vec{P} $ in Potenzen von $ \vec{E} $:
+	\begin{align*}
+	P_i = \sum_{j=1}^{3} \gamma_{ij} E_j + \sum_{j,k=1}^{3} \beta_{ijk} E_j E_k + \dots
+	\end{align*}
+	$ \gamma_{ij} $ \& $ \beta_{ijk} $ sind Materialkonstanten\\
+	lineare Näherung:\\
+	allgemeines \textbf{anisotropes} Dielektrikum
+	\begin{equation*}
+	P_i = \sum_j \gamma_{ij} E_j
+	\end{equation*}
+	isotropes Dielektrikum:
+	\begin{equation*}
+	P_i = \gamma E_i
+	\end{equation*}
+	\begin{equation*}
+	\vec{P} = \chi_e \epsilon_0 \vec{E} \qquad \chi_e \epsilon_0 = \gamma
+	\end{equation*}
+	$ \chi_e $ ist die \textbf{Dielektrische Suszeptibilität}
+	\begin{align*}
+	\rightarrow \quad \vec{D} &= \vec{P} + \epsilon_0 \vec{E} = (\chi_e \epsilon_0 + \epsilon_0) \vec{E} \\
+	&= \ub{(1 + \chi_e)}_{\defeq \epsilon_r} \epsilon_0 \vec{E} \\
+	&= \epsilon \vec{E} = \epsilon_0 \epsilon_r \vec{E}
+	\end{align*}
+	\begin{minipage}{.6\linewidth}
+		$ \epsilon_r $ ist die relative Dielektrizitätskonstante\\
+		$ \epsilon = \epsilon_r \epsilon_0 $ ist die Dielektrizitätskonstante
+		\begin{equation*}
+		\rmbox{\vec{D} = \epsilon \vec{E} = \epsilon_0 \epsilon_r \vec{E}}
+		\end{equation*}
+	\end{minipage}
+	\begin{minipage}{.4\linewidth}
+		\flushleft
+		Typische Werte für $ \epsilon_r $:\\[5pt]
+		\centering
+		\begin{tabular}{l|c}
+			Medium & $ \epsilon_r $ \\ \hline 
+			Vakuum: & $ \epsilon_r = 1 $ \\
+			$ \tx{H}_2 $: & 1,00025 \\
+			$ \tx{N}_2 $: & 1,00055 \\
+			$ \tx{H}_2 \tx{O} $: & 80,1
+		\end{tabular}
+	\end{minipage}
+\end{enumerate}
+
+\subsection{Feldgleichungen für lineares, isotropes Dielektrikum} % check if section is right
+
+\begin{equation*}
+\vabla \cdot \vec{D} = \rho_f
+\end{equation*}
+\begin{center}
+	\begin{minipage}{.5\linewidth}
+		\rbox{
+			\vspace{-12.5pt}
+			\begin{align*}
+			\vabla \cdot (\epsilon \vec{E}) &= \rho_f \\ 
+			\vabla \times \vec{E} &= 0
+			\end{align*}
+		}
+	\end{minipage}
+\end{center}
+\textbf{homogenes Medium} $ \epsilon = \const $
+\begin{equation*}
+\epsilon \vabla \cdot \vec{E} = \rho_f
+\end{equation*}
+\begin{equation*}
+\rightarrow \vabla \cdot \vec{E} = \frac{1}{\epsilon_0 \rho_f} = \ub{\frac{1}{\epsilon_r}}_{\mathclap{\tx{Medium}}} \frac{1}{\epsilon_0} \rho_f
+\end{equation*}
+\begin{equation*}
+\vabla \times \vec{E} = 0
+\end{equation*}
+\begin{align*}
+\Delta \Phi &= - \vabla \cdot \vec{E} \\
+&= - \frac{1}{\epsilon} \rho_f
+\end{align*}
+\begin{align*}
+\rightarrow \quad \Delta \Phi &= - \custo{\leftarrow}{\frac{1}{\epsilon_0}}{} \ \frac{1}{\epsilon_r} \rho_f
+\end{align*}
+
+\subsection{Punktladung in homogenem Dielektrikum (lineare Näherung)} % check this too
+
+\begin{minipage}{.6\linewidth}
+	\begin{align*}
+	\rho_f(\vec{r}) &= q \delta(\vec{r}) \\
+	\vabla \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon} q \delta(\vec{r}) \\
+	\vabla \times \vec{E}(\vec{r}) &= 0
+	\end{align*}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	\centering
+	%t3:
+	\begin{tikzpicture}[scale=.8]
+		\draw[pattern=north east lines, pattern color = black!30!white,scale=1.5]  plot [smooth cycle, tension=0.8] coordinates { (-1,0) (-1,1) (0,1) (.5,.5) (1,0) (.7,-.7) (0,-1) (-.4,-.7) };
+		\coordinate (o) at (-.35,-.25);
+		\draw[->] (o) -- ++(1,0) node[anchor=north west] {$ x $};
+		\draw[->] (o) -- ++(0,1) node[anchor=south east] {$ y $};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (o) {};
+		\node[anchor=north east] at (o) {$ q $};
+		\node at (-1.4,1.2) {$ \vec{\epsilon} $};
+		\draw ($ (o) + (-.8,0) $) to[out=-135,in=90] (-1.4,-1.5) node[below] {Medium};
+	\end{tikzpicture}
+\end{minipage}\\
+\begin{minipage}{.6\linewidth}
+	Nun können wir das $ \vec{E} $-Feld im Vakuum bestimmen:
+	\begin{align*}
+	\rightarrow \quad \eofr &= \frac{1}{4 \pi \epsilon} q \frac{\vec{r}}{r^3} \\
+	&= \frac{1}{\epsilon_r} \ub{\kq q \frac{\vec{r}}{r^3}}_{= \vec{E}_{\tx{vak}}}\\
+	&= \frac{1}{\epsilon_r} \vec{E}_{\tx{vak}} (\vec{r}) < \vec{E}_{\tx{vak}}(\vec{r})
+	\end{align*}
+	\begin{align*}
+	\vec{P} &= \chi_e \epsilon_0 \vec{E} = (\epsilon_r - 1) \epsilon_0 \vec{E}\\
+	&= \frac{(\epsilon_r - 1)}{4 \pi \epsilon_0} q \frac{\vec{r}}{r^3}
+	\end{align*}
+	\begin{equation*}
+	\Rightarrow \quad \vec{E} = \vec{E}_{\tx{vak}} - \frac{1}{\epsilon_0} \vec{P}
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+	\centering
+	%t4:
+	\begin{tikzpicture}
+		\draw (-1.5,0) -- (1.5,0);
+		\draw (0,-1.5) -- (0,1.5);
+		\draw[<->] (-1,0) -- (1,0);
+		\draw[<->] (0,-1) -- (0,1);
+		\draw (0,0) circle (.5cm);
+		\node at (1.25,1.25) {Vakuum};
+		\node at (-.8,.8) {$ \vec{E} $};
+	\end{tikzpicture}
+\end{minipage}\\
+\lcom{Hier erkennt man explizit, dass das Vakuum-Feld von der Polarisation vermindert wird.}
+\begin{equation*}
+\vec{D} = \epsilon \vec{E} = \frac{1}{4 \pi} q \frac{\vec{r}}{r^3}
+\end{equation*}
+\lcom{In diesem einfachen Fall ist $ \vec{D} $ vollständig durch die freie Ladung $ q $ (in der Abbildung Positiv) bestimmt.}
+
+\subsection{Zusammenhang zwischen atomater/molekularer Polarisierbarkeit und Suszeptibilitäten}
+
+\begin{minipage}{.5\linewidth}
+	\textbf{Verschiebungspolarisation:}
+	\begin{equation*}
+	\vec{p} = \alpha \vec{E}_{\tx{lokal}}
+	\end{equation*}
+	$ \Rightarrow $ Polarisation:
+	\begin{equation*}
+	\vec{P} = n \vec{p} = n \alpha \vec{E}_{\tx{lok}}
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t5:
+	\begin{tikzpicture}
+		\shadedraw[right color=white!10!red, left color=white!20!blue,draw=black] (1,0) ellipse (.45cm and .2cm) node[] {$ \color{white} - \ + \color{black} $};
+		\shadedraw[top color=white!10!red, bottom
+		color=white!20!blue,draw=black] (0,1) ellipse (.2cm and .45cm) 	node[] {$ \substack{ \color{white} + \color{black} \\[5pt] \color{white} - \color{black}} $};
+		\shadedraw[right color=white!20!blue, left color=white!10!red,draw=black] (-1,0) ellipse (.45cm and .2cm) node[] {$ \color{white} + \ - \color{black} $};
+		\shadedraw[top color=white!20!blue, bottom
+		color=white!10!red,draw=black] (0,-1) ellipse (.2cm and .45cm) 	node[] {$ \substack{ \color{white} - \color{black} \\[5pt] \color{white} + \color{black}} $};
+		\draw[fill=white!10!blue!20!red] (0,0) circle (.25cm) node[] {$\color{white} + \color{black}$};
+		\node at (0,-2) {$ \substack{\tx{polarisierbares} \\ \tx{Medium}} $};
+		\coordinate (p) at (-.5,1);
+		\coordinate (ep) at (.5,1);
+		\coordinate (d) at (1.5,1);
+		\coordinate (e) at (2.5,1);
+		\draw[thick,->] ($ (p) + (0,-.4) $) -- node[left] {$ \vec{P} $} ++(0,.8);
+		\draw[thick,->] ($ (ep) + (0,.4) $) -- node[right] {$ \vec{E}_P $} ++(0,-.8);
+		\draw[thick,->] ($ (e) + (0,-.4) $) -- node[right] {$ \vec{E} $} ++(0,.8);
+		\draw[thick,->] ($ (d) + (0,-.25) $) -- node[right] {$ \vec{D} $} ++(0,.5);
+	\end{tikzpicture}
+\end{minipage}\\
+$ n $ ist die Teilchenzahldichte.\\
+Aus den makroskopischen Gleichungen haben wir erhalten:
+\begin{equation*}
+\vec{P} = \chi_e \epsilon_0 \equalto{\vec{E}}{\mathclap{ \substack{\tx{makroskopisches} \\ \tx{Feld} }}}
+\end{equation*}
+In einem verdünnten Gas gilt: $ \vec{E}_{\tx{lok}} \approx \vec{E} $
+\begin{equation*}
+\Rightarrow \quad \chi_e \epsilon_0 \vec{E} = n \alpha \vec{E} \quad \Rightarrow \quad \rmbox{\chi_e = \frac{n \alpha}{\epsilon_0}}
+\end{equation*}
+\begin{equation*}
+\rmbox{\epsilon_r = 1 + \frac{n \alpha}{\epsilon_0}}
+\end{equation*}
+
+\subsection{Randwertprobleme}
+
+\begin{equation*}
+\vabla \times \vec{E} = 0 \qquad \vabla \cdot \vec{D} = \rho_f
+\end{equation*}
+\begin{equation*}
+\vec{D} = \epsilon_0 \vec{E} + \vec{P} \qquad \vec{P} = \vec{P} (\vec{E})
+\end{equation*}
+lineares homogenes Dielektrikum
+\begin{equation*}
+\vabla \cdot \vec{E} = \frac{1}{\epsilon} \rho_f \qquad \vabla \times \vec{E} = 0
+\end{equation*}
+\begin{equation*}
+\Delta \Phi = - \frac{1}{\epsilon} \rho_f
+\end{equation*}
+$ \rightarrow $ \textbf{Randwertproblem:}\\
+Gegeben: $ \rho_f , \epsilon $ Randbedingungen\\
+Gesucht: $ \Phi, \vec{E} $
+
+\subsection{Randbedingungen für $ \vec{D}, \vec{E} $ an einer Grenzschicht mit Flächeladung}
+
+\begin{center}
+	%t6:
+	\begin{tikzpicture}
+		\coordinate (e) at (-4,2);
+		\shadedraw[top color=white!10!red, bottom
+		color=white!20!blue,draw=black] (e) ellipse (.2cm and .45cm) 	node[] {$ \substack{ \color{white} + \color{black} \\[5pt] \color{white} - \color{black}} $};
+		\draw[thick,->] ($ (e) + (.5,0) + (0,-.4) $) -- node[right] {$ \vec{E} $} ++(0,.8);
+		%neues Bild
+		\centerarc[](0,0)(80:10:3cm);
+		\centerarc[thick,dashdotted](0,0)(80:10:2.9cm);
+		\coordinate (o) at (45:3cm);
+		\draw[thick,->] (o) -- ++(45:1cm) node[anchor=south west] {$ \vec{n} $};
+		\draw[thick,->] (o) -- ++(-45:1cm) node[anchor=north west] {$ \vec{t} $};
+		\node at (2.5,.8) {$ \sigma_f $};
+		\node at (1,3.5) {$ \epsilon_1 $};
+		\node at (.6,2.15) {$ \epsilon_2 $};
+	\end{tikzpicture}
+\end{center}
+Erinnerung: mikroskopische Feldgleichungen
+\begin{equation*}
+\vabla \cdot \vec{E} = \frac{1}{\epsilon_0} \rho \quad \rightarrow \quad \vec{n} \cdot (\vec{E}_1 - \vec{E}_2) = \frac{\sigma}{\epsilon_0}
+\end{equation*}
+\begin{equation*}
+\vabla \times \vec{E} = 0 \quad \Rightarrow \quad \vec{t} (\vec{E}_1 - \vec{E}_2) = 0
+\end{equation*}
+für makroskopische Feldgleichungen:
+\begin{equation*}
+\vabla \cdot \vec{D} = \rho_f \quad \Rightarrow \quad \vec{n} \cdot (\vec{D}_1 - \vec{D}_2) = \sigma_f
+\end{equation*}
+\begin{equation*}
+\vabla \times \vec{D} = 0 \quad \Rightarrow \quad \vec{t} \cdot (\vec{E}_1 - \vec{E}_2) = 0
+\end{equation*}
+speziell lineare, homogene Dielektrika ($ \epsilon_1 = \const, \epsilon_2 = \const $):
+\begin{equation*}
+\vec{D}_i = \epsilon_i \vec{E}_i \qquad i = 1,2
+\end{equation*}
+\begin{equation*}
+\vec{n} \cdot (\epsilon_1 \vec{E}_1 - \epsilon_2 \vec{E}_2) = \sigma_f
+\end{equation*}
+Falls $ \sigma_f = 0 $ (es gibt also \textbf{keine} Ladung an der Oberfläche);
+\begin{equation*}
+\Rightarrow \quad \vec{n} \vec{E}_1 = \frac{\epsilon_2}{\epsilon_1} \vec{n} \vec{E}_2
+\end{equation*}
+Das heißt, das $ \vec{E} $-Feld ist unstetig wenn $ \epsilon_1 \neq \epsilon_2 $ (aufgrund der \textbf{Polarisationsladung}).
+
+
+
+
+
+
 
 
 

@@ -280,8 +280,7 @@ Online Anmeldung, der Ablauf und Termine werden durch die jeweiligen Prüfungsä
 	\item bestandene schriftliche Klausur oder Nachklausur
 	\item Bewertungsgrundlage ist das Ergebnis der Klausur oder Wiederholungsklausur
 \end{itemize}
-
-Täuschungsversuche:
+Täuschungsversuche:\\
 Sowohl die Übungen wie die Klausur sind Teil der Prüfungs/Studienleistung! Täuschungsversuche können zum Nicht-Bestehen führen!
 
 
@@ -2633,6 +2632,478 @@ Gewöhnliche partielle Diff-Gleichungen
 	\node at (-1,0) {$ U $};
 	\end{tikzpicture}
 \end{minipage}
+
+
+% Vorlesung 27.11.18
+
+\subsection{Maxwell-Gleichungen und Stetigkeitsbedingungen} %check
+
+\lcom{Heute beschäftigen wir uns mit Stetigkeitsbedingungen. Diese sind sehr Wichtig für die Lösung von Differentialgleichungen zur Lösung von Randwertproblemen.}
+
+\begin{align*}
+\tx{div} \vec{D} = \rho_0 \quad &\Rightarrow \quad \left(\vec{D}_2 - \vec{D}_1\right) \cdot \vec{n} = \sigma_{\tx{Fläche}}\\[5pt]
+\tx{div} \vec{B} = 0 \quad &\Rightarrow \quad \left(\vec{B}_2 - \vec{B}_1\right) \cdot \vec{n} = 0\\
+\tx{rot} \vec{E} = - \prt{}{t} \vec{B} \quad &\Rightarrow \quad \left(\vec{E}_2 - \vec{E}_1\right) \times \vec{n} = 0\\
+\tx{rot} \vec{H} = \vec{j}_0 + \prt{}{t} \vec{D} \quad &\Rightarrow \quad \left(\vec{H}_2 - \vec{H}_1\right) \times \vec{n} = \vec{j}_{\tx{Fläche}}
+\end{align*}
+$ \Rightarrow $
+\begin{itemize}
+	\item Normalkomponenten von $ \vec{B}(\vec{x},t) $ ist stetig
+	\item Tangentialkomponente von $ \vec{E}(\vec{x},t) $ ist stetig
+\end{itemize}
+\textbf{(nutzen) senkrechten Einfall}\\
+$ \alpha,\beta \approx 0 $\\
+
+\begin{minipage}{.09\linewidth}
+	\vspace{20pt}
+	$ \perp : $ \\\\[5pt] $ \parallel : $
+\end{minipage}
+\begin{minipage}{.45\linewidth}
+	\centering
+	Reflexion
+	\begin{equation*}
+	E_{\tx{ref}} = - E_{\tx{ein} \perp} \frac{n_2 - n_1}{n_2 + n_1}
+	\end{equation*}
+	\begin{equation*}
+	E_{\tx{ref}} = E_{\tx{ein} \parallel} \frac{n_2 - n_1}{n_2 + n_1} 
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{.45\linewidth}
+	\centering
+	Transmission
+	\begin{equation*}
+	E_{\tx{trans} \perp} = E_{\tx{ein} \perp} \frac{2 n_1}{n_2 + n_1}
+	\end{equation*}
+	\begin{equation*}
+	E_{\tx{trans} \parallel} = E_{\tx{ein} \parallel} \frac{2 n_1}{n_2 + n_1}
+	\end{equation*}
+	\vspace{10pt}
+\end{minipage}
+\noindent
+Betrachtung für senkrechten Einfall\\
+\folie{Stetigkeitsbed. bei senkrechtem Einfall}
+\begin{enumerate}[(1)]
+	\item $ \perp $ und $ \parallel $ sin identisch $ \Rightarrow $ wähle $ \perp $
+	\item Aus Stetigkeit der Tangentialkomponenten von $ E $
+	\begin{equation*}
+	E_{I} = E_{II}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \qquad E_{\tx{ein} \perp} + E_{\tx{ref} \perp} = E_{\tx{trans} \perp}
+	\end{equation*}
+	\item Stetigkeit des Energieflusses\\
+	\folie{Stetigkeits an Randflächen}
+	\begin{equation*}
+	\Rightarrow \qquad I_{\tx{ein}} = I_{\tx{ref}} + I_{\tx{trans}}
+	\end{equation*}
+	(aus Gauß Zylinder folgt die Gleichheit der E Felder auf einer Seite mit dem E Feld auf der anderen Seite)
+	\item $ I = n c_0 \epsilon_0 E^2 $
+	\begin{equation*}
+	\Rightarrow \qquad n_1 (E_{\tx{ein} \perp})^2 = n_1 (E_{\tx{ref} \perp})^2 + n_2 (E_{\tx{trans} \perp})^2
+	\end{equation*}
+\end{enumerate}
+$ \Rightarrow $ Lösungen mi oben
+
+\subsection{Warum war es ,,erlaubt`` mit ebenen Wellen zu rechnen ?} %check
+
+\begin{enumerate}[(1)]
+	\item Lösungen im homogenen Raum, Raum kann begrenzt sein
+	\item Grenzfälle $ \rightarrow $ Lösungen in den jeweiligen Teilräumen, wurden durch Stetigkeitsbed. angeschlossen.
+	\item Maxwell-Gleichungen sind linear $ \leftrightarrow $ Superpositionsprinzip.\\[5pt]
+	spezielle Lösung:
+	\begin{equation*}
+	\vec{E}(\vec{x},t) = \vec{E}_0 e^{i(\vec{k} \vec{x} - \omega t)} \qquad mit \omega(\vec{k})
+	\end{equation*}
+	$ \vec{k} $ als Parameter zum ,,numerieren`` der Lösungen\\[5pt]
+	allgemeine Lösung:
+	\begin{eqnarray}
+	\vec{E}(\vec{x},t) = \int \vec{E}_0(\vec{k}) e^{i(\vec{k} \vec{x} - \omega(\vec{k}) t)} \dd \vec{k}
+	\end{eqnarray}
+\end{enumerate}
+$ \Rightarrow $ Allgemein:
+\begin{equation*}
+\vec{E}_I(\vec{x}_{\tx{grenz}},t) = \vec{E}_{II} (\vec{x}_{\tx{grenz}},t)
+\end{equation*}
+
+% check if correct oben
+
+\noindent
+speziell:
+\begin{equation*}
+\vec{E}(\vec{x},t,p)
+\end{equation*}
+allgemein:
+\begin{equation*}
+\vec{E}(\vec{x},t) = \int \vec{p}(\varphi) \vec{E}(\vec{x},t,p) \dd p
+\end{equation*}
+
+\section{Maxwell-Gl. in Materie, komplexer Brechungsindex}
+
+Vereinfachung: $ \mu = 1 \qquad \vec{B} = \mu_o \vec{H} $
+
+\subsection{Polarisation eines Dielektrikums}
+
+\textbf{phänomenologisch/makroskopisch:}
+\begin{equation*}
+\vec{D} = \epsilon_0 \vec{E} + \vec{P}
+\end{equation*}
+allgemein gültig, bis auf:
+\lcom{Die Einschränkung der Maxwellgleichungen in Materie sind nur Mittlungen des Mikroskopische Bildes in eine fast Makroskopischen Bereich. Daraus ergibt sich die Einschränkung: Wenn unser Beobachtungsbereich zu klein wird, sind diese Mittlungen nicht mehr gültig.}
+\begin{equation*}
+\vec{P} = \epsilon_0 \overset{\circ}{\chi} \vec{E} + \dots
+\end{equation*}
+häufig gültig\\[5pt]
+lineare, isotrope Medien
+\begin{equation*}
+\vec{D} = \epsilon_0 \vec{E} + \vec{P} = \epsilon_0 \epsilon \vec{E} \qquad \vec{P} = \epsilon_0 \chi \vec{E} = \epsilon_0 (\epsilon - 1) \vec{E}
+\end{equation*}
+$ \chi : $ dielektrische Suszeptibilität\\[5pt]
+mikroskopisch:
+\begin{equation*}
+\vec{d} = \alpha \vec{E}
+\end{equation*}
+$ \vec{d} : $ induziertes Dipolmoment\\
+$ \alpha : $ Polarisierbarkeit
+
+\subsection{Ensemble unabhängiger induzierter Dipolmomente}
+
+\begin{equation*}
+\vec{P} = \frac{1}{V} \sum_i \vec{d}_i \quad \rightarrow \quad \frac{N}{V} \vec{d} \quad \tx{da sich alle Objekte gleich verhalten}
+\end{equation*}
+\begin{equation*}
+\rightarrow \qquad \chi = \frac{1}{\epsilon_0} \frac{N}{V} \alpha \quad \equiv \epsilon - 1
+\end{equation*}
+\lcom{Gilt bei Gasen gut, bei Festkörpern aufgrund von Dipol-Dipol-Wechselwirkungen nicht mehr gut.}
+
+\subsection{Lorenz-Lorentz-Oszillatormodell}
+
+\folie{Lorentz-Lorenz-Oszillatormodell für die Polarisation}
+\begin{equation*}
+\Rightarrow \quad \hat{\epsilon} = \epsilon' + i \epsilon''
+\end{equation*}
+
+\subsection{Wellengleichung in Materia}
+
+Materie $ \Rightarrow \rho \neq 0 $
+\begin{equation*}
+\Rightarrow \quad \tx{div} \vec{E} \neq 0
+\end{equation*}
+$ \Rightarrow $ Aus $ \tx{div} \vec{E} = 0 $ folgte das eine EM-Welle im Vakuum transversal sind. Muss nicht mehr so sein.\\[5pt]
+Unter Verwendung von
+\begin{enumerate}[(1)]
+	\item \begin{equation*}
+	\tx{rot rot} \vec{E} \custoup{\rightarrow}{=}{\mathclap{\tx{MW}}} - \prt{}{t} \tx{rot} \vec{B} \custoup{\rightarrow}{=}{\mathclap{\mu = 1}} - \mu_0 \prt{}{t} \tx{rot} \vec{H} \custoup{\rightarrow}{=}{\mathclap{\tx{MW}}} - \mu_0 \prt{^2}{t^2} \vec{D}
+	\end{equation*}
+	\item \begin{equation*}
+	\tx{rot rot} \vec{E} = - \vabla^2 \vec{E} + \tx{grad div} \vec{E}
+	\end{equation*}
+\end{enumerate}
+
+% check part on equal signs
+
+\begin{equation*}
+\Rightarrow \qquad \rmbox{\vabla^2 \vec{E} - \frac{1}{c_0^2} \prt{^2}{t^2} \frac{\vec{D}}{\epsilon_0} - \tx{grad div} \vec{E} = 0}
+\end{equation*}
+\color{black!20!red} $ \tx{grad div} \vec{E} $ ist wegen $ \tx{div} \vec{E} \neq 0 $ \color{black}
+
+\subsection{Wellengleichung in Materie in komplexer Schreibweise}
+\begin{equation*}
+\hat{\vec{D}} = \epsilon_0 \hat{\epsilon} \hat{\vec{E}} \qquad \hat{\epsilon} = \epsilon' + i \epsilon''
+\end{equation*}
+\begin{equation*}
+\Rightarrow \qquad \vabla^2 \vec{E} - \frac{1}{c_0} \hat{\epsilon} \prt{^2}{t^2} \vec{E} - \tx{grad div} \vec{E} = 0
+\end{equation*}
+\begin{enumerate}[(1)]
+	\item Einsetzen:
+	\begin{equation*}
+	\vec{E} = \hat{\vec{E}}_0 \tx{exp} \left[i (\hat{\vec{k}} \vec{x} - \omega t)\right] \qquad \hat{\vec{k}} = \vec{k}' + i \vec{k}''
+	\end{equation*}
+	\item Ausführen der Differentiale
+	\begin{equation*}
+	\tx{div} \vec{E} = \begin{pmatrix}
+	\prt{}{x} \\ \prt{}{y} \\ \prt{}{z}
+	\end{pmatrix} \cdot \hat{\vec{E}}_0 e^{i(\hat{\vec{k}} \vec{x} - \omega t)} = \begin{pmatrix}
+	i \hat{k}_x \\ i \hat{k}_y \\ i \hat{k}_z
+	\end{pmatrix} \cdot \hat{\vec{E}}_0 e^{i(\hat{\vec{k}} \vec{x - \omega t})} 
+	\end{equation*}
+	und kürzen des Phasenfaktors
+	\begin{align*}
+	\tx{div} \vec{E} \quad &\rightarrow \quad i \hat{\vec{k}} \cdot \hat{\vec{E}}_0 \\
+	\tx{rot} \vec{E} \quad &\rightarrow \quad i \hat{\vec{k}} \times \hat{\vec{E}}_0 \\
+	\vabla^2 \vec{E} \quad &\rightarrow \quad - \left(\hat{\vec{k}} \cdot \hat{\vec{k}}\right) \hat{\vec{E}}_0 \\
+	\tx{grad} (\tx{div} \vec{E}) \quad &\rightarrow \quad - \left(\hat{\vec{k}} \cdot \hat{\vec{E}}_0\right) \hat{\vec{k}}\\
+	\prt{^2}{t^2} \vec{E} \quad &\rightarrow \quad - \omega^2 \hat{\vec{E}}_0
+	\end{align*}
+	\item Lösung
+	\begin{equation*}
+	\Rightarrow \qquad \rmbox{- \left(\hat{\vec{k}}^2\right) \hat{\vec{E}}_0 + \frac{\omega^2}{c_0^2} \hat{\epsilon} \hat{\vec{E}}_0 + \left(\hat{\vec{k}} \cdot \hat{\vec{E}}_0\right) \hat{\vec{k}} = 0 }
+	\end{equation*}
+\end{enumerate}
+Beachte:\\
+$ \hat{\vec{k}}^2 $ ist \textbf{nicht} das Betragsquadrat
+\begin{equation*}
+\hat{\vec{k}}^2 = \vec{k}'^2 - \vec{k}''^2 + 2 i \vec{k}' \cdot \vec{k}''
+\end{equation*}
+
+\subsubsection{Was bedeutet $ \hat{\vec{k}} = \vec{k}' + i \vec{k}'' $ ?}
+
+\begin{equation*}
+e^{i(\hat{\vec{k}} \vec{x} - \omega t)} = e^{i \vec{k}'' \vec{x}} e^{i(\vec{k}' \vec{x} - \omega t)}
+\end{equation*}
+Teil mit $ \vec{k}'' : $ Dämpfung, Absorption der Welle $ I(x) = I_0 e^{-2 |k'| x} $\\
+Teil mit $ \vec{k}' : $ Ausbreitung der Welle mit $ \lambda = \frac{2 \pi}{f} $
+
+% bei skript nachschauen
+
+\noindent
+\textbf{Berechnen:}\\
+harmonischer Oszillator: $ \hat{\omega} = \omega - i \delta $\\
+$ e^{i\hat{\omega t}} = e^{-\delta t} e^{-i \omega t} $\\
+$ \delta $ ist die Dämpfung
+
+\subsection{Transversale Lösungen}
+
+transversal $ \Leftrightarrow \quad \hat{\vec{k}} \perp \hat{\vec{E}}_0 $ 
+\begin{equation*}
+\Rightarrow \quad \rmbox{\hat{\vec{k}} \cdot \hat{\vec{E}}_0 = 0}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \hat{\vec{k}}^2 \hat{\vec{E}}_0 + \frac{\omega^2}{c_0^2} \hat{\epsilon} \hat{\vec{E}}_0 = 0
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \rmbox{\hat{\vec{k}}^2 = \frac{\omega^2}{c_0^2} \hat{\epsilon}}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \rmbox{\omega(\hat{\vec{k}}) = c_0 \sqrt{\frac{\hat{\vec{k}}^2}{\hat{\epsilon}}}}
+\end{equation*}
+Real- und Imaginärteil von $ \hat{\vec{k}} $ sind verknüpft mit Real- und Imaginärteil von $ \hat{\epsilon} $
+
+\subsection{Komplexwertiger Brechungsindex}
+
+\begin{equation*}
+\hat{n} = n + i K = \sqrt{\hat{\epsilon}}
+\end{equation*}
+$ n : $ Brechungsindex\\
+$ K : $ Extinktionskoeffizient
+\begin{align*}
+\Rightarrow \quad 2 n^2 &= \sqrt{\epsilon'^2 + \epsilon''^2} + \epsilon'\\
+2 K^2 &= \sqrt{\epsilon'^2 + \epsilon''^2} - \epsilon'
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \rmbox{\sqrt{\hat{\vec{k}}^2 } = \frac{\omega}{c_0} \hat{n}}
+\end{equation*}
+
+\subsection{Lösung für kleine imaginäre Anteile.}
+
+Im allgemeinen ist die Lösung nicht einfach, da hier die Wurzeln aus komplexen Zahlen gezogen werden. Deshalb betrachten wir hier die Lösung für kleine imaginäre Anteile.\\
+$ k'' \ll k' \quad K \ll n \quad \epsilon'' \ll \epsilon' $
+\begin{align*}
+2n^2 &= \sqrt{\epsilon'^2 + \epsilon''^2} + \epsilon' \cong \epsilon' \left(1 + \frac{1}{2} \frac{\epsilon''^2}{\epsilon'^2}\right) + \epsilon' \approx 2 \epsilon' \\
+2K^2 &= \sqrt{\epsilon'^2 + \epsilon''^2} - \epsilon' \cong \epsilon' \left(1 + \frac{1}{2} \frac{\epsilon''^2}{\epsilon'^2}\right) - \epsilon' \approx \frac{1}{2} \frac{\epsilon''^2}{\epsilon'} = \frac{1}{2} \frac{\epsilon''^2}{n^2}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \rmbox{n = \sqrt{\epsilon'} \qquad K = \frac{\epsilon''}{2n}}
+\end{equation*}
+Was den Wellenvektor angeht erhalten wir:
+\begin{equation*}
+\sqrt{\hat{\vec{k}}^2} = \sqrt{\vec{k}'^2 - \vec{k}''^2 + 2 i \vec{k}' \cdot \vec{k}''} \approx | \vec{k}' | + i \frac{\vec{k}' \cdot \vec{k}''}{|\vec{k}'|}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad |\vec{k}'|  + i \frac{\vec{k}' \cdot \vec{k}''}{|\vec{k}'|} = \frac{\omega}{c_0} (n + i K)
+\end{equation*}
+\textbf{Physikalische Interpretation}\\[5pt]
+In Materie gibt es transversale EM-Wellen mit $ c = \frac{c_0}{\sqrt{\epsilon'}} $
+
+% Vorlesung 28.11.18
+
+\subsection{Evaneszente Welle}
+
+\subsubsection{Totalreflektion}
+
+\folie{Evaneszente Welle}\\
+$ \alpha \ge \alpha_T \Rightarrow $ keine Wellenausbreitung im optisch dünneren Medium\\[5pt]
+Das bedeutet nicht, dass keine el.-mag.-Felder in diesen Bereich eindringen.\\
+\folie{Felder treten in Medium ein.}\\
+\lcom{Die Felder sind jedoch so schwach, dass sie nach großem Abstand nicht mehr Messbar sind. Sie klingen mit der Einhüllenden $ e^{i k''} $ ab. $ k' $ ist null, da es sich nur um EM-Felder handelt und nicht um eine sich ausbreitende Welle.}\\
+\versuch{Übertragung von Evaneszenten Wellen durch zwei Prismen mit geringem Abstand.}
+\textbf{Beobachtung:}\\
+Die Evaneszente Welle kann ins zweite Prisma eindringen und sich dort ausbreiten.\\
+\textbf{Theorie:}\\
+Prisma: $ \hat{\epsilon} = \epsilon' + i \epsilon'' $\\
+Das Licht im Prisma wird nur schwach gedämpft. Es ist für Mikrowellen transparent so wie Glas für sichtbares Licht.\\
+Vereinfachung:
+\begin{equation*}
+\epsilon'' = 0
+\end{equation*}
+Beachte: I.A. nicht $ k'' = 0 $\\[5pt]
+Frage: Kann es ein $ \hat{\vec{k}} $ geben, der komplex bzw. imaginär ist?
+\begin{equation*}
+\hat{\vec{k}}^2 = \frac{\omega^2}{c_0^2} \epsilon' = \vec{k}'^2 - \vec{k}''^2 + 2 i \vec{k}' \cdot \vec{k}''
+\end{equation*}
+Für sichtbares Licht im Vakuum gilt:
+\begin{equation*}
+\epsilon' > 0
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vec{k}'^2 - \vec{k}''^2 + 2 i \vec{k}' \cdot \vec{k}'' > 0
+\end{equation*}
+Lösung 1: Der Normalfall der Wellenausbreitung
+\begin{equation*}
+\vec{k}'' = 0
+\end{equation*}
+Lösung 2: Evaneszente Welle
+\begin{equation*}
+\vec{k}'' > 0 \ \tx{aber} \ \vec{k}' \perp \vec{k}''
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vec{k}'^2 - \vec{k}''^2 > 0
+\end{equation*}
+\emph{Beispiel:} Totalreflexion mit $ \beta = 90 ^\circ $\\
+\lcom{Die $ \vec{k}' $ Komponente ist bei der Totalreflexion parallel zur Oberfläche des Mediums.}\\[5pt]
+einfallende Welle:\\
+normale Ausbreitung
+\begin{equation*}
+\hat{\vec{k}}_1 = \vec{k}_1 + i 0
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad k_1 = \frac{\omega^2}{c_0^2} n_1^2 \qquad (k_1: \tx{ Betrag von } \hat{\vec{k}}_1)
+\end{equation*}
+aus der Geometrei folgt:
+\begin{equation*}
+k_{1,x} = k_1 \sin\alpha
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad k_{1,x}^2 = \frac{\omega^2}{c_0^2} n_1^2 \sin^2 \alpha
+\end{equation*}
+ausfallende Welle:
+\begin{equation*}
+\hat{\vec{k}}_2 = \begin{pmatrix}
+k_{2,x} \\ 0 \\ i k_{2,z}
+\end{pmatrix} \quad \Rightarrow \quad \begin{array}{c}
+\vec{k}' = (k_{2,x} , 0 , 0) \\ \vec{k}'' = (0 , 0 , k_{2,z})
+\end{array}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \hat{\vec{k}}_2^2 = \frac{\omega^2}{c_0^2} n_2^2 = \vec{k}_2'^2 - \vec{k}_2''^2 = k_{2,x}^2 - k_{2,z}^2 > 0
+\end{equation*}
+\begin{equation*}
+\frac{\omega^2}{c_0^2} n_2^2 = k_{2,x}^2 - k_{2,z}^2 > 0
+\end{equation*}
+Brechungsgesetz: $ n_1 \sin\alpha = n_2 $
+\begin{equation*}
+\Rightarrow \quad \custo{\leftarrow}{k_{1,x}^2}{\tx{\color{red} > 0 \color{black}}} = k_{2,x}^2 - k_{2,z}^2 \color{red} >0 \color{black}
+\end{equation*}
+\begin{flushright}
+	\vspace{-20pt}
+	\color{red} Q.E.D. \color{black}
+\end{flushright}
+$ \Rightarrow $ Im Falle der Totalreflexion existiert eine evaneszente Welle \mau
+
+\section{Streuung, Spektren und Verwandtes}
+
+\subsection{Grobe Einteilung}
+
+Materiewelle
+\begin{itemize}
+	\item \textbf{reflektierend} = Licht wird \textbf{gerichtet} zurückgestrahlt
+	\item \textbf{streuend} = Licht wird \textbf{ungerichtet} zurückgestrahlt
+\end{itemize}
+Materie ist
+\begin{itemize}
+	\item \textbf{absorbierend} = Licht wird \textbf{verschluckt}
+	\item \textbf{durchsichtig} = Licht wird \textbf{Durchgelassen}
+	\item \textbf{transparent} = Licht wird \textbf{teilweise Durchgelassen} und \textbf{teilweise gestreut}
+\end{itemize}
+
+\subsection{Physikalische Prozesse: Grundgedanken}
+
+\begin{enumerate}[A)]
+	\item \textbf{ elastischer/inelastischer Stoß $ \rightarrow $ Streuung}\\
+	\folie{zur Streuung an Teilchen}\\
+	wie beim Billard\\[5pt]
+	\emph{Beispiel:} Lichtstreuung, Streuung am Photon
+	\begin{itemize}
+		\item Raylight-Streuung: elastische Streuung von Photonen an gebundenen Elektronen
+		\item Thomson-Streuung: elastische Streuung an ,,quasi freien`` Elektronen
+		\lcom{,,quasi frei``: eventuell gebunden aber winzige Bindungsenergie im Vergleich zur Energie der einfallenden Strahlung.}
+		\item Compton-Streuung: inelastische Streuung an ,,quasi freien`` Elektronen\\
+		relativistisches Billard
+		\item Raman-Streuung: inelastische Streuung aufgrund eines inelastischen Stoßes
+		\item Mie-Streuung, Brillouin-Streuung, $ \dots $
+	\end{itemize}
+	\emph{Beispiel:} andere Teilchen
+	\begin{itemize}
+		\item Elektronenstreuung
+		\item Neutronenstreuung
+		\item geladene Teilchen: Rutherford-Streuung, Mott-Streuung
+	\end{itemize}
+	\item \textbf{Anregung/Abregung}\\
+	Genereller Ablauf:\\
+	\textbf{Anregung} des Systems durch Licht, Stöße oder Wärme $ \rightarrow $ \textbf{Lebensdauer oder Anregung} $ \rightarrow $ \textbf{Abregung} des Systems als Licht, aussenden eines Teilchens, Wärme $ \dots $\\[5pt]
+	\emph{Beispiel:}
+	\begin{itemize}
+		\item Absorption: ein Photon wird absorbiert
+		\begin{equation*}
+		\hbar \omega \rightarrow \Delta E_{\tx{System}}  % check if correct
+		\end{equation*}
+		\item spontane Emission, Luminanz
+		\begin{equation*}
+		\Delta E_{\tx{System}} \rightarrow \hbar \omega
+		\end{equation*}
+		Fluoreszenz: Lebensdauer Kurz ps bis ns \\
+		Phosphoreszenz: Lebensdauer deutlich länger als ns \\
+		\item Stimulierte Emission:
+		\begin{equation*}
+		\hbar \omega + \Delta E_{\tx{System}} \rightarrow 2 \hbar \omega
+		\end{equation*}
+		\lcom{Aus einem Angeregten System und einem einfallenden Photon entstehen zwei kohärente Photonen.}
+		\item Photoeffekt:
+		\begin{equation*}
+		\hbar \omega \rightarrow E_{e^-}
+		\end{equation*}
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Wirkungsquerschnitt W.Q.S.}
+
+üblicherweise als differentieller W.Q.S. (entspricht geometrisch einer Streuung)
+\begin{equation*}
+\frac{\dd^2 \sigma}{\dd \Omega \dd E}
+\end{equation*}
+\lcom{Der W.Q.S. ist ein maß dafür wie sehr ein System Streut.}\\
+\folie{Streuung und Wirkungsquerschnitt}\\
+\lcom{Hierbei wird die Kugel an der Gestreut wird in kleine Flächenelemente geteilt: Raumwinkel-Einheiten.}\\
+\folie{Streuung von Teilchen an Materie (Atomen)}
+
+\subsection{Energie und Impulserhaltung}
+$ \Rightarrow $ Betrachtung im Energiediagramm\\[5pt]
+häufig: System durch diskrete Energieniveaus Beschrieben.\\[5pt]
+\folie{Energiediagramme Absorption und ,,dips`` im Frequenz-Intensität Diagramm}\\
+\folie{Energiediagramme bei elastischer Streuung}\\
+\folie{Energiediagramme bei inelastischen Streuung}\\
+\folie{inelastische Streuung Vergleich von verschiedene Streuungen}\\
+Streuung über Virtuelle Zustände (ein nicht diskretes Energieniveau)\\
+\folie{Spontane Emission, Lomineszenz}\\
+\folie{nochmal aber nicht Disskutiert}\\
+\folie{Quanten dots}\\
+\folie{Stimmulierte Emmision}\\
+\folie{Photo Effekt} hier wird das Elektron in einen nicht-diskreten Zustand gehoben.\\
+\folie{Up-Conversion (nicht-linearer Effekt)}\\
+\folie{Grüner Laserpointer (eigentlich IR Laser und Kristall der mit Up-Conversion grünes Licht erzeugt)}\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
