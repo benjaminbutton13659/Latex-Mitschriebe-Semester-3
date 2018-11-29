@@ -364,8 +364,7 @@ t_1 = \frac{2L_1}{\sqrt{c^2 - v^2}}
 
 \subsection{Lorenz-Invarianz der Maxwell-Gleichungen}
 
-Maxwell-Gleichungen sind Lorenz-invariant und nicht Galilei-invariant.
-
+Maxwell-Gleichungen sind Lorenz-invariant und nicht Galilei-invariant.\\
 Beispiel: Relativität der Feder. 
 
 
@@ -373,16 +372,11 @@ Beispiel: Relativität der Feder.
 
 % tikz felder Bilder abzeichnen Jan
 
-
-
-$\Rightarrow$ Im Laborsystem: $\vec{F}=q(\vec{v}\times\vec{B})$
-
-$\Rightarrow$ Im Ruhesystem: $v'=0\Rightarrow F_L=0$ \begin{LARGE}\lightning\end{LARGE}
-
-$\Rightarrow$ ein zusätzliches $E'$-Feld, $\vec{F}_q=q\vec{E}$
-
-$\Rightarrow$ neue „Transformationsgleichungen“
-
+\noindent
+$\Rightarrow$ Im Laborsystem: $\vec{F}=q(\vec{v}\times\vec{B})$\\
+$\Rightarrow$ Im Ruhesystem: $v'=0\Rightarrow F_L=0$ %{\scalebox{2}{\lightning}}\\
+$\Rightarrow$ ein zusätzliches $E'$-Feld, $\vec{F}_q=q\vec{E}$\\
+$\Rightarrow$ neue „Transformationsgleichungen“\\
 \textbf{Transformation}
 \begin{itemize}
 	\item $K$: „ruhende“ Bezugssystem
@@ -390,7 +384,7 @@ $\Rightarrow$ neue „Transformationsgleichungen“
 \end{itemize}
 
 $$\vec{E}'=(E_x,\gamma(E_y-vB_z),\gamma(E_z-vB_y))^\top$$
-$$\vec{B}'=(B_x,\gamma(B_y+\nicefrac{v}{c^2}E_z),\gamma(B_z-\nicefrac{v}{c^2}E_y))^\top$$
+$$\vec{B}'=(B_x,\gamma(B_y+\frac{v}{c^2}E_z),\gamma(B_z-\frac{v}{c^2}E_y))^\top$$
 
 \subsection{Einstein und die Patente}
 
@@ -403,6 +397,7 @@ $$\vec{B}'=(B_x,\gamma(B_y+\nicefrac{v}{c^2}E_z),\gamma(B_z-\nicefrac{v}{c^2}E_y
 Einstein arbeitete um ... beim Patentamt in .... Zu dieser Zeit wurden häufig neue Patente zur Synchronisierung verschiedenen Uhren angemeldet, was zu Einsteins Inspiration und seinen späteren Entdeckungen führte.
 
 \section{Bezugsysteme und Inertialsysteme}
+
 Zur Diskussion der Relativitätstheorie ist ein bestimmtes Vokabular mit klaren Definitionen Notwendig. Hierzu soll dieser Abschnitt dienen.
 
 \subsection{Was ist ein Bezugssystem (BZS)}
@@ -541,9 +536,9 @@ $ \rightarrow $ RZ-Abstand bleibt unter Lorenz-Trafo invariant.
 	\vec{x} \vec{x} &= x^2 + y^2 + z^2 - c^2 t^2 = l^2
 	\end{align*}
 	\item \begin{equation*}
-	\vec{x} = (x,y,z,ct) \quad  \tx{Metrik:} \quad  \overline{g} = \begin{scriptsize}\begin{pmatrix}
+	\vec{x} = (x,y,z,ct) \quad  \tx{Metrik:} \quad  \overline{g} = {\scriptstyle \begin{pmatrix}
 	1 & & & 0 \\ & 1\\ & & 1 \\ 0 & & & -1
-	\end{pmatrix}\end{scriptsize} \end{equation*}
+	\end{pmatrix}} \end{equation*}
 	\begin{equation*}
 	\Rightarrow l^2 = \vec{x} \overline{g} \vec{x} = x^2 + y^2 + z^2 - c^2 t^2
 	\end{equation*}
@@ -721,10 +716,11 @@ $ \vec{\omega} $ ist die Geschwindigkeit der Systeme zueinander.\\
 $ \vec{v} $ Die Geschwindigkeit des Körpers.
 
 \subsection{Energieerhaltung und relativistische Energie}
+
 \begin{minipage}{.5\linewidth}
 	\textbf{Gedankenexperiment:}\\[5pt]
 	Beschleunigung eines Körpers in einem konstanten Kraftfeld.
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.5\linewidth}
 	\hspace{50pt}
 	\begin{tikzpicture}
@@ -733,7 +729,8 @@ $ \vec{v} $ Die Geschwindigkeit des Körpers.
 	\draw[thick,->] (a) -- ($(a) + (1,0)$) node[above,xshift=-15pt] {$ \vec{F} $};
 	\draw[thick,->] ($(a) + (0,-.5)$) -- ($(a) + (1,-.5)$) node[below,xshift=-15pt] {$ \vec{v} $};
 	\end{tikzpicture}
-\end{minipage}
+\end{minipage}%
+\\
 $ \Rightarrow $ Körper gewinnt kinetische Energie.
 \begin{equation*}
 E_{\tx{kin}} = \int \vec{F} \cdot d\vec{s}
@@ -922,14 +919,15 @@ Die Abweichung von einer geraden Bahn kann man auf zwei Arten definieren oder fe
 \end{itemize}
 
 \subsection{Periheldrehung des Merkurs}
+
 Kepler'sche Bahngesetze \folie{zur Periheldrehung des Merkur}\\
 $ \Rightarrow $ geschlossene Ellipsen mit der Sonne im Brennpunkt\\[5pt]
 Beobachtung beim Merkur:\\
 Periheldrehung $ 5{,}74" \, \tx{pro Jahr} $\\[5pt]
-\folie{Merkur Umlaufbahn}
+\folie{Merkur Umlaufbahn}\\
 \lcom{Merkur ist nah an der Sonne da treten diese Periheldrehungen deutlicher auf. Was kann diese Bewegung laut Newton beeinflussen? Andere Planeten.}\\
-Rechnungen nach Newton mit Einbeziehung der Potentiale der anderen Planeten: $ 0{,}4311" \, \tx{pro Jahr} $ mehr als die gemessene\\[5pt]
-ART: Überschuss von $ 0{,}4303" \, \tx{pro Jahr} $
+Rechnungen nach Newton mit Einbeziehung der Potentiale der anderen Planeten: $ 0{,}4311" $ pro Jahr mehr als die gemessene\\[5pt]
+ART: Überschuss von $ 0{,}4303" $ pro Jahr
 
 \subsection{Ablenkung von Licht durch Gravitation}
 \folie{zur gravitativen Ablenkung von Licht} \folie{Bilder zur Ablenkung von Licht um die Sonne bei einer Sonnenfinsternis}\\
@@ -984,7 +982,7 @@ $ n_2 $: optisch dünner
 
 \begin{minipage}{.6\linewidth}
 	Die Ausbreitung des Lichts zwischen zwei Punkten erfolgt auf dem Weg, für den die benötigte Zeit extremal ist.
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.4\linewidth}
 	%t1:
 	\centering
@@ -997,9 +995,8 @@ $ n_2 $: optisch dünner
 	\draw (A) to[out=-45,in=190] (1,-.7) to[out=10,in=200] (B);
 	\draw (A) -- (B);
 	\end{tikzpicture}
-\end{minipage}
-
-\noindent
+\end{minipage}%
+\\
 $ \Rightarrow $ Konsequenz $\rmbox{\tx{Der Stahlengang ist umkehrbar \mau}}$
 
 \subsubsection{Mathematische Handwerkzeuge}
@@ -1034,7 +1031,7 @@ t(\vec{x}) = \frac{1}{c_{\tx{Vakuum}}} \int_{P_1}^{P_2} n(\vec{x(\tau)}) \sqrt{\
 	\begin{equation*}
 	s(x) = \sqrt{a^2 + x^2} + \sqrt{d^2 + (b-x)^2}
 	\end{equation*}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.4\linewidth}
 	%t3:  % folie:
 	\centering
@@ -1058,8 +1055,8 @@ t(\vec{x}) = \frac{1}{c_{\tx{Vakuum}}} \int_{P_1}^{P_2} n(\vec{x(\tau)}) \sqrt{\
 	\node[right] at (1,.5) {$ d $};
 	\node[left] at (-1,.5) {$ a $};
 	\end{tikzpicture}
-\end{minipage}
-
+\end{minipage}%
+\\
 Extremum:\\
 \lcom{Da wir und in einem homogenen Medium befinden und die Lichtgeschwindigkeit konstant ist, ist die Strecke $ s $ proportional zur Zeit $ t $ und wir können das Extremum der Strecke berechnen.}
 \begin{equation*}
@@ -1118,7 +1115,8 @@ n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 	\draw[dashed] (0,-1) -- (0,1);
 	\draw[thick,->] (-1,0) -- (b) node[anchor=south west] {$ x $};
 	\end{tikzpicture} \hspace{30pt}
-\end{minipage}\\[10pt]
+\end{minipage}%
+\\[10pt]
 \noindent
 Berechnung des Laufzeit des Lichts
 \begin{equation*}
@@ -1130,7 +1128,7 @@ $ \frac{dt}{dx} = 0 $\\
 	\frbox{Brechungsgesetz}{\begin{equation*}
 		\Rightarrow n_1 \sin \alpha = n_2 \sin \beta
 		\end{equation*}}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.45\linewidth}
 	%t5:
 	\centering
@@ -1159,7 +1157,7 @@ $ \frac{dt}{dx} = 0 $\\
 	\node at (-1.7,-.25) {$ n_2 $};
 	\node at (-1.7,.25) {$ n_1 $};
 \end{tikzpicture}
-\end{minipage}
+\end{minipage}%
 
 \section{Einfache Anwendungen}
 
@@ -1183,7 +1181,7 @@ $ \rightarrow $ siehe Experimentalphysik II\\
 	\end{equation*}
 	\folie{Demtröder: Prisma}
 	\vspace{40pt}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.45\linewidth}
 	%t6:
 	\centering
@@ -1213,7 +1211,8 @@ $ \rightarrow $ siehe Experimentalphysik II\\
 		\node[above] at (-1,0) {$ n = n_2 $};
 		\node[below] at (-1.5,-.3) {$ n = n_1 $};
 	\end{tikzpicture}
-\end{minipage}
+\end{minipage}%
+\\
 \textbf{Berechnung:}
 \begin{enumerate}[(i)]
 	\item $ \gamma = \beta_1 + \beta_2 $
@@ -1287,7 +1286,7 @@ alle Winkel sind klein $ \rightarrow $ trigonometrische Näherungen\\
 $ \sin(x) \approx x \qquad \cos(x) \approx 1 \qquad \tan(x) \approx x $\\[5pt]
 \textbf{Berechnung:}\\
 Ablenkung des Strahls\\
-\begin{minipage}{.5\linewidth}
+\begin{minipage}{.4\linewidth}
 	\begin{enumerate}
 		\item[(i)] $ \delta = \alpha_1 - \beta_1 + \alpha_2 - \beta_2 $
 		\item[(ii)] $ \beta_1 + \beta_2 = \gamma $
@@ -1296,8 +1295,8 @@ Ablenkung des Strahls\\
 		\Rightarrow \quad \delta = \gamma\left(\frac{n_2}{n_1} - 1\right)
 		\end{equation*}
 	\end{enumerate}
-\end{minipage}
-\begin{minipage}{.5\linewidth}
+\end{minipage}%
+\begin{minipage}{.6\linewidth}
 	%t8:
 	\centering
 	\begin{tikzpicture}
@@ -1340,12 +1339,10 @@ Ablenkung des Strahls\\
 		\node[above] at (1,0) {$ n_2 $};
 		\node[below] at (1.2,-.3) {$ n_1 $};
 	\end{tikzpicture}
-\end{minipage}\\
+\end{minipage}%
+\\
 Winkel $ \gamma $:\\[10pt]
-\begin{minipage}{.035\linewidth}
-	$ \phantom{.} $
-\end{minipage}
-\begin{minipage}{.475\linewidth}
+\begin{minipage}{.4\linewidth}
 	\begin{enumerate}
 		\item[(iv)] $ \gamma = \gamma_1 + \gamma_2 $
 		\item[(v)] $ \gamma_1 \approx \frac{h}{R_1} \quad ;\quad \gamma_2 \approx \frac{h}{R_2} $
@@ -1353,8 +1350,8 @@ Winkel $ \gamma $:\\[10pt]
 		\Rightarrow \qquad \gamma = h \left(\frac{1}{R_1} - \frac{1}{R_2}\right)
 		\end{equation*}
 	\end{enumerate}
-\end{minipage}
-\begin{minipage}{.5\linewidth}
+\end{minipage}%
+\begin{minipage}{.6\linewidth}
 	%t9:
 	\centering
 	\begin{tikzpicture}[decoration=brace,scale=.8]
@@ -1381,17 +1378,15 @@ Winkel $ \gamma $:\\[10pt]
 		\node[right,yshift=4pt,xshift=17pt] at (a) {$ \gamma_2 $};
 		\node[left,yshift=4pt,xshift=-10pt] at (b) {$ \gamma_1 $};
 	\end{tikzpicture}
-\end{minipage}\\
+\end{minipage}%
+\\
 Winkel $ \delta $:\\[10pt]
-\begin{minipage}{.035\linewidth}
-	$ \phantom{.} $
-\end{minipage}
-\begin{minipage}{.475\linewidth}
+\begin{minipage}{.4\linewidth}
 	\begin{enumerate}
 		\item[(vi)] $ \delta \approx \frac{h}{f} $
 	\end{enumerate}
-\end{minipage}
-\begin{minipage}{.5\linewidth}
+\end{minipage}%
+\begin{minipage}{.6\linewidth}
 	%t10:
 	\centering
 	\begin{tikzpicture}
@@ -1406,7 +1401,7 @@ Winkel $ \delta $:\\[10pt]
 		\centerarc[blue](0,1.2)(0:-50:1cm);
 		\node[blue] at (.6,.9) {$ \delta $};
 	\end{tikzpicture}
-\end{minipage}
+\end{minipage}%
 
 % 6.11.18 Vorlesung 7
 
@@ -1430,7 +1425,7 @@ $ D = D_{\tx{Vorne}} + D_{\tx{Hinten}} $
 		\item $ \alpha \approx \frac{h}{a} \quad \beta \approx \frac{h}{b} $
 		\item $ \delta \approx \frac{h}{f} $
 	\end{enumerate}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.5\linewidth}
 	%t1:
 	\centering
@@ -1458,7 +1453,7 @@ $ D = D_{\tx{Vorne}} + D_{\tx{Hinten}} $
 		\draw (A) -- ++(-158:1cm);
 		\draw (B) -- ++(-22:1cm);
 	\end{tikzpicture}
-\end{minipage}
+\end{minipage}%
 
 \frbox{Abbildungsgesetz}{\begin{equation*}
 \Rightarrow \frac{1}{f} = \frac{1}{a} + \frac{1}{b}
@@ -1476,7 +1471,7 @@ Graphisch:
 		\item $ \frac{1}{f} = \frac{1}{a} + \frac{1}{b} $
 		\item $ \frac{A}{a} = \frac{B}{b} $
 	\end{enumerate}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.5\linewidth}
 	%t2:
 	\centering
@@ -1509,7 +1504,7 @@ Graphisch:
 		\node[circle,draw=black,inner sep=1pt] at (-.6,.7) {2};
 		\node[circle,draw=black,inner sep=1pt] at (-.7,-1) {3};
 	\end{tikzpicture}
-\end{minipage}
+\end{minipage}%
 
 \section{Abbildungsfehler}
 
@@ -1653,7 +1648,7 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 		\begin{equation*}
 		\frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2}
 		\end{equation*}
-	\end{minipage}
+	\end{minipage}%
 	\begin{minipage}{.3\linewidth}
 		%t5:
 		\centering
@@ -1669,7 +1664,8 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 			\node[yshift=-25pt] at (2) {$ f_2 $};
 			\node[yshift=-25pt] at (3) {$\qquad \ \  \qquad \frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2} $};
 		\end{tikzpicture}
-	\end{minipage}
+	\end{minipage}%
+	\\
 	Berechnung:
 	\begin{equation*}
 	b_1 \ \tx{der 1ten Linsen} = \tx{virtuelle Gegenstandsweite} \ a_2 = b_1 - D \ \tx{der zweiten Linse}
@@ -1692,7 +1688,7 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 		\begin{equation*}
 		\beta \approx \frac{B}{f_2}
 		\end{equation*}
-	\end{minipage}
+	\end{minipage}%
 	\begin{minipage}{.5\linewidth}
 		%t6:
 		\centering
@@ -1728,7 +1724,8 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 		\centerarc[thick,<->](1,0)(0:45.5:1.25cm);
 		\node[right,yshift=7pt,xshift=15pt] at (1,0) {$ \beta $};
 		\end{tikzpicture}
-	\end{minipage}
+	\end{minipage}%
+	\\
 	$ \Rightarrow $ Vergrößerung $ V = \frac{\beta}{\alpha} = \frac{B}{f_2} \frac{f_1}{B} = \frac{f_1}{f_2} $
 	\emph{Bemerkung:}
 	\begin{itemize}
@@ -2596,8 +2593,7 @@ Gewöhnliche partielle Diff-Gleichungen
 		\Rightarrow I_{\tx{Spule}} \tx{ stetig}
 		\end{equation*}
 	\end{itemize}
-	
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.4\linewidth}
 	\centering
 	%t1:
@@ -2631,8 +2627,7 @@ Gewöhnliche partielle Diff-Gleichungen
 	\draw ($ (s) + (0,-2) $) -- ($ (s) + (0,-1) $) -- ++(135:1.2cm);
 	\node at (-1,0) {$ U $};
 	\end{tikzpicture}
-\end{minipage}
-
+\end{minipage}%
 
 % Vorlesung 27.11.18
 
@@ -2654,10 +2649,9 @@ $ \Rightarrow $
 \textbf{(nutzen) senkrechten Einfall}\\
 $ \alpha,\beta \approx 0 $\\
 
-\begin{minipage}{.09\linewidth}
-	\vspace{20pt}
+\begin{minipage}{.05\linewidth}
 	$ \perp : $ \\\\[5pt] $ \parallel : $
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.45\linewidth}
 	\centering
 	Reflexion
@@ -2667,7 +2661,8 @@ $ \alpha,\beta \approx 0 $\\
 	\begin{equation*}
 	E_{\tx{ref}} = E_{\tx{ein} \parallel} \frac{n_2 - n_1}{n_2 + n_1} 
 	\end{equation*}
-\end{minipage}
+	\vspace{10pt}
+\end{minipage}\nolinebreak%
 \begin{minipage}{.45\linewidth}
 	\centering
 	Transmission
@@ -2678,8 +2673,8 @@ $ \alpha,\beta \approx 0 $\\
 	E_{\tx{trans} \parallel} = E_{\tx{ein} \parallel} \frac{2 n_1}{n_2 + n_1}
 	\end{equation*}
 	\vspace{10pt}
-\end{minipage}
-\noindent
+\end{minipage}%
+\\
 Betrachtung für senkrechten Einfall\\
 \folie{Stetigkeitsbed. bei senkrechtem Einfall}
 \begin{enumerate}[(1)]
