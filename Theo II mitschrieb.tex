@@ -3761,21 +3761,39 @@ $$ \begin{array}{c}
 		\draw (.5,.7) arc[start angle=90,end angle=270, x radius=0.3, y radius=.7];
 		\draw[dashed] (.5,0.7) arc[start angle=90,end angle=-90, x radius=0.3, y radius=.7] node[yshift=.7cm] {$F$};
 		\draw[fill = white!20!blue] (-1.8,.3) circle (.2cm) node[] {$ \color{white} - \color{white} $};
-		\draw[fill = white!20!blue] (-1.8,-.3) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+		\draw[fill = white!20!blue] (-1.5,-.3) circle (.2cm) node[] {$ \color{white} - \color{white} $};
 		\draw[->] (-1.5,.3) -- (-1.1,.3);
-		\draw[->] (-1.5,-.3) -- (-1.1,-.3);
+		\draw[->] (-1.2,-.3) -- (-.8,-.3);
 	\end{tikzpicture}
+	\vspace{5pt}
 \end{minipage}%
 \\[10pt]
 \emph{Beispiel:} \textbf{Stationärer Strom}\\[5pt]
-%
-%T5
-%
-\noindent
-Ladungsträger mit:\\
-$ v : $ Geschwindigkeit ($ \const $)\\
-$ n : $ homogene Dichte\\
-$ q : $ Ladung\\
+\begin{minipage}{.6\linewidth}
+	Ladungsträger mit:\\
+	$ v : $ Geschwindigkeit ($ \const $)\\
+	$ n : $ homogene Dichte\\
+	$ q : $ Ladung
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	%t5:
+	\centering
+	\begin{tikzpicture}
+		\draw[dashed] (-2,.7) arc[start angle=90,end angle=-90, x radius=0.3, y radius=.7];
+		\draw[pattern = north east lines,pattern color = black!30!white] (-2,.7) -- (.5,.7) arc[start angle=90, end angle=270, x radius=.3, y radius=.7] -- (-2,-.7) arc[start angle=270, end angle=90, x radius=.3, y radius=.7];
+		\draw[draw=none, fill = black!10!white] (.5,0) ellipse (0.3cm and 0.7cm);
+		\draw[-,thick] (-3,.7) -- (2,.7);
+		\draw[-,thick] (-3,-.7) -- (2,-.7);
+		\draw (.5,.7) arc[start angle=90,end angle=270, x radius=0.3, y radius=.7];
+		\draw[dashed] (.5,0.7) arc[start angle=90,end angle=-90, x radius=0.3, y radius=.7] node[yshift=.7cm] {$F$};
+		\draw[fill = white!20!blue] (-1.8,.3) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+		\draw[fill = white!20!blue] (-1.5,-.3) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+		\draw[->] (-1.5,.3) -- (-1.1,.3);
+		\draw[->] (-1.2,-.3) -- (-.8,-.3);
+		\draw[decorate, decoration={brace,amplitude=10pt,mirror,raise=2pt}]  (-2,-.7) -- node[below=12pt] {$\Delta x = v \Delta t$}  (.5,-.7);
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Leiter mit:
 $ F : $ Querschnittsfläche\\[5pt]
 in $ \Delta t : \quad n \cdot F \cdot v \cdot \Delta t $ Ladung durch $ F $\\[5pt]
@@ -3783,13 +3801,28 @@ Ladung: $ \Delta q = q n F v \Delta t $\\[5pt]
 Strom: $ I = \frac{\Delta q}{\Delta t} = q \cdot n \cdot v \cdot F $
 
 \subsection{Stromdichte:}
-\begin{equation*}
-j = \frac{\tx{Strom}}{\tx{Fläche}} = \frac{I}{F}
-\end{equation*}
-\emph{Beispiel:} $ j = q \cdot n \cdot v $
 
-%T6
-
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	j = \frac{\tx{Strom}}{\tx{Fläche}} = \frac{I}{F}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t6:
+	\begin{tikzpicture}
+		\coordinate (e) at (0,0);
+		\draw[fill = white!20!blue] (e) circle (.2cm) node[] {$ \color{white} - \color{black} $};
+		\draw[->] ($ (e) + (35:.3) $) -- ++(35:.4);
+		\draw (-1,0) to[out=90,in=180] (0,1) to[out=0,in=-135] (3,2);
+		\draw (0,-1) to[out=70,in=200] (1.5,-.5) to[out=20,in=-170] (3,1) to[out=10,in=135] (3.5,.8);
+		\draw[very thick] (2.6,1.65) -- (3,1);
+		\draw ($ (2.6,1.65)!.5!(3,1) $) to[out=20,in=160] (4,1.3) node[anchor=north west] {$ F $};
+		\node at (.5,2) {im Allgemeinen:};
+	\end{tikzpicture}
+\end{minipage}%
+\\
+\emph{Beispiel:} $ j = q \cdot n \cdot v $\\
 \lcom{Die Stromdichte soll eine vektorielle Größe sein um die Richtung des Stromes mit einzubeziehen.}
 \begin{equation*}
 \vec{j}(\vec{r},t)
@@ -3817,9 +3850,19 @@ Punktladungen $ q_i $ mit Ortsvektoren $ \vec{r}_i $ und Geschwindigkeiten $ \ve
 
 Ströme durch dünne Drähte
 
-%T7
+%t7:
+\begin{tikzpicture}
+	\draw[very thick] (-1.5,-1) to[out=45,in=-160] (0,0) to[out=20,in=180] (1.5,0) to[out=0,in=-120] (3,1);
+	\coordinate (o) at (1.5,-2);
+	\draw[->] (o) -- ++(.5,0);
+	\draw[->] (o) -- ++(0,.5);
+	\node[anchor=north east] at (o) {$ 0 $};
+	\draw[thick ,->] (o) -- node[right] {$ \vec{r}(s) $} (0,0);
+	%\coordinate (r) at ($  $)
+	%\draw (-.75,-.5) to[out=-65,in=-80] ()
+\end{tikzpicture}
 
-$ \frac{d\vec{r}}{ds} = \frac{\vec{j}}{|\vec{j}|} $\\
+$ s \mapsto \vec{r}(s) \qquad \frac{d\vec{r}}{ds} = \frac{\vec{j}}{|\vec{j}|} $\\
 beliebige Funktion $ h(\vec{r}) $.\\
 Es gilt außerdem:
 \begin{equation*}
@@ -3867,7 +3910,7 @@ für beliebige $ V $
 \end{equation*}
 }
 
-\section{Magnetostatik}
+\subsection{Magnetostatik}
 
 Stationärer (zeitunabhängigen) Fall
 $$\underline{\rho = \rho(\vec{F}), \quad \vec{j} = \vec{j}(\vec{r})}$$
@@ -3877,6 +3920,266 @@ $$0 = \int_V \difi{^3 r} \vabla\cdot\vec{j} = \int_{\partial V} \difi{\vec{f}} \
 $$\Rightarrow I_1 = I_2$$
 
 % hier muss noch ein tikz rein ^^^
+
+% Vorlesung 03.12.18 (21 days until christmas)
+
+\section{Gesetz von Biot-Savart}
+
+stationärer Strom in Leiter $ \rightarrow $ Magnetfeld
+
+%T1
+
+Das Magnetfeld $ \dd\vec{B} $ am Ort $ \vec{r} $ verursacht durch Strom $ I $ im Linienelement $ \dd \vec{l} $ in $ \vec{r}' $.
+\begin{equation*}
+\dd \vec{B}(\vec{r}) = k' I \dd \vec{l} \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\end{equation*}
+\begin{equation*}
+|\dd \vec{B}| \propto I ,\  |\dd \vec{l}| ,\ \frac{1}{|\vec{r} - \vec{r}'|^2}
+\end{equation*}
+\begin{equation*}
+\tx{Richtung von:} \quad \dd \vec{B} \propto \dd\vec{l} \times (\vec{r},\vec{r}')
+\end{equation*}
+Die Konstante $ k' $ im SI-Einheiten-System ist:
+\begin{equation*}
+k' = \frac{\mu_0}{4 \pi}
+\end{equation*}
+$ \mu_0 $ ist die magnetische Feldkonstante, die Permeabilität des Vakuums
+\begin{equation*}
+\mu_0 = 4 \pi \cdot 10^{-7} \frac{\tx{V s}}{\tx{A m}}
+\end{equation*}
+Sie ist definiert über:
+\begin{equation*}
+\epsilon_0 \mu_0 = \frac{1}{c^2} \qquad c: \tx{ Lichtgeschw. in Vakuum}
+\end{equation*}
+Einheit:
+\begin{equation*}
+[\vec{B}] = \frac{\tx{V s}}{\tx{m}^2} = 1 \tx{ Tesla}
+\end{equation*}\\[5pt]
+\frbox{Biot-Savart-Gesetz}{
+\begin{equation*}
+\vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} I \int_{\gamma} \dd \vec{l}' \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\end{equation*}
+}
+\noindent
+Diese Formel gibt das Magnetfeld für einen Stromdurchflossenen dünnen Leiter an.\\[5pt]
+Für eine ausgedehnte Stromdichte $ \vec{j}(\vec{r}) $ gilt:
+\begin{equation*}
+\tx{,,} \dd^3 r \vec{j}(\vec{r}) = I \dd \vec{l}`` \quad \vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r \vec{j}(\vec{r}') \times \frac{\vec{r}- \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\end{equation*}
+Ähnlich in der Elektrostatik:
+\begin{equation*}
+\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 r' \rho(\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\end{equation*}
+Hier ist $ \rho(\vec{r}) $ aber ein Skalarfeld. $ \vec{j}(\vec{r}) $ ist ein Vektorfeld! Deshalb ist die Berechnung von Magnetfeldern komplizierter.\\[5pt]
+\emph{Beispiel:} Magnetfeld eines langen Drahtes:
+
+%t2:
+\begin{tikzpicture}
+	\draw[very thick, ->] (0,-1.5) -- (0,1.5) node[left] {$ I $};
+	\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ z $};
+	\draw[->] (0,0) -- (.7,.7) node[anchor=south east] {$ y $};
+	\draw[->] (0,0) -- (1,0) node[anchor=north west] {$ x $};
+\end{tikzpicture}
+
+\begin{equation*}
+\vec{j}(\vec{r}) = I \delta(x) \delta(y) \vec{e}_z
+\end{equation*}
+Setzen wir dies nun ins Biot-Savart-Gesetz ein erhalten wir das $ \vec{B} $-Feld dieses Leiters:
+\begin{align*}
+\vec{B}(\vec{r}) &= \frac{\mu_0}{4 \pi} \int \dd^3 r' I \delta (x') \delta (y') \vec{e}_z \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
+&= \frac{\mu_0}{4 \pi} \int_{-\infty}^{\infty} \dd z' \vec{e}_z \times \frac{\vec{r} - \equaltoup{\vec{r}'}{\mathclap{\vec{r}' = (0,0,z')}}}{|\vec{r} - \vec{r}'|^3}\\
+\end{align*}
+Nebenrechnung:\\
+$ \vec{B}(\vec{r}) $ hängt nicht von $ z $ ab $ \rightarrow \vec{r} = (x,y,0) \quad \rightarrow \vec{r} - \vec{r}' = (x,y,-z') $\\
+$ \vec{e}_z \times (\vec{r} - \vec{r}') = \begin{pmatrix}
+-y \\ x \\ 0
+\end{pmatrix} $
+\begin{align*}
+\qquad \qquad &= \frac{\mu_0 I}{4 \pi} \begin{pmatrix}
+-y \\ x \\ 0
+\end{pmatrix} \int_{-\infty}^{\infty} \dd z' \frac{1}{[x^2 + y^2 + z'^2]^{3/2}}\\
+&= \frac{\mu_0 I}{4 \pi} \frac{2}{x^2 + y^2} \begin{pmatrix}
+-y \\ x \\ 0
+\end{pmatrix}\\
+\vec{B} (\vec{r}) &= \frac{\mu_0 I}{2 \pi} \frac{1}{x^2 + y^2} \begin{pmatrix}
+-y \\ x \\ 0
+\end{pmatrix}
+\end{align*}
+In Zylinderkoordinaten:
+\begin{equation*}
+\vec{r} = \begin{pmatrix}
+\rho \cos \varphi \\ \rho \sin \varphi \\ z
+\end{pmatrix} \qquad \rho^2 = x^2 + y^2
+\end{equation*}
+\begin{equation*}
+\vec{e}_{\varphi} = \frac{\prt{\vec{r}}{\varphi}}{|\prt{\vec{r}}{\varphi}|} = \frac{1}{\rho} \begin{pmatrix}
+- \rho \sin \varphi // \rho \cos \varphi // 0
+\end{pmatrix} = \frac{1}{\sqrt{x^2 + y^2}} \begin{pmatrix}
+-y // x // 0
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vec{B} = \frac{\mu_0}{2 \pi} I \frac{1}{\rho} \vec{e}_{\varphi}
+\end{equation*}
+
+%T3
+
+\section{Kraft eines äußeren Magnetfeldes auf einen Stromdurchflossenen Leiter}
+
+%T4
+
+\begin{equation*}
+\dd \vec{F} = I \dd \vec{l} \times \vec{B}(\vec{r})
+\end{equation*}
+\begin{equation*}
+|\dd\vec{F}| \propto I ,\ |\dd \vec{l}| ,\ |\vec{B}|
+\end{equation*}
+\begin{equation*}
+\tx{Richtung von:} \quad \dd \vec{F} \propto \dd \vec{l} \times \vec{B}(\vec{r})
+\end{equation*}
+Damit ist die Kraft auf eine beliebige Leiterschleife:
+
+% T5 
+
+\begin{equation*}
+\vec{F} = I \int_{\gamma_2} \dd \vec{l} \times \vec{B}(\vec{r})
+\end{equation*}
+Für eine ausgedehnte Stromverteilung gilt dann:
+\begin{equation*}
+\vec{F} = \int \dd ^3 r \vec{j}(\vec{r}) \times \vec{B}(\vec{r})
+\end{equation*}
+
+\subsection{Kraft zwischen zwei Stromdurchflossenen Leitern}
+
+%T6
+
+$ I_2 $ erzeugt am Ort $ \vec{r}_1 $ das Magnetfeld:
+\begin{equation*}
+\vec{B}(\vec{r}_1)  = \frac{\mu_0}{4 \pi} I_2 \int_{\gamma} \dd \vec{l}_2 \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
+\end{equation*}
+$ \rightarrow $ Kraft auf Linienelement $ \dd \vec{l}_1 $ in $  \vec{r}_1 $:
+\begin{align*}
+\dd \vec{F}_{12} &= I_1 \dd \vec{l}_1 \times \vec{B}(\vec{r}_1)\\
+&= \frac{\mu_0}{4 \pi} I_1 I_2 \dd \vec{l}_1 \times \int_{\gamma_{2}} \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
+\end{align*}
+Die Kraft auf Leiterschleife 1 ist dann:
+\begin{equation*}
+\vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I_2 \int_{\gamma_1} \int_{\gamma_2} \dd \vec{l}_1 \times \left(\dd \vec{l}_2 \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}\right)
+\end{equation*}
+\emph{Beispiel:} Kraft zwischen zwei parallelen Drähten\\
+
+%T7
+
+\begin{equation*}
+\dd \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I2 \equalto{\dd \vec{l}_1}{\vec{e}_z \dd l_1} \times \int_{\gamma} \dd \vec{l}_2 \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
+\end{equation*}
+$ \dd \vec{l}_2 = \dd z_2 \vec{e}_z \qquad \vec{r}_1  = (0,0,0) \qquad \vec{r}_2 = (a,0,z_2) $
+
+\begin{equation*}
+\dd \vec{l}_2 \times (\vec{r}_1 - \vec{r}_2) = \dd z_2 \begin{pmatrix}
+0 \\ 0 \\ 1
+\end{pmatrix} \times \begin{pmatrix}
+-a \\ 0 \\ -z_2
+\end{pmatrix} = \dd z_2 \begin{pmatrix}
+0 \\ -a \\ 0
+\end{pmatrix}
+\end{equation*}
+\begin{align*}
+\rightarrow \dd \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I_2 \dd l_1 \ub{\vec{e}_z \times \begin{pmatrix}
+	0 \\ -a \\ 0
+	\end{pmatrix}}_{= a \vec{e}_x} \ub{\int_{-\infty}^{\infty} \dd z_2 \frac{1}{\left(a^2 + z_2^2\right)^{3/2}}}_{= \frac{2}{a^2}}
+\end{align*}
+\begin{center}
+	\begin{minipage}{.5\linewidth}
+		\frbox{Kraft pro Länge:}{
+			\begin{equation*}
+			\frac{\dd \vec{F}_{12}}{\dd l_1} = \frac{\mu_0}{4 \pi} \frac{I_1 I_2}{a} \vec{e}_x
+			\end{equation*}}
+	\end{minipage}
+\end{center}
+
+%T8
+
+\section{Feldgleichungen der Magnetostatik und Vektorpotential}
+
+\begin{equation*}
+\vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{j}(\vec{r}) \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\end{equation*}
+
+\subsection{Vektorpotential}
+
+\begin{equation*}
+\vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \ub{\vec{j}(\vec{r'}) \times \ub{\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}}_{- \vabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|}}}_{\vabla_{\vec{r}} \times \left(\vec{j}(\vec{r'}) \frac{1}{|\vec{r} - \vec{r}'|}\right)}
+\end{equation*}
+Mit einer Identität des ersten Übungsblattes:
+\begin{equation*}
+\vabla \times (f \vec{G}) = f \vabla \times \vec{G} - \vec{G} \times \vabla f
+\end{equation*}
+(Die Rotation von $ \vec{G} $ fällt weg, da $ \vec{j} $ nur von $ \vec{r}' $ abhängt.)
+\begin{equation*}
+\Rightarrow \quad \vec{B}(\vec{r}) = \vabla_{\vec{r}} \times \frac{\mu_0}{4 \pi} \int \dd^3 r'\frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|} = \vabla \times \custo{\rightarrow}{\vec{A}(\vec{r})}{\mathclap{\tx{Vektorpotential}}}
+\end{equation*}
+\begin{equation*}
+\vec{B}(\vec{r}) = \vabla \times \vec{A}(\vec{r}) \quad \leftarrow \vec{A} \tx{ nicht eindeutig festgelegt}
+\end{equation*}
+\begin{align*}
+& \vec{A}' = \vec{A} + \vec{G} \ \tx{ mit } \ \vabla \times \vec{G} = 0 \quad \rightarrow \quad \vec{G}(\vec{r}) = \vabla \Lambda (\vec{r})\\
+& \rightarrow \quad \vabla \times \vec{A}' = \vabla \times \vec{A} + \vabla \times \vec{G} = \vec{B}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|} + \vabla \Lambda (\vec{r}) \quad \Rightarrow \quad \vabla \times \vec{A}(\vec{r}) = \vec{B}(\vec{r})
+\end{equation*}
+\textbf{Transformation: Eichtransformation}
+\begin{equation*}
+\vec{A}(\vec{r}) \rightarrow \vec{A}' = \vec{A} + \vabla \Lambda
+\end{equation*}
+\textbf{Magnetostatik: übliche Wahl:} $ \Lambda \equiv 0 $
+ß\begin{equation*}
+\Rightarrow \quad \vec{A} = \frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+Eine andere Eichung ist die \textbf{Coulomb-Eichung:}
+\begin{equation*}
+\Rightarrow \quad \vabla \cdot \vec{A} = 0
+\end{equation*}
+\begin{align*}
+\vabla \cdot \vec{A} &= \frac{\mu_0}{4 \pi} \int \dd^3 r' \ub{\vabla_{\vec{r}} \cdot \left(\vec{j}(\vec{r}') \frac{1}{|\vec{r} - \vec{r}'|}\right)}\\
+& \qquad \qquad \qquad = \vec{j}(\vec{r}') \cdot \ub{\vabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|}}_{-\vabla_{\vec{r}'} \frac{1}{|\vec{r} - \vec{r}'|}}\\
+& \qquad \qquad \qquad = - \vabla_{\vec{r}'} \cdot \left(\vec{j}(\vec{r}') \frac{1}{|\vec{r} - \vec{r}'|}\right) + \ob{\left(\vabla_{\vec{r}'} \cdot \vec{j}(\vec{r}')\right)}^{=0} \frac{1}{|\vec{r} - \vec{r}'|}\\
+&= - \frac{\mu_0}{4 \pi} \int_{\mathbb{R}^3} \dd^3 r' \vabla_{\vec{r}'} \cdot \left(\frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}\right)\\
+&= - \frac{\mu_0}{4 \pi} \lim\limits_{R \to \infty} \int\limits_{K_R(0)} \dd^3 r' \vabla_{\vec{r}'} \cdot \left(\frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}\right)\\
+&= \frac{\mu_0}{4 \pi} \ub{\lim\limits_{R\to \infty} \int\limits_{\partial K_R(0)} \dd \vec{f}' \cdot \frac{\vec{j} (\vec{r}')}{|\vec{r} - \vec{r}'|}}_{=0} = 0
+\end{align*}
+\emph{Beispiel:} homogenes Magnetfeld
+\begin{equation*}
+\vec{B} = \vec{B}_0 \qquad \vec{B} = \vabla \times \vec{A}
+\end{equation*}
+\begin{equation*}
+\vec{A} = \frac{1}{2} \vec{B} \times \vec{r}
+\end{equation*}
+Mit der Identität:
+\begin{equation*}
+\vabla \times (\vec{a} \times \vec{b}) = \vec{a} (\vabla \cdot \vec{b}) - \vec{b} (\vabla \cdot \vec{a}) + (\vec{b} \cdot \vabla) \vec{a} - (\vec{a} \cdot \vabla) \vec{b}
+\end{equation*}
+\begin{equation*}
+\rightarrow \quad \vabla \times \vec{A} = \frac{1}{2} \vabla \times (\vec{B} \times \vec{r}) = \frac{1}{2} \vec{B} \ub{\vabla \cdot \vec{r}}_{= 3} - \frac{1}{2} \ub{(\vec{B} \cdot \vabla) \vec{r}}_{= \vec{N}} = \vec{B}
+\end{equation*}
+Mit der Identität:
+\begin{equation*}
+\vabla \cdot (\vec{a} \times \vec{b}) = \vec{b} \cdot (\vabla \times \vec{a}) - \vec{a} \cdot (\vabla \times \vec{b})
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vabla \cdot \vec{A} = \frac{1}{2} \vabla \cdot \left(\vec{B} \times \vec{r}\right) = - \vec{B} \cdot \ub{\left(\vabla \times \vec{r}\right)}_{= 0} = 0
+\end{equation*}
+andere mögliche Wahl:
+\begin{equation*}
+\vec{A}' = \frac{1}{2} \vec{B} \times \vec{r} + \ub{\vabla \frac{r^2}{2}}_{=\vec{r}} = \vec{A} + \vec{r}
+\end{equation*}
+\begin{equation*}
+\vabla \times \vec{A}' = \ub{\vabla \times \vec{A}}_{= \vec{B}} + \ub{\vabla \times \vec{r}}_{= 0} = \vec{B}
+\end{equation*}
+
+
+
 
 
 
