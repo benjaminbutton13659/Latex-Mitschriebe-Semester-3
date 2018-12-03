@@ -2646,7 +2646,7 @@ $ \Rightarrow $
 	\item Normalkomponenten von $ \vec{B}(\vec{x},t) $ ist stetig
 	\item Tangentialkomponente von $ \vec{E}(\vec{x},t) $ ist stetig
 \end{itemize}
-\textbf{(nutzen) senkrechten Einfall}\\
+\textbf{(nahezu) senkrechten Einfall}\\
 $ \alpha,\beta \approx 0 $\\
 
 \begin{minipage}{.05\linewidth}
@@ -2729,7 +2729,7 @@ speziell:
 \end{equation*}
 allgemein:
 \begin{equation*}
-\vec{E}(\vec{x},t) = \int \vec{p}(\varphi) \vec{E}(\vec{x},t,p) \dd p
+\vec{E}(\vec{x},t) = \int \vec{f}(p) \vec{E}(\vec{x},t,p) \dd p
 \end{equation*}
 
 \section{Maxwell-Gl. in Materie, komplexer Brechungsindex}
@@ -2851,7 +2851,7 @@ Teil mit $ \vec{k}' : $ Ausbreitung der Welle mit $ \lambda = \frac{2 \pi}{f} $
 % bei skript nachschauen
 
 \noindent
-\textbf{Berechnen:}\\
+\textbf{Bemerkung:}\\
 harmonischer Oszillator: $ \hat{\omega} = \omega - i \delta $\\
 $ e^{i\hat{\omega t}} = e^{-\delta t} e^{-i \omega t} $\\
 $ \delta $ ist die Dämpfung
@@ -2888,7 +2888,7 @@ $ K : $ Extinktionskoeffizient
 \Rightarrow \quad \rmbox{\sqrt{\hat{\vec{k}}^2 } = \frac{\omega}{c_0} \hat{n}}
 \end{equation*}
 
-\subsection{Lösung für kleine imaginäre Anteile.}
+\subsection{Lösung für kleine imaginäre Anteile. (schwache Dämpfung bzw Absorbtion)}
 
 Im allgemeinen ist die Lösung nicht einfach, da hier die Wurzeln aus komplexen Zahlen gezogen werden. Deshalb betrachten wir hier die Lösung für kleine imaginäre Anteile.\\
 $ k'' \ll k' \quad K \ll n \quad \epsilon'' \ll \epsilon' $
@@ -2907,7 +2907,9 @@ Was den Wellenvektor angeht erhalten wir:
 \Rightarrow \quad |\vec{k}'|  + i \frac{\vec{k}' \cdot \vec{k}''}{|\vec{k}'|} = \frac{\omega}{c_0} (n + i K)
 \end{equation*}
 \textbf{Physikalische Interpretation}\\[5pt]
-In Materie gibt es transversale EM-Wellen mit $ c = \frac{c_0}{\sqrt{\epsilon'}} $
+Der Realteil von $\epsilon'$ führt zu einer Ausbreitungsgeschwindigkeit $ c = \frac{c_0}{\sqrt{\epsilon'}} $\\
+Der Imaginärteil von $\epsilon'$ führt zu einer Dämpfung/Absorption der Welle.\\
+\rightarrow In Materie gibt es transversale EM-Wellen mit $ c = \frac{c_0}{\sqrt{\epsilon'}}$ (falls c\leq c_0)
 
 % Vorlesung 28.11.18
 
@@ -2924,7 +2926,7 @@ Das bedeutet nicht, dass keine el.-mag.-Felder in diesen Bereich eindringen.\\
 \textbf{Beobachtung:}\\
 Die Evaneszente Welle kann ins zweite Prisma eindringen und sich dort ausbreiten.\\
 \textbf{Theorie:}\\
-Prisma: $ \hat{\epsilon} = \epsilon' + i \epsilon'' $\\
+Prisma: $ \hat{\epsilon} = \epsilon' + i \epsilon'' $ \qquad \epsilon' \gg \epsilon''\\
 Das Licht im Prisma wird nur schwach gedämpft. Es ist für Mikrowellen transparent so wie Glas für sichtbares Licht.\\
 Vereinfachung:
 \begin{equation*}
