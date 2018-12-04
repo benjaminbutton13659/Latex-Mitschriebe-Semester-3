@@ -3845,29 +3845,51 @@ Punktladungen $ q_i $ mit Ortsvektoren $ \vec{r}_i $ und Geschwindigkeiten $ \ve
 \begin{equation*}
 \vec{j}(\vec{r},t) = \sum_i q_i \vec{r}_i \delta(\vec{r} - \vec{r}_i(t))
 \end{equation*}
-
-\subsubsection{Linienströme}
-
-Ströme durch dünne Drähte
-
-%t7:
-\begin{tikzpicture}
-	\draw[very thick] (-1.5,-1) to[out=45,in=-160] (0,0) to[out=20,in=180] (1.5,0) to[out=0,in=-120] (3,1);
-	\coordinate (o) at (1.5,-2);
-	\draw[->] (o) -- ++(.5,0);
-	\draw[->] (o) -- ++(0,.5);
-	\node[anchor=north east] at (o) {$ 0 $};
-	\draw[thick ,->] (o) -- node[right] {$ \vec{r}(s) $} (0,0);
-	%\coordinate (r) at ($  $)
-	%\draw (-.75,-.5) to[out=-65,in=-80] ()
-\end{tikzpicture}
-
-$ s \mapsto \vec{r}(s) \qquad \frac{d\vec{r}}{ds} = \frac{\vec{j}}{|\vec{j}|} $\\
-beliebige Funktion $ h(\vec{r}) $.\\
-Es gilt außerdem:
-\begin{equation*}
-\dd \vec{f} = \frac{\vec{j}}{|\vec{j}|} \dd f \qquad \dd f = \dd \vec{f} \cdot \frac{\vec{j}}{|\vec{j}|}
-\end{equation*}
+\begin{minipage}{.6\linewidth}
+	\subsubsection{Linienströme}
+	
+	Ströme durch dünne Drähte
+	$$ s \mapsto \vec{r}(s) \qquad \frac{d\vec{r}}{ds} = \frac{\vec{j}}{|\vec{j}|} $$
+	beliebige Funktion $ h(\vec{r}) $.\\
+	Es gilt außerdem:
+	\begin{equation*}
+	\dd \vec{f} = \frac{\vec{j}}{|\vec{j}|} \dd f \qquad \dd f = \dd \vec{f} \cdot \frac{\vec{j}}{|\vec{j}|}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	%t7:
+	\begin{tikzpicture}
+		\coordinate (r) at ($ (1.5,-2) + (-2,-.5) $);
+		% gamma
+		\node at (3,.4) {$ \gamma_i $};
+		% rectangles and connection
+		\coordinate (i) at (-.75,-.35);
+		\draw ($ (i) + (-.25,-.25) $) rectangle ($ (i) + (.25,.25) $);
+		\draw[fill=black!4!red!5!white] ($ (r) + (-2.25,-2.4) $) rectangle ($ (r) + (2.25,.25) $);
+		\draw ($ (i) + (0,-.25) $) to[out=-60,in=70] ($ (r) + (0,.25) $);
+		% thick line
+		\draw[very thick] (-1.5,-1) to[out=45,in=-160] (0,0) to[out=20,in=180] (1.5,0) to[out=0,in=-120] (3,1);
+		% origin and j
+		\coordinate (o) at (2.5,-2);
+		\draw[->] (o) -- ++(.5,0);
+		\draw[->] (o) -- ++(0,.5);
+		\node[anchor=north east] at (o) {$ 0 $};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] (null) at (0,0) {};
+		\draw[thick, ->] (o) -- node[right] {$ \vec{r}(s) $} (null);
+		\draw[thick, ->] (0,0) -- ++(20:1cm);
+		\draw ($ (0,0)!.7!(20:1cm) $) to[out=110,in=0] (-.3,.7) node[left] {$ \vec{j} , \ \prd{\vec{r}}{s} $};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (o) {};
+		% enlarged zylinder
+		\draw ($ (r) + (-1,0) $) -- ++(2,0);
+		\draw ($ (r) + (-1,-1.4) $) -- ++(2,0);
+		\draw[draw=none, fill=black!15!white] ($ (r) + (.7,-.7) $) ellipse (.3cm and .7cm);
+		\draw[pattern = north east lines, pattern color=black!40!white] ($ (r) + (-.7,-1.4) $) arc[start angle=-90, end angle=-270, x radius=.3, y radius=.7] -- ($ (r) + (.7,0) $) arc[start angle=90, end angle=270, x radius=.3, y radius=.7] -- cycle;
+		\draw[dashed] ($ (r) + (.7,0) $) arc[start angle=90, end angle=-90, x radius=.3, y radius=.7];
+		\draw[decorate, decoration={brace,amplitude=7pt,mirror,raise=2pt}] ($ (r) + (-.7,-1.4) $) -- node[below=12pt] {$ \dd s $} ($ (r) + (.7,-1.4) $);
+		\draw ($ (r) + (.7,-.7) $) to[out=-25,in=120] ($ (r) + (1.4,-1.4) $) node[anchor=north west] {$ \dd f $};
+		\draw ($ (r) + (-.4,-.7) $) to[out=160,in=20] ($ (r) + (-1.4,-.7) $) node[left] {$ \dd ^3 r $};
+	\end{tikzpicture}
+\end{minipage}%
 \begin{align*}
 & \int \dd^3 r \vec{j}(\vec{r},t) j(\vec{r})\\
 =& \int \dd s \dd f \vec{j}(\vec{r},t) h(\vec{r})\\
@@ -3882,27 +3904,62 @@ effektiv gilt also:
 
 \subsection{Kontinuitätsgleichung}
 
-Ladungsdichte: $ \rho(\vec{r},t) $\\
-Ladung in $ V $: $ \int_V \dd^3 r \rho(\vec{r},t) $
-
-%T8
-
-
-\noindent
+\begin{minipage}{.5\linewidth}
+	Ladungsdichte: $ \rho(\vec{r},t) $\\
+	Ladung in $ V $: $ \int_V \dd^3 r \rho(\vec{r},t) $
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t8:
+	\begin{tikzpicture}
+		\draw[thick] (-2.5,1) -- (2.5,1);
+		\draw[thick] (-2.5,-1) -- (2.5,-1);
+		\draw[thick] (-1.5,1) -- (-1.5,-1);
+		\draw[thick] (1.5,1) -- (1.5,-1);
+		\foreach \x\y in {.6/.4,.2/-.5,-.7/.2}
+		\draw[fill = white!20!blue] (\x,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+		\foreach \x\y\a in {.6/.4/a,.2/-.5/b,-.7/.2/c}
+		\coordinate (\a) at (\x,\y);
+		\draw[->] ($ (a) + (.3,0) $) -- node[above] {$ \vec{j} $} ($ (a) + (.7,0) $);
+		\draw[->] ($ (b) + (.3,0) $) -- node[above] {$ \vec{j} $} ($ (b) + (.7,0) $);
+		\draw[->] ($ (c) - (.3,0) $) -- node[above] {$ \vec{j} $} ($ (c) - (.7,0) $);
+		\draw[->] (-1.5,0) -- node[above] {$ \dd \vec{f} $} ++(-1,0);
+		\draw[->] (1.5,0) -- node[above] {$ \dd \vec{f} $} ++(1,0);
+		\draw (0,.7) to[out=90,in=-20] (-.5,1.3) node[anchor=south east] {$ V $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Strom von Ladungen aus $ V $ (durch $ \partial V $):
 \begin{equation*}
 \int_{\partial V} \dd \vec{f} \cdot \vec{j}(\vec{r},t)
 \end{equation*}
-in abgeschlossenen Systemen gilt: Die Ladung ist konstant:
-\begin{equation*}
-\prd{}{t} \int_V \dd^3 r \rho(\vec{r},t) = - \int_{\partial V} \dd \vec{f} \cdot \vec{j}(\vec{r},t)
-\end{equation*}
-\begin{equation*}
-\Rightarrow \quad 0 = \ub{\prd{}{t} \int_V \dd ^3 r \rho(\vec{r},t)}_{=\int_V \dd^3 r \prt{\rho}{t}} + \ub{\int_{\partial V} \dd \vec{f} \cdot \vec{j}(\vec{r},t)}_{=\int_V \dd^3 r \vabla \cdot \vec{j}}
-\end{equation*}
-\begin{equation*}
-\Rightarrow \quad \int_V \dd^3 r \left(\prt{\rho}{t} + \vabla \cdot \vec{j}\right) = 0
-\end{equation*}
+in abgeschlossenen Systemen gilt: Die Ladung ist konstant:\\[10pt]
+\begin{minipage}{.35\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=black!5!white] (-1.5,-1) rectangle (1.5,1) node[anchor=north east] {$ V $};
+		\draw[fill=black!15!white] (-1.5,.7) .. controls (0,.8) and (0,.2) .. (1.5,.3) -- ++(0,.7) -- ++(-3,0) -- ++(0,-.3);
+		\draw[fill=black!15!white] (-1.5,-.7) .. controls (0,-.8) and (0,-.2) .. (1.5,-.3) -- ++(0,-.7) -- ++(-3,0) -- ++(0,.3);
+		\draw[->] (-1.2,0) -- node[above] {$ \vec{j} $} (-.3,0);
+		\node at (-1.75,-.2) {$ F_1 $};
+		\draw[->] (-1.5,.25) -- node[above] {$ \vec{f}_1 $} (-2.3,.25);
+		\node at (1.75,-.2) {$ F_2 $};
+		\draw[->] (1.5,.2) -- node[above] {$ \vec{f}_2 $} (2.3,.2);
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.65\linewidth}
+	\begin{equation*}
+	\prd{}{t} \int_V \dd^3 r \rho(\vec{r},t) = - \int_{\partial V} \dd \vec{f} \cdot \vec{j}(\vec{r},t)
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad 0 = \ub{\prd{}{t} \int_V \dd ^3 r \rho(\vec{r},t)}_{=\int_V \dd^3 r \prt{\rho}{t}} + \ub{\int_{\partial V} \dd \vec{f} \cdot \vec{j}(\vec{r},t)}_{=\int_V \dd^3 r \vabla \cdot \vec{j}}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \int_V \dd^3 r \left(\prt{\rho}{t} + \vabla \cdot \vec{j}\right) = 0
+	\end{equation*}
+\end{minipage}%
+
+\noindent
 für beliebige $ V $
 \frbox{Kontinuitätsgleichung}{
 \begin{equation*}
@@ -3919,16 +3976,19 @@ Konsequenz: Durch jeden Querschnitt eines Leiters fließt der selbe Strom.
 $$0 = \int_V \difi{^3 r} \vabla\cdot\vec{j} = \int_{\partial V} \difi{\vec{f}} \cdot \vec{j} = \int_{F_1} \difi{\vec{f}} \cdot \vec{j} + \int_{F_2}\difi{\vec{f}} \cdot \vec{j} = -I_i + I_2$$
 $$\Rightarrow I_1 = I_2$$
 
-% hier muss noch ein tikz rein ^^^
-
 % Vorlesung 03.12.18 (21 days until christmas)
 
 \section{Gesetz von Biot-Savart}
 
-stationärer Strom in Leiter $ \rightarrow $ Magnetfeld
-
-%T1
-
+stationärer Strom in Leiter $ \rightarrow $ Magnetfeld\\
+\begin{comment}
+%t1:
+\begin{tikzpicture}
+	\draw[->] (0,0) -- (0,1.5) node[anchor=south east] {$ z $};
+	\draw[->] (0,0) -- (1.5,0) node[anchor=north west] {$ y $};
+	\draw[->] (0,0) -- (-1,-1) node[anchor=north east] {$ x $};
+\end{tikzpicture}
+\end{comment}
 Das Magnetfeld $ \dd\vec{B} $ am Ort $ \vec{r} $ verursacht durch Strom $ I $ im Linienelement $ \dd \vec{l} $ in $ \vec{r}' $.
 \begin{equation*}
 \dd \vec{B}(\vec{r}) = k' I \dd \vec{l} \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}

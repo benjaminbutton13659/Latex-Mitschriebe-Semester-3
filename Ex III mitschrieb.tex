@@ -2909,7 +2909,7 @@ Was den Wellenvektor angeht erhalten wir:
 \textbf{Physikalische Interpretation}\\[5pt]
 Der Realteil von $\epsilon'$ führt zu einer Ausbreitungsgeschwindigkeit $ c = \frac{c_0}{\sqrt{\epsilon'}} $\\
 Der Imaginärteil von $\epsilon'$ führt zu einer Dämpfung/Absorption der Welle.\\
-\rightarrow In Materie gibt es transversale EM-Wellen mit $ c = \frac{c_0}{\sqrt{\epsilon'}}$ (falls c\leq c_0)
+$\rightarrow$ In Materie gibt es transversale EM-Wellen mit $ c = \frac{c_0}{\sqrt{\epsilon'}}$ (falls $c\leq c_0$)
 
 % Vorlesung 28.11.18
 
@@ -2926,7 +2926,7 @@ Das bedeutet nicht, dass keine el.-mag.-Felder in diesen Bereich eindringen.\\
 \textbf{Beobachtung:}\\
 Die Evaneszente Welle kann ins zweite Prisma eindringen und sich dort ausbreiten.\\
 \textbf{Theorie:}\\
-Prisma: $ \hat{\epsilon} = \epsilon' + i \epsilon'' $ \qquad \epsilon' \gg \epsilon''\\
+Prisma: $ \hat{\epsilon} = \epsilon' + i \epsilon''  \qquad \epsilon' \gg \epsilon''$\\
 Das Licht im Prisma wird nur schwach gedämpft. Es ist für Mikrowellen transparent so wie Glas für sichtbares Licht.\\
 Vereinfachung:
 \begin{equation*}
@@ -2965,7 +2965,7 @@ normale Ausbreitung
 \begin{equation*}
 \Rightarrow \quad k_1 = \frac{\omega^2}{c_0^2} n_1^2 \qquad (k_1: \tx{ Betrag von } \hat{\vec{k}}_1)
 \end{equation*}
-aus der Geometrei folgt:
+aus der Geometrie folgt:
 \begin{equation*}
 k_{1,x} = k_1 \sin\alpha
 \end{equation*}
@@ -3088,19 +3088,130 @@ Streuung über Virtuelle Zustände (ein nicht diskretes Energieniveau)\\
 \folie{Up-Conversion (nicht-linearer Effekt)}\\
 \folie{Grüner Laserpointer (eigentlich IR Laser und Kristall der mit Up-Conversion grünes Licht erzeugt)}\\
 
+% Vorlesung 04.12.18 (20 days until christmas)
+
+\subsection{Spektroskopie}
+
+\begin{equation*}
+\tx{Spektroskopie } = \tx{ Intensität vs. Frequenz}
+\end{equation*}
+\lcom{Ein Energiesektrum und ein gemessenes Intensitätsspektrum sind nicht das selbe! Ein Energiespektrum zeigt absolute Energieniveaus an, ein Intensitätsspektrumm Energiedifferenzen.}\\[5pt]
+Typischer Aufbau:
+\begin{equation*}
+\tx{Quelle } \rightarrow \tx{ Probe } \rightarrow \tx{ Analysator, Detektor}
+\end{equation*}
+Die Quelle kann monochromatisch sein oder weißes Licht ausstrahlen (breites Spektrum von Frequenzen).\\
+Die Energieanalyse ,,Richtung`` $ \prd{^2 \sigma}{E \dd \Omega} $ ($ \sigma = $ Wirkungsquerschnitt)\\
+\folie{einfaches Prismen-Spektrometer}\\
+\folie{ESR (Elektronen-Spin-Resonanz) Spektrometer}
+\lcom{Beim ESP Spektrometer wird das Energiespektrum der Probe veränder (durch angelegte Magnetfelder). Der Messstrahl wird zuerst aufgeteilt in einen Vergleichsstrahl und einen Messstrahl, die vor dem Detektor wieder zusammengefügt werden um dort wir beim Michelson-Interferometer zu interferieren.}\\
+\folie{ein komerzielles Spektrometer}
+
+\subsubsection{Typische Messkonfiguration}
+
+\begin{itemize}
+	\item Reflektionsspektrum %t1:
+	\item Transmissionsspektrum %t2:
+	\item Emissionsspektrum
+	\item Absorptionsspektrum
+\end{itemize}
+\begin{center}
+	\begin{tikzpicture}
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (q) at (-.9,1.4) {$ Q $};
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (p) at (.9,1.4) {$ P $};
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (d) at (0,0) {$ D $};
+		\draw[thick,->] (q) -- (p);
+		\draw[thick,->] (p) -- (d);
+		\node[above] at (0,2) {Reflektion:};
+	\end{tikzpicture}
+	\hspace{2cm}
+	\begin{tikzpicture}
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (q) at (-1.4,0) {$ Q $};
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (p) at (0,0) {$ P $};
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (d) at (1.4,0) {$ D $};
+		\draw[thick,->] (q) -- (p);
+		\draw[thick,->] (p) -- (d);
+		\node[above] at (0,.7) {Transmission:};
+	\end{tikzpicture}
+	\hspace{2cm}
+	\begin{tikzpicture}
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (q) at (-1.8,0) {$ Q $};
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (p) at (0,0) {$ P $};
+		\node[circle,draw=black,line width=1pt,inner sep=2pt,minimum size=20pt] (d) at (1,-1) {$ D $};
+		\draw[thick,->] (q) -- (p);
+		\draw[thick,->] (p) -- (d);
+		\node[above] at (-1,1) {Emission:};
+		\foreach \a in {0,45,90,135,180,225,270,315}
+		\draw[->] (\a:10pt) -- ++(\a:.7cm);
+	\end{tikzpicture}
+\end{center}
+\folie{Schematisch: Spektrometer}\\[5pt]
+\versuch{Natrium-Dampf-Lampe}
+Das Licht aus der Natrium-Dampf-Lampe geht durch eine Glasröhre mit aufgedampftem Natrium. Diese Röhre wird nun erhitzt, sodass das Natrium verdampft.
+Aufgrund der Erhitzung wird das nun Gasförmige Natrium von der Lampe angeregt und Emittiert selbst auch Licht derselben Farbe. Da dieses Licht nicht mehr gerichtet ist sondern in alle Richtungen strahlt wird die Intensität des transmittierten Lichts geringer.\\
+Bei sehr hoher Temperatur ist die Absorption so stark, dass nach dem Anfangsbereich der Röhre schon das ganze Licht Absorbiert und ausgestrahlt wird.\\[5pt]
+\versuch{Weißes Licht auf Salz (Natriumchlorid)}
+Sichtbares Spektrum: Rot$ | $Grün.\\
+Emissionsspektrum über Erhitzung ohne Weißlicht-Beleuchtung mit Gasbrenner (farbige Flamme)\\
+Bei Erhitzung und Beleuchtung: Absorptionsspektrum: Rot - Gelb - Grün.\\[5pt]
+\versuch{Rayleight Strahlung}
+Eine Lampe strahlt unpolarisiertes Weißes Licht aus.\\
+Das an den Wassermolekülen (und Dreckrückständen im Wasser) gestreute Licht hat eine lineare Polarisation. Von den Molekülen geht eine Herz'sche Dipolstrahlung aus (Polarisation in Richtung der Antenne, Ausbreitung der Welle in der Ebene orthogonal dazu). Dies kommt daher, dass das Weise licht nur transversal polarisierte Anteile hat keine longitudinalen. Daraus ergibt sich, welche Dipole angeregt werden, und das die Polarisation nur orthogonal zur Ausbreitung des Lichts stattfindet.\\
+Die Rayleights-Streuung ist mit $ \omega^4 $ Frequenzabhängig, es wird also blau wesentlich stärker Reflektiert als rotes Licht.es Licht. Dies erklärt den Blauen Schimmer um die Weiße Kreisscheibe auf dem Schirm.\\
+beim hinzugeben von winzigen Kügelchen die im Wasser schwimmen wird mehr Licht gestreut. Die Kreisscheibe wird immer röter und röter zunächst gelb dann dunkel orange wie die Abendsonne. Die blauen Frequenzen sind eher am Rand zu sehen und konzentrierter als zuvor. (Beim blauen Himmel sehen wir den Emissionsanteil hier den Transmissionsanteil).\\[5pt]
+
+\subsubsection{Typen von Spektren}
+
+Linienspektrum $ \quad $ kontinuierliches Spektren\\
+\folie{verschiedene Spektren}
+
+\textbf{Zugängliche Infos im Linienspektrum (Prüfungsrelevant!)}\\[5pt]
+\begin{enumerate}[1)]
+	\item Die Lage des Peaks oder die Frequenz des Peaks gibt die \textbf{Übergangsenergie} an die nur eine Energiedifferenz angibt.\\
+	\begin{minipage}{.8\linewidth}
+		\begin{equation*}
+		E_2 - E_1 = kV
+		\end{equation*}
+	\end{minipage}%
+	\begin{minipage}{.2\linewidth}
+		%t3:
+		\centering
+		\begin{tikzpicture}[scale=.6]
+			\draw (-1,1) -- (1,1) node[right] {$ E_2 $};
+			\draw (-1,-1) -- (1,-1) node[right] {$ E_1 $};
+			\draw[thick,->] (0,-1) -- (0,1);
+		\end{tikzpicture}
+	\end{minipage}%
+	\item \textbf{Intensität}: Diese hängt von der Übergangswahrscheinlichkeit und damit auch der Teilchendichte zusammen.\\
+	Die Intensität hat auch mit der \textbf{stärke der Wechselwirkung} von dem Eingestrahlten (\textbf{Sonde}) mit dem Bestrahlten (\textbf{Probe}) zu tun.
+	\item \textbf{Linienbreite/Linienform}
+	Bei der Lorenzverteilung ist die Breite der Verteilung verknüpft mit der Lebensdauer der Teilchen.
+	\begin{equation*}
+	e^{-\frac{t}{\tau}} \quad \Rightarrow \quad \tx{Lorenzlinie} \quad \Rightarrow \quad \tx{Lebensdauer}
+	\end{equation*}
+	\folie{Gaußverteilung als Summe der Wahrscheinlichkeitsverteilungen einzelner Moleküle}
+	\begin{equation*}
+	\tx{statistische Verteilung } \quad \Rightarrow \quad \tx{Gaußverteilung}
+	\end{equation*}
+\end{enumerate}
 
 
+\section*{Fragerunde}
+\addcontentsline{toc}{section}{IV.\ \:  Fragerunde}
 
-
-
-
-
-
-
-
-
-
-
+\textbf{Dispersionsrelation bei getriebener Schwingung:}\\
+(harmonischer Oszillator oder Dispersion bei Schwingungen)\\
+Gleichschwingung bei geringer Antriebsfrequenz\\
+Phasenverschiebung bei zu schnellem Antrieb und geringe Amplitude des Schwingers\\
+quasi ein Tiefpass\\
+Dieses Problem ist mit komplexen Größen Lösbar. Zur Physikalischen Betrachtung der Lösung: Leistungsaufnahme des Schwingenden Systems. Diese Leistung ist mit dem Imaginärteil verknüpft.\\
+Bei unserem Beispiel eines dielektrischen Materials geht es um Absorption. Diese stammt aus dem Leistungsverlust aus dem Imaginärteil der Dielektrizitätskonstante. Der Realteil ist hier mit dem Brechungsindex verknüpft.\\[5pt]
+\textbf{Angeregte Emissionen:}\\
+Das anregende und das angeregte Photon können aber müssen nicht in Phase sein. Allgemein ist dies nicht so.\\
+Das Angeregte Atom bleibt mit einer gewissen statistisch verteilten Lebensdauer in dem Zustand. Wie die Anregung erfolgt ist (Stöße oder Absorption von Strahlung) ist egal. Daraus resultiert spontane Emission.\\
+Die \textbf{stimulierte oder induzierte Emission} (erzeugt durch ein Strahlungsfeld) erzeugt die Abstrahlung von Photonen in Phase mit den eingestrahlten Photonen. Die Begründung ist recht kompliziert und kann nur über Quantenmechanik erfolgen.\\[5pt]
+\textbf{Evaneszente Welle:}\\
+Undurchdringbarkeit ist nur eine Näherung. Kein Welches des Mediums ist eine echte Stufenfunktion (im mikroskopischen Bereich).
 
 
 
