@@ -3258,21 +3258,15 @@ konstante Gesamtbesetzung
 n_0 + n_1 = N
 \end{equation*}
 \textbf{Lösung:}
-
-% check next line
-
 \begin{align*}
-\delta N \equiv n_1 - n_0 \qquad \rightarrow \quad n_0 &= \frac{1}{2} (N + \delta N) \\
+\delta N \equiv n_1 - n_0 \qquad \rightarrow \quad n_0 &= \frac{1}{2} (N - \delta N) \\
 n_1 &= \frac{1}{2} (N + \delta N)
 \end{align*}
 \begin{equation*}
 \Rightarrow \quad - \frac{1}{2} \delta \dot{N} = \Gamma \delta N
 \end{equation*}
-
-% check next line
-
 \begin{equation*}
-\delta N(t) = \delta N(0) e^{check this}
+\delta N(t) = \delta N(0) e^{-\frac{t}{\tau}}
 \end{equation*}
 
 \subsubsection{Rantengleichung mit externen Stimuli}
@@ -3320,14 +3314,11 @@ $ n_1 : $
 A_{1 \to 0} n_1 - B_{0 \to 1} \rho(\nu) n_0 + B_{1 \to 0} \rho(\nu) n_1 = 0
 \end{equation*}
 Thermodynamik, Quantenstatistik:
-
-% check next line
-
 \begin{equation*}
-\frac{n_k}{N} = \frac{1}{Z} e^{-\frac{E k}{e_k T}}
+\frac{n_k}{N} = \frac{1}{Z} e^{-\frac{E_k}{k_B T}}
 \end{equation*}
 \begin{equation*}
-\rho(\nu) = \frac{s \pi k \nu^3}{c^3} \frac{1}{e^{\frac{k \nu}{k_B T}} - 1}
+\rho(\nu) = \frac{s \pi k \nu^3}{c^3} \frac{1}{e^{\frac{h \nu}{k_B T}} - 1}
 \end{equation*}
 $ Z = \sum_k e^{-\frac{E k}{e_k T}} $\\[5pt]
 $ \Rightarrow $ Planck'sches Strahlungsgesetz

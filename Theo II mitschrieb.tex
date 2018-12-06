@@ -1655,7 +1655,7 @@ Zwei Fälle:
 \end{minipage}%
 \\
 \lcom{Wir beschränken uns vorwiegend auf den ersten Fall. }
-\lcom{Zur Lösung dieser Probleme gibt es einige Methoden. Zum Einstieg und zur Wiederholung betrachten wir zunächst die Methode der Spiegelladung. }
+\lcom{Zur Lösung dieser Probleme gibt es einige Methoden. Zum Einstieg und zur  betrachten wir zunächst die Methode der Spiegelladung. }
 
 \subsection{Methode der Bildladung (Spiegelladung)}
 
@@ -3135,7 +3135,7 @@ $ \vec{D}(\vec{r}) \defeq $ dielektrische Verschiebung.
 \rightarrow \quad \vabla \cdot \vec{D}(\vec{r}) = \langle \rho_f \rangle (\vec{r})
 \end{equation*}
 
-\subsection{Makroskopische Feldgleichungen der Elektrostatik \tiny( Wiederholung)}
+\subsection{Makroskopische Feldgleichungen der Elektrostatik \tiny(Wiederholung)}
 
 \begin{equation*}
 \vabla \cdot \vec{D}(\vec{r}) = \rho_f (\vec{r})
@@ -3981,24 +3981,35 @@ $$\Rightarrow I_1 = I_2$$
 \section{Gesetz von Biot-Savart}
 
 stationärer Strom in Leiter $ \rightarrow $ Magnetfeld\\
-\begin{comment}
-%t1:
-\begin{tikzpicture}
-	\draw[->] (0,0) -- (0,1.5) node[anchor=south east] {$ z $};
-	\draw[->] (0,0) -- (1.5,0) node[anchor=north west] {$ y $};
-	\draw[->] (0,0) -- (-1,-1) node[anchor=north east] {$ x $};
-\end{tikzpicture}
-\end{comment}
-Das Magnetfeld $ \dd\vec{B} $ am Ort $ \vec{r} $ verursacht durch Strom $ I $ im Linienelement $ \dd \vec{l} $ in $ \vec{r}' $.
-\begin{equation*}
-\dd \vec{B}(\vec{r}) = k' I \dd \vec{l} \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
-\end{equation*}
-\begin{equation*}
-|\dd \vec{B}| \propto I ,\  |\dd \vec{l}| ,\ \frac{1}{|\vec{r} - \vec{r}'|^2}
-\end{equation*}
-\begin{equation*}
-\tx{Richtung von:} \quad \dd \vec{B} \propto \dd\vec{l} \times (\vec{r},\vec{r}')
-\end{equation*}
+\begin{minipage}{.7\linewidth}
+	Das Magnetfeld $ \dd\vec{B} $ am Ort $ \vec{r} $ verursacht durch Strom $ I $ im Linienelement $ \dd \vec{l} $ in $ \vec{r}' $.
+	\begin{equation*}
+	\dd \vec{B}(\vec{r}) = k' I \dd \vec{l} \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+	\end{equation*}
+	\begin{equation*}
+	|\dd \vec{B}| \propto I ,\  |\dd \vec{l}| ,\ \frac{1}{|\vec{r} - \vec{r}'|^2}
+	\end{equation*}
+	\begin{equation*}
+	\tx{Richtung von:} \quad \dd \vec{B} \propto \dd\vec{l} \times (\vec{r},\vec{r}')
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	%t1:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (0,1.5) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ y $};
+		\draw[->] (0,0) -- (-1,-1) node[anchor=north east] {$ x $};
+		\draw[thick, ->] (0,0) -- node[above] {$ \vec{r} $} (1,.7);
+		\draw[thick, ->] (1,.7) -- node[anchor=south west] {$ \dd\vec{B} $} ++(-.7,.7);
+		\draw[thick, ->] (0,0) -- node[anchor=north east] {$ \vec{r}_i $} (.5,-1);
+		\draw[very thick, ->] (.5,-1) -- node[anchor=north west] {$ \dd \vec{l}' $} ++(.5,.5);
+		\draw[thick] (-1,-2) to[out=20,in=-135] (.5,-1) to[out=45,in=-110] (2,1);
+		\draw[->] (-1,-2) to[out=20,in=-145] (-.3,-1.67) node[below=5pt] {$ I $};
+		\node[right] at (2,1) {$ \gamma $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Die Konstante $ k' $ im SI-Einheiten-System ist:
 \begin{equation*}
 k' = \frac{\mu_0}{4 \pi}
@@ -4031,22 +4042,26 @@ Für eine ausgedehnte Stromdichte $ \vec{j}(\vec{r}) $ gilt:
 \vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 r' \rho(\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
 \end{equation*}
 Hier ist $ \rho(\vec{r}) $ aber ein Skalarfeld. $ \vec{j}(\vec{r}) $ ist ein Vektorfeld! Deshalb ist die Berechnung von Magnetfeldern komplizierter.\\[5pt]
-\emph{Beispiel:} Magnetfeld eines langen Drahtes:
-
-%t2:
-\begin{tikzpicture}
-	\draw[very thick, ->] (0,-1.5) -- (0,1.5) node[left] {$ I $};
-	\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ z $};
-	\draw[->] (0,0) -- (.7,.7) node[anchor=south east] {$ y $};
-	\draw[->] (0,0) -- (1,0) node[anchor=north west] {$ x $};
-\end{tikzpicture}
-
-\begin{equation*}
-\vec{j}(\vec{r}) = I \delta(x) \delta(y) \vec{e}_z
-\end{equation*}
-Setzen wir dies nun ins Biot-Savart-Gesetz ein erhalten wir das $ \vec{B} $-Feld dieses Leiters:
+\begin{minipage}{.7\linewidth}
+	\emph{Beispiel:} Magnetfeld eines langen Drahtes:
+	\begin{equation*}
+	\vec{j}(\vec{r}) = I \delta(x) \delta(y) \vec{e}_z
+	\end{equation*}
+	Setzen wir dies nun ins Biot-Savart-Gesetz ein erhalten wir das $ \vec{B} $-Feld dieses Leiters:
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	%t2:
+	\centering
+	\begin{tikzpicture}
+		\draw[very thick, ->] (0,-1.5) -- (0,1.5) node[left] {$ I $};
+		\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (.7,.7) node[anchor=south east] {$ y $};
+		\draw[->] (0,0) -- (1,0) node[anchor=north west] {$ x $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{align*}
-\vec{B}(\vec{r}) &= \frac{\mu_0}{4 \pi} \int \dd^3 r' I \delta (x') \delta (y') \vec{e}_z \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
+\vec{B}(\vec{r}) \ &= \frac{\mu_0}{4 \pi} \int \dd^3 r' I \delta (x') \delta (y') \vec{e}_z \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
 &= \frac{\mu_0}{4 \pi} \int_{-\infty}^{\infty} \dd z' \vec{e}_z \times \frac{\vec{r} - \equaltoup{\vec{r}'}{\mathclap{\vec{r}' = (0,0,z')}}}{|\vec{r} - \vec{r}'|^3}\\
 \end{align*}
 Nebenrechnung:\\
@@ -4082,7 +4097,16 @@ In Zylinderkoordinaten:
 \Rightarrow \quad \vec{B} = \frac{\mu_0}{2 \pi} I \frac{1}{\rho} \vec{e}_{\varphi}
 \end{equation*}
 
-%T3
+%t3:
+\begin{tikzpicture}
+	\draw[->] (0,-2) -- (0,2) node[anchor=south west] {$ I $};
+	\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ x $};
+	\draw[->] (0,0) -- (1.3,1.3) node[anchor=south west] {$ y $};
+	\centerarc[->](0,0)(-45:315:.5cm);
+	\centerarc[->](0,0)(-45:315:1cm);
+	\centerarc[->](0,0)(-45:315:1.5cm);
+	\draw[->] ({.5 * sin(45)},-{.25*cos(45)}) arc[start angle=-45,end angle=315, x radius=.5, y radius=.25];
+\end{tikzpicture}
 
 \section{Kraft eines äußeren Magnetfeldes auf einen Stromdurchflossenen Leiter}
 
@@ -4238,12 +4262,284 @@ andere mögliche Wahl:
 \vabla \times \vec{A}' = \ub{\vabla \times \vec{A}}_{= \vec{B}} + \ub{\vabla \times \vec{r}}_{= 0} = \vec{B}
 \end{equation*}
 
+% Vorlesung 6.12.18 (18 days until christmas)
+
+\begin{equation*}
+\rmbox{\vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd ^3 r' \vec{j}(\vec{r}') \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = \vabla \times \vec{A}(\vec{r})}
+\end{equation*}
+
+\subsection{Feldgleichungen der Magnetostatik}
+
+\subsubsection{Divergenz (Quellen)}
+
+\begin{equation*}
+\vabla \cdot \vec{B}(\vec{r}) = \vabla \cdot (\vabla \times \vec{A}(\vec{r})) = 0
+\end{equation*}
+\begin{equation*}
+\rmbox{\Rightarrow \quad \vabla \cdot \vec{B}(\vec{r}) = 0}
+\end{equation*}
+In der Elektrostatik gilt:
+\begin{equation*}
+\rmbox{\vabla \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r})}
+\end{equation*}
+Es gibt also keine ,,magnetischen Ladungen`` wie beim elektrischen Feld.\\[5pt]
+integrale Formulierung:
+\begin{equation*}
+0 = \int_V \dd^3 r \vabla \vec{B} = \int_{\partial V} \dd \vec{f} \cdot \vec{B}
+\end{equation*}
+
+\subsubsection{Rotation (Wirbel)}
+
+$ \vec{B} = \vec{\nabla} \times \vec{A} $
+\begin{equation*}
+\vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|} + \vabla \Lambda
+\end{equation*}
+\begin{align*}
+\Rightarrow \quad \vabla \times \vec{B} &= \vabla \times (\vabla \times \vec{A}\\
+&= \vabla (\vabla \cdot \vec{A}) - \Delta \vec{A}
+\end{align*}
+\begin{equation*}
+\vabla \cdot \vec{A} = \ub{\vabla \cdot \left(\frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}\right)}_{=0} + \vabla \cdot (\vabla \Lambda) = \Delta \Lambda 
+\end{equation*}
+\begin{equation*}
+\Delta \vec{A} = \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{j}(\vec{r}) \ub{\Delta \frac{\Lambda}{|\vec{r} - \vec{r}'|}}_{= - 4 \pi \delta(\vec{r} - \vec{r}')} + \Delta \vabla \Lambda = - \mu_0 \vec{j}(\vec{r}) + \Delta (\vabla \Lambda)
+\end{equation*}
+mit: $ \Delta \vec{A} = \begin{pmatrix}
+\Delta A_x \\ \Delta A_y \\ \Delta A_z
+\end{pmatrix} $
+\begin{equation*}
+\Rightarrow \quad \vabla \times \vec{B} = \cancel{\vabla(\Delta \Lambda)} + \mu_0 \vec{j} - \cancel{\Delta (\vabla \Lambda)} = \mu_0 \vec{j}
+\end{equation*}
+Kürzbar, da partielle Ableitungen vertauschbar sind.
+\begin{equation*}
+\rmbox{\vabla \times \vec{B} = \mu_0 \vec{j}}
+\end{equation*}
+integrale Formulierung:
+%
+%T1
+%
+\begin{equation*}
+\int_{\partial F} \dd \vec{r} \cdot \vec{B} (\vec{r}) = \int_F \dd \vec{f} \cdot (\vec{\nabla} \times \vec{B}) = \mu_0 \ub{\int_F \dd \vec{f} \cdot \vec{j}(\vec{r})}_{I_F} = \mu_0 I_F
+\end{equation*}
+\frbox{Amper\`esches Durchflutungsgesetz}{
+\begin{equation*}
+\Rightarrow \quad \oint_{\partial F} \dd \vec{r}\cdot \vec{B}(\vec{r}) = \mu_0 I_F
+\end{equation*}
+}
+
+\subsubsection{Magnetfeld eines stromdurchflossenen Leiters mit homogener Stromdichte}
+
+%T2
+%
+Aufgrund der Symmetrie verwenden wir Zylinderkoordinaten:
+\begin{equation*}
+\vec{r} = \begin{pmatrix}
+\rho \cos \varphi \\ \rho \sin \varphi \\ z
+\end{pmatrix}
+\end{equation*}
+Die Stromdichte ist dann:
+\begin{align*}
+\vec{j} &= \vec{e}_z \casess{\frac{I}{\pi R^2}}{\rho \le R}{0}{\tx{sonst.}}\\
+&= \vec{e}_z \frac{I}{\pi R^2} \theta(R - \rho)
+\end{align*}
+Symmetrie:
+\begin{equation*}
+\vec{B}(\vec{r}) = B_\varphi(\rho) \vec{e}_{\varphi} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
+- \sin \varphi \\ \cos \varphi \\ 0
+\end{pmatrix}
+\end{equation*}
+%
+%T3
+%
+$ F $ ist ein Kreis mit Radius $ \rho $ (kleiner oder größer als $ R $)\\
+Hierauf wenden wir das Amp\`eresche Durchflutungsgesetz an:\\
+Unter Verwendung von:
+\begin{equation*}
+\dd \vec{f}' = \vec{e}_z \dd f = \vec{e}_z = \rho' \dd \rho' \dd \varphi'
+\end{equation*}
+\begin{align*}
+\mu_0 \int_F \dd \vec{f} ' \cdot \vec{j}(\vec{r}') &= \int_{\partial F} \dd \vec{r}' \cdot \vec{B}(\vec{r}')\\
+&= \mu_0 \int_{0}^{\rho} \dd\rho' \int_{0}^{2 \pi} \dd \varpi'\rho' \frac{I}{\pi R^2} \theta(R - \rho)\\
+&= \mu_0 \frac{I}{\pi R^2} 2 \pi \ub{\int_{0}^{\rho} \dd \rho' \rho' \theta(R - \rho)}\\
+& \qquad = \casess{\int_{0}^{R} \dots = \frac{1}{2} R^2 }{\rho > R}{\int_{0}^{\rho}\: \dots = \frac{1}{2} \rho^2}{\rho \le R}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \mu_0 \int_{F} \dd \vec{f}' \cdot \vec{j}(\vec{r}') = \mu_0 \casess{I}{\rho > R}{\frac{\rho^2}{R^2} I}{\rho \le R}
+\end{equation*}
+\begin{equation*}
+\int_{\partial F}\dd r' \vec{B}(\vec{r}') = \int_{0}^{2 \pi} \dd \varphi \frac{\dd r'}{\dd \varphi} \cdot \vec{B} = \int_{0}^{2 \pi} \dd \varphi \rho B_{\varphi}(\rho) = 2 \pi \rho B_{\varphi}(\rho)
+\end{equation*}
+mit:
+\begin{equation*}
+\vec{r}(\rho) = \begin{pmatrix}
+\rho \cos \varphi \\ \rho \sin \varphi \\ 0
+\end{pmatrix} \qquad \frac{\dd r'}{\dd \varphi} = \begin{pmatrix}
+- \rho \sin \varphi \\ \rho \cos \varphi \\ 0
+\end{pmatrix} = \rho \vec{e}_{\varphi}
+\end{equation*}
+Damit erhalten wir:
+\begin{equation*}
+ \mu_0 \int_{F} \dd \vec{f}' \cdot \vec{j}(\vec{r}')  = 2 \pi \rho B_{\varphi}(\rho) 
+\end{equation*}
+Daraus folgt:
+\begin{equation*}
+\Rightarrow \quad \mu_0 I_F = \rho B_{\varphi}(\rho) 2 \pi
+\end{equation*}
+Dies können wir umstellen in:
+\begin{equation*}
+\Rightarrow \quad B_{\varphi} (\rho) = \frac{\mu_0}{2 \pi} \frac{I_F}{\rho}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vec{B}(\vec{r}) = \frac{\mu_0}{2 \pi} I \vec{e}_{\varphi} \casess{\frac{1}{\rho}}{\rho > R}{\frac{\rho}{R^2}}{\rho \le R}
+\end{equation*}
+%
+%T4
+%
+%
+%T5
+%
+
+\subsubsection{Differentialgleichung für das Vektorpotential}
+
+\begin{equation*}
+\vec{B} = \vabla \times \vec{A} \qquad \vabla \times \vec{B} = \mu_0 \vec{j}
+\end{equation*}
+\begin{align*}
+\mu_0 \vec{j} &= \vabla \times \vec{B} = \vabla \times (\vabla \times \vec{A})\\
+&= \vabla(\vabla \cdot \vec{A}) - \Delta \vec{A}
+\end{align*}
+falls $ \vabla\cdot \vec{A} = 0 $ (Coulomb-Gleichung)
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta \vec{A} = \mu_0 \vec{j}}
+\end{equation*}
+Wichtig: Die Komponenten sind nicht unabhängig voneinander aufgrund unserer Annahme $ \vabla \cdot \vec{A} = 0 $
+analog:$ \Delta \varphi = - \frac{1}{\epsilon_0} \rho $
 
 
+\subsection{Feldgleichungen der Magnetostatik}
 
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\vabla \cdot \vec{B} = 0
+	\end{equation*}
+	\vspace{-5pt}
+	\begin{equation*}
+	\phantom{\quad (\tx{Amp\`ere})} \vabla \times \vec{B} = \mu_0 \vec{j} \quad (\tx{Amp\`ere})
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\int_{\partial V} \dd \vec{f} \cdot \vec{B} = 0
+	\end{equation*}
+	\begin{equation*}
+	\int_{\partial F} \dd \vec{r} \cdot \vec{B} = \mu_0 I_F
+	\end{equation*}
+\end{minipage}%
+\\
+Und für das Vektorpotential:
+\begin{equation*}
+\vec{B} = \vabla \times \vec{A} \qquad \Rightarrow \Delta  \vec{A} = - \mu_0 \vec{j}
+\end{equation*}
 
+\section{Multipolentwicklung - Magnetisches Moment}
 
-
+\begin{equation*}
+\vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+mit $ \vabla \cdot \vec{A} = 0 $\\
+Wir betrachten eine lokalisierte Ladungsverteilung:
+%
+%T6
+%
+\begin{equation*}
+\vec{j}(\vec{r}) = \casess{\tx{beliebig}}{r < R}{0}{r > R}
+\end{equation*}
+Für $ r > R > r' $ machen wir eine Taylorentwicklung:
+\begin{equation*}
+\frac{1}{|\vec{r} - \vec{r}'|} = \frac{1}{r} + \frac{\vec{r}}{r^3} \cdot \vec{r}' + \dots
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \left\{\frac{1}{r} \int \dd^3r' \vec{j} (\vec{r}') + \frac{1}{r^3} \int \dd ^3 r' (\vec{r} \cdot \vec{r}') \vec{j}(\vec{r}') + \dots \right\}
+\end{equation*}
+\textbf{Es gilt: in der Magnetostatik} $ \vabla \cdot \vec{j} = 0 $
+\begin{enumerate}[i)]
+	\item Das Integral über die Stromdichte verschwindet:\\
+	$$ \int \dd ^3 r' \vec{j} (\vec{r}') = 0 $$
+	%
+	%T7
+	%
+	\item $$ \int \dd^3 r' (\vec{r} \cdot \vec{r}') \vec{j}(\vec{r}) = - \vec{r} \times \ub{\frac{1}{2} \int \dd^3 r' (\vec{r}' \times \vec{j}(\vec{r}'))}_{\mathclap{\substack{\defeq \vec{m}\\ \tx{magnetisches} \\ \tx{Dipolmoment} }}} $$
+\end{enumerate}
+Die Entwicklung des Vektorpotentials wird dann zu:
+\begin{equation*}
+\Rightarrow \quad \vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \ub{\frac{\vec{m} \times \vec{r}}{r^3}}_{\propto \frac{1}{r^2}}
+\end{equation*}
+Für das Magnetfeld gilt:
+\begin{equation*}
+\Rightarrow \quad \vec{B} = \vabla \times \vec{A} = \frac{\mu_0}{4 \pi} \vabla \times \left(\vec{m} \times \frac{\vec{r}}{r^3}\right)
+\end{equation*}
+Mit der Identität: $ \vabla \times (f \vec{F}) = f \vabla \times \vec{G} - \vec{G} \times \vabla f $
+\begin{align*}
+\vabla \times \left(\frac{1}{r^3} (\vec{m} \times \vec{r})\right) &= \frac{1}{r^3} \ub{\vabla \times (\vec{m} \times \vec{r})}_{= 2 \vec{m}} - (\vec{m} \times \vec{r}) \times \ub{\vabla \frac{1}{r^3}}_{= - \frac{3 \vec{r}}{r^5}}\\
+&= \frac{1}{r^3} 2 \vec{m} + \frac{3}{r^5} \ub{(\vec{m} \times \vec{r}) \times \vec{r}}_{(\vec{m} \cdot \vec{r}) \vec{r} - (\vec{r} \cdot \vec{r}) \vec{m}}\\
+&= \frac{3 \vec{r} (\vec{m} \vec{r})}{r^5} - \frac{\vec{m}}{r^3}
+\end{align*}
+Beim $ \vec{B} $-Feld erhalten wir für den ersten nicht verschwindenden Term den Dipolterm:
+\frbox{Multipolentwicklung des Magnetfeldes (1. Term)}{
+\begin{equation*}
+\Rightarrow \quad \vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \left[\frac{3 \vec{r}(\vec{m} \cdot \vec{r})}{r^5} - \frac{\vec{m}}{r^3}\right] \qquad r > R
+\end{equation*}
+}
+Der große Unterschied zum $ \vec{E} $-Feld ist, dass der führende Term ein Dipol ist. Das $ \vec{B} $-Feld hat also keinen Monopol.\\[5pt]
+\emph{Beispiel:} \textbf{Magnetisches Dipolmoment einer Drahtschleife}
+%
+%T8
+%
+$ \rho = \sqrt{x^2 + y^2} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
+- \sin \varphi \\ \cos \varphi \\ 0
+\end{pmatrix}$
+\begin{equation*}
+\vec{j} = I \delta(\rho - R) \delta(z) \vec{e}_{\varphi}
+\end{equation*}
+\begin{equation*}
+\vec{m} = \frac{1}{2} \int \dd^3 r \vec{r} \times \vec{j}(\vec{r})
+\end{equation*}
+Nebenrechnung:
+\begin{align*}
+\vec{r} \times \vec{e}_{\varphi} &= \begin{pmatrix}
+\rho \cos \varphi \\ \rho \sin \varphi \\ z
+\end{pmatrix} \times \begin{pmatrix}
+- \sin \varphi \\ \cos \varphi \\ ß
+\end{pmatrix}\\
+&= \begin{pmatrix}
+- z \cos \varphi \\ - z \sin \varphi \\ \rho
+\end{pmatrix}\\
+&= \rho \begin{pmatrix}
+0 \\ 0 \\ 1
+\end{pmatrix} - z \begin{pmatrix}
+\cos \varphi \\ \sin \varphi \\ 0
+\end{pmatrix}\\
+&= \rho \vec{e}_z - z \vec{e}_{\varphi}
+\end{align*}
+\begin{align*}
+\Rightarrow \quad \vec{m} &= \frac{1}{2} I \int_{0}^{\infty} \rho \dd \rho \int_{0}^{2 \pi} \dd \varphi \int_{-\infty}^{\infty} \dd z \delta(\rho - R) \delta(z) (\rho \vec{e}_z - \custo{\rightarrow}{z}{0} \vec{e}_{\varphi})\\
+&= \frac{I}{2} R^2 2 \pi \vec{e}_z
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \vec{m} = \ub{\pi R^2}_{F} I \vec{e}_z
+\end{equation*}
+%
+%T9
+%
+Das Magnetische Moment einer Spule:
+%
+%T10
+%
+\begin{equation*}
+\vec{m} = N I \cdot F \vec{e}_z
+\end{equation*}
+\folie{Vergleich idealer Dipol und Leiterschleife}\\
+\folie{Vergleich $ \vec{E} $-Feld einer elektrischer Dipol und Magnetfeld um Leiterschleife}
 
 
 
