@@ -3890,6 +3890,7 @@ Punktladungen $ q_i $ mit Ortsvektoren $ \vec{r}_i $ und Geschwindigkeiten $ \ve
 		\draw ($ (r) + (-.4,-.7) $) to[out=160,in=20] ($ (r) + (-1.4,-.7) $) node[left] {$ \dd ^3 r $};
 	\end{tikzpicture}
 \end{minipage}%
+\\
 \begin{align*}
 & \int \dd^3 r \vec{j}(\vec{r},t) j(\vec{r})\\
 =& \int \dd s \dd f \vec{j}(\vec{r},t) h(\vec{r})\\
@@ -4088,46 +4089,77 @@ In Zylinderkoordinaten:
 \end{equation*}
 \begin{equation*}
 \vec{e}_{\varphi} = \frac{\prt{\vec{r}}{\varphi}}{|\prt{\vec{r}}{\varphi}|} = \frac{1}{\rho} \begin{pmatrix}
-- \rho \sin \varphi // \rho \cos \varphi // 0
+- \rho \sin \varphi \\ \rho \cos \varphi \\ 0
 \end{pmatrix} = \frac{1}{\sqrt{x^2 + y^2}} \begin{pmatrix}
--y // x // 0
+-y \\ x \\ 0
 \end{pmatrix}
 \end{equation*}
-\begin{equation*}
-\Rightarrow \quad \vec{B} = \frac{\mu_0}{2 \pi} I \frac{1}{\rho} \vec{e}_{\varphi}
-\end{equation*}
-
-%t3:
-\begin{tikzpicture}
-	\draw[->] (0,-2) -- (0,2) node[anchor=south west] {$ I $};
-	\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ x $};
-	\draw[->] (0,0) -- (1.3,1.3) node[anchor=south west] {$ y $};
-	\centerarc[->](0,0)(-45:315:.5cm);
-	\centerarc[->](0,0)(-45:315:1cm);
-	\centerarc[->](0,0)(-45:315:1.5cm);
-	\draw[->] ({.5 * sin(45)},-{.25*cos(45)}) arc[start angle=-45,end angle=315, x radius=.5, y radius=.25];
-\end{tikzpicture}
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\Rightarrow \quad \vec{B} = \frac{\mu_0}{2 \pi} I \frac{1}{\rho} \vec{e}_{\varphi}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t3:
+	\begin{tikzpicture}
+		\draw[->] (0,-1.5) -- (0,1.5) node[anchor=south east] {$ z $};
+		\draw[very thick, ->] (0,-1) -- (0,1) node[left] {$ I $};
+		\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,0) -- (1,1) node[anchor=south west] {$ y $};
+		\draw[->] ({.5 * sin(45)},-{.25 * cos(45)}) arc[start angle=-45,end angle=315, x radius=.5, y radius=.25];
+		\draw[->] ({1 * sin(45)},-{.5 * cos(45)}) arc[start angle=-45, end angle=315, x radius=1, y radius=.5];
+		\draw[->] ({1.5 * sin(45)}, -{.75 * cos(45)}) arc[start angle=-45, end angle=315, x radius=1.5, y radius=.75];
+		\node at (1,-1) {$ \vec{B} $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \section{Kraft eines äußeren Magnetfeldes auf einen Stromdurchflossenen Leiter}
 
-%T4
-
-\begin{equation*}
-\dd \vec{F} = I \dd \vec{l} \times \vec{B}(\vec{r})
-\end{equation*}
-\begin{equation*}
-|\dd\vec{F}| \propto I ,\ |\dd \vec{l}| ,\ |\vec{B}|
-\end{equation*}
-\begin{equation*}
-\tx{Richtung von:} \quad \dd \vec{F} \propto \dd \vec{l} \times \vec{B}(\vec{r})
-\end{equation*}
-Damit ist die Kraft auf eine beliebige Leiterschleife:
-
-% T5 
-
-\begin{equation*}
-\vec{F} = I \int_{\gamma_2} \dd \vec{l} \times \vec{B}(\vec{r})
-\end{equation*}
+\begin{minipage}{.5\linewidth}
+	%t4:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (0,1.5) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (2.5,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,0) -- (-1,-1) node[anchor=north east] {$ y $};
+		\foreach \y in {.4,1.2,-.4,-1.2,-2}
+		\draw[->] (.5,\y) -- ++(1.5,0);
+		\node[right] at (2,1.2) {$ \vec{B} $};
+		\coordinate (o) at (1,-1);
+		\draw[thick, ->] (-1,-.5) to[out=-30,in=180] (o) to[out=0,in=-150] (3,-.5) to[out=30,in=-170] (3.5,-.25) node[anchor=north west] {$ I $};
+		\draw[blue,thick, ->] ($ (o) + (.5,0.02) $) -- node[left] {$ \dd \vec{F} $} ++(0,.5);
+		\draw[red,thick, ->] ($ (o) + (.5,0.02) $) -- node[below,xshift=10pt] {$ \dd \vec{l} $} ++(1,.1);
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\dd \vec{F} = I \dd \vec{l} \times \vec{B}(\vec{r})
+	\end{equation*}
+	\begin{equation*}
+	|\dd\vec{F}| \propto I ,\ |\dd \vec{l}| ,\ |\vec{B}|
+	\end{equation*}
+	\begin{equation*}
+	\tx{Richtung von:} \quad \dd \vec{F} \propto \dd \vec{l} \times \vec{B}(\vec{r})
+	\end{equation*}
+\end{minipage}%
+\\
+\begin{minipage}{.6\linewidth}
+	Damit ist die Kraft auf eine beliebige Leiterschleife:
+	\begin{equation*} % \gamma_2 ?
+	\vec{F} = I \int_{\gamma} \dd \vec{l} \times \vec{B}(\vec{r})
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\centering
+	%t5:
+	\begin{tikzpicture}
+		\draw plot [smooth cycle, tension=1] coordinates { (0,0) (1,.5) (.5,1) (-.5,.5) (-1,-1) (0,-1) };
+		\draw[->] (0,0) -- ++(50:.1cm) node[anchor=north west] {$ I $};
+		\node[right] at (1,.5) {$ \gamma $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Für eine ausgedehnte Stromverteilung gilt dann:
 \begin{equation*}
 \vec{F} = \int \dd ^3 r \vec{j}(\vec{r}) \times \vec{B}(\vec{r})
@@ -4135,30 +4167,76 @@ Für eine ausgedehnte Stromverteilung gilt dann:
 
 \subsection{Kraft zwischen zwei Stromdurchflossenen Leitern}
 
-%T6
-
 $ I_2 $ erzeugt am Ort $ \vec{r}_1 $ das Magnetfeld:
 \begin{equation*}
 \vec{B}(\vec{r}_1)  = \frac{\mu_0}{4 \pi} I_2 \int_{\gamma} \dd \vec{l}_2 \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
 \end{equation*}
-$ \rightarrow $ Kraft auf Linienelement $ \dd \vec{l}_1 $ in $  \vec{r}_1 $:
-\begin{align*}
-\dd \vec{F}_{12} &= I_1 \dd \vec{l}_1 \times \vec{B}(\vec{r}_1)\\
-&= \frac{\mu_0}{4 \pi} I_1 I_2 \dd \vec{l}_1 \times \int_{\gamma_{2}} \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
-\end{align*}
+\begin{minipage}{.6\linewidth}
+	$ \rightarrow $ Kraft auf Linienelement $ \dd \vec{l}_1 $ in $  \vec{r}_1 $:
+	\begin{align*}
+	\dd \vec{F}_{12} &= I_1 \dd \vec{l}_1 \times \vec{B}(\vec{r}_1)\\
+	&= \frac{\mu_0}{4 \pi} I_1 I_2 \dd \vec{l}_1 \times \int_{\gamma_{2}} \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
+	\end{align*}
+	%
+	%
+	% ich glaube hier fehlt was dl_2 im integral
+	%
+	%
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t6:
+	\begin{tikzpicture}
+		\draw plot [smooth cycle, tension=.9] coordinates { (0,0) (-1,0) (-1,-1) (-1.3,-1.7) (-1,-2) (-.3,-1.5) (0,-.8)  };
+		\draw[shift={(2 cm, -2 cm)},rotate=200] plot [smooth cycle, tension=.9] coordinates { (0,0) (-1,0) (-1,-1) (-1,-2) (-.3,-1.5) (0,-.8)  };
+		\coordinate (o) at (1,-2.5);
+		\coordinate (l) at (-.3,-1.5);
+		\coordinate (r) at ($ (o) + (.75,1)$);
+		\draw[thick,->] (o) -- node[above] {$ \vec{r}_1 $} (l);
+		\draw[thick,->] (o) -- node[above,xshift=-5pt] {$ \vec{r}_2 $} (r);
+		\node[anchor=north west] at (o) {$ O $};
+		\draw[red,thick,->] (l) -- node[left,yshift=5pt] {$ \dd \vec{l}_1 $} ++(50:.5cm);
+		\draw[red,thick,->] (r) -- node[right] {$ \dd \vec{l}_2 $} ++(95:.5cm);
+		\draw[->] (-.2,.11) -- ++(160:.1cm) node[anchor=south west] {$ I_1 $};
+		\node at (-1.2,.2) {$ \gamma_1 $};
+		\draw[->] (2.415,0) -- ++(105:.1cm) node[anchor=south west] {$ I_2 $};
+		\node at (1.5,-.3) {$ \gamma_2 $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Die Kraft auf Leiterschleife 1 ist dann:
 \begin{equation*}
 \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I_2 \int_{\gamma_1} \int_{\gamma_2} \dd \vec{l}_1 \times \left(\dd \vec{l}_2 \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}\right)
 \end{equation*}
-\emph{Beispiel:} Kraft zwischen zwei parallelen Drähten\\
-
-%T7
-
-\begin{equation*}
-\dd \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I2 \equalto{\dd \vec{l}_1}{\vec{e}_z \dd l_1} \times \int_{\gamma} \dd \vec{l}_2 \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
-\end{equation*}
-$ \dd \vec{l}_2 = \dd z_2 \vec{e}_z \qquad \vec{r}_1  = (0,0,0) \qquad \vec{r}_2 = (a,0,z_2) $
-
+\emph{Beispiel:} \textbf{Kraft zwischen zwei parallelen Drähten}\\
+\begin{minipage}{.6\linewidth}
+	\begin{equation*}
+	\dd \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I2 \equalto{\dd \vec{l}_1}{\vec{e}_z \dd l_1} \times \int_{\gamma} \dd \vec{l}_2 \times \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3}
+	\end{equation*}
+	Aus der Skizze gilt:\\
+	$ \dd \vec{l}_2 = \dd z_2 \vec{e}_z \qquad \vec{r}_1  = (0,0,0) \qquad \vec{r}_2 = (a,0,z_2) $
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t7:
+	\begin{tikzpicture}[scale=1.2]
+		\draw[->] (0,-1) -- (0,2) node[anchor=south east] {$ z $};
+		\draw[->] (-.5,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw (2,-1) -- (2,2);
+		\draw[thick,->] (0,-.5) -- (0,1.5) node[left] {$ I_1 $};
+		\draw[thick,->] (2,-.5) -- (2,1.5) node[right] {$ I_2 $};
+		\coordinate (o) at (0,0);
+		\coordinate (p) at (2,.5);
+		\draw[decorate, decoration={brace,amplitude=10pt,mirror,raise=2pt}]
+		(o) -- node[below=12pt] {$ a $} (2,0);
+		\draw[thick,->] (o) -- node[above] {$ \vec{r}_{2} $} (p);
+		\draw[red,thick,->] (o) -- node[left] {$ \dd \vec{l}_1 $} ($ (o) + (0,.5) $);
+		\draw[red,thick,->] (p) -- node[right] {$ \dd \vec{l}_2 $} ($ (p) + (0,.5) $);
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}%
+\\
+Nebenrechnung:
 \begin{equation*}
 \dd \vec{l}_2 \times (\vec{r}_1 - \vec{r}_2) = \dd z_2 \begin{pmatrix}
 0 \\ 0 \\ 1
@@ -4168,21 +4246,39 @@ $ \dd \vec{l}_2 = \dd z_2 \vec{e}_z \qquad \vec{r}_1  = (0,0,0) \qquad \vec{r}_2
 0 \\ -a \\ 0
 \end{pmatrix}
 \end{equation*}
-\begin{align*}
-\rightarrow \dd \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I_2 \dd l_1 \ub{\vec{e}_z \times \begin{pmatrix}
-	0 \\ -a \\ 0
-	\end{pmatrix}}_{= a \vec{e}_x} \ub{\int_{-\infty}^{\infty} \dd z_2 \frac{1}{\left(a^2 + z_2^2\right)^{3/2}}}_{= \frac{2}{a^2}}
-\end{align*}
+\vspace{5pt}
+\begin{minipage}{.75\linewidth}
+	\begin{align*}
+	\rightarrow \quad \dd \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I_2 \dd l_1 \ub{\vec{e}_z \times \begin{pmatrix}
+		0 \\ -a \\ 0
+		\end{pmatrix}}_{= a \vec{e}_x} \ub{\int_{-\infty}^{\infty} \dd z_2 \frac{1}{\left(a^2 + z_2^2\right)^{3/2}}}_{= \frac{2}{a^2}}
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.25\linewidth}
+	Richtung:\\
+	\flushright
+	%t8:
+	\begin{tikzpicture}
+	\draw[->] (0,0) -- (0,1);
+	\draw[->] (1,0) -- (1,1);
+	\draw[->] (0,.5) -- (.3,.5);
+	\draw[->] (1,.5) -- (.7,.5);
+	%2nd
+	\coordinate (o) at (2.5,0);
+	\draw[->] (o) -- ++(0,1);
+	\draw[->] ($ (o) + (1,1)$) -- ++(0,-1);
+	\draw[->] ($ (o) + (0,.5)$) -- ++(-.3,0);
+	\draw[->] ($ (o) + (1,.5)$) -- ++(.3,0);
+	\end{tikzpicture}
+\end{minipage}%
 \begin{center}
 	\begin{minipage}{.5\linewidth}
 		\frbox{Kraft pro Länge:}{
 			\begin{equation*}
-			\frac{\dd \vec{F}_{12}}{\dd l_1} = \frac{\mu_0}{4 \pi} \frac{I_1 I_2}{a} \vec{e}_x
+			\frac{\dd \vec{F}_{12}}{\dd l_1} = \frac{\mu_0}{2 \pi} \frac{I_1 I_2}{a} \vec{e}_x
 			\end{equation*}}
 	\end{minipage}
 \end{center}
-
-%T8
 
 \section{Feldgleichungen der Magnetostatik und Vektorpotential}
 
@@ -4490,14 +4586,15 @@ Beim $ \vec{B} $-Feld erhalten wir für den ersten nicht verschwindenden Term de
 \Rightarrow \quad \vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \left[\frac{3 \vec{r}(\vec{m} \cdot \vec{r})}{r^5} - \frac{\vec{m}}{r^3}\right] \qquad r > R
 \end{equation*}
 }
+\noindent
 Der große Unterschied zum $ \vec{E} $-Feld ist, dass der führende Term ein Dipol ist. Das $ \vec{B} $-Feld hat also keinen Monopol.\\[5pt]
-\emph{Beispiel:} \textbf{Magnetisches Dipolmoment einer Drahtschleife}
+\emph{Beispiel:} \textbf{Magnetisches Dipolmoment einer Drahtschleife}\\
 %
 %T8
 %
-$ \rho = \sqrt{x^2 + y^2} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
+$$ \rho = \sqrt{x^2 + y^2} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
 - \sin \varphi \\ \cos \varphi \\ 0
-\end{pmatrix}$
+\end{pmatrix}$$
 \begin{equation*}
 \vec{j} = I \delta(\rho - R) \delta(z) \vec{e}_{\varphi}
 \end{equation*}
