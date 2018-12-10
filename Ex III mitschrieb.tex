@@ -30,6 +30,7 @@
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{arrows}
 \usetikzlibrary{decorations.pathreplacing}
+%\usetikzlibrary{snakes}
 
 
 %Environments und Newcommands:
@@ -2707,7 +2708,7 @@ $ \Rightarrow $ Lösungen wie oben
 	\item Maxwell-Gleichungen sind linear $ \leftrightarrow $ Superpositionsprinzip.\\[5pt]
 	spezielle Lösung:
 	\begin{equation*}
-	\vec{E}(\vec{x},t) = \vec{E}_0 e^{i(\vec{k} \vec{x} - \omega t)} \qquad mit \omega(\vec{k})
+	\vec{E}(\vec{x},t) = \vec{E}_0 e^{i(\vec{k} \vec{x} - \omega t)} \qquad \tx{ mit } \omega(\vec{k})
 	\end{equation*}
 	$ \vec{k} $ als Parameter zum ,,numerieren`` der Lösungen\\[5pt]
 	allgemeine Lösung:
@@ -3197,7 +3198,7 @@ Linienspektrum $ \quad $ kontinuierliches Spektren\\
 
 
 \section*{Fragerunde}
-\addcontentsline{toc}{section}{IV.\ \:  Fragerunde}
+\addcontentsline{toc}{section}{IV. \texorpdfstring{\ \: }{space}  Fragerunde}
 
 \textbf{Dispersionsrelation bei getriebener Schwingung:}\\
 (harmonischer Oszillator oder Dispersion bei Schwingungen)\\
@@ -3231,8 +3232,20 @@ n(t) = [n(o) - n_{eq}] e^{-\frac{t - t_0}{\tau}} + n_{eq}
 
 \subsection{Zwei-Niveausystem}
 
-%T1
-%
+\begin{center}
+	%t1:
+	\begin{tikzpicture}
+		\coordinate (u) at ($ (0,0) + (0,1) $);
+		\coordinate (d) at ($ (0,0) + (0,-1) $);
+		\draw ($ (u) + (-1.5,0) $) node[left] {1} -- ++(3,0) node[right] {$ E_1 $};
+		\draw ($ (d) + (-1.5,0) $) node[left] {0} -- ++(3,0) node[right] {$ E_0 $};
+		\draw[red,thick,->] ($ (d) - (.5,0) $) to[out=110,in=-110] node[left] {$ \Gamma_{0\to1} $} ($ (u) - (.5,0) $);
+		\draw[red,thick,->] ($ (u) + (.5,0) $) to[out=-70,in=70] node[right] {$ \Gamma_{1\to0} $} ($ (d) + (.5,0) $);
+		\node[black!40!green] at ($ (u) + (2.5,0) $) {$ n_1 $};
+		\node[black!40!green] at ($ (d) + (2.5,0) $) {$ n_0 $};
+		\node[right,black!40!green] at (2.2,0) {Besetzungszahlen};
+	\end{tikzpicture}
+\end{center}
 \emph{Bemerkung:}
 \begin{itemize}
 	\item oft gibt es eine \textbf{Zwangsbedingung} $ \sum_k n_k = N \quad N : $ Gesamtzahl der Zustände
@@ -3271,44 +3284,112 @@ n_1 &= \frac{1}{2} (N + \delta N)
 
 \subsubsection{Rantengleichung mit externen Stimuli}
 
-% T2
-
-\begin{align*}
-\Rightarrow \quad \dot{n}_0 &= - \Gamma_{n_0} + \Gamma_{n_1} + \Gamma_{0 \tx{ext}}\\
-\dot{n}_1 &= - \Gamma_{n_1} + \Gamma_{n_0} + \Gamma_{1 \tx{ext}}
-\end{align*}
+\begin{minipage}{.5\linewidth}
+	\begin{align*}
+	\Rightarrow \quad \dot{n}_0 &= - \Gamma_{n_0} + \Gamma_{n_1} + \Gamma_{0 \tx{ext}}\\
+	\dot{n}_1 &= - \Gamma_{n_1} + \Gamma_{n_0} + \Gamma_{1 \tx{ext}}
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t2:
+	\centering
+	\begin{tikzpicture}
+		\coordinate (u) at ($ (0,0) + (0,1) $);
+		\coordinate (d) at ($ (0,0) + (0,-1) $);
+		\draw ($ (u) + (-1.5,0) $) node[left] {1} -- ++(3,0) node[right] {$ n_1 $};
+		\draw ($ (d) + (-1.5,0) $) node[left] {0} -- ++(3,0) node[right] {$ n_0 $};
+		\draw[red,thick,->] ($ (d) - (.5,0) $) to[out=110,in=-110] node[left] {$ \Gamma_{0\to1} $} ($ (u) - (.5,0) $);
+		\draw[red,thick,->] ($ (u) + (.5,0) $) to[out=-70,in=70] node[right] {$ \Gamma_{1\to0} $} ($ (d) + (.5,0) $);
+		\draw[<-] ($ (u) + (1.25,0) $) to[out=60,in=180] (2.5,2) node[right] {$ \Gamma_{1\tx{ ext}} $};
+		\draw[<-] ($ (d) + (1.25,0) $) to[out=-60,in=180] (2.5,-2) node[right] {$ \Gamma_{0\tx{ ext}} $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \subsection{Zwei-Niveau System im Strahlungsfeld, Einstein Parameter}
 
-%T3
-
-\textbf{spontane Emission:}
-
-%T4
-
-\begin{align*}
-\Rightarrow \quad \dot{n}_1 &= - A_{1 \to 0} n_1 \\
-\dot{n}_0 &= + A_{1 \to 0} n_1
-\end{align*}
-\textbf{Photon Absorption:}
-
-%T5
-
-\begin{align*}
-\Rightarrow \quad \dot{n}_0 &= - B_{0 \to 1} \rho(\nu) n_0 \\
-\dot{n}_1 &= + B_{0 \to 1} \rho(\nu) n_0
-\end{align*}
+\begin{minipage}{.5\linewidth}
+	Im Folgenden Betrachten wir stets ein Zwei-Niveau-System wie hier in der Abbildung zu sehen ist:
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t3:
+	\centering
+	\begin{tikzpicture}
+		\coordinate (u) at ($ (0,0) + (0,.8) $);
+		\coordinate (d) at ($ (0,0) + (0,-.8) $);
+		\draw ($ (u) + (-1.5,0) $) node[left] {1} -- ++(3,0) node[right] {$ E_1 , n_1 $};
+		\draw ($ (d) + (-1.5,0) $) node[left] {0} -- ++(3,0) node[right] {$ E_0 , n_0 $};
+	\end{tikzpicture}
+\end{minipage}%
+\\[15pt]
+\textbf{spontane Emission:}\\
+\begin{minipage}{.5\linewidth}
+	\begin{align*}
+	\Rightarrow \quad \dot{n}_1 &= - A_{1 \to 0} n_1 \\
+	\dot{n}_0 &= + A_{1 \to 0} n_1
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t4:
+	\centering
+	\begin{tikzpicture}
+		\coordinate (u) at ($ (0,0) + (0,.8) $);
+		\coordinate (d) at ($ (0,0) + (0,-.8) $);
+		\draw ($ (u) + (-1.5,0) $) -- ++(3,0);
+		\draw ($ (d) + (-1.5,0) $) -- ++(3,0);
+		\draw[red,thick,->] (u) -- (d);
+		\draw[red,thick,->,decorate,decoration=snake] (0.5,0) -- (2.2,0) node[right] {$ h \nu $};
+	\end{tikzpicture}
+\end{minipage}%
+\\[15pt]
+\textbf{Photon Absorption:}\\
+\begin{minipage}{.5\linewidth}
+	\begin{align*}
+	\Rightarrow \quad \dot{n}_0 &= - B_{0 \to 1} \rho(\nu) n_0 \\
+	\dot{n}_1 &= + B_{0 \to 1} \rho(\nu) n_0
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t5:
+	\centering
+	\begin{tikzpicture}
+		% ugly invisibe alignment line
+		\draw[white] (0,0) -- (4.1,0);
+		\coordinate (u) at ($ (0,0) + (0,.8) $);
+		\coordinate (d) at ($ (0,0) + (0,-.8) $);
+		\draw ($ (u) + (-1.5,0) $) -- ++(3,0);
+		\draw ($ (d) + (-1.5,0) $) -- ++(3,0);
+		\draw[red,thick,->] (d) -- (u);
+		\draw[red,thick,->,decorate,decoration=snake] (-2.7,0) -- (-1,0) node[right] {$ h \nu $};
+	\end{tikzpicture}
+\end{minipage}%
+\\[15pt]
 $ \rho(\nu) : $ Dichte des Strahlungsfeldes\\
 $ \nu : $ Frequenz\\[5pt]
-\textbf{stimulierte Emission:}
-
-%T6
-
-\begin{align*}
-\Rightarrow \quad \dot{n}_0 &= + B_{1 \to 0} \rho(\nu) n_1 \\
-\dot{n}_1 &= - B_{1 \to 0} \rho(\nu) n_1
-\end{align*}
-Definition Gleichgewicht
+\textbf{stimulierte Emission:}\\
+\begin{minipage}{.5\linewidth}
+	\begin{align*}
+	\Rightarrow \quad \dot{n}_0 &= + B_{1 \to 0} \rho(\nu) n_1 \\
+	\dot{n}_1 &= - B_{1 \to 0} \rho(\nu) n_1
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t6:
+	\centering
+	\begin{tikzpicture}
+		% ugly invisibe alignment line
+		\draw[white] (0,0) -- (3.2,0);
+		\coordinate (u) at ($ (0,0) + (0,1) $);
+		\coordinate (d) at ($ (0,0) + (0,-1) $);
+		\draw ($ (u) + (-1.5,0) $) -- ++(3,0);
+		\draw ($ (d) + (-1.5,0) $) -- ++(3,0);
+		\draw[red,thick,->] (u) -- (d);
+		\draw[red,thick,->,decorate,decoration=snake] (-1.8,0) -- node[above] {$ h \nu $} (-.1,0);
+		\draw[red,thick,->,decorate,decoration=snake] (0.1,.4) -- (1.8,.4);
+		\draw[red,thick,->,decorate,decoration=snake] (0.1,-.4) -- (1.8,-.4) node[right,yshift=12pt] {$ h \nu $};
+	\end{tikzpicture}
+\end{minipage}%
+\\[15pt]
+\textbf{Definition Gleichgewicht}
 $ n_0 : $
 \begin{equation*}
 A_{1 \to 0} n_1 - B_{0 \to 1} \rho(\nu) n_0 + B_{1 \to 0} \rho(\nu) n_1 = 0
@@ -3358,10 +3439,60 @@ c^2 = \frac{f + 2}{f} R \frac{T}{M}
 
 \subsubsection{Direkter Nachweis über die Rastertunnelmikroskopie}
 
-%T7
-
-%T8
-
+Ein Elektron, das von einem in den anderen Energiezustand springt:
+\begin{center}
+	%t7:
+	\begin{tikzpicture}[scale=.75]
+		\draw (-4,0) -| (-1.4,-2) -- (1.4,-2) |- (4,0);
+		\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] (e) at (-.6,-2) {};
+		\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] (e2) at (-2,0) {};
+		\draw[->,looseness=1.5] (e) to[out=90,in=45] (e2);
+		\node[blue,anchor=south west] at (e) {$ e^- $};
+		\draw[thick,black!40!green,<->] (2,0) -- node[right] {Austrittsarbeit $ \Phi $} (2,-2);
+		\node[red] at (0,1) {innerhalb};
+		\node[red] at (-3,1) {außerhalb};
+		\node[red] at (3,1) {außerhalb};
+	\end{tikzpicture}
+\end{center}
+\vspace{10pt}
+Schematische Skizze eines Rastertunnelmikroskops:
+\begin{center}
+	%t8:
+	\begin{tikzpicture}
+		\coordinate (s) at (0,.5);
+		% dreieck
+		\draw[thick,pattern=north east lines,rounded corners=2pt] ($ (s) + (-.5,1.5) $) -- (s) -- ($ (s) + (.5,1.5) $);
+		\coordinate (d) at (0,-1);
+		% rechteck
+		\draw[thick] ($ (d) + (-2,0) $) -- ($ (d) + (2,0) $);
+		\draw[draw=none,pattern=north east lines] ($ (d) + (-2,0) $) -- ($ (d) + (2,0) $) [rounded corners=5pt] -- ($ (d) + (2,-.6) $) [rounded corners=5pt] -- ($ (d) + (-2,-.6) $) -- cycle;
+		% bemaßung
+		\draw[dashed] ($ (s) + (-1,0) $) -- ++(4,0);
+		\draw[dashed] ($ (d) + (2,0) $) -- ++(1,0);
+		\draw[red,thick,<->] ($ (s) + (-.5,0) $) -- node[left] {$ d $} ($ (d) + (-.5,0) $);
+		% spannung
+		\coordinate (U) at (-2.5,0);
+		\draw[thick] ($ (U) + (-.2,0) $) -- ++(.4,0);
+		\draw[thick] ($ (U) + (-.2,-.2) $) -- ++(.4,0);
+		\draw[thick] (U) |- ($ (s) + (-.25,.75) $);
+		\draw[thick] ($ (U) + (0,-.2) $) |- ($ (d) + (-2,-.3) $);
+		\node[left] at ($ (U) + (-.2,-.1) $) {$ U $};
+		% potential
+		\coordinate (p) at ($ (s) + (3,0) $);
+		\draw[thick] ($ (p) + (1,1) $) |- (p) -- ($ (d) + (3,0) $) -| ($ (d) + (4,-1) $);
+		\draw[thick,black!40!green,<->] ($ (d) + (3,-.8) $) -- node[below] {$ \Phi $} ($ (d) + (4,-.8) $);
+		% tunneling
+		\coordinate (e1) at ($ (d) + (4,-.4) $);
+		\coordinate (e2) at ($ (p) + (0,-.75) $);
+		\coordinate (e3) at ($ (p) + (1,.4) $);
+		\foreach \x in {e1,e2,e3}
+		\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] (\x) at (\x) {};
+		\draw[blue,->,looseness=1.9] (e1) to[out=180,in=-140] (e2);
+		\draw[blue,->,looseness=1.9] (e2) to[out=140,in=180] (e3);
+		\draw[thick,->,red] (e1) to[out=120,in=-120] node[right] {Tunnelstrom} (e3);  
+	\end{tikzpicture}
+\end{center}
+Der Tunnelstrom ist hierbei exponentiell zur Spannung proportional:
 \begin{equation*}
 I_T \propto U_T \tx{ exp}\left(- 2\sqrt{\frac{2 m \Phi}{\ol{k}^2}} d \right)
 \end{equation*}
