@@ -3196,7 +3196,6 @@ Linienspektrum $ \quad $ kontinuierliches Spektren\\
 	\end{equation*}
 \end{enumerate}
 
-
 \section*{Fragerunde}
 \addcontentsline{toc}{section}{IV. \texorpdfstring{\ \: }{space}  Fragerunde}
 
@@ -3254,7 +3253,7 @@ n(t) = [n(o) - n_{eq}] e^{-\frac{t - t_0}{\tau}} + n_{eq}
 	\Gamma_{k \to l} = \Gamma_{l \to k}
 	\end{equation*}
 \end{itemize}
-Ratengleichhung:
+Ratengleichung:
 \begin{equation*}
 \dot{n}_0 = - \Gamma_{0 \to 1} n_0 + \Gamma_{1 \to 0} n_1
 \end{equation*}
@@ -3503,6 +3502,187 @@ $ d $ ca. $ 1 . 10 \, \tx{mm} $\\
 \folie{Rastertunnelmikroskop}\\
 \lcom{Manövrieren mittels Piezokristallen um Präzisionen feiner als Atomare Skala zu erreichen.}\\
 \folie{Rasterkraftmikroskop (AFM)}
+
+% Vorlesung 11.12.18 (13 Days until christmas)
+
+\subsection{Quantelung der Ladung}
+
+\subsubsection{Elektrolyse}
+
+\folie{zu Elektrolyse}
+
+Prinzip $ \Rightarrow $ elektrische Ströme $ \Rightarrow $ Redox-Reaktion\\
+$ \Rightarrow $ Stoffumsatz verknüpft mit Ladungsmenge
+\begin{equation*}
+F = e N_A = 96485{,}\dots \frac{\tx{C}}{\tx{mol}}
+\end{equation*}
+\emph{Beispiel:} NaCl
+\begin{equation*}
+2 Na^+ Cl^- \quad \rightarrow \quad 2 Na + Cl_2
+\end{equation*}
+Um 1 mal Na abzuscheiden, oder $ \frac{1}{2} $ mal Cl$ _2 $ Gas zu erzeugen werden $ Q = 96486 \, \tx{C} $ benötigt.
+\begin{equation*}
+\Rightarrow \quad F = N_A e \quad \Rightarrow e \approx 1{,}6 \cdot 10^{-19} \, \tx{C} 
+\end{equation*}
+
+\subsubsection{Millikan Versuch}
+
+\folie{Milikan Versuch}
+
+Prinzip: geladenes Tröpfchen + angelegtes $ \vec{E} $-Feld.
+\begin{equation*}
+\Rightarrow \quad m \vec{a} = q \vec{E} + m \vec{g} - \rho V \vec{g} + 6 \pi n R \vec{v}
+\end{equation*}
+\textbf{Schwebefeld-Methode}\\
+Idee: $ \vec{E} $-Feld so einstellen, dass Tröpfchen schwebt.\\
+Problem: $ R $ ist unbekannt.
+\begin{equation*}
+\Rightarrow \quad R \tx{ ungenau } \quad \Rightarrow \quad q \tx{ ungenau }
+\end{equation*}
+\versuch{Milikan Versuch}
+Kondensator aus Gitterplatten und Seifenblasen als Tröpchen.\\[5pt]
+\textbf{Gleichfeld-Methode}\\
+Idee: Am selben Tröpfchen zwei Messungen mit unterschiedlichen $ \vec{E} $-Feldern.\\
+Realisierung: $ \vec{E} $-Feld Umpolen\\[5pt]
+Messung 1: Tröpfchen sinkt\\
+Messung 2: Tröpfchen steigt\\
+$ \Rightarrow $ wird eliminiert
+\begin{equation*}
+v \tx{ messen } \Rightarrow \tx{ das geht ganz gut}
+\end{equation*}
+\folie{Millikan Ergebnisse}
+
+\subsection{Bestimmung von \texorpdfstring{$ Q / M $}{Q/M} (Ladung/Masse)}
+
+Prinzip:
+\begin{enumerate}[1)]
+	\item Teilchenstrahlquelle: geladene Teilchen werden durch $ \vec{E} $-Feld beschleunigt
+	\item Massentrennung: Teilchenstrahl durch $ \vec{E} $- und $ \vec{B} $-Felder
+	\item Teilchenstrahl detektieren
+\end{enumerate}
+
+\subsubsection{Teilchenstrahlquelle}
+
+Glühkathode:
+\folie{Glühkathoden}
+Eine Drahtwindel wird in einem Vakuum stark erhitzt.\\
+$ \Rightarrow $ Elektronen treten aus (überwinden Austrittsarbeit)
+\begin{center}
+	%t1:
+	\begin{tikzpicture}[scale=.75]
+		\draw (-4,0) -| (-1.4,-2) -- (1.4,-2) |- (4,0);
+		\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] (e) at (-.6,-2) {};
+		\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] (e2) at (2,0) {};
+		\draw[->,looseness=1.5] (e) to[out=90,in=135] (e2);
+		\node[blue,anchor=south west] at (e) {$ e^- $};
+		\draw[thick,black!40!green,<->] (3,0) -- node[right] {Austrittsarbeit $ \Phi $} (3,-2);
+		\node[red] at (-3,.5) {Vakuum};
+	\end{tikzpicture}
+\end{center}
+$ \Rightarrow $ Elektronenstrahl durch Beschleunigungsspannung.
+
+\subsubsection{Elektronenstroßionenquelle}
+
+Atome/Moleküle werden mit Elektronen beschossen:
+\begin{equation*}
+A + e^- \rightarrow A^+ + 2 e^- \quad A^{++} + 3 e^-
+\end{equation*}
+\begin{equation*}
+M + e^- \rightarrow M^+ + 2 e^- \quad M^{++} + 3 e^-
+\end{equation*}
+\emph{Beispiel: } $ H_2O + e^- \rightarrow H_2O^+, OH^+, O^+ \dots $\\
+\folie{Elektronenstoßquelle}
+
+\subsubsection{Elektrospray Ionenquelle (ESI)}
+
+Prinzip: zu untersuchende Substanz wird in Flüssigkeit gebracht und mit dieser durch eine Düse aufgespritzt. Dabei wird außerdem eine hohe Spannung angelegt um die Tröpfchen zu beschleunigen.\\[5pt]
+$ \Rightarrow $ Tröpfchen (1 - 10 nm)\\
+$ \rightarrow $ Coulomb Explosion\\
+$ \rightarrow $ Verdampfung der Flüssigkeit\\
+\folie{Elektronenspray-Ionenquelle}
+
+\subsubsection{Detektion}
+
+\textbf{Faraday Becher}\\[5pt]
+Gauß'scher Satz $ \Rightarrow $ Innerhalb um Metallkörper befinden sich keine Ladungen. Ladungen werden auf Außenseite gesammelt.\\[5pt]
+Nachweisgrenze: $ 10^{-14} \, \tx{A} \ \widehat{=} \ 10^{5} \, \frac{\tx{Ionen}}{\tx{s}} $\\
+\folie{Faraday-Becher}\\[5pt]
+\textbf{Sekundärelektronenvervielfacher (SEV)}\\[5pt]
+
+Ein auf Metall/Halbleiter auftrefendes Elektron erzeugt bei genügend Energie mehrere Sekundärelektronen.\\[5pt]
+Nachweisgrenze: einzelnes Ion\\
+\folie{SEV}\\
+\folie{Mikrokanalplatte (für Ortsauflösung)}
+
+\subsubsection{Massentrennung}
+
+Teilchenstrahl durch $ \vec{E} $- und $ \vec{B} $-Felder\\
+Magnetisches Feld:
+\begin{equation*}
+R = \frac{m}{q} \frac{v}{B}
+\end{equation*}
+Impulsfilter\\[5pt]
+Elektrisches Feld:
+\begin{equation*}
+y(x) = \frac{q E}{2 m v_x^2} x^2
+\end{equation*}
+Energiefilter\\[5pt]
+\folie{Magnetisches und elektrisches Feld}
+
+\subsubsection{Thomson'sche Röhre}
+
+\folie{Thomson'sche Röhre}\\
+\folie{Massen-Spektren}\\
+Beschleunigung:
+\begin{equation*}
+\frac{1}{2} m v^2 = q U
+\end{equation*}
+Ablenkung:
+\begin{equation*}
+m \frac{v^2}{R} = q v B
+\end{equation*}
+Für das Ladungs-Masse-Verhältnis ergibt sich dann.
+\begin{equation*}
+\Rightarrow \quad \frac{q}{m} = \frac{2 v}{(RB)^2}
+\end{equation*}
+\versuch{Glühkathode im Vakuum}
+Der Elektronenstrahl wird sichtbar, da Argon-Moleküle im nicht perfekten Vakuums angeregt werden und blau leuchten. Durch das homogene Magnetfeld der Helmholzspulen wird aus dem Elektronenstrahl eine gekrümmte oder Kreisförmige Bahn. Bei Drehung des Glaskörpers ergibt sich eine Spirale.\\[5pt]
+\versuch{Thomson'sche Röhre}
+Wien'scher Filter mit gekreuzten $ \vec{E} $- und $ \vec{B} $-Feldern.
+
+\section{Struktur der Materie}
+
+\subsection{Materie besteht aus Atomen/Ionen}
+
+Dalton's Atomhypotese
+
+\subsection{Atome bestehen aus Elektronen und ,,sonst etwas``}
+
+$ \Rightarrow \quad e^- $ müssen gebunden sein\\
+$ \Rightarrow $ Bindungsenergie für $ e^- $\\
+$ \Rightarrow $ Ionisationsenergie: Bindungsenergie für ,,erstes`` Elektron $ e^- $
+
+\subsubsection{Franck-Hertz-Versuch}
+
+Idee:
+\begin{enumerate}[1)]
+	\item $ e^- $ werden im Atomgas beschleunigt, gewinne kinetische Energie. Je nach Wechselwirkung der $ e^- $ mit den Atomen tritt ein Energieverlust auf.
+	\item Nach einer gewissen Strecke erreichte kinetische Energie wird gemessen
+\end{enumerate}
+Aufbau:
+\folie{Franck-Hertz-Versuch}
+\begin{itemize}
+	\item Quecksilberdampf, ca. 10 mbar
+	\item Glühkathode mit Beschleunigungsspannung
+\end{itemize}
+
+
+
+
+
+
+
+
 
 
 

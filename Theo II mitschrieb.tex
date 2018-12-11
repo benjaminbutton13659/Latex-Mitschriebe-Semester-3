@@ -4412,13 +4412,27 @@ Kürzbar, da partielle Ableitungen vertauschbar sind.
 \begin{equation*}
 \rmbox{\vabla \times \vec{B} = \mu_0 \vec{j}}
 \end{equation*}
-integrale Formulierung:
-%
-%T1
-%
-\begin{equation*}
-\int_{\partial F} \dd \vec{r} \cdot \vec{B} (\vec{r}) = \int_F \dd \vec{f} \cdot (\vec{\nabla} \times \vec{B}) = \mu_0 \ub{\int_F \dd \vec{f} \cdot \vec{j}(\vec{r})}_{I_F} = \mu_0 I_F
-\end{equation*}
+\begin{minipage}{.8\linewidth}
+	integrale Formulierung:
+	\begin{equation*}
+	\int_{\partial F} \dd \vec{r} \cdot \vec{B} (\vec{r}) = \int_F \dd \vec{f} \cdot (\vec{\nabla} \times \vec{B}) = \mu_0 \ub{\int_F \dd \vec{f} \cdot \vec{j}(\vec{r})}_{I_F} = \mu_0 I_F
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.2\linewidth}
+	%t1:
+	\flushright
+	\begin{tikzpicture}
+		\draw[->,pattern=north east lines, pattern color=black!40!white] (1,0) arc[start angle=0,end angle=360,y radius=.5cm,x radius=1cm] node[right] {$ \partial F $};
+		\node at (-.6,0) {$ F $};
+		\draw[fill=white] (-.25,1.5) -- (-.25,0) arc[start angle=180,end angle=360,x radius=.25,y radius=.125] -- (.25,1.5);
+		\draw (0,1.5) ellipse (.25cm and .125cm);
+		\draw (-.25,-1)  arc[start angle=180,end angle=360,x radius=.25,y radius=.125];
+		\draw (-.25,-1) -- (-.25,-.48);
+		\draw (.25,-1) -- (.25,-.48);
+		\node at (0,.75) {$ \vec{j} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\[5pt]
 \frbox{Amper\`esches Durchflutungsgesetz}{
 \begin{equation*}
 \Rightarrow \quad \oint_{\partial F} \dd \vec{r}\cdot \vec{B}(\vec{r}) = \mu_0 I_F
@@ -4427,39 +4441,76 @@ integrale Formulierung:
 
 \subsubsection{Magnetfeld eines stromdurchflossenen Leiters mit homogener Stromdichte}
 
-%T2
-%
-Aufgrund der Symmetrie verwenden wir Zylinderkoordinaten:
-\begin{equation*}
-\vec{r} = \begin{pmatrix}
-\rho \cos \varphi \\ \rho \sin \varphi \\ z
-\end{pmatrix}
-\end{equation*}
-Die Stromdichte ist dann:
-\begin{align*}
-\vec{j} &= \vec{e}_z \casess{\frac{I}{\pi R^2}}{\rho \le R}{0}{\tx{sonst.}}\\
-&= \vec{e}_z \frac{I}{\pi R^2} \theta(R - \rho)
-\end{align*}
-Symmetrie:
-\begin{equation*}
-\vec{B}(\vec{r}) = B_\varphi(\rho) \vec{e}_{\varphi} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
-- \sin \varphi \\ \cos \varphi \\ 0
-\end{pmatrix}
-\end{equation*}
-%
-%T3
-%
-$ F $ ist ein Kreis mit Radius $ \rho $ (kleiner oder größer als $ R $)\\
-Hierauf wenden wir das Amp\`eresche Durchflutungsgesetz an:\\
-Unter Verwendung von:
-\begin{equation*}
-\dd \vec{f}' = \vec{e}_z \dd f = \vec{e}_z = \rho' \dd \rho' \dd \varphi'
-\end{equation*}
+\begin{minipage}{.7\linewidth}
+	Aufgrund der Symmetrie verwenden wir Zylinderkoordinaten:
+	\begin{equation*}
+	\vec{r} = \begin{pmatrix}
+	\rho \cos \varphi \\ \rho \sin \varphi \\ z
+	\end{pmatrix}
+	\end{equation*}
+	Die Stromdichte ist dann:
+	\begin{align*}
+	\vec{j} &= \vec{e}_z \casess{\frac{I}{\pi R^2}}{\rho \le R}{0}{\tx{sonst.}}\\
+	&= \vec{e}_z \frac{I}{\pi R^2} \theta(R - \rho)
+	\end{align*}
+	Symmetrie:
+	\begin{equation*}
+	\vec{B}(\vec{r}) = B_\varphi(\rho) \vec{e}_{\varphi} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
+	- \sin \varphi \\ \cos \varphi \\ 0
+	\end{pmatrix}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	%t2:
+	\flushright
+	\begin{tikzpicture}[scale=1.4]
+		\draw[dashed,fill=gray!20!white] (0,0) ellipse (1cm and .5cm);
+		\draw[dashed] (0,-1.5) ellipse (1cm and .5cm);
+		\draw[dashed] (0,1.5) ellipse (1cm and .5cm);
+		\draw[->] (0,0) -- (0,2.5) node[anchor=south east] {$ z $};
+		\draw (0,-.5) -- (0,-2.5);
+		\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw (-1,-1.5) -- (-1,1.5) (1,-1.5) -- (1,1.5);
+		\draw[thick,->] (-.5,0) -- node[left=5pt] {$ \vec{j} $} (-.5,1);
+		\draw[very thick] (0,0) -- (1,0) node[anchor=north west,xshift=5pt,yshift=-5pt] {R};
+		\draw[thick,->] (0,0) -- node[above] {$ \vec{r} $} ({cos(45) * 1cm},{sin(45) * .5cm});
+		\draw[thick,->] ({cos(45) * 1cm},{sin(45) * .5cm}) -- node[above=5pt] {$ \vec{e}_\varphi $} ++({-cos(45) * .7cm},{sin(45) * .35cm});
+		\draw (.8,0) to[out=-60,in=180] (1.2,-.4);
+	\end{tikzpicture}
+\end{minipage}%
+
+\noindent
+\begin{minipage}{.6\linewidth}
+	$ F $ ist ein Kreis mit Radius $ \rho $ (kleiner oder größer als $ R $)\\
+	Hierauf wenden wir das Amp\`eresche Durchflutungsgesetz an:\\
+	Unter Verwendung von:
+	\begin{equation*}
+	\dd \vec{f}' = \vec{e}_z \dd f = \vec{e}_z = \rho' \dd \rho' \dd \varphi'
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	%t3:
+	\flushright
+	\begin{tikzpicture}[scale=.8]
+		\draw[->] (-3,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-3) -- (0,3) node[anchor=south east] {$ z $};
+		\draw[dashed] (0,0) circle (2cm);
+		\draw[draw=none,pattern=north east lines, pattern color=black!30!white] (0,0) circle (2cm);
+		\draw (0,0) circle (1cm);
+		\node at (1,-1) {$ R $};
+		\draw[thick,->] (0,0) -- node[above=5pt] {$ \vec{r} $} ({sin(60) * 2cm},{cos(60) * 2cm});
+		\draw (-1.2,1.2) to[out=90,in=0] (-2,2) node[left] {$ F $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{align*}
 \mu_0 \int_F \dd \vec{f} ' \cdot \vec{j}(\vec{r}') &= \int_{\partial F} \dd \vec{r}' \cdot \vec{B}(\vec{r}')\\
 &= \mu_0 \int_{0}^{\rho} \dd\rho' \int_{0}^{2 \pi} \dd \varpi'\rho' \frac{I}{\pi R^2} \theta(R - \rho)\\
 &= \mu_0 \frac{I}{\pi R^2} 2 \pi \ub{\int_{0}^{\rho} \dd \rho' \rho' \theta(R - \rho)}\\
-& \qquad = \casess{\int_{0}^{R} \dots = \frac{1}{2} R^2 }{\rho > R}{\int_{0}^{\rho}\: \dots = \frac{1}{2} \rho^2}{\rho \le R}
+& \qquad = \left\{\begin{array}{cc}
+\int_{0}^{R} \dots = \frac{1}{2} R^2 & \rho > R \\[5pt]
+\int_{0}^{\rho}\: \dots = \frac{1}{2} \rho^2 & \rho \le R
+\end{array}\right.
 \end{align*}
 \begin{equation*}
 \Rightarrow \quad \mu_0 \int_{F} \dd \vec{f}' \cdot \vec{j}(\vec{r}') = \mu_0 \casess{I}{\rho > R}{\frac{\rho^2}{R^2} I}{\rho \le R}
@@ -4490,12 +4541,35 @@ Dies können wir umstellen in:
 \begin{equation*}
 \Rightarrow \quad \vec{B}(\vec{r}) = \frac{\mu_0}{2 \pi} I \vec{e}_{\varphi} \casess{\frac{1}{\rho}}{\rho > R}{\frac{\rho}{R^2}}{\rho \le R}
 \end{equation*}
-%
-%T4
-%
-%
-%T5
-%
+\begin{minipage}{.5\linewidth}
+	%t4:
+	\centering
+	\begin{tikzpicture}
+		\draw[->] ({sin(45) * .6cm},{- cos(45) * .4cm}) arc[start angle=-45,end angle=315,x radius = .6cm,y radius=.4cm];
+		\draw[->] ({sin(45) * 1.2cm},{- cos(45) * .8cm}) arc[start angle=-45,end angle=315,x radius = 1.2cm,y radius=.8cm];
+		\draw[draw=none,fill=white] (-.25,0) rectangle (.25,1.5);
+		\draw (-.25,-1.5) -- (-.25,1.5) (.25,-1.5) -- (.25,1.5);
+		\draw[thick] node[above] {R}  (0,0) -- (.25,0);
+		\node at (1.2,-1.2) {$ \vec{B} $};
+		\draw[->,thick] (0,.6) -- (0,1.2) node[left=5pt,yshift=-5pt] {$ I $};
+		\draw (0,1.5) ellipse (.25cm and .17cm);
+		\draw (-.25,-1.5) arc[start angle=180,end angle=360, x radius=.25, y radius=.17];
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\vspace{15pt}
+	%t5:
+	\centering
+	\begin{tikzpicture}
+		\draw[thick,->] (0,0) -- (0,3) node[anchor=south east] {$ B_\varphi (\rho) $};
+		\draw[thick,->] (0,0) -- (4,0) node[anchor=north west] {$ \rho $};
+		\draw (2,.1) -- (2,-.1) node[below] {R};
+		\draw (0,0) -- (2,2) to[out=-75,in=170] (4,.25);
+		\draw (.1,2) -- (-.1,2) node[left] {$ \frac{\mu_0}{2 \pi} I \frac{1}{R} $};
+		\draw[dashed] (0,2) -| (2,0);
+	\end{tikzpicture}
+\end{minipage}%
+
 
 \subsubsection{Differentialgleichung für das Vektorpotential}
 
@@ -4512,7 +4586,6 @@ falls $ \vabla\cdot \vec{A} = 0 $ (Coulomb-Gleichung)
 \end{equation*}
 Wichtig: Die Komponenten sind nicht unabhängig voneinander aufgrund unserer Annahme $ \vabla \cdot \vec{A} = 0 $
 analog:$ \Delta \varphi = - \frac{1}{\epsilon_0} \rho $
-
 
 \subsection{Feldgleichungen der Magnetostatik}
 
@@ -4545,13 +4618,27 @@ Und für das Vektorpotential:
 \vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}
 \end{equation*}
 mit $ \vabla \cdot \vec{A} = 0 $\\
-Wir betrachten eine lokalisierte Ladungsverteilung:
-%
-%T6
-%
-\begin{equation*}
-\vec{j}(\vec{r}) = \casess{\tx{beliebig}}{r < R}{0}{r > R}
-\end{equation*}
+\begin{minipage}{.5\linewidth}
+	Wir betrachten eine lokalisierte Ladungsverteilung:
+	\begin{equation*}
+	\vec{j}(\vec{r}) = \casess{\tx{beliebig}}{r < R}{0}{r > R}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t6:
+	\flushright
+	\begin{tikzpicture}
+		\draw[fill=gray!15!white]  plot [smooth cycle, tension=0.8] coordinates { (-1,0) (-1,1) (0,1) (.5,.5) (1,0) (.7,-.7) (0,-1) (-.4,-.7) };
+		\draw[->] (0,0) -- (0,3);
+		\draw[->] (0,0) -- (3,0);
+		\draw[->] (0,0) -- (-1.8,-1.8);
+		\draw[dashed] (0,0) circle (1.75cm);
+		\draw (0,0) -- ({- sin(45) * 1.75},{cos(45) * 1.75})node[left=5pt] {R};
+		\draw[->] (0,0) -- (1.2,.5) node[above] {$ \vec{r}' $};
+		\draw[->] (0,0) -- (2.25,.5) node[right] {$ \vec{r} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Für $ r > R > r' $ machen wir eine Taylorentwicklung:
 \begin{equation*}
 \frac{1}{|\vec{r} - \vec{r}'|} = \frac{1}{r} + \frac{\vec{r}}{r^3} \cdot \vec{r}' + \dots
@@ -4562,10 +4649,18 @@ Für $ r > R > r' $ machen wir eine Taylorentwicklung:
 \textbf{Es gilt: in der Magnetostatik} $ \vabla \cdot \vec{j} = 0 $
 \begin{enumerate}[i)]
 	\item Das Integral über die Stromdichte verschwindet:\\
-	$$ \int \dd ^3 r' \vec{j} (\vec{r}') = 0 $$
-	%
-	%T7
-	%
+	\begin{minipage}{.5\linewidth}
+		$$ \int \dd ^3 r' \vec{j} (\vec{r}') = 0 $$
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		%t7:
+		\centering
+		\begin{tikzpicture}[scale=.5]
+			\draw[->] (0,0) arc[start angle=135, end angle=495, radius = 1];
+			\node at ({sin(45)},{-cos(45)}) {$ \vec{j} $};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
 	\item $$ \int \dd^3 r' (\vec{r} \cdot \vec{r}') \vec{j}(\vec{r}) = - \vec{r} \times \ub{\frac{1}{2} \int \dd^3 r' (\vec{r}' \times \vec{j}(\vec{r}'))}_{\mathclap{\substack{\defeq \vec{m}\\ \tx{magnetisches} \\ \tx{Dipolmoment} }}} $$
 \end{enumerate}
 Die Entwicklung des Vektorpotentials wird dann zu:
@@ -4582,26 +4677,38 @@ Mit der Identität: $ \vabla \times (f \vec{F}) = f \vabla \times \vec{G} - \vec
 &= \frac{1}{r^3} 2 \vec{m} + \frac{3}{r^5} \ub{(\vec{m} \times \vec{r}) \times \vec{r}}_{(\vec{m} \cdot \vec{r}) \vec{r} - (\vec{r} \cdot \vec{r}) \vec{m}}\\
 &= \frac{3 \vec{r} (\vec{m} \vec{r})}{r^5} - \frac{\vec{m}}{r^3}
 \end{align*}
-Beim $ \vec{B} $-Feld erhalten wir für den ersten nicht verschwindenden Term den Dipolterm:
+Beim $ \vec{B} $-Feld erhalten wir für den ersten nicht verschwindenden Term den Dipolterm:\\
 \frbox{Multipolentwicklung des Magnetfeldes (1. Term)}{
-\begin{equation*}
-\Rightarrow \quad \vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \left[\frac{3 \vec{r}(\vec{m} \cdot \vec{r})}{r^5} - \frac{\vec{m}}{r^3}\right] \qquad r > R
-\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \left[\frac{3 \vec{r}(\vec{m} \cdot \vec{r})}{r^5} - \frac{\vec{m}}{r^3}\right] \qquad r > R
+	\end{equation*}
 }
+
 \noindent
 Der große Unterschied zum $ \vec{E} $-Feld ist, dass der führende Term ein Dipol ist. Das $ \vec{B} $-Feld hat also keinen Monopol.\\[5pt]
 \emph{Beispiel:} \textbf{Magnetisches Dipolmoment einer Drahtschleife}\\
-%
-%T8
-%
-$$ \rho = \sqrt{x^2 + y^2} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
-- \sin \varphi \\ \cos \varphi \\ 0
-\end{pmatrix}$$
+\begin{minipage}{.5\linewidth}
+	$$ \rho = \sqrt{x^2 + y^2} \qquad \vec{e}_{\varphi} = \begin{pmatrix}
+	- \sin \varphi \\ \cos \varphi \\ 0
+	\end{pmatrix}$$
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t8:
+	\centering
+	\begin{tikzpicture}
+		\draw[->,fill=gray!10!white] ({-sin(45) * 1.25},{cos(45) * .8}) arc[start angle=135, end angle=495, x radius = 1.25, y radius = .8] node[left=5pt] {$ I $};
+		\draw[->] (0,0) -- (0,2) node[anchor=north west] {$ x $};
+		\draw[->] (0,0) -- (2,0) node[anchor=south east] {$ z $};
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (0,0) {};
+		\draw (0,0) -- ({sin(45) * 1.25},{cos(45) * .8}) node[anchor=south west] {$ R $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{equation*}
 \vec{j} = I \delta(\rho - R) \delta(z) \vec{e}_{\varphi}
 \end{equation*}
 \begin{equation*}
-\vec{m} = \frac{1}{2} \int \dd^3 r \vec{r} \times \vec{j}(\vec{r})
+\vec{m} = \frac{1}{2} \int \dd^3 r \ \vec{r} \times \vec{j}(\vec{r})
 \end{equation*}
 Nebenrechnung:
 \begin{align*}
@@ -4624,19 +4731,39 @@ Nebenrechnung:
 \Rightarrow \quad \vec{m} &= \frac{1}{2} I \int_{0}^{\infty} \rho \dd \rho \int_{0}^{2 \pi} \dd \varphi \int_{-\infty}^{\infty} \dd z \delta(\rho - R) \delta(z) (\rho \vec{e}_z - \custo{\rightarrow}{z}{0} \vec{e}_{\varphi})\\
 &= \frac{I}{2} R^2 2 \pi \vec{e}_z
 \end{align*}
-\begin{equation*}
-\Rightarrow \quad \vec{m} = \ub{\pi R^2}_{F} I \vec{e}_z
-\end{equation*}
-%
-%T9
-%
-Das Magnetische Moment einer Spule:
-%
-%T10
-%
-\begin{equation*}
-\vec{m} = N I \cdot F \vec{e}_z
-\end{equation*}
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\Rightarrow \quad \vec{m} = \ub{\pi R^2}_{F} I \vec{e}_z = F I \vec{e}_z
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t9:
+	\centering
+	\begin{tikzpicture}[scale=.75]
+		\draw[->,fill=gray!10!white] ({-sin(45) * 1.25},{cos(45) * .8}) arc[start angle=135, end angle=495, x radius = 1.25, y radius = .8] node[left=5pt] {$ I $};
+		\draw[->] (0,0) -- (0,2);
+		\draw[->] (0,0) -- (2,0);
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (0,0) {};
+		\draw[very thick,->] (0,0) -- (0,1.5) node[anchor=north west] {$ \vec{m} $};
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}%
+\\
+\begin{minipage}{.5\linewidth}
+	Das Magnetische Moment einer Spule:
+	\begin{equation*}
+	\vec{m} = N I \cdot F \vec{e}_z
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t10:
+	\centering
+	\begin{tikzpicture}
+		\draw[decorate,decoration={aspect=.5, segment length=4mm, amplitude=.5cm,coil},thick,<-] (0,2) node[anchor=south west] {$ I $} -- (0,0);
+	\end{tikzpicture}
+	\vspace{10pt}
+\end{minipage}%
+\\
 \folie{Vergleich idealer Dipol und Leiterschleife}\\
 \folie{Vergleich $ \vec{E} $-Feld einer elektrischer Dipol und Magnetfeld um Leiterschleife}
 
@@ -4644,25 +4771,53 @@ Das Magnetische Moment einer Spule:
 
 \subsection{Kraft auf eine lokalisierte Stromverteilung in einem äußeren Magnetfeld \texorpdfstring{$ \vec{B} $}{B}}
 
-%T1
-
-\noindent
-$ \vec{j}(\vec{r}) = 0 \qquad |\vec{r}| > 0 $
-Taylorentwicklung von $ \vec{B}(\vec{r}) $ um $ \vec{r} = 0 $:
-\begin{equation*}
-\vec{B}(\vec{r}) = \vec{B}(0) + (\vec{r} \cdot \vabla) \vec{B}(\vec{r}) \bigg|_{\vec{r} = 0} + \dots
-\end{equation*}
-\begin{equation*}
-\longrightarrow \quad \vec{F} = \int \dd^3 r \left(\vec{j}(\vec{r}) \times \vec{B} (\vec{r})\right)
-\end{equation*}
+\begin{minipage}{.6\linewidth}
+	$ \vec{j}(\vec{r}) = 0 \qquad |\vec{r}| > 0 $
+	Taylorentwicklung von $ \vec{B}(\vec{r}) $ um $ \vec{r} = 0 $:
+	\begin{equation*}
+	\vec{B}(\vec{r}) = \vec{B}(0) + (\vec{r} \cdot \vabla) \vec{B}(\vec{r}) \bigg|_{\vec{r} = 0} + \dots
+	\end{equation*}
+	\begin{equation*}
+	\longrightarrow \quad \vec{F} = \int \dd^3 r \left(\vec{j}(\vec{r}) \times \vec{B} (\vec{r})\right) \quad \ \
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	%t1:
+	\flushright
+	\begin{tikzpicture}
+		\draw[fill=gray!10] plot [smooth cycle, tension=.8] coordinates { (.5,-1.5) (0,-1) (-.7,-.5) (-.7,.7) (.7,1) (.7,0) (1.2,-.7) };
+		\draw[->] (0,0) -- (0,2) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,0) -- (-1.4,-1.4) node[anchor=north east] {$ y $};
+		\node at (-.3,.45) {$ \vec{j} $};
+		\coordinate (a) at (1.5,1.7);
+		\coordinate (b) at ($ (a) + (-44:.5) $);
+		\coordinate (c) at ($ (a) + (-45:1) $);
+		\coordinate (d) at ($ (a) + (-50:1.5) $);
+		\draw[<-] (a) to[out=-150,in=10] ++(-160:4);
+		\draw[<-] (b) to[out=-145,in=15] ++(-155:4.5);
+		\draw[<-] (c) to[out=-145,in=35] ++(-145:4.5);
+		\draw[<-] (d) to[out=-145,in=55] ++(-135:4);
+		\node at (2.5,1.5) {$ \vec{B} $};
+		\draw[dashed] (0,0) circle (1.7cm);
+	\end{tikzpicture}
+\end{minipage}%
 \begin{equation*}
 \vec{F} = \ub{\int\dd^3 r \left(\vec{j}(\vec{r}) \times \vec{B}(0)\right)}_{= \bigg(\ub{\int \dd^3 r \vec{j} (\vec{r})}_{= 0} \bigg) \times \vec{B}(0)} + \int\dd ^3 r \left[ \vec{j}(\vec{r}) \times (\vec{r} \cdot \vabla) \vec{B}(0) \right] + \dots
 \end{equation*}
-Der verschwindende Teil ist ein homogenes $ \vec{B} $-Feld ($ \vec{B} = \const $), und übt daher keine Kraft auf Stromverteilung aus.
-
-%T2
-
-\noindent
+\begin{minipage}{.7\linewidth}
+	Der verschwindende Teil ist ein homogenes $ \vec{B} $-Feld ($ \vec{B} = \const $), und übt daher keine Kraft auf Stromverteilung aus.
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	%t2:
+	\flushright
+	\begin{tikzpicture}[scale=.75]
+		\draw[->] (-{sin(45) * 1},{cos(45) * 1}) arc[start angle=135,end angle=-225, radius=1cm] node[anchor=south east] {$ I $};
+		\draw[thick,->] (-1,0) -- node[left] {$ \vec{j} $} ++(0,-1);
+		\draw[thick,->] (1,0) -- node[right] {$ \vec{j} $} ++(0,1);
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Die Komponenten des Kraftvektors sind:
 \begin{equation*}
 \vec{F}_i = \int \dd^3 r \left[\vec{j} \times (\vec{r} \cdot \vabla) \vec{B}\right]_i
@@ -4707,20 +4862,31 @@ Wir können nun mit der Identität umschreiben:
 \rmbox{\Rightarrow \quad \vec{F} = \vabla (\vec{m} \cdot \vec{B}(0))}
 \end{equation*}
 Also: $ \vec{m} \perp \vec{B} \Rightarrow \vec{F} = 0 $\\
-\textbf{$ \rightarrow $ potentielle Energie:}
-\begin{equation*}
-W = - \vec{m} \cdot \vec{B}(0)
-\end{equation*}
-
-%T3
-
-\noindent
+\begin{minipage}{.5\linewidth}
+	\textbf{$ \rightarrow $ potentielle Energie:}
+	\begin{equation*}
+	W = - \vec{m} \cdot \vec{B}(0)
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t3:
+	\centering
+	\begin{tikzpicture}[scale=.75]
+		\draw[->,fill=gray!10!white] ({-sin(45) * 1.25},{cos(45) * .8}) arc[start angle=135, end angle=495, x radius = 1.25, y radius = .8] node[left=5pt] {$ I $};
+		\draw[->] (0,0) -- (0,2);
+		\draw[->] (0,0) -- (2,0);
+		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (0,0) {};
+		\draw[very thick,->] (0,0) -- (0,1.5) node[anchor=north west] {$ \vec{m} $};
+		\draw[very thick,->] (2.5,0) -- node[right] {$ \vec{B} $} ++(0,1.5);
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \textbf{Drehmoment:}
 \begin{equation*}
 \vec{N} = \vec{m} \times \vec{B}(0)
 \end{equation*}
 \begin{equation*}
-\vec{N} = \int\dd^3 r \vec{r} \times (\vec{j} \times \vec{B})
+\vec{N} = \int\dd^3 r \ \vec{r} \times (\vec{j} \times \vec{B})
 \end{equation*}
 
 \section{Magnetostatik in Materie}
@@ -4745,21 +4911,45 @@ Aufteilung der Stromdichte:
 \begin{equation*}
 \vec{j} = \vec{j}_g + \vec{j}_f
 \end{equation*}
-
-%T4
-
-\noindent
-$ \langle j_g \rangle $
-
-%T5
-
-\noindent
+$ \langle j_g \rangle $\\
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t4:
+	\begin{tikzpicture}
+		\draw[fill=gray!10!white] (-1,1.8) -- (-1,-1.8) arc[start angle=180,end angle=360,x radius=1cm,y radius=.4cm] (1,-1.8) -- (1,1.8) arc[start angle=0,end angle=180,x radius=1cm,y radius=.4cm];
+		\draw[fill=gray!10!white] (0,1.8) ellipse (1cm and .4cm);
+		\draw[decorate,decoration={coil,aspect=.3,amplitude=12mm,segment length=12mm},brown,thick] (0,2.5) -- (0,-2.5);
+		\node at (-.5,.7) {$ e^- $};
+		\draw[->] (.65,.5) arc[start angle=-45,end angle=315,x radius=.5,y radius=.2];
+		\draw (.9,.6) to[out=0,in=125] (2,0) node[right] {$ \vec{j}_g $};
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\centering
+	%t5:
+	\begin{tikzpicture}
+	\draw[draw=none,fill=gray!15!white] (1.5,.5) rectangle ++(1,1);
+	\foreach \x in {.5,1.5,2.5}
+	\draw (\x,0) -- (\x,3);
+	\foreach \y in {.5,1.5,2.5}
+	\draw (0,\y) -- (3,\y);
+	\coordinate (o) at (3.5,-.5);
+	\draw (o) -- ++(0,.5);
+	\draw (o) -- ++(.5,0);
+	\draw[thick,->] (o) -- node[below=10pt] {$ \vec{r}_n $} (2,1);
+	\node[anchor=south west] at (1.5,.5) {$ n $};
+	\draw (2,1) to[out=30,in=150] ++(1,0) to[out=-30,in=-150] ++(1,0) node[right] {$ \vec{j}_n $};
+	\node[anchor=north east] at (o) {$ 0 $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Mittlung:
 \begin{align*}
 \rightarrow \quad \langle \vec{j}_g \rangle &= \vabla \times \ub{\langle \sum_n \vec{m} \delta(\vec{r}' - \vec{r}_n) \rangle}_{\defeq \vec{M}(\vec{r})} (\vec{r}) + \dots \\
 &= \frac{\tx{magnetisches Dipolmoment}}{\tx{Volumen}} = \vabla \times \vec{M}(\vec{r})
 \end{align*}
-Mit $ \vec{m}_n = \frac{1}{2} \int \dd^3 r' \vec{r}' \times \vec{j}_n(\vec{r}') $\\
+Mit
+$$ \vec{m}_n = \frac{1}{2} \int \dd^3 r' \vec{r}' \times \vec{j}_n(\vec{r}') $$
 Und $ \vec{M} (\vec{r}) : $ makroskopische Magnetisierung
 \begin{equation*}
 \left[\vec{M}\right] = \frac{\tx{A}}{\tx{m}^2} \tx{m} = \frac{\tx{A}}{\tx{m}} = \frac{\tx{magnetisches Dipolmoment}}{\tx{Volumen}}
@@ -4789,10 +4979,29 @@ Integrale Form:
 \begin{equation*}
 \int_{\partial F} \dd \vec{r} \cdot \vec{H} = \int_{F} \dd \vec{f} \cdot \vec{j}_f = I_F
 \end{equation*}
-
-%T6
-
-\noindent
+\begin{center}
+	%t6:
+	\begin{tikzpicture}
+		\draw[fill=gray!10!white] (-1,1.8) -- (-1,-1.8) arc[start angle=180,end angle=360,x radius=1cm,y radius=.4cm] (1,-1.8) -- (1,1.8) arc[start angle=0,end angle=180,x radius=1cm,y radius=.4cm];
+		\draw[fill=gray!10!white] (0,1.8) ellipse (1cm and .4cm);
+		\draw[decorate,decoration={coil,aspect=.3,amplitude=13mm,segment length=12mm},<-,brown,thick] (0,2.5) node[above] {\color{black} $ \vec{j}_f $ \color{brown}} -- (0,-2.5);
+		
+		\foreach \x\y\c in {.65/.5/1,0/-.75/2,.65/-1.9/3}
+		\coordinate (\c) at ({\x - sin(45) * .5}, {\y + cos(45) * .2});
+		
+		\foreach \x\y in {.65/.5,0/-.75,.65/-1.9}
+		\draw[->] (\x,\y) arc[start angle=-45,end angle=315,x radius=.5,y radius=.2];
+		
+		\foreach \c in {1,2,3}
+		\draw[very thick,->] (\c) -- ++(0,.5);
+		
+		\draw (.9,.8) to[out=0,in=125] (2,0) node[right] {Magnetisierung $ \vec{m} $};
+		\draw[thick,->] (-1.1,-1) -- node[left=5pt] {$ \vec{B}_0 $} ++(0,2);
+		
+		% ugly alignment line
+		\draw[white] (-2,0) -- (-5.3,0);
+	\end{tikzpicture}
+\end{center}
 Magnetisierung $ \rightarrow $ Zusatzfeld $ \vec{B}_M $
 \begin{equation*}
 \vec{B} = \vec{B}_0 + \vec{B}_M
