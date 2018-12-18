@@ -5047,18 +5047,518 @@ $ \chi_m : $ magnetische Suszeptibilität
 $ \mu_r : $ relative Permeabilität\\
 $ \mu = \mu_0 \mu_r : $ Permeabilität
 
+% Vorlesung 13.12.18 (11 Days until christmas)
 
 
+% ab Hier auch richtige Phi und keine varPhis
 
+\chapter{Zeitabhängige elektromagnetische Felder - Elektrodynamik}
 
+bisher Zeitunabhängige Felder:
+\begin{equation*}
+\, \vabla \cdot \vec{D} = \rho \qquad \, \vabla \times \vec{E} = 0 \qquad \tx{Elektrostatik}
+\end{equation*}
+\begin{equation*}
+\ \ \: \vabla \cdot \vec{B} = 0 \qquad \vabla \times \vec{H} = \vec{j} \qquad \tx{Magnetostatik}
+\end{equation*}
+Zeitabhängige Felder:
+\begin{equation*}
+\vec{B}(\vec{r}, t) \leftrightarrow \vec{E}(\vec{r}, t)
+\end{equation*}
 
+\section{Maxwell-Gleichungen}
 
+\begin{align*}
+\vabla \cdot \vec{D} &= \rho \qquad \, \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0 \\
+\vabla \cdot \vec{B} &= 0 \qquad \vabla \times \vec{H} - \prt{\vec{D}}{t} = \vec{j}
+\end{align*}
+$ \prt{\vec{B}}{t} \ $ ist die Induktion\\[3pt]
+$ \prt{\vec{D}}{t} \ $ ist der Verschiebungsstrom\\
 
+\subsection{Faraday'sches Induktionsgesetz}
 
+\begin{equation*}
+\vabla \times \vec{E} = - \prt{\vec{B}}{t}
+\end{equation*}
 
+%T1
+%T2
 
+\begin{align*}
+\int_F \dd \vec{f} \cdot (\vec{\nabla} \times \vec{E}) &= - \int \dd \vec{f} \cdot \prt{\vec{B}}{t} \\
+= \ub{\int_{\partial F} \dd \vec{r} \cdot \vec{E}}_{U_{\tx{ind}}} &= - \prd{}{t} \ub{\int_F \dd \vec{f} \cdot \vec{B}}_{\Phi_m (t)}
+\end{align*}
+$ \Phi_m(t) $ ist der Fluss des $ \vec{B} $-Feldes durch F
+\begin{equation*}
+U_{\tx{ind}} = - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B}
+\end{equation*}
+\emph{Bemerkung:}
+\begin{enumerate}[i)]
+	\item Vorzeichen-Strom
+	
+	%T3
+	
+	\begin{equation*}
+	t_2 > t_1 \qquad \vec{B}(t_1) > \vec{B}(t_2)
+	\end{equation*}
+	\begin{equation*}
+	\Phi_m(t_1) = \int_F \dd \vec{f} \vec{B}_1 > \Phi_m(t_2) = \int_F \dd \vec{f} \vec{B}_2
+	\end{equation*}
+	\begin{equation*}
+	\prd{}{t} \Phi_m(t) \le 0
+	\end{equation*}
+	\begin{equation*}
+	\rightarrow \quad U_{\tx{ind}} = \int_{\partial F} \dd \vec{r} \cdot \vec{E} = - \prd{}{t} \Phi_m > 0
+	\end{equation*}
+	Mit $ \vec{j} = \sigma \vec{E} $, wobei $ \sigma $ die Leitfähigkeit des Leiters ist erhalten wir:
+	\begin{equation*}
+	\rightarrow \quad \int_{\partial F} \dd \vec{r} \cdot \vec{j} > 0 \qquad \rightarrow \quad \vec{j} \parallel \partial F
+	\end{equation*}
+	$ \Rightarrow $ \textbf{Lenz'sche Regel:}\\
+	Der induzierte Strom und das damit verbundene Magnetfeld sind so gerichtet, dass sie der Ursache ihrer Entstehung entgegenwirken.
+	
+	%T4
+	
+	\item $ \Phi_m $ hängt nicht von der speziellen Form der Fläche $ F $ ab, sondern nur vom Rand $ \partial F $.
+	
+	%T5
+	
+	\begin{equation*}
+	\Phi_{m_1} = \Phi_{m_2}
+	\end{equation*}
+	\begin{equation*}
+	0 = \int_F \dd \vec{f} \cdot \vec{B} = \ub{\int_{F_1} \dd \vec{f}_1 \cdot \vec{B}}_{\Phi_{m_1}} - \ub{\int_{F_2} \dd \vec{f}_2 \cdot \vec{B}}_{\Phi_{m_2}}
+	\end{equation*}
+	\item Eine Flussänderung kann auf verschiedene Weise zustandekommen:
+	\begin{itemize}
+		\item Veränderung des Magnetfeldes $ \vec{B}(t) $
+		\item  Bewegung der Leiterschleife im äußeren Feld
+		
+		%T6
+		
+	\end{itemize}
+\end{enumerate}
 
+\begin{equation*}
+\vabla \times \vec{E} = - \prt{\vec{B}}{t}
+\end{equation*}
+Ein zeitlich verändertes $ \vec{B} $-Feld erzeugt ein elektrisches Wirbelfeld analog zu:
+\begin{equation*}
+\vabla \times \vec{B} = \mu_0 \vec{j}
+\end{equation*}
 
+%T7
+
+\subsection{Maxwellscher Verschiebungsstrom}
+
+Magnetostatik:
+\begin{equation*}
+\vabla \times \vec{H} = \vec{j} \qquad \tx{Ampere}
+\end{equation*}
+Dies kann in der Elektrodynamik nicht gelten, dies zeigen wir indem wir auf beiden Seiten die Divergenz bilden.
+\begin{equation*}
+\ub{\vabla \cdot (\vabla \times \vec{H})}_{=0} = \vabla \cdot \vec{j} \quad \Rightarrow \quad \vabla \cdot \vec{j} = 0 \quad \tx{bei stationären Strömen}
+\end{equation*}
+im Allgemeinen haben wir zeitlich abhängige Ströme:
+\begin{equation*}
+\vabla \cdot \vec{j}(\vec{r},t) \overset{\tx{i.A.}}{\neq} 0
+\end{equation*}
+Kontinuitätsgleichung:
+\begin{equation*}
+\prt{\rho}{t} + \vabla \cdot \vec{j} = 0
+\end{equation*}
+Ergänzung:
+\begin{equation*}
+\vabla \times \vec{H} = \vec{j} + \vec{j}_0
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \ub{\vabla \cdot (\vabla \times \vec{H})}_{= 0} = \ub{\vabla \cdot \vec{j}}_{= - \prt{\rho}{t}} + \vabla \cdot \vec{j}_0
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vabla \cdot \vec{j}_0 = \prt{\rho}{t} = \prt{}{t} \vabla \cdot \vec{D} = \vabla \cdot \left(\prt{\vec{D}}{t}\right)
+\end{equation*}
+\begin{equation*}
+\rightarrow \quad \vec{j}_0 = \prt{\vec{D}}{t}
+\end{equation*}
+Damit erhalten wir für die die Stromdichte:
+\begin{equation*}
+\vabla \times \vec{H} - \prt{\vec{D}}{t} = \vec{j}
+\end{equation*}
+\emph{Beispiel:} \textbf{Plattenkondensator}
+
+%T8
+
+\begin{equation*}
+\vec{D} = \casess{\sigma \vec{e}_x}{\tx{innen}}{0}{\tx{außen}}
+\end{equation*}
+$ \sigma = \frac{1}{F} $
+\begin{equation*}
+\prt{\vec{D}}{t} = \frac{\vec{e}_x}{F} \equalto{\prd{q}{t}}{I} = \frac{I}{F} \vec{e}_x
+\end{equation*}
+\begin{equation*}
+\vabla \times \vec{H} - \prt{\vec{D}}{t} = \vec{j}
+\end{equation*}
+innen: $ \vec{j} = 0 $
+\begin{equation*}
+\vabla \times \vec{H} = \prt{\vec{D}}{t} =  \frac{I}{F} \vec{e}_x
+\end{equation*}
+
+\subsection{Lösung der Differentialgleichungen} %check this
+
+\begin{align*}
+\vabla \cdot \vec{D} &= \rho \qquad \, \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0 \\
+\vabla \cdot \vec{B} &= 0 \qquad \vabla \times \vec{H} - \prt{\vec{D}}{t} = \vec{j}
+\end{align*}
+Zwei homogene und zwei inhomogene Differentialgleichungen. Zur Lösung benötigt man also zusätzliche Materialgleichungen:
+\begin{equation*}
+\vec{B} = \mu_0 (\vec{H} + \vec{M}) \qquad \vec{D} = \epsilon_0\vec{E} + \vec{P}
+\end{equation*}
+bei linearen Medien:
+\begin{equation*}
+\vec{B} = \mu \vec{H} \qquad \vec{D} = \epsilon \vec{E}
+\end{equation*}
+Die Kraft ist:
+\begin{equation*}
+\vec{F} = q (\vec{E} + \vec{v} \times \vec{B})
+\end{equation*}
+\textbf{Intagrale Form der Maxwell-Gleichungen}
+\begin{align*}
+\oint_F \dd \vec{f} \cdot \vec{B} &= 0  \qquad \qquad \qquad \int_{\partial F} \dd \vec{r} \cdot \vec{E} + \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B} = 0 \\
+\int_{\partial V} \dd \vec{f} \cdot \vec{D} &= \int_V \dd^3 r \rho(\vec{r}) \quad \ \ \int_{\partial F} \dd \vec{r} \cdot \vec{H} - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{D} = \int_F \dd \vec{f} \cdot \vec{j}
+\end{align*}
+\textbf{Mikroskopische Maxwell-Gleichungen:}\\
+formal:
+\begin{equation*}
+\vec{D} = \epsilon_0 \vec{E} \qquad \vec{H} = \frac{1}{\mu_0} \vec{B}
+\end{equation*}
+\begin{align*}
+\vabla \cdot \vec{B} &= 0 \qquad \quad \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0\\
+\vabla \cdot \vec{E} &= \frac{1}{\epsilon_0} \rho \qquad \vabla \times \vec{B} - \epsilon_0 \mu_0 \prt{\vec{E}}{t} = \mu_0 \vec{j}
+\end{align*}
+
+\section{Potentiale der Elektrodynamik - Eichtransformation}
+
+\begin{equation*}
+\vabla \cdot \vec{B} = 0 \qquad \vec{B}(\vec{r},t) = \vabla \times \vec{A}(\vec{r},t)
+\end{equation*}
+\begin{align*}
+\vabla \times \vec{E} + \prt{\vec{B}}{t} = 0 \qquad 0 &= \vabla \times \vec{E} + \prt{}{t} \vabla \times \vec{A} \\
+&= \vabla \times \left(\vec{E} + \prt{\vec{A}}{t}\right)
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \vec{E} + \prt{\vec{A}}{t} = - \vabla \Phi
+\end{equation*}
+$ \Phi $ ist ein skalares Potential
+\begin{equation*}
+\Rightarrow \quad \vec{E}(\vec{r},t) = - \vabla \Phi(\vec{r},t) - \prt{\vec{A}(\vec{r},t)}{t}
+\end{equation*}
+Damit haben wir die beiden homogenen Gleichungen gelöst. Wir können $ \vec{E} $- und $ \vec{B} $-Felder nun durch die Potentiale $ \Phi $ und $ \vec{A} $ ausdrücken.
+
+\subsection{Bestimmungsgleichung für $ \Phi , \vec{A} $}
+
+\begin{equation*}
+\vec{D} = \epsilon \vec{E} \qquad \vec{H} = \frac{1}{\mu} \vec{B}
+\end{equation*}
+\begin{align*}
+\rightarrow \quad &\vabla \cdot \vec{E} = \frac{1}{\epsilon} \rho \\
+& \vabla \times \vec{B} - \epsilon \mu \prt{\vec{E}}{t} = \mu \vec{j}
+\end{align*}
+\begin{equation*}
+\frac{1}{\epsilon} \rho = \vabla \cdot \left(- \vabla \Phi - \prt{\vec{A}}{t}\right) = - \Delta \Phi - \prt{}{t} \vabla \cdot \vec{A}
+\end{equation*}
+\begin{equation*}
+\rmbox{\Rightarrow \quad \Delta \Phi + \prt{}{t} \vabla \cdot \vec{A} = - \frac{1}{\epsilon} \rho}
+\end{equation*}
+\begin{equation*}
+\mu \vec{j} = \ub{\vabla \times (\vabla \times \vec{A})}_{=\vabla \cdot (\vabla \cdot \vec{A}) - \Delta \vec{A}} - \epsilon \mu \prt{}{t} \left(- \vabla \Phi - \prt{\vec{A}}{t}\right)
+\end{equation*}
+\begin{equation*}
+\rmbox{\Rightarrow \quad \Delta \vec{A} - \epsilon \mu \prt{^2 \vec{A}}{t^2} - \vabla \cdot \left(\vabla \cdot \vec{A} + \epsilon \mu \prt{\Phi}{t}\right) = - \mu \vec{j}}
+\end{equation*}
+
+\subsection{Eichtransformation}
+
+$ \Phi, \vec{A} $ sind durch:
+\begin{equation*}
+\vec{B} = \vabla \times \vec{A} \qquad \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t}
+\end{equation*}
+nicht eindeutig festgelegt.\\[5pt]
+\textbf{Eichtransformation:}
+\begin{align*}
+\vec{A}'(\vec{r},t) &= \vec{A}(\vec{r},t) + \vabla \Lambda(\vec{r},t)\\
+\Phi'(\vec{r},t) &= \Phi(\vec{r},t) - \prt{\Lambda(\vec{r},t)}{t}
+\end{align*}
+\begin{equation*}
+\vabla \times \vec{A}' = \vabla \times \vec{A} + \ub{ \vabla (\vabla \Lambda)}_{=0} = \vabla \times \vec{A} = \vec{B} \quad \checkmark
+\end{equation*}
+\begin{equation*}
+- \vabla \Phi' - \prt{\vec{A}'}{t} = - \vabla \Phi + \cancel{\vabla \prt{\Lambda}{t}} - \prt{\vec{A}}{t} - \cancel{\prt{}{t} \vabla \Lambda} = \vec{E} \quad \checkmark 
+\end{equation*}
+$ \rightarrow $ verschiedene Eichungen.
+\begin{enumerate}[1)]
+	\item \textbf{Coulomb-Eichung}
+	\begin{equation*}
+	\vabla \cdot \vec{A}(\vec{r},t) = 0
+	\end{equation*}
+	\begin{equation*}
+	\rmbox{\rightarrow \quad \Delta \Phi(\vec{r},t) = \frac{1}{\epsilon} \rho(\vec{r},t)}
+	\end{equation*}
+	\begin{equation*}
+	\Phi(\vec{r},t) = \frac{1}{4 \pi \epsilon} \int \dd ^3 r' \frac{\rho(\vec{r}',t)}{|\vec{r} - \vec{r}'|}
+	\end{equation*}
+	\begin{equation*}
+	\rmbox{ \rightarrow \quad \Delta \vec{A} - \epsilon \mu \prt{^2 \vec{A}}{t^2} = \mu \vec{j} + \epsilon \mu \vabla \prt{\Phi}{t}}
+	\end{equation*}
+	Typische Anwendung:\\
+	Bei statischen Problemen und bei nicht relativistischen Geschwindigkeiten.\\
+	Die Coulomb-Eichung ist nicht Lorenz-invariant.
+	\item \textbf{Lorenz-Eichung}
+	\begin{equation*}
+	\vabla \cdot \vec{A} + \epsilon \mu \prt{\Phi}{t} = 0
+	\end{equation*}
+	Im Vakuum: $ \epsilon \mu = \epsilon_0 \mu_0 = \frac{1}{c^2} $
+	\begin{equation*}
+	\rightarrow \quad \Delta \Phi + \prt{}{t} \left(- \epsilon \mu \prt{\Phi}{t}\right) = 0
+	\end{equation*}
+	\begin{equation*}
+	\rmbox{\rightarrow \quad \Delta \Phi - \epsilon \mu \prt{^2 \Phi}{t^2} = 0 \ / \ - \frac{1}{\epsilon} \rho}
+	\end{equation*}
+	\begin{equation*}
+	\rmbox{\rightarrow \quad \Delta \vec{A} - \epsilon \mu \prt{^2 \vec{A}}{t^2} = 0 \ / \ \mu_0 \vec{j} \ \ }
+	\end{equation*}
+\end{enumerate}
+
+% Vorlesung 17.12.18 (7 Days until Christmas)
+
+\section{Energie und Impuls elektromagnetischer Felder}
+
+\subsection{Energie des EM-Feldes}
+
+System von Punktladungen $ q_i, m_i, \vec{r}_i, \vec{v}_i $ im Volumen $ V $:
+
+%T1
+
+\noindent
+Kraft auf Ladungen im elektromagnetischen Feld:
+\begin{equation*}
+\vec{F}_i = q_i \left(\vec{E}(\vec{r}_i, t) + \vec{r}_i \times \vec{B}(\vec{r}_i, t) \right)
+\end{equation*}
+Zeitliche Änderung der Energie der Punktladungen durch die elektromagnetischen Felder:
+\begin{align*}
+\prd{}{t} W_{\tx{mat}} &= \prd{}{t} \sum_i \frac{m_i}{2} \vec{v}_i^2 = \sum_i \vec{v}_i \cdot \prd{\vec{v}_i}{t} = \sum_i \vec{v}_i \cdot \vec{F}_i\\
+&= \sum_i q_i \vec{v}_i \cdot \vec{E}(\vec{r}_i, t) + \sum_i q_i \ub{ \vec{v}_i \cdot (\vec{v}_i) \times \vec{B}(\vec{r}_i, t) }_{=0}\\
+&= \sum_i q_i \vec{v}_i \cdot \vec{E}(\vec{r}_i, t)
+\end{align*}
+formale Kontinuierliche Beschreibung: $ \vec{j}(\vec{r},t) = \sum_i q_i \vec{r}_i \delta(\vec{r} - \vec{r}_i(t)) $
+\begin{equation*}
+\rightarrow \quad \prd{}{t} W_{\tx{mat}} = \int_V \dd^3 r \ \vec{j}(\vec{r},t) \cdot \vec{E}(\vec{r},t)
+\end{equation*}
+Energiedichte $ w_{\tx{mat}} $: $ W_{\tx{mat}} = \int_V \dd^3 r \ w_{\tx{mat}} (\vec{r}) $
+\begin{equation*}
+\Rightarrow \quad \int_V \dd^3 r \ \vec{j} \cdot \vec{E} = \prd{}{t} \int_V \dd^3 r \ w_{\tx{mat}} = \int_V \dd^3 r \ \prt{}{t} w_{\tx{mat}}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \int_V \dd^3 r \ \left(\prt{w_{\tx{mat}}}{t} - \vec{j} \cdot \vec{E} \right) = 0 \qquad \forall \ V
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \prt{w_{\tx{mat}}}{t} = \vec{j} \cdot \vec{E} \quad \widehat{=} \quad \tx{Leistungsdichte}
+\end{equation*}
+\begin{equation*}
+[\vec{j}] [\vec{E}] = \frac{\tx{A}}{\tx{m}^2} \frac{\tx{V}}{\tx{m}} = \frac{\tx{W}}{\tx{m}^2}
+\end{equation*}
+Die gesamte Änderung der Energie der Materie im Volumen $ V $ ist dann:
+\begin{equation*}
+\prd{}{t} W_{\tx{mat}_V} = \int_V \dd^3 r \ \vec{j} \cdot \vec{E}
+\end{equation*}
+Außerdem gilt auch:
+\begin{equation*}
+\prd{}{t} W_{\tx{mat}} = - \prd{}{t} W_{\tx{feld}}
+\end{equation*}
+Wir wollen nun $ \vec{j} $ ersetzen und nutzen:
+\begin{equation*}
+\vec{j} = \vabla \times \vec{H} - \prt{\vec{D}}{t} \quad \Rightarrow \quad \vec{j} \cdot \vec{E} = \vec{E} \cdot (\vabla \times \vec{H}) - \vec{E} \cdot \prt{\vec{D}}{t}
+\end{equation*}
+$ \vec{E} $ mal der Rotation von $ \vec{H} $ können wir umformen als:
+\begin{equation*}
+\vabla \cdot (\vec{E} \times \vec{H}) = \vec{H} \cdot \ub{(\vabla \times \vec{E})}_{- \prt{\vec{B}}{t}} - \vec{E} (\vabla \times \vec{H})
+\end{equation*}
+\begin{equation*}
+\rightarrow \quad  \vec{j} \cdot \vec{E} = - \vec{H} \cdot \prt{\vec{B}}{t} - \vec{E} \cdot \prt{\vec{D}}{t} - \vabla \cdot (\vec{E} \times \vec{H}) = \prt{}{t} w_{\tx{mat}}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \prd{}{t} W_{\tx{mat}_V} = - \int_V \dd^3 r \ \left(\vec{H} \cdot \prt{\vec{B}}{t} + \vec{E} \cdot \prt{\vec{D}}{t} \right) - \int_V \dd^3 r \ \vabla \cdot (\vec{E} \times \vec{H}) = - \prd{}{t} W_{\tx{feld}}
+\end{equation*}
+Zur Vereinfachung und Interpretation: $ \vec{H} = \frac{1}{\mu} \vec{B} \quad \vec{D} = \epsilon \vec{E} \quad \epsilon, \mu \const $
+\begin{equation*}
+\vec{H} \cdot \prt{\vec{B}}{t} = \frac{1}{\mu} \vec{B} \cdot \prt{\vec{B}}{t} = \frac{1}{2} \frac{1}{\mu} \prt{}{t} (\vec{B} \cdot \vec{B}) = \frac{1}{2} \prt{}{t} (\vec{H} \cdot \vec{B})
+\end{equation*}
+\begin{equation*}
+\vec{E} \cdot \prt{\vec{D}}{t} = \epsilon \vec{E} \cdot \prt{\vec{E}}{t} = \frac{\epsilon}{2} \prt{}{t} (\vec{E} \cdot \vec{E}) = \frac{1}{2} \prt{}{t} (\vec{E} \cdot \vec{D})
+\end{equation*}
+\begin{equation*}
+\prd{}{t} W_{\tx{mat}_V} = - \prd{}{t} \frac{1}{2} \int_V \dd^3r \ (\vec{H} \cdot \vec{B} + \vec{E} \cdot \vec{D}) - \int_V \dd^3r \ \vabla \cdot (\vec{E} \times \vec{H})
+\end{equation*}
+\textbf{Elektrostatik:}
+\begin{equation*}
+w_{\tx{el}} = \frac{\epsilon_0}{2} \vec{E}^2 \quad (\tx{Vakuum}) \qquad w_{\tx{el}} = \frac{1}{2} \vec{E} \cdot \vec{D} \quad (\tx{Medium})
+\end{equation*}
+\textbf{Magnetostatik:}
+\begin{equation*}
+w_{\tx{mag}} = \frac{1}{2 \mu_0} \vec{B}^2 \quad (\tx{Vakuum}) \qquad w_{\tx{mag}} = \frac{1}{2} \vec{H} \cdot \vec{B} \quad (\tx{Medium})
+\end{equation*}
+Energie des elektromagnetischen Feldes:
+\begin{equation*}
+\frac{1}{2} \int_V \dd^3 r \ (\vec{H} \cdot \vec{B} + \vec{E} \cdot \vec{D}) = W_{\tx{em}_V}
+\end{equation*}
+Energiedichte:
+\begin{equation*}
+w_{\tx{em}} = \frac{1}{2} (\vec{H} \cdot \vec{B} + \vec{E} \cdot \vec{D})
+\end{equation*}
+\begin{equation*}
+\prd{}{t} W_{\tx{mat}_V} = - \prd{}{t} W_{\tx{em}_V} - \ub{\int_V \dd^3 r \ \vabla \cdot (\vec{E} \times \vec{H})}_{\mathclap{\substack{\tx{Energie, die aus } V \\ \tx{abfließt (Strahlung)}}}}
+\end{equation*}
+\begin{equation*}
+\vec{S}(\vec{r},t) = \vec{E} \times \vec{H} \qquad \tx{\textbf{Pointing-Vektor}}
+\end{equation*}
+\begin{equation*}
+\int_V \dd^3 r \ \vabla \vec{S} = \int_{\partial V} \dd\vec{f}  \cdot \vec{S}
+\end{equation*}
+
+%T2
+
+\begin{equation*}
+[\vec{S}] = [\vec{E}] [\vec{H}] = \frac{\tx{V}}{\tx{m}} \frac{\tx{A}}{\tx{m}} = \frac{\tx{W}}{\tx{m}^2} = \frac{\tx{J}}{\tx{m}^2 \tx{s}} = \frac{\tx{Energie}}{\tx{Fläche } \cdot \tx{ Zeit}}
+\end{equation*}
+$ \vec{S}: $ \textbf{Energiestromdichte}
+
+% Hier fehlt ein Text von Kim
+
+\subsubsection{Energiebilanz}
+
+\begin{equation*}
+\ub{\prd{}{t} W_{\tx{mat} _V}} + \ub{\prd{}{t} W_{\tx{em}_V}} = \ub{- \int_{\partial V} \dd \vec{f} \cdot \vec{S}}
+\end{equation*}
+
+% notes
+
+\noindent
+\emph{Bemerkung:}
+\begin{enumerate}[i)]
+	\item abgeschlossenes System (ohne Energiestromdichte ach außen) z.B. $ \mathbb{R}^3 $
+	\begin{equation*}
+	\int_V \dd \vec{f} \cdot \vec{S} \rightarrow 0
+	\end{equation*}
+	\item Gebiet ohne Ladungen und Ströme $ \rho = \vec{j} = 0 \ \ \tx{in} V $. $ w_{\tx{mat}} = \vec{j} \cdot \vec{E} = 0 $
+	\begin{equation*}
+	\prd{}{t} W_{\tx{mat}_V} = - \int_{\partial V} \dd \vec{f} \cdot \vec{S}
+	\end{equation*}
+	\item differentielle Form:
+	\begin{equation*}
+	\int_V \dd^3 r \ \left[\prt{w_{\tx{em}}}{t} + \vabla \cdot \vec{S} + \vec{j} \cdot \vec{E}\right] = 0
+	\end{equation*}
+	\frbox{Poyntigsches Theorem}{
+	\begin{equation*}
+	\rightarrow \quad \prt{w_{\tx{em}}}{t} + \prt{w_{\tx{mat}}}{t} + \vabla \cdot \vec{S} = 0
+	\end{equation*}}
+	oder auch: \textbf{Kontinuitätsgleichung für Energie}
+	\begin{equation*}
+	\prt{}{t} w + \vabla \cdot \vec{S} = 0
+	\end{equation*}
+	Analogie:
+	\begin{equation*}
+	\prt{\rho}{t} + \vabla \cdot \vec{j} = 0
+	\end{equation*}
+	\item \textbf{Poynting-Vektor}
+	\begin{equation*}
+	\vec{S} = \vec{E} \times \vec{H} \quad \tx{Energiestromdichte}
+	\end{equation*}
+	\textbf{Beachte:} Nur $ \vabla \cdot \vec{S} $ oder $ \int_{\partial V} \dd \vec{f} \cdot \vec{S} $ haben physikalische Bedeutung.\\[5pt]
+	$ \vec{S} \to \vec{S} + \vabla \times \vec{G} $\\
+	$ \vec{S} \neq 0 $, aber kein Energiestrom:
+	\begin{equation*}
+	\vec{E} = E \vec{e}_x \quad \vec{H} = H \vec{e}_y \qquad E,H \const
+	\end{equation*}
+	\begin{equation*}
+	\vec{S} = \vec{E} \times \vec{H} = E H \vec{e}_z \neq 0
+	\end{equation*}
+	aber: $ \vabla \cdot \vec{S} = 0  \quad \rightarrow $ \textbf{kein Beitrag !}
+\end{enumerate}
+\emph{Beispiel:} \textbf{Energietransport in el./mag. Wellen im Vakuum}\\[5pt]
+ebene Welle:
+\begin{align*}
+\vec{E} &= E_0 \cos(kz - \omega t) \vec{e}_x \\
+\vec{B} &= \frac{E_0}{c} \cos(kz - \omega t) \vec{e}_y
+\end{align*}
+\begin{equation*}
+\frac{\omega}{k} = c \qquad \lambda = \frac{2 \pi}{k}
+\end{equation*}
+
+%T3
+
+\noindent
+mit $ c^2 = \frac{1}{\epsilon_0 \mu_0} $
+\begin{align*}
+\vec{S} &= \vec{E} \times \vec{H} = \frac{1}{\mu_0} \vec{E} \times \vec{B} = \frac{1}{\mu_0} \frac{E_0^2}{c} \cos^2(kz - \omega t) \vec{e}_z\\
+&= c \epsilon_0 E_0^2 \cos^2(kz - \omega t) \vec{e}_z
+\end{align*}
+
+%T4
+
+\noindent
+\textbf{explizite Energiebilanz:}
+\begin{equation*}
+\prt{}{t} (\equalto{w_{\tx{mat}}}{0} + w_{\tx{em}}) = - \vabla \cdot \vec{S}
+\end{equation*}
+\begin{align*}
+w_{\tx{em}} &= \frac{1}{2} (\vec{E} \cdot \vec{D} + \vec{H} \cdot \vec{B}) = \frac{1}{2} (\epsilon_0 \vec{E}^2 + \frac{1}{\mu_0} \vec{B}^2) \\
+&= \frac{\epsilon_0}{2} (\vec{E}^2 + \frac{1}{c^2} \vec{B}^2) = \epsilon_0 E_0^2 \cos^2(kz - \omega t)
+\end{align*}
+\begin{equation*}
+\prt{}{t} w_{\tx{em}} ) 2 \omega \epsilon_0 E_0^2 \cos(\dots) \sin(\dots)
+\end{equation*}
+\begin{equation*}
+\vabla \cdot \vec{S} = \prt{S}{z} = - 2 \ub{kc}_{= \omega} \epsilon_0 E_0^2 \cos(\dots) \sin(\dots)
+\end{equation*}
+
+\subsection{Impuls des EM-Feldes - Maxwellscher Spannungstensor}
+
+Wir betrachten ein System von Punktladungen: $ q_i, m_i, \vec{r}_i, \vec{v}_i $
+Impuls: $ \vec{p_i} = m_i \vec{v}_i $
+\begin{equation*}
+\vec{D} = \epsilon \vec{E} \qquad \vec{B} = \mu \vec{H}
+\end{equation*}
+Die zeitliche Änderung des gesamten Impulses der Teilchen durch EM-Felder:
+\begin{align*}
+\prd{}{t} \vec{P}_{\tx{mat}} &= \prd{}{t} \sum_i \vec{p_i} = \sum_i \prd{}{t} \vec{p}_i\\
+&= \sum_i \vec{F}_i = \sum_i q_i \left(\vec{E}(\vec{r}_i, t) + \vec{v}_i \times \vec{B}(\vec{r}_i, t)\right)
+\end{align*}
+$ \rightarrow $ Kontinuierliche Beschreibung:
+\begin{align*}
+\rho(\vec{r},t) &= \sum_i q_i \delta(\vec{r} - \vec{r}_i(t))\\
+\vec{j}(\vec{r},t) &= \sum_i q_i \vec{v}_i \delta(\vec{r} - \vec{r}_i(t))
+\end{align*}
+\begin{equation*}
+\rightarrow \quad \prd{}{t} \vec{P}_{\tx{mat}} = \int_V \dd^3 r \ \ub{\left(\rho \vec{E}(\vec{r},t) + \vec{j} \times \vec{B}(\vec{r},t)\right)}_{\tx{Kraftdichte}}
+\end{equation*}
+$ \rho = \vabla \cdot \vec{D} \quad \vec{j} = \vabla \times \vec{H} - \prt{\vec{D}}{t} $
+\begin{equation*}
+\Rightarrow \quad \rho \vec{E} + \vec{j} \times \vec{B} = - \prt{}{t} (\vec{D} \times \vec{B}) + \sum_{i,k=1}^{3} \prt{T_{ik}}{x_k} \vec{e}_i
+\end{equation*}
+\textbf{Maxwellscher Spannungstensor:}\\[5pt]
+Symmetrischer Tensor 2. Stufe:
+\begin{equation*}
+T_{ik} = \epsilon E_i E_k - \frac{1}{\mu} B_i B_k - \frac{1}{2} \delta_{ik}(\epsilon \vec{E}^2 - \frac{1}{\mu} \vec{B}^2)
+\end{equation*}
+physikalisch: \textbf{Impulsstromdichte}
+
+\subsubsection{Impulsbilanz}
+
+\begin{equation*}
+\prd{}{t} \vec{P}_{\tx{mat}_V} + \prd{}{t} \int_V \dd^3 r \ (\vec{D} \times \vec{B}) = \sum_{i=1}^{3} \ub{\Bigg(\int_{V} \dd^3 r\ \ob{\sum_{k=1}^{3} \prt{T_{ik}}{x_k}}^{= \vabla \cdot \vec{T}_i} \vec{e}_i \Bigg)}_{= \int_{\partial V} \dd \vec{f} \cdot \vec{T}_i}
+\end{equation*}
+Die $ i $-te Zeile dieser $ 3 \times 3 $-Matrix wäre als Vektor: $ \vec{T}_i = (T_{i1}, T_{i2}, T_{i3}) $
+
+% notes 2 
 
 
 
