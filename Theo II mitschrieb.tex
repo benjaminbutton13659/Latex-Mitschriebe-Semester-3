@@ -2607,7 +2607,7 @@ Diskussion der \textbf{Bedeutung der einzelnen Terme}:
 	%t2:
 	\centering
 	\begin{tikzpicture}
-		\draw[shade, ball color=gray!40!white] (0,0) circle (1cm);
+		\draw[shade, ball color=gray!20!white] (0,0) circle (1cm);
 		\draw[->,thick] (-1.1,-1) -- (-1.1,1) node[above] {$E_0\vec{e}_z$};
 		\draw (0,0) node[white!10!blue,xshift=-.5cm,yshift=-.5cm] {$-$};
 		\draw (0,0) node[white!10!blue,yshift=-.6cm] {$-$};
@@ -3162,13 +3162,13 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 	%t10:
 	\begin{tikzpicture}[scale=.7]
 	\node at (-2.3,0) {Gauß};
-	\draw  plot [smooth cycle, tension=1] coordinates { (-.3,-2) (-.3,-1) (-1,0) (-.3,1) (1,1.3) (.6,0) (1.3,-1) (.5,-1.6) };
+	\draw[fill=gray!30!white]  plot [smooth cycle, tension=1] coordinates { (-.3,-2) (-.3,-1) (-1,0) (-.3,1) (1,1.3) (.6,0) (1.3,-1) (.5,-1.6) };
 	\node at (0,0) {$ V $};
 	\end{tikzpicture}
 	%t11:
 	\begin{tikzpicture}[scale=.7]
 	\node at (-2.3,0) {Stokes};
-	\draw (0,0) circle (1cm);
+	\draw[fill=gray!30!white] (0,0) circle (1cm);
 	\draw[->] (1,0) -- (1,.01) node[right] {$ \partial F $};
 	\end{tikzpicture}
 	\vspace{5pt}
@@ -3890,7 +3890,9 @@ Punktladungen $ q_i $ mit Ortsvektoren $ \vec{r}_i $ und Geschwindigkeiten $ \ve
 		\draw ($ (r) + (-.4,-.7) $) to[out=160,in=20] ($ (r) + (-1.4,-.7) $) node[left] {$ \dd ^3 r $};
 	\end{tikzpicture}
 \end{minipage}%
-\\
+
+
+\noindent
 \begin{align*}
 & \int \dd^3 r \vec{j}(\vec{r},t) j(\vec{r})\\
 =& \int \dd s \dd f \vec{j}(\vec{r},t) h(\vec{r})\\
@@ -5027,7 +5029,11 @@ Erklärung der letzten Umformung:
 &= \lim\limits_{R \to \infty} \int_{K_R(0)} \dd^3 r' \vabla_{\vec{r}'} \times \left(\frac{\vec{M}}{|\vec{r} - \vec{r}'|}\right)
 \end{align*}
 
+
+
 % kim
+
+
 
 \subsection{Magnetisierung und Suszeptibilität}
 
@@ -5081,7 +5087,13 @@ $ \prt{\vec{D}}{t} \ $ ist der Verschiebungsstrom\\
 \vabla \times \vec{E} = - \prt{\vec{B}}{t}
 \end{equation*}
 
-%T1
+%T1:
+
+\begin{tikzpicture}
+	\draw (0,0) ellipse (1cm and .7cm);
+	\draw[->] (0,0) arc[start angle=-135, end angle=225, x radius = 1cm, y radius = .7cm];
+\end{tikzpicture}
+
 %T2
 
 \begin{align*}
@@ -5254,7 +5266,7 @@ $ \Phi $ ist ein skalares Potential
 \end{equation*}
 Damit haben wir die beiden homogenen Gleichungen gelöst. Wir können $ \vec{E} $- und $ \vec{B} $-Felder nun durch die Potentiale $ \Phi $ und $ \vec{A} $ ausdrücken.
 
-\subsection{Bestimmungsgleichung für $ \Phi , \vec{A} $}
+\subsection{Bestimmungsgleichung für \texorpdfstring{$ \Phi , \vec{A} $}{phi A}}
 
 \begin{equation*}
 \vec{D} = \epsilon \vec{E} \qquad \vec{H} = \frac{1}{\mu} \vec{B}
@@ -5334,15 +5346,27 @@ $ \rightarrow $ verschiedene Eichungen.
 
 \subsection{Energie des EM-Feldes}
 
-System von Punktladungen $ q_i, m_i, \vec{r}_i, \vec{v}_i $ im Volumen $ V $:
-
-%T1
-
-\noindent
-Kraft auf Ladungen im elektromagnetischen Feld:
-\begin{equation*}
-\vec{F}_i = q_i \left(\vec{E}(\vec{r}_i, t) + \vec{r}_i \times \vec{B}(\vec{r}_i, t) \right)
-\end{equation*}
+\begin{minipage}{.7\linewidth}
+	System von Punktladungen $ q_i, m_i, \vec{r}_i, \vec{v}_i $ im Volumen $ V $:\\[5pt]
+	Kraft auf Ladungen im elektromagnetischen Feld:
+	\begin{equation*}
+	\vec{F}_i = q_i \left(\vec{E}(\vec{r}_i, t) + \vec{r}_i \times \vec{B}(\vec{r}_i, t) \right)
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	%t1:
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=red!12!white,rounded corners=2pt] (0,0) rectangle (3,3);
+		\node[fill=black,circle,inner sep=1pt, minimum size=1pt] (a) at (1.5,2) {};
+		\draw[->] (0.02,0.02) -- node[right] {$ \vec{r}_i $} (a);
+		\draw[->] (a) -- node[below=3pt] {$ \vec{v}_i $} ++(-45:1cm);
+		\node[anchor=south east] at (a) {$q_i, m_i$};
+		\node[anchor=north east] at (3,3) {$ V $};
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}%
+\\
 Zeitliche Änderung der Energie der Punktladungen durch die elektromagnetischen Felder:
 \begin{align*}
 \prd{}{t} W_{\tx{mat}} &= \prd{}{t} \sum_i \frac{m_i}{2} \vec{v}_i^2 = \sum_i \vec{v}_i \cdot \prd{\vec{v}_i}{t} = \sum_i \vec{v}_i \cdot \vec{F}_i\\
@@ -5423,25 +5447,29 @@ w_{\tx{em}} = \frac{1}{2} (\vec{H} \cdot \vec{B} + \vec{E} \cdot \vec{D})
 \begin{equation*}
 \int_V \dd^3 r \ \vabla \vec{S} = \int_{\partial V} \dd\vec{f}  \cdot \vec{S}
 \end{equation*}
-
-%T2
-
 \begin{equation*}
 [\vec{S}] = [\vec{E}] [\vec{H}] = \frac{\tx{V}}{\tx{m}} \frac{\tx{A}}{\tx{m}} = \frac{\tx{W}}{\tx{m}^2} = \frac{\tx{J}}{\tx{m}^2 \tx{s}} = \frac{\tx{Energie}}{\tx{Fläche } \cdot \tx{ Zeit}}
 \end{equation*}
-$ \vec{S}: $ \textbf{Energiestromdichte}
-
-% Hier fehlt ein Text von Kim
+$ \vec{S}: $ \textbf{Energiestromdichte}\\
+\begin{minipage}{.8\linewidth}
+	% Hier fehlt ein Text von Kim:
+	$$ \int_{\partial V} \dd \vec{f} \cdot \vec{S} $$
+	Energiestrom des EM-Feldes durch die Fläche $ \partial V $.
+\end{minipage}%
+\begin{minipage}{.2\linewidth}
+	\flushright
+	%t2:
+	\begin{tikzpicture}
+	\draw[shade, ball color=gray!20!white] (0,0) circle (1cm);
+	\node at (.3,.3) {$ \partial V $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \subsubsection{Energiebilanz}
 
 \begin{equation*}
-\ub{\prd{}{t} W_{\tx{mat} _V}} + \ub{\prd{}{t} W_{\tx{em}_V}} = \ub{- \int_{\partial V} \dd \vec{f} \cdot \vec{S}}
+\ub{\prd{}{t} W_{\tx{mat} _V}}_{\mathclap{\substack{\tx{an Ladungen} \\ \tx{in } V \tx{ verrichtete} \\ \tx{Arbeit}}}} \ \ + \ \ \ub{\prd{}{t} W_{\tx{em}_V}}_{\mathclap{\substack{\tx{Änderung der} \\ \tx{EM Feldenergie} \\ \tx{in } V}}} \ = \ \ub{- \int_{\partial V} \dd \vec{f} \cdot \vec{S}}_{\mathclap{\substack{\tx{Fluss der EM} \\ \tx{Feldenergie aus } V}}}
 \end{equation*}
-
-% notes
-
-\noindent
 \emph{Bemerkung:}
 \begin{enumerate}[i)]
 	\item abgeschlossenes System (ohne Energiestromdichte ach außen) z.B. $ \mathbb{R}^3 $
@@ -5483,7 +5511,36 @@ $ \vec{S}: $ \textbf{Energiestromdichte}
 	\end{equation*}
 	aber: $ \vabla \cdot \vec{S} = 0  \quad \rightarrow $ \textbf{kein Beitrag !}
 \end{enumerate}
-\emph{Beispiel:} \textbf{Energietransport in el./mag. Wellen im Vakuum}\\[5pt]
+\emph{Beispiel:} \textbf{Energietransport in el./mag. Wellen im Vakuum}
+\begin{center}
+	%t3:
+	\begin{tikzpicture}%[>=stealth]
+		% E
+		\draw[red,thick,looseness=5,fill=red!20!white,opacity=.8] (0,0) to[out=80,in=100] (1.5,0) to[out=-80,in=-100] (3,0);
+		\foreach \z in {.5,1}
+		\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,1.9);
+		\foreach \z in {2,2.5}
+		\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,-1.9);
+		% B
+		\draw[blue,thick,looseness=4.5,fill=blue!20!white,opacity=.8] (0,0) to[out=-125,in=-145] (1.5,0) to[out=35,in=55] (3,0) to[out=-125,in=-145] (4.5,0) to[out=35,in=55] (6,0);
+		\foreach \z in {.5,1,3.5,4}
+		\draw[thick,blue,->,>=stealth] (\z,0) -- ++(-136:1.7cm);
+		\foreach \z in {2,2.5,5,5.5}
+		\draw[thick,blue,->,>=stealth] (\z,0) -- ++(43:1.7cm);
+		% rest E
+		\draw[red,thick,looseness=5,fill=red!20!white,opacity=.8] (3,0) to[out=80,in=100] (4.5,0) to[out=-80,in=-100] (6,0);
+		\foreach \z in {3.5,4}
+		\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,1.9);
+		\foreach \z in {5,5.5}
+		\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,-1.9);
+		% koordinatensystem
+		\draw[->] (0,0) -- (0,2) node[anchor=south east] {$ \vec{y} $};
+		\draw[->] (0,0) -- (-1.2,-1.2) node[anchor=north east] {$ \vec{x} $};
+		\draw[->] (0,0) -- (7,0) node[anchor=north west] {$ \vec{z} $};
+		\node (e) at (1.5,2) {\color{red} $ \vec{E} $ \color{black}};
+		\node (b) at (.5,-1.25) {\color{blue} $ \vec{B} $ \color{black}};
+	\end{tikzpicture}
+\end{center}
 ebene Welle:
 \begin{align*}
 \vec{E} &= E_0 \cos(kz - \omega t) \vec{e}_x \\
@@ -5492,19 +5549,23 @@ ebene Welle:
 \begin{equation*}
 \frac{\omega}{k} = c \qquad \lambda = \frac{2 \pi}{k}
 \end{equation*}
-
-%T3
-
-\noindent
-mit $ c^2 = \frac{1}{\epsilon_0 \mu_0} $
-\begin{align*}
-\vec{S} &= \vec{E} \times \vec{H} = \frac{1}{\mu_0} \vec{E} \times \vec{B} = \frac{1}{\mu_0} \frac{E_0^2}{c} \cos^2(kz - \omega t) \vec{e}_z\\
-&= c \epsilon_0 E_0^2 \cos^2(kz - \omega t) \vec{e}_z
-\end{align*}
-
-%T4
-
-\noindent
+mit $ c^2 = \frac{1}{\epsilon_0 \mu_0} $\\
+\begin{minipage}{.7\linewidth}
+	\begin{align*}
+	\vec{S} &= \vec{E} \times \vec{H} = \frac{1}{\mu_0} \vec{E} \times \vec{B} = \frac{1}{\mu_0} \frac{E_0^2}{c} \cos^2(kz - \omega t) \vec{e}_z\\
+	&= c \epsilon_0 E_0^2 \cos^2(kz - \omega t) \vec{e}_z
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	\flushright
+	%t4:
+	\begin{tikzpicture}
+		\draw[thick,->] (0,0) -- (0,1.5) node[anchor=south east] {$ \vec{E} $};
+		\draw[thick,->] (0,0) -- (1.5,0) node[anchor=north west] {$ \vec{S} $};
+		\draw[thick,->] (0,0) -- (-.75,-.75) node[anchor=north east] {$ \vec{B} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \textbf{explizite Energiebilanz:}
 \begin{equation*}
 \prt{}{t} (\equalto{w_{\tx{mat}}}{0} + w_{\tx{em}}) = - \vabla \cdot \vec{S}
@@ -5557,13 +5618,9 @@ physikalisch: \textbf{Impulsstromdichte}
 \prd{}{t} \vec{P}_{\tx{mat}_V} + \prd{}{t} \int_V \dd^3 r \ (\vec{D} \times \vec{B}) = \sum_{i=1}^{3} \ub{\Bigg(\int_{V} \dd^3 r\ \ob{\sum_{k=1}^{3} \prt{T_{ik}}{x_k}}^{= \vabla \cdot \vec{T}_i} \vec{e}_i \Bigg)}_{= \int_{\partial V} \dd \vec{f} \cdot \vec{T}_i}
 \end{equation*}
 Die $ i $-te Zeile dieser $ 3 \times 3 $-Matrix wäre als Vektor: $ \vec{T}_i = (T_{i1}, T_{i2}, T_{i3}) $
-
-% notes 2 
-
-
-
-
-
+\begin{equation*}
+\ub{\prd{}{t} \vec{P}_{\tx{max}_V}}_{\mathclap{\substack{\tx{Änderung des} \\ \tx{Impulses} \\ \tx{der Teilchen}}}} + \ub{\prd{}{t} \int_V \dd^3 r (\vec{D} \times \vec{B})}_{\mathclap{\substack{\tx{Änderug des} \\ \tx{Impulses des} \\ \tx{EM-Feldes} \\ \tx{in } V}}} = \ub{\sum_{i = 1}^{3} \int_{\partial V} \dd \vec{f} \cdot \vec{T}_i}_{\mathclap{\substack{\tx{Impulsfluss} \\ \tx{des EM-Feldes} \\ \tx{aus } V}}}
+\end{equation*}
 
 
 

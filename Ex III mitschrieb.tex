@@ -104,7 +104,7 @@
 \newcommand{\kq}{\frac{1}{4\pi\epsilon_0}}
 \newcommand{\uind}{U_{\tx{ind}}}
 \newcommand{\folie}[1]{\color{gray}[Folie: #1]\color{black}}
-\newcommand{\versuch}[1]{\color{red!50!black} \textbf{Versuch:} \color{black} #1\\ }
+\newcommand{\versuch}[1]{\color{red!50!black} \textbf{Versuch:} \color{black} \textbf{#1}\\ }
 
 % ANDREZ
 \newcommand{\summ}[2]{\sum_{#1}^{#2}}
@@ -3773,17 +3773,29 @@ $ \Rightarrow $ Intensität als Funktion der Frequenz:
 
 \subsubsection{Grundlage der Beschreibung von Hohlraumstrahlung}
 
-%T1
-
-\noindent
+\begin{minipage}{.6\linewidth}
+	\begin{enumerate}[$ \Rightarrow $]
+		\item Randbedingungen für EM-Wellen
+		\item Frequenz/Wellenlängen sind eingeschränkt
+		\item Moden
+		\item Modendichte $ g(f) $
+		\begin{equation*}
+		g(f) \dd f = \frac{ 8 \pi f^2 }{c^3} \dd f
+		\end{equation*}
+	\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t1:
+	\begin{tikzpicture}
+		\draw (0,0) -- (0,2);
+		\coordinate (a) at (5,0);
+		\draw (a) -- ++(0,2);
+		% \draw[decorate,decoration={snake,amplitude = .5cm}] (0,1) -- ($ (a) + (0,1) $);
+		\draw[thick,red,looseness=2] (0,1) to[out=60,in=120] (1,1) to[out=-60,in=-120] (2,1) to[out=60,in=120] (3,1) to[out=-60,in=-120] (4,1) to[out=60,in=120] (5,1);
+	\end{tikzpicture}
+\end{minipage}%
 \begin{enumerate}[$ \Rightarrow $]
-	\item Randbedingungen für EM-Wellen
-	\item Frequenz/Wellenlängen sind eingeschränkt
-	\item Moden
-	\item Modendichte $ g(f) $
-	\begin{equation*}
-	g(f) \dd f = \frac{ 8 \pi f^2 }{c^3} \dd f
-	\end{equation*}
 	\item Energiedichte w(f)
 	\begin{equation*}
 	w(f,T) \dd f = g(f) \ol{w}(f,T) \dd f
@@ -3854,13 +3866,24 @@ $ \Rightarrow $ Das Gesetz impliziert Quantum für Licht (Photon)
 \begin{equation*}
 E = hf = \hbar \omega
 \end{equation*}
-Energiespektrum einer Schwingungsmode
-
-%T2
-
-\noindent
-Wie ist die Quantisierung der kontinuierlichen Kurve zu sehen?\\
-Aus dem exponentiellen Abfall des Kurve bei niedrigen Wellenlängen mit $ e^{-\frac{hf}{kT}} $ sehen wir es muss ein $ hf > 0 $ geben. Dies ist der in rot eingezeichnete erste Energiesprung vom untersten ins erst höhere Niveau.
+Energiespektrum einer Schwingungsmode.\\
+\begin{minipage}{.6\linewidth}
+	Wie ist die Quantisierung der kontinuierlichen Kurve zu sehen?\\
+	Aus dem exponentiellen Abfall des Kurve bei niedrigen Wellenlängen mit $ e^{-\frac{hf}{kT}} $ sehen wir es muss ein $ hf > 0 $ geben. Dies ist der in rot eingezeichnete erste Energiesprung vom untersten ins erst höhere Niveau.
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t2:
+	\begin{tikzpicture}
+		\draw[thick,->] (0,.4) -- (0,4.6);
+		\foreach \y in {.8,1.6,2.4,3.2,4}
+		\draw[thick] (.5,\y) -- ++(3,0);
+		\draw[thick,red,<->] ($ (.5,.8) + (1.5,0) $) -- node[right] {$ \hbar \omega $} ($ (.5,1.6) + (1.5,0) $);
+		\foreach \y\l in {.8/1,1.6/3,2.4/5,3.2/7,4/9}
+		\node[right] at ($ (.5,\y) + (3,0) $) {$\frac{\l}{2} \hbar \omega $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{equation*}
 \frac{hf}{kT} \to \infty \quad \Leftrightarrow \quad w(f) \propto e^{-\frac{hf}{kT}}
 \end{equation*}
@@ -3888,10 +3911,159 @@ Einstein Modell: alle Gitterschwingungen schwingen mit Frequenz $ f_0 $.
 \folie{Einstein Modell: Plot  von $ c_v $}
 $ \Rightarrow \quad c_v(T \to 0) \propto e^{-\frac{\hbar \omega_0}{kT}} \quad \Leftrightarrow \quad  $ System ,,friert`` aus.
 
+% Vorlesung 19.12.18 (5 Days until christmas)
 
+\noindent
+\folie{Energie einer EM-Welle quadratisch von der AMplitude (wie Intensität von der Feldstärke)}
 
+\subsection{Plank'sches Strahlungsgesetz II: Einstein}
 
+\folie{Energieniveaus und 3 Prozesse:}\\
+spontane Emission, Absorption und stimulierte Emission.\\[5pt]
+Ensemble von Objekten
+\begin{equation*}
+\prd{N_2}{t} = - \prd{N_2}{t} \bigg|_{\tx{spont. Emission}} + \prd{N_2}{t} \bigg|_{\tx{Abs.}} - \prd{N_2}{t} \bigg|_{\tx{stim. Emission}}
+\end{equation*}
+$ \dot{N}_1 $ Analog dazu\\[5pt]
+\textbf{Thermodynamisches Gleichgewicht:}
+\begin{enumerate}[i)]
+	\item Boltzmann.Faktor
+	\begin{equation*}
+	\frac{N_2}{N_1} = \frac{e^{-\frac{E_2}{kT}}}{e^{-\frac{E_1}{kT}}} = e^{-\frac{E_2 - E_1}{kT}}
+	\end{equation*}
+	\item $ E_2 - E_1 = h f $
+	\item stationär
+	\begin{equation*}
+	\dot{N}_2 \big|_{\tx{Abs.}} = \dot{N}_2 \big|_{\tx{spont. Emission}} + \dot{N}_2 \big|_{\tx{stim. Emission}}
+	\end{equation*}
+	\item 
+	
+	% make align nicer
+	
+	\noindent
+	\begin{align*}
+	\dot{N}_2 & \big|_{\tx{Abs.}} = B \sigma(1) N_1\\
+	\dot{N}_2 & \big|_{\tx{stim. Emission}} = C \sigma(1) N_2\\
+	\dot{N}_1 & \big|_{\tx{spont. Emission}} = A N_2
+	\end{align*}
+	$ \sigma(1) : $ Energiedichte der Strahlungsfelds\\[5pt]
+	Im thermodynamischen Gleichgewicht: $ \sigma(1) = w(1) $
+	\begin{equation*}
+	\Rightarrow \quad B w(1) N_1 = A N_2 + C w(1) N_2
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad w(1) = \frac{A}{B e^{\frac{hf}{kT}} - C}
+	\end{equation*}
+	\item klassischer Grenzfall $ T \to \infty $:
+	\begin{equation*}
+	\Rightarrow \quad B = C \qquad \Rightarrow \quad w(1) \frac{A}{B} \frac{1}{e^{\frac{hf}{kT}} - 1}
+	\end{equation*}
+	\item Vergleich mit Rayleigh-Deans:
+	\begin{equation*}
+	\Rightarrow \quad \frac{A}{B} = \frac{8 \pi f^2}{c^3} h f
+	\end{equation*}
+\end{enumerate}
+\textbf{Konsequenzen}
+\begin{enumerate}[1)]
+		\item
+		\begin{equation*}
+		w(f) = \frac{8 \pi h f^3}{c^3} \frac{1}{e^{\frac{hf}{kT}}-1}
+		\end{equation*}
+		\item drei Prozesse
+		\item $ \frac{A}{B} = \frac{8 \pi h f^3}{c^3} $
+		\item MASER (M $ \widehat{=} $ Mikrowellen), später LASER
+\end{enumerate}
 
+\section{Welle-Teilchen Dualismus}
+
+\subsection{Photoelektrischer Effekt (Photoeffekt)}
+\folie{äußerer Photoeffekt, Hallwachs Versuch}\\
+Photoeffekt:\\
+Wechselwirkung mit Licht führt zu Absorption eines Photons und Emission eines Elektrons.
+\begin{enumerate}[i)]
+	\item äußerer Photoeffekt
+	\item innerer Photoeffekt in Halbleitern
+	\item Photoionisation
+\end{enumerate}
+\versuch{Halwachs Versuch}
+Aufbau:\\
+UV-Lampe (Viel UV aber auch sichtbares Weißes Licht), die über Kollimatorlinse und eine Lochblende auf Zinkplatte strahlt. Daran angeschlossen ist ein Elektrometer.\\[5pt]
+\begin{enumerate}[i)]
+	\item Die Zinkplatte wird negativ aufgeladen. Wird die Abdeckung weggenommen so nimmt die Ladung auf der Platte schnell ab. Die Elektronen werden also aus dem Material ausgestoßen.
+	\item Die Zinkplatte wird positiv aufgeladen. Wird die Abdekung nun weggenommen passiert nichts. Die Ladung bleibt auf der Platte.
+	\item Die Zinkplatte wird wieder negativ aufgeladen. Die Abdeckung wird mit einer Glasplatte ersetzt so tut sich nichts oder nur sehr wenig. Wird die Glassplatte entfernt passiert das selbe wir bei i).
+	\item Tageslicht funktioniert nicht oder nur sehr langsam.
+\end{enumerate}
+\textbf{Interpretation:}
+\begin{enumerate}[i)]
+	\item freigesetzte $ e^- $ werden von Ladung auf der Platte abgestoßen\\
+	$ \Rightarrow $ Ladung sinkt ab
+	\item freigesetzte $ e^- $ werden von Ladung auf der Platte angezogen\\
+	$ \Rightarrow $ Ladung bleibt gleich
+	\item kaum UV-Strahlung $ \Rightarrow $ nichts $ \Rightarrow $ Effekt hängt von $ f $ ab nicht von der Intensität
+	\item Tageslicht reicht nicht um $ e^- $ herauszuschlagen
+\end{enumerate}
+\rbox{$ \Rightarrow $ Effekt hängt von $ f $ ab, nicht von der Intensität.}
+\versuch{Leonard Versuch}
+\folie{Versuchsaufbau}\\
+Die Energie der Elektronen ist begrenzt durch die hineingesteckte Energie minus die Austrittsenergie.\\[5pt]
+Aufbau (Gegenfeldmethode):
+\begin{itemize}
+	\item Photokathode wird mit Licht bestrahlt
+	\item freigesetzte $ e^- $ werden durch ein elektrisches Gegenfeld einer Anode abgebremst
+	\item Die Anzahl der hier noch durchkommenden Elektronen wird als Photostrom gemessen
+\end{itemize}
+\emph{Bemerkung:}
+\begin{itemize}
+	\item freigesetzte $ e^- $ haben konetische Energie mit einer (unbekannten) Verteilung. Mit Gegenspannung $ U $ wird die maximale kinetische Energie bestimmt: $ U_0 \Leftrightarrow I_{\tx{Photo}} = 0 $
+\end{itemize}
+\textbf{Beobachtung:}\\
+\folie{Graph der Energie gegenüber der Frequenz des eingestrahlten Lichts}
+\begin{enumerate}[i)]
+	\item $ U_0 = \const \cdot f - \frac{W_A}{e} $
+	\item Der Photostrom ist proportional zur Intensität des Lichts.
+	\item Die Gegenspannung $ U_0 $ hängt \textbf{NICHT} von der Intensität ab.
+	\item Es gibt eine minimale Spannung $ \frac{W_A}{e} $
+	\item Achsenabschnitt bzw. Wert von $ \frac{W_A}{e} $ ist materialabhängig (die Steigung jedoch nicht)
+\end{enumerate}
+\begin{minipage}{.55\linewidth}
+	\textbf{Interpretation:}\\
+	Energie des Lichts wird an $ e^- $ in Metall abgegeben\\
+	$ \Rightarrow $ $ e^- $ treten mit maximaler kinetischer Energie aus:
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+	%T Tikz mit austrisstarbeit eines elektrons:
+	%t1:
+	\flushright
+	\begin{tikzpicture}[scale=.75]
+		\draw (-4,0) -| (-1.4,-1.5) -- (1.4,-1.5) |- (4,0);
+		\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] (e) at (-.6,-1.5) {};
+		\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] (e2) at (2,0) {};
+		\draw[->,looseness=1.5] (e) to[out=90,in=135] (e2);
+		\node[blue,anchor=south west] at (e) {$ e^- $};
+		\draw[thick,red,<->] (3,0) -- node[right] {$ W_A $} (3,-1.5);
+	\end{tikzpicture}
+\end{minipage}%
+\\
+$ \Rightarrow \quad e U = E_{\tx{Licht}} - W_A $\\[5pt]
+$ \Rightarrow $ Experiment: $ E_{\tx{Licht}} = h f $\\[5pt]
+Entscheidend: klassisch:
+\begin{equation*}
+W = \frac{1}{2} \epsilon_0 (E^2 + c^2 B^2) = \frac{1}{c} I
+\end{equation*}
+
+\subsubsection{Einstein's Photonenhypothese}
+
+Licht verhält sich wie ein Teilchenstrom. Diese Teilchen nennen wir Photonen. Sie haben eine Energie von $ E = h f $
+\begin{equation*}
+\Rightarrow \quad \rmbox{e U = h f - W_A}
+\end{equation*}
+
+\section*{Fragerunde}
+\addcontentsline{toc}{section}{V. \texorpdfstring{\ \ \: }{space}  Fragerunde}
+
+\textbf{Zu Leonard Versuch: Warum das Magnetfeld:}\\
+Nur Teilchen mit bestimmter Masse (Elektronenmasse) kommen is den Detektor nicht auch andere Teilchen die irgendwie anders in dieselbe Richtung fliegen. (Glaßkörper ist nicht perfekt ...).\\[5pt]
 
 
 
