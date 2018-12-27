@@ -1,0 +1,723 @@
+%16.10.18
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\chapter{Spezielle Relativitätstheorie}
+
+%\addcontentsline{toc}{section}{section die nur im Inhaltsverzeichniss ist}
+
+\section{Vorgeschichte}
+
+\textbf{1861-1867: Maxwell Gleichungen}\\
+Vor Maxwell brauchten alle bekannten Wellen (Wasserwellen, Schall) ein Medium oder Trägerstoff. Daher stammte die Annahme, auch elektro-magnetische Wellen also Licht bräuchte ein Medium: der Äther. Somit wollte man experimentellversuchen zu zeigen, wie schnell wir uns durch den Äther bewegen und welches das Inertialsystem, das ausgezeichnete Bezugssystem des Äthers ist.\\
+%Man stellte jedoch fest, dass es kein solches Inertialsystem gibt und Geschwindigkeiten nur relativ zueinander existieren und nicht absolut sind.
+Mit dem Ziel den Äther nachzuweisen wurde das Michelson-Morley Experiment durchgeführt.
+
+\subsection{Experiment von Michelson-Morley} %I.1.a
+
+Die Idee des Experimentes war es die Bewegung der Erde relativ zum Äther zu messen.\\
+\textbf{Anforderungen:}
+\begin{itemize}
+	\item Erde $ 30 \, \tx{km} \slash \tx{s} $
+	\item Licht $ 3 \cdot 10^{5} \, \tx{km} \slash \tx{s}  $
+	\item[$ \Rightarrow $] relative Auflösung von circa $ 10^{-4} $ nötig
+\end{itemize}
+%
+%
+%
+% insert image von Folie interferrometer
+%
+%
+%
+\textbf{Prinzip}:\\
+Lichtlaufzeiten:\\
+Arm parallel zum Ätherwind
+\begin{equation*}
+t_2 = \frac{L_2}{c+v} + \frac{L_2}{c-v} = \frac{2cL_2}{(c^2-v^2)} = \frac{2 L_2}{c} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}^2}
+\end{equation*}
+Arm senkrecht zum Ätherwind
+\begin{equation*}
+t_1 = 2 \frac{L_1'}{c}
+\end{equation*}
+Nebenrechnung:
+\begin{equation*}
+L'^2 = L^2 + (vt)^2 \quad \Rightarrow \quad (ct)^2 = L^2 + (vt)^2 \quad \Rightarrow \quad t = \frac{L}{\sqrt{c^2 - v^2}}
+\end{equation*}
+\begin{equation*}
+t_1 = \frac{2 L}{\sqrt{c^2 - v^2}}
+\end{equation*}
+Somit ist die Zeitdifferenz der beiden Lichtstrahlen
+\begin{equation*}
+\Delta t = t_2 - t_1 = \frac{2L}{c} \ \frac{1 - \sqrt{1 - \frac{v^2}{c^2}}}{1 - \frac{v^2}{c^2}} \approx \frac{2L}{c} \left(\frac{1}{2} \frac{v^2}{c^2}\right) = \frac{lv^2}{c^2}
+\end{equation*}
+Hieraus können wir nun den Phasenunterschied der beiden Strahlen berechnen
+\begin{equation*}
+\Delta \varphi = 2 \pi \frac{c \Delta t}{\lambda}
+\end{equation*}
+Abschätzung:
+\begin{equation*}
+L = 2 \times 11 \, \tx{m} \ , \ v = 30 \, \tx{km} \slash \tx{s} \ , \ \lambda = 500 \, \tx{nm} \ \Rightarrow \ \Delta \varphi \slash \pi \approx 0{,}88
+\end{equation*}
+\textbf{Auflösung}
+\begin{equation*}
+\frac{\Delta \varphi}{\pi} \approx \frac{1}{4}
+\end{equation*}
+\textbf{Ergebnis:}\\
+Es gibt keine Verschiebung des Interferenzmusters.\\[5pt]
+\textbf{Konsequenz:}\\
+$ \Rightarrow $ Es gibt keinen Ätherwind.\\
+$ \Rightarrow $ Es gibt kein ausgezeichnetes Bezugssystem. Alle Bezugssysteme sind gleichwertig.\\[5pt]
+\textbf{Aber:}\\
+Kontraktionshypothese von Fitzgerald \& Lorenz\\
+Wenn der Arm in Richtung der Äthers um Faktor $ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} $ \\
+Arm parallel zum Ä.W.:
+\begin{equation*}
+t_2 = \frac{2cL_2}{c^2 - v^2} \frac{1}{\gamma} = \frac{2 L_2}{\sqrt{c^2 - v^2}}
+\end{equation*}
+Arm senkrecht zum Ä.W.:
+\begin{equation*}
+t_1 = \frac{2L_1}{\sqrt{c^2 - v^2}}
+\end{equation*}
+\textbf{Aber:}\\
+Äther nicht beobachtbar
+
+\subsection{Lorenz-Invarianz der Maxwell-Gleichungen}
+
+Maxwell-Gleichungen sind Lorenz-invariant und nicht Galilei-invariant.\\
+Beispiel: Relativität der Feder. 
+%
+%
+%
+% tikz felder Bilder abzeichnen Jan
+%
+%
+%
+\noindent
+$\Rightarrow$ Im Laborsystem: $\vec{F}=q(\vec{v}\times\vec{B})$\\
+$\Rightarrow$ Im Ruhesystem: $v'=0\Rightarrow F_L=0$ {\scalebox{1.5}{\lightning}}\\
+$\Rightarrow$ ein zusätzliches $E'$-Feld, $\vec{F}_q=q\vec{E}$\\
+$\Rightarrow$ neue „Transformationsgleichungen“\\
+\textbf{Transformation}
+\begin{itemize}
+	\item $K$: „ruhende“ Bezugssystem
+	\item $K'$: „sich in Bezug auf $K$ konstant entlang der $x$-Achse bewegendes“ Bezugssystem
+\end{itemize}
+
+$$\vec{E}'=(E_x,\gamma(E_y-vB_z),\gamma(E_z-vB_y))^\top$$
+$$\vec{B}'=(B_x,\gamma(B_y+\frac{v}{c^2}E_z),\gamma(B_z-\frac{v}{c^2}E_y))^\top$$
+
+\subsection{Einstein und die Patente}
+
+% andres komments und Folien // unsolved
+%
+Einstein arbeitete um 1092 beim Patentamt in Bern. Zu dieser Zeit wurden häufig neue Patente zur Synchronisierung verschiedenen Uhren angemeldet, was zu Einsteins Inspiration und seinen späteren Entdeckungen führte.
+
+\section{Bezugsysteme und Inertialsysteme}
+
+Zur Diskussion der Relativitätstheorie ist ein bestimmtes Vokabular mit klaren Definitionen Notwendig. Hierzu soll dieser Abschnitt dienen.
+
+\subsection{Was ist ein Bezugssystem (BZS)}
+
+Ein Bezugssystem ist ein Koordinatensystem bezüglich dessen man die Bewegung von Objekten beschreibt.\\
+\textbf{Konsequenzen:}
+\begin{itemize}
+	\item es gibt einen Koordinatenursprung $ \vec{O} $
+	\item Koordinatenursprünge verschiedener BZS können sich gegeneinander bewegen
+\end{itemize}
+$ \Rightarrow $ Transformationsgesetze\\[5pt]
+\underline{ACHTUNG}\\
+Unterscheide sorgfältig zwischen Basisvektoren, Vektoren und Koordinaten
+\begin{equation*}
+\vec{v} = \vec{v}' \quad \begin{array}{c}
+\vec{v} = \sum_i x_i \vec{e}_i \\ \vec{v}' = \sum_i x_i' \vec{e}_i'
+\end{array} \ \ \rightarrow \ \ \vec{x} = \begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix} \neq \vec{x}'
+\end{equation*}
+
+\subsection{Was ist ein Inertialsystem (IS)}
+
+Bezugssystem in welchem das Trägheitsgesetz gilt.\\[10pt]
+\textbf{Konsequenzen:}\\[5pt]
+$\Rightarrow$ Inertialsystem bewegen sich gradlinig - gleichförmig gegeneinander
+
+\subsubsection{Klassisches Relativitätsprinzip}
+
+Grundgesetze der Physik nicht in allen Inertialsystemen gleich (Form invariant)
+
+\subsection{Galilei-Transformation}
+
+\frbox{Galilei-Trafo}{\begin{align*}
+\vec r' &= \vec{r} - \vec{v} t \\
+t' &= t
+\end{align*}}
+
+\noindent
+$ \vec{v} $: Geschwindigkeit vom $ \vec{O}' $ gegenüber $ \vec{O} $\\[5pt]
+\textbf{Test:}
+\begin{equation*}
+k: \quad\vec{F} = m \vec{a} \quad \Leftrightarrow \quad k': \quad \vec{F}' = m \vec{a}'
+\end{equation*}
+\begin{equation*}
+\vec{a}' = \frac{\dd^2 \vec{v}'}{\dd t'^2} = \frac{\dd^2 \vec{v}}{\dd t^2} = \vec{a}
+\end{equation*}
+\emph{Bemerkung}\\
+Invarianz unter Drehungen $ \Rightarrow $ Tensoren
+
+\subsubsection{Transformation der Geschwindigkeit}
+\begin{equation*}
+\vec{v}' = \frac{\dd\vec{r}'}{\dd t'} = \frac{\dd\vec{r}'}{\dd t} \frac{\dd t}{\dd t'} = \frac{\dd\vec{r}'}{\dd t} = \frac{\dd\vec{r}}{\dd t} - \vec{u} = \vec{v} - \vec{u}
+\end{equation*}
+$ \Rightarrow $ Lichtgeschwindigkeit ist NICHT konstant ! %$ \buildrel \mathcal{O} \over{\textbf{.}} $
+
+\subsection{Lorenz-Transformation (LT)}
+
+\frbox{Lorenz-Trafo}{\begin{equation*}
+\begin{pmatrix}
+x' \\ y' \\ z' \\ t'
+\end{pmatrix} = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix}
+1&0&0&-u\\
+0&1&0&0\\
+0&0&1&0\\
+-\frac{u}{c^2}&0&0&1
+\end{pmatrix} \begin{pmatrix}
+x\\y\\z\\t
+\end{pmatrix} \qquad \tx{LT}
+\end{equation*}}
+
+\noindent
+Ziel der speziellen Relativitätstheorie:\\
+Die \textbf{Gesetze der Mechanik sollen Lorenz-invariant sein !}\\[5pt]
+\emph{Bemerkung}\\
+Die Galilei-Transformation ergibt sich aus der Lorenz-Transformation für $ \frac{u}{v} \rightarrow 0 $ somit wird dann $ \gamma \rightarrow 1 $ gehen.
+
+\section{Einsteins Axiome der speziellen Relativitätstheorie (SRT)}
+
+\begin{enumerate}[1.]
+	\item Relativitätsprinzip:\\
+	Alle Naturgesetze nehmen in allen IS die gleiche Form an.
+	\item Die Lichtgeschwindigkeit im Vakuum ist Konstant.
+\end{enumerate}
+\emph{Bemerkungen}
+\begin{itemize}
+	\item Punkt 1 legt die Lorenz-Trafo fest
+	\item Das Umgekehrte gilt nicht
+\end{itemize}
+
+\section{Konsequanzen aus der Konstanz der Lichtgeschwindigkeit}
+
+Da durch, dass die Lichtgeschwindigkeit eine Konstante sein soll ergeben sich schon bei einfachen Beispielen Schwierigkeiten. Ein solches Beispiel wäre die Addition von Geschwindigkeiten. Fährt man nun in einem Zug der die Geschwindigkeit $ 0{,}8 c $ hat und schießt ein Geschoss mit $ 0{,}3 c $ in Fahrtrichtung ab so sollte dieses mit $ 1{,}1 c $ schneller als die Lichtgeschwindigkeit sein. Warum dies nicht der Fall ist und wie man damit umgeht und welche weiteren Konsequenzen aus der Konstanz der Lichtgeschwindigkeit folgen wird im folgenden Abschnitt erläutert.
+
+\subsection{Lorenz-Trafo und Lorenz-Invarianz}
+
+\begin{enumerate}[1)]
+	\item Lichtstrahlen:\\
+	Im IS$ \phantom' $ $ \ K: \quad x \ = ct $\\
+	Im IS$ \ \ K': \quad x' = ct' $
+	\item Alle IS sind gleichberechtigt\\
+	Trafo $ K\phantom' \rightarrow K': \quad x' = \gamma (x\phantom' - ut) $\\
+	Trafo $ K' \rightarrow K\phantom': \quad x\phantom' = \gamma (x' - ut') $
+	\item $ \Rightarrow xx' = \gamma^2 xx' \left(1 - \frac{v^2}{c^2}\right) $\\
+	$ \Rightarrow \rmbox{\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}} $
+	%
+	%
+	%
+	% xi ?
+	%
+	%
+	%
+	\item
+	$t' = \gamma (t - a x)$\\
+	$t' = \frac{x'}{c} = \gamma \frac{1}{c} (x - ut) = \gamma (t - \frac{ux}{c^2})$
+	\item Insgesamt:
+	\frbox{Lorenz-Trafo}{\begin{equation*}
+	x' = \gamma (x - ut) \qquad \quad y' = y \qquad \quad z' = z \qquad \quad t' = \gamma \left(t - \frac{ux}{c^2}\right)
+	\end{equation*}}
+\end{enumerate}
+Transformation der Geschwindigkeiten\\
+NR:
+\begin{align*}
+\frac{\dd x'}{\dd t} &= \gamma \left(\frac{\dd x}{\dd t} - u\right) = \gamma (v_x - u)\\
+\frac{\dd t'}{\dd t} &= \gamma \left(1 - \frac{u}{c^2} v_x\right)
+\end{align*}
+Daraus folgt dann für die Geschwindigkeitsadditionen in verschiedene räumliche Komponenten:
+\begin{center}
+	\begin{minipage}{.4\linewidth}
+		\rbox{%
+			\begin{align*}
+			v_x' &= \frac{\dd x'}{\dd t'} = \frac{\dd x'}{\dd t} \frac{\dd t}{\dd t'} = \frac{v_x - u}{1 - \frac{uv_x}{c^2}} \\
+			v_y' &= \frac{\dd y'}{\dd t'} = \frac{\dd y'}{\dd t} \frac{\dd t}{\dd t'} = \frac{1}{\gamma} \frac{v_y}{1 - \frac{uv_x}{c^2}}\\
+			v_z' &= \frac{\dd z'}{\dd t'} = \frac{\dd z'}{\dd t} \frac{\dd t}{\dd t'} = \frac{1}{\gamma} \frac{v_z}{1 - \frac{uv_x}{c^2}}
+			\end{align*}}
+	\end{minipage}%
+\end{center}
+\textbf{Test:}
+\begin{itemize}
+	\item $ u \ll c \Rightarrow $ Galilei-Trafo
+	\item Umkehrung
+\end{itemize}
+
+\subsubsection{Lorenz-Invarianz}
+
+Feststellung $ x^2 - c^2t^2 = \const = x'^2 - c^2 t'^2 $\\[5pt]
+Raum-Zeit-Abstand: $ L = \sqrt{x^2 - c^2 t^2} $\\
+$ \rightarrow $ RZ-Abstand bleibt unter Lorenz-Trafo invariant.
+
+\subsubsection{Minkowski Raum}
+
+,,Drehung`` im M-Raum $ \Leftrightarrow $ Lorenz-Trafo
+\begin{enumerate}[A)]
+	\item \begin{align*}
+	\vec{x} &= (x,y,z,ict) \\
+	\vec{x} \vec{x} &= x^2 + y^2 + z^2 - c^2 t^2 = l^2
+	\end{align*}
+	\item \begin{equation*}
+	\vec{x} = (x,y,z,ct) \quad  \tx{Metrik:} \quad  \overline{g} = {\scriptstyle \begin{pmatrix}
+	1 & & & 0 \\ & 1\\ & & 1 \\ 0 & & & -1
+	\end{pmatrix}} \end{equation*}
+	\begin{equation*}
+	\Rightarrow l^2 = \vec{x} \overline{g} \vec{x} = x^2 + y^2 + z^2 - c^2 t^2
+	\end{equation*}
+\end{enumerate}
+$ \Rightarrow $ Kovarianten und Kontravarianten Vierervektoren
+
+\subsubsection{Elementare Diskussion des M-Raums}
+
+\emph{Frage:} Wie sieht ein anderes sich bewegendes IS (K') im eigenen IS (K) aus ?\\[5pt]
+K: Die Achsen $ ct, x $ stehen rechtwinklig aufeinander.\\
+K': wie liegen $ ct', x' $ in K ?\\[5pt]
+\textbf{Für die Lage von $ ct' $:}
+Betrachte $ x' = 0 \rightarrow \tx{ LT } \Rightarrow x = \frac{u}{c} ct $\\
+\textbf{Für die Lage von $ x' $:}
+Betrachte $ ct' = 0 \rightarrow \tx{ LT } \Rightarrow ct = \frac{u}{c}x $
+
+\subsection{Relativität der Gleichzeitigkeit}
+
+Lichtlaufzeit und Ereignisse:\\
+Das beobachtete Licht (z.B. von Galaxien) entspricht einem Blick in die Vergangenheit.\\
+Was soll gleichzeitig bedeuten?
+
+\subsubsection{Definition der Gleichzeitigkeit}
+
+In einem IS sind die Ereignisse A und C gleichzeitig, wenn die von den beiden Ergebnissen ausgehenden Lichtpulse einen Beobachter B in der Mitte der beiden Punkte zur selben Zeit erreichen.
+
+\subsubsection{Synchronisation von Uhren}
+
+\begin{itemize}
+	\item man nehme zwei Uhren in einem IS, ruhend
+	\item man sende zwei Photonen von der Mitte der Verbindungsstrecke aus
+	\item[$ \Rightarrow $] die beiden Photonen kommen gleichzeitig an den beiden Orten an
+\end{itemize}
+
+\subsection{Zeitdilatation}
+
+\underline{Uhren} $ \Rightarrow $ Lichtuhr\\
+\textbf{Zeitdilatation: bewegte Uhren laufen langsamer}\\
+\underline{Grund:} Licht muss größere Wege zurücklegen.\\[5pt]
+im Eigensystem: $ \Delta t' = 2 \frac{L}{c} $\\
+in ,,unserem`` System: $ \Delta t = 2 \frac{\overline{L}}{c} $
+\begin{equation*}
+\overline{L}^2 = L^2 + \left(\frac{u \Delta t}{2}\right)^2
+\end{equation*}
+\begin{equation*}
+\Delta t^2 = \Delta t'^2 + \frac{u^2}{c^2} \Delta t^2
+\end{equation*}
+\begin{equation*}
+\Rightarrow \Delta t = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}} \Delta t' = \gamma \Delta t' \qquad ; \Delta t \geq \Delta t'
+\end{equation*}
+
+\subsubsection{Betrachtung im Minkowski Diagramm}
+
+Betrachtung mit Lorenz-Trafo
+\begin{align*}
+x_0' &= 0 \qquad  \qquad \qquad  \Rightarrow  \qquad \qquad  x = ut \\
+t'\phantom{_0} &= \gamma \left(t - \frac{u}{c^2}  u t\right) = \gamma \left(1 - \frac{u^2}{c^2}\right) t = \frac{1}{\gamma} t
+\end{align*}
+\frbox{Zeitdilatation}{\begin{equation*}
+	t' = \frac{1}{\gamma} t
+	\end{equation*}}
+\textbf{Eigenzeit}\\
+$ \tau $: Tickdauer im Ruhesystem der Uhr
+\emph{Beispiele:}
+\begin{itemize}
+	\item Myonenzerfall - Lebensdauer $ \tau = 2 \cdot 10^{-6} \, \tx{s} $\\
+	Entstehung in Erdatmosphäre:\\
+	gemessene Lebensdauer $ \tau' = 30 \cdot 10^{-6} \, \tx{s} $
+	\item Nebelkammer
+\end{itemize}
+\textbf{Zwillingsparadoxon}
+Lösung: \lcom{Erdzwilling hat recht.}\\
+\textbf{Modernes Experiment}
+
+\subsection{Längenkontraktion}
+
+Die Längenkontraktion besagt, dass bewegte Gegenstände in Bewegungsrichtung kürzer erscheinen.
+\begin{equation*}
+l = \sqrt{1 - \frac{u^2}{c^2}} l' = \frac{1}{\gamma} l'
+\end{equation*}
+\frbox{Längenkontraktion}{\begin{equation*}
+	l' = \gamma l
+	\end{equation*}}
+Minkowski-Diagramm:\\[5pt]
+Benutze Lorenz-Invarianz\\
+Lorenz-Trafo:\\
+$ t = 0 $
+\begin{align*}
+\tx{LT für Ort:} \quad x' &= \gamma(x\phantom{_2} - ut) = \gamma x\\
+\Rightarrow l' = x_2' - x_1' &= \gamma (x_2 - x_1) = \gamma l
+\end{align*}
+\textbf{Ruder-Filme}\\
+Lichtlaufzeit berücksichtigen
+
+\subsection{Doppler Effekt}
+
+\subsubsection{Klassischer Doppler Effekt}
+
+\begin{equation*}
+f_B = f_S \frac{c + v_B}{c - v_S}
+\end{equation*}
+\begin{itemize}
+	\item bewegter Empfänger: $ v_S = 0 \Rightarrow f_B = \left(1 + \frac{u_B}{c}\right) \cdot f_S $
+	\item bewegter Sender: $ v_B = 0 \Rightarrow f_B = f_S \frac{1}{1 - \frac{v_S}{c}} \approx f_S \left(1 + \frac{v_S}{c} + \frac{v_S^2}{c^2} + \dots \right) $
+\end{itemize}
+
+\subsubsection{Relativistischer Doppler Effekt}
+
+\begin{equation*}
+f_B = f_S \frac{\sqrt{1 - \frac{v^2}{c^2}}}{1 - \cos \alpha \frac{u}{c}}
+\end{equation*}
+\begin{itemize}
+	\item $ \cos \alpha = \pm 1 $: longitudinaler DE
+	\item $ \cos \alpha = 0 $: transversaler DE
+\end{itemize}
+\folie{Relativistischer DE}\ zum Beispiel: Michelson-Interferometer\\
+\lcom{Laufzeit des Lichtes muss bei Lorenz-kontraktion ein berechnet werden. In QM wird gezeigt das alles wärme Energie abstrahlt. Jetzt betrachten wir Farben.}\\
+\folie{Video zu Bewegte Strahlung}
+
+\subsection{Aberration des Lichts}
+
+\folie{Folien zur Aberration des Lichts, Fernrohr}
+
+\section{Relativistische Dynamik}
+
+\lcom{Wir wollen jetzt die Newton Gleichungen Lorenz-invariant hinbekommen. Wobei wir das Fundamentale und die Erhaltungssätze nicht ''kaputt'' machen wollen.}\\
+Newton: \begin{equation*}
+\vec{F} = m \vec{a}
+\end{equation*}
+Erhaltungssätze (Energie, Impuls, Drehimpuls)\\[5pt]
+Energieerhaltung: Homogenität der Zeit\\
+Impulserhaltung: Homogenität des Raums\\[5pt]
+$ \Rightarrow $ $ E $ und $ p $ Erhaltung auch in SRT
+
+\subsection{Impulserhaltung und relativistischer Impuls}
+
+\textbf{Gedankenexperiment}\\[5pt]
+\begin{tikzpicture}
+\node at (.15,.7) (a) {};
+\node[anchor=east,xshift=-5pt] at (a) {\tx{Vorher: } $ \quad $};
+\node at (0,0) (b) {};
+\node at ($(b) + (.5,0)$) (b2) {};
+\node[anchor=east] at (b) {\tx{Nacher: } $ \quad $};
+\node[circle,fill=gray,inner sep=2pt, minimum size=2pt] at (a) {};
+\node[circle,fill=gray,inner sep=2pt, minimum size=2pt] at (.35,.7) {};
+\node[circle,fill=gray,inner sep=2pt, minimum size = 2pt] at (b) {};
+\node[circle,fill=gray,inner sep=2pt, minimum size = 2pt] at (.5,0){};
+\draw[->] (b) -- (-.5,0) node[above,xshift=5pt] {$ v_1 $};
+\draw[->] (b2) -- ($(b) + (1,0)$) node[above,xshift=-5pt] {$ v_2 $};
+\node[below,yshift=-3pt] at (b) {\footnotesize{$ A $}};
+\end{tikzpicture}\\
+Im Laborsystem gilt $ \vec{p}_{\tx{vorher}} = \vec{p}_{\tx{nacher}} $:
+\begin{equation*}
+\Rightarrow 0 = m_1 v_1 + m_2 v_2 = m_0 (v-v) = 0
+\end{equation*}
+Im Ruhesystem von Körper $ A $ gilt dann:
+\begin{equation*}
+u = - v_1 \quad , \quad v_1' = 0
+\quad
+\Rightarrow \quad (m_1 + m_2) v_1 = m_2 v_2'
+\end{equation*}
+Klassisch gilt somit:
+\begin{equation*}
+m_1 = m_2 = m_0
+\qquad
+v_2' = v_2 + v = 2v \quad \checkmark
+\end{equation*}
+In der \textbf{SRT} gelten aber folgende Additionstheoreme für Geschwindigkeiten:
+\begin{equation*}
+v_2' = \frac{v_2 - u}{1 - v_2 \frac{u}{c^2}} = \frac{2 v}{1 + \frac{v^2}{c^2}}
+\end{equation*}
+Dies liefert jedoch einen Widerspruch mit unserem zuvorigen Ergebnis.
+\begin{equation*}
+\Rightarrow v_2' < 2v \quad \tx{\lightning\ Impulsbilanz nicht erfüllt}
+\end{equation*}
+
+\subsubsection{Relativistischer Impuls}
+
+\begin{equation*}
+\vec{p} = m(v) \cdot \vec{v} = \rmbox{\gamma(v) m_0 \vec{v}}
+\end{equation*}
+\begin{equation*}
+\gamma(v) = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{equation*}
+%
+%
+%
+%$ \vec{\omega} $
+%
+%
+%
+$ v $ ist die Geschwindigkeit der Systeme zueinander.\\
+$ \vec{v} $ Die Geschwindigkeit des Körpers.
+\begin{equation*}
+\rmbox{\vec{p} = \frac{m_0 \vec{v}}{\sqrt{1 - \frac{v^2}{c^2}}}}
+\end{equation*}
+
+\subsection{Energieerhaltung und relativistische Energie}
+
+\begin{minipage}{.5\linewidth}
+	\textbf{Gedankenexperiment:}\\[5pt]
+	Beschleunigung eines Körpers in einem konstanten Kraftfeld.
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\hspace{50pt}
+	\begin{tikzpicture}
+	\node at (0,0) (a) {};
+	\node[circle, fill = gray ,inner sep = 3pt, minimum size = 2pt] at (a) {};
+	\draw[thick,->] (a) -- ($(a) + (1,0)$) node[above,xshift=-15pt] {$ \vec{F} $};
+	\draw[thick,->] ($(a) + (0,-.5)$) -- ($(a) + (1,-.5)$) node[below,xshift=-15pt] {$ \vec{v} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
+$ \Rightarrow $ Körper gewinnt kinetische Energie.
+\begin{equation*}
+E_{\tx{kin}} = \int \vec{F} \cdot d\vec{s}
+\end{equation*}
+\begin{align*}
+\dd E_{\tx{kin}} = F \dd s &\buildrel{?} \over{=} \frac{\dd p}{\dd t} \dd s\\
+&= m_0 \dd(\gamma v) \cdot v = m_0 v (v \dd \gamma + \gamma \dd v)
+\end{align*}
+Trick:
+$ 1 = \gamma^2 \left( 1 - \frac{v^2}{c^2} \right) $\\
+$ \Rightarrow 0 = c \gamma \dd \gamma \left(1 - \frac{v^2}{c^2}\right) + \gamma ^2 \left(- \frac{2v}{c^2} \dd v \right) $\\
+$ \Rightarrow c^2 \dd \gamma = v^2 \dd\gamma + \gamma v \dd v $\\
+$ \Rightarrow \dd E_{\tx{kin}} = m_0 c^2 \dd \gamma $
+\begin{align*}
+E_{\tx{kin}} &= m_0 c^2 \left[\gamma(v) - \gamma(0)\right]\\
+&= \gamma m_0 c^2 - m_0 c^2
+\end{align*}
+Einstein: $ \qquad E = \gamma m_0 c^2 \ \widehat{ = }\ \tx{,,Gesamtenergie``} $
+\begin{equation*}
+\rmbox{E = E_{\tx{kin}} + m_0 c^2}
+\end{equation*}
+
+\subsection{Relativistische Energie-Impuls-Beziehung und Viererimpuls}
+
+Dispersionsrelation: $ E(\vec{p}) $\\
+Klassisch: $ E(\vec{p}) = \frac{p^2}{2m} $\\
+SRT: $ E = \gamma m_0 c^2 $\\
+$ \Rightarrow E^2 = \gamma ^2 (m_0 c^2)^2 $ mit $ \gamma ^2 = 1 + \gamma^2 \left(\frac{v}{c}\right)^2 $\\
+$ \Rightarrow m_0 c^2 \gamma ^2 = m_0^2 c^2 + \gamma^2 m_0^2 v^2 = m_0^2 c^2 + \vec{p}^2 $
+\begin{equation*}
+\rmbox{\Rightarrow E^2 = (m_0 c^2)^2 + c^2 \vec{p}^2}
+\end{equation*}
+\begin{equation*}
+\rmbox{E = \sqrt{(m_0 c^2)^2 + c^2 \vec{p}^2}}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \left(\frac{E}{c}\right)^2 - \vec{p}^2 = (m_0 c)^2
+\end{equation*}
+
+\subsubsection{Viererimpuls}
+
+\begin{equation*}
+\hat{\vec{p}} = \left(\frac{E}{c} , p_x, p_y, p_z\right)
+\end{equation*}
+\begin{equation*}
+\Rightarrow \left(\frac{E}{c}\right)^2 - \vec{p}^2 \qquad \tx{ist Lorenz-invariant !}
+\end{equation*}
+$ \Rightarrow $ Die Ruhemasse $ m_0 $ ist Lorenz-invariant.
+
+\subsubsection{Was ist Masse?}
+
+Masse charakterisiert die Energie-Impuls-Beziehung relativistischer Teilchen $ \widehat{=} $ masseloser Teilchen $ \widehat{=}\ v = c \Leftrightarrow m_0 = 0 $.
+\begin{equation*}
+\Rightarrow E(\vec{p}) = c |\vec{p}|
+\end{equation*}
+Massebehaftete Teilchen, $ m_0 > 0 \ , \ v < c$
+\begin{equation*}
+E(\vec{p}) = \sqrt{(m_0 c^2)^2 + c^2 \vec{p}^2} \buildrel v \to 0 \over \longrightarrow \frac{\vec{p}^2}{2 m_0}
+\end{equation*}
+
+
+% Vorlesung 30.10.18 
+
+\subsection{Kraft und Energie-Impuls Erhaltung}
+
+klassisch gilt:
+\begin{equation*}
+\vec{F} = \frac{\dd\vec{p}}{\dd t}
+\end{equation*}
+und Impulserhaltung:
+\begin{equation*}
+\vec{F} = 0 \quad \Leftrightarrow \quad \vec{p} = \const \quad , \quad E = \const
+\end{equation*}
+In der SRT gilt:
+\begin{equation*}
+\vec{\hat F} = \gamma (m_0 c \frac{\dd\gamma}{\dd t}, F_x, F_y, F_z)
+\end{equation*}
+\begin{equation*}
+\rmbox{\vec{\hat F} = \frac{\dd}{\dd t} \vec{\hat{p}}}
+\end{equation*}
+\begin{equation*}
+\dd\tau = \frac{1}{\gamma} \dd t
+\end{equation*}
+\underline{Relativistische Energie-Impuls Erhaltung}
+\begin{equation*}
+\vec{\hat{F}} = 0 \quad \Leftrightarrow \quad \rmbox{\vec{\hat{p}} = \const}
+\end{equation*}
+\begin{itemize}
+	\item Zeitanteil $ \widehat{=} $ Energieerhaltung: $ E_{\tx{ges}} = E(\vec{p}) + E_{\tx{pot}} \dots = \const $
+	\item Raumanteil $ \widehat{=} $ Impulserhaltung: $ \vec{p}_{\tx{nacher}} = \vec{p}_{\tx{vorher}} $
+\end{itemize}
+
+\subsection{Anwendungsbeispiele}
+
+\subsubsection{Äquivalenz von Masse und Energie}
+
+\lcom{$m_0 c^2$ ist eine Energie, also muss sie, rein physikalisch gesehen, frei umwandelbar sein.}\\
+
+\lcom{Bindungsenergie: ein mehr Teilchensystem hat mehr Energie als die einzelnen Teilchen, diese zusätzliche Energie ist die Bindungsenergie und sie äußert sich als Massenänderung.}
+
+\begin{equation*}
+E = m_0 c^2 
+\end{equation*}
+\begin{equation*}
+1 \tx{kg} \ \widehat{=} \ m c^2 = 10^{17} \, \tx{J}
+\end{equation*}
+Weltenergieverbrauch ca.: $ 4 \cdot 10^{20} \, \tx{J} \ \widehat{=} \ 4 \, \tx{T} / \, \tx{Jahr} $
+
+\subsubsection{Bindungsenergie $ \vec{\widehat{=}} $ Massenänderung}
+
+\folie{Fusion/Kernspaltung}
+\begin{equation*}
+p: \qquad m_p = 938{,}27 \, \frac{\tx{MeV}}{c^2}
+\end{equation*}
+\begin{equation*}
+n: \qquad m_n = 939{,}54 \, \frac{\tx{MeV}}{c^2}
+\end{equation*}
+\begin{equation*}
+^4He: \qquad m_{He} = 3727 \, \frac{\tx{MeV}}{c^2} \ \ \ \;
+\end{equation*}
+\begin{equation*}
+2n + 2p = 3754 \, \frac{\tx{MeV}}{c^2}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \tx{ Bindungsenergie } \quad 24 \, \frac{\tx{MeV}}{c^2}
+\end{equation*}
+\folie{Bindungsenergie von Atomen} \ Kernspaltung/Kernfusion\\[5pt]
+\emph{Beispiel:} \textbf{Compton Effekt}\\
+Streuung eines Photons an einem (quasi-) freien, ruhenden Elektron
+\begin{equation*}
+\Delta R = \lambda_c (1 - \cos \theta)
+\end{equation*}
+\begin{equation*}
+\lambda_c = \frac{k}{mc} = 2{,}13 \cdot 10^{-24} \, \tx{m}
+\end{equation*}
+\lcom{Allgemeine Relativitäts Theorie: die Grundlage ist Masse in Gravitation.}
+
+\section{Von der SRT zur ART}
+
+ART $ \widehat{=} $ allgemeine Relativitätstheorie
+
+\subsection{Äquivalenzprinzip (\emph{die heilige Kuh der Physik})}
+
+\lcom{Träge und schwere Masse sind zwei unterschiedliche Grössen aus den zwei Formeln. Fahrstuhl hat mein kein Bezug auf die Umwelt, man spürt nur eine Kraft.}\\
+
+Beobachtung: Träge Masse $ \widehat{=} $ schwere Masse $ \quad m_t = m_s $
+\begin{equation*}
+\vec{F} = m_t \vec{a} \qquad \tx{träge Masse}
+\end{equation*}
+\begin{equation*}
+\vec{F}_{12} = G \frac{m_{1S} m_{2S}}{r_{12}^2} \frac{\vec{r}_{12}}{|\vec{r}_{12}|} \quad \rightarrow \quad \vec{F} = m_s \vec{g} \qquad \tx{schwere Masse}
+\end{equation*}
+\folie{Fahrstuhl-Äquivalenzprinzip}\\
+$ \Rightarrow $ In einem geschlossenen Raum gilt: Die Beschleunigung aufgrund einer Kraft ist nicht von der Gravitation zu unterscheiden \mau\\
+\noindent
+\textbf{Experimente:}
+\begin{itemize}
+	\item Pendel
+	\item Satelliten: lokales Inertialsystem das Kräftefrei ist
+	\item Freie-Fall-Experimente (Parabelflug bei Flugzeugen oder Freifall Experiment Turm) \\
+	\folie{Freifall Experiment Turm in Bremen}
+\end{itemize}
+\lcom{Äquivalenzprinzip war anfangs auf 1\,g bestätigt aber mittlerweile sehr genau, also wollen wir es aufrecht erhalten.}\\
+\folie{Wie genau ist das Äquivalenzprinzip bestätigt}\\
+\folie{Verletzungen des Äquivalenzprinzips}
+
+\subsubsection{Äquivalenz Prinzip, drei Formulierungen}
+
+\lcom{Inertialsysteme gelten nur in kleinen Raumbereichen da die Gravitationskraft abhängig von $r^2$ ist.}\\
+\folie{Verletzung des Äquivalenzprinzips}\\
+\lcom{Die Gravitation ist bis heute noch ein ungelöstes Problem. Ähnlich wie Newton und Maxwell, an irgendeiner Stelle müssen wir etwas korrigieren, da die Theorien der Wechselwirkungen nicht vereinbar sind. Vielleicht existiert eine fünfte fundamentale Kraft.} 
+
+\begin{enumerate}[1)]
+	\item Ein kleines Labor, welches in einem Schwerefeld frei fällt ist äquivalent zu einem lokalen Inertialsystem, in welchem die Gesetze der SRT gelten.
+	\item Beobachte im Fahrstuhl, Raumschiff (ohne Antrieb):\\
+	$ \Rightarrow $ Es ist nicht entscheidbar ob man sich gradlinig im freien Raum oder beschleunigt im Gravitationsfeld bewegt.
+	\item Der freie Fall ist Äquivalent zur Schwerelosigkeit
+\end{enumerate}
+
+\subsection{Gravitation und Raumkrümmung}
+
+Die Abweichung von einer geraden Bahn kann man auf zwei Arten definieren oder festlegen:
+\begin{enumerate}[(i)]
+	\item Kraft $ \qquad $ oder
+	\item Krümmung des Raums
+\end{enumerate}
+\folie{zur Raumkrümmung}\\
+\textbf{Idee:} Gravitation nicht mehr als Kraft, sondern als Krümmung des Raums betrachten.\\
+\lcom{Gilt nur für die Gravitationskraft!}\\
+\textbf{Mathematisch:} Gravitation beeinflusst die Metrik des Raums\\[5pt]
+\lcom{Eine Möglichkeit ist es, $ict^2$ zu verwenden damit ein Minus bei dem Skalarprodukt auftaucht, eine andere option ist das Skalarprodukt anders zu definieren zum Beispiel mit einem Vektor $(1,1,1,-1)$. Die Feldgleichungen der ART sind tatsächlich sehr kompliziert und werden meistens nicht behandelt.}\\
+\textbf{Konsequenzen:}
+\begin{itemize}
+	\item Raum und Zeit sind nicht statisch, sondern dynamisch
+	\item Inertialsystem nur noch lokal, im homogenen Schwerefeld
+\end{itemize}
+
+\subsection{Periheldrehung des Merkurs}
+
+Kepler'sche Bahngesetze \folie{zur Periheldrehung des Merkur}\\
+$ \Rightarrow $ geschlossene Ellipsen mit der Sonne im Brennpunkt\\[5pt]
+Beobachtung beim Merkur:\\
+Periheldrehung $ 5{,}74" \, \tx{pro Jahr} $\\[5pt]
+\folie{Merkur Umlaufbahn}\\
+\lcom{Merkur ist nah an der Sonne da treten diese Periheldrehungen deutlicher auf. Was kann diese Bewegung laut Newton beeinflussen? Andere Planeten.}\\
+Rechnungen nach Newton mit Einbeziehung der Potentiale der anderen Planeten: $ 0{,}4311" $ pro Jahr mehr als die gemessene\\[5pt]
+ART: Überschuss von $ 0{,}4303" $ pro Jahr
+
+\subsection{Ablenkung von Licht durch Gravitation}
+
+\folie{zur gravitativen Ablenkung von Licht} \folie{Bilder zur Ablenkung von Licht um die Sonne bei einer Sonnenfinsternis}\\
+\lcom{Durch die Sonnenfinsternis konnte ein Stern beobachtet werden dessen Position am Himmel sich durch der Lichtbeugung verändert wärend die Sonne sich in der nähe bewegt. Dies hat dieses Phänomen bestätigt.}\\
+$ \Rightarrow $ Sonnenfinsternis 1919\\
+\folie{Mehr Bilder zu Gravitationslinsen} \folie{Video: zu Gravitationslinsen}
+
+\subsection{Gravitationswellen}
+
+Indirekte Beobachtung umkreisender Neutronensterne PSR1913+16\\
+Abstrahlung von Gravitationswellen $ \Rightarrow $ Energieverlust $ \rightarrow $ Sterne kommen sich immer näher. Nobel Preis 1993\\[5pt]
+Direkte Beobachtung: Detektoren durch Relativbewegung von Massen
+\begin{enumerate}[(i)]
+	\item Resonanzdetektor
+	\item interferrometrische Detektoren (Micheson-Morley)\\
+	\folie{zu Michelson Interferrometern}\\
+	11. Februar 2016: LIGO\\
+	Nobel Preis 2017
+\end{enumerate}
+
+\subsection{Global Positioning System (GPS)}
+
+gegeben: Satelliten, Atomuhren, $ 3{,}87 \, \frac{\tx{km}}{\tx{s}} $ in Höhe von ca. $ 20000 \, \tx{km} $\\[5pt]
+SRT: $ \Rightarrow $ Zeitdilatation um $ \approx 7 \, \mu \tx{s} / \tx{Tag} $\\
+ART: $ \Rightarrow $ Zeitdilatation um $ \approx 45 \, \mu \tx{s/\tx{Tag}} $\\[5pt]
+$ \Rightarrow $ Ortsmessung um ca $ 11{,}4 \, \tx{km/\tx{Tag}} $ verschoben falsch

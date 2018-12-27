@@ -1,0 +1,81 @@
+\setcounter{chapter}{-1}
+\chapter{Einführung}
+
+%\addcontentsline{toc}{section}{section die nur im Inhaltsverzeichniss ist}
+%\bibliographystyle{plain}
+%\bibliography{literature}
+%\addcontentsline{toc}{section}{Literatur}
+
+\section{Zur Vorlesung}
+
+\begin{description}
+	\item[Dozent] Michael Thoss
+	\item[Übungen] Donnerstag/Freitag (ILIAS) beginnt 18./19.10.18
+	\item[Übungsleiter] Jakob Bätge
+	\item[Abgabe der Hausaufgaben] bus Dienstag 12:00 - Briefkasten GuMi
+	\item[Klausur] 13.02.19, 10-12 Uhr, Hörsaal Anatomie (Nachklausur: 26.19, 10-12 Uhr)
+	\item[Ankündigungen] ILIAS Pass: theophy2.thoss18
+	\item[Angaben] Vorlesung: 4 SWS, Übung: 2 SWS, ECTS: 7 
+	\item[Vorkenntnisse] Mathematik: Analysis für Physiker (Vektor Rechnung), Theoretische Physik I, Experimental Physik II. 
+\end{description}
+
+\begin{tcolorbox}[colback=white,colframe=black,fonttitle=\bfseries,title=Hinweis zu den Übungen,sharp corners,tcbox raise base]
+	\begin{itemize}
+		\item[-] Keine Anwesenheitspflicht.
+		\item[-] Keine Punktzahl nötig für Klausurzulassung.
+		\item[-] Kann auch wehrend Übungen abgegeben werden.
+	\end{itemize}
+\end{tcolorbox}
+\noindent
+Lehrbücher: 
+\begin{itemize}
+	\item W. Nolting, \textit{Grundkurs Theoretische Physik 3: Elektrodynamik} (Springer)
+	\item D.J. Griffiths, \textit{Elektrodynamik: Eine Einführung} (Pearson) 
+	\item T. Fließbach, \textit{Elektrodynamik} (Spektrum Akademischer Verlag)
+	\item J.D. Jackson, \textit{Klassische Elektrodynamik} (Walter de Gruyter) \lcom{geht dieser Vorlesung hinaus}
+\end{itemize}
+
+\section{Einführung und Überblick}
+
+Die vier fundamentalen Wechselwirkungen (WW):
+\begin{itemize}
+	\item Starke WW
+	\item \textbf{Elektromagnetische WW}\  \lcom{Wird in dieser Vorlesung betrachtet}
+	\item Schwache WW
+	\item Gravitation
+\end{itemize}
+
+\subsection{Rückblick}
+Theoretische Physik 1: 
+\begin{itemize}
+	\item Mechanik 
+	\item Punktmechanik: Bahnkurven von Körpern
+	\item Bewegungsgleichung: $m \vec{\ddot r} = \vec{F}$
+\end{itemize}
+\subsection{Elektrodynamik}
+\begin{itemize}
+	\item Grundlegende Größen
+	\item Felder
+	\item 
+	\begin{equation*}
+	\begin{array}{cc}
+	\vec{E}(\vec{r},t)\ \ \  & \vec{B}(\vec{r},t) \\[5pt]
+	\tx{elektrisches Feld \ \ \ } &  \tx{Magnetfeld}
+	\end{array}
+	\end{equation*}
+	\item[$\boldsymbol{\rightarrow}$] Feldtheorie \lcom{sehr wichtiges Konzept}
+\end{itemize}
+\lcom{Wie sind Elektrische Felder definiert?}\\
+Experimentelle Definition als Messgröße: Kraft auf Ladung
+$$\vec{F} = q(\vec{E}(\vec{r},t) + \vec{v} \times \vec{B}(\vec{r},t))$$
+Theoretische Definition ist Mathematisch: Feldgleichungen-Maxwellgleichungen
+$$ \ \qquad \vec\nabla \cdot\vec{E} = \frac{1}{\epsilon_0}\rho \qquad \qquad \ \qquad  \vec\nabla\cdot\vec{B} = 0$$
+$$\vec\nabla\times\vec{E} + \prt{\vec{B}}{t} = 0 \qquad \vec\nabla\times\vec{B} - \mu_0 \epsilon_0 \prt{\vec{E}}{t} = \mu_0 \vec{j}$$
+Hierbei steht $\rho$ für die Ladungsdichte und $\vec{j}$ für die Stromdichte.
+
+\section{Aufbau der Vorlesung}
+\textbf{1./2.} Statische Phänomene: $ \ \prt{\vec{E}}{t} = 0 = \prt{\vec{B}}{t}$
+$$\Rightarrow \vec\nabla\cdot\vec{E} = \frac{1}{\epsilon_0}\rho \qquad\ \vec\nabla \cdot \vec{B} = 0$$
+$$\ \ \, \quad\underbrace{\vec\nabla\times\vec{E} = 0}_{\textrm{1. Elektrostatik}} \qquad \underbrace{\vec\nabla\times\vec{B} = 0}_{\textrm{2. Magnetostatik}}$$
+\textbf{3.} Zeitabhängige magnetische/elektrische Felder\\
+\textbf{4.} Relativistische Formulierung der Elektrodynamik
