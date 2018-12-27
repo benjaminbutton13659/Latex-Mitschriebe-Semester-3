@@ -82,7 +82,6 @@
 \newcommand{\eofr}{\vec{E}(\vec{r})}
 \newcommand{\pofr}{\Phi(\vec{r})}
 \renewcommand{\Phi}{\varPhi}
-\newcommand{\delfkt}{\delta(\vec{r} - \vec{r}_0)}
 \newcommand{\grr}{\mathcal G(\vec{r},\vec{r}')}
 
 %LA:
@@ -206,10 +205,11 @@
 \begin{description}
 	\item[Dozent] Prof. Oliver Waldmann, Zi. 202, Physik-Hochhaus
 	\item[Zeit] Di, 8-10 Uhr, Mi, 8-10 Uhr
-	\item[Ort] Großer Hörsaal Physik
+	\item[Ort] Großer Hörsaal der Physik
  \end{description}
 
 \section{Termine}
+
 \begin{description}
 	\item[Vorlesungsbeginn] Di., 16.10.2018
 	\item[Erstes Übungsblatt] Mi., 17.10.2018
@@ -220,6 +220,7 @@
 \end{description}
 
 \section{Programm}
+
 \begin{enumerate}
 	\item Spezielle Relativitätstheorie
 	\item Fortgeschrittene Optik
@@ -228,6 +229,7 @@
 \end{enumerate}
 
 \section{Literatur}
+
 \begin{itemize}
 	\item alle Lehrbücher
 	\item Demtröder, Experimentalphysik 3 (Springer)
@@ -244,6 +246,7 @@ Gruppe 3: Mi 10-12, SR III, Tutor: Fabian Thielemann\\
 Gruppe 7: Fr 14-16, SR GMH, Tutor: Rupert Michiels
  
 \section{Übungsblätter}
+
 \begin{itemize}
 	\item Ausgabe der Übungsblätter jeweils am ENDE der Vorlesung am Mittwoch im großen Hörsaal, oder online auf ILIAS (siehe Ordner "Übungsblätter" unten)
 	\item Rückgabe der schriftlichen Lösungen VOR der Vorlesung am Mittwoch, die Lösungen sind im Hörsaal vorne auf den Tisch zu legen
@@ -252,6 +255,7 @@ Gruppe 7: Fr 14-16, SR GMH, Tutor: Rupert Michiels
 \end{itemize}
 
 \section{Übungsgruppen}
+
 \begin{itemize}
 	\item bis zu zwei (2) Studierende können ein Lösungsblatt gemeinsam bearbeiten und abgeben (sie müssen dann aber in einer Übungsgruppe sein)
 	\item bitte DEUTLICH auf dem Lösungsblatt angeben: Namen der Studierenden, Übungsgruppe (Nr, Name des Übungsleiters, Ort, Zeit)
@@ -261,6 +265,7 @@ Gruppe 7: Fr 14-16, SR GMH, Tutor: Rupert Michiels
 \end{itemize}
 
 \section{Klausur}
+
 \begin{description}
 	\item[Zuslassung zur Klausur] 40\% der Übungspunkte
 	\item[Termin] Sa, 9. Februar 2019, 9:00 - 12 Uhr, Großer Hörsaal Physik
@@ -273,9 +278,11 @@ Gruppe 7: Fr 14-16, SR GMH, Tutor: Rupert Michiels
 \end{description}
  
 \subsubsection{Anmeldung zur Klausur}
+
 Online Anmeldung, der Ablauf und Termine werden durch die jeweiligen Prüfungsämter bekannt gegeben.
  
 \section{Prüfungsleistung}
+
 \begin{itemize}
 	\item mindestens 40\% der Übungspunkte werden für die Zulassung zur Klausur benötigt
 	\item bestandene schriftliche Klausur oder Nachklausur
@@ -287,17 +294,19 @@ Sowohl die Übungen wie die Klausur sind Teil der Prüfungs/Studienleistung! Tä
 
 %16.10.18
 \renewcommand{\thechapter}{\Roman{chapter}}
+
 \chapter{Spezielle Relativitätstheorie}
+
 %\addcontentsline{toc}{section}{section die nur im Inhaltsverzeichniss ist}
 
 \section{Vorgeschichte}
 
 \textbf{1861-1867: Maxwell Gleichungen}\\
-Vor Maxwell brauchten alle bekannten Wellen (Wasserwellen, Schall) ein Medium oder Trägerstoff. Daher stammte die Annahme, auch elektro-magnetische Wellen also Licht bräuchte ein Medium: der Äther. Somit wollte man experimentell zu zeigen, wie schnell wir uns durch den Äther bewegen und welches das Inertialsystem, das ausgezeichnete Bezugssystem des Äthers ist.\\
+Vor Maxwell brauchten alle bekannten Wellen (Wasserwellen, Schall) ein Medium oder Trägerstoff. Daher stammte die Annahme, auch elektro-magnetische Wellen also Licht bräuchte ein Medium: der Äther. Somit wollte man experimentellversuchen zu zeigen, wie schnell wir uns durch den Äther bewegen und welches das Inertialsystem, das ausgezeichnete Bezugssystem des Äthers ist.\\
 %Man stellte jedoch fest, dass es kein solches Inertialsystem gibt und Geschwindigkeiten nur relativ zueinander existieren und nicht absolut sind.
 Mit dem Ziel den Äther nachzuweisen wurde das Michelson-Morley Experiment durchgeführt.
 
-\subsection{Experiment von Michelson-Morley}%I.1.a
+\subsection{Experiment von Michelson-Morley} %I.1.a
 
 Die Idee des Experimentes war es die Bewegung der Erde relativ zum Äther zu messen.\\
 \textbf{Anforderungen:}
@@ -308,7 +317,9 @@ Die Idee des Experimentes war es die Bewegung der Erde relativ zum Äther zu mes
 \end{itemize}
 %
 %
+%
 % insert image von Folie interferrometer
+%
 %
 %
 \textbf{Prinzip}:\\
@@ -350,7 +361,7 @@ Es gibt keine Verschiebung des Interferenzmusters.\\[5pt]
 $ \Rightarrow $ Es gibt keinen Ätherwind.\\
 $ \Rightarrow $ Es gibt kein ausgezeichnetes Bezugssystem. Alle Bezugssysteme sind gleichwertig.\\[5pt]
 \textbf{Aber:}\\
-Kontraktionshypothese von Fitzgerald z Lorenz\\
+Kontraktionshypothese von Fitzgerald \& Lorenz\\
 Wenn der Arm in Richtung der Äthers um Faktor $ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} $ \\
 Arm parallel zum Ä.W.:
 \begin{equation*}
@@ -367,15 +378,16 @@ t_1 = \frac{2L_1}{\sqrt{c^2 - v^2}}
 
 Maxwell-Gleichungen sind Lorenz-invariant und nicht Galilei-invariant.\\
 Beispiel: Relativität der Feder. 
-
-
-
-
+%
+%
+%
 % tikz felder Bilder abzeichnen Jan
-
+%
+%
+%
 \noindent
 $\Rightarrow$ Im Laborsystem: $\vec{F}=q(\vec{v}\times\vec{B})$\\
-$\Rightarrow$ Im Ruhesystem: $v'=0\Rightarrow F_L=0$ %{\scalebox{2}{\lightning}}\\
+$\Rightarrow$ Im Ruhesystem: $v'=0\Rightarrow F_L=0$ {\scalebox{1.5}{\lightning}}\\
 $\Rightarrow$ ein zusätzliches $E'$-Feld, $\vec{F}_q=q\vec{E}$\\
 $\Rightarrow$ neue „Transformationsgleichungen“\\
 \textbf{Transformation}
@@ -389,13 +401,9 @@ $$\vec{B}'=(B_x,\gamma(B_y+\frac{v}{c^2}E_z),\gamma(B_z-\frac{v}{c^2}E_y))^\top$
 
 \subsection{Einstein und die Patente}
 
-
-
-% andres komments und Folien
-
-
-
-Einstein arbeitete um ... beim Patentamt in .... Zu dieser Zeit wurden häufig neue Patente zur Synchronisierung verschiedenen Uhren angemeldet, was zu Einsteins Inspiration und seinen späteren Entdeckungen führte.
+% andres komments und Folien // unsolved
+%
+Einstein arbeitete um 1092 beim Patentamt in Bern. Zu dieser Zeit wurden häufig neue Patente zur Synchronisierung verschiedenen Uhren angemeldet, was zu Einsteins Inspiration und seinen späteren Entdeckungen führte.
 
 \section{Bezugsysteme und Inertialsysteme}
 
@@ -421,36 +429,42 @@ x_1 \\ x_2 \\ x_3
 \end{equation*}
 
 \subsection{Was ist ein Inertialsystem (IS)}
+
 Bezugssystem in welchem das Trägheitsgesetz gilt.\\[10pt]
 \textbf{Konsequenzen:}\\[5pt]
 $\Rightarrow$ Inertialsystem bewegen sich gradlinig - gleichförmig gegeneinander
 
 \subsubsection{Klassisches Relativitätsprinzip}
+
 Grundgesetze der Physik nicht in allen Inertialsystemen gleich (Form invariant)
 
 \subsection{Galilei-Transformation}
+
 \frbox{Galilei-Trafo}{\begin{align*}
 \vec r' &= \vec{r} - \vec{v} t \\
 t' &= t
 \end{align*}}
+
+\noindent
 $ \vec{v} $: Geschwindigkeit vom $ \vec{O}' $ gegenüber $ \vec{O} $\\[5pt]
 \textbf{Test:}
 \begin{equation*}
-k: \quad \vec{F} = m \vec{a} \quad \Leftrightarrow \quad k': \quad \vec{F}' = m \vec{a}'
+k: \quad\vec{F} = m \vec{a} \quad \Leftrightarrow \quad k': \quad \vec{F}' = m \vec{a}'
 \end{equation*}
 \begin{equation*}
-\vec{a}' = \frac{d^2 \vec{v}'}{dt'^2} = \frac{d^2 \vec{r}}{dt^2} = \vec{a}
+\vec{a}' = \frac{\dd^2 \vec{v}'}{\dd t'^2} = \frac{\dd^2 \vec{v}}{\dd t^2} = \vec{a}
 \end{equation*}
 \emph{Bemerkung}\\
 Invarianz unter Drehungen $ \Rightarrow $ Tensoren
 
 \subsubsection{Transformation der Geschwindigkeit}
 \begin{equation*}
-\vec{v}' = \frac{d\vec{v}'}{dt'} = \frac{d\vec{v}'}{dt} \frac{dt}{dt'} = \frac{d\vec{v}'}{dt} = \frac{d\vec{v}}{dt} - \vec{u} = \vec{v} - \vec{u}
+\vec{v}' = \frac{\dd\vec{r}'}{\dd t'} = \frac{\dd\vec{r}'}{\dd t} \frac{\dd t}{\dd t'} = \frac{\dd\vec{r}'}{\dd t} = \frac{\dd\vec{r}}{\dd t} - \vec{u} = \vec{v} - \vec{u}
 \end{equation*}
 $ \Rightarrow $ Lichtgeschwindigkeit ist NICHT konstant ! %$ \buildrel \mathcal{O} \over{\textbf{.}} $
 
 \subsection{Lorenz-Transformation (LT)}
+
 \frbox{Lorenz-Trafo}{\begin{equation*}
 \begin{pmatrix}
 x' \\ y' \\ z' \\ t'
@@ -463,12 +477,15 @@ x' \\ y' \\ z' \\ t'
 x\\y\\z\\t
 \end{pmatrix} \qquad \tx{LT}
 \end{equation*}}
+
+\noindent
 Ziel der speziellen Relativitätstheorie:\\
-Die Gesetze der Mechanik sollen Lorenz-invariant sein !\\[5pt]
+Die \textbf{Gesetze der Mechanik sollen Lorenz-invariant sein !}\\[5pt]
 \emph{Bemerkung}\\
 Die Galilei-Transformation ergibt sich aus der Lorenz-Transformation für $ \frac{u}{v} \rightarrow 0 $ somit wird dann $ \gamma \rightarrow 1 $ gehen.
 
 \section{Einsteins Axiome der speziellen Relativitätstheorie (SRT)}
+
 \begin{enumerate}[1.]
 	\item Relativitätsprinzip:\\
 	Alle Naturgesetze nehmen in allen IS die gleiche Form an.
@@ -488,18 +505,22 @@ Da durch, dass die Lichtgeschwindigkeit eine Konstante sein soll ergeben sich sc
 
 \begin{enumerate}[1)]
 	\item Lichtstrahlen:\\
-	Im IS$ \phantom' $ $ \ \ K: \quad x = ct $\\
+	Im IS$ \phantom' $ $ \ K: \quad x \ = ct $\\
 	Im IS$ \ \ K': \quad x' = ct' $
 	\item Alle IS sind gleichberechtigt\\
 	Trafo $ K\phantom' \rightarrow K': \quad x' = \gamma (x\phantom' - ut) $\\
 	Trafo $ K' \rightarrow K\phantom': \quad x\phantom' = \gamma (x' - ut') $
 	\item $ \Rightarrow xx' = \gamma^2 xx' \left(1 - \frac{v^2}{c^2}\right) $\\
 	$ \Rightarrow \rmbox{\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}} $
-	
+	%
+	%
+	%
 	% xi ?
-	
+	%
+	%
+	%
 	\item
-	$t' = \gamma (t - \xi x)$\\
+	$t' = \gamma (t - a x)$\\
 	$t' = \frac{x'}{c} = \gamma \frac{1}{c} (x - ut) = \gamma (t - \frac{ux}{c^2})$
 	\item Insgesamt:
 	\frbox{Lorenz-Trafo}{\begin{equation*}
@@ -509,27 +530,34 @@ Da durch, dass die Lichtgeschwindigkeit eine Konstante sein soll ergeben sich sc
 Transformation der Geschwindigkeiten\\
 NR:
 \begin{align*}
-\frac{dx'}{dt} &= \gamma \left(\frac{dx}{dt} - u\right) = \gamma (v_x - u)\\
-\frac{dt'}{dt} &= \gamma \left(1 - \frac{u}{c^2} v_x\right)
+\frac{\dd x'}{\dd t} &= \gamma \left(\frac{\dd x}{\dd t} - u\right) = \gamma (v_x - u)\\
+\frac{\dd t'}{\dd t} &= \gamma \left(1 - \frac{u}{c^2} v_x\right)
 \end{align*}
 Daraus folgt dann für die Geschwindigkeitsadditionen in verschiedene räumliche Komponenten:
-\begin{align*}
-v_x' &= \frac{dx'}{dt'} = \frac{dx'}{dt} \frac{dt}{dt'} = \frac{v_x - u}{1 - \frac{uv_x}{c^2}} \\
-v_y' &= \frac{dy'}{dt'} = \frac{dy'}{dt} \frac{dt}{dt'} = \frac{1}{\gamma} \frac{v_y}{1 - \frac{uv_x}{c^2}}\\
-v_z' &= \frac{dz'}{dt'} = \frac{dz'}{dt} \frac{dt}{dt'} = \frac{1}{\gamma} \frac{v_z}{1 - \frac{uv_x}{c^2}}
-\end{align*}
-\textbf{Test:}\\
+\begin{center}
+	\begin{minipage}{.4\linewidth}
+		\rbox{%
+			\begin{align*}
+			v_x' &= \frac{\dd x'}{\dd t'} = \frac{\dd x'}{\dd t} \frac{\dd t}{\dd t'} = \frac{v_x - u}{1 - \frac{uv_x}{c^2}} \\
+			v_y' &= \frac{\dd y'}{\dd t'} = \frac{\dd y'}{\dd t} \frac{\dd t}{\dd t'} = \frac{1}{\gamma} \frac{v_y}{1 - \frac{uv_x}{c^2}}\\
+			v_z' &= \frac{\dd z'}{\dd t'} = \frac{\dd z'}{\dd t} \frac{\dd t}{\dd t'} = \frac{1}{\gamma} \frac{v_z}{1 - \frac{uv_x}{c^2}}
+			\end{align*}}
+	\end{minipage}%
+\end{center}
+\textbf{Test:}
 \begin{itemize}
 	\item $ u \ll c \Rightarrow $ Galilei-Trafo
 	\item Umkehrung
 \end{itemize}
 
 \subsubsection{Lorenz-Invarianz}
+
 Feststellung $ x^2 - c^2t^2 = \const = x'^2 - c^2 t'^2 $\\[5pt]
 Raum-Zeit-Abstand: $ L = \sqrt{x^2 - c^2 t^2} $\\
 $ \rightarrow $ RZ-Abstand bleibt unter Lorenz-Trafo invariant.
 
-\subsubsection{Minkiwski Raum}
+\subsubsection{Minkowski Raum}
+
 ,,Drehung`` im M-Raum $ \Leftrightarrow $ Lorenz-Trafo
 \begin{enumerate}[A)]
 	\item \begin{align*}
@@ -547,6 +575,7 @@ $ \rightarrow $ RZ-Abstand bleibt unter Lorenz-Trafo invariant.
 $ \Rightarrow $ Kovarianten und Kontravarianten Vierervektoren
 
 \subsubsection{Elementare Diskussion des M-Raums}
+
 \emph{Frage:} Wie sieht ein anderes sich bewegendes IS (K') im eigenen IS (K) aus ?\\[5pt]
 K: Die Achsen $ ct, x $ stehen rechtwinklig aufeinander.\\
 K': wie liegen $ ct', x' $ in K ?\\[5pt]
@@ -556,14 +585,17 @@ Betrachte $ x' = 0 \rightarrow \tx{ LT } \Rightarrow x = \frac{u}{c} ct $\\
 Betrachte $ ct' = 0 \rightarrow \tx{ LT } \Rightarrow ct = \frac{u}{c}x $
 
 \subsection{Relativität der Gleichzeitigkeit}
+
 Lichtlaufzeit und Ereignisse:\\
 Das beobachtete Licht (z.B. von Galaxien) entspricht einem Blick in die Vergangenheit.\\
 Was soll gleichzeitig bedeuten?
 
-\subsubsection{Definition der GLeichzeitigkeit}
+\subsubsection{Definition der Gleichzeitigkeit}
+
 In einem IS sind die Ereignisse A und C gleichzeitig, wenn die von den beiden Ergebnissen ausgehenden Lichtpulse einen Beobachter B in der Mitte der beiden Punkte zur selben Zeit erreichen.
 
 \subsubsection{Synchronisation von Uhren}
+
 \begin{itemize}
 	\item man nehme zwei Uhren in einem IS, ruhend
 	\item man sende zwei Photonen von der Mitte der Verbindungsstrecke aus
@@ -571,6 +603,7 @@ In einem IS sind die Ereignisse A und C gleichzeitig, wenn die von den beiden Er
 \end{itemize}
 
 \subsection{Zeitdilatation}
+
 \underline{Uhren} $ \Rightarrow $ Lichtuhr\\
 \textbf{Zeitdilatation: bewegte Uhren laufen langsamer}\\
 \underline{Grund:} Licht muss größere Wege zurücklegen.\\[5pt]
@@ -587,6 +620,7 @@ in ,,unserem`` System: $ \Delta t = 2 \frac{\overline{L}}{c} $
 \end{equation*}
 
 \subsubsection{Betrachtung im Minkowski Diagramm}
+
 Betrachtung mit Lorenz-Trafo
 \begin{align*}
 x_0' &= 0 \qquad  \qquad \qquad  \Rightarrow  \qquad \qquad  x = ut \\
@@ -609,6 +643,7 @@ Lösung: \lcom{Erdzwilling hat recht.}\\
 \textbf{Modernes Experiment}
 
 \subsection{Längenkontraktion}
+
 Die Längenkontraktion besagt, dass bewegte Gegenstände in Bewegungsrichtung kürzer erscheinen.
 \begin{equation*}
 l = \sqrt{1 - \frac{u^2}{c^2}} l' = \frac{1}{\gamma} l'
@@ -628,7 +663,9 @@ $ t = 0 $
 Lichtlaufzeit berücksichtigen
 
 \subsection{Doppler Effekt}
+
 \subsubsection{Klassischer Doppler Effekt}
+
 \begin{equation*}
 f_B = f_S \frac{c + v_B}{c - v_S}
 \end{equation*}
@@ -638,6 +675,7 @@ f_B = f_S \frac{c + v_B}{c - v_S}
 \end{itemize}
 
 \subsubsection{Relativistischer Doppler Effekt}
+
 \begin{equation*}
 f_B = f_S \frac{\sqrt{1 - \frac{v^2}{c^2}}}{1 - \cos \alpha \frac{u}{c}}
 \end{equation*}
@@ -652,9 +690,9 @@ f_B = f_S \frac{\sqrt{1 - \frac{v^2}{c^2}}}{1 - \cos \alpha \frac{u}{c}}
 \subsection{Aberration des Lichts}
 
 \folie{Folien zur Aberration des Lichts, Fernrohr}
-% folien ok?
 
 \section{Relativistische Dynamik}
+
 \lcom{Wir wollen jetzt die Newton Gleichungen Lorenz-invariant hinbekommen. Wobei wir das Fundamentale und die Erhaltungssätze nicht ''kaputt'' machen wollen.}\\
 Newton: \begin{equation*}
 \vec{F} = m \vec{a}
@@ -665,6 +703,7 @@ Impulserhaltung: Homogenität des Raums\\[5pt]
 $ \Rightarrow $ $ E $ und $ p $ Erhaltung auch in SRT
 
 \subsection{Impulserhaltung und relativistischer Impuls}
+
 \textbf{Gedankenexperiment}\\[5pt]
 \begin{tikzpicture}
 \node at (.15,.7) (a) {};
@@ -696,7 +735,6 @@ m_1 = m_2 = m_0
 \qquad
 v_2' = v_2 + v = 2v \quad \checkmark
 \end{equation*}
-
 In der \textbf{SRT} gelten aber folgende Additionstheoreme für Geschwindigkeiten:
 \begin{equation*}
 v_2' = \frac{v_2 - u}{1 - v_2 \frac{u}{c^2}} = \frac{2 v}{1 + \frac{v^2}{c^2}}
@@ -707,14 +745,25 @@ Dies liefert jedoch einen Widerspruch mit unserem zuvorigen Ergebnis.
 \end{equation*}
 
 \subsubsection{Relativistischer Impuls}
+
 \begin{equation*}
 \vec{p} = m(v) \cdot \vec{v} = \rmbox{\gamma(v) m_0 \vec{v}}
 \end{equation*}
 \begin{equation*}
 \gamma(v) = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
 \end{equation*}
-$ \vec{\omega} $ ist die Geschwindigkeit der Systeme zueinander.\\
+%
+%
+%
+%$ \vec{\omega} $
+%
+%
+%
+$ v $ ist die Geschwindigkeit der Systeme zueinander.\\
 $ \vec{v} $ Die Geschwindigkeit des Körpers.
+\begin{equation*}
+\rmbox{\vec{p} = \frac{m_0 \vec{v}}{\sqrt{1 - \frac{v^2}{c^2}}}}
+\end{equation*}
 
 \subsection{Energieerhaltung und relativistische Energie}
 
@@ -737,14 +786,14 @@ $ \Rightarrow $ Körper gewinnt kinetische Energie.
 E_{\tx{kin}} = \int \vec{F} \cdot d\vec{s}
 \end{equation*}
 \begin{align*}
-dE_{\tx{kin}} &= F ds \buildrel ? \over = \frac{dp}{dt} ds\\
-&= m_0 d(\gamma v) \cdot v = m_0 v (v d \gamma + \gamma dv)
+\dd E_{\tx{kin}} = F \dd s &\buildrel{?} \over{=} \frac{\dd p}{\dd t} \dd s\\
+&= m_0 \dd(\gamma v) \cdot v = m_0 v (v \dd \gamma + \gamma \dd v)
 \end{align*}
 Trick:
 $ 1 = \gamma^2 \left( 1 - \frac{v^2}{c^2} \right) $\\
-$ \Rightarrow 0 = c \gamma d \gamma \left(1 - \frac{v^2}{c^2}\right) + \gamma ^2 \left(- \frac{2v}{c^2} dv \right) $\\
-$ \Rightarrow c^2 d \gamma = v^2 d\gamma + \gamma v dv $\\
-$ \Rightarrow d E_{\tx{kin}} = m_0 c^2 d \gamma $
+$ \Rightarrow 0 = c \gamma \dd \gamma \left(1 - \frac{v^2}{c^2}\right) + \gamma ^2 \left(- \frac{2v}{c^2} \dd v \right) $\\
+$ \Rightarrow c^2 \dd \gamma = v^2 \dd\gamma + \gamma v \dd v $\\
+$ \Rightarrow \dd E_{\tx{kin}} = m_0 c^2 \dd \gamma $
 \begin{align*}
 E_{\tx{kin}} &= m_0 c^2 \left[\gamma(v) - \gamma(0)\right]\\
 &= \gamma m_0 c^2 - m_0 c^2
@@ -755,6 +804,7 @@ Einstein: $ \qquad E = \gamma m_0 c^2 \ \widehat{ = }\ \tx{,,Gesamtenergie``} $
 \end{equation*}
 
 \subsection{Relativistische Energie-Impuls-Beziehung und Viererimpuls}
+
 Dispersionsrelation: $ E(\vec{p}) $\\
 Klassisch: $ E(\vec{p}) = \frac{p^2}{2m} $\\
 SRT: $ E = \gamma m_0 c^2 $\\
@@ -764,13 +814,14 @@ $ \Rightarrow m_0 c^2 \gamma ^2 = m_0^2 c^2 + \gamma^2 m_0^2 v^2 = m_0^2 c^2 + \
 \rmbox{\Rightarrow E^2 = (m_0 c^2)^2 + c^2 \vec{p}^2}
 \end{equation*}
 \begin{equation*}
-\rmbox{E = \sqrt{(m_0 c^2)^2 + c^2 \vec{p^2}}}
+\rmbox{E = \sqrt{(m_0 c^2)^2 + c^2 \vec{p}^2}}
 \end{equation*}
 \begin{equation*}
 \Rightarrow \left(\frac{E}{c}\right)^2 - \vec{p}^2 = (m_0 c)^2
 \end{equation*}
 
 \subsubsection{Viererimpuls}
+
 \begin{equation*}
 \hat{\vec{p}} = \left(\frac{E}{c} , p_x, p_y, p_z\right)
 \end{equation*}
@@ -780,6 +831,7 @@ $ \Rightarrow m_0 c^2 \gamma ^2 = m_0^2 c^2 + \gamma^2 m_0^2 v^2 = m_0^2 c^2 + \
 $ \Rightarrow $ Die Ruhemasse $ m_0 $ ist Lorenz-invariant.
 
 \subsubsection{Was ist Masse?}
+
 Masse charakterisiert die Energie-Impuls-Beziehung relativistischer Teilchen $ \widehat{=} $ masseloser Teilchen $ \widehat{=}\ v = c \Leftrightarrow m_0 = 0 $.
 \begin{equation*}
 \Rightarrow E(\vec{p}) = c |\vec{p}|
@@ -790,12 +842,13 @@ E(\vec{p}) = \sqrt{(m_0 c^2)^2 + c^2 \vec{p}^2} \buildrel v \to 0 \over \longrig
 \end{equation*}
 
 
-% 30.10.18 
+% Vorlesung 30.10.18 
 
 \subsection{Kraft und Energie-Impuls Erhaltung}
+
 klassisch gilt:
 \begin{equation*}
-\vec{F} = \frac{d\vec{p}}{dt}
+\vec{F} = \frac{\dd\vec{p}}{\dd t}
 \end{equation*}
 und Impulserhaltung:
 \begin{equation*}
@@ -803,13 +856,13 @@ und Impulserhaltung:
 \end{equation*}
 In der SRT gilt:
 \begin{equation*}
-\vec{\hat F} = \gamma (m_0 c \frac{d\gamma}{dt}, F_x, F_y, F_z)
+\vec{\hat F} = \gamma (m_0 c \frac{\dd\gamma}{\dd t}, F_x, F_y, F_z)
 \end{equation*}
 \begin{equation*}
-\rmbox{\vec{\hat F} = \frac{d}{dt} \vec{\hat{p}}}
+\rmbox{\vec{\hat F} = \frac{\dd}{\dd t} \vec{\hat{p}}}
 \end{equation*}
 \begin{equation*}
-d \tau = \frac{1}{\gamma} dt
+\dd\tau = \frac{1}{\gamma} \dd t
 \end{equation*}
 \underline{Relativistische Energie-Impuls Erhaltung}
 \begin{equation*}
@@ -821,7 +874,9 @@ d \tau = \frac{1}{\gamma} dt
 \end{itemize}
 
 \subsection{Anwendungsbeispiele}
+
 \subsubsection{Äquivalenz von Masse und Energie}
+
 \lcom{$m_0 c^2$ ist eine Energie, also muss sie, rein physikalisch gesehen, frei umwandelbar sein.}\\
 
 \lcom{Bindungsenergie: ein mehr Teilchensystem hat mehr Energie als die einzelnen Teilchen, diese zusätzliche Energie ist die Bindungsenergie und sie äußert sich als Massenänderung.}
@@ -830,10 +885,12 @@ d \tau = \frac{1}{\gamma} dt
 E = m_0 c^2 
 \end{equation*}
 \begin{equation*}
-1 kg \ \widehat{=} \ m c^2 = 10^{17} \, \tx{J}
+1 \tx{kg} \ \widehat{=} \ m c^2 = 10^{17} \, \tx{J}
 \end{equation*}
 Weltenergieverbrauch ca.: $ 4 \cdot 10^{20} \, \tx{J} \ \widehat{=} \ 4 \, \tx{T} / \, \tx{Jahr} $
+
 \subsubsection{Bindungsenergie $ \vec{\widehat{=}} $ Massenänderung}
+
 \folie{Fusion/Kernspaltung}
 \begin{equation*}
 p: \qquad m_p = 938{,}27 \, \frac{\tx{MeV}}{c^2}
@@ -850,8 +907,8 @@ n: \qquad m_n = 939{,}54 \, \frac{\tx{MeV}}{c^2}
 \begin{equation*}
 \Rightarrow \tx{ Bindungsenergie } \quad 24 \, \frac{\tx{MeV}}{c^2}
 \end{equation*}
-\folie{Bindungsenergie von Atomen} Kernspaltung/Kernfusion\\[5pt]
-\emph{Beispiel:} Compton Effekt\\
+\folie{Bindungsenergie von Atomen} \ Kernspaltung/Kernfusion\\[5pt]
+\emph{Beispiel:} \textbf{Compton Effekt}\\
 Streuung eines Photons an einem (quasi-) freien, ruhenden Elektron
 \begin{equation*}
 \Delta R = \lambda_c (1 - \cos \theta)
@@ -860,10 +917,13 @@ Streuung eines Photons an einem (quasi-) freien, ruhenden Elektron
 \lambda_c = \frac{k}{mc} = 2{,}13 \cdot 10^{-24} \, \tx{m}
 \end{equation*}
 \lcom{Allgemeine Relativitäts Theorie: die Grundlage ist Masse in Gravitation.}
+
 \section{Von der SRT zur ART}
+
 ART $ \widehat{=} $ allgemeine Relativitätstheorie
 
 \subsection{Äquivalenzprinzip (\emph{die heilige Kuh der Physik})}
+
 \lcom{Träge und schwere Masse sind zwei unterschiedliche Grössen aus den zwei Formeln. Fahrstuhl hat mein kein Bezug auf die Umwelt, man spürt nur eine Kraft.}\\
 
 Beobachtung: Träge Masse $ \widehat{=} $ schwere Masse $ \quad m_t = m_s $
@@ -879,21 +939,19 @@ $ \Rightarrow $ In einem geschlossenen Raum gilt: Die Beschleunigung aufgrund ei
 \textbf{Experimente:}
 \begin{itemize}
 	\item Pendel
-	\item Satellite: lokales Inertialsystem das Kräftefrei ist
+	\item Satelliten: lokales Inertialsystem das Kräftefrei ist
 	\item Freie-Fall-Experimente (Parabelflug bei Flugzeugen oder Freifall Experiment Turm) \\
 	\folie{Freifall Experiment Turm in Bremen}
 \end{itemize}
-\lcom{Äquivalenzprinzip war anfangs auf 1\,g bestätigt aber mittlerweile sehr genau, also wollen wir es aufrecht erhalten.}
-
+\lcom{Äquivalenzprinzip war anfangs auf 1\,g bestätigt aber mittlerweile sehr genau, also wollen wir es aufrecht erhalten.}\\
 \folie{Wie genau ist das Äquivalenzprinzip bestätigt}\\
 \folie{Verletzungen des Äquivalenzprinzips}
 
 \subsubsection{Äquivalenz Prinzip, drei Formulierungen}
-\lcom{Inertialsysteme gelten nur in kleinen Raumbereichen da die Gravitationskraft abhängig von $r^2$ ist.}
 
-\folie{Verletzung des Äquivalenzprinzips}
-
-\lcom{Die gravitation ist bis heute noch ein ungelöstes problem. Ähnlich wie Newton und Maxwell, an irgend einer stelle müssen wir was korrigieren da die Theorien der Wechselwirkungen nicht vereinbar sind. Vielleicht existiert eine fünfte fundamentale Kraft.} 
+\lcom{Inertialsysteme gelten nur in kleinen Raumbereichen da die Gravitationskraft abhängig von $r^2$ ist.}\\
+\folie{Verletzung des Äquivalenzprinzips}\\
+\lcom{Die Gravitation ist bis heute noch ein ungelöstes Problem. Ähnlich wie Newton und Maxwell, an irgendeiner Stelle müssen wir etwas korrigieren, da die Theorien der Wechselwirkungen nicht vereinbar sind. Vielleicht existiert eine fünfte fundamentale Kraft.} 
 
 \begin{enumerate}[1)]
 	\item Ein kleines Labor, welches in einem Schwerefeld frei fällt ist äquivalent zu einem lokalen Inertialsystem, in welchem die Gesetze der SRT gelten.
@@ -903,6 +961,7 @@ $ \Rightarrow $ In einem geschlossenen Raum gilt: Die Beschleunigung aufgrund ei
 \end{enumerate}
 
 \subsection{Gravitation und Raumkrümmung}
+
 Die Abweichung von einer geraden Bahn kann man auf zwei Arten definieren oder festlegen:
 \begin{enumerate}[(i)]
 	\item Kraft $ \qquad $ oder
@@ -912,7 +971,7 @@ Die Abweichung von einer geraden Bahn kann man auf zwei Arten definieren oder fe
 \textbf{Idee:} Gravitation nicht mehr als Kraft, sondern als Krümmung des Raums betrachten.\\
 \lcom{Gilt nur für die Gravitationskraft!}\\
 \textbf{Mathematisch:} Gravitation beeinflusst die Metrik des Raums\\[5pt]
-\lcom{Ein weg ist $ict^2$ zu verwenden damit ein minus bei dem Skalarprodukt auftaucht, eine andere option ist das Skalarprodukt anders zu definieren zum Beispiel mit einem Vektor $(1,1,1,-1)$. Die Feldgleichungen der ART sind tatsächlich sehr kompliziert und werden meistens nicht behandelt.}\\
+\lcom{Eine Möglichkeit ist es, $ict^2$ zu verwenden damit ein Minus bei dem Skalarprodukt auftaucht, eine andere option ist das Skalarprodukt anders zu definieren zum Beispiel mit einem Vektor $(1,1,1,-1)$. Die Feldgleichungen der ART sind tatsächlich sehr kompliziert und werden meistens nicht behandelt.}\\
 \textbf{Konsequenzen:}
 \begin{itemize}
 	\item Raum und Zeit sind nicht statisch, sondern dynamisch
@@ -931,12 +990,14 @@ Rechnungen nach Newton mit Einbeziehung der Potentiale der anderen Planeten: $ 0
 ART: Überschuss von $ 0{,}4303" $ pro Jahr
 
 \subsection{Ablenkung von Licht durch Gravitation}
+
 \folie{zur gravitativen Ablenkung von Licht} \folie{Bilder zur Ablenkung von Licht um die Sonne bei einer Sonnenfinsternis}\\
 \lcom{Durch die Sonnenfinsternis konnte ein Stern beobachtet werden dessen Position am Himmel sich durch der Lichtbeugung verändert wärend die Sonne sich in der nähe bewegt. Dies hat dieses Phänomen bestätigt.}\\
 $ \Rightarrow $ Sonnenfinsternis 1919\\
 \folie{Mehr Bilder zu Gravitationslinsen} \folie{Video: zu Gravitationslinsen}
 
 \subsection{Gravitationswellen}
+
 Indirekte Beobachtung umkreisender Neutronensterne PSR1913+16\\
 Abstrahlung von Gravitationswellen $ \Rightarrow $ Energieverlust $ \rightarrow $ Sterne kommen sich immer näher. Nobel Preis 1993\\[5pt]
 Direkte Beobachtung: Detektoren durch Relativbewegung von Massen
@@ -949,16 +1010,18 @@ Direkte Beobachtung: Detektoren durch Relativbewegung von Massen
 \end{enumerate}
 
 \subsection{Global Positioning System (GPS)}
+
 gegeben: Satelliten, Atomuhren, $ 3{,}87 \, \frac{\tx{km}}{\tx{s}} $ in Höhe von ca. $ 20000 \, \tx{km} $\\[5pt]
 SRT: $ \Rightarrow $ Zeitdilatation um $ \approx 7 \, \mu \tx{s} / \tx{Tag} $\\
 ART: $ \Rightarrow $ Zeitdilatation um $ \approx 45 \, \mu \tx{s/\tx{Tag}} $\\[5pt]
 $ \Rightarrow $ Ortsmessung um ca $ 11{,}4 \, \tx{km/\tx{Tag}} $ verschoben falsch
 
-% 31.10.18
+% Vorlesung 31.10.18
  
 \chapter{Geometrische Optik}
 
 \section{Lichtstrahlen}
+
 Licht hat eine \textbf{Ausbreitungsgeschwindigkeit} $ s = ct $. Diese Geschwindigkeit ist nur im Vakuum konstant und hängt von der Materie die der Lichtstrahl durchläuft ab. Diese Geschwindigkeit im Medium ist gegeben durch den \textbf{Brechungsindex}.
 \begin{equation*}
 \rmbox{n = \frac{c_{\tx{Vakuum}}}{c_{\tx{Medium}}}} \qquad \qquad \begin{array}{ll}
@@ -970,12 +1033,12 @@ Licht hat eine \textbf{Ausbreitungsgeschwindigkeit} $ s = ct $. Diese Geschwindi
 \lcom{Warum ist das denn so? Wie interagieren die elektromagnetischen Felder des Lichstrahls also mit der Materie?}\\
 Antwort:\\
 \lcom{Die Ladungsträger in der Materie erfahren aufgrund der elektrischen Felder eine Kraft. Die Ströme der bewegten Ladungen Wechselwirkungen mit den Magnetischen Feldern, jedoch ist dieser Effekt viel kleiner als der der $ \vec{E} $-Felder.\\
-Die Elektronen kann man sich mit einer Feder an der Atomkern gebunden Vorstellen. Mit dem $ \vec{E} $-Feld des Lichtstrahls haben wir das Modell eines getriebenen gedämpften harmonischen Oszillators: Das Lorenz-Lorenz-Oszillator Modell}\\
+Die Elektronen kann man sich mit einer Feder an der Atomkern gebunden Vorstellen. Mit dem $ \vec{E} $-Feld des Lichtstrahls haben wir das Modell eines getriebenen gedämpften harmonischen Oszillators: \textbf{Das Lorentz-Lorenz-Oszillator Modell}.}\\
 Genaugenommen kann man sich das auch so Vorstellen, dass die Photonen immer wieder absorbiert und nach einer Zeitverzögerung abgestrahlt werden, jedoch ist dies schwer zu berechnen.\\[10pt]
 \emph{Bemerkung:}\\
 zwei Medien $ n_1 > n_2 $\\
-$ n_1 $: optisch dichter\\
-$ n_2 $: optisch dünner
+$ n_1 $: \textbf{optisch dichter}\\
+$ n_2 $: \textbf{optisch dünner}
 
 \section{Das Fermat'sche Prinzip}
 
@@ -1001,16 +1064,16 @@ $ n_2 $: optisch dünner
 $ \Rightarrow $ Konsequenz $\rmbox{\tx{Der Stahlengang ist umkehrbar \mau}}$
 
 \subsubsection{Mathematische Handwerkzeuge}
+
 \begin{equation*}
 t = \frac{1}{c_{\tx{Vakuum}}} \int_{P_1}^{P_2} n(s) ds
 \end{equation*}
-
 Parametrisierung des Wegs $ \tau $
 \begin{equation*}
 \vec{x} = \vec{x} (\tau)
 \end{equation*}
 \begin{equation*}
-t(\vec{x}) = \frac{1}{c_{\tx{Vakuum}}} \int_{P_1}^{P_2} n(\vec{x(\tau)}) \sqrt{\left(\frac{d\vec{x}}{d\tau}\right)^2} d\tau
+t(\vec{x}) = \frac{1}{c_{\tx{Vakuum}}} \int_{P_1}^{P_2} n(\vec{x(\tau)}) \sqrt{\left(\frac{\dd\vec{x}}{\dd\tau}\right)^2} d\tau
 \end{equation*}
 
 \subsection{Weg zwischen zwei Punkten A und B}
@@ -1061,7 +1124,7 @@ t(\vec{x}) = \frac{1}{c_{\tx{Vakuum}}} \int_{P_1}^{P_2} n(\vec{x(\tau)}) \sqrt{\
 Extremum:\\
 \lcom{Da wir und in einem homogenen Medium befinden und die Lichtgeschwindigkeit konstant ist, ist die Strecke $ s $ proportional zur Zeit $ t $ und wir können das Extremum der Strecke berechnen.}
 \begin{equation*}
-\frac{ds}{dx} = 0
+\frac{\dd s}{\dd x} = 0
 \end{equation*}
 \begin{equation*}
 \Rightarrow \ub{\frac{x}{\sqrt{a^2 + x^2}}}_{\sin \alpha} = \ub{\frac{b-x}{\sqrt{d^2 + (b-x)^2}}}_{\sin \beta}
@@ -1110,11 +1173,11 @@ n_1 \neq n_2 \qquad \Leftrightarrow \qquad n(s) \neq \const
 	\node[anchor=north west] at (B) {B};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (-.5,0) (a) {};
 	\node[circle,fill=black,inner sep=1pt, minimum size=1pt] at (.5,0) (b) {};
-	\draw (A) -- (b) -- (B) -- (a) -- (A);
-	\draw (-1.5,0) -- (1.5,0);
+	\draw[thick] (A) -- (b) -- (B) -- (a) -- (A);
+	\draw[thick] (-1.5,0) -- (1.5,0);
 	\draw[thick,dashed] (A) -- (-1,0);
 	\draw[dashed] (0,-1) -- (0,1);
-	\draw[thick,->] (-1,0) -- (b) node[anchor=south west] {$ x $};
+	\draw[very thick,->] (-1,0) -- (b) node[anchor=south west] {$ x $};
 	\end{tikzpicture} \hspace{30pt}
 \end{minipage}%
 \\[10pt]
@@ -1167,10 +1230,11 @@ $ \frac{dt}{dx} = 0 $\\
 $ \rightarrow $ siehe Experimentalphysik II\\
 \folie{zur Totalreflexion z.B. unter Wasser}
 \begin{equation*}
-\sin\alpha_{\tx{TV}} = \frac{n_2}{n_1}
+\sin\alpha_{\tx{TR}} = \frac{n_2}{n_1}
 \end{equation*}
 
 \subsection{Optisches Prisma}
+
 \lcom{Bei Drehung des Prismas kann der Winkel $ \delta $ verändert werden. Hier gibt es es ein Minimum, jedoch kann er nie null werden, da das Licht nie gerade durch das Prisma hindurch kommen kann.}
 
 \subsubsection{Beobachtung I}
@@ -1247,21 +1311,24 @@ Dieser Zusammenhang wurde früher zur Bestimmung von $ n $ genutzt \mau\\
 \lcom{*Professor redet darüber, dass wir immer kompliziertere Experimente verstehen können, und diese aufgrund des Aufwands bei der Ausführung nicht mehr immer in der Vorlesung gezeigt werden können. Wir sollen lernen uns Experimente vorzustellen ohne sie direkt zu sehen und die Formeln als Handlungsanweisungen zu sehen die wir nutzen können. Abgesehen davon sollen wir uns auch im klaren darüber sein wie genau verschiedene Messmethoden sind.*}
 
 \subsubsection{Beobachtung II}
+
 optische Dispersion:
 \begin{equation*}
-\frac{dn(\lambda)}{d\lambda} < 0 \qquad (\tx{normale Dispersion})
+\frac{\dd n(\lambda)}{\dd\lambda} < 0 \qquad (\tx{normale Dispersion})
 \end{equation*}
-(Bei der anormalen Dispersion ist $ \frac{d n(\lambda)}{d\lambda} > 0 $)\\
+(Bei der anormalen Dispersion ist $ \frac{\dd n(\lambda)}{\dd\lambda} > 0 $)\\
 \folie{zur Dispersion: Beispiel Regenbogen}\\[5pt]
-\lcom{Wieso gibt es Dispersion? Vorstellung: Die Atome mit ihren Elektronen haben Resonanzfrequenzen. Somit ist die erzwungene Schwingung die die Licht-Welle in der Materie anregt, von der Frequenz des Lichts abhängig.\\
-Die meisten Resonanzfrequenzen liegen im Ultravioletten-Bereich. Deshalb sehen wir meist normale Dispersion. Im Bereich über Ultraviolettem Licht ist auch anormale Dispersion Beobachtbar.}\\[5pt]
+\lcom{Wieso gibt es Dispersion? Vorstellung: Die Atome mit ihren Elektronen haben Resonanzfrequenzen. Somit ist die erzwungene Schwingung, die die Licht-Welle in der Materie anregt, von der Frequenz des Lichts abhängig.\\
+Die meisten Resonanzfrequenzen liegen im Ultravioletten-Bereich. Deshalb sehen wir meist normale Dispersion. Im Bereich über Ultraviolettem Licht ist auch anormale Dispersion beobachtbar.}\\[5pt]
 $ \Rightarrow $ Experimentalphysik II
 %\lcom{*Das geht wirklich nicht! Was soll man denn da machen? Das ist echt lässtig!*}
 
 \section{Sphärische, dünne Linse}
+
 \lcom{Zunächst einmal betrachten wir sphärische Linsen speziell dünne Linsen: Wir betrachten die dünne Linse als eine unendlich-dünne Linse, da wir hierbei einige vereinfachungen machen können (Taylor-entwicklungs-Terme fallen weg).}
 
 \subsection{Brennpunkt und Brennebene}
+
 \folie{zur Sammel- und Streulinsen}\\
 Wir betrachten zunächst den Strahlengang einer Linse:\\
 \rbox{\begin{minipage}{\linewidth}
@@ -1271,6 +1338,7 @@ Wir betrachten zunächst den Strahlengang einer Linse:\\
 \folie{zur der Lieblingsfrage}
 
 \subsubsection{3 Regeln zur Konstruktion von Strahlengängen}
+
 Nur für dünne Linsen:
 \begin{enumerate}[1)]
 	\item Parallel einfallende Strahlen fallen durch den Brennpunkt aus
@@ -1279,6 +1347,7 @@ Nur für dünne Linsen:
 \end{enumerate}
 
 \subsection{Berechnung des Brennpunktes bzw. der Brennweite}
+
 \lcom{Bei der Streulinse genau dasselbe nur ein negatives Vorzeichen an der Brennweite.}\\
 \folie{zu Strahlengängen durch Sammellinsen}\\[5pt]
 Ein Linsenstück im Abstand $ h $ von der optischen Achse betrachten wir als Prisma.\\[5pt]
@@ -1409,7 +1478,9 @@ Winkel $ \delta $:\\[10pt]
 \frbox{Linsenschleiferformel}{\begin{equation*}
 \Rightarrow \quad \frac{1}{f} = \frac{n_2 - n_1}{n_1} \left(\frac{1}{R_1} - \frac{1}{R_2}\right)
 \end{equation*}}
-$ \Rightarrow $ Die Brennweite $ f $ ist unabhängig von $ h $. \lcom{Hätte wir oben keine Näherungen für die Winkelfunktionen benutzt (bei allen Rundungssymbolen), dann wäre die Brennweite abhängig von der Höhe $ h $. Hier sehen wir, dass die Gleichung für eine dünne Linse nur eine annäherung an echte Linsen ist.}\\[10pt]
+
+\noindent
+$ \Rightarrow $ Die Brennweite $ f $ ist unabhängig von $ h $. \lcom{Hätte wir oben keine Näherungen für die Winkelfunktionen benutzt (bei allen Rundungssymbolen), dann wäre die Brennweite abhängig von der Höhe $ h $. Hier sehen wir, dass die Gleichung für eine dünne Linse nur eine Annäherung an echte Linsen ist.}\\[10pt]
 \textbf{Def: Brechkraft}
 \begin{equation*}
 D = \frac{n}{f}
@@ -1456,7 +1527,9 @@ $ D = D_{\tx{Vorne}} + D_{\tx{Hinten}} $
 	\end{tikzpicture}
 \end{minipage}%
 
-\frbox{Abbildungsgesetz}{\begin{equation*}
+\noindent
+\frbox{Abbildungsgesetz}{
+\begin{equation*}
 \Rightarrow \frac{1}{f} = \frac{1}{a} + \frac{1}{b}
 \end{equation*}}
 \textbf{Abbildung eines Gegenstands $ G $:}\\
@@ -1516,12 +1589,13 @@ $ \Rightarrow $ Näherungen (dünne Linse)
 
 \folie{Dicke Linsen}\\
 Brechung der Lichtstrahlen an zwei Hauptebenen
-
-
+%
+%
+%
 % Bilder von Volie Dicke Linsen einfügen
-
-
-
+%
+%
+%
 \subsection{Sphärische Abberation}
 
 \folie{Sphärische Abberation}
@@ -1568,7 +1642,7 @@ Bei verunreinigten Stoffen wird Licht absorbiert.
 \end{equation*}
 \textbf{Winkelvergrößerung}
 \begin{equation*}
-V = \frac{\tx{Sehwiinkel mit Instrument}}{\tx{Sehwinkel ohne Instrument}}
+V = \frac{\tx{Sehwinkel mit Instrument}}{\tx{Sehwinkel ohne Instrument}}
 \end{equation*}
 \textbf{Lateralvergrößerung oder Abbildungsmaßstab}
 \begin{equation*}
@@ -1635,7 +1709,7 @@ Sehwinkel des Instruments
 \alpha \approx \tan \alpha = \frac{G}{f} \qquad (g \approx f)
 \end{equation*}
 \begin{equation*}
-\Rightarrow V = \frac{\alpha}{\alpha_{\tx{Auge}}} = \frac{G}{f} \frac{25 \, \tx{cm}}{g} = \frac{25 \, \tx{cm}}{f}
+\Rightarrow V = \frac{\alpha}{\alpha_{\tx{Auge}}} = \frac{G}{f} \frac{25 \, \tx{cm}}{G} = \frac{25 \, \tx{cm}}{f}
 \end{equation*}
 
 \subsection{Optische Instrumente mit zwei Linsen}
@@ -1672,8 +1746,8 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 	b_1 \ \tx{der 1ten Linsen} = \tx{virtuelle Gegenstandsweite} \ a_2 = b_1 - D \ \tx{der zweiten Linse}
 	\end{equation*}
 	\begin{itemize}
-		\item[1. Linse] $ \frac{1}{a} + \frac{1}{b_1} = \frac{1}{f_1} $
-		\item[2. Linse] $ -\frac{1}{b_1 - D} + \frac{1}{b} = \frac{1}{f_2} $
+		\item[1.] Linse $ \frac{1}{a} + \frac{1}{b_1} = \frac{1}{f_1} $
+		\item[2.] Linse $ -\frac{1}{b_1 - D} + \frac{1}{b} = \frac{1}{f_2} $
 	\end{itemize}
 	\begin{equation*}
 	\Rightarrow \qquad \rmbox{\frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2}} \qquad \rmbox{D_{\tx{ges}} = D_1 + D_2}
@@ -1727,7 +1801,7 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 		\end{tikzpicture}
 	\end{minipage}%
 	\\
-	$ \Rightarrow $ Vergrößerung $ V = \frac{\beta}{\alpha} = \frac{B}{f_2} \frac{f_1}{B} = \frac{f_1}{f_2} $
+	$ \Rightarrow $ Vergrößerung $ V = \frac{\beta}{\alpha} = \frac{B}{f_2} \frac{f_1}{B} = \frac{f_1}{f_2} $\\[5pt]
 	\emph{Bemerkung:}
 	\begin{itemize}
 		\item Kepler Fernrohr: Bild wird invertiert
@@ -1783,7 +1857,7 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 	Verstärkung durch Objektiv $ V_1 = \frac{B}{G} = \frac{b}{f_1} $\\
 	Verstärkung durch Okular $ V_2 = \frac{25 \, \tx{cm}}{f_2} $\\
 	$ \Rightarrow $ Vergrößerung: $$ V = V_1 V_2 = \frac{t \cdot 25 \, \tx{cm}}{f_1 f_2} $$
-	$ t \approx 28 \, \tx{cm} $ wurde so definiert um den Vergleich von Geräten zu vereinfachen.
+	$ t \approx 18 \, \tx{cm} $ wurde so definiert um den Vergleich von Geräten zu vereinfachen.
 \end{enumerate}
 
 % Vorlesung 7.11.18 (8)
@@ -1791,11 +1865,12 @@ Doppellinse, Fernrohr, Mikroskop\\[5pt]
 \section{Elektronenoptik}
 
 \folie{Elektronen Strahl}\\
-\lcom{Die Idee hier ist das man einen Elektronen der von einem $E$-Feld abgelenkt wird als wie eine optische Beugung betrachten...}\\
+\lcom{Die Idee hier ist das man einen Elektronenstrahl der von einem $\vec{E}$-Feld abgelenkt wird als wie eine optische Beugung betrachten...}\\
 Elektronenstrahl Ablenkung durch elektrische und magnetische Felder
 
 $$\vec{F} = q \vec{E}$$
 $$\vec{F} = q (\vec{v} \times \vec{B})$$
+
 \subsection{Beispiel: Brechungsgesetz für Elektronen}
 
 $$\sin \alpha = \frac{v_{1,x}}{v_1} \qquad \sin \beta = \frac{v_{2,x}}{v_2}$$
@@ -1810,6 +1885,7 @@ $$v_1 = \sqrt{\frac{2eU_0}{m}}, \quad v_2 = \sqrt{\frac{2e(U+U_0)}{m}}$$
 \frbox{$\Rightarrow$ Brechindex}{$$\frac{n_2}{n_1} = \sqrt{1 + \frac{U}{U_0}}$$}
 
 \subsection{Elektrische Rohrlinse}
+
 \subsection{Magnetische Linsen}
 
 Lange Spule = homogenes Magnetfeld\\
@@ -1817,16 +1893,22 @@ Lorentz Kraft $\Rightarrow$ Spiralbahnen der Elektronen $\Rightarrow$ Bild wird 
 $\Rightarrow$ kleine Spule = inhomogene Magnetfelder $\Rightarrow$ Brechkraft \\
 \folie{Elektronen in Magnetfeldern}
 \subsection{Elektronenmikroskope}
-\folie{Elektronmikroskop}
-\lcom{Man kann ein Material untersuchen in dem man die Streuelektronen analysiert die bei dem Elektronenmikroskop entstehen.}
-\lcom{Bei der SRT muss man nach Gedankenfehler suchen, bei Optik müssen die Näherungen anschauen als Fehlerquelle, Zahnmedizinerinnen würden alle Fehlerpunkte auswendig gelernt haben, während ein Physiker überlegen ''ok, wir haben die geometrische Optik angewandt also alles was da schief gehen kann und so weiter.''}
+
+\folie{Elektronmikroskop}\\
+\lcom{Man kann ein Material untersuchen in dem man die Streuelektronen analysiert, die bei dem Elektronenmikroskop entstehen.}\\[5pt]
+\lcom{Bei der SRT muss man nach Gedankenfehler suchen, bei Optik müssen wir die Näherungen als Fehlerquelle anschauen, ,,ZahnmedizinerInnen`` würden alle Fehlerpunkte auswendig gelernt haben, während ein Physiker überlegen ''ok, wir haben die geometrische Optik angewandt also alles was da schief gehen kann und so weiter.''}
 
 \chapter{Wellenoptik}
+
 \section{Wiederholung (Schwingungen und Wellen)}
+
 \subsection{Schwingungen}
-\folie{Harmonische Schwingungen}
+
+\folie{Harmonische Schwingungen}\\
 \lcom{Zwei grössen: Amplitude und Phase, und zwei komponenten: inphase, und out of phase}
+
 \subsection{Wellen}
+
 \folie{Harmonische ebene Welle, Polarisation, Kugelwellen}\\
 Harmonische Ebene Welle in 1D
 \begin{equation*}
@@ -1837,6 +1919,7 @@ A(x,t) = A_0 \cos (\omega t - kx + \varphi)= \Re\left[\hat{A} e^{-i(\omega t - k
 \folie{Wellengleichung}
 
 \subsection{Fourier-Transformation}
+
 \lcom{Ein Thema das nie richtig behandelt wird, aber wichtig ist, vielleicht leiste ich heute ein Beitrag dazu.}\\
 Harmonische Schwingungen:
 $$A(t) = A_0 \cos (\omega t + \varphi) = \Re [\hat A_0 e^{-i\omega t}]$$
@@ -1844,35 +1927,32 @@ Periodische Schwingungen: Fourier-Reihe
 $$A(t) = A(t + T) = \summ{n = 0}{\infty} A_n \cos(m \omega_0 t + \varphi_n) = \Re \left[\summ{n = 0}{\infty} \hat A_n e^{-i n \omega_0 t}\right]$$
 $$\omega_m \leq n \omega_0$$
 Beliebige Zeitabhängigkeit: Fourier Transformation
-$$A(t) = \intt{-\infty}{+\infty} A(\omega) \cos (\omega t + \varphi(\omega)) d \omega = \Re [\int \hat A (\omega) e^{-i\omega t} d \omega]$$
+$$A(t) = \intt{-\infty}{+\infty} A(\omega) \cos (\omega t + \varphi(\omega)) \dd \omega = \Re \left[\int \hat A (\omega) e^{-i\omega t} \dd \omega \right]$$
 Bemerkung: \lcom{Wir können zwei Fourier Transformationen machen, nach Ort und nach Zeit.}
 \begin{itemize}
 	\item Umkehr Transformation: Faktor $2 \pi$ taucht auf
 	\item Analog für $e^{i \vec{k} \vec{x}}$
 	\item Die Fourier Transformation impliziert eine ''Unschärfe Relation'' \lcom{Eine Eigenschaft der FT}
-		$$\Delta \omega t \approx \mathcal O(2 \pi) \qquad \Delta \vec{k} \Delta \vec{x} \approx \mathcal O(2\pi)$$
+		$$\Delta \omega \Delta t \approx \mathcal O(2 \pi) \qquad \Delta \vec{k} \Delta \vec{x} \approx \mathcal O(2\pi)$$
 \end{itemize}
-Beispiel: Gedämpfte Schwingung, Zerfall, Relaxation\\
+\emph{Beispiel:} \textbf{Gedämpfte Schwingung, Zerfall, Relaxation}\\
 Exponentielles Abklingverhalten
 $$A(t) \propto e^{-\frac{t}{\tau}} \quad \Leftrightarrow \quad \textrm{ = Lorentz-Funktion}$$
 $\tau$: Zeitkonstante
 \folie{Zeitraum/Frequenzraum}\\
 \lcom{Ein exponentieller Zerfall ist immer mit der Lorentz-Funktion verbunden. Eine ungedämpfte harmonische Schwingung: $\tau = \infty$. }\\
-\lcom{Eine unendlich langer, unendlich langsamer Schwingung ist im Frequenzraum unendlich scharf. Eine ungedämpfte harmonische Schwingung ist also im Frequenzraum unendlich scharf und wird damit zu einer Dirac-Delta-Funktion mit dem Peak bei der Frequenz der Schwingung. Eine solche Welle ist im Ortsraum überall verteilt.}\\
-Beispiel: Wellenpaket
+\lcom{Eine unendlich langer, unendlich langsamer Schwingung ist im Frequenzraum unendlich scharf. Eine ungedämpfte harmonische Schwingung ist also im Frequenzraum unendlich scharf und wird damit zu einer Dirac-Delta-Funktion mit dem Peak bei der Frequenz der Schwingung. Eine solche Welle ist im Ortsraum überall verteilt.}\\[5pt]
+\emph{Beispiel:} \textbf{Wellenpaket}\\
 ebene Welle: $E(\vec{x},t) = E_0 e^{-i(\omega t - \vec{k} \vec{x})}$
 $$\Rightarrow |E|^2 = E_0^2 = \const$$
 \folie{Wellenpakete}\\
-
-
-%Worum geht es hier bei sie???
-
-\noindent
-\lcom{Im Wellenvektorraum ist sie jedoch wieder mit einer Delta-Funktion beschrieben. Ein Wellenpaket ist im Ortsraum lokalisiert aber im Wellenvektorraum sehr unscharf verteilt.}\\
+\lcom{Im Wellenvektorraum ist die Welle jedoch wieder mit einer Delta-Funktion beschrieben. Ein Wellenpaket ist im Ortsraum lokalisiert aber im Wellenvektorraum sehr unscharf verteilt.}\\
 \lcom{Die Fouriertransformation einer Gauß-Verteilung (wird oft für Wellenpakete verwendet) ist wieder eine Gauß-Verteilung. Die Fouriertransformation einer Exponentiell Abfallenden Welle ist eine Lorenz-Funktion.}
+
 \subsection{Kohärenz}
+
 \begin{description}
-	\item[Definition] Zwei oder mehr Wellen sind Kohärent, wenn die Zeitabhängigkeit der Auslenkungen bis auf eine Phasendifferenz der gleiche ist\mau
+	\item[Definition:] Zwei oder mehr Wellen sind Kohärent, wenn die Zeitabhängigkeit der Auslenkungen bis auf eine Phasendifferenz der gleiche ist \mau
 \end{description}
 Viele gründe warum Wellen nicht kohärent sind:
 \begin{itemize}
@@ -1884,24 +1964,27 @@ Gegenbeispiele:
 \begin{itemize}
 	\item stimulierte Emission: einfallendes Licht zwingt angeregte Atome synchron mit dem Lichtfeld zu Schwingen und abzustrahlen.
 \end{itemize}
-Kohärenzlänge:\\
+\textbf{Kohärenzlänge:}\\
 \lcom{Kohärenzlänge: Keine Lichtquelle kann unendlich kohärentes Licht erstellen. Die minimal unterschiedlichen Frequenzen sorgen dafür, dass das Licht nach einer Weile nicht mehr kohärent ist. Die Flugweite der Lichtstrahlen bis die Kohärenz nicht mehr gegeben ist, nennt man Kohärenzlänge.}\\
-Kohärenzzeit:\\
+\textbf{Kohärenzzeit:}\\
 \lcom{Die dauer in der Kohärentes Licht nicht nicht mehr kohärent wird nennt man Kohärenszzeit. }
-Kohärenzzeit = Kohärenzlänge/$c$\\
-Experimente: 
+Kohärenzzeit = Kohärenzlänge/$c$
+
+\noindent
+\textbf{Experimente:}
 \begin{enumerate}[(i)]
 	\item Licht mit genügend großer Kohärenzlänge
 	\item Licht aus \textbf{einer} Quelle aufteilen, wenn mehrere Kohärente Strahlen benötigt werden.
 \end{enumerate}
 
 
-% 13.11.18
+% Vorlesung 13.11.18
 
 \section{Inteferenz und Beugung I}
+
 \subsection{Inteferenz am Doppelspalt}
 
-Berechnung der Maxima und Minima
+Berechnung der Maxima und Minima ($ d $ ist der Abstand der Spalte)
 \begin{description}
 	\item[Gangunterschied] $x = d \sin \alpha$
 \end{description}
@@ -1911,40 +1994,41 @@ Maxima wenn $x$ ein Vielfaches von $\lambda$ ist (konstruktive inteferenz)
 	\item[$\Rightarrow$] Maxima: $\sin\alpha = n \frac{\lambda}{d}$
 	\item[$\Rightarrow$] Minima: $\sin\alpha = \left(n + \frac{1}{2}\right)\frac{\lambda}{d}$
 \end{itemize}
-
 Triviale aber Wichtige Feststellung: nicht nur $d$, nicht nur $\lambda$, sondern $\frac{\lambda}{d}$\\
 \emph{Bemerkung: } $$k= \frac{2\pi}{\lambda}$$
 $$\Rightarrow \quad kx = 2 \pi n$$
 $$\Delta f = 2\pi n = kx = \frac{2 \pi}{\lambda}x$$
 Feststellung: Ortsraum $k$-Raum reziprok 
-
-
+%
+%
+%
 % f = varphi a ? = alpha
-
-
+%
+%
+%
 \subsection{Beugung am Einzelspalt}
 
 Brechung der Intensitätsverteilungen $ I(\alpha) $, in 6 Schritten
 
 \begin{enumerate}[(1)]
 	\item Strahl über Spalt wird in $ N $ Teilstrahlen zerlegt im Abstand: $ \Delta b = \frac{b}{N} $
-	\item Amplitude eines Teilstrahls = $ a = \frac{\sqrt{I_0}}{N} $
+	\item Amplitude eines Teilstrahls $ a = \frac{\sqrt{I_0}}{N} $
 	\item Gangunterschied benachbarter Strahlen: $ x = \Delta b \sin \alpha $
 	\item Phasenunterschied benachbarter Strahlen: $ \Delta \varphi = k x = k \Delta b \sin \alpha  $
 	\item Gesamtamplitude $ \widehat{=} $ Summe der $ N $ Teilstrahlen
 	\begin{equation*}
 	\Rightarrow \quad A = a \sum_{n=0}^{N-1} e^{-i(\omega t + f_n)} = a e^{-i \omega t} \sum_{n=0}^{N-1} e^{i n \Delta \varphi}
 	\end{equation*}
-	$ f_n $ ist die Phase des $ n $-ten Teilstrahls
+	$ f_n $ ist die Phase des $ n $-ten Teilstrahls und $ f_n = n \cdot \Delta \varphi $
 	\begin{equation*}
-	A = e^{-i\omega t} \frac{e^{i N \Delta \varphi}-1}{e^{i \Delta \varphi}-1} = a e^{- i \omega t} e^{i \frac{N \Delta \varphi}{2}} \frac{\sin\left(\frac{N}{2} \Delta \varphi\right)}{\sin\left(\frac{1}{2} \Delta \varphi\right)}
+	A = a e^{-i\omega t} \frac{e^{i N \Delta \varphi}-1}{e^{i \Delta \varphi}-1} = a e^{- i \omega t} e^{i \frac{N \Delta \varphi}{2}} \frac{\sin\left(\frac{N}{2} \Delta \varphi\right)}{\sin\left(\frac{1}{2} \Delta \varphi\right)}
 	\end{equation*}
 	\begin{equation*}
 	\Rightarrow \quad I(\alpha) = A^2 = a^2 \frac{\sin^2\left(\frac{N}{2} \Delta \varphi \right)}{\sin^2 \left(\frac{1}{2} \Delta \varphi \right)} = a^2 \frac{\sin^2 (x)}{\sin^2 \left(\frac{x}{N}\right)} \qquad x \defeq \pi \frac{b}{\lambda} \sin \alpha
 	\end{equation*}
 	\item Grenzübergang $ \Delta b \rightarrow 0 $ oder $ N \rightarrow \infty $:
 	\begin{equation*}
-	\Rightarrow \quad \sin^2(\frac{x}{N}) = \frac{x^2}{N^2}
+	\Rightarrow \quad \sin^2\left(\frac{x}{N}\right) = \frac{x^2}{N^2}
 	\end{equation*}
 	\begin{equation*}
 	\Rightarrow \quad I(\alpha)  = N^2 a^2 \frac{\sin^2(x)}{x^2}
@@ -1958,7 +2042,7 @@ Brechung der Intensitätsverteilungen $ I(\alpha) $, in 6 Schritten
 Hauptmaxima: $ x = 0 \quad \rightarrow \quad \alpha = 0 $\\
 Minima: $ \sin x = 0 \quad \rightarrow \quad x = n \pi \quad \Rightarrow \quad \sin \alpha = n \frac{\lambda}{b} $\\
 Nebenmaxima: $ |\sin x| = 1 \quad \rightarrow \quad x = \left(n + \frac{1}{2}\right) \pi \quad \Rightarrow \quad  \sin \alpha = \left(n + \frac{1}{2}\right) \frac{\lambda}{b} $\\[5pt]
-\lcom{Die Gleichungen sind unabhängig vom Abstand des Schirms. Die stammt aus der Annahme es handelt sich um Ebene Wellen, es nur die nur im Fernbereich gibt. Daher gelten unsere Gleichungen und Annahmen auch nur im Fernbereich. Ist der Abstand zum Schirm nicht Wesentlich größer als die Spaltbreite oder der Abstand der Spalten, gelten sie nicht mehr. Mehr dazu im Abschnitt Interferenz und Beugung II.}\\[5pt]
+\lcom{Die Gleichungen sind unabhängig vom Abstand des Schirms. Dies stammt aus der Annahme es handelt sich um Ebene Wellen,die es nur die nur im Fernbereich gibt. Daher gelten unsere Gleichungen und Annahmen auch nur im Fernbereich. Ist der Abstand zum Schirm nicht Wesentlich größer als die Spaltbreite oder der Abstand der Spalten, gelten sie nicht mehr. Mehr dazu im Abschnitt Interferenz und Beugung II.}\\[5pt]
 ACHTUNG:\\
 Implizit Annahme ebener Wellen $ \Rightarrow $ Rechnung nur richtig im Fernbereich \mau
 
@@ -2003,43 +2087,38 @@ Verhält sich wie der Abstand benachbarter Nebenmaxima
 \Rightarrow \qquad B = \frac{2 \lambda}{N d}
 \end{equation*}
 Dispersion der Hauptmaxima ($ \lambda $ bzw. $ \omega $ Abhängigkeit)\\
-Lage: $ \sin \alpha = m \frac{\lambda}{b} $
+Lage: $ \sin \alpha = m \frac{\lambda}{d} $
 \begin{equation*}
 \Rightarrow \quad \frac{\dd \alpha}{\dd \lambda} = \frac{m}{d} \arccos \alpha \quad \Rightarrow \quad \frac{\dd \alpha}{\dd \lambda} > 0
 \end{equation*}
-
 \lcom{Wenn ihr eine scharfe Linie wollt sollte euch sofort Gitter einfallen. }
 
 \subsection{Beugung am Raum- oder Oberflächengitter}
 
 \textbf{Definition:}\\
-Raumgitter: Kristall $ \widehat{=} $ regelmäßige Anordnung von Atomen im 3D Raum \folie{Diamant Kristallgitter}
+Raumgitter: Kristall $ \widehat{=} $ regelmäßige Anordnung von Atomen im 3D Raum\\
+\folie{Diamant Kristallgitter}
 \begin{equation*}
-\Rightarrow \quad 2 d \sin \alpha = m \lambda \qquad \tx{Bragg-Bedingung}
+\Rightarrow \quad \rmbox{2 d \sin \alpha = m \lambda} \qquad \tx{Bragg-Bedingung}
 \end{equation*}
-$ d $ ist der Abstand von zwei Kristall-Ebenen oder Netzebenen 
+$ d $ ist der Abstand von zwei Kristall-Ebenen oder Netzebenen\\
 \versuch{Doppelspalt}
 % unten angstöm ändern evtl OK DONE -az
-
 \noindent
 Typischer Zahlenwert:
 \begin{equation*}
 d \approx 1 \, \tx{\AA} \quad \Rightarrow \quad \lambda \approx 1 \,  \tx{\AA} \quad \approx \quad \tx{Röntgenstrahlung oder X-Ray}
 \end{equation*}
 \versuch{Gitter}
-\versuch{Kristall Struktur Messung it Röntgenstrahlung}\\
+\versuch{Kristall Struktur Messung it Röntgenstrahlung}
 Anwendung von Kristallen: Röntgenstrukturanalyse mittels Röntgendefraktometer\\
 X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit den Elektronen also der Lorentz-Lorenz-Oszillator $ \vec{F} = q \vec{E} $. Die Röntgenstrahlung Wechselwirkt also mit den Ladungen. Was wir beobachten ist also die Lage der Elektronen also nur indirekt die Lage der Atome.}
 
-
-% Vorlesung 10
-
-% 14.11.18
-
+% Vorlesung 14.11.18 (10)
 % andrez comment 1 %% mehr lügen! hier gibts keine kommentare -az
 
 \noindent
-\subsubsection{\emph{Beispiel:} \textbf{Srukturanalyse von Kristallen}}
+\emph{Beispiel:} \textbf{Srukturanalyse von Kristallen}
 
 \begin{itemize}
 	\item X-ray: $ \vec{F} = q \vec{E} $
@@ -2058,9 +2137,8 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 		\item $ \Rightarrow $ Magnetismus
 	\end{itemize}
 \end{itemize}
-\lcom{Wie gut kommen Elektronen durch material durch? Überhaupt nicht gut, bei Isolatoren ist es in dem sehr kleinen 0,000... \AA Bereich, bei metallen trifft das Elektron gleich auf den ''Elektronen See''.}
-
-\subsubsection{\emph{Beispiel:} \textbf{Untersuchung von Oberflächen LEED} (Low Energy Electron Diffraction)}
+\lcom{Wie gut kommen Elektronen durch material durch? Überhaupt nicht gut, bei Isolatoren ist es in dem sehr kleinen 0,000... \AA \ Bereich, bei Metallen trifft das Elektron gleich auf den ''Elektronen See''.}\\[10pt]
+\emph{Beispiel:} \textbf{Untersuchung von Oberflächen LEED} (Low Energy Electron Diffraction)
 
 \begin{itemize}
 	\item $ e^- $:
@@ -2075,6 +2153,10 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 \subsection{Interferenz an planparallelen Glasplatten}
 
 \folie{zu Reflexion an einer Glasplatte}\\
+\begin{center}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Abbildungen/Glasplatten.png}
+\end{center}
 
 \subsubsection{Reflexion}
 
@@ -2089,7 +2171,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 	\end{equation*}
 	\item Gangunterschied
 	\begin{equation*}
-	x = n \left(x_{AB} + x _{BC}\right) - x_{AB}
+	x = n \left(x_{AB} + x _{BC}\right) - x_{AD}
 	\end{equation*}
 	$ n $: Brechungsindex der Glasplatte\\
 	mit $ \sin \alpha = n \sin \beta $ gilt:
@@ -2099,7 +2181,10 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 	\item Phasenunterschied\\
 	Phasenunterschied aufgrund des Gangunterschieds $ \Delta \varphi = kx = \frac{2\pi}{\lambda} x $\\
 	$ \approx $ senkrechter Einfall:\\
-	Phasensprung um $ \pi $ bei der Reflexion am optisch dichteren Medium \color{red!75!black} \mau \color{black}
+	Phasensprung um $ \pi $ bei der Reflexion am optisch dichteren Medium \color{red!75!black} \mau \color{black}\\
+	\lcom{Bei senkrechtem Einfall, bei der Reflexion an einem optisch dichteren Medium, tritt
+	ein Phasensprung um $ \pi $ auf (dies ergibt sich aus den Randbedingungen siehe z.B. ExpII, ist
+	ähnlich zur Reflexion an ,,harter`` Oberfläche, siehe ExpI)}
 	\begin{equation*}
 	\Rightarrow \Delta \varphi = k x  + \pi
 	\end{equation*}
@@ -2114,7 +2199,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 \begin{enumerate}[(1)]
 	\item Gangunterschied wie zuvor
 	\begin{equation*}
-	x = n (x_{AB} + x_{BC}) - x_{AD} = 2 d \sqrt{n^2 \sin^2 \alpha}
+	x = n (x_{AB} + x_{BC}) - x_{AD} = 2 d \sqrt{n^2 - \sin^2 \alpha}
 	\end{equation*}
 	\item Phasenunterschied\\
 	Gangunterschied $ \Rightarrow \Delta \varphi = kx $\\
@@ -2124,7 +2209,7 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 	\end{equation*}
 	\item Maxima:
 	\begin{equation*}
-	\Rightarrow \qquad 2d\sqrt{n^2 \sin^2 \alpha} = m \lambda
+	\Rightarrow \qquad 2d\sqrt{n^2 - \sin^2 \alpha} = m \lambda
 	\end{equation*}
 \end{enumerate}
 \textbf{Test:}\\
@@ -2132,7 +2217,7 @@ Annahme: keine Absorption in der Glasplatte: \lcom{Die Intensitäten der Reflexi
 \begin{equation*}
 \Rightarrow \tx{ zu erwarten: } \quad I = I_{\tx{reflektiert}} + I_{\tx{transmittiert}}
 \end{equation*}
-Wie erwartet da wo die Transmission Maximal ist ist die Reflexion minimal und umgekehrt. Immer um $ \frac{\lambda}{2} $ verschoben.
+Wie erwartet da wo die Transmission maximal ist ist die Reflexion minimal und umgekehrt. Immer um $ \frac{\lambda}{2} $ verschoben.
 \subsubsection{Anwendung}
 \begin{itemize}
 	\item \versuch{Interferenz mit zwei angewinkelten Spiegeln Fres'nelscher Doppelspiegel}
@@ -2144,7 +2229,11 @@ Wie erwartet da wo die Transmission Maximal ist ist die Reflexion minimal und um
 
 \subsection{Vielstahlinterferenz, Fabry-P\'erot-Interferometer}
 
-\folie{Vielstrahlinterferenz an Planparallelen Platten}\\
+\folie{Vielstrahlinterferenz an Planparallelen Platten}
+\begin{center}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Abbildungen/Glasplatten2.png}
+\end{center}
 \lcom{Die Interferenz ähnelt der bei einem Gitter. Der große Unterschied liegt darin, dass die Intensität der Teilstrahlen mit zunehmenden Reflexionen abnimmt. }\\
 Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 \begin{enumerate}[(1)]
@@ -2154,11 +2243,11 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 	|A_1| &= \sqrt{R} |A_0|\\
 	|B_1| &= \sqrt{1 - R} |A_0|\\
 	|D_1| &= \sqrt{1-R} |B_1| = (1-R) |A_0|\\
-	|C_1| &= \sqrt{R} |B_1| = \sqrt{R}\sqrt{1 - R} |A_0|\\
+	|C_1| &= \sqrt{R} |B_1| = \sqrt{R}\sqrt{1 - R} |A_0|\\[7pt]
 	|A_2| &= \sqrt{1 - R} |C_1|\\
-	|B_1| &= \sqrt{R} |C_1| = R \sqrt{1 - R} |A_0|
+	|B_2| &= \sqrt{R} |C_1| = R \sqrt{1 - R} |A_0|
 	\end{align*}
-	\vspace{10pt}
+	Einsetzen liefert\\
 	$\Rightarrow \quad |A_{m+1}| = \sqrt{1-R} |C_m| = \sqrt{1-R} \sqrt{R} |B_m| = \sqrt{1-R} \sqrt{R} \sqrt{R} |C_{m-1}| = R |A_m|$
 	\vspace{5pt}
 	\begin{equation*}
@@ -2166,7 +2255,7 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 	\end{equation*}
 	\item Gangunterschied benachbarter Strahlen (siehe Platte)
 	\begin{equation*}
-	x = 2d \sqrt{n^2 \sin^2 \alpha} 
+	x = 2d \sqrt{n^2 - \sin^2 \alpha} 
 	\end{equation*}
 	\item Phasenunterschied
 	\begin{equation*}
@@ -2203,9 +2292,9 @@ Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
 	\end{minipage}
 \end{center}
 \begin{equation*}
-F = \frac{4 R}{(1-R)^2} \qquad \frac{\Delta \varphi}{2} = 2 \pi \frac{d}{2} \sqrt{n^2 - \sin^2 \alpha}
+F = \frac{4 R}{(1-R)^2} \qquad \frac{\Delta \varphi}{2} = 2 \pi \frac{d}{\lambda} \sqrt{n^2 - \sin^2 \alpha}
 \end{equation*}
-\emph{Beispiel:} senkrechter Einfall
+\emph{Beispiel:} \textbf{senkrechter Einfall}
 \begin{equation*}
 \Rightarrow \alpha = 0 \qquad I_T = I_0 \frac{1}{1 + F \sin^2 (n d k)}
 \end{equation*}
@@ -2213,11 +2302,12 @@ wobei $ k = \frac{2 \pi}{\lambda} $
 Maxima: $$ 2 n d = m \lambda $$
 FWHM (full width at half maximum)
 $$ \epsilon = 4 \arcsin\sqrt{\frac{1}{F}} \approx \frac{4}{\sqrt{F}} $$
-\folie{Maxima beim FWHM}\\
-\textbf{Anwendung: Fabry-P\'erot-Interferometer}\\[5pt]
-\folie{zu Fabry-P\'erot-Interferometern}\\
+$ \Rightarrow \quad  R \to 1 \ \Leftrightarrow $ schmal-bandige Maxima\\
+\folie{Maxima beim FWHM}\\[5pt]
+\textbf{Anwendung: Fabry-P\'erot-Interferometer}\\
+\folie{zu Fabry-P\'erot-Interferometern}\\[5pt]
 \versuch{Natrium-Dampf-Lampe Interferenz}
-\folie{Interferenz mit einer Natrium-Dampf-Lampe}\\
+\folie{Interferenz mit einer Natrium-Dampf-Lampe}\\[5pt]
 \versuch{Abpumpen der Luft beim Interferenzmuster der Natrium-Dampf-Lampe}
 \lcom{Das Muster verändert sich erheblich obwohl der Unterschied der Brechungsindizes so gering war. Also hat das Farbinterferometer eine sehr hohe Auflösung. }
 
@@ -2229,40 +2319,52 @@ $$ \epsilon = 4 \arcsin\sqrt{\frac{1}{F}} \approx \frac{4}{\sqrt{F}} $$
 
 \rbox{Jeder Punkt einer Wellenfront ist Ausgangspunkt einer neuen Elementarwelle.}
 \noindent
-\emph{Beispiel:} Brechung\\
+\emph{Beispiel:} \textbf{Brechung}\\
 Erklärung über Ausbreitung ebener Wellen \folie{Brechung mit Ebenen Wellen}
-
+%
+%
+%
 % Bild von Folie
-
+%
+%
+%
 \subsection{Interferenz am Doppelspalt}
 
 Jeder Spalt, wenn er klein genug ist, wird als ,,Sender`` einer Elementarwelle angesehen.\\
 $ \Rightarrow $ Überlagerung von zwei Kugelwellen.\\
 \folie{zu Doppelspalt mit Kugelwellen}
-
+%
+%
+%
 % Bild von Folie einfügen
-
+%
+%
+%
 \subsection{Beugung}
 
 Beugung bezeichnet das Phänomen, das Licht (und andere Wellen) in Bereiche vordringt, in welche es als Strahl betrachtet nicht vordringen dürfte.\\
 \lcom{Beugung tritt immer an Stellen auf, an denen die Transmission einer Welle verhindert wird. Dies ist z.B. der Fall an Kanten bei denen an einer Seite komplette Abschattung und an der anderen komplette Transmission stattfindet.}\\
 \lcom{Interferenz tritt dann auf, wenn es zwei solche Stellen gibt an denen Beugung auftritt.}\\
 \versuch{Laser mit Kante und später Loch-/Kreisblende und später Stecknadelkopf}
-\lcom{Man sieht auch ein dieser einzelnen Kante Interferenz. Dies zu verstehen ist Ziel der heutigen Vorlesung. Das Interferenzmuster ist die Fouriertransformation einer Stufenfunktion. Bei der Lochblende einer Fouriertransformation eines ,,Loches``.}\\
+\lcom{Man sieht auch ein dieser einzelnen Kante Interferenz. Dies zu verstehen ist Ziel der heutigen Vorlesung. \textbf{Das Interferenzmuster ist die Fouriertransformation einer Stufenfunktion.} Bei der Lochblende einer Fouriertransformation eines ,,Loches``.}\\
 \folie{Doppelspalt Beugung} \folie{Einzelspalt}\\
 
 \subsection{Allgemeine Behandlung der Beugung}
 
-\lcom{Zur Verallgemeinerung Behandeln wir nun das Kirchhoff'sche Beugungsintegral}
+\lcom{Zur Verallgemeinerung Behandeln wir nun das Kirchhoff'sche Beugungsintegral.}
 
 \subsubsection{Kirchhoff'sches Beugungsintegral}
 
 \lcom{In verschiedenen Büchern treten häufig andere Formel des Gleichen Integrals auf.}\\
 \folie{Beugungsintegral}\\
 \lcom{Die Blende wird als eine Transmissionsfunktion beschrieben. Zu jedem Punkt aus dem Schirm gibt es dann ein Integral der Intensitäten aller Elementarwellen aus der Blende.}
-
-% Bild eiinfügen
-
+%
+%
+%
+% Bild einfügen
+%
+%
+%
 \noindent
 Blendenöffnung bei $ z = 0 $\\
 Beobachtungsschirm bei $ z = z' = z_0 $
@@ -2270,6 +2372,8 @@ Beobachtungsschirm bei $ z = z' = z_0 $
 \begin{equation*}
 \vec{E}(\vec{x}') = \frac{ik}{2 \pi} \int Q \tau(x,y) \vec{E}_{\tx{ein}} (\vec{x}) \frac{e^{-ikr}}{r} \dd \sigma 
 \end{equation*}}
+
+\noindent
 $ Q \defeq $ Neigungsfaktor\\
 $ \tau \; \defeq $ Transmissionsfunktion mit $ \left\{ \begin{array}{ll}
 \tau = 1 : & \tx{vollständige Transmission} \\ \tau = 0 : & \tx{undürchlässig}
@@ -2297,7 +2401,7 @@ r^2 = (\vec{x} - \vec{x}')^2 = (x-x')^2 + (y-y')^2 + z'^2
 	\end{equation*}
 	\item  Vektoren und Beträge ,,richtig```machen.
 \end{enumerate}
-\textbf{Grenzfälle:}\\
+\textbf{Grenzfälle:}
 \begin{itemize}
 	\item Frauenhofer-Beugung:\\
 	Abstand des Schirms von der Blende sehr groß gegenüber Öffnung der Blende.
@@ -2332,9 +2436,9 @@ In dieser Näherung auch $ Q \approx 1 $
 Nebenrechnung: $ \frac{e^{-ikr}}{r} \approx \frac{e^{-ikz'}}{z'} e^{ik\frac{x'}{z'}x} e^{ik\frac{y'}{z'}y} e^{-ik \frac{1}{2 z'} (x'^2 + y'^2)} $\\
 Die ersten Beiden Faktoren hiervon landen später im Vorfaktor $ A $.
 \begin{equation*}
-\vec{E}(\vec{x}) = \ub{A(\vec{x}')}_{\mathclap{\substack{\tx{alles Lästige} \\ \tx{geht dort rein}}}} \int \tau(x,y) \vec{E}_{\tx{ein}}(x,y) e^{i k \frac{x'}{z'} x} e^{ik\frac{y'}{z'}y} \dd x \dd y
+\vec{E}(\vec{x}') = \ub{A(\vec{x}')}_{\mathclap{\substack{\tx{alles Lästige} \\ \tx{geht dort rein}}}} \int \tau(x,y) \vec{E}_{\tx{ein}}(x,y) e^{i k \frac{x'}{z'} x} e^{ik\frac{y'}{z'}y} \dd x \dd y
 \end{equation*}
-Fourier Integral:
+2D Fourier Integral:
 \begin{equation*}
 \vec{F} (u,v) \equiv \int \tau(x,y) \vec{E}_{\tx{ein}} (x,y) e^{iux} e^{ivy} \dd x \dd y
 \end{equation*}
@@ -2343,15 +2447,11 @@ Fourier Integral:
 \Rightarrow \quad \vec{E}(\vec{x}') = A(\vec{x}') \vec{F} \left(k \frac{x'}{z'} , k \frac{y'}{z'}\right)
 \end{equation*}}
 \noindent
-\emph{Beispiel:} Einfachspalt
+\emph{Beispiel:} \textbf{Einfachspalt}
 \begin{align*}
 \tx{Ortsraum} \qquad &\Leftrightarrow \qquad \tx{Fourier Raum}\\
 \tau(x,y) = \casess{1}{\forall  \frac{-b}{2} \le x \le \frac{b}{2}}{0}{\tx{sonst.}} \qquad &\Leftrightarrow \qquad \vec{F}(k) = \frac{\sin x}{x} \qquad x = \frac{\pi}{b} k \frac{x'}{z'}\\
-\left.\begin{array}{c}
-\tx{breiter} \\ \tx{schmaler}
-\end{array}\right\} \tx{Spalt} \qquad &\Leftrightarrow \qquad \left.\begin{array}{c}
-\tx{schmale} \\ \tx{breites}
-\end{array}\right\} \tx{Interferenzstrukur}
+\tx{schmaler/breiter Spalt} \qquad &\Leftrightarrow \qquad \tx{breites/schmales Interferenzmuster}
 \end{align*}
 \begin{equation*}
 \Delta x \Delta h < \const
@@ -2376,15 +2476,14 @@ Fourier Integral:
 \subsubsection{Ein anderes Kriterium}
 Abstand der Hauptmaxima muss größer sein als deren Halbwertsbreite.
 
-
 % Vorlesung %21.11.18
 
 \subsection{Räumlichhes Auflösungsvermögen}
 
-\emph{Beispiel:} Linse\\
+\emph{Beispiel:} \textbf{Linse}\\
 \folie{Zu Bündelung von Licht mit einer Linse}\\[5pt]
 \versuch{Laser: Beugung an der Doppellochplatte}
-\lcom{Je näher die Löcher in der Blende zueinander rücken, desto ausgeprägter wird das Interferenzmuster}\\
+\lcom{Je näher die Löcher in der Blende zueinander rücken, desto ausgeprägter wird das Interferenzmuster.}\\
 Beugung an einer Lochblende:\\
 1. Maximum:
 \begin{equation*}
@@ -2394,22 +2493,24 @@ r \sin \alpha = 0{,}61 \lambda
 \begin{equation*}
 \Rightarrow \quad \sin \alpha_{\tx{min}} = 1{,}22 \frac{\lambda}{D}
 \end{equation*}
-$ D: $ Durchmesser des Lochs\\
+$ D: $ Durchmesser des Lochs\\[5pt]
 \textbf{Auflösung einer Linse}
 \begin{equation*}
 \Rightarrow \quad \sin \alpha_{\tx{min}} = 1{,}22 \frac{\lambda}{D}
 \end{equation*}
-$ D: $ Durchmesser der Linse\\
+$ D: $ Durchmesser der Linse\\[5pt]
 \textbf{Auflösung eines Fernrohrs}\\
 Das durch das Objektiv erzeugte Zwischenbild ist bereits beugungsverbreitert.
 \begin{equation*}
 \Rightarrow \quad \sin \alpha_{\tx{min}} = 1{,}22 \frac{\lambda}{D}
 \end{equation*}
-$ D: $ Durchmesser des Objektivs\\
+$ D: $ Durchmesser des Objektivs\\[5pt]
 \textbf{Auflösung eines Mikroskops}\\
-Im Unterschied zu vorher ist das einfallende Licht nicht parallel. \folie{zur Auflösung am Mikroskop}
+Im Unterschied zu vorher ist das einfallende Licht nicht parallel.\\
+\folie{zur Auflösung am Mikroskop}
 \begin{enumerate}[(1)]
-	\item \begin{equation*}
+	\item mit der Kleinwinkelnäherung gilt:
+	\begin{equation*}
 	d = b \alpha_{\tx{min}}
 	\end{equation*}
 	\begin{align*}
@@ -2419,11 +2520,11 @@ Im Unterschied zu vorher ist das einfallende Licht nicht parallel. \folie{zur Au
 	$ D: $ Durchmesser des Objektivs
 	\item Für den Abstand $ \delta_x $ \textbf{vor} dem Objektiv gilt
 	\begin{equation*}
-	\delta_x \approx \frac{\varphi_1}{b} d = 1{,}22 \frac{\varphi_1 \lambda}{D}
+	\delta_x \approx \frac{f_1}{b} d = 1{,}22 \frac{f_1 \lambda}{D}
 	\end{equation*}
 	\item Öffnungswinkel $ \varphi $
 	\begin{equation*}
-	\sin \varphi \approx \frac{D}{2 \varphi_1}
+	\sin \varphi \approx \frac{D}{2 f_1}
 	\end{equation*}
 \end{enumerate}
 \begin{center}
@@ -2436,7 +2537,13 @@ Im Unterschied zu vorher ist das einfallende Licht nicht parallel. \folie{zur Au
 	\end{minipage}
 \end{center}
 $ n \sin \varphi : $ numerische Apertur\\
-\lcom{Der \textbf{Gültigkeitsbereich der Formel} ist der \textbf{Fernbereich} (Frauenhofer Beugung). Wir versuchen Bessere Ergebnisse zu erzielen indem wir Situationen Betrachten, die außerhalb dieses Gültigkeitsbereichs liegen. In diesem Fall nutzen wir die Nahfeld Mikroskopie, wo die Fresnel'sche Beugung auftritt und wir darüber eine höhere Auflösung erzielen können,}\\[5pt]
+\lcom{Der \textbf{Gültigkeitsbereich der Formel} ist der \textbf{Fernbereich} (Frauenhofer Beugung). Wir versuchen Bessere Ergebnisse zu erzielen indem wir Situationen Betrachten, die außerhalb dieses Gültigkeitsbereichs liegen.}\\
+\lcom{Warum tritt der Faktor $ \sin \varphi $ auf? Dies ergibt sich einsichtig aus Abbe's Theorie: Zwei Punkte senden interferierende Kugelwellen aus (siehe Doppelspalt), wobei mindestens das 1.te Nebenmaximum vom Objektiv noch erfasst werden muss, um ein Bild entstehen zu lassen. Daher:}
+\begin{equation*}
+\tx{1.tes Nebenmaximum: } \sin \alpha = \frac{\alpha}{\delta_x} \Rightarrow \sin \varphi \approx \sin \alpha \Rightarrow \delta_x \approx \frac{\lambda}{\sin \varphi}
+\end{equation*}
+
+\noindent
 \textbf{Verbesserungen} der beugungsbegrenzten Auflösung:
 \begin{itemize}
 	\item kleines $ \lambda $
@@ -2446,7 +2553,7 @@ $ n \sin \varphi : $ numerische Apertur\\
 	\end{itemize}
 	\item Immersionsöl mit Brechungsindex von $ n \approx 1{,}5 $
 	\item Nahfeldmikroskopie\\
-	Die obigen Überlegungen basieren auf der Frauenhofer Beugung.
+	Die obigen Überlegungen basieren auf der Frauenhofer Beugung. \lcom{ In diesem Fall nutzen wir die Nahfeld Mikroskopie, wo die Fresnel'sche Beugung auftritt und wir darüber eine höhere Auflösung erzielen können.}
 \end{itemize}
 
 \noindent
@@ -2461,19 +2568,24 @@ EM-Welle
 \Rightarrow \vec{E},\vec{B},\vec{k}
 \end{equation*}
 \textbf{Definition: } Polarisation $ \widehat{=} $ Richtung von $ \vec{E} $\\
-transversale Wellen: $ \vec{E} \perp \vec{k} \quad \Leftrightarrow \quad \vec{E} \cdot \vec{k} = 0 $\\
-longitudinale Wellen: $ \vec{E} \parallel \vec{k} \quad \Leftrightarrow \quad \vec{E} \times \vec{k} = 0 \quad \Leftrightarrow \quad \left(\vec{E} \cdot \vec{k}\right) \vec{k} = \vec{k}^2 \vec{E} $\\
+transversale Wellen: $ \ \vec{E} \perp \vec{k} \quad \Leftrightarrow \quad \ \: \vec{E} \cdot \vec{k} = 0 $\\
+longitudinale Wellen: $ \vec{E} \parallel \vec{k} \, \quad \Leftrightarrow \quad \vec{E} \times \vec{k} = 0 \quad \Leftrightarrow \quad \left(\vec{E} \cdot \vec{k}\right) \vec{k} = \vec{k}^2 \vec{E} $\\
 \lcom{Für die Behauptung, dass EM-Wellen Transversalwellen haben wir die Annahme getroffen, dass wir uns im Vakuum befinden. In Materie ist die Ausbreitungsgeschwindigkeit kleiner als $ c $ und der $ \vec{k} $-Vektor hat eine Komponente parallel zur Ausbreitungsrichtung. $ \Rightarrow $ longitudinale EM-Wellen (eigentlich keine EM-Wellen sondern anderer Name).}\\
-$ \Rightarrow \vec{k} = (0,0,k) $
+zur Vereinfachung nehmen wir an $ \Rightarrow \vec{k} = (0,0,k) $
 
 \subsection{Lineare Polarisation}
 
 \folie{linear polarisierte EM-Welle}
 \begin{equation*}
-\vec{E} = E_0 \begin{pmatrix}
+\vec{E} = \ub{E_0 \begin{pmatrix}
 \cos \tilde{\varphi} \\ \sin \tilde{\varphi} \\ 0
-\end{pmatrix} \cos \left(\omega t - k z + \varphi \right)
+\end{pmatrix}}_{\vec{E}_0} \cos \left(\omega t - k z + \varphi \right)
 \end{equation*}
+\emph{Bemerkung:}
+\begin{itemize}
+	\item Die zwei Polarisationsrichtungen schwingen \textbf{in Phase}.
+	\item nur für die linear polarisierte ebene Welle kann der ,,Polarisationsanteil`` $ \vec{E}_0 $ vom ,,Ausbreitungsanteil`` $ \cos (\omega t - \vec{k} \vec{z} + \varphi) $ ab separiert werden
+\end{itemize}
 
 \subsection{Zirklulare Polarisation}
 
@@ -2483,6 +2595,10 @@ $ \Rightarrow \vec{k} = (0,0,k) $
 \cos \left(\omega t - kz + \varphi \right) \\ \pm\sin\left(\omega t - k z + \varphi\right) \\ 0
 \end{pmatrix}
 \end{equation*}
+\emph{Bemerkung:}
+\begin{itemize}
+	\item die zwei Polarisationsrichtungen schwingen um $ \frac{\pi}{2} $ \textbf{Phasen verschoben}, aber haben gleiche Amplitude
+\end{itemize}
 
 \subsection{Zusammenhang zwischen linear und zirkular polarisierten Wellen}
 
@@ -2500,6 +2616,21 @@ $ \cos\left( x + \frac{\pi}{2}\right) + \cos\left( x - \frac{\pi}{2}\right) = 0 
 \cos \left(\omega t - k z + \varphi\right) \\ \cos \left(\omega t -  k z + \varphi - \frac{\pi}{2}\right) \\ 0
 \end{pmatrix}
 \end{align*}
+
+\subsection{Elliptische Polarisation}
+
+Die Spitze des $ \vec{E} $-Feldvektors bewegt sich mit der Frequenz $ \omega $ auf einer Ellipse
+\begin{equation*}
+\vec{E} = \begin{pmatrix}
+E_x \cos(\omega t - k z + \varphi) \\
+E_y \cos(\omega t - k z + \varphi \pm \frac{\pi}{2}) \\
+0
+\end{pmatrix}
+\end{equation*}
+\emph{Bemerkung:}
+\begin{itemize}
+	\item die zwei Polarisationsrichtungen schwingen um $ \frac{\pi}{2} $ Phase verschoben UND haben unterschiedliche Amplituden
+\end{itemize}
 
 \subsection{Polarisation beim Durchgang durch Materie}
 
@@ -2525,7 +2656,7 @@ Die Ausbreitungsgeschwindigkeit bzw. der Wellenvektor für rechts und links zirk
 \cos\left(\omega t - \color{black!30!red}k^-\color{black}z + \varphi\right) \\ \cos\left(\omega t - \color{black!30!red}k^-\color{black}z+\varphi-\frac{\pi}{2}\right) \\ 0
 \end{pmatrix}\\
 &=A \begin{pmatrix}
-\cos\left(\delta kz\right) \\ \cos\left(\delta kz\right) \\ 0
+\cos\left(\delta kz\right) \\ \sin\left(\delta kz\right) \\ 0
 \end{pmatrix} \cos\left(\omega t - \overline{k}z + \varphi\right)
 \end{align*}
 \begin{equation*}
@@ -2539,7 +2670,7 @@ k^+ = \overline{k} + \delta k \qquad k^- = \overline{k} - \delta k
 \subsection{Maxwell Gleichungen in Materie}
 
 \begin{equation*}
-\tx{div} \vec{D} = \rho_0 \qquad \tx{div} \vec{B} = 0
+\tx{div} \vec{D} = \rho_0 \qquad \qquad \tx{div} \vec{B} = 0 \qquad \qquad
 \end{equation*}
 \begin{equation*}
 \tx{rot} \vec{E} = - \prt{}{t} \vec{B} \qquad \tx{rot} \vec{H} = \vec{j}_0 + \prt{}{t} \vec{D}
@@ -2550,7 +2681,7 @@ plus:
 \vec{F} &= q \vec{E}
 \end{align*}
 \begin{equation*}
-\rho = \rho_0 + \rho_{\tx{pol}} = \frac{1}{\epsilon} \rho_0 \qquad \vec{j} = \vec{j}_0 \vec{j}_{\tx{mag}} = \mu \vec{j}_0
+\rho = \rho_0 + \rho_{\tx{pol}} \equiv \frac{1}{\epsilon} \rho_0 \qquad \vec{j} = \vec{j}_0 + \vec{j}_{\tx{mag}} \equiv \mu \vec{j}_0
 \end{equation*}
 Es fehlen hier noch einige Zusammenhänge die selbstverständlich immer noch gelten z.B.:
 \begin{equation*}
@@ -2559,7 +2690,7 @@ Es fehlen hier noch einige Zusammenhänge die selbstverständlich immer noch gel
 \begin{equation*}
 \vec{D} = \epsilon_0 \vec{E} + \vec{P} \qquad \vec{B} = \mu_0\left(\vec{H} + \vec{M}\right)
 \end{equation*}
-alle sechs Felder: $\vec D  \vec E \vec P \ \ \vec M \vec H \vec B$ jeweils vier mal 6 Gleichungen\\
+alle sechs Felder: $\vec D  \vec E \vec P \ \ \vec M \vec H \vec B$ jeweils Maxwell-Gleichungen\\
 plus:
 \begin{equation*}
 \tx{Materialgleichungen z.B.:} \quad \vec{D} (\vec{E}) \ , \ \vec{P}(\vec{E}) \ , \dots
@@ -2615,7 +2746,7 @@ Gewöhnliche partielle Diff-Gleichungen
 	\coordinate (s) at (2.5,.5);
 	\draw[thick] ($ (u) + (-.5,.1) $) -- ++(1,0);
 	\draw[thick] ($ (u) + (-.4,-.1) $) -- ++(.8,0);
-	\draw[thick] ($ (r1) + (0,-.2) $) rectangle node[] {$ R $} ($ (r1) + (1,.2) $);
+	\draw[thick] ($ (r1) + (0,-.2) $) rectangle node[] {$ R_i $} ($ (r1) + (1,.2) $);
 	\draw[thick] ($ (r2) + (-.2,0) $) rectangle node[] {$ R $} ($ (r2) + (.2,-1) $);
 	\draw[decoration={aspect=0.5, segment length=2mm, amplitude=2mm,coil},decorate,thick] (l) -- node[right=10pt] {$ L $} ($ (l) + (0,-1) $);
 	\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (s) {};
@@ -2635,18 +2766,38 @@ Gewöhnliche partielle Diff-Gleichungen
 \subsection{Maxwell-Gleichungen und Stetigkeitsbedingungen} %check
 
 \lcom{Heute beschäftigen wir uns mit Stetigkeitsbedingungen. Diese sind sehr Wichtig für die Lösung von Differentialgleichungen zur Lösung von Randwertproblemen.}
-
+\begin{comment}
 \begin{align*}
 \tx{div} \vec{D} = \rho_0 \quad &\Rightarrow \quad \left(\vec{D}_2 - \vec{D}_1\right) \cdot \vec{n} = \sigma_{\tx{Fläche}}\\[5pt]
 \tx{div} \vec{B} = 0 \quad &\Rightarrow \quad \left(\vec{B}_2 - \vec{B}_1\right) \cdot \vec{n} = 0\\
 \tx{rot} \vec{E} = - \prt{}{t} \vec{B} \quad &\Rightarrow \quad \left(\vec{E}_2 - \vec{E}_1\right) \times \vec{n} = 0\\
 \tx{rot} \vec{H} = \vec{j}_0 + \prt{}{t} \vec{D} \quad &\Rightarrow \quad \left(\vec{H}_2 - \vec{H}_1\right) \times \vec{n} = \vec{j}_{\tx{Fläche}}
 \end{align*}
-$ \Rightarrow $
-\begin{itemize}
+\end{comment}
+\begin{equation*}
+\begin{split}
+&\tx{div} \vec{D} = \rho_0 \\[8pt]
+&\tx{div} \vec{B} = 0 \\
+&\tx{rot} \vec{E} = - \prt{}{t} \vec{B} \\
+&\tx{rot} \vec{H} = \vec{j}_0 + \prt{}{t} \vec{D}
+\end{split}
+\begin{split}
+\quad \Rightarrow \quad \\[8pt]
+\quad \Rightarrow \quad \\[8pt]
+\quad \Rightarrow \quad \\[8pt]
+\quad \Rightarrow \quad 
+\end{split}
+\begin{split}
+\left(\vec{D}_2 - \vec{D}_1\right) \, \cdot \, \vec{n} &= \sigma_{\tx{Fläche}} \\[8pt]
+\left(\vec{B}_2 - \vec{B}_1\right) \, \cdot \, \vec{n} &= 0 \\[8pt]
+\left(\vec{E}_2 - \vec{E}_1\right) \times \vec{n} &= 0 \\[8pt]
+\left(\vec{H}_2 - \vec{H}_1\right) \times \vec{n} &= \vec{j}_{\tx{Fläche}}
+\end{split}
+\end{equation*}
+\begin{enumerate}[$ \Rightarrow $]
 	\item Normalkomponenten von $ \vec{B}(\vec{x},t) $ ist stetig
 	\item Tangentialkomponente von $ \vec{E}(\vec{x},t) $ ist stetig
-\end{itemize}
+\end{enumerate}
 \textbf{(nahezu) senkrechten Einfall}\\
 $ \alpha,\beta \approx 0 $\\
 
@@ -2660,7 +2811,7 @@ $ \alpha,\beta \approx 0 $\\
 	E_{\tx{ref} \perp} = - E_{\tx{ein} \perp} \frac{n_2 - n_1}{n_2 + n_1}
 	\end{equation*}
 	\begin{equation*}
-	E_{\tx{ref} \parallel} = E_{\tx{ein} \parallel} \frac{n_2 - n_1}{n_2 + n_1} 
+	\phantom{-} \, E_{\tx{ref} \parallel} = \phantom{-} E_{\tx{ein} \parallel} \, \frac{n_2 - n_1}{n_2 + n_1} \ \ \,
 	\end{equation*}
 	\vspace{10pt}
 \end{minipage}\nolinebreak%
@@ -2735,7 +2886,10 @@ allgemein:
 
 \section{Maxwell-Gl. in Materie, komplexer Brechungsindex}
 
-Vereinfachung: $ \mu = 1 \qquad \vec{B} = \mu_o \vec{H} $
+\begin{equation*}
+\tx{\lcom{\mau \ Im folgenden Kapitel tauchen oft $ \mu $ und $ \epsilon $ auf. Gemeint sind hier aber oft $ \mu_r $ und $ \epsilon_r $ \mau}}
+\end{equation*}
+Vereinfachung: $ \mu = 1 \ \tx{ eigentlich } \ \mu_r \qquad \vec{B} = \mu_o \vec{H} $
 
 \subsection{Polarisation eines Dielektrikums}
 
@@ -2753,7 +2907,7 @@ lineare, isotrope Medien
 \begin{equation*}
 \vec{D} = \epsilon_0 \vec{E} + \vec{P} = \epsilon_0 \epsilon \vec{E} \qquad \vec{P} = \epsilon_0 \chi \vec{E} = \epsilon_0 (\epsilon - 1) \vec{E}
 \end{equation*}
-$ \chi : $ dielektrische Suszeptibilität\\[5pt]
+$ \chi : $ dielektrische Suszeptibilität $ \chi_e = (\epsilon - 1) \ \tx{ eigentlich } \ = (\epsilon_r - 1) $\\[5pt]
 mikroskopisch:
 \begin{equation*}
 \vec{d} = \alpha \vec{E}
@@ -2852,7 +3006,7 @@ Teil mit $ \vec{k}' : $ Ausbreitung der Welle mit $ \lambda = \frac{2 \pi}{f} $
 % bei skript nachschauen
 
 \noindent
-\textbf{Bemerkung:}\\
+\emph{Bemerkung:}\\
 harmonischer Oszillator: $ \hat{\omega} = \omega - i \delta $\\
 $ e^{i\hat{\omega t}} = e^{-\delta t} e^{-i \omega t} $\\
 $ \delta $ ist die Dämpfung
@@ -3723,8 +3877,22 @@ Bei Neutronen: Streuung am Kern :starke WW (WW zwischen Kernbausteinen) ,,Kernkr
 
 \subsection{Energiezustände, Spektren}
 
-\textbf{diskrete Spektren sind diskreten (gequantelten) Energiezuständen zugewiesen}\\
-Energiezustände werden auch manchmal Spektren genannt Energiespektrum $ \neq $ Spektrum \\(Energie-Differenzen)
+\begin{minipage}{.6\linewidth}
+	\textbf{diskrete Spektren sind diskreten (gequantelten) Energiezuständen zugewiesen}\\
+	Energiezustände werden auch manchmal Spektren genannt Energiespektrum $ \neq $ Spektrum \\(Energie-Differenzen)
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t1:
+	\begin{tikzpicture}
+		\foreach \c in {.5,1,1.5,2,2.5,3}
+		\draw[thick] (1,\c) -- (2.5,\c);
+		\draw[red, very thick, ->](1.75,2.5) -- (1.75,1);
+		\node at (-0.5,1.75) {$hv=E_m-E_n$};
+		\node[right] at (2.5,1) {$ E_n $};
+		\node[right] at (2.5,2.5) {$ E_m $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \subsubsection{Quantenmechanische Beschreibung}
 
@@ -3755,7 +3923,17 @@ f = R_J\left(\frac{1}{n^2} - \frac{1}{m^2}\right) \qquad R_L = 13{,}6 \, \tx{eV}
 
 % Vorlesung 18.12.18 (6 Days until christmas)
 
+
+
+
+
+
 % check with photo
+
+
+
+
+
 
 \subsection{Hohlraumstrahlung}  % robably subsection
 

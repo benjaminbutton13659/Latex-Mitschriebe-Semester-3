@@ -81,7 +81,6 @@
 \newcommand{\eofr}{\vec{E}(\vec{r})}
 \newcommand{\pofr}{\Phi(\vec{r})}
 \renewcommand{\Phi}{\varPhi}
-\newcommand{\delfkt}{\delta(\vec{r} - \vec{r}_0)}
 \newcommand{\grr}{\mathcal G(\vec{r},\vec{r}')}
 
 %LA:
@@ -522,7 +521,7 @@ Divergenz muss so sein, dass $$ \int\limits_{\substack{V \\ \vec{r}_0 \in V}} d^
 		\infty & \vec{r} = \vec{r}_0
 	\end{array}\right.$$
 	\item 
-	$$\int_V d^3 r\ f(\vec{r}) \delfkt = \left\{ \begin{array}{cc}
+	$$\int_V d^3 r\ f(\vec{r}) \delta(\vec{r} - \vec{r}_0) = \left\{ \begin{array}{cc}
 		f(\vec{r}_0) & \vec{r}_0 \in V\\
 		0 & \vec{r}_0 \notin V
 	\end{array}\right.$$ 
@@ -2359,7 +2358,7 @@ da $ \int_{a}^{b} \dd x' g(x') = g(x) $
 		\hline
 		$ \vec{r} $ & Vektor & $ g(x) $ \\
 		$ \{\vec{e}_n\} $ & Basis & $ \{f_n(x)\} $\\
-		$ (\vec{e}_n \cdot \vec{e}_{n'}) = \delta_{nn'} $ & Orthonormierung & $ (f_n, f_{n'}) = \delfkt_{nn'} $\\
+		$ (\vec{e}_n \cdot \vec{e}_{n'}) = \delta_{nn'} $ & Orthonormierung & $ (f_n, f_{n'}) = \delta(\vec{r} - \vec{r}_0)_{nn'} $\\
 		${\displaystyle \vec{r} = \sum_{n=1}^{3} a_n \vec{e}_n }$ & Entwicklung & $ {\displaystyle g(x) = \sum_{n=1}^{\infty} a_n f_n(x) }$\\
 		$ a_n = (\vec{e}_n \cdot \vec{r}) $ & \hspace{-8.5pt} $ \begin{array}{l}
 			\tx{Entwicklungs-}\\
@@ -5031,7 +5030,11 @@ Erklärung der letzten Umformung:
 
 
 
+
+
 % kim
+
+
 
 
 
@@ -5086,16 +5089,27 @@ $ \prt{\vec{D}}{t} \ $ ist der Verschiebungsstrom\\
 \begin{equation*}
 \vabla \times \vec{E} = - \prt{\vec{B}}{t}
 \end{equation*}
-
-%T1:
-
-\begin{tikzpicture}
-	\draw (0,0) ellipse (1cm and .7cm);
-	\draw[->] (0,0) arc[start angle=-135, end angle=225, x radius = 1cm, y radius = .7cm];
-\end{tikzpicture}
-
-%T2
-
+\begin{center}
+	%t1: %t2:
+	\begin{tikzpicture}
+	% \draw (0,0) ellipse (1cm and .7cm);
+	\coordinate (r) at (-2.2,0);
+	\draw[->] ($ ({cos(45) * -.9},{sin(45) * -.6}) + (r) $) arc[start angle=-135, end angle=225, x radius = .9cm, y radius = .6cm] node[anchor=north east] {$ \partial F $};
+	\draw[->] ($ ({cos(45) * .9},{sin(45) * .6}) + (r) $) arc[start angle=-315, end angle=45, x radius = .9cm, y radius = .6cm];
+	\node at (r) {$ F $};
+	\node[left] at ($ (r) + (-1,0) $) {$ U_{\tx{ind}} $};
+	\draw[fill=gray!30!white] (-.3,-.7) rectangle node[] {$ \substack{\tx{\Large{S}} \\[10pt] \tx{\Large{N}}} $} (.3,.7);
+	\draw[->] (0,0) -- (.7,0) node[right] {$ \vec{v} $};
+	
+	\draw[looseness=2] (.15,.7) to[out=80,in=90] (1.2,0) to[out=-90,in=-80] (.15,-.7);
+	\draw[looseness=2] (.09,.7) to[out=84,in=90] (1.8,0) to[out=-90,in=-84] (.09,-.7);
+	\draw[looseness=2.5] (.03,.7) to[out=88,in=90] (2.6,0) to[out=-90,in=-88] (.03,-.7);
+	
+	\draw[looseness=2] (-.15,.7) to[out=100,in=90] (-1.2,0) to[out=-90,in=-100] (-.15,-.7);
+	\draw[looseness=2] (-.09,.7) to[out=96,in=90] (-1.8,0) to[out=-90,in=-96] (-.09,-.7);
+	\draw[looseness=2.5] (-.03,.7) to[out=92,in=90] (-2.6,0) to[out=-90,in=-92] (-.03,-.7);
+	\end{tikzpicture}
+\end{center}
 \begin{align*}
 \int_F \dd \vec{f} \cdot (\vec{\nabla} \times \vec{E}) &= - \int \dd \vec{f} \cdot \prt{\vec{B}}{t} \\
 = \ub{\int_{\partial F} \dd \vec{r} \cdot \vec{E}}_{U_{\tx{ind}}} &= - \prd{}{t} \ub{\int_F \dd \vec{f} \cdot \vec{B}}_{\Phi_m (t)}
@@ -5107,9 +5121,24 @@ U_{\tx{ind}} = - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B}
 \emph{Bemerkung:}
 \begin{enumerate}[i)]
 	\item Vorzeichen-Strom
-	
-	%T3
-	
+	\begin{center}
+			%t3:
+			\begin{tikzpicture}[scale=1.25]
+				\coordinate (a) at (0,0);
+				\draw[->] ($ ({cos(45) * -.9},{sin(45) * -.6}) + (a) $) arc[start angle=-135, end angle=225, x radius = .9cm, y radius = .6cm] node[anchor=north east] {$ \partial F $};
+				\draw[->] ($ ({cos(45) * .9},{sin(45) * -.6}) + (a) $) arc[start angle=-45, end angle=315, x radius = .9cm, y radius = .6cm] node[anchor=north west] {$ \vec{j} $};
+				\draw[thick,->] ($ (a) + (.3,-.3) $) -- ++(0,.6);
+				\draw ($ (a) + (.4,0) $) -- ++(1,.5) node[right] {$ \vec{B}(t_1) = \vec{B}_1 $};
+				\draw[thick,->] ($ (a) + (-.3,.3) $) -- node[left=10pt] {$ \dd \vec{f} $} ++(0,.6);
+				
+				\coordinate (b) at (6,0);
+				\draw[->] ($ ({cos(45) * -.9},{sin(45) * -.6}) + (b) $) arc[start angle=-135, end angle=225, x radius = .9cm, y radius = .6cm] node[anchor=north east] {$ \partial F $};
+				\draw[->] ($ ({cos(45) * .9},{sin(45) * -.6}) + (b) $) arc[start angle=-45, end angle=315, x radius = .9cm, y radius = .6cm] node[anchor=north west] {$ \vec{j} $};
+				\draw[thick,->] ($ (b) + (.3,-.3) $) -- ++(0,.6);
+				\draw ($ (b) + (.4,0) $) -- ++(1,.5) node[right] {$ \vec{B}(t_2) = \vec{B}_2 $};
+				\draw[thick,->] ($ (b) + (-.3,.3) $) -- node[left=10pt] {$ \dd \vec{f} $} ++(0,.6);
+			\end{tikzpicture}
+	\end{center}
 	\begin{equation*}
 	t_2 > t_1 \qquad \vec{B}(t_1) > \vec{B}(t_2)
 	\end{equation*}
@@ -5126,31 +5155,84 @@ U_{\tx{ind}} = - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B}
 	\begin{equation*}
 	\rightarrow \quad \int_{\partial F} \dd \vec{r} \cdot \vec{j} > 0 \qquad \rightarrow \quad \vec{j} \parallel \partial F
 	\end{equation*}
-	$ \Rightarrow $ \textbf{Lenz'sche Regel:}\\
-	Der induzierte Strom und das damit verbundene Magnetfeld sind so gerichtet, dass sie der Ursache ihrer Entstehung entgegenwirken.
+	\begin{minipage}{.5\linewidth}
+		$ \Rightarrow $ \textbf{Lenz'sche Regel:}\\
+		Der induzierte Strom und das damit verbundene Magnetfeld sind so gerichtet, dass sie der Ursache ihrer Entstehung entgegenwirken.
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\flushright
+		%t4:
+		\begin{tikzpicture}
+			\draw[->,very thick] ({cos(70) * 2cm}, {sin(70) * -1cm}) arc[start angle=-70, end angle=290,x radius = 2cm, y radius = 1cm] node[anchor=north west] {$ \vec{j} $};
+			\draw[->, thick] (1,0) arc[start angle=180,end angle=-180,x radius=1cm, y radius=1.25cm];
+			\node[right] at (3,0) {$ \vec{B}_{\tx{ind}} $};
+			\foreach \x\n in {-1.2/1,0/2}
+			\draw[thick,->] (\x,0) node[below] {$ \vec{B}(t_{\n}) $} -- ++(0,1.5);
+		\end{tikzpicture}
+	\end{minipage}%
+	\item $ \Phi_m $ hängt nicht von der speziellen Form der Fläche $ F $ ab, sondern nur vom Rand $ \partial F $.\\
+	\begin{center}
+		%t5:
+		\begin{tikzpicture}
+			\coordinate (c1) at (0,0);
+			\draw[fill=blue!30!white,->] ($ (c1) + ({sin(45) * 1cm},{cos(45) * -.5cm}) $) arc[start angle=-45, end angle=315, x radius=1cm, y radius=.5cm] node[anchor=north west] {$ \partial F $};
+			\draw[->] ($ (c1) + (.25,.25) $)  -- node[right] {$ \dd\vec{f}_1 $} ++(0,1);
+			
+			\coordinate (c2) at (4,0);
+			\draw[fill=red!30!white,looseness=2] ($ (c2) + (-1,0) $) to[out=-90,in=-90] ($ (c2) + (1,0) $);
+			\draw[fill=red!13!white,->] ($ (c2) + ({sin(45) * 1cm},{cos(45) * -.5cm}) $) arc[start angle=-45, end angle=315, x radius=1cm, y radius=.5cm] node[xshift=.7cm] {$ \partial F $};
+			\draw[->] ($ (c2) + (.25,-.3) $)  -- node[right,yshift=10pt] {$ \dd\vec{f}_2 $} ++(0,1.55);
+			\draw ($ (c2) + (.6,-.8) $) to[out=-50,in=200] ++(1,-.2) node[right] {$ F_2 $};
+			\node at ($ (c2) + (3.5,0) $) {$ \Phi_1 = \Phi_2 $};
+			
+			\coordinate (c3) at (2,-3);
+			\draw[fill=red!30!white,looseness=2] ($ (c3) + (-1,0) $) to[out=-90,in=-90] ($ (c3) + (1,0) $);
+			\draw[fill=blue!30!white] ($ (c3) + ({sin(45) * 1cm},{cos(45) * -.5cm}) $) arc[start angle=-45, end angle=315, x radius=1cm, y radius=.5cm];
+			\draw[->] ($ (c3) + (-.25,.25) $)  -- node[left=5pt] {$ \dd\vec{f}_1 $} ++(0,1);
+			\draw[->] ($ (c3) + (.25,-.75) $) -- node[right=5pt] {$ - \dd \vec{f_2} $} ++(0,-1);
+		\end{tikzpicture}
+	\end{center}
 	
-	%T4
-	
-	\item $ \Phi_m $ hängt nicht von der speziellen Form der Fläche $ F $ ab, sondern nur vom Rand $ \partial F $.
-	
-	%T5
-	
+	\noindent
+	Aus der Skizze und mit Satz von Gauß. (Der Fluss durch eine geschlossene Fläche ist gleich 0):
 	\begin{equation*}
-	\Phi_{m_1} = \Phi_{m_2}
+	\Phi = \int_F \dd \vec{f} \cdot \vec{B} = 0
 	\end{equation*}
 	\begin{equation*}
-	0 = \int_F \dd \vec{f} \cdot \vec{B} = \ub{\int_{F_1} \dd \vec{f}_1 \cdot \vec{B}}_{\Phi_{m_1}} - \ub{\int_{F_2} \dd \vec{f}_2 \cdot \vec{B}}_{\Phi_{m_2}}
+	\Phi_{\tx{m}_1} = \Phi_{\tx{m}_2}
 	\end{equation*}
-	\item Eine Flussänderung kann auf verschiedene Weise zustandekommen:
-	\begin{itemize}
-		\item Veränderung des Magnetfeldes $ \vec{B}(t) $
-		\item  Bewegung der Leiterschleife im äußeren Feld
-		
-		%T6
-		
-	\end{itemize}
+	\begin{equation*}
+	0 = \int_F \dd \vec{f} \cdot \vec{B} = \ub{\int_{F_1} \dd \vec{f}_1 \cdot \vec{B}}_{\Phi_{\tx{m}_1}} - \ub{\int_{F_2} \dd \vec{f}_2 \cdot \vec{B}}_{\Phi_{\tx{m}_2}}
+	\end{equation*}
+	\item Eine Flussänderung kann auf verschiedene Weise zustandekommen:\\
+	\begin{minipage}{.5\linewidth}
+		\begin{itemize}
+			\item Veränderung des Magnetfeldes $ \vec{B}(t) $
+			\item Bewegung der Leiterschleife im äußeren Feld
+		\end{itemize}
+		\vspace{40pt}
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\begin{center}
+			%t6:
+			\begin{tikzpicture}[scale=.8]
+				\coordinate (r) at (-2.2,0);
+				\draw[thick,->] ($ ({cos(45) * -.9},{sin(45) * -.6}) + (r) $) arc[start angle=-135, end angle=225, x radius = .9cm, y radius = .6cm];
+				\draw[fill=gray!30!white] (-.3,-.7) rectangle node[] {$ \substack{\tx{\Large{S}} \\[10pt] \tx{\Large{N}}} $} (.3,.7);
+				\draw[thick,->] (0,0) -- (1.1,0) node[right] {$ \vec{v} $};
+				\draw[thick,->] ($ (r) + (-1,0) $) -- ++(-1.1,0);
+				
+				\draw[looseness=2] (.15,.7) to[out=80,in=90] (1.2,0) to[out=-90,in=-80] (.15,-.7);
+				\draw[looseness=2] (.09,.7) to[out=84,in=90] (1.8,0) to[out=-90,in=-84] (.09,-.7);
+				\draw[looseness=2.5] (.03,.7) to[out=88,in=90] (2.6,0) to[out=-90,in=-88] (.03,-.7);
+				
+				\draw[looseness=2] (-.15,.7) to[out=100,in=90] (-1.2,0) to[out=-90,in=-100] (-.15,-.7);
+				\draw[looseness=2] (-.09,.7) to[out=96,in=90] (-1.8,0) to[out=-90,in=-96] (-.09,-.7);
+				\draw[looseness=2.5] (-.03,.7) to[out=92,in=90] (-2.6,0) to[out=-90,in=-92] (-.03,-.7);
+			\end{tikzpicture}
+		\end{center}
+	\end{minipage}%
 \end{enumerate}
-
 \begin{equation*}
 \vabla \times \vec{E} = - \prt{\vec{B}}{t}
 \end{equation*}
@@ -5158,8 +5240,22 @@ Ein zeitlich verändertes $ \vec{B} $-Feld erzeugt ein elektrisches Wirbelfeld a
 \begin{equation*}
 \vabla \times \vec{B} = \mu_0 \vec{j}
 \end{equation*}
-
-%T7
+\begin{center}
+	%t7:
+	\begin{tikzpicture}
+		\draw[very thick, ->] (0,-1) -- (0,1) node[left] {$ \vec{j} $};
+		\draw[->] ({.5 * sin(45)},-{.25 * cos(45)}) arc[start angle=-45,end angle=315, x radius=.5, y radius=.25];
+		\draw[->] ({1 * sin(45)},-{.5 * cos(45)}) arc[start angle=-45, end angle=315, x radius=1, y radius=.5];
+		\node at (.7,-.7) {$ \vec{B} $};
+		
+		\coordinate (a) at (3,0);
+		\draw[very thick, ->] ($ (a) + (-.175,-1) $) -- ++(0,2);
+		\draw[very thick, ->] ($ (a) + (.175,-1) $) -- ++(0,2);
+		\draw[->] ($ (a) + ({.5 * sin(45)},-{.25 * cos(45)}) $) arc[start angle=-45,end angle=315, x radius=.5, y radius=.25];
+		\draw[->] ($ (a) + ({1 * sin(45)},-{.5 * cos(45)}) $) arc[start angle=-45, end angle=315, x radius=1, y radius=.5];
+		\node at ($ (a) + (1,-1) $) {$ \prt{\vec{B}}{t} $};
+	\end{tikzpicture}
+\end{center}
 
 \subsection{Maxwellscher Verschiebungsstrom}
 
@@ -5196,24 +5292,53 @@ Damit erhalten wir für die die Stromdichte:
 \begin{equation*}
 \vabla \times \vec{H} - \prt{\vec{D}}{t} = \vec{j}
 \end{equation*}
-\emph{Beispiel:} \textbf{Plattenkondensator}
-
-%T8
-
-\begin{equation*}
-\vec{D} = \casess{\sigma \vec{e}_x}{\tx{innen}}{0}{\tx{außen}}
-\end{equation*}
-$ \sigma = \frac{1}{F} $
-\begin{equation*}
-\prt{\vec{D}}{t} = \frac{\vec{e}_x}{F} \equalto{\prd{q}{t}}{I} = \frac{I}{F} \vec{e}_x
-\end{equation*}
-\begin{equation*}
-\vabla \times \vec{H} - \prt{\vec{D}}{t} = \vec{j}
-\end{equation*}
-innen: $ \vec{j} = 0 $
-\begin{equation*}
-\vabla \times \vec{H} = \prt{\vec{D}}{t} =  \frac{I}{F} \vec{e}_x
-\end{equation*}
+\emph{Beispiel:} \textbf{Plattenkondensator}\\
+\begin{minipage}{.6\linewidth}
+	\begin{equation*}
+	\vec{D} = \casess{\sigma \vec{e}_x}{\tx{innen}}{0}{\tx{außen}}
+	\end{equation*}
+	$ \sigma = \frac{1}{F} $
+	\begin{equation*}
+	\prt{\vec{D}}{t} = \frac{\vec{e}_x}{F} \equalto{\prd{q}{t}}{I} = \frac{I}{F} \vec{e}_x
+	\end{equation*}
+	\begin{equation*}
+	\vabla \times \vec{H} - \prt{\vec{D}}{t} = \vec{j}
+	\end{equation*}
+	innen: $ \vec{j} = 0 $
+	\begin{equation*}
+	\vabla \times \vec{H} = \prt{\vec{D}}{t} =  \frac{I}{F} \vec{e}_x
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t8:
+	\begin{tikzpicture}[scale=1]
+		\draw[very thick] (-1.5,-2) -- (-1.5,2) node[above] {$ q $};
+		\draw[very thick] (1.5,-2) -- (1.5,2) node[above] {$ - q $};
+		
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		\draw[->] (-1.3,\y) -- (1.3,\y);
+		
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		\draw[fill = white!20!red] (-1.8,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+		
+		\foreach \y in {-1.8,-.6,.6,1.8}
+		\draw[fill = white!20!blue] (1.8,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+		
+		\node at (0,1.2) {$ \vec{D} $};
+		\node at (0,-1.2) {$ \vec{H} $};
+		
+		\draw[->] (0,-3) -- ++(1.5,0) node[right] {$ x $};
+		\draw (0,-3.1) -- (0,-2.9);
+		
+		\draw[very thick] (-1.5,-2) -- (-1.5,-2.5);
+		\draw[very thick] (1.5,-2) -- (1.5,-2.5);
+		\draw[->] (-1.5,-2.5) -| (-3,-4) -- (0,-4) node[below] {\Large{$ I $}};
+		\draw (1.5,-2.5) -| (3,-4) -- (0,-4);
+		\draw[thick,->] ($ (-2.5,-2.5) + ({sin(45) * .3},{cos(45) * -.8}) $) arc[start angle=-45, end angle=315, x radius=.3, y radius=.8];
+		\draw[thick,->] ($ (2.5,-2.5) + ({sin(45) * .3},{cos(45) * -.8}) $) arc[start angle=-45, end angle=315, x radius=.3, y radius=.8];
+	\end{tikzpicture}
+\end{minipage}%
 
 \subsection{Lösung der Differentialgleichungen} %check this
 
@@ -5619,8 +5744,219 @@ physikalisch: \textbf{Impulsstromdichte}
 \end{equation*}
 Die $ i $-te Zeile dieser $ 3 \times 3 $-Matrix wäre als Vektor: $ \vec{T}_i = (T_{i1}, T_{i2}, T_{i3}) $
 \begin{equation*}
-\ub{\prd{}{t} \vec{P}_{\tx{max}_V}}_{\mathclap{\substack{\tx{Änderung des} \\ \tx{Impulses} \\ \tx{der Teilchen}}}} + \ub{\prd{}{t} \int_V \dd^3 r (\vec{D} \times \vec{B})}_{\mathclap{\substack{\tx{Änderug des} \\ \tx{Impulses des} \\ \tx{EM-Feldes} \\ \tx{in } V}}} = \ub{\sum_{i = 1}^{3} \int_{\partial V} \dd \vec{f} \cdot \vec{T}_i}_{\mathclap{\substack{\tx{Impulsfluss} \\ \tx{des EM-Feldes} \\ \tx{aus } V}}}
+\ub{\prd{}{t} \vec{P}_{\tx{mat}_V}}_{\mathclap{\substack{\tx{Änderung des} \\ \tx{Impulses} \\ \tx{der Teilchen}}}} + \ub{\prd{}{t} \int_V \dd^3 r (\vec{D} \times \vec{B})}_{\mathclap{\substack{\tx{Änderug des} \\ \tx{Impulses des} \\ \tx{EM-Feldes} \\ \tx{in } V}}} = \ub{\sum_{i = 1}^{3} \int_{\partial V} \dd \vec{f} \cdot \vec{T}_i}_{\mathclap{\substack{\tx{Impulsfluss} \\ \tx{des EM-Feldes} \\ \tx{aus } V}}}
 \end{equation*}
+
+%Vorlesung 20.12.18 (4 Days until christmas)
+
+\begin{comment}
+\begin{align*}
+\prd{}{t} P_{\tx{mat}_V} &= \sum_i \vec{F}_i = \sum_i q_i (\vec{E}(\vec{r},t) + \vec{v}_i \times \vec{B}(\vec{r}_i,t)\\
+&= \int_V \dd^3r (\rho \vec{E} + \vec{j} \times \vec{B})
+\end{align*}
+\begin{equation*}
+\Rightarrow \prd{}{t} P_{\tx{mat}_V} + \prd{}{t} \int_V\dd^3 r(\vec{D} \times \vec{B}) = \sum_{i=1}^{3} \ub{\int_V \dd^2 r \sum_{k=1}^{3} \prt{T_{ik}}{x_k} \vec{e}_i}_{= \int_{\partial V} \dd\vec{f} \cdot \vec{T}_i \vec{e}_i}
+\end{equation*}
+\end{comment}
+
+\noindent
+differentiell:
+\begin{equation*}
+\rho \vec{E} + \vec{j} \times \vec{B} + \prt{}{t} (\vec{D} \times \vec{B}) = \sum_i (\vabla \cdot \vec{T}_i) \vec{e}_i
+\end{equation*}
+\begin{enumerate}[i)]
+	\item \textbf{Impuls des EM-Feldes}
+	\begin{equation*}
+	P_{\tx{em}_V} = \int_V \dd^3 r \ub{(\vec{D} \times \vec{B})}_{=\vec{g}}
+	\end{equation*}
+	$ \vec{g} \defeq $ Impulsdichte
+	$ \vec{D} = \epsilon \vec{E} \qquad \vec{B} = \mu \vec{H} $
+	\begin{equation*}
+	\rightarrow \quad \vec{g} = \epsilon \mu \ub{\vec{E} \times \vec{H}}_{=\vec{S}} = \epsilon_r \mu_r \ub{\epsilon_0 \mu_0}_{= \frac{1}{c^2}} \vec{S} = \epsilon_r \mu_r \frac{1}{c^2} \vec{S}
+	\end{equation*}
+	$ \left[\frac{1}{c^2} \vec{S}\right] = \frac{\tx{Impuls}}{\tx{Volumen}} $\\[10pt]
+	Impulsdichte einer ebenen Wellen:
+	\begin{align*}
+	\vec{E} &= E_0 \cos\left(kz - \omega t\right) \vec{e}_x\\
+	\vec{B} &= \frac{E_0}{c} \cos\left(kz - \omega t\right) \vec{e}_y\\
+	\vec{S} &= \vec{E} \times \vec{H} = x \epsilon_0 E_0^2 \cos^2(kz - \omega t) \vec{e}_z\\
+	\vec{g} &= \frac{\epsilon_0}{c} E_0^2 \cos^2(kz - \omega t) \vec{e}_z
+	\end{align*}
+	\item \textbf{Maxwellscher Spannungstensor - Impulsdichte}
+	\begin{equation*}
+	T_{ik} = \epsilon E_i E-k + \frac{1}{\mu} B_i B_k - \frac{1}{2} \delta_{ik} \left(\epsilon \vec{E}^2 + \frac{1}{\mu} \vec{B^2}\right)
+	\end{equation*}
+	\begin{equation*}
+	\prd{}{t} \left(\vec{P}_{\tx{mat}_V} + \vec{P}_{\tx{em}_V}\right) = \sum_i \left(\int_V \dd\vec{f} \cdot \vec{T}_i \right)\vec{e}_i
+	\end{equation*}
+	Analogie: Energiebilanz
+	\begin{equation*}
+	\prd{}{t} \left(W_{\tx{mat}_V} + W_{\tx{em}_V}\right) = - \int_{\partial V} \dd \vec{f} \cdot \vec{S}
+	\end{equation*}
+	$ \Rightarrow - \vec{T}_i $ Impulsstromstärke zu $ P_i $\\
+	$ \left[T_{ik}\right] = \frac{\tx{Impuls}}{\tx{Fläche } \cdot \tx{ Zeit}} $\\[10pt]
+	$ T_{ik} : $ Berechnung von Kräften auf geladene materielle Körper im EM-Feld.\\
+	\begin{minipage}{.6\linewidth}
+		\begin{align*}
+		\prd{}{t} \vec{P} &= \sum_i \int_{\partial V} \dd \vec{f} \cdot \vec{T}_i \vec{e}_i\\
+		&= \sum_{i=1}^{3} \ub{\left(\prd{}{t} P_i\right)}_{\mathclap{\tx{Kraft } \vec{K} , K_i}} \vec{e}_i
+		\end{align*}
+		\begin{equation*}
+		\Rightarrow \quad \dd K_i = (\vec{n} \cdot \vec{T}_i) \dd f
+		\end{equation*}
+		$ \dd \vec{f} = \vec{n} \dd f $
+		\begin{equation*}
+		\Rightarrow \quad \left[\frac{\dd K_i}{\dd f}\right] = \frac{\tx{Kraft}}{\tx{Fläche}} = \tx{ Druck}
+		\end{equation*}
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		%t1:
+		\begin{tikzpicture}
+			\pic at (0,0) {annotated cuboid={width=7,height=20,depth=20}};
+			\draw[thick,->] (.4,-.6) -- ++(1,0) node[right] {$ \dd \vec{f} $};
+			% \draw (0,0) -- (.78,-1.23); % diagonale
+			\draw (.45,-1) to[out=-45,in=100] (1,-2) node[below] {$ \vec{P} $};
+			% waves
+			\coordinate (a) at (-2.5,-.6);
+			\draw[red!90!white,thick,->] (a) -- ++(60:2.5cm);
+			\draw[red!90!white,thick,->] ($ (a) + (-60:.4cm) $) -- ++(60:2.5cm);
+			\draw[blue!90!white,thick,->] (a) -- ++(-60:2.5cm);
+			\draw[blue!90!white,thick,->] ($ (a) + (60:.4cm) $) -- ++(-60:2.5cm);
+			\node[red!90!white] at ($ (a) + (55:2.8cm) $) {$ \vec{E} $};
+			\node[blue!90!white] at ($ (a) + (-55:2.8cm) $) {$ \vec{B} $};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\[10pt]
+	\emph{Beispiel:} \textbf{Plattenkondensator}\\
+	\begin{minipage}{.6\linewidth}
+		\begin{equation*}
+		\vec{E} = \casess{E \vec{e}_x}{\tx{innen}}{0}{\tx{außen}} \qquad \vec{B} = 0
+		\end{equation*}
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		%t2:
+		\begin{tikzpicture}
+			\draw[very thick] (-1.3,-2) -- (-1.3,2) node[above] {$ \sigma $};
+			\draw[very thick] (1.3,-2) -- (1.3,2) node[above] {$ - \sigma $};
+			\draw[->] (0,-2.5) -- ++(2,0) node[right] {$ x $};
+			\draw ($ (0,-2.5) + (0,.1) $) -- ($ (0,-2.5) + (0,-.1) $);
+			\foreach \y in {-1.8,-.6,.6,1.8}
+			\draw[->] (-1.1,\y) -- (1.1,\y);
+			\foreach \y in {-1.8,-.6,.6,1.8}
+			%\node at (-1.8,\y) {$ + $};
+			\draw[fill = white!20!red] (-1.6,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+			\foreach \y in {-1.8,-.6,.6,1.8}
+			%\node at (1.8,\y) {$ - $};
+			\draw[fill = white!20!blue] (1.6,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+			\node[above] at (0,2) {$ \vec{E} $};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
+	Krafttensor innen:
+	\begin{equation*}
+	T_{ik} = \ \ub{\epsilon E_i E_k}_{\mathclap{= \epsilon_0 E^2 \delta_{ix} \delta_{kx}}} \ + \ub{\frac{1}{\mu} B_i B_k}_{=0} - \frac{1}{2} \delta_{ik} \bigg(\ub{\epsilon \vec{E}^2}_{\epsilon_0 E^2} + \ub{\frac{1}{\mu} \vec{B^2}}_{= 0}\bigg)
+	\end{equation*}
+	Krafttensor außen:
+	\begin{equation*}
+	T_{ik} = 0
+	\end{equation*}
+	\vspace{5pt}
+	\begin{equation*}
+	T_{xx} = \frac{\epsilon_0}{2} E^2 \qquad T_{yy} = T_{zz} = - \frac{\epsilon_0}{2} E^2 \qquad \tx{sonst } = 0
+	\end{equation*}
+	\begin{equation*}
+	T_{ik} = \frac{\epsilon_0}{2} E^2 \begin{pmatrix}
+	1 & 0 & 0\\
+	0 & -1 & 0\\
+	0 & 0 & -1
+	\end{pmatrix}
+	\end{equation*}
+	Kraft in x-Richtung:
+	\begin{equation*}
+	K_x = \int_{\partial V} \dd\vec{f} \cdot \ub{\vec{T}_x}_{\mathclap{= (T_{xx},T_{xy},T_{xz}) = \frac{\epsilon_0}{2} E^2 \vec{e}_x}} = \int_{\partial V} \dd \vec{f} \cdot \frac{\epsilon_0}{2} E^2 \vec{e}_x
+	\end{equation*}
+	\begin{minipage}{.6\linewidth}
+		$ \dd \vec{f} = \dd y \dd z \vec{e}_x $
+		\begin{equation*}
+		K_x = \int_{F_x} \dd f \frac{\epsilon_0}{2} E^2 = \frac{\epsilon_0}{2} E^2 F_x
+		\end{equation*}
+		$\rightarrow \quad \frac{\tx{Kraft}}{\tx{Fläche}} : \quad \frac{K_x}{F_x} = \frac{\epsilon_0}{2} E^2 = \frac{\sigma^2}{2 \epsilon_0}$
+		\begin{equation*}
+		\vec{K} = (K_x,0,0)
+		\end{equation*}
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		%t3:
+		\begin{tikzpicture}
+			\foreach \x\y in {-.1/-.5, -.1/-1.35, -.1/-2.2}
+			\draw[shade, ball color = red] (\x,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+			\pic at (0,0) {annotated cuboid={width=5,height=30,depth=30}};
+			\draw (0,.2) to[out=90,in=-40] (-.5,1) node[left] {$ V $};
+			\foreach \x\y in {.7/.3, .7/-.55, .7/-1.4}
+			\draw[shade, ball color = red] (\x,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+			% diagonale besser aber nicht perfekt
+			% \draw (0,0) -- ($ (0,-3) +({sin(45) * 1.65},{cos(45) * 1.65}) $);
+			\draw[thick, ->] (.6,-1) -- ++(1,0) node[right] {$ \dd\vec{f}_x $};
+			\draw (.5,-1.8) -- ++(-30:1cm) node[anchor=north west] {$ \substack{\tx{nur diese Fläche ($F_x$)} \\ \tx{trägt bei}} $};
+		\end{tikzpicture}
+	\end{minipage}%
+\end{enumerate}
+
+\section{Elektromagnetische Wellen}
+
+\subsection{Maxwell-Gleichungen in einem Isolator - Homogene Wellengleichung}
+
+\begin{equation*}
+\rho_f = 0 = \vec{j}_f
+\end{equation*}
+$ \vec{D} = \epsilon \vec{E} \quad \vec{B} = \mu \vec{H} $
+\begin{equation*}
+\vabla \cdot \vec{E} = 0 \qquad \qquad \vabla \cdot \vec{B} = 0
+\end{equation*}
+\begin{equation*}
+\quad \, \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0 \qquad \qquad \vabla \times \vec{B} - \epsilon \mu \prt{\vec{E}}{t} = 0
+\end{equation*}
+\begin{equation*}
+0 = \ub{\vabla \times \left(\vabla \times \vec{E}\right)}_{\vabla\ub{(\vabla \cdot \vec{E})}_{= 0} - \Delta \vec{E}} + \prt{}{t} \ub{\vabla \times \vec{B}}_{= \epsilon \mu \prt{\vec{E}}{t}} = - \Delta \vec{E} + \epsilon \mu \prt{^2 \vec{E}}{t^2}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \Delta \vec{E} - \epsilon \mu \prt{^2 \vec{E}}{t^2} = 0
+\end{equation*}
+$ \epsilon \mu = \epsilon_r \mu_r \epsilon_0 \mu_0 = \frac{\epsilon_r \mu_r}{c^2} \qquad n = \sqrt{\epsilon_r \mu_r} $\\[5pt]
+$ n $ ist der Brechungsindex des betrachteten Materials $ v = \frac{c}{n} $ die Geschwindigkeit der EM-Welle in diesem Material.
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta \vec{E} - \frac{n^2}{c^2} \prt{^2 \vec{E}}{t^2} = 0}
+\end{equation*}
+außerdem gilt:
+\begin{align*}
+0 &= \ub{\vabla \times (\vabla \times \vec{B})}_{\vabla \ub{(\vabla \cdot \vec{B})}_{= 0} - \Delta \vec{B}} - \epsilon \mu \prt{}{t} \ub{\vabla \times \vec{E}}_{= - \prt{\vec{B}}{t}}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta \vec{B} - \frac{n^2}{c^2} \prt{^2 \vec{B}}{t^2} = 0}
+\end{equation*}
+homogene Wellengleichung
+\begin{equation*}
+\Delta \Psi - \frac{n^2}{c^2} \prt{^2 \Psi}{t^2} = 0
+\end{equation*}
+\begin{equation*}
+\Psi = E_x, E_y, E_z, B_x, B_y, B_z
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
