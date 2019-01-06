@@ -202,10 +202,10 @@ Gewöhnliche partielle Diff-Gleichungen
 
 % Vorlesung 27.11.18
 
-\subsection{Maxwell-Gleichungen und Stetigkeitsbedingungen} %check
+\subsection{Maxwell-Gleichungen und Stetigkeitsbedingungen}
 
 \lcom{Heute beschäftigen wir uns mit Stetigkeitsbedingungen. Diese sind sehr Wichtig für die Lösung von Differentialgleichungen zur Lösung von Randwertproblemen.}
-\begin{comment}
+\begin{comment}% old Version
 \begin{align*}
 \tx{div} \vec{D} = \rho_0 \quad &\Rightarrow \quad \left(\vec{D}_2 - \vec{D}_1\right) \cdot \vec{n} = \sigma_{\tx{Fläche}}\\[5pt]
 \tx{div} \vec{B} = 0 \quad &\Rightarrow \quad \left(\vec{B}_2 - \vec{B}_1\right) \cdot \vec{n} = 0\\
@@ -290,7 +290,7 @@ Betrachtung für senkrechten Einfall\\
 \end{enumerate}
 $ \Rightarrow $ Lösungen wie oben
 
-\subsection{Warum war es ,,erlaubt`` mit ebenen Wellen zu rechnen ?} %check
+\subsection{Warum war es ,,erlaubt`` mit ebenen Wellen zu rechnen ?}
 
 \begin{enumerate}[(1)]
 	\item Lösungen im homogenen Raum, Raum kann begrenzt sein
@@ -308,12 +308,8 @@ $ \Rightarrow $ Lösungen wie oben
 \end{enumerate}
 $ \Rightarrow $ Allgemein:
 \begin{equation*}
-\vec{E}_I(\vec{x}_{\tx{grenz}},t) = \vec{E}_{II} (\vec{x}_{\tx{grenz}},t)
+\vec{E}_I(\vec{x}_{\tx{Grenzfläche}},t) = \vec{E}_{II} (\vec{x}_{\tx{Grenzfläche}},t)
 \end{equation*}
-
-% check if correct oben
-
-\noindent
 speziell:
 \begin{equation*}
 \vec{E}(\vec{x},t,p)
@@ -360,16 +356,17 @@ $ \alpha : $ Polarisierbarkeit
 \vec{P} = \frac{1}{V} \sum_i \vec{d}_i \quad \rightarrow \quad \frac{N}{V} \vec{d} \quad \tx{da sich alle Objekte gleich verhalten}
 \end{equation*}
 \begin{equation*}
-\rightarrow \qquad \chi = \frac{1}{\epsilon_0} \frac{N}{V} \alpha \quad \equiv \epsilon - 1
+\rightarrow \qquad \chi = \frac{1}{\epsilon_0} \frac{N}{V} \alpha \quad \equiv \epsilon - 1 \ (\epsilon_r - 1)
 \end{equation*}
 \lcom{Gilt bei Gasen gut, bei Festkörpern aufgrund von Dipol-Dipol-Wechselwirkungen nicht mehr gut.}
 
 \subsection{Lorenz-Lorentz-Oszillatormodell}
 
-\folie{Lorentz-Lorenz-Oszillatormodell für die Polarisation}
+\folie{Lorenz-Lorentz-Oszillatormodell für die Polarisation}
 \begin{equation*}
 \Rightarrow \quad \hat{\epsilon} = \epsilon' + i \epsilon''
 \end{equation*}
+\lcom{Im Mitschrieb steht hier mehr zum Thema}
 
 \subsection{Wellengleichung in Materie}
 
@@ -377,7 +374,7 @@ Materie $ \Rightarrow \rho \neq 0 $
 \begin{equation*}
 \Rightarrow \quad \tx{div} \vec{E} \neq 0
 \end{equation*}
-$ \Rightarrow $ Aus $ \tx{div} \vec{E} = 0 $ folgte das eine EM-Welle im Vakuum transversal sind. Muss nicht mehr so sein.\\[5pt]
+$ \Rightarrow $ Aus $ \tx{div} \vec{E} = 0 $ folgte das eine EM-Welle im Vakuum transversal sind. Dies muss  also nicht mehr so sein.\\[5pt]
 Unter Verwendung von
 \begin{enumerate}[(1)]
 	\item \begin{equation*}
@@ -387,9 +384,6 @@ Unter Verwendung von
 	\tx{rot rot} \vec{E} = - \vabla^2 \vec{E} + \tx{grad div} \vec{E}
 	\end{equation*}
 \end{enumerate}
-
-% check part on equal signs
-
 \begin{equation*}
 \Rightarrow \qquad \rmbox{\vabla^2 \vec{E} - \frac{1}{c_0^2} \prt{^2}{t^2} \frac{\vec{D}}{\epsilon_0} - \tx{grad div} \vec{E} = 0}
 \end{equation*}
@@ -439,12 +433,8 @@ $ \hat{\vec{k}}^2 $ ist \textbf{nicht} das Betragsquadrat
 \begin{equation*}
 e^{i(\hat{\vec{k}} \vec{x} - \omega t)} = e^{i \vec{k}'' \vec{x}} e^{i(\vec{k}' \vec{x} - \omega t)}
 \end{equation*}
-Teil mit $ \vec{k}'' : $ Dämpfung, Absorption der Welle $ I(x) = I_0 e^{-2 |k'| x} $\\
-Teil mit $ \vec{k}' : $ Ausbreitung der Welle mit $ \lambda = \frac{2 \pi}{f} $
-
-% bei skript nachschauen
-
-\noindent
+Teil mit $ \vec{k}'' : $ Dämpfung, Absorption der Welle beim Durchgang durch Materie $ I(x) = I_0 e^{-2 |k''| x} $\\
+Teil mit $ \vec{k}' : $ Ausbreitung der Welle mit $ \lambda = \frac{2 \pi}{k'} $
 \emph{Bemerkung:}\\
 harmonischer Oszillator: $ \hat{\omega} = \omega - i \delta $\\
 $ e^{i\hat{\omega t}} = e^{-\delta t} e^{-i \omega t} $\\
@@ -549,15 +539,16 @@ Lösung 2: Evaneszente Welle
 \begin{equation*}
 \Rightarrow \quad \vec{k}'^2 - \vec{k}''^2 > 0
 \end{equation*}
-\emph{Beispiel:} Totalreflexion mit $ \beta = 90 ^\circ $\\
+\emph{Beispiel:} \textbf{Totalreflexion mit $ \beta = 90 ^\circ $}\\
+$ x $-Achse in Richtung der Ausbreitung der Totalreflektierten, $ z $-Achse orthogonal dazu in Richtung des dünneren Mediums $ n_2 $,\\
 \lcom{Die $ \vec{k}' $ Komponente ist bei der Totalreflexion parallel zur Oberfläche des Mediums.}\\[5pt]
-einfallende Welle:\\
+\textbf{einfallende Welle:}\\
 normale Ausbreitung
 \begin{equation*}
 \hat{\vec{k}}_1 = \vec{k}_1 + i 0
 \end{equation*}
 \begin{equation*}
-\Rightarrow \quad k_1 = \frac{\omega^2}{c_0^2} n_1^2 \qquad (k_1: \tx{ Betrag von } \hat{\vec{k}}_1)
+\Rightarrow \quad k_1^2 = \frac{\omega^2}{c_0^2} n_1^2 \qquad (k_1: \tx{ Betrag von } \hat{\vec{k}}_1)
 \end{equation*}
 aus der Geometrie folgt:
 \begin{equation*}
@@ -566,7 +557,7 @@ k_{1,x} = k_1 \sin\alpha
 \begin{equation*}
 \Rightarrow \quad k_{1,x}^2 = \frac{\omega^2}{c_0^2} n_1^2 \sin^2 \alpha
 \end{equation*}
-ausfallende Welle:
+\textbf{ausfallende Welle:}
 \begin{equation*}
 \hat{\vec{k}}_2 = \begin{pmatrix}
 k_{2,x} \\ 0 \\ i k_{2,z}
@@ -602,8 +593,8 @@ Materiewelle
 Materie ist
 \begin{itemize}
 	\item \textbf{absorbierend} = Licht wird \textbf{verschluckt}
-	\item \textbf{durchsichtig} = Licht wird \textbf{Durchgelassen}
-	\item \textbf{transparent} = Licht wird \textbf{teilweise Durchgelassen}, \textbf{teils absorbiert} und/oder \textbf{teil gestreut}
+	\item \textbf{durchsichtig} = Licht wird \textbf{durchgelassen}
+	\item \textbf{transparent} = Licht wird \textbf{teilweise durchgelassen}, \textbf{teils absorbiert} und/oder \textbf{teil gestreut}
 \end{itemize}
 
 \subsection{Physikalische Prozesse: Grundgedanken}
@@ -614,7 +605,7 @@ Materie ist
 	wie beim Billard\\[5pt]
 	\emph{Beispiel:} Lichtstreuung, Streuung am Photon
 	\begin{itemize}
-		\item Raylight-Streuung: elastische Streuung von Photonen an gebundenen Elektronen
+		\item Rayleigh-Streuung: elastische Streuung von Photonen an gebundenen Elektronen
 		\item Thomson-Streuung: elastische Streuung an ,,quasi freien`` Elektronen
 		\lcom{,,quasi frei``: eventuell gebunden aber winzige Bindungsenergie im Vergleich zur Energie der einfallenden Strahlung.}
 		\item Compton-Streuung: inelastische Streuung an ,,quasi freien`` Elektronen\\
@@ -630,12 +621,12 @@ Materie ist
 	\end{itemize}
 	\item \textbf{Anregung/Abregung}\\
 	Genereller Ablauf:\\
-	\textbf{Anregung} des Systems durch Licht, Stöße oder Wärme $ \rightarrow $ \textbf{Lebensdauer oder Anregung} $ \rightarrow $ \textbf{Abregung} des Systems als Licht, aussenden eines Teilchens, Wärme $ \dots $\\[5pt]
+	\textbf{Anregung} des Systems durch Licht, Stöße oder Wärme $ \rightarrow $ \textbf{Lebensdauer der Anregung} $ \rightarrow $ \textbf{Abregung} des Systems als Licht, aussenden eines Teilchens, Wärme $ \dots $\\[5pt]
 	\emph{Beispiel:}
 	\begin{itemize}
 		\item Absorption: ein Photon wird absorbiert
 		\begin{equation*}
-		\hbar \omega \rightarrow \Delta E_{\tx{System}}  % check if correct
+		\hbar \omega \rightarrow \Delta E_{\tx{System}}
 		\end{equation*}
 		\item spontane Emission, Luminanz
 		\begin{equation*}
@@ -674,11 +665,11 @@ häufig: System durch diskrete Energieniveaus Beschrieben.\\[5pt]
 \folie{Energiediagramme bei inelastischen Streuung}\\
 \folie{inelastische Streuung Vergleich von verschiedene Streuungen}\\
 Streuung über Virtuelle Zustände (ein nicht diskretes Energieniveau)\\
-\folie{Spontane Emission, Lomineszenz}\\
+\folie{Spontane Emission, Lumineszenz}\\
 \folie{nochmal aber nicht Disskutiert}\\
 \folie{Quanten dots}\\
 \folie{Stimmulierte Emmision}\\
-\folie{Photo Effekt} hier wird das Elektron in einen nicht-diskreten Zustand gehoben.\\
+\folie{Photo Effekt} \ hier wird das Elektron in einen nicht-diskreten Zustand gehoben.\\
 \folie{Up-Conversion (nicht-linearer Effekt)}\\
 \folie{Grüner Laserpointer (eigentlich IR Laser und Kristall der mit Up-Conversion grünes Licht erzeugt)}\\
 
@@ -697,9 +688,9 @@ Typischer Aufbau:
 Die Quelle kann monochromatisch sein oder weißes Licht ausstrahlen (breites Spektrum von Frequenzen).\\
 Die Energieanalyse ,,Richtung`` $ \prd{^2 \sigma}{E \dd \Omega} $ ($ \sigma = $ Wirkungsquerschnitt)\\
 \folie{einfaches Prismen-Spektrometer}\\
-\folie{ESR (Elektronen-Spin-Resonanz) Spektrometer}
-\lcom{Beim ESP Spektrometer wird das Energiespektrum der Probe veränder (durch angelegte Magnetfelder). Der Messstrahl wird zuerst aufgeteilt in einen Vergleichsstrahl und einen Messstrahl, die vor dem Detektor wieder zusammengefügt werden um dort wir beim Michelson-Interferometer zu interferieren.}\\
-\folie{ein komerzielles Spektrometer}
+\folie{ESR (Elektronen-Spin-Resonanz) Spektrometer}\\
+\lcom{Beim ESP Spektrometer wird das Energiespektrum der Probe verändert (durch angelegte\\ Mag\-net\-fel\-der). Der Messstrahl wird zuerst aufgeteilt in einen Vergleichsstrahl und einen\\ Messstrahl, die vor dem Detektor wieder zusammengefügt werden um dort wir beim Michelson-Interferometer zu interferieren.}\\
+\folie{ein kommerzielles Spektrometer}
 
 \subsubsection{Typische Messkonfiguration}
 
@@ -748,23 +739,22 @@ Bei sehr hoher Temperatur ist die Absorption so stark, dass nach dem Anfangsbere
 Sichtbares Spektrum: Rot$ | $Grün.\\
 Emissionsspektrum über Erhitzung ohne Weißlicht-Beleuchtung mit Gasbrenner (farbige Flamme)\\
 Bei Erhitzung und Beleuchtung: Absorptionsspektrum: Rot - Gelb - Grün.\\[5pt]
-\versuch{Rayleight Strahlung}
+\versuch{Rayleigh Strahlung}
 Eine Lampe strahlt unpolarisiertes Weißes Licht aus.\\
-Das an den Wassermolekülen (und Dreckrückständen im Wasser) gestreute Licht hat eine lineare Polarisation. Von den Molekülen geht eine Herz'sche Dipolstrahlung aus (Polarisation in Richtung der Antenne, Ausbreitung der Welle in der Ebene orthogonal dazu). Dies kommt daher, dass das Weise licht nur transversal polarisierte Anteile hat keine longitudinalen. Daraus ergibt sich, welche Dipole angeregt werden, und das die Polarisation nur orthogonal zur Ausbreitung des Lichts stattfindet.\\
-Die Rayleights-Streuung ist mit $ \omega^4 $ Frequenzabhängig, es wird also blau wesentlich stärker Reflektiert als rotes Licht.es Licht. Dies erklärt den Blauen Schimmer um die Weiße Kreisscheibe auf dem Schirm.\\
-beim hinzugeben von winzigen Kügelchen die im Wasser schwimmen wird mehr Licht gestreut. Die Kreisscheibe wird immer röter und röter zunächst gelb dann dunkel orange wie die Abendsonne. Die blauen Frequenzen sind eher am Rand zu sehen und konzentrierter als zuvor. (Beim blauen Himmel sehen wir den Emissionsanteil hier den Transmissionsanteil).\\[5pt]
+Das an den Wassermolekülen (und Dreckrückständen im Wasser) gestreute Licht hat eine lineare Polarisation. Von den Molekülen geht eine Herz'sche Dipolstrahlung aus (Polarisation in Richtung der Antenne, Ausbreitung der Welle in der Ebene orthogonal dazu). Dies kommt daher, dass das Weiße licht nur transversal polarisierte Anteile hat keine longitudinalen. Daraus ergibt sich, welche Dipole angeregt werden, und das die Polarisation nur orthogonal zur Ausbreitung des Lichts stattfindet.\\
+Die Rayleigh-Streuung ist mit $ \omega^4 $ Frequenzabhängig, es wird also blau wesentlich stärker Reflektiert als rotes Licht.es Licht. Dies erklärt den Blauen Schimmer um die Weiße Kreisscheibe auf dem Schirm.\\
+Beim hinzugeben von winzigen Kügelchen, die im Wasser schwimmen, wird mehr Licht gestreut. Die Kreisscheibe wird immer röter und röter zunächst gelb dann dunkel orange wie die Abendsonne. Die blauen Frequenzen sind eher am Rand zu sehen und konzentrierter als zuvor. (Beim blauen Himmel sehen wir den Emissionsanteil hier den Transmissionsanteil).\\[5pt]
 
 \subsubsection{Typen von Spektren}
 
-Linienspektrum $ \quad $ kontinuierliches Spektren\\
-\folie{verschiedene Spektren}
-
-\textbf{Zugängliche Infos im Linienspektrum (Prüfungsrelevant!)}\\[5pt]
+Linienspektrum \& kontinuierliches Spektrum\\
+\folie{verschiedene Spektren}\\
+\textbf{Zugängliche Infos im Linienspektrum (Prüfungsrelevant!)}
 \begin{enumerate}[1)]
 	\item Die Lage des Peaks oder die Frequenz des Peaks gibt die \textbf{Übergangsenergie} an die nur eine Energiedifferenz angibt.\\
 	\begin{minipage}{.8\linewidth}
 		\begin{equation*}
-		E_2 - E_1 = kV
+		E_2 - E_1 = kv
 		\end{equation*}
 	\end{minipage}%
 	\begin{minipage}{.2\linewidth}
@@ -778,8 +768,7 @@ Linienspektrum $ \quad $ kontinuierliches Spektren\\
 	\end{minipage}%
 	\item \textbf{Intensität}: Diese hängt von der Übergangswahrscheinlichkeit und damit auch der Teilchendichte zusammen.\\
 	Die Intensität hat auch mit der \textbf{stärke der Wechselwirkung} von dem Eingestrahlten (\textbf{Sonde}) mit dem Bestrahlten (\textbf{Probe}) zu tun.
-	\item \textbf{Linienbreite/Linienform}
-	Bei der Lorenzverteilung ist die Breite der Verteilung verknüpft mit der Lebensdauer der Teilchen.
+	\item \textbf{Linienbreite/Linienform:}	Bei der Lorenzverteilung ist die Breite der Verteilung verknüpft mit der Lebensdauer der Teilchen.
 	\begin{equation*}
 	e^{-\frac{t}{\tau}} \quad \Rightarrow \quad \tx{Lorenzlinie} \quad \Rightarrow \quad \tx{Lebensdauer}
 	\end{equation*}
@@ -794,17 +783,17 @@ Linienspektrum $ \quad $ kontinuierliches Spektren\\
 
 \textbf{Dispersionsrelation bei getriebener Schwingung:}\\
 (harmonischer Oszillator oder Dispersion bei Schwingungen)\\
-Gleichschwingung bei geringer Antriebsfrequenz\\
+Gleichschwingung bei geringer Antriebsfrequenz.\\
 Phasenverschiebung bei zu schnellem Antrieb und geringe Amplitude des Schwingers\\
-quasi ein Tiefpass\\
+quasi ein Tiefpass.\\
 Dieses Problem ist mit komplexen Größen Lösbar. Zur Physikalischen Betrachtung der Lösung: Leistungsaufnahme des Schwingenden Systems. Diese Leistung ist mit dem Imaginärteil verknüpft.\\
 Bei unserem Beispiel eines dielektrischen Materials geht es um Absorption. Diese stammt aus dem Leistungsverlust aus dem Imaginärteil der Dielektrizitätskonstante. Der Realteil ist hier mit dem Brechungsindex verknüpft.\\[5pt]
 \textbf{Angeregte Emissionen:}\\
 Das anregende und das angeregte Photon können aber müssen nicht in Phase sein. Allgemein ist dies nicht so.\\
-Das Angeregte Atom bleibt mit einer gewissen statistisch verteilten Lebensdauer in dem Zustand. Wie die Anregung erfolgt ist (Stöße oder Absorption von Strahlung) ist egal. Daraus resultiert spontane Emission.\\
+Das angeregte Atom bleibt mit einer gewissen, statistisch verteilten Lebensdauer in dem Zustand. Wie die Anregung erfolgt ist (Stöße oder Absorption von Strahlung) ist egal. Daraus resultiert spontane Emission.\\
 Die \textbf{stimulierte oder induzierte Emission} (erzeugt durch ein Strahlungsfeld) erzeugt die Abstrahlung von Photonen in Phase mit den eingestrahlten Photonen. Die Begründung ist recht kompliziert und kann nur über Quantenmechanik erfolgen.\\[5pt]
 \textbf{Evaneszente Welle:}\\
-Undurchdringbarkeit ist nur eine Näherung. Kein Welches des Mediums ist eine echte Stufenfunktion (im mikroskopischen Bereich).
+Undurchdringbarkeit ist nur eine Näherung. Kein Wechsel des Mediums ist eine echte Stufenfunktion (im mikroskopischen Bereich).
 
 % Vorlesung 5.12.18 (19 days untis christmas)
 
@@ -815,7 +804,7 @@ Undurchdringbarkeit ist nur eine Näherung. Kein Welches des Mediums ist eine ec
 \begin{equation*}
 \prd{}{t} n(t) = - \frac{1}{\tau} [n(t) - n_{eq} ]
 \end{equation*}
-\lcom{Statistisch unabhängige Prozesse. Egal wie viele Objekte es gibt nach der Halbwertszeit ist nur noch die Hälfte da. Die einzelnen Objekte verhalten sich also unabhängig voneinander so.}
+\lcom{Statistisch unabhängige Prozesse. Egal wie viele Objekte es gibt nach der Halbwertszeit ist nur noch die Hälfte da. Die einzelnen Objekte verhalten sich also unabhängig voneinander so.}\\
 $ \tau : $ Radiationszeit, Zerfallszeit, Lebensdauer, Halbwertszeit, \dots\\
 \textbf{Lösung:}
 \begin{equation*}
@@ -991,7 +980,8 @@ Thermodynamik, Quantenstatistik:
 \frac{n_k}{N} = \frac{1}{Z} e^{-\frac{E_k}{k_B T}}
 \end{equation*}
 \begin{equation*}
-\rho(\nu) = \frac{s \pi k \nu^3}{c^3} \frac{1}{e^{\frac{h \nu}{k_B T}} - 1}
+\rho(\nu) = \frac{8 \pi h \nu^3}{c^3} \frac{1}{e^{\frac{h \nu}{k_B T}} - 1}
 \end{equation*}
-$ Z = \sum_k e^{-\frac{E k}{e_k T}} $\\[5pt]
+$ Z : = \sum_k e^{-\frac{E_k}{k_B T}} $ die Zustandssumme\\
+$ k_B : $ Boltzmann-Konstante\\[5pt]
 $ \Rightarrow $ Planck'sches Strahlungsgesetz
