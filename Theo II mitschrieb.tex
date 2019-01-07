@@ -17,6 +17,8 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
 \usepackage{tcolorbox}
+\usepackage{bm}
+\usepackage[shortlabels]{enumitem}
 
 \usepackage[margin=1in]{geometry}
 
@@ -60,6 +62,10 @@
 \newcommand{\ob}[1]{\overbrace{#1}}
 
 \newcommand{\dd}{\tx{d}}
+
+% arrow list
+\newlist{arrowlist}{itemize}{1}
+\setlist[arrowlist]{label=$\Rightarrow$}
 
 %Mathe:
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
@@ -107,10 +113,10 @@
 % ANDREZ
 \newcommand{\summ}[2]{\sum_{#1}^{#2}}
 \newcommand{\intt}[2]{\int_{#1}^{#2}}
-\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\renewcommand{\vec}[1]{\bm{#1}}
 \newcommand{\lcom}[1]{\color{MidnightBlue}#1\color{black}}
 \renewcommand{\epsilon}{\varepsilon}
-\newcommand{\vabla}{\boldsymbol{\nabla}}
+\newcommand{\vabla}{\bm{\nabla}}
 \newcommand{\bei}{\emph{Beispiel: }}
 \newcommand{\bem}{\emph{Bemerkung:}}
 \renewcommand{\paragraph}[1]{\subsubsection{#1}}
