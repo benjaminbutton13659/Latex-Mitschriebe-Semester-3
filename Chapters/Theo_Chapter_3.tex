@@ -879,10 +879,299 @@ außerdem gilt:
 \begin{equation*}
 \Rightarrow \quad \rmbox{\Delta \vec{B} - \frac{n^2}{c^2} \prt{^2 \vec{B}}{t^2} = 0}
 \end{equation*}
-homogene Wellengleichung
+homogene Wellengleichung ($ \Psi(\vec{r},t) $)
 \begin{equation*}
 \Delta \Psi - \frac{n^2}{c^2} \prt{^2 \Psi}{t^2} = 0
 \end{equation*}
 \begin{equation*}
 \Psi = E_x, E_y, E_z, B_x, B_y, B_z
 \end{equation*}
+
+% Neue Vorlesung 7.01.19
+
+\bbb{Wiederholung}{
+Maxwell-Gl für Isolator: $ \rho_f = 0 = \vec{j}_f \quad \vec{D} = \epsilon \vec{E} \quad \vec{H} = \frac{1}{\mu} \vec{B} $
+\begin{equation*}
+\vabla \cdot \vec{E} = 0 \qquad \qquad \vabla \cdot \vec{B} = 0
+\end{equation*}
+\begin{equation*}
+\quad \, \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0 \qquad \qquad \vabla \times \vec{B} - \epsilon \mu \prt{\vec{E}}{t} = 0
+\end{equation*}
+$ \epsilon \mu = \epsilon_r \mu_r \epsilon_0 \mu_0 = \frac{\epsilon_r \mu_r}{c^2} = \rmbox{ \frac{n^2}{c^2} = \frac{1}{v^2} } \qquad n = \sqrt{\epsilon_r \mu_r} $
+homogene Wellengleichungen:
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta \vec{E} - \frac{n^2}{c^2} \prt{^2 \vec{E}}{t^2} = 0} \qquad 
+\Rightarrow \quad \rmbox{\Delta \vec{B} - \frac{n^2}{c^2} \prt{^2 \vec{B}}{t^2} = 0}
+\end{equation*}
+für jede Komponente von $ \vec{E} $ und $ \vec{B} $ gilt:
+\begin{equation*}
+\Delta \Psi - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = 0
+\end{equation*}
+\lcom{Aus den Maxwell-Gleichungen ist aber zu sehen, dass $ \vec{E} $ und $ \vec{B} $-Felder \textbf{nicht} unabhängig voneinander sind.}
+}
+\subsection{Homogene Wellengleichung für skalare Funktion in einer Raumdimension}
+\begin{equation*}
+\Psi(x,t) \qquad \prt{^2 \Psi}{x^2} - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = 0
+\end{equation*}
+Funktionen der Form $ \Psi_{\pm}(x,t) = f(x \pm vt) $ erfüllen die Wellengleichung.\\
+\begin{equation*}
+\prt{^2}{t^2} f(x \pm vt) = f''(x \pm vt)
+\end{equation*}
+\begin{equation*}
+\prt{^2 f}{t^2} = \prt{}{t} f' (x \pm vt) \cdot (\pm v) = v^2 f'' (x \pm vt)
+\end{equation*}
+Wie sehen diese Lösungen nun aus?
+\begin{equation*}
+\Psi_-(x,t) = f(x - vt)
+\end{equation*}
+$ \Psi_-(x,0) = f(x) \ \leftarrow t = 0 $
+
+%T1
+
+$ t > 0: \quad \Psi_-(x,t) = f(x - vt) $\\
+$ \Psi_+(x,t) = f(x + vt) $\\[5pt]
+Wellengleichungen sind linear $ \Rightarrow $ Linearkombinationen von Lösungen sind wieder Lösungen.
+\begin{align*}
+\Psi(x,t) &= a_1 \Psi_1(x,t) + a_2 \Psi_2(x,t)\\
+&= a_1 f_1(x+vt) + a_2 f_2(x-vt)
+\end{align*}
+\lcom{Im allgemeinen muss es aber nicht sein, dass eine Welle bei Zeittransformationen ihre Form beibehält!}
+
+%T2
+
+Man kann zeigen, dass die allgemeine Lösung der Wellengleichung in einer Dimension geschrieben werden kann als:
+\begin{equation*}
+\Psi(x,t) = f(x + vt) + g(x - vt)
+\end{equation*}
+Besonders Wichtig:\\
+\textbf{Ebene Wellen (1D)}
+\begin{align*}
+\Psi_{\pm}(x,t) &= a \cos(kx \pm \omega t)
+&= a \cos(k (x \pm \frac{\omega}{k} t))
+\end{align*}
+$ a \in \mathbb{R} \quad \omega, k \in \mathbb{R} \quad \omega, k > 0 $\\
+$ \Psi_\pm $ löst die Wellengleichung:
+\begin{equation*}
+\prt{^2}{x^2} \Psi - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = 0
+\end{equation*}
+falls $ \frac{\omega}{k} = v $\\
+\textbf{Dispersionsrelation:}
+$ \omega = k v = \omega(k) $
+Wellenzahl $ k $, Wellenlänge $ \lambda = \frac{2 \pi}{k} $
+
+%T3
+
+\begin{align*}
+\Psi_{\pm} (x + n \lambda t) &= a \cos(k (x + n \lambda) \pm \omega t)\\
+&= a \cos( k x \pm \omega t + k n \lambda)\\
+&= a \cos(kx \pm \omega t) \\
+&= \Psi_{\pm} (x,t)
+\end{align*}
+Die Kreisfrequenz $ \omega $, Frequenz $ \nu = \frac{\omega}{2 \pi} $, Schwingungsdauer $ \tau = \frac{1}{\nu} = \frac{2 \pi}{\omega} $
+\begin{align*}
+\Psi_{\pm} (x,t + n \tau) &= a \cos( kx \pm \omega(t + n \tau)) = a \cos(kx \pm \omega t \pm n \ub{\omega \tau}_{= 2 \pi}) \quad n \in \mathbb{Z} \\
+&= a \cos(kx \pm \omega t) = \Psi_{\pm}(x,t)
+\end{align*}
+
+%T4
+
+Die Phasengeschwindigkeit $ v $:
+\begin{equation*}
+v = \frac{\omega}{k} = \frac{\lambda}{2 \pi} \omega = \lambda \nu = \frac{\lambda}{\tau}
+\end{equation*}
+Ebenso wird die Wellengleichung mit einem Sinus gelöst:
+\begin{equation*}
+\Psi_{\pm} (x,t) = a \sin(kx \pm \omega t)
+\end{equation*}
+Beide Lösungen sind also enthalten in:
+\begin{equation*}
+\Psi(x,t) = a e^{i(\ob{kx - \omega t}^{\varphi \tx{ Phase}})}
+\end{equation*}
+$ a \in \mathbb{C} \quad k \in \mathbb{R} $\\
+$ \omega = v |k| $\\
+Für Physikalische Felder gilt:
+\begin{equation*}
+\Psi(x,t) = \Re\left(a e^{i(kx - \omega t)}\right)
+\end{equation*}
+
+\subsection{Ebene Wellen in 3 Raumdimensionen}
+\begin{equation*}
+\Delta \Psi(\vec{r} ,t) - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = 0
+\end{equation*}
+eben Welle:
+\begin{equation*}
+\Psi(\vec{r} ,t) = a e^{i (\vec{k} \cdot \vec{r} - \omega t)}
+\end{equation*}
+Mit dem Wellenvektor:\\
+$ \vec{k} = (k_x, k_y, k_z)^\top $\\
+und der Frequenz\\
+$ \omega \ge 0 $
+\begin{align*}
+\Delta \Psi &= \left(\prt{^2}{x^2} + \prt{^2}{y^2} + \prt{^2}{z^2}\right) a e^{i(\vec{k} \cdot \vec{r} - \omega t)} \\
+&= i^2 (k_x^2 + k_y^2 + k_z^2) a e^{i(\vec{k} \cdot \vec{r} - \omega t)}\\
+&= - k^2 \Psi
+\end{align*}
+\begin{equation*}
+\prt{^2 \Psi}{t^2} = - \omega^2 \Psi
+\end{equation*}
+\begin{equation*}
+\Delta \Psi - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = \ob{\left(- k^2 + \frac{\omega^2}{v^2}\right)}^{=0} \Psi = 0
+\end{equation*}
+$ k^2 = \frac{\omega^2}{v^2} \qquad \omega = v |\vec{k}| $\\[5pt]
+\emph{Bemerkung:}
+\begin{enumerate}[i)]
+	\item ebene Welle:\\
+	$ \Psi(\vec{r,t}) $ konstant falls Phase konstant.\\
+	$ \varphi (\vec{r} ,t) = \vec{k} \cdot \vec{r} - \omega t = \const $\\
+	Für festes $ t $: $ \vec{k} \cdot \vec{r} = \const $
+	
+	%T5
+	
+	\item Phasengeschwindigkeit
+	\begin{equation*}
+	v = \frac{\omega}{|\vec{k}|}
+	\end{equation*}
+	\item Wellengleichung linear\\
+	$ \Rightarrow $ Linearkombinationen von Lösungen sind wieder Lösungen.
+	\begin{equation*}
+	\Psi(\vec{r},t) = a_1 e^{i(\vec{k}_1 \cdot \vec{r} - \omega_1 t)} + a_2 e^{i(\vec{k}_2 \cdot \vec{r} - \omega_2 t)}
+	\end{equation*}
+	\textbf{Allgemeine Lösung der Wellengleichung}
+	\begin{equation*}
+	\Psi(\vec{r},t) = \int \dd^3 k a(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega t)}
+	\end{equation*}
+	\begin{equation*}
+	\omega(\vec{k}) = v |\vec{k}|
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Ebene elektromagnetische Wellen}
+
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta \vec{E} - \frac{1}{v^2} \prt{^2 \vec{E}}{t^2} = 0} \qquad 
+\Rightarrow \quad \rmbox{\Delta \vec{B} - \frac{1}{v^2} \prt{^2 \vec{B}}{t^2} = 0}
+\end{equation*}
+Lösungen:
+\begin{equation*}
+\vec{E} = \vec{E}_0 e^{i(\vec{k} \cdot \vec{r} - \omega t)} \qquad \vec{B} = \vec{B}_0 e^{i(\tilde{\vec{k}} \cdot \vec{r} - \tilde{\omega} t)}
+\end{equation*}
+$ \omega = v |\vec{k}| \quad \tilde{\omega} = v |\tilde{\vec{k}}| \quad \vec{k}, \tilde{\vec{k}} \in \mathbb{R}^3 $
+\begin{enumerate}[i)]
+	\item $ \vabla \times \vec{E} = - \prt{\vec{B}}{t} $
+	\begin{equation*}
+	i (\vec{k} \times \vec{E}_0) e^{i(\vec{k} \cdot \vec{r} - \omega t)} = i \tilde{\omega} \vec{B}_0 e^{i(\tilde{\vec{k}} \cdot \vec{r} - \tilde\omega t)} \qquad \forall \vec{r},t
+	\end{equation*}
+	$ \Rightarrow \tilde{\vec{k}} = \vec{k} \quad \tilde{\omega} = \omega $\\
+	$ \Rightarrow \vec{k} \times \vec{E}_0 = \omega \vec{B}_0 \ \rightarrow \ \vec{B}_0 = \frac{1}{\omega} \vec{k} \times \vec{E}_0 $
+	$$\vec{B} \perp \vec{k}, \vec{E}$$
+	$$ \Rightarrow \vec{B} = \frac{1}{\omega} \vec{k} \times \vec{E} $$
+	\item $ \vabla \times \vec{E} = 0 $
+	\begin{align*}
+	0 &= \vabla \cdot \vec{E}_0 e^{i(\vec{k} \cdot \vec{r} - \omega t)}\\
+	&= i(\vec{k} \cdot \vec{E}_0) e^{i(\vec{k} \cdot \vec{r} - \omega t)}
+	\end{align*}
+	$ \Rightarrow \vec{k} \cdot \vec{E}_0 \ \rightarrow \ \vec{k} \cdot \vec{E}_0 = 0 $
+	$$ \vec{k} \perp \vec{E} $$
+	\item $ \vabla \cdot \vec{B} = 0 $\\
+	$ \Rightarrow \vec{k} \cdot \vec{B}_0 = 0 \Rightarrow \vec{k} \cdot \vec{B} = 0 $
+	\item $ \vabla \times \vec{B} = \frac{1}{v^2} \prt{\vec{E}}{t} $\\
+	$ \Rightarrow i \vec{k} \times \vec{B}_0 = - i \frac{1}{v^2} \omega \vec{E}_0 $\\
+	$ \Rightarrow \vec{k} \times \vec{B}_0 = - \frac{\omega}{v^2} \vec{E}_0 $\\
+	$ \Rightarrow \vec{E} = -\frac{v^2}{\omega} \vec{k} \times \vec{B} $
+\end{enumerate}
+$ \vec{E}, \vec{B}, \vec{k} $ orthogonal zueinander\\
+$ \Rightarrow $ transversale Welle
+
+%T6
+
+Beziehung zwischen der Amplitude von $ \vec{B}, \vec{E} $:
+\begin{equation*}
+|\vec{B}| = \frac{1}{\omega} |\vec{k} \times \vec{E}| = \frac{|\vec{k}|}{\omega} |\vec{E}| = \frac{1}{v} |\vec{E}|
+\end{equation*}
+o.B.d.A. $ \quad \vec{k} = k \vec{e}_z $
+\begin{align*}
+\vec{E} &= (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot r - \omega t)} \\
+\vec{B} &= \frac{1}{\omega} \vec{k} \times \vec{E} = \frac{k}{\omega} \vec{e}_z \times (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot r - \omega t)} \\
+&= \frac{1}{v} (- E_{0_y} \vec{e}_x + E_{0_x} \vec{e}_y) e^{i(k \cdot r - \omega t)} 
+\end{align*}
+i.A. $ E_{0_x}, E_{0_y} \in \mathbb{C} $
+\begin{equation*}
+\vec{E} = \Re\left(\vec{E}_0 e^{i(k \cdot r - \omega t)} \right)
+\end{equation*}
+\emph{Beispiel:} $ E_{0_y} = 0 \quad E_{0_x} \in \mathbb{R} $
+\begin{align}
+\vec{E} &= E_{0_x} \cos (kz - \omega t) \vec{e}_x \\
+\vec{B} &= \frac{E_{0_x}}{v} \cos(kz - \omega t) \vec{e}_y
+\end{align}
+
+%t7: (EM-Welle Tikz): (v in ausbreitungs richtung einzeichnen)
+\begin{center}
+	%t3:
+	\begin{tikzpicture}%[>=stealth]
+	% E
+	\draw[red,thick,looseness=5,fill=red!20!white,opacity=.8] (0,0) to[out=80,in=100] (1.5,0) to[out=-80,in=-100] (3,0);
+	\foreach \z in {.5,1}
+	\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,1.9);
+	\foreach \z in {2,2.5}
+	\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,-1.9);
+	% B
+	\draw[blue,thick,looseness=4.5,fill=blue!20!white,opacity=.8] (0,0) to[out=-125,in=-145] (1.5,0) to[out=35,in=55] (3,0) to[out=-125,in=-145] (4.5,0) to[out=35,in=55] (6,0);
+	\foreach \z in {.5,1,3.5,4}
+	\draw[thick,blue,->,>=stealth] (\z,0) -- ++(-136:1.7cm);
+	\foreach \z in {2,2.5,5,5.5}
+	\draw[thick,blue,->,>=stealth] (\z,0) -- ++(43:1.7cm);
+	% rest E
+	\draw[red,thick,looseness=5,fill=red!20!white,opacity=.8] (3,0) to[out=80,in=100] (4.5,0) to[out=-80,in=-100] (6,0);
+	\foreach \z in {3.5,4}
+	\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,1.9);
+	\foreach \z in {5,5.5}
+	\draw[thick,red,->,>=stealth] (\z,0) -- ++(0,-1.9);
+	% koordinatensystem
+	\draw[->] (0,0) -- (0,2) node[anchor=south east] {$ \vec{y} $};
+	\draw[->] (0,0) -- (-1.2,-1.2) node[anchor=north east] {$ \vec{x} $};
+	\draw[->] (0,0) -- (7,0) node[anchor=north west] {$ \vec{z} $};
+	\node (e) at (1.5,2) {\color{red} $ \vec{E} $ \color{black}};
+	\node (b) at (.5,-1.25) {\color{blue} $ \vec{B} $ \color{black}};
+	\end{tikzpicture}
+\end{center}
+
+\subsection{Polarisation ebener EM-Wellen}
+
+Charakterisierung der Schwingungsrichtung $ \vec{k} = k \vec{e}_z $
+\begin{equation*}
+\vec{E} = (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(kx - \omega t)}
+\end{equation*}
+\begin{equation*}
+E_{0_x} = |E_{0_x} e^{i \varphi} \qquad E_{0_y} = |E_{0_y} e^{i (\varphi + \delta)}
+\end{equation*}
+Physikalisches Feld:
+\begin{align*}
+\vec{E} &= \Re \left[ (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot r - \omega t)} \right]\\
+&= |E_{0_x}| \cos(kz - \omega t + \varphi) \vec{e}_x + |E_{0_y}| \cos(kz - \omega t + \varphi + \delta) \vec{e}_y
+\end{align*}
+\textbf{Fälle:}
+\begin{enumerate}[i)]
+	\item $ \delta = 0 $ oder $ \delta = \pm \pi $
+	\begin{equation*}
+	\Rightarrow \quad \vec{E} = \ub{(|E_{0_x} \vec{e}_x \pm |E_{0_y} \vec{e}_y)}_{\mathclap{\substack{\tx{orts- und} \\ \tx{Zeitunabh.}}}} \cos(kz - \omega t)
+	\end{equation*}
+	$ \rightarrow \vec{E} $ schwingt in fester Richtung! Die \textbf{Polarisationsrichtung}
+	
+	%T8
+	
+	$ \rightarrow $ \textbf{linear Polarisiert}
+	\item $ \delta = \pm \frac{\pi}{2} \quad |E_{0_x}| = |E_{0_y}| = E $
+	\textbf{Zirkulär Polarisiert}
+	\begin{align*}
+	\vec{E} = E\ub{(\vec{e}_x \cos(kz - \omega t + \varphi)) \mp \vec{e}_y \sin(kz - \omega t + \varphi))}_{ = \vec{r} (t)}
+	\end{align*}
+	\lcom{$ |\vec{r}| = 1 $ und $ \vec{r} $ läuft mit $ \omega $ um}
+	
+	%T9
+	
+	\item $ \delta , |E_{0_x}|, |E_{0_y}| $ beliebig:
+	\textbf{elliptisch Polarisiert}
+	
+	%T10
+	
+\end{enumerate}
