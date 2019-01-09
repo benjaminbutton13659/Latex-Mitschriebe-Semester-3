@@ -924,10 +924,38 @@ Wie sehen diese Lösungen nun aus?
 \begin{equation*}
 \Psi_-(x,t) = f(x - vt)
 \end{equation*}
-$ \Psi_-(x,0) = f(x) \ \leftarrow t = 0 $
-
-%T1
-
+$ \Psi_-(x,0) = f(x) \ \leftarrow t = 0 $\\
+\begin{center}
+	%t1:
+	%\begin{tikzpicture}
+	%\draw [domain=-4:4, samples=500,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25});
+	%\end{tikzpicture}
+	\begin{tikzpicture}
+		%rechts
+		%\draw[red,line width=1] (4,0) .. controls (3.2,0.2) and (2.8,1.8) .. (2,2);
+		%\draw[red,line width=1] (0,0) .. controls (0.8,0.2) and (1.2,1.8) .. (2,2);
+		\draw[domain=-5:2, samples=500, blue, thick] plot (\x, {2*exp(-(\x + 2)^(2)*0.8});
+		%mitte
+		%\draw[line width=1] (-2,0) .. controls (-1.2,0.2) and (-0.8,1.8) .. (0,2);
+		%\draw[line width=1] (2,0) .. controls (1.2,0.2) and (0.8,1.8) .. (0,2);
+		\draw[domain=-5:5, samples=500, thick] plot (\x, {2*exp(-(\x + 0)^(2)*0.8});
+		%links
+		%\draw[blue,line width=1] (-4,0) .. controls (-3.2,0.2) and (-2.8,1.8) .. (-2,2);
+		%\draw[blue,line width=1] (0,0) .. controls (-0.8,0.2) and (-1.2,1.8) .. (-2,2);
+		\draw[domain=-2:5, samples=500, red, thick] plot (\x, {2*exp(-(\x - 2)^(2)*0.8});
+		%achsen
+		\draw[thick, <-] (5.5,0) node[anchor=north west] {$x$}-- (-5.5,0);
+		\draw[thick, ->] (0,0) node[below] {$0$} -- (0,3); % node[anchor=south east] {$y$};
+		%
+		\draw[line width=1,->] (0.2,2) -- (1,2);
+		\draw[dotted] (0.5,2) node[above] {$v$};
+		\draw[thick, red] (2,0.1) -- (2,-0.1) node[below] {$vt$};
+		\draw[thick, blue] (-2,0.1) -- (-2,-0.1) node[below] {$-vt$};
+		\draw[dotted] (2,2) node[red,above] {$\psi (x,t)$};
+		\draw[dotted] (-2,2) node[blue,above] {$\psi (x,-t)$};
+		\draw (-.7,3.5) node[above] {$\psi (x,0)$} -- (-0.15,2.1);
+	\end{tikzpicture}
+\end{center}
 $ t > 0: \quad \Psi_-(x,t) = f(x - vt) $\\
 $ \Psi_+(x,t) = f(x + vt) $\\[5pt]
 Wellengleichungen sind linear $ \Rightarrow $ Linearkombinationen von Lösungen sind wieder Lösungen.
@@ -935,10 +963,33 @@ Wellengleichungen sind linear $ \Rightarrow $ Linearkombinationen von Lösungen 
 \Psi(x,t) &= a_1 \Psi_1(x,t) + a_2 \Psi_2(x,t)\\
 &= a_1 f_1(x+vt) + a_2 f_2(x-vt)
 \end{align*}
-\lcom{Im allgemeinen muss es aber nicht sein, dass eine Welle bei Zeittransformationen ihre Form beibehält!}
-
-%T2
-
+\lcom{Im allgemeinen muss es aber nicht sein, dass eine Welle bei Zeittransformationen ihre Form beibehält!}\\
+\begin{center}
+	%t2:
+	\begin{tikzpicture}
+		%\draw[line width=1,blue] (-4.5,0) .. controls (-3.3,0.1) and (-3.8,1.8) .. (-3,2);
+		%\draw[line width=1,blue] (-1.5,0) .. controls (-2.7,0.1) and (-2.2,1.8) .. (-3,2);
+		\draw[domain=-5:-1, samples=500, blue, thick] plot (\x, {2*exp(-(\x + 3)^(2)*2});
+		%
+		%\draw[line width=1] (-1.5,0) .. controls (-0.3,0.1) and (-0.8,1.8) .. (0,2);
+		%\draw[line width=1] (1.5,0) .. controls (0.3,0.1) and (0.8,1.8) .. (0,2);
+		\draw[domain=-2:2, samples=500, thick] plot (\x, {2*exp(-(\x + 0)^(2)*2});
+		%
+		%\draw[line width=1] (-3.5,0) .. controls (-1.2,0) and (-1.1,0.9) .. (0,1);
+		%\draw[line width=1] (3.5,0) .. controls (1.2,0) and (1.1,0.9) .. (0,1);
+		\draw[domain=-4:4, samples=500, thick] plot (\x, {1*exp(-(\x + 0)^(2)*.4});
+		%
+		%\draw[line width=1,blue] (-1.5,0) .. controls (0.8,0) and (0.9,0.9) .. (2,1);
+		%\draw[line width=1,blue] (5.5,0) .. controls (3.2,0) and (3.1,0.9) .. (2,1);
+		\draw[domain=-3:5, samples=500, blue, thick] plot (\x, {1*exp(-(\x - 2)^(2)*.4});
+		%achsen
+		\draw[thick, <-] (5.5,0) node[anchor=north west] {$x$}-- (-5.5,0);
+		\draw[thick, ->] (0,0) node[below] {$0$} -- (0,3); % node[anchor=south east] {$y$};
+		%
+		\draw (2,.3) -- (3,1.2) node[anchor=south west] {$f_2$};
+		\draw (0.3,2) -- (0.8,2.4) node[right] {$f_1$};
+	\end{tikzpicture}
+\end{center}
 Man kann zeigen, dass die allgemeine Lösung der Wellengleichung in einer Dimension geschrieben werden kann als:
 \begin{equation*}
 \Psi(x,t) = f(x + vt) + g(x - vt)
@@ -946,7 +997,7 @@ Man kann zeigen, dass die allgemeine Lösung der Wellengleichung in einer Dimens
 Besonders Wichtig:\\
 \textbf{Ebene Wellen (1D)}
 \begin{align*}
-\Psi_{\pm}(x,t) &= a \cos(kx \pm \omega t)
+\Psi_{\pm}(x,t) &= a \cos(kx \pm \omega t)\\
 &= a \cos(k (x \pm \frac{\omega}{k} t))
 \end{align*}
 $ a \in \mathbb{R} \quad \omega, k \in \mathbb{R} \quad \omega, k > 0 $\\
@@ -955,12 +1006,21 @@ $ \Psi_\pm $ löst die Wellengleichung:
 \prt{^2}{x^2} \Psi - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = 0
 \end{equation*}
 falls $ \frac{\omega}{k} = v $\\
-\textbf{Dispersionsrelation:}
-$ \omega = k v = \omega(k) $
-Wellenzahl $ k $, Wellenlänge $ \lambda = \frac{2 \pi}{k} $
-
-%T3
-
+\begin{minipage}{.5\linewidth}
+	\textbf{Dispersionsrelation:}\\
+	$ \omega = k v = \omega(k) $\\
+	Wellenzahl $ k $, Wellenlänge $ \lambda = \frac{2 \pi}{k} $
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t3:
+	\begin{tikzpicture}[scale=.7]
+		\draw[<-] (4.5,0) node[anchor=north west] {$x$}-- (-4.5,0);
+		\draw[->] (-pi/2,-2) -- (-pi/2,2); % node[anchor=south east] {$y$};
+		\draw[thick,domain=-4.3:4.3, samples=500] plot (\x, {sin(2*\x r)});
+		\draw[dotted] (-2,-0.3) node[left] {$0$};
+		\draw[thick] (pi/2,0.15) -- (pi/2,-0.15) node[below] {$\lambda$};
+	\end{tikzpicture}
+\end{minipage}%
 \begin{align*}
 \Psi_{\pm} (x + n \lambda t) &= a \cos(k (x + n \lambda) \pm \omega t)\\
 &= a \cos( k x \pm \omega t + k n \lambda)\\
@@ -972,9 +1032,23 @@ Die Kreisfrequenz $ \omega $, Frequenz $ \nu = \frac{\omega}{2 \pi} $, Schwingun
 \Psi_{\pm} (x,t + n \tau) &= a \cos( kx \pm \omega(t + n \tau)) = a \cos(kx \pm \omega t \pm n \ub{\omega \tau}_{= 2 \pi}) \quad n \in \mathbb{Z} \\
 &= a \cos(kx \pm \omega t) = \Psi_{\pm}(x,t)
 \end{align*}
-
-%T4
-
+\begin{center}
+	%t4:
+	\begin{tikzpicture}
+		\draw[<-] (4.5,0) node[right] {$x$}-- (-4.5,0);
+		\draw[->] (-pi/4,-2) -- (-pi/4,2); % node[right] {$y$};
+		\draw[red,thick,domain=-4.5:4.3, samples=500] plot (\x, {sin(2*\x r)});
+		\draw[dotted] (-.8,-0.3) node[left] {$0$};
+		\draw[thick] (pi/2,0.15) -- (pi/2,-0.15) node[below] {$\lambda$};
+		\draw[thick,domain=-4.5:4.3, samples=500] plot (\x, {-sin(2*\x r)});
+		\draw[dotted] (-0.4,1) node[above] {$v$};
+		\draw[dotted] (-2,1.5) node[above] {$\psi(x,0)$};
+		\draw (-1.2,1) -- (-2,1.5);
+		\draw[line width=1,->] (-0.7,1) -- (0,1);
+		\draw[dotted] (2,1.5) node[above] {$\psi(x,t=\frac{\pi}{2})$};
+		\draw (1,1) -- (1.8,1.5);
+	\end{tikzpicture}
+\end{center}
 Die Phasengeschwindigkeit $ v $:
 \begin{equation*}
 v = \frac{\omega}{k} = \frac{\lambda}{2 \pi} \omega = \lambda \nu = \frac{\lambda}{\tau}
@@ -1018,32 +1092,48 @@ $ \omega \ge 0 $
 \Delta \Psi - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = \ob{\left(- k^2 + \frac{\omega^2}{v^2}\right)}^{=0} \Psi = 0
 \end{equation*}
 $ k^2 = \frac{\omega^2}{v^2} \qquad \omega = v |\vec{k}| $\\[5pt]
-\emph{Bemerkung:}
-\begin{enumerate}[i)]
-	\item ebene Welle:\\
-	$ \Psi(\vec{r,t}) $ konstant falls Phase konstant.\\
-	$ \varphi (\vec{r} ,t) = \vec{k} \cdot \vec{r} - \omega t = \const $\\
-	Für festes $ t $: $ \vec{k} \cdot \vec{r} = \const $
-	
-	%T5
-	
-	\item Phasengeschwindigkeit
-	\begin{equation*}
-	v = \frac{\omega}{|\vec{k}|}
-	\end{equation*}
-	\item Wellengleichung linear\\
+\emph{Bemerkung:}\\
+\begin{minipage}{.5\linewidth}
+	\begin{enumerate}[i)]
+		\item ebene Welle:\\
+		$ \Psi(\vec{r,t}) $ konstant falls Phase konstant.\\
+		$ \varphi (\vec{r} ,t) = \vec{k} \cdot \vec{r} - \omega t = \const $\\
+		Für festes $ t $: $ \vec{k} \cdot \vec{r} = \const $
+		\item Phasengeschwindigkeit
+		\begin{equation*}
+		v = \frac{\omega}{|\vec{k}|}
+		\end{equation*}
+	\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t5:
+	\begin{tikzpicture}[scale=.8]
+		\draw[->] (0,-1) -- (0,3) node[anchor=south east] {$ y $};
+		\draw[->] (-1,0) -- (4.5,0) node[anchor=north west] {$ x $};
+		\coordinate (o) at (.5,-1);
+		\draw[thick, ->] (o) -- ++(45:4) node[anchor=south west] {$ \vec{x} \  \substack{\tx{Ausbreitungs-} \\ \tx{Richtung}} $ };
+		\draw ($ (o) + (135:3) $) -- ++(-45:6);
+		\draw ($ (o) + (135:3) + (45:1.5) $) -- ++(-45:6);
+		\draw ($ (o) + (135:3) + (45:3) $) -- ++(-45:6);
+		\draw[decorate, decoration={brace,amplitude=10pt,raise=18pt}, xshift=2pt, yshift=-2pt]  ($ (o) + (135:2.5) $) -- node[anchor=south east, xshift=-15pt, yshift=15pt] {$\lambda = \frac{2 \pi}{k}$}  ($ (o) + (135:2.5) + (45:1.5) $);
+		\draw[thick, <->] ($ (o) + (135:2.5) $) -- ($ (o) + (135:2.5) + (45:1.5) $);
+	\end{tikzpicture}
+\end{minipage}%
+\begin{enumerate}
+	\item[iii)] Wellengleichung linear\\
 	$ \Rightarrow $ Linearkombinationen von Lösungen sind wieder Lösungen.
 	\begin{equation*}
 	\Psi(\vec{r},t) = a_1 e^{i(\vec{k}_1 \cdot \vec{r} - \omega_1 t)} + a_2 e^{i(\vec{k}_2 \cdot \vec{r} - \omega_2 t)}
 	\end{equation*}
-	\textbf{Allgemeine Lösung der Wellengleichung}
-	\begin{equation*}
-	\Psi(\vec{r},t) = \int \dd^3 k a(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega t)}
-	\end{equation*}
-	\begin{equation*}
-	\omega(\vec{k}) = v |\vec{k}|
-	\end{equation*}
 \end{enumerate}
+\subsubsection{Allgemeine Lösung der Wellengleichung}
+\begin{equation*}
+\Psi(\vec{r},t) = \int \dd^3 k a(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega t)}
+\end{equation*}
+\begin{equation*}
+\omega(\vec{k}) = v |\vec{k}|
+\end{equation*}
 
 \subsection{Ebene elektromagnetische Wellen}
 
@@ -1079,15 +1169,24 @@ $ \omega = v |\vec{k}| \quad \tilde{\omega} = v |\tilde{\vec{k}}| \quad \vec{k},
 	$ \Rightarrow \vec{k} \times \vec{B}_0 = - \frac{\omega}{v^2} \vec{E}_0 $\\
 	$ \Rightarrow \vec{E} = -\frac{v^2}{\omega} \vec{k} \times \vec{B} $
 \end{enumerate}
-$ \vec{E}, \vec{B}, \vec{k} $ orthogonal zueinander\\
-$ \Rightarrow $ transversale Welle
-
-%T6
-
-Beziehung zwischen der Amplitude von $ \vec{B}, \vec{E} $:
-\begin{equation*}
-|\vec{B}| = \frac{1}{\omega} |\vec{k} \times \vec{E}| = \frac{|\vec{k}|}{\omega} |\vec{E}| = \frac{1}{v} |\vec{E}|
-\end{equation*}
+\begin{minipage}{.5\linewidth}
+	$ \vec{E}, \vec{B}, \vec{k} $ orthogonal zueinander\\
+	$ \Rightarrow $ transversale Welle\\
+	Beziehung zwischen der Amplitude von $ \vec{B}, \vec{E} $:
+	\begin{equation*}
+	|\vec{B}| = \frac{1}{\omega} |\vec{k} \times \vec{E}| = \frac{|\vec{k}|}{\omega} |\vec{E}| = \frac{1}{v} |\vec{E}|
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t6:
+	\begin{tikzpicture}
+		\draw[thick,->] (0,0) -- (0,1.5) node[anchor=south east] {$ \vec{E} $};
+		\draw[thick,->] (0,0) -- (1.5,0) node[anchor=north west] {$ \vec{S} $};
+		\draw[thick,->] (0,0) -- (-.75,-.75) node[anchor=north east] {$ \vec{B} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 o.B.d.A. $ \quad \vec{k} = k \vec{e}_z $
 \begin{align*}
 \vec{E} &= (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot r - \omega t)} \\
@@ -1149,29 +1248,60 @@ Physikalisches Feld:
 \vec{E} &= \Re \left[ (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot r - \omega t)} \right]\\
 &= |E_{0_x}| \cos(kz - \omega t + \varphi) \vec{e}_x + |E_{0_y}| \cos(kz - \omega t + \varphi + \delta) \vec{e}_y
 \end{align*}
-\textbf{Fälle:}
+\textbf{Fälle:}\\
 \begin{enumerate}[i)]
-	\item $ \delta = 0 $ oder $ \delta = \pm \pi $
+	\item
+	$ \delta = 0 $ oder $ \delta = \pm \pi $
 	\begin{equation*}
 	\Rightarrow \quad \vec{E} = \ub{(|E_{0_x} \vec{e}_x \pm |E_{0_y} \vec{e}_y)}_{\mathclap{\substack{\tx{orts- und} \\ \tx{Zeitunabh.}}}} \cos(kz - \omega t)
 	\end{equation*}
 	$ \rightarrow \vec{E} $ schwingt in fester Richtung! Die \textbf{Polarisationsrichtung}
-	
-	%T8
-	
 	$ \rightarrow $ \textbf{linear Polarisiert}
-	\item $ \delta = \pm \frac{\pi}{2} \quad |E_{0_x}| = |E_{0_y}| = E $
+	\item
+	$ \delta = \pm \frac{\pi}{2} \quad |E_{0_x}| = |E_{0_y}| = E $
 	\textbf{Zirkulär Polarisiert}
 	\begin{align*}
 	\vec{E} = E\ub{(\vec{e}_x \cos(kz - \omega t + \varphi)) \mp \vec{e}_y \sin(kz - \omega t + \varphi))}_{ = \vec{r} (t)}
 	\end{align*}
 	\lcom{$ |\vec{r}| = 1 $ und $ \vec{r} $ läuft mit $ \omega $ um}
-	
-	%T9
-	
-	\item $ \delta , |E_{0_x}|, |E_{0_y}| $ beliebig:
+	\item
+	$ \delta , |E_{0_x}|, |E_{0_y}| $ beliebig:
 	\textbf{elliptisch Polarisiert}
-	
-	%T10
-	
 \end{enumerate}
+\begin{center}
+	%t8:
+	\begin{tikzpicture}
+		\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ y $};
+		\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ x $};
+		\draw[thick,->] (0,0) -- (1.2,1.2) node[anchor=south west] {$ \vec{E} $};
+		\draw[->] (0,0) -- (-1.2,-1.2);
+		\draw[thick] ($ (1.2,0) + (0,.15) $) -- ++(0,-.3) node[below] {$ |E_{0_x}| $};
+		\draw[thick] ($ (0,1.2) + (.15,0) $) -- ++(-.3,0) node[left] {$ |E_{0_y}| $};
+		%
+		\draw[white] (2,-2) -- ++(0,-.225);
+	\end{tikzpicture}%
+	%t9:
+	\begin{tikzpicture}[scale=.8]
+		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ y $};
+		\draw[->] (-2.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
+		\draw[thick,->] (0,0) -- ({cos(45) * 2}, {sin(45) * 2}) node[anchor=south west] {$ \vec{r}(t) $};
+		\draw (0,0) circle (2cm);
+		\centerarc[thick, <->](0,0)(120:-30:1.2);
+		\node (a) at (-30:1.4) {};
+		\draw[<-] (a) to[out=0,in=90] ++(1,-.7) node[anchor=north west] {$ - \frac{\pi}{2} $};
+		\node at (-3,2) {rechtszirkulär};
+		\node (b) at (120:1.4) {};
+		\draw[<-] (b) to[out=90,in=0] ++(-.7,1) node[anchor=south east] {$ + \frac{\pi}{2} $};
+		\node at (3,-2.5) {linkszirkulär};
+	\end{tikzpicture}%
+	%t10:
+	\begin{tikzpicture}[scale=.8]
+		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ y $};
+		\draw[->] (-2.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
+		\draw[rotate=25] (0,0) ellipse (2cm and 1cm);
+		\draw (-1.86,-1.25) rectangle (1.86,1.25);
+		\draw[thick, ->] (0,0) -- node[above] {$ \vec{E} $} (1.7,1); %({cos(25) * 2},{sin(25) * 2});
+		%
+		\draw[white] (2,-2.5) -- ++(0,-0.315);
+	\end{tikzpicture}
+\end{center}

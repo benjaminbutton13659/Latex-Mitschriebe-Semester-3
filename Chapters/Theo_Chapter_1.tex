@@ -13,7 +13,7 @@ Wir beschäftigen uns in diesem Kapitel mit \textbf{ruhenden Ladungen} und \text
 \end{wrapfigure}
 \FloatBarrier
 $\rightarrow$ Feld $\vec{E}(\vec{r})$, el. Potential $\Phi(\vec{r})$
-\section{Elektrische und Coulombsches Gesetz}
+\section{Elektrische Ladung und Coulomb'sches Gesetz}
 Ladung: Beobachtungstatsachen:
 \begin{enumerate}[i)]
 	\item Zwei Arten ,,+``, ,,-``
@@ -26,7 +26,7 @@ Ladung: Beobachtungstatsachen:
 \begin{minipage}{.6\linewidth}
 	Kontinuierliche Ladungsverteilung Ladungsdichte\\
 	$\rho(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Volumen}} = \frac{\Delta q}{\Delta V}$
-	Gesamtladung in $V$: $$Q = \int_V d^3 r\, \rho(\vec{r})$$
+	Gesamtladung in $V$: $$Q = \int_V \dd^3 r\, \rho(\vec{r})$$
 \end{minipage}%
 \begin{minipage}{.4\linewidth}
 	\centering
@@ -82,7 +82,7 @@ $$\vec{F}_1 = k \summ{j = 2}{N} \frac{q_1 q_j}{r_{1j}^2}\vec{e}_{r_{1j}}$$
 
 Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 \begin{enumerate}[i)]
-	\item Gauß-System (cgs): $k \equiv 1$, dyn = $\frac{\textrm{g}\cdot \textrm{cm}}{\textrm{s}^2} = 10^{-5}\,\textrm{N}$
+	\item Gauß-System (cgs): $k \equiv 1$, dyn = $\frac{\textrm{g}\cdot \textrm{cm}}{\textrm{s}^2} = 10^{-5}\,\textrm{N}$\\
 	1 dyn = $\frac{(1\textrm{ESE})^2}{\textrm{cm}^2} \quad 1\textrm{ESE} = \frac{\sqrt{\textrm{g}\cdot \textrm{cm}^3}}{\textrm{s}}$
 	\item SI (MKSA-System): Definition von A = Amp\`ere 
 	%t4:
@@ -140,7 +140,7 @@ Die Konstante ist abhängig von dem verwendeten Maßsystemen.
 \end{minipage}%
 \\
 Kraft von $q_1,\ q_2$ auf $q$
-$$\vec{F} = \frac{1}{4\pi \epsilon_0} q \summ{j = 1}{N} q_n \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3} = q \vec{E}(\vec{r})$$
+$$\vec{F} = \frac{1}{4\pi \epsilon_0} q \summ{j = 1}{N} q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3} = q \vec{E}(\vec{r})$$
 Somit ist das elektrisches Feld:
 $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3}}$$
 \textbf{\emph{Bemerkung}}
@@ -161,18 +161,18 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 
 \subsection[Feld einer kontinuierlichen Ladungsverteilung]{Feld einer kontinuierlichen Ladungsverteilung $\rho(\vec{r})$}
 
-\begin{minipage}{.5\linewidth}
-	$$\vec{E}(\vec{r}) =\frac{1}{4 \pi \epsilon_0} \ub{\int\limits_V}_{\mathclap{\substack{\tx{schließt alle} \\ \tx{Ladungen ein}}}} d^3 r'\, \rho(\vec{r}')\frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3}$$
-	$\rho(\vec{r}_j) = \frac{\Delta q_j}{\Delta V_j}$
-\end{minipage}
-\begin{minipage}{.4\linewidth}
-	\centering
+\begin{minipage}{.7\linewidth}
+	$$\rmbox{\vec{E}(\vec{r}) =\frac{1}{4 \pi \epsilon_0} \int\limits_V \dd^3 r'\, \rho(\vec{r}')\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}}$$
+	$ \ub{\int\limits_V \dd ^3 r'}_{\mathclap{\substack{\tx{schließt alle} \\ \tx{Ladungen ein}}}} \qquad \rho(\vec{r}_j) = \frac{\Delta q_j}{\Delta V_j}$
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	\flushright
 	%t6:
 	\begin{tikzpicture}
 	\node at (1.5,1.5) (a) {};
 	\draw  plot [smooth cycle, tension=1] coordinates { (0,0) (.5,1) (.5,2.5) (2,2.2) (3,2) (2.5,.5) (1.5,-.2) };
 	\pic at (a) {annotated cuboid={width=3,height=3,depth=3}};
-	\draw[] (a) node[right,xshift=10pt] {$ \Delta V $};
+	\draw[] (a) node[right,xshift=10pt] {$ \Delta V_j $};
 	\draw[] (a) node[right,xshift=-10pt,yshift=10pt] {$ \Delta q_j $};
 	\draw[->] (3,.5) to[out=180,in=-40] (2.2,.8);
 	\node[right] at (3,.5) (b) {$ V $};
@@ -186,7 +186,7 @@ $$\rmbox{\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \summ{j = 1}{N} q_j \frac
 \begin{align*}
 \vec{E}(\vec{r}) &= k\sum_j\Delta q_j\frac{\vec{r}-\vec{r}_j}{|\vec{r}-\vec{r}_j|^3}\\
 &= k\sum_j\Delta V_j\rho(\vec{r}_j)\frac{\vec{r}-\vec{r}_j}{|\vec{r}-\vec  {r}_j|^3}\\
-\scriptstyle{\tx{mit } \Delta V_j \to 0}\ \ &\rightarrow k\int_V d^3r'\rho(\vec{r}')\frac{\vec{r}-\vec{r}'}{|\vec{r}  -\vec{r}'|^3}
+\scriptstyle{\tx{mit } \Delta V_j \to 0}\ \ &= k\int_V \dd^3r'\rho(\vec{r}')\frac{\vec{r}-\vec{r}'}{|\vec{r}  -\vec{r}'|^3}
 \end{align*}
 
 % Vorlesung 2 %18.10.18
@@ -227,7 +227,7 @@ $$\rho(\vec{r}) = \lim_{\epsilon \rightarrow 0}\ \rho_\epsilon (\vec{r}) = \left
 \infty & \vec{r} = 0\\
 0 & \vec{r} \neq 0
 \end{array}\right.$$
-Divergenz muss so sein, dass $$ \int\limits_{\substack{V \\ \vec{r}_0 \in V}} d^3r\ \rho(\vec{r}) = q$$
+Divergenz muss so sein, dass $$ \int\limits_{\substack{V \\ \vec{r}_0 \in V}} \dd^3r\ \rho(\vec{r}) = q$$
 
 \paragraph{Definition Delta-Funktion (Diracsche Deltafunktion)}
 
@@ -238,39 +238,36 @@ Divergenz muss so sein, dass $$ \int\limits_{\substack{V \\ \vec{r}_0 \in V}} d^
 		\infty & \vec{r} = \vec{r}_0
 	\end{array}\right.$$
 	\item 
-	$$\int_V d^3 r\ f(\vec{r}) \delta(\vec{r} - \vec{r}_0) = \left\{ \begin{array}{cc}
+	$$\int_V \dd^3 r\ f(\vec{r}) \delta(\vec{r} - \vec{r}_0) = \left\{ \begin{array}{cc}
 		f(\vec{r}_0) & \vec{r}_0 \in V\\
 		0 & \vec{r}_0 \notin V
 	\end{array}\right.$$ 
 \end{enumerate}
 
 \paragraph{Mathematik}
-Distribution - Funktional
-
+Distribution - Funktional\\[5pt]
 Funktional: Abb. Funktionen $\mapsto \mathbb R, \mathbb C$
 $$\delta_{\vec{r}_0}: f \mapsto f(\vec{r}_0)$$
 
 \paragraph{Physik}
 
-$$\int d^3 r\ f(\vec{r}) \delta (\vec{r}-\vec{r}_0) = f(\vec{r})$$
+$$\int \dd^3 r\ f(\vec{r}) \delta (\vec{r}-\vec{r}_0) = f(\vec{r})$$
 $\delta$-Fkt. als Grenzwert einer Folge von Funktionen im Integral
-$$\int d^3 r\ f(\vec{r}) \delta (\vec{r} - \vec{r}_0) = \lim_{\epsilon \to 0} \quad \int d^3\ f(\vec{r} g_\epsilon(\vec{r}-\vec{r}_0) $$
+$$\int \dd^3 r\ f(\vec{r}) \delta (\vec{r} - \vec{r}_0) = \lim_{\epsilon \to 0} \quad \int \dd^3 r\ f(\vec{r}) g_\epsilon(\vec{r}-\vec{r}_0) $$
 mit
 $$\lim_{\epsilon \to 0} g_\epsilon (\vec{r}-\vec{r}_0) =  \left\{ \begin{array}{cc}
 0 & \vec{r} \neq \vec{r}_0 \\
 \infty & \vec{r} = \vec{r}_0
 \end{array}\right.$$
-$$\int_V d^3 r\ g_\epsilon (\vec{r}-\vec{r}_0) = 1$$
-
-Beispiel: $g_\epsilon (\vec{r}-\vec{r}_0) = \frac{\Theta(\epsilon - |\vec{r}|)}{\frac{4}{3}\pi \epsilon^3}$
-
+$$\int_V \dd^3 r\ g_\epsilon (\vec{r}-\vec{r}_0) = 1$$
+\emph{Beispiel:} $g_\epsilon (\vec{r}-\vec{r}_0) = \frac{\Theta(\epsilon - |\vec{r}|)}{\frac{4}{3}\pi \epsilon^3}$\\
 Mehrere Punktladungen $q_j$ in $\vec{r}_j$
 $$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
 
 \begin{align*}
- 	\Rightarrow \vec{E}(\vec{r}) &= \kq \int_V d^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
-	&= \kq \int_V d^3 r'\ \sum_j q_j \delta(\vec{r} - \vec{r}_j) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
-	&= \kq \sum_j q_j \int_V d^3 r'\ \delta(\vec{r} - \vec{r}_j) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
+ 	\Rightarrow \vec{E}(\vec{r}) &= \kq \int_V \dd^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
+	&= \kq \int_V \dd^3 r'\ \sum_j q_j \delta(\vec{r} - \vec{r}_j) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
+	&= \kq \sum_j q_j \int_V \dd^3 r'\ \delta(\vec{r} - \vec{r}_j) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
 	&= \kq \sum_j q_j \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j|^3} \qquad \checkmark\\
 \end{align*}
 
@@ -296,7 +293,7 @@ $$\rho(\vec{r}) = \sum_j q_j \delta(\vec{r}-\vec{r}_j)$$
 \end{minipage}%
 \\
 erzeugtes elektrisches Feld:
-$$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelement}}}\ \sigma (\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+$$\vec{E}(\vec{r}) = \kq \int\limits_A \underbrace{\dd f'}_{\mathclap{\substack{\textrm{Flächen-} \\ \tx{element}}}}\ \sigma (\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
 \begin{minipage}{.65\linewidth}
 	\bei Elektrisches Feld einer homogenen Flächenladung
 \end{minipage}%
@@ -316,17 +313,17 @@ $$\vec{E}(\vec{r}) = \kq \int_A \underbrace{df'}_{\mathclap{\textrm{Flächenelem
 		\draw (.6,0) -- ++(-.9,-.9);
 	\end{tikzpicture}
 \end{minipage}%
-$$\vec{E}(\vec{r}) = \kq \intt{-\infty}{+\infty}dx'\intt{-\infty}{+\infty}dy'\ \sigma \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \vec{r}' = (x', y', 0)$$
+$$\vec{E}(\vec{r}) = \kq \intt{-\infty}{+\infty}\dd x'\intt{-\infty}{+\infty}\dd y'\ \sigma \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \vec{r}' = (x', y', 0)$$
 Symmetrie: $\vec{E}$ unabhängig von $x,y \qquad \vec{r} = (0,0,z)$
 $$\vec{r} - \vec{r}' = (-x',-y',z),\ |\vec{r} - \vec{r}'|^3 = (x'^2+y'^2+z^2)^{\nicefrac{3}{2}}$$
-$$E_x \sim \sigma \intt{-\infty}{+\infty}dx'\intt{-\infty}{+\infty}dy'\ \frac{(-x')}{(x'^2 + y'^2 + z^2)^{\nicefrac{3}{2}}} = 0 = E_y$$
+$$E_x \sim \sigma \intt{-\infty}{+\infty}\dd x'\intt{-\infty}{+\infty}\dd y'\ \frac{(-x')}{(x'^2 + y'^2 + z^2)^{\nicefrac{3}{2}}} = 0 = E_y$$
 
 $\vec{E} = (0,0,E_z)$
 
 \begin{align*}
- 	E_z &= \kq \sigma_z \intt{-\infty}{+\infty}dx'\underbrace{\intt{-\infty}{+\infty}dy'\ \frac{(x')}{(x'^2 + y'^2 + z'^2)^{\nicefrac{3}{2}}}}\\
+ 	E_z &= \kq \sigma_z \intt{-\infty}{+\infty}\dd x'\underbrace{\intt{-\infty}{+\infty}\dd y'\ \frac{(x')}{(x'^2 + y'^2 + z'^2)^{\nicefrac{3}{2}}}}\\
  	& \qquad \frac{1}{x'^2 +z^2}\left.\frac{y'}{(x'^2 + y'^2 + z^2)^{\nicefrac{3}{2}}} \right\rvert_{-\infty}^{+\infty} = \frac{1}{x'^2 +z^2}\left.\frac{\textrm{sgn}(y')}{\sqrt{1 + \frac{x'^2 + z^2}{y'^2}}} \right\rvert_{-\infty}^{+\infty} = \frac{2}{x'^2 +z^2}\\
- 	&= \frac{1}{2 \pi \epsilon_0} \sigma_z \underbrace{\intt{-\infty}{+\infty} dx'\ \frac{1}{x'^2 + z^2}}_{\left. \frac{1}{z} \arctan \left(\frac{x'}{2}\right)\right\rvert_{-\infty}^{+\infty} = \frac{1}{z} \textrm{sgn}(z)\pi}\\
+ 	&= \frac{1}{2 \pi \epsilon_0} \sigma_z \underbrace{\intt{-\infty}{+\infty} \dd x'\ \frac{1}{x'^2 + z^2}}_{\left. \frac{1}{z} \arctan \left(\frac{x'}{2}\right)\right\rvert_{-\infty}^{+\infty} = \frac{1}{z} \textrm{sgn}(z)\pi}\\
  	E_z &= \frac{\sigma}{2 \epsilon_0} \textrm{sgn}(z)
 \end{align*}
 \begin{minipage}{.6\linewidth}
@@ -377,7 +374,7 @@ $\vec{E} = (0,0,E_z)$
 
 \begin{minipage}{.5\linewidth}
 	$$\lambda(\vec{r}) = \frac{\textrm{Ladung}}{\textrm{Länge}} = \frac{\Delta q}{\Delta s}$$
-	$$\vec{E}(\vec{r}) = \kq \underbrace{\int_\gamma}_{\mathclap{\textrm{Linienintegral}}} ds'\ \lambda(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+	$$\vec{E}(\vec{r}) = \kq \underbrace{\int\limits_\gamma}_{\mathclap{\textrm{Linienintegral}}} \dd s'\ \lambda(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
 	%t6:
@@ -406,21 +403,27 @@ $\vec{E} = (0,0,E_z)$
 \end{minipage}%
 \begin{minipage}{.8\linewidth}
 	\begin{align*}
-	\vec{E}(\vec{r}) &= \kq \int_\gamma ds'\ \lambda \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \gamma: z' \mapsto \vec{r}'(z') = \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}\\
-	&= \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}dz'\ \frac{\vec{r} - \begin{pmatrix} 0 \\ 0\\ z \end{pmatrix}}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}}
+	\vec{E}(\vec{r}) &= \kq \int_\gamma \dd s'\ \lambda \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \gamma: z' \mapsto \vec{r}'(z') = \begin{pmatrix} 0 \\ 0 \\ z' \end{pmatrix}\\
+	%
+	%
+	% oben 0 0 z oder 0 0 z'
+	%
+	%
+	&= \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}\dd z'\ \frac{\vec{r} - \begin{pmatrix} 0 , 0 , z \end{pmatrix}^\top}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}}
 	\end{align*}
 \end{minipage}%
 \\
 $\tilde{z} = z' - z$:
-$$E_x = \frac{\lambda x}{4 \pi \epsilon_0}\intt{-\infty}{\infty}dz'\ \frac{1}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}} = \frac{\lambda x}{4 \pi \epsilon_0}\underbrace{\intt{-\infty}{\infty}d\tilde{z}\ \frac{1}{(x^2 + y^2 + \tilde{z}^2)^{\nicefrac{3}{2}}}}_{\frac{2}{x^2 + y^2}} = \frac{\lambda}{2 \pi \epsilon_0} \frac{x}{x^2 + y^2}$$
+$$E_x = \frac{\lambda x}{4 \pi \epsilon_0}\intt{-\infty}{\infty} \dd z'\ \frac{1}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}} = \frac{\lambda x}{4 \pi \epsilon_0}\underbrace{\intt{-\infty}{\infty}\dd\tilde{z}\ \frac{1}{(x^2 + y^2 + \tilde{z}^2)^{\nicefrac{3}{2}}}}_{\frac{2}{x^2 + y^2}} = \frac{\lambda}{2 \pi \epsilon_0} \frac{x}{x^2 + y^2}$$
+Wegen der Symmetrie genau so:
 $$E_y = \frac{\lambda}{2 \pi \epsilon_0}\frac{x}{x^2 + y^2}$$
-$$E_z = \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}dz'\ \frac{z-z'}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}} = 0$$
+$$E_z = \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}\dd z'\ \frac{z-z'}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}} = 0$$
 $$\vec{E}(\vec{r}) = \frac{\lambda}{2 \pi \epsilon_0} \frac{1}{x^2 + y^2} \begin{pmatrix}x\\ y\\ 0\end{pmatrix}$$
-$$\rho = \sqrt{x^2 + y^2} = \frac{\lambda}{2 \pi \epsilon_0} \frac{1}{\rho}\vec{e}_\rho, \qquad \vec{e}_\rho = \begin{pmatrix}\cos \varphi\\ \sin \varphi\\ 0\end{pmatrix}$$
+$$\rho = \sqrt{x^2 + y^2} \quad \vec{E}(\vec{r}) = \frac{\lambda}{2 \pi \epsilon_0} \frac{1}{\rho}\vec{e}_\rho, \qquad \vec{e}_\rho = \begin{pmatrix}\cos \varphi\\ \sin \varphi\\ 0\end{pmatrix}$$
 
-\section{Feldgleichungen und elektrostatische Potential}
+\section{Feldgleichungen und elektrostatisches Potential}
 
-$$\vec{E}(\vec{r}) = \kq \int d^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
+$$\vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}$$
 
 \subsection{Elektrostatisches Potential}
 
@@ -450,7 +453,7 @@ $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \
 
 
 
-\subsection{Feldgleichugn (differentielle Form)}
+\subsection{Feldgleichung (differentielle Form)}
 
 \paragraph{Rotation (Wirbel)}
 $$\textrm{rot}\, \vec{E} \nabla \times \vec{E} = \vec{e}_x \bigg(\prt{E_z}{y} - \prt{E_x}{z}\bigg) + \vec{e}_y \bigg(\prt{E_x}{z} - \prt{E_z}{x}\bigg) + \vec{e}_z \bigg(\prt{E_y}{x} - \prt{E_x}{y}\bigg) \Rightarrow \nabla \times$$

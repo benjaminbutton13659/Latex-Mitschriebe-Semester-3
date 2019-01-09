@@ -609,10 +609,10 @@ UV-Lampe (Viel UV aber auch sichtbares Weißes Licht), die über Kollimatorlinse
 	\item Tageslicht reicht nicht um $ e^- $ herauszuschlagen
 \end{enumerate}
 \rbox{$ \Rightarrow $ Effekt hängt von $ f $ ab, nicht von der Intensität.}
-\versuch{Leonard Versuch}
+\versuch{Leonard Versuch (Theorie)}
 \folie{Versuchsaufbau}\\
 Die Energie der Elektronen ist begrenzt durch die hineingesteckte Energie minus die Austrittsenergie.\\[5pt]
-Aufbau (Gegenfeldmethode):
+Aufbau (Gegenfeldmethode: anders herum als auf der Folie abgebildet):
 \begin{itemize}
 	\item Photokathode wird mit Licht bestrahlt
 	\item freigesetzte $ e^- $ werden durch ein elektrisches Gegenfeld einer Anode abgebremst
@@ -671,3 +671,161 @@ $ \Rightarrow $ Nobelpreis 1921
 
 \textbf{Zu Leonard Versuch: Warum das Magnetfeld:}\\
 Nur Teilchen mit bestimmter Masse (Elektronenmasse) kommen in den Detektor, nicht auch andere Teilchen, die irgendwie anders in dieselbe Richtung fliegen. (Glaßkörper ist nicht perfekt ...).\\[5pt]
+
+% Vorlesung 8.01.19
+
+\noindent
+\versuch{Leonard Versuch (Praktisch)}
+\begin{enumerate}[i)]
+	\item
+	
+	%t1:
+	\begin{tikzpicture}
+	\draw[->] (0,-2) -- (0,3) node[anchor=south east] {Spannung $ U $ in V };
+	\draw[->] (-.2,0) -- (6,0) node[anchor=north west] {Frequenz $ f $};
+	\foreach \y\x in {0/1.5, 0.8/3, 1/3.5, 2/4.5, 2.4/5}
+	\draw ($ (\x,\y) - (.1,.1) $) -- ++(.2,.2) ($ (\x,\y) + (-.1,.1) $) -- ++(.2,-.2);
+	\draw (-.5,-2) -- ++(38:8);
+	\foreach \y\x\l in {0/1.5/ , 0.8/3/ , 1/3.5/grün, 2/4.5/blau, 2.4/5/ }
+	\draw ($ (\x,0) + (0,.1) $) -- ++(0,-.2) node[below] {\l} ($ (0,\y) + (.1,0) $) -- ++(-.2,0);
+	\foreach \y\v in {.5/0{,}4, 1.2/0{,}5, 2/1{,}0, 2.6/1{,}2}
+	\node[left] at (0,\y) {\v V};
+	\node[above] at (1.5,.1) {rot};
+	%\draw[decorate, decoration={brace,amplitude=10pt,raise=2pt}, xshift=2pt,scale=.1]  (0,-10.2) -- node[anchor=south east, xshift=-15pt, yshift=15pt] {$\lambda = \frac{2 \pi}{k}$}  (0,0);
+	\node[yscale=2.2, xscale=1.25,rotate=-90] at (-.15,-.8) {$ \ub{} $};
+	\node[left] at (-.3,-.7) {$ W_A $};
+	\end{tikzpicture}
+	
+	\begin{equation*}
+	U_{\tx{max}} = \const \cdot f - U_0 \quad U_0 = \frac{W_A}{e}
+	\end{equation*}
+	\item Photostrom $ \propto $ Intensität des einfallenden Lichts.
+	\item Die Gegenspannung ist von der Intensität unabhängig.\\
+	\lcom{Hier scheitert die klassische Interpretation. Nehmen wir an die Energie des Lichts sei an die Intensität gebunden so würden wir erwarten, bei höherer Energie eine höhere Gegenspannung zu messen. Dies ist aber nicht so. Die Energie die auf ein Elektron übertragen wird ist $ E = h f $ also die Energie eines Photons und damit Frequenzabhängig nicht Intensitätsabhängig. Die Intensität sorgt nur für mehr Elektronen pro Zeiteinheit aber nicht für Elektronen mit mehr Energie.}\\
+	$ \Rightarrow $ Einstein:
+	\begin{equation*}
+	E_{\tx{Photon}} = hf
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Anwendungen des Photoeffekts}
+%T1
+
+\begin{equation*}
+U_{\tx{max}} = \const \cdot f - U_0 \quad U_0 = \frac{W_A}{e}
+\end{equation*}
+PES: Photoelektronenspektroskopie\\[5pt]
+Material mit Licht bestrahlen $ \Rightarrow $ auustretende Photoelektronen genau analysieren.\\
+$ \Rightarrow $ Materialanalyse
+\begin{itemize}
+	\item[$ e^-: $] geringe Eindringtiefe von wenigen hundert Angström, kurze Weglängen $ \Rightarrow $ Oberflächen, Filme, ...
+\end{itemize}
+UPS: UV Licht\\
+(typische Enegie Licht: $ 1-2 \tx{eV} $ wie oben im Diagramm zu sehen,
+typische Energie Röntgen: $ 10-100 \tx{keV} $,
+typische Energie Radioaktivität: mehrere MeV.)\\
+$ \Rightarrow $ Spektroskopie an Valenzelektronen.\\[5pt]
+XPS: X-ray Strahlung\\
+$ \Rightarrow $ Spektroskopie an Core-Elektronen (innere Schalen)\\
+$ \Rightarrow $ Elementanalyse\\
+
+\subsubsection{Photomultiplikator}
+
+\folie{Photomultiplikator}\\
+\textbf{Zum Teilchenbild}\\
+\folie{Harmonischer Oszillator und Potential und Äquidistantes Energiespektrum}\\
+Die Energien der Zustände sind im Potential des harmonischen Oszillators \textbf{Äquidistant}.
+
+\subsection{Compton-Effekt (Licht verhält sich wie Teilchen)}
+
+\folie{Compton-Effekt}\\zerfall
+Streuung eines Photons an einem nominell freien Elektron.
+\hfw (lambda oder R)
+\begin{equation*}
+\lambda_S = \lambda_0 + 2 \lambda_c \sin^2 \left(\frac{\theta}{2}\right)
+\end{equation*}
+\begin{equation*}
+\lambda_c = \frac{k}{m_0c} \approx 2{,}4 \tx{pm}
+\end{equation*}
+Beobachtung für weißes Licht\\[5pt]
+\versuch{Compton-Effekt}
+$ \Rightarrow $ es zeigt sich, dass sich Licht in ,,allen`` (vielen kinematischen) Aspekten wie ein Teilchen verhält.
+\begin{align*}
+E &= hf\\
+\vec{p} &= \hbar \vec{k} \qquad k = \frac{2 \pi}{\lambda}
+\end{align*}
+Dispersionsrelation:
+\begin{equation*}
+\rmbox{E(\vec{p}) = cp} \quad (\tx{masseloses/relativistisches Teilchen})
+\end{equation*}
+
+\subsection{Teilchenstrahl Beugung/Interferenz (Teilchen verhalten sich wie Wellen)}
+
+Doppelspalteffekt würde auch gehen.\\
+\versuch{Interferenz von Elektronen (am Kristall)}
+\lcom{Wegen des Polykristalinen Materials bekommen wir Ringe als Interferenzmuster statt horizontal verteilten Peaks.}\\[10pt]
+Das selbe geht auch mit Neutronen oder großen Molekülen oder $ \tx{C}_{60} $\\
+\folie{Neutronen, C$ _{60} $, Übergang QM - Klassische Physik}
+
+\subsection{Welle-Teilchen-Dualismus}
+
+Zusammengefasst:\\
+Energie:
+\begin{equation*}
+E = \hbar f
+\end{equation*}
+Impuls:
+\begin{equation*}
+\vec{p} = \hbar \vec{k}
+\end{equation*}
+Dispersionsrelation:
+\begin{equation*}
+E(\vec{p})
+\end{equation*}
+\folie{Graph Wellenlänge vs. Energie}\\[5pt]
+Frage: Wann verhält sich ein Teilchen wir ein Teilchen oder wie eine Welle, und umgekehrt?\\[5pt]
+EM-Strahlung:
+\begin{tabular}{lll}
+	& Welle & Teilchenstrahl\\
+	& $ \vec{E}(\vec{r},t) = \vec{E}_0 e^{i(\vec{k} \vec{r} - \omega t)} $ & $ j = \frac{1}{A} \frac{\dd N}{\dd t} = c \rho $\\
+	Energiedichte & $ \omega = \frac{1}{2} \epsilon_0 \left(E^2 + c^2 B^2\right) $ & $ \omega = \rho \hbar \omega $\\
+	Impulsdichte & $ \vec{\Pi} = \frac{1}{c^2} \vec{S} = \epsilon_0 \left(\vec{E} \times \vec{B}\right) $ & $ \vec{\Pi} = \rho \hbar \vec{k} $\\
+	Intensität & $ I = c \epsilon_0 E^2 $ & $ I = c \rho \hbar \omega $
+\end{tabular}
+
+
+
+
+% aufhübschen mit big math mode
+
+
+
+
+$ j : $ Teilchenstromdichte $ \frac{1}{A} \dot{N} $\\
+$ \rho : $ Teilchendichte $ \frac{N}{V} $\\
+$ A : $ Querschnittsfläche
+\begin{equation*}
+\Rightarrow \quad |\vec{E}_0| = \sqrt{\frac{\hbar \omega \rho}{\epsilon_0}}
+\end{equation*}
+Planck:
+\begin{equation*}
+E_n = n h f
+\end{equation*}
+Einstein:\\
+jede(s) Anregung/Quant/Teilchen
+\begin{equation*}
+E = hf
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad n \ \widehat{=} \tx{ Teilchenzahl } N
+\end{equation*}
+\begin{enumerate}[i)]
+	\item viele Photonen $ \widehat{=} $ $ n $ ist groß $ \widehat{=} $ große Amplitude\\
+	$ \approx $ klassische Welle
+	\item wenige Photonen $ \widehat{=} $ $ n $ ist klein $ \widehat{=} $ kleine Amplitude\\
+	$ \approx $ Quanten Fall
+\end{enumerate}
+QM: Teilchenzahl-Phasen-Unschärferelation:
+\begin{equation*}
+\Delta N \cdot \Delta f \ge \sim \Pi
+\end{equation*}
