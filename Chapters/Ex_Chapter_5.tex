@@ -678,7 +678,18 @@ Nur Teilchen mit bestimmter Masse (Elektronenmasse) kommen in den Detektor, nich
 \versuch{Leonard Versuch (Praktisch)}
 \begin{enumerate}[i)]
 	\item
-	
+	\begin{equation*}
+	U_{\tx{max}} = \const \cdot f - U_0 \quad U_0 = \frac{W_A}{e}
+	\end{equation*}
+	\item Photostrom $ \propto $ Intensität des einfallenden Lichts.
+	\item Die Gegenspannung ist von der Intensität unabhängig.\\
+	\lcom{Hier scheitert die klassische Interpretation. Nehmen wir an die Energie des Lichts sei an die Intensität gebunden so würden wir erwarten, bei höherer Energie eine höhere Gegenspannung zu messen. Dies ist aber nicht so. Die Energie die auf ein Elektron übertragen wird ist $ E = h f $ also die Energie eines Photons und damit Frequenzabhängig nicht Intensitätsabhängig. Die Intensität sorgt nur für mehr Elektronen pro Zeiteinheit aber nicht für Elektronen mit mehr Energie.}\\
+	$ \Rightarrow $ Einstein:
+	\begin{equation*}
+	E_{\tx{Photon}} = hf
+	\end{equation*}
+\end{enumerate}
+\begin{center}
 	%t1:
 	\begin{tikzpicture}
 	\draw[->] (0,-2) -- (0,3) node[anchor=south east] {Spannung $ U $ in V };
@@ -695,20 +706,10 @@ Nur Teilchen mit bestimmter Masse (Elektronenmasse) kommen in den Detektor, nich
 	\node[yscale=2.2, xscale=1.25,rotate=-90] at (-.15,-.8) {$ \ub{} $};
 	\node[left] at (-.3,-.7) {$ W_A $};
 	\end{tikzpicture}
-	
-	\begin{equation*}
-	U_{\tx{max}} = \const \cdot f - U_0 \quad U_0 = \frac{W_A}{e}
-	\end{equation*}
-	\item Photostrom $ \propto $ Intensität des einfallenden Lichts.
-	\item Die Gegenspannung ist von der Intensität unabhängig.\\
-	\lcom{Hier scheitert die klassische Interpretation. Nehmen wir an die Energie des Lichts sei an die Intensität gebunden so würden wir erwarten, bei höherer Energie eine höhere Gegenspannung zu messen. Dies ist aber nicht so. Die Energie die auf ein Elektron übertragen wird ist $ E = h f $ also die Energie eines Photons und damit Frequenzabhängig nicht Intensitätsabhängig. Die Intensität sorgt nur für mehr Elektronen pro Zeiteinheit aber nicht für Elektronen mit mehr Energie.}\\
-	$ \Rightarrow $ Einstein:
-	\begin{equation*}
-	E_{\tx{Photon}} = hf
-	\end{equation*}
-\end{enumerate}
+\end{center}
 
 \subsection{Anwendungen des Photoeffekts}
+
 %T1
 
 \begin{equation*}
@@ -772,7 +773,7 @@ Das selbe geht auch mit Neutronen oder großen Molekülen oder $ \tx{C}_{60} $\\
 Zusammengefasst:\\
 Energie:
 \begin{equation*}
-E = \hbar f
+E = h f = \hbar \omega      % er hat \hbar statt h geschrieben
 \end{equation*}
 Impuls:
 \begin{equation*}
@@ -780,27 +781,28 @@ Impuls:
 \end{equation*}
 Dispersionsrelation:
 \begin{equation*}
-E(\vec{p})
+E(\vec{p}) = c \vec{p}
 \end{equation*}
 \folie{Graph Wellenlänge vs. Energie}\\[5pt]
 Frage: Wann verhält sich ein Teilchen wir ein Teilchen oder wie eine Welle, und umgekehrt?\\[5pt]
 EM-Strahlung:
-\begin{tabular}{lll}
-	& Welle & Teilchenstrahl\\
-	& $ \vec{E}(\vec{r},t) = \vec{E}_0 e^{i(\vec{k} \vec{r} - \omega t)} $ & $ j = \frac{1}{A} \frac{\dd N}{\dd t} = c \rho $\\
-	Energiedichte & $ \omega = \frac{1}{2} \epsilon_0 \left(E^2 + c^2 B^2\right) $ & $ \omega = \rho \hbar \omega $\\
-	Impulsdichte & $ \vec{\Pi} = \frac{1}{c^2} \vec{S} = \epsilon_0 \left(\vec{E} \times \vec{B}\right) $ & $ \vec{\Pi} = \rho \hbar \vec{k} $\\
-	Intensität & $ I = c \epsilon_0 E^2 $ & $ I = c \rho \hbar \omega $
-\end{tabular}
-
-
-
-
-% aufhübschen mit big math mode
-
-
-
-
+\begin{center}
+	\begin{tabular}{l|l|l}
+		& Welle & Teilchenstrahl\\
+		\hline
+	    & & \\[-5pt]
+		& $ \displaystyle\vec{E}(\vec{r},t) = \displaystyle\vec{E}_0 e^{i(\vec{k} \vec{r} - \omega t)} $ & $ j = \displaystyle\frac{1}{A} \displaystyle\frac{\dd N}{\dd t} = c \rho $\\[7pt]
+		\hline
+		& & \\[-5pt]
+		Energiedichte & $ \omega = \displaystyle\frac{1}{2} \epsilon_0 \left(E^2 + c^2 B^2\right) $ & $ \omega = \rho \hbar \omega $\\[7pt]
+		\hline
+		& & \\[-5pt]
+		Impulsdichte & $ \vec{\Pi} =\displaystyle \frac{1}{c^2} \vec{S} = \epsilon_0 \left(\vec{E} \times \vec{B}\right) $ & $ \vec{\Pi} = \rho \hbar \vec{k} $\\[7pt]
+		\hline
+		& & \\[-5pt]
+		Intensität & $ I = c \epsilon_0 E^2 $ & $ I = c \rho \hbar \omega $ \\[5pt]
+	\end{tabular}
+\end{center}
 $ j : $ Teilchenstromdichte $ \frac{1}{A} \dot{N} $\\
 $ \rho : $ Teilchendichte $ \frac{N}{V} $\\
 $ A : $ Querschnittsfläche

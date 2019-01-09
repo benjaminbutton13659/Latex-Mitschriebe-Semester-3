@@ -218,11 +218,13 @@ $$\rho_2 (\vec{r}) = \left\{ \begin{array}{cc}
 \frac{q}{v_k} & |\vec{r}| \leq \epsilon\\
 0 & \textrm{sonst}	
 \end{array} \right\} = \frac{q}{\frac{4}{3}\pi \epsilon^3}\underbrace{\Theta (\epsilon - |\vec{r}|)}_{\mathclap{\textrm{Stufenfunktion}}}$$
-
-
-%% T?
-
-
+%
+%
+%
+% T?
+%
+%
+%
 $$\rho(\vec{r}) = \lim_{\epsilon \rightarrow 0}\ \rho_\epsilon (\vec{r}) = \left\{ \begin{array}{cc}
 \infty & \vec{r} = 0\\
 0 & \vec{r} \neq 0
@@ -427,18 +429,26 @@ $$\vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}
 
 \subsection{Elektrostatisches Potential}
 
-elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \nabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$
+elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \nabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$\\
+Nebenrechnung:
 $$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\nabla\frac{1}{|\vec{r}-\vec{r}'|}$$
+zur Überprüfung hier die $ x $-Komponente berechnet:
 $$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} =  \frac{- \left(-\frac{1}{2}\right) \quad 2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
-$$\Rightarrow \vec{E}(\vec{r}) = \kq \int d^3 r'\ \rho(\vec{r}') \bigg(-\nabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = \nabla_F \kq \int d^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
+Somit erhalten wir für das $ \vec{E} $-Feld:
+$$\Rightarrow \vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \bigg(-\nabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = \nabla_F \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
+%
+%
+%
+% muss das da oben nabla F sein ?
+%
+%
+%
 $\rightarrow$ elektrostatisches Potential
-$$\phi(\vec{r}) = \kq \int d^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} + c$$
-übliche Konvention: $c = 0\ (\phi(\vec{r})\buildrel{\rightarrow}\over{|\vec{r}| \to \infty} 0)$
-
-Potential einer Punktladung in $\vec{r}_0$:
+$$\phi(\vec{r}) = \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} + c$$
+übliche Konvention: $c = 0 \quad (\phi(\vec{r})\buildrel{|\vec{r}| \to \infty}\over{\rightarrow} 0)$\\[5pt]
+\emph{Beispiel:} Potential einer Punktladung in $\vec{r}_0$:
 $$\rho(\vec{r}) = q \delta(\vec{r}-\vec{r}_0)$$
-$$\phi(\vec{r}) = \int_{\mathbb R^3} d^3 r'\ \frac{q\delta(\vec{r}' - \vec{r}_0)}{|\vec{r}-\vec{r}'|} = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
-
+$$\phi(\vec{r}) = \int_{\mathbb R^3} \dd^3 r'\ \frac{q\delta(\vec{r}' - \vec{r}_0)}{|\vec{r}-\vec{r}'|} = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3}$$
 
 % Vorlesung 3 22.10.18
@@ -446,13 +456,13 @@ $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \
 \noindent
 \lcom{(Funktional-Analysis Siegfried Großmann Springer)\\
 (Landau-Lipschitz Buch geht weit der Vorlesung hinaus)}
-
-
-
+%
+%
+%
 %T äquipotentialflächen jan
-
-
-
+%
+%
+%
 \subsection{Feldgleichung (differentielle Form)}
 
 \paragraph{Rotation (Wirbel)}
