@@ -1305,3 +1305,218 @@ Physikalisches Feld:
 		\draw[white] (2,-2.5) -- ++(0,-0.315);
 	\end{tikzpicture}
 \end{center}
+\bbb{Wiederholung}{
+\begin{align*}
+\vec{E} &= \vec{E}_0 e^{i(\vec{k} \cdot \vec{r} - \omega t)} \qquad \omega = |\vec{k}| v \\
+\vec{B} &= \vec{B}_0 e^{i(\tilde{\vec{k}} \cdot \vec{r} - \tilde{\omega} t)} \ \ \buildrel ! \over = \ \ \frac{1}{\omega} \vec{k} \times \vec{E}
+\end{align*}
+}
+
+\subsubsection{andere Formen der EM-Wellen}
+
+\begin{equation*}
+\vec{E}(\vec{r},t) = \int \dd^3 k \vec{a}(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega(k) t)}
+\end{equation*}
+Wellenpakete:
+
+%T1
+
+\noindent
+\textbf{Kugelwellen}
+\begin{equation*}
+\vec{E}(\vec{r},t) = \vec{E}_0 \frac{e^{i(\vec{k} \cdot \vec{r} - \omega t)}}{r}
+\end{equation*}
+Flächen gleicher Phase:
+
+%T2
+
+\noindent
+eine Kugelwelle hat Amplitude $ \rho \propto \frac{1}{r} $
+
+%T3
+
+\section{Reflexion und Brechung von EM-Wellen an Grenzflächen}
+
+Wir betrachten eine ebene Grenzfläche ($ x $-$ y $-Ebene) zwischen zwei ungeladenen, nicht leitenden Medien.
+
+%T4
+
+\noindent
+Aus der Skizze:
+\begin{equation*}
+v_1 = \frac{1}{\sqrt{\epsilon_1 \mu_1}} , \ \omega_e = v_1 k_e
+\end{equation*}
+und $ \vec{k}_e $ ohne $ y $-Komponente
+\begin{equation*}
+\vec{k}_e = \begin{pmatrix}
+k_{e_y} \\ 0 \\ k_{e_z}
+\end{pmatrix}
+\end{equation*}
+Die \textbf{einfallende Welle} sieht folgendermaßen aus:
+\begin{align*}
+\vec{E}_e &= \vec{E}_{e_0} e^{i(\vec{k} \cdot \vec{r} - \omega t)}\\
+\vec{B}_e &= \frac{1}{\omega_e} \vec{k}_e \times \vec{E}_e = \frac{1}{v_1} \frac{\vec{k}_e}{k_e} \times \vec{E}_e
+\end{align*}
+\textbf{reflektierte Welle}
+\begin{align*}
+\vec{E}_r &= \vec{E}_{r_0} e^{i(\vec{k}_r \cdot \vec{r} - \omega_r t)} \\
+\vec{B}_r &= \frac{1}{v_1} \frac{\vec{k}_r}{k_r} \times \vec{E}_r
+\end{align*}
+gesamtes Feld in Medium 1:
+\begin{equation*}
+\vec{E}_1 = \vec{E}_e + \vec{E}_r
+\end{equation*}
+\textbf{transmittierte Welle}
+\begin{align*}
+\vec{E}_2 &= \vec{E}_{2_0} e^{i(\vec{k} \cdot \vec{r} - \omega t)} \\
+\vec{B}_2 &= \frac{1}{v_2} \frac{\vec{k}_2}{k_2} \times \vec{E}_2
+\end{align*}
+
+\subsection{Stetigkeitsbedingunen an Grenzflächen}
+
+Hier: ungeladene, nicht leitende Medien: $ \rho_f = 0 = \vec{j}_f $\\[5pt]
+Maxwell-Gl. $ \Rightarrow $ Stetigkeitsbedingungen für $ \vec{r} = (x,y,0) $
+\begin{enumerate}[i)]
+	\item mit $ \vabla \cdot \vec{D} = 0 $
+	\begin{equation*}
+	\vec{n} \cdot (\vec{D}_2 - \vec{D}_1) = 0 \quad \Rightarrow \quad \epsilon_1 \vec{n} \cdot \vec{E}_1 - \epsilon_2 \vec{n} \cdot \vec{E}_2 = 0
+	\end{equation*}
+	\item mit $ \vabla \times \vec{E} = \prt{\vec{B}}{t} $ und $ \vec{t} \sim \vec{e}_x, \vec{e}_y $
+	\begin{equation*}
+	\vec{t} \cdot (\vec{E}_1 - \vec{E}_2) = 0
+	\end{equation*}
+	\item mit $ \vabla \cdot \vec{B} = 0 $
+	\begin{equation*}
+	\vec{n} \cdot (\vec{B}_1 - \vec{B}_2) = 0
+	\end{equation*}
+	\item mit $ \vabla \times \vec{H} = \cancel{\vec{j}} + \prt{\vec{D}}{t} $
+	\begin{equation*}
+	\vec{t} \cdot (\vec{H}_1 - \vec{H}_2) = 0 \quad \Rightarrow \quad \frac{1}{\mu_1} \vec{t} \cdot \vec{B}_1 - \frac{1}{\mu_2} \vec{t} \cdot \vec{B}_2 = 0
+	\end{equation*}
+\end{enumerate}
+Erläuterung zu Punkt ii) und iv):
+\begin{equation*}
+\vabla \times \vec{E} = - \prt{\vec{B}}{t} \quad \rightarrow \quad \vec{t} \cdot (\vec{E}_2 - \vec{E}_1) = 0
+\end{equation*}
+
+%T5
+
+\begin{align*}
+&\int \limits _F \dd \vec{f} \cdot (\vabla \times \vec{E}) = - \int \limits_F \dd \vec{f} \cdot \prt{\vec{B}}{t} = \ub{- \prd{}{t} \int \limits_F \dd \vec{f} \vec{B}}_{\overset{\Delta x \to 0}{\rightarrow} 0} \\
+= & \int \limits_{\partial F} \dd \vec{r} \cdot \vec{E} \qquad \rightarrow \qquad \int \dd s \ \vec{t} \cdot (\vec{E}_2 - \vec{E}_1) = 0
+\end{align*}
+Aus den vier Stetigkeitsbedingungen ergeben sich folgende Schlussfolgerungen:
+\begin{enumerate}
+	\item[ii)] \begin{equation*}
+	\vec{t} \cdot \vec{E}_2 = \vec{t} \cdot \vec{E}_1 = \vec{t} \cdot (\vec{E}_e + \vec{E}_r)
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \vec{t} \cdot \vec{E}_{2_0}  e^{i(\vec{k}_2 \cdot \vec{r} - \omega_2 t)} = \vec{t} \cdot \vec{E}_{e_0}  e^{i(\vec{k}_e \cdot \vec{r} - \omega_e t)} + \vec{t} \cdot \vec{E}_{r_0}  e^{i(\vec{k}_r \cdot \vec{r} - \omega_r t)}
+	\end{equation*}
+	$ \forall \vec{r} = (x,y,0) , \forall t $
+	$ \rightarrow $ Die Orts- und Zeitabhängigkeit im Exponenten muss gleich sein!
+	\begin{equation*}
+	\vec{k}_2 \cdot \vec{r} - \omega_2 t =  \vec{k}_e \cdot \vec{r} - \omega_e t = \vec{k}_r \cdot \vec{r} - \omega_r t
+	\end{equation*}
+	$ \vec{r} = 0 : $ $ \Rightarrow \ \omega_2 = \omega_e = \omega_r \defeq \omega $\\
+	\lcom{Die gleiche Schlussfolgerung geht für die Wellenvektoren nicht, da wir hier die $ z $-Komponente gar nicht beachten und damit keine Aussagen über die Gleichheit der Vektoren machen können.}\\[5pt]
+	Für die einfallende und reflektierte Welle im Medium 1 gilt:\\
+	$ v_1 = \frac{\omega_e}{|\vec{k}_e|} = \frac{\omega_r}{|\vec{k}_r|} $
+	\begin{equation*}
+	\rightarrow \quad |\vec{k}_e| = |\vec{k}_r| \defeq k_1
+	\end{equation*}
+	Somit sind auch beide Wellenlängen $ \lambda_1 $ gleich!\\[5pt]
+	Für die Welle im Medium 2 gilt:
+	\begin{align*}
+	k_2 &= \frac{\omega_2}{v_2} = \omega \sqrt{\epsilon_2 \mu_2} \\
+	&= \omega \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} \sqrt{\epsilon_1 \mu_1} = \ub{\frac{\omega}{v_1}}_{k_1} \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = 	k_1 \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = k_1 \cdot \frac{n_2}{n_1}
+	\end{align*}
+	weiterhin:
+	$ t=0 : $ $ \Rightarrow \ \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $\\[5pt]
+	$ k_{2_x} x + k_{2_y} y = k_{e_x} x + \ub{k_{e_y} y}_{=0} = k_{r_x} x + k_{r_y} y =   $\\[5pt]
+	$ k_{e_y} = 0 \quad \Rightarrow k_{2_y} = 0 = k_{r_y}$
+	$ \Rightarrow \vec{k}_e, \vec{k}_r, \vec{k}_2 $ liegen in einer Ebene (hier: $ x $-$ y $-Ebene), der Einfallsebene.
+	
+	%T6
+	
+	\begin{align*}
+	\vec{k}_e &= k_e (\sin \theta_e \vec{e}_x + \cos \theta _e \vec{e}_z)\\
+	\vec{k}_r &= k_r (\sin \theta_r \vec{e}_x - \cos \theta _r \vec{e}_z)\\
+	\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta _2 \vec{e}_z)
+	\end{align*}
+	$ k_e = k_r \defeq k_1 $
+\end{enumerate}
+
+\subsubsection{Reflexionsgesetz}
+
+$ \vec{r} = (x,0,0): \quad \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $
+\begin{align*}
+\vec{k}_e \cdot \vec{r} &= x k_1 \sin \theta_e\\
+\vec{k}_r \cdot \vec{r} &= x k_1 \sin \theta_r\\
+\end{align*}
+\begin{center}
+	\begin{minipage}{.5\linewidth}
+		\frbox{Reflexionsgesetz}{
+		\begin{equation*}
+		\theta_e = \theta_r
+		\end{equation*}
+		}
+	\end{minipage}
+\end{center}
+
+
+\subsubsection{Brechungsgesetz}
+
+$ \vec{r} = (x,0,0): \quad \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} $
+\begin{align*}
+&k_2 \sin \theta_2 = k_1 \sin \theta_1 \\
+= &k_1 \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = k_1 \frac{n_2}{n_1}
+\end{align*}
+$ n : $ Brechungsindex
+\begin{center}
+	\begin{minipage}{.5\linewidth}
+		\frbox{Snellius'sches Brechungsgesetz}{
+		\begin{equation*}
+		\frac{n_2}{n_1} = \frac{\sin \theta_1}{\sin \theta_2}
+		\end{equation*}
+		}
+	\end{minipage}
+\end{center}
+
+%T7
+
+%T8
+
+\noindent
+Für $ n_2 > n_1 : $ Grenzfall $ \theta_1 \defeq \theta_g $ bei dem Totalreflexion auftritt (d.h. $ \theta_2 = \frac{\pi}{2} $)
+\begin{equation*}
+\sin \theta_g = \frac{n_2}{n_1} \sin \frac{\pi}{2} = \frac{n_2}{n_1}
+\end{equation*}
+z.B. Wasser $ \ n_1 \approx 1{,}33 $, Luft $ \ n_2 \approx 1 $ $ \Rightarrow \theta_g \approx 49 ^\circ $
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\begin{tikzpicture}
+%\draw [domain=-4:4, samples=500,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25 * cos(\x * 40)});
+%\end{tikzpicture}
+
+
+
+
+
+
+
+
+
+
