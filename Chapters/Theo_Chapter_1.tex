@@ -221,7 +221,7 @@ $$\rho_2 (\vec{r}) = \left\{ \begin{array}{cc}
 %
 %
 %
-% T?
+% I1 T?
 %
 %
 %
@@ -408,7 +408,9 @@ $\vec{E} = (0,0,E_z)$
 	\vec{E}(\vec{r}) &= \kq \int_\gamma \dd s'\ \lambda \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \gamma: z' \mapsto \vec{r}'(z') = \begin{pmatrix} 0 \\ 0 \\ z' \end{pmatrix}\\
 	%
 	%
-	% oben 0 0 z oder 0 0 z'
+	%
+	% I2 oben 0 0 z oder 0 0 z'
+	%
 	%
 	%
 	&= \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}\dd z'\ \frac{\vec{r} - \begin{pmatrix} 0 , 0 , z \end{pmatrix}^\top}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}}
@@ -429,17 +431,17 @@ $$\vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}
 
 \subsection{Elektrostatisches Potential}
 
-elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \nabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$\\
+elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \vabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$\\
 Nebenrechnung:
-$$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\nabla\frac{1}{|\vec{r}-\vec{r}'|}$$
+$$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\vabla\frac{1}{|\vec{r}-\vec{r}'|}$$
 zur Überprüfung hier die $ x $-Komponente berechnet:
 $$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} =  \frac{- \left(-\frac{1}{2}\right) \quad 2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
 Somit erhalten wir für das $ \vec{E} $-Feld:
-$$\Rightarrow \vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \bigg(-\nabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = \nabla_F \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
+$$\Rightarrow \vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \bigg(-\vabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = (-) \vabla_F \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
 %
 %
 %
-% muss das da oben nabla F sein ?
+% I3 muss das da oben nabla F sein ?
 %
 %
 %
@@ -448,7 +450,7 @@ $$\phi(\vec{r}) = \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
 übliche Konvention: $c = 0 \quad (\phi(\vec{r})\buildrel{|\vec{r}| \to \infty}\over{\rightarrow} 0)$\\[5pt]
 \emph{Beispiel:} Potential einer Punktladung in $\vec{r}_0$:
 $$\rho(\vec{r}) = q \delta(\vec{r}-\vec{r}_0)$$
-$$\phi(\vec{r}) = \int_{\mathbb R^3} \dd^3 r'\ \frac{q\delta(\vec{r}' - \vec{r}_0)}{|\vec{r}-\vec{r}'|} = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
+$$\phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int_{\mathbb R^3} \dd^3 r'\ \frac{q\delta(\vec{r}' - \vec{r}_0)}{|\vec{r}-\vec{r}'|} = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3}$$
 
 % Vorlesung 3 22.10.18
@@ -459,133 +461,137 @@ $$\eofr = - \vabla \phi = \kq q \vabla \frac{1}{|\vec{r} - \vec{r}_0|} = \kq q \
 %
 %
 %
-%T äquipotentialflächen jan
+% I4 T äquipotentialflächen jan
 %
 %
 %
 \subsection{Feldgleichung (differentielle Form)}
 
 \paragraph{Rotation (Wirbel)}
-$$\textrm{rot}\, \vec{E} \nabla \times \vec{E} = \vec{e}_x \bigg(\prt{E_z}{y} - \prt{E_x}{z}\bigg) + \vec{e}_y \bigg(\prt{E_x}{z} - \prt{E_z}{x}\bigg) + \vec{e}_z \bigg(\prt{E_y}{x} - \prt{E_x}{y}\bigg) \Rightarrow \nabla \times$$
-$$\Rightarrow \nabla \times \vec{E} = - \nabla \times (\nabla\phi) = 0$$
-
-Mathe: Es sind äquivalent 
-\begin{enumerate}[i]
-	\item $\vec{E} = - \nabla\phi$
-	\item $\nabla \times \vec{E} = 0$ (auf einfach zusammenhängendem Gebiet)
-	\item Kurvenintegral $\int_\gamma d\vec{r} \cdot \vec{E}$ ist Wegunabhängig 
-	
-	
-	
-	%T1
-	
-	
-	
-	
-	$$\intt{\vec{r}_1}{\vec{r}_2} d\vec{r} \cdot \vec{E} = - \intt{\vec{r}_1}{\vec{r}_2} dt \underbrace{\frac{d\vec{r}}{dt}\times \nabla\phi(\vec{r}(t))}_{\frac{d\phi}{dt}} = \underbrace{(\phi(\vec{r}_2) - \phi(\vec{r}_1))}_{\textrm{Potentialdifferenz}} $$
+$$\textrm{rot}\, \vec{E} =  \vabla \times \vec{E} = \vec{e}_x \bigg(\prt{E_z}{y} - \prt{E_y}{z}\bigg) + \vec{e}_y \bigg(\prt{E_x}{z} - \prt{E_z}{x}\bigg) + \vec{e}_z \bigg(\prt{E_y}{x} - \prt{E_x}{y}\bigg)$$
+$$\Rightarrow \vabla \times \vec{E} = - \vabla \times (\vabla\phi) = 0$$
+Mathe: Sie sind äquivalent
+\begin{enumerate}[i)]
+	\item $\vec{E} = - \vabla\phi$
+	\item $\vabla \times \vec{E} = 0$ (auf einfach zusammenhängendem Gebiet)
+	\item Kurvenintegral $\int_\gamma \dd\vec{r} \cdot \vec{E}$ ist Wegunabhängig 
+	%
+	%
+	%
+	% I5 T1
+	%
+	%
+	%
+	$$\intt{\vec{r}_1}{\vec{r}_2} \dd\vec{r} \cdot \vec{E} = - \intt{\vec{r}_1}{\vec{r}_2} \dd t \underbrace{\frac{\dd\vec{r}}{\dd t}\times \vabla\phi(\vec{r}(t))}_{\frac{\dd\phi}{\dd t}} = \underbrace{(\phi(\vec{r}_2) - \phi(\vec{r}_1))}_{\textrm{Potentialdifferenz}} $$
 \end{enumerate}
 
-\subsection{Divergenz (Quellen)}
+\paragraph{Divergenz (Quellen)}
 
-$$\div \vec{E} = \nabla \cdot \vec{E} = \prt{E_x}{x} + \prt{E_y}{y} + \prt{E_z}{z}$$
-
+$$\tx{div} \vec{E} = \vabla \cdot \vec{E} = \prt{E_x}{x} + \prt{E_y}{y} + \prt{E_z}{z}$$
 \begin{align*}
-\nabla \cdot \vec{E}(\vec{r}) &= \nabla_{\vec{r}} \cdot \kq \int d^3r'\ \rho(\vec{r}') \frac{1}{|\vec{r} - \vec{r}'|^3}\\
-&= \kq \int_V d^3 r' \rho (\vec{r}') \nabla_{\vec{r}} \cdot \frac{1}{|\vec{r} - \vec{r}'|^3}
+\vabla \cdot \vec{E}(\vec{r}) &= \vabla_{\vec{r}} \cdot \kq \int\dd^3r'\ \rho(\vec{r}') \frac{1}{|\vec{r} - \vec{r}'|^3}\\
+&= \kq \int_V \dd^3 r' \rho (\vec{r}') \vabla_{\vec{r}} \cdot \frac{1}{|\vec{r} - \vec{r}'|^3}
 \end{align*}
-
 $x$-Anteil:
 \begin{align*}
 \frac{\partial}{\partial x}\frac{x-x'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} &= \frac{1 \cdot [\dots]^{\nicefrac{3}{2}}(x - x')(x - x')^{\nicefrac{3}{2}}\cdot 2[\dots]^{\nicefrac{1}{2}}}{[\dots]^3}\\
 &= \frac{[\dots]^{\nicefrac{1}{2}}((x - x')^2 + (y - y')^2 + (z - z')^2 - 3(x - x')^2)}{[\dots]^{\nicefrac{3}{2}}}\\
 &= \frac{(y - y')^2 + (z - z')^2 - 2(x - x')^2}{[\dots]^{\nicefrac{3}{2}}}
 \end{align*}
-
 $$\frac{\partial}{\partial y} \frac{y-y'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x - x')^2 + (z - z')^2 - 2(y - y')^2}{[\dots]^{\nicefrac{3}{2}}}$$ 
-
 $$\frac{\partial}{\partial z} \frac{z-z'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x - x')^2 + (y - y')^2 - 2(z - z')^2}{[\dots]^{\nicefrac{3}{2}}}$$ 
-
-$$\nabla \cdot \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = 0 \quad \textrm{falls} \quad \vec{r} \neq \vec{r}'$$
-
+$$\vabla \cdot \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = 0 \quad \textrm{falls} \quad \vec{r} \neq \vec{r}'$$
 $$\Rightarrow \textrm{falls} \quad \vec{r} \notin V, \textrm{ d.h. } \vec{r} \textrm{ in Gebiet ohne Ladungsdichte } \rho(\vec{r}) = 0$$
-
-$$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = 0$$ 
-
-
-
-%T?
-
-
-
-
-\noindent
+$$\Rightarrow \vabla \cdot \vec{E}(\vec{r}) = 0$$ 
+%
+%
+%
+% I6 T?
+%
+%
+%
 $\vec{r} \in V$: Grenzwertbetrachtung (Regularisierung des Integranden)\\
 statt
 $$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}}$$
 betrachten wir:
-$$\vec{f}_a (\vec{r}-\vec{r}') = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{\vec{r}-\vec{r}'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} \quad a \in \mathbb R,\ a>0$$
+$$f_a (\vec{r}-\vec{r}') = \frac{\vec{r}-\vec{r}'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{\vec{r}-\vec{r}'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} \quad a \in \mathbb R,\ a>0$$
 am Ende Grenzwert $\displaystyle{\lim_{a \to 0}}$
-$$\nabla \cdot \vec{E} (\vec{r}) = \kq \lim_{a \to 0} \int_V d^3r'\ \rho(\vec{r}')\ \rmbox{\hspace{-10pt}\nabla_{\vec{r}}\cdot f_a(\vec{r}-\vec{r}')}$$
+$$\vabla \cdot \vec{E} (\vec{r}) = \kq \lim_{a \to 0} \int_V \dd^3r'\ \rho(\vec{r}')\ \rmbox{\hspace{-10pt}\vabla_{\vec{r}}\cdot f_a(\vec{r}-\vec{r}')}$$
 
 \begin{align*}
 \prt{}{x} \frac{x-x'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} &= \frac{[\dots +a^2]^{\nicefrac{3}{2}} - (x - x') \frac{3}{2} \cdot 2(x-x') [\dots + a^2]^{\nicefrac{3}{2}}}{[\dots + a^2]^3}\\
 &= \frac{(y - y')^2 + (z - z')^2 + a^2 - 2(x - x')^2}{[\dots + a^2]^{\nicefrac{3}{2}}}
 \end{align*}
 
-$$\nabla_{\vec{r}} \cdot f_a(\vec{r}-\vec{r}') = \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}$$
+$$\vabla_{\vec{r}} \cdot f_a(\vec{r}-\vec{r}') = \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}$$
 $$\lim_{a \to 0} f_a(\vec{r}-\vec{r}') = \left\{ \begin{array}{cc}
 0 & \vec{r} \neq \vec{r}'\\
 \infty & \vec{r} = \vec{r}'	
 \end{array} \right.$$
-$$\Rightarrow \textrm{zum Integral } \int_V d^3r' \dots \textrm{ trägt (in Limes }a \to 0) \textrm{ nur der Bereich } \vec{r}' \approx \vec{r} \textrm{ bei}$$
+%
+%
+%
+% I7  muss beim limes ein vabla_r \cdot hin ?
+%
+%
+%
+$$\Rightarrow \textrm{zum Integral } \int_V \dd^3r' \dots \textrm{ trägt (im Limes }a \to 0) \textrm{ nur der Bereich } \vec{r}' \approx \vec{r} \textrm{ bei}$$
 $$K_R (\vec{r}) = \{\vec{r}' \in \mathbb R^3: |\vec{r} - \vec{r}'| \leq R\}$$
-
-
-
-%T zum integral jan
-
-
-
-
+%
+%
+%
+% I8 T zum integral jan
+%
+%
+%
 \begin{align*}
- 	\hspace{100pt} &\lim_{a \to 0} \int_V d^3 r'\ \rho(\vec{r}') \nabla_{\vec{r}} \cdot f_a(\vec{r}- \vec{r}')\\
-	&= \lim_{a \to 0} \int_{K_R (\vec{r})} d^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}\\
- 	&+ \underbrace{\lim_{a \to 0} \int_{V / K_R (\vec{r})} d^3 r' \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}}_{= 0}
+ 	\hspace{100pt} &\lim_{a \to 0} \int_V \dd^3 r'\ \rho(\vec{r}') \vabla_{\vec{r}} \cdot f_a(\vec{r}- \vec{r}')\\
+	&= \lim_{a \to 0} \int_{K_R (\vec{r})} \dd^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}\\
+ 	&+ \underbrace{\lim_{a \to 0} \int_{V / K_R (\vec{r})} \dd^3 r' \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}}}_{= 0}
 \end{align*}
-Wähle $R$ klein genug, dass man innerhalb $K_R (\vec{r})$\\
-$\rho(\vec{r}')$ in Taylorreihe um $\vec{r}$ entwickeln kann.
-$$\vec{\tilde{r}} = \vec{r}' - \vec{r},\ d^3 r' = d^3 \tilde{r}$$
-$$\int_{K_R (\vec{r})} d^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}} = \int_{K_R (0)} d^3 \tilde{r} \ \rho(\vec{r} + \vec{\tilde{r}}) \frac{3a^2}{[\vec{\tilde{r}}^2 + a^2]^{\nicefrac{5}{2}}}$$
-Taylorentwicklung von $\rho(\vec{r} + \vec{\tilde{r}})$ zum $\vec{\tilde{r}} = 0$
+Wähle $R$ klein genug, dass man innerhalb $K_R (\vec{r})$, $\rho(\vec{r}')$ in Taylorreihe um $\vec{r}$ entwickeln kann.
+$$\vec{\tilde{r}} = \vec{r}' - \vec{r},\ \dd^3 r' = \dd^3 \tilde{r}$$
+$$\int_{K_R (\vec{r})} \dd^3 r' \ \rho(\vec{r}') \frac{3a^2}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{5}{2}}} = \int_{K_R (0)} \dd^3 \tilde{r} \ \rho(\vec{r} + \vec{\tilde{r}}) \frac{3a^2}{[\vec{\tilde{r}}^2 + a^2]^{\nicefrac{5}{2}}}$$
+Taylorentwicklung von $\rho(\vec{r} + \vec{\tilde{r}})$ um $\vec{\tilde{r}} = 0$
 $$\rho(\vec{r} + \vec{\tilde{r}}) = \rho(\vec{r}) + \vec{\tilde{r}} \cdot \vabla \rho(\vec{r}) + \dots$$
-$$= \int_{K_R (0)} d^3 \tilde{r} \ (\rho(\vec{r}) + \vec{\tilde{r}} \cdot \vabla \rho(\vec{r}) + \dots) \frac{3a^2}{[\vec{\tilde{r}}^2 + a^2]^{\nicefrac{5}{2}}}$$
-
+$$\hspace{8.1cm} = \int_{K_R (0)} \dd^3 \tilde{r} \ (\rho(\vec{r}) + \vec{\tilde{r}} \cdot \vabla \rho(\vec{r}) + \dots) \frac{3a^2}{[\vec{\tilde{r}}^2 + a^2]^{\nicefrac{5}{2}}}$$
 \begin{enumerate}
 	\item Integral:
 	\begin{align*}
-	\int_{K_R (0)} d^3 \tilde r\ \rho(\vec{r}) \frac{3a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}} &= \rho(\vec{r}) \underbrace{\intt{0}{R} d\tilde r\ \frac{3a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}}}_{\left[\frac{\tilde r^3}{(\vec{\tilde{r}}^2 + a^2)^{\nicefrac{3}{2}}}\right]_0^R} \underbrace{\int d \equaltoup{\Omega}{\mathclap{\sin \theta d \theta d \varphi}}}_{= 4\pi}\\
-	&= 4 \pi \rho(\vec{r}) \frac{R^3}{(R^2 + a^2)^{\nicefrac{3}{2}}} \underset{a \to 0}{\longrightarrow} 4 \pi \rho(\vec{r})
+	\int_{K_R (0)} \dd^3 \tilde r\ \rho(\vec{r}) \frac{3a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}} &= \rho(\vec{r}) \underbrace{\intt{0}{R} \dd\tilde r\ \frac{3a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}}}_{\left[\frac{\tilde r^3}{(\vec{\tilde{r}}^2 + a^2)^{\nicefrac{3}{2}}}\right]_0^R} \underbrace{\int \dd \equaltoup{\Omega}{\mathclap{\sin \theta \dd \theta \dd \varphi}}}_{= 4\pi}\\
+	&= 4 \pi \rho(\vec{r}) \frac{R^3}{(R^2 + a^2)^{\nicefrac{3}{2}}} \quad \underset{a \to 0}{\longrightarrow} \quad 4 \pi \rho(\vec{r})
 	\end{align*} 
 	\item Integral:
-	$$\int_{K_R (0)} d^3 \tilde{r}\ \equalto{\vec{\tilde{r}}}{\tilde{r}\vec{e}_{\vec{\tilde{r}}}} \cdot \nabla_{\vec{r}} \rho(\vec{r}) \frac{3 a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}} = \underbrace{\intt{0}{R} d \tilde r\ \frac{3a^2 \tilde r^3}{(\tilde r^2 + a^2)^{\nicefrac{3}{2}}}}_{\frac{2}{3}a -3a^2 \left(\frac{R^2 +\frac{2}{3}a^2}{(R^2 + a^2)^{\nicefrac{3}{2}}}\right)} \underbrace{\int d \Omega\ \vec{e}_{\tilde{r}} \cdot \nabla \rho(\vec{r})}_{\textrm{unabh. von } a} \underset{a \to 0}{\longrightarrow} 0$$
-	gilt auch für alle höheren Terme
+	$$\int_{K_R (0)} \dd^3 \tilde{r}\ \equalto{\vec{\tilde{r}}}{\tilde{r}\vec{e}_{\vec{\tilde{r}}}} \cdot \vabla_{\vec{r}} \rho(\vec{r}) \frac{3 a^2}{(\tilde{r}^2 + a^2)^{\nicefrac{5}{2}}} = \underbrace{\intt{0}{R} \dd \tilde r\ \frac{3a^2 \tilde r^3}{(\tilde r^2 + a^2)^{\nicefrac{3}{2}}}}_{\frac{2}{3}a -3a^2 \left(\frac{R^2 +\frac{2}{3}a^2}{(R^2 + a^2)^{\nicefrac{3}{2}}}\right)} \underbrace{\int \dd \Omega\ \vec{e}_{\tilde{r}} \cdot \vabla \rho(\vec{r})}_{\textrm{unabh. von } a} \quad \underset{a \to 0}{\longrightarrow} \quad 0$$
+	Das gilt auch für alle höheren Terme. Alle höheren Terme werden im Limit $ \lim_{a \to 0} $$ = 0 $.
+	%
+	%
+	%
+	% I9 wo kommt oben das \tilde{r} ^3 her ?
+	%
+	%
+	%
 \end{enumerate}
 
-$$\lim_{a \to 0} \int_V d^3 r' \rho(\vec{r}) \nabla_{\vec{r}}\cdot \frac{(\vec{r}-\vec{r}'}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} = 4 \pi \rho (\vec{r})$$
-$$\Rightarrow \nabla \cdot \vec{E}(\vec{r}) = \kq \lim_{a \to 0} '' = \frac{1}{\epsilon_0} \rho(\vec{r})$$
-
-\rbox{$$\nabla \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \quad \vec{r} \in \mathbb R^3$$}
+$$\lim_{a \to 0} \int_V \dd^3 r' \rho(\vec{r}) \vabla_{\vec{r}}\cdot \frac{(\vec{r}-\vec{r}')}{[(\vec{r}-\vec{r}')^2 + a^2]^{\nicefrac{3}{2}}} = 4 \pi \rho (\vec{r})$$
+$$\Rightarrow \vabla \cdot \vec{E}(\vec{r}) = \kq \lim_{a \to 0} = \frac{1}{\epsilon_0} \rho(\vec{r})$$
+\begin{center}
+	\begin{minipage}{.5\linewidth}
+		\rbox{$$\vabla \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \quad \vec{r} \in \mathbb R^3$$}
+	\end{minipage}
+\end{center}
 
 \subsection{Zusammenfassung:}
 
 \paragraph{Feldgleichungen der Elektrostatik}
 Mathe: partielle DGL
-\rbox{$$\nabla \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \textrm{ inhomogene DGL}$$ 
-	$$\nabla \times \vec{E}(\vec{r}) = 0\textrm{ homogene DGL}$$}
+\rbox{
+$$\vabla \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \textrm{ inhomogene DGL}$$
+$$\vabla \times \vec{E}(\vec{r}) = 0\textrm{ homogene DGL}$$}
 \noindent
 DGL für Potential $\phi$: 
-$\vec{E} = - \nabla \phi$
-\begin{align*}\nabla \cdot \vec{E} = \nabla \cdot (- \nabla \phi) &= - \nabla \cdot \begin{pmatrix} 
+$\vec{E} = - \vabla \phi$
+\begin{align*}\vabla \cdot \vec{E} = \vabla \cdot (- \vabla \phi) &= - \vabla \cdot \begin{pmatrix} 
 \partial_x \phi \\
 \partial_y \phi \\ 
 \partial_z \phi 
@@ -595,25 +601,31 @@ Partielle DGL 2. Ordnung:
 \frbox{Poissongleichung}{$$\Delta \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho(\vec{r})$$}
 \noindent
 für Gebiete mit $\rho (\vec{r}) = 0$:
-$$\Delta \phi (\vec{r}) = 0 \qquad \textrm{Laplacegleichung}$$
+\begin{center}
+	\begin{minipage}{.4\linewidth}
+		\frbox{Laplacegleichung}{
+			$$\Delta \phi (\vec{r}) = 0$$}
+	\end{minipage}
+\end{center}
 
 \paragraph{Darstellung der Deltafunktion:}
 
-$$\lim_{a \to 0} \int_{\mathbb{R}^3} d^3r'\ \rho(\vec{r}')\underbrace{\nabla_{\vec{r}} \cdot \frac{(\vec{r} - \vec{r}')}{[(\vec{r} - \vec{r}')^2 + a^2]^{\nicefrac{3}{2}}}}_{\frac{3 a^2}{[(\vec{r} - \vec{r}')^2 + a^2]^{\nicefrac{5}{2}}} =: g_a(\vec{r}' - \vec{r})} = 4 \pi \rho(\vec{r})$$
-
+$$\lim_{a \to 0} \int_{\mathbb{R}^3} \dd^3r'\ \rho(\vec{r}')\underbrace{\vabla_{\vec{r}} \cdot \frac{(\vec{r} - \vec{r}')}{[(\vec{r} - \vec{r}')^2 + a^2]^{\nicefrac{3}{2}}}}_{\frac{3 a^2}{[(\vec{r} - \vec{r}')^2 + a^2]^{\nicefrac{5}{2}}} =: g_a(\vec{r}' - \vec{r})} = 4 \pi \rho(\vec{r})$$
+%
+%
+%
+% I10 Stimmt das g_a definiert als 3a^2 / (shit)^5/2 statt r / (shit)^3/2
+%
+%
+%
 $$\frac{1}{4 \pi} g_a \textrm{ liefert Grenzwertdarstellung der $\delta$-funktion.}$$
-
-$$\lim_{a\to 0} \int_{\mathbb{R}^3} d^3r'\ \rho(\vec{r}') \frac{1}{4\pi}g_a(\vec{r}'-\vec{r})=\rho(\vec{r})$$
-
+$$\lim_{a\to 0} \int_{\mathbb{R}^3} \dd^3r'\ \rho(\vec{r}') \frac{1}{4\pi}g_a(\vec{r}'-\vec{r})=\rho(\vec{r})$$
 $$\lim_{a \to 0} g_a(\vec{r}' - \vec{r}) = \left\{ \begin{array}{cc}
 0 		& \vec{r} \neq  \vec{r}'\\
 \infty 	& \vec{r} = 	\vec{r}'
 \end{array} \right.$$
-
-$$\delta(\vec{r}) = \lim_{a \to 0} \frac{1}{4 \pi} \nabla_{\vec{r}} \cdot \frac{r^2}{(r^2+a^2)^{\nicefrac{3}{2}}}$$
-
-$$\overset{\textrm{formal}}{=} \frac{1}{4 \pi} \nabla \cdot \underbrace{\frac{\vec{r}}{r^3}}_{\mathclap{= - \nabla \frac{1}{r}}} = - \frac{1}{4 \pi} \nabla \cdot \bigg(\nabla \frac{1}{r}\bigg) = \frac{-1}{4 \pi} \Delta \frac{1}{r} \Rightarrow \Delta \frac{1}{r} = -4 \pi \delta(\vec{r})$$
-
+$$\delta(\vec{r}) = \lim_{a \to 0} \frac{1}{4 \pi} \vabla_{\vec{r}} \cdot \frac{r^2}{(r^2+a^2)^{\nicefrac{3}{2}}}$$
+$$\hspace{3.6cm} \overset{\textrm{formal}}{=} \frac{1}{4 \pi} \vabla \cdot \underbrace{\frac{\vec{r}}{r^3}}_{\mathclap{= - \vabla \frac{1}{r}}} = - \frac{1}{4 \pi} \vabla \cdot \bigg(\vabla \frac{1}{r}\bigg) = \frac{-1}{4 \pi} \Delta \frac{1}{r}$$ $$\Rightarrow \quad \Delta \frac{1}{r} = -4 \pi \delta(\vec{r})$$
 z.B. Potential einer Punktladung $\rho$ q in $\vec{r}_0$:
 $$\phi(\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 $$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}_0|} }_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} = - \frac{1}{\epsilon_0} \underbrace{q \delta(\vec{r} - \vec{r}_0)}_{= \rho(\vec{r})} = \frac{1}{\epsilon_0} \rho(\vec{r})$$
@@ -632,92 +644,113 @@ $$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - 
 
 \paragraph{1) Gaußscher Satz:} 
 Sei $\vec{A}(\vec{r})$ ein Vektorfeld im Volumen $V \subset \mathbb R^3$, so gilt:
-$$\int_V d^3r\ \nabla \cdot \vec{A}(\vec{r}) = \int_{\partial V} d\vec{f}\ \cdot \vec{A}(\vec{r})$$
+$$\int_V \dd^3r\ \vabla \cdot \vec{A}(\vec{r}) = \int_{\partial V} \dd\vec{f}\ \cdot \vec{A}(\vec{r})$$
 $$\partial V \tx{ Rand von } V$$
-$$d \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\substack{\textrm{nach außen orientierter} \\ \tx{Normaleneinheutsvektor}}}}\ df$$
-
-
-
-
-%T1
-
+$$\dd \vec{f} = \custo{\rightarrow}{\vec{n}}{\mathclap{\substack{\textrm{nach außen orientierter} \\ \tx{Normaleneinheitsvektor}}}}\ \dd f$$
+%
+%
+%
+% I11 T1
+%
+%
+%
 \noindent
 \emph{Bemerkung:}\\
 \begin{enumerate}[i)]
 	\item Analogie 1D: Fundamentalsatz der Integralrechnung:
 	\begin{equation*}
-	\int_{a}^{b} dx \frac{df}{dx} = f(b) - f(a)
+	\int_{a}^{b} \dd x \frac{\dd f}{\dd x} = f(b) - f(a)
 	\end{equation*}
-	\item Geometrische / physikalische Integration:\\
+	\item Geometrische / physikalische Interpretation:\\
 	Fluss des Vektorfeldes $ \vec{A} $ durch $ \partial V $
 	\begin{equation*}
-	\int_{\partial V} d\vec{f} \cdot \vec{A}
+	\int_{\partial V} \dd\vec{f} \cdot \vec{A}
 	\end{equation*}
 	Integral über die Quellen von $ \vec{A} $
 	\begin{equation*}
-	\int_V d^3r \vec{\nabla} \cdot \vec{A}
+	\int_V \dd^3r \vec{\nabla} \cdot \vec{A}
 	\end{equation*}
 	\begin{equation*}
-	\vec{A} = \const \rightarrow \vec{\nabla} \cdot \vec{A} = 0
+	\vec{A} = \const \quad \rightarrow \quad \vec{\nabla} \cdot \vec{A} = 0
 	\end{equation*}
 	\emph{Beispiel:} Geschwindigkeit einer Flüssigkeit: $ \vec{A}(\vec{r}) = \vec{v}(\vec{r}) $\\
-	
-	%T1 az
-	
-	$$ \vec{v} = \const \quad \vec{\nabla} \cdot \vec{v} = 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} = 0 $$
+	%
+	%
+	%
+	% I12 T1 az
+	%
+	%
+	%
+	$$ \vec{v} = \const \quad \vec{\nabla} \cdot \vec{v} = 0 \quad \int_{\partial V} \dd\vec{f} \cdot \vec{v} = 0 $$
 	$ \Rightarrow $ Es gibt keine Quellen von $ \vec{v} $
-	
-	%T2 az
-	
-	$$ \vec{\nabla} \cdot \vec{r} \neq 0 \quad \int_{\partial V} d\vec{f} \cdot \vec{v} \neq 0 $$
+	%
+	%
+	%
+	% I13 T2 az
+	%
+	%
+	%
+	$$ \vec{\nabla} \cdot \vec{r} \neq 0 \quad \int_{\partial V} \dd\vec{f} \cdot \vec{v} \neq 0 $$
+	%
+	%
+	%
+	% I14 irgendetwas ist hier sehr falsch (kim)
+	%
+	%
+	%
 	\item
-	
-	%T3   T4 fehlt
-	
+	%
+	%
+	%
+	% I15 T3   (T4 fehlt. evtl jan aufschrieb oder kim)
+	%
+	%
+	%
 	\begin{align*}
-	\int_V d^3r \vec{\nabla} \cdot \vec{A}(\vec{r})  =  \int_{0}^{\Delta x} dx \int_{0}^{\Delta y} dy \int_{0}^{\Delta z} \left(\frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}\right)  \\
+	\int_V \dd^3r \vec{\nabla} \cdot \vec{A}(\vec{r})  =  \int_{0}^{\Delta x} \dd x \int_{0}^{\Delta y} \dd y \int_{0}^{\Delta z} \dd z \left(\frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}\right)  \\
 	\end{align*}
 	\begin{align*}
-	&\int_{0}^{\Delta z} dz \int_{0}^{\Delta y} dy \ub{\int_{0}^{\Delta x} dx \frac{\partial A_x}{\partial x}}_{A_x(\Delta x , y , z) - A_x(0,y,z)}\\
-	& = \int_{0}^{\Delta z} dz \int_{0}^{\Delta y} A_x(\Delta x,y,z) - \int_{0}^{\Delta z} dz \int_{0}^{\Delta y} dy A_x(0,y,z)\\
-	& = \int_{F^+_A} d\vec{f} \cdot \vec{A} + \int_{F^-_A} d\vec{f} \cdot \vec{A}
+	&\int_{0}^{\Delta z} \dd z \int_{0}^{\Delta y} \dd y \ub{\int_{0}^{\Delta x} \dd x \frac{\partial A_x}{\partial x}}_{A_x(\Delta x , y , z) - A_x(0,y,z)}\\
+	& = \int_{0}^{\Delta z} \dd z \int_{0}^{\Delta y} \dd y A_x(\Delta x,y,z) - \int_{0}^{\Delta z} \dd z \int_{0}^{\Delta y} \dd y A_x(0,y,z)\\
+	& = \int_{F^+_x} \dd\vec{f} \cdot \vec{A} + \int_{F^-_x} \dd\vec{f} \cdot \vec{A}
 	\end{align*}
 	\begin{equation*}
-	F_x^+: \quad d\vec{f} = \vec{e}_x dy dz \qquad F_x^-: \quad d\vec{f} = - \vec{e}_x dy dz
+	F_x^+: \quad \dd\vec{f} = \vec{e}_x \dd y \dd z \qquad F_x^-: \quad \dd\vec{f} = - \vec{e}_x \dd y \dd z
 	\end{equation*}
 	ebenso gilt dann für die anderen Koordinaten:
 	\begin{align*}
-	\int_{0}^{\Delta x} dx \int_{0}^{\Delta z} dz \int_{0}^{\Delta y} dy \frac{\partial A_y}{\partial y} &= \int_{F^+_y} d\vec{f} \cdot \vec{A} + \int_{F^-_y} d\vec{f} \cdot \vec{A} \\
-	\int_{0}^{\Delta x} dx \int_{0}^{\Delta y} dy \int_{0}^{\Delta z} dz \frac{\partial A_z}{\partial z} &= \int_{F^+_z} d\vec{f} \cdot \vec{A} + \int_{F^-_z} d\vec{f} \cdot \vec{A} \\
+	\int_{0}^{\Delta x} \dd x \int_{0}^{\Delta z} \dd z \int_{0}^{\Delta y} \dd y \frac{\partial A_y}{\partial y} &= \int_{F^+_y} \dd\vec{f} \cdot \vec{A} + \int_{F^-_y} \dd\vec{f} \cdot \vec{A} \\
+	\int_{0}^{\Delta x} \dd x \int_{0}^{\Delta y} \dd y \int_{0}^{\Delta z} \dd z \frac{\partial A_z}{\partial z} &= \int_{F^+_z} \dd\vec{f} \cdot \vec{A} + \int_{F^-_z} \dd\vec{f} \cdot \vec{A} \\
 	\end{align*}
 \end{enumerate}
 
-$$\Rightarrow \int_V d^3 r \nabla \cdot \vec{A} = \int_{\partial V} d \vec{f} \cdot \vec{A}$$
+$$\Rightarrow \int_V \dd^3 r \vabla \cdot \vec{A} = \int_{\partial V} \dd \vec{f} \cdot \vec{A}$$
 
 \paragraph{2) Stokescher Satz}
 Sei $\vec{A}(\vec{r})$ ein Vektorfeld, $F$ eine Fläche mit Randkurve $\partial F$, so gilt:
-$$\int\limits_{\mathclap{\textrm{Linienintegral}\rightarrow\,\partial F \phantom{\textrm{Linienintegral}\rightarrow\,}}} d\vec{r} \vec{A}(\vec{r}) = \int\limits_{\mathclap{\phantom{\, \leftarrow \textrm{Oberflächenint.}} F\, \leftarrow \textrm{Oberflächenint.}}} d \vec{f} \cdot (\nabla \times \vec{A}(\vec{r}))$$
-
-
-%T5 jan 6793
-
-
-$$d\vec{f} = \vec{n} df$$
-Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
-
+$$\int\limits_{\mathclap{\textrm{Linienintegral}\rightarrow\,\partial F \phantom{\textrm{Linienintegral}\rightarrow\,}}} \dd\vec{r} \cdot \vec{A}(\vec{r}) = \int\limits_{\mathclap{\phantom{\, \leftarrow \textrm{Oberflächenint.}} F\, \leftarrow \textrm{Oberflächenint.}}} \dd \vec{f} \cdot (\vabla \times \vec{A}(\vec{r}))$$
+%
+%
+%
+% I16 T5 jan Bild 6793
+%
+%
+%
+$$\dd\vec{f} = \vec{n} \ \dd f$$
+Richtung von $\dd\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.\\
 \emph{Beispiel:}
 \begin{equation*}
 \vec{A}(\vec{r}) = \begin{pmatrix}
 -y \\ x \\ 0
 \end{pmatrix}
 \end{equation*}
-
-%T6 jan 6793
-
-
-
-
-
+%
+%
+%
+% I17 T6 jan Bild 6793
+%
+%
+%
 \begin{equation*}
 \vec{\nabla} \times \vec{A} = \begin{pmatrix}
 \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} \\
@@ -727,14 +760,13 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 0 \\ 0 \\ 1 + 1
 \end{pmatrix} = 2 \vec{e}_z
 \end{equation*}
-
-
-
-%T7 Photo von andrez 25.10.18
-
-
-
-
+%
+%
+%
+% I18 T7 Photo von andrez 25.10.18
+%
+%
+%
 \begin{equation*}
 \vec{r}(\varphi) = R \begin{pmatrix}
 \cos \varphi \\ \sin \varphi \\ 0
@@ -746,27 +778,45 @@ Richtung von $d\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.
 \end{pmatrix}
 \end{equation*}
 \begin{align*}
-\int_{\partial F} d \vec{r} \cdot \vec{A}(\vec{r}) &= \int_{0}^{2 \pi} d \varphi \frac{\partial \vec{r}}{\partial \varphi} \cdot \vec{A}( \vec{r} ( \varphi)) \\
-&= \int_{0}^{2 \pi} d \varphi R ( + \sin^2 \varphi + \cos^2 \varphi) = 2 \pi R^2\\
-\int_F d\vec{f} \ob{\left(\vec{\nabla} \times  \vec{A}\right)}^{2 \vec{e}_z} &= 2 \pi R^2
+\int_{\partial F} \dd \vec{r} \cdot \vec{A}(\vec{r}) &= \int_{0}^{2 \pi} \dd \varphi \frac{\partial \vec{r}}{\partial \varphi} \cdot \vec{A}( \vec{r} ( \varphi)) \\
+&= \int_{0}^{2 \pi} \dd \varphi R ( + \sin^2 \varphi + \cos^2 \varphi) = 2 \pi R^2\\
+\int_F \dd\vec{f} \ob{\left(\vec{\nabla} \times  \vec{A}\right)}^{2 \vec{e}_z} &= 2 \pi R^2
 \end{align*}
-
 Vektorfeld ohne Wirbel z.B. $\vec{A} = \const$\\
-
-
-%T8
-
-
-$\nabla \times \vec{A} = 0$\\
-
-
-%T9
-
-
-\bem  %T10 , %T11
-
+%
+%
+%
+% I19 T8
+%
+%
+%
+$\vabla \times \vec{A} = 0$\\
+%
+%
+%
+% I20 T9
+%
+%
+%
+\bem
+%
+%
+%
+% I21 T10
+%
+%
+%
+%\
+%
+%
+% I22 T11
+%
+%
+%
 \subsection{Integrale Form der Feldgleichung}
+
 \subsection{Gaußsches Gesetz}
+
 \begin{equation*}
 \vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0}
 \end{equation*}
@@ -776,15 +826,16 @@ $\nabla \times \vec{A} = 0$\\
 
 
 \begin{align*}
-\int_{V} d^3 r \vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \int_{V} d^3 r \rho (\vec{r}) = \frac{1}{\epsilon_0} Q_V\\
-&= \int_V d\vec{f} \cdot \vec{E}(\vec{r})
+\int_{V} \dd^3 r \vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \int_{V} \dd^3 r \rho (\vec{r}) = \frac{1}{\epsilon_0} Q_V\\
+&= \int_V \dd\vec{f} \cdot \vec{E}(\vec{r})
 \end{align*}
 
 \begin{equation*}
-\rmbox{\int_{\partial V} d \vec{f} \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon} Q_V}
+\rmbox{\int_{\partial V} \dd \vec{f} \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon} Q_V}
 \end{equation*}
 
 \subsubsection{Berechnung elektrischer Felder für hochsymmetrische Ladungsverteilungen}
+
 \emph{Beispiel:}\\
 Homogen geladene Kugel mit Radius $ R $ und Gesamtladung $ Q $. Damit ist die Ladungsdichte innerhalb der Kugel:
 \begin{equation*}
@@ -809,12 +860,12 @@ Fluss von $\vec{E}$ durch Oberfläche einer Kugel mit Radius $r$
 %T13
 
 
-$$d \vec{f} = \vec{e}_r r^2 \sin \theta d \theta d \varphi \Rightarrow d \vec{f} \cdot \vec{E} = E_r(r)r^2\sin \theta d \theta d \varphi $$
+$$\dd \vec{f} = \vec{e}_r r^2 \sin \theta \dd \theta \dd \varphi \Rightarrow \dd \vec{f} \cdot \vec{E} = E_r(r)r^2\sin \theta \dd \theta \dd \varphi $$
 
 \begin{align*}
-\int_{\partial K_r (0)} d\vec{f}\ \vec{E} &= \int_0^T d \theta \ \intt{0}{2 \pi} d \varphi E_r (r) r^2 \sin \theta\\
+\int_{\partial K_r (0)} \dd\vec{f}\ \vec{E} &= \int_0^T \dd \theta \ \intt{0}{2 \pi} \dd \varphi E_r (r) r^2 \sin \theta\\
 &= E_r (r) r^2 4 \pi\\
-&= \frac{1}{\epsilon_0} Q_{K_r (0)} = \frac{1}{\epsilon_0} \int_{K_r (0)} d^3 r\ \rho(\vec{r}) = \frac{1}{\epsilon_0} \left\{ \begin{array}{cc}
+&= \frac{1}{\epsilon_0} Q_{K_r (0)} = \frac{1}{\epsilon_0} \int_{K_r (0)} \dd^3 r\ \rho(\vec{r}) = \frac{1}{\epsilon_0} \left\{ \begin{array}{cc}
 Q & r > R\\
 Q \frac{r^3}{R^3} & r \leq R 		
 \end{array}\right.
@@ -832,13 +883,14 @@ $$\Rightarrow E_r(r) = \frac{Q}{4 \pi \epsilon_0}\left\{ \begin{array}{cc}
 
 
 \subsection{Satz von Stokes}
+
 \begin{equation*}
 \vec{\nabla} \times \vec{E} = 0
 \end{equation*}
 \textbf{Definition:} $ \gamma = \partial F $\\
 $ \int_\gamma $ ist dann ein Linienintegral über eine geschlossene Kurve
 \begin{equation*}
-\rmbox{\int_\gamma d \vec{r} \cdot \vec{E} = \int_F d\vec{f} \cdot (\vec{\nabla} \times \vec{E}) = 0}
+\rmbox{\int_\gamma \dd \vec{r} \cdot \vec{E} = \int_F \dd\vec{f} \cdot (\vec{\nabla} \times \vec{E}) = 0}
 \end{equation*}
 
 \subsection{Zusammenfassung: Feldgleichungen der Elektrostatik}
@@ -849,10 +901,11 @@ $ \int_\gamma $ ist dann ein Linienintegral über eine geschlossene Kurve
 \end{equation*}
 \textbf{Integral Darstellung:}
 \begin{equation*}
-\int_{\partial V} d\vec{f} \cdot \vec{E} = \frac{1}{\epsilon_0} Q_V \qquad , \qquad \oint_\gamma d\vec{r} \cdot \vec{E} = 0
+\int_{\partial V} \dd\vec{f} \cdot \vec{E} = \frac{1}{\epsilon_0} Q_V \qquad , \qquad \oint_\gamma \dd\vec{r} \cdot \vec{E} = 0
 \end{equation*}
 
 \section{Elektrostatische Energie}
+
 \textbf{potentielle Energie einer Punktladung im äußeren elektrischen Feld}\\
 Kraft auf Ladung $ q $:
 \begin{equation*}
@@ -860,8 +913,8 @@ Kraft auf Ladung $ q $:
 \end{equation*}
 Die Arbeit bei Verschiebung der Ladung von $ \vec{a} $ nach $ \vec{b} $
 \begin{align*}
-W &= - \int_{\vec{a}}^{\vec{b}} d\vec{r} \cdot \vec{F} = - q \int_{\vec{a}}^{\vec{b}} d\vec{r} \cdot \vec{E}(\vec{r})\\
-&= q \int_{\vec{a}}^{\vec{b}} d\vec{r} \cdot \vec{\nabla} \Phi = q \ub{( \Phi(\vec{b}) - \Phi(\vec{a})}_{\tx{Potentialdifferenz}}
+W &= - \int_{\vec{a}}^{\vec{b}} \dd\vec{r} \cdot \vec{F} = - q \int_{\vec{a}}^{\vec{b}} \dd\vec{r} \cdot \vec{E}(\vec{r})\\
+&= q \int_{\vec{a}}^{\vec{b}} \dd\vec{r} \cdot \vec{\nabla} \Phi = q \ub{( \Phi(\vec{b}) - \Phi(\vec{a})}_{\tx{Potentialdifferenz}}
 \end{align*}
 Die Arbeit um $ q $ aus dem unendlichen $ \infty $ nach $ \vec{r} $ zu bringen ist dann:
 
@@ -942,8 +995,8 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 \end{minipage}%
 \begin{minipage}{.7\linewidth}
 	\begin{align*}
-	W &= \frac{1}{8 \pi \epsilon_0} \int d^3r\ \int d^3r'\ \frac{\rho(\vec{r}) \rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}\\
-	&= \frac{1}{2} \int d^3r\ \rho(\vec{r}) \kq \underbrace{\int_{\mathbb R^3} d^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
+	W &= \frac{1}{8 \pi \epsilon_0} \int \dd^3r\ \int \dd^3r'\ \frac{\rho(\vec{r}) \rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}\\
+	&= \frac{1}{2} \int \dd^3r\ \rho(\vec{r}) \kq \underbrace{\int_{\mathbb R^3} \dd^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
 	\end{align*}
 \end{minipage}%
 \\
@@ -961,32 +1014,32 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 	\end{tikzpicture}
 \end{minipage}%
 \begin{minipage}{.7\linewidth}
-	$$W_{\textrm{ext}} = \int d^3 r\ \rho(\vec{r}) \Phi_{\textrm{ext}}(\vec{r})$$
+	$$W_{\textrm{ext}} = \int \dd^3 r\ \rho(\vec{r}) \Phi_{\textrm{ext}}(\vec{r})$$
 \end{minipage}%
 
 \subsubsection{Energie $ W $ durch $ \vec{E} $ ausdrücken:}
 
 \begin{align*}
-\vec\Delta \Phi &= - \frac{1}{\epsilon_0} \rho \quad \Rightarrow \quad W = -\frac{1}{2} \int d^3r \epsilon_0 \ub{\vec\Delta \Phi(\vec{r}) \Phi(\vec{r})}_{\vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi) - \equalto{(\vec{\nabla} \Phi)^2}{\vec{E}} }\\
-&= -\frac{\epsilon_0}{2} \ub{\int_{\mathbb{R}^3} d^3r \vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi)} + \frac{\epsilon_0}{2} \int d^3r \vec{E}(\vec{r})\\[5pt]
-& \qquad \qquad \lim\limits_{R\to \infty} \int_{K_R(0)} d^3r \vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi) = \lim\limits_{R \to \infty} \int_{\partial K_R(0)} \ub{d\vec{f} \cdot \ub{(\Phi \vec{\nabla}\Phi)}_{\buildrel {R\to \infty} \over \sim \frac{1}{R^3}}}_{\sim \frac{1}{R}} = 0\\
-&= \frac{\epsilon_0}{2} \int d^3r \vec{E}(\vec{r})
+\vec\Delta \Phi &= - \frac{1}{\epsilon_0} \rho \quad \Rightarrow \quad W = -\frac{1}{2} \int \dd^3r \epsilon_0 \ub{\vec\Delta \Phi(\vec{r}) \Phi(\vec{r})}_{\vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi) - \equalto{(\vec{\nabla} \Phi)^2}{\vec{E}} }\\
+&= -\frac{\epsilon_0}{2} \ub{\int_{\mathbb{R}^3} \dd^3r \vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi)} + \frac{\epsilon_0}{2} \int \dd^3r \vec{E}(\vec{r})\\[5pt]
+& \qquad \qquad \lim\limits_{R\to \infty} \int_{K_R(0)} \dd^3r \vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi) = \lim\limits_{R \to \infty} \int_{\partial K_R(0)} \ub{\dd\vec{f} \cdot \ub{(\Phi \vec{\nabla}\Phi)}_{\buildrel {R\to \infty} \over \sim \frac{1}{R^3}}}_{\sim \frac{1}{R}} = 0\\
+&= \frac{\epsilon_0}{2} \int \dd^3r \vec{E}(\vec{r})
 \end{align*}
 Zur Umformung oben wurde benutzt:
 \begin{equation*}
-\Phi \buildrel R\to \infty \over \sim \frac{1}{R} \qquad \vec{\nabla} \Phi \sim \frac{1}{R^2}\qquad d\vec{f} = \vec{n} \ub{df}_{\sim R^2}
+\Phi \buildrel R\to \infty \over \sim \frac{1}{R} \qquad \vec{\nabla} \Phi \sim \frac{1}{R^2}\qquad \dd\vec{f} = \vec{n} \ub{\dd f}_{\sim R^2}
 \end{equation*}
 Damit ergibt sich für die Energie einer Verteilung von Punktladungen 
 
 % andrez 3:
-$$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int d^3 r\ \vec{E}^2(\vec{r})} \qquad \textrm{nicht für Punkladungen}$$
+$$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int \dd^3 r\ \vec{E}^2(\vec{r})} \qquad \textrm{nicht für Punkladungen}$$
 \begin{minipage}{.6\linewidth}
 	Energiedichte des elektrostatischen Feldes
 	$$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
 	\textbf{\emph{Beispiel: }Plattenkondensator}\\
 	Fläche $F$, Ladung $\rightarrow\ r = \frac{q}{F}\ \rightarrow\ \vec{E} = \frac{r}{\epsilon_0} \vec{e}_x$\\[5pt]
 	$ \rightarrow $ Die Energiedichte ist: $ w = \frac{\epsilon_0}{2} \vec{E}^2 = \frac{\sigma^2}{2 \epsilon_0} $ (nicht für Punktladungen)\\[5pt]
-	$ \rightarrow $ Die Energie beträgt: $ W = \int d^3 r w(\vec{r}) = l \cdot F \cdot \frac{\sigma^2}{2 \epsilon_0} $
+	$ \rightarrow $ Die Energie beträgt: $ W = \int \dd^3 r w(\vec{r}) = l \cdot F \cdot \frac{\sigma^2}{2 \epsilon_0} $
 \end{minipage}%
 \begin{minipage}{0.1\linewidth}
 	$ \phantom{M} $
@@ -1019,7 +1072,7 @@ $$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int d^3 r\ \vec{E}^2(\vec{r
 
 \subsubsection{Potentialdifferenz - Spannung}
 \begin{equation*}
-\Phi(\vec{r}) - \Phi(0) = - \int_{0}^{\vec{r}} d\vec{r}' \cdot \vec{E} (\vec{r}') = - \int_{0}^{x} dx' \frac{\sigma}{\epsilon_0} = - \frac{\sigma}{\epsilon} x
+\Phi(\vec{r}) - \Phi(0) = - \int_{0}^{\vec{r}} \dd\vec{r}' \cdot \vec{E} (\vec{r}') = - \int_{0}^{x} \dd x' \frac{\sigma}{\epsilon_0} = - \frac{\sigma}{\epsilon} x
 \end{equation*}
 
 %t6: %t7:
@@ -1056,7 +1109,7 @@ C = \frac{q}{U} = \frac{\epsilon_0 F}{l}
 \lcom{Was ist die Energie bei einer Verteilung von Punktladungen und bei einer kontinuierlichen Ladungsverteilung. Bei einer kontinuierlichen Ladungsverteilung haben wir herausgefunden:}
 $$W = \frac{1}{8 \pi \epsilon_0} \sum_{\substack{i,j\\ i \neq j}} \frac{q_i q_j}{r_{ij}} \qquad \textrm{ für Punktladungen}$$
 \lcom{Die Energie der Punktladung selbst steckt hier nicht drinnen. Man muss dabei aufpassen, welche Gleichung man für welches Modell benutzt.}
-$$\vec{E} = \kq q \frac{\vec{r}}{r^3} \qquad \int d^3 r\ \vec{E}^2 = \int d^3 r\ \frac{1}{r^4} = \infty$$
+$$\vec{E} = \kq q \frac{\vec{r}}{r^3} \qquad \int \dd^3 r\ \vec{E}^2 = \int \dd^3 r\ \frac{1}{r^4} = \infty$$
 
 \section{Verhalten des el. Feldes an Grenzflächen mit Flächenladung}
 $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
@@ -1077,7 +1130,7 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\begin{tikzpicture}
 	\draw[thick,->] (0,0) -- (0,.75) node[anchor=south east] {$ z $};
 	\draw[thick,->] (0,0) -- (1,0) node[anchor=north west] {$ y $};
-	\draw[thick,->] (0,0) -- (-.75,-.75) node[anchor=south east] {$ x $};
+	\draw[thick,->] (0,0) -- (-.75,-.75) node[anchor=north east] {$ x $};
 	\draw (-.2,-.2) -- (-.2+1,-.2);
 	\draw (-.4,-.4) -- (-.4+1,-.4);
 	\draw (-.6,-.6) -- (-.6+1,-.6);
@@ -1108,10 +1161,11 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 \begin{minipage}{.4\linewidth}
 	\hspace{30pt}
 	\begin{tikzpicture}
-	\draw[thick,->] (0,-.7) -- (0,.7) node[anchor=north west] {$ z $};
-	\draw[thick,->] (-1,0) -- (1.2,0) node[anchor=south east] {$ \Phi(z) $};
+	\draw[thick,->] (0,-.7) -- (0,.7) node[anchor=south east] {$ z $};
+	\draw[thick,->] (-1,0) -- (1.2,0) node[anchor=north west] {$ \Phi(z) $};
 	\draw (-1,-.7) -- (0,0) -- (1,-.7);
 	\end{tikzpicture}
+	\vspace{5pt}
 \end{minipage}%
 \\
 \begin{minipage}{.4\linewidth}
@@ -1152,17 +1206,17 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\end{tikzpicture}
 \end{minipage}%
 \begin{align*}
-\int_V d^3 r'\ \vabla \cdot \vec{E}(\vec{r}) &= \int_{\partial V} d\vec{f}'\ \vec{E}(\vec{r})\\
-&=\custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\textrm{Mantel}} d\vec{f}'\ \vec{E}}{\hspace{-23.5pt}0} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_+} d\vec{f}'\ \vec{E}(\vec{r})}{\int_F df'\ \vec{n} \cdot \vec{E}_+} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_-} d\vec{f}'\ \vec{E}}{- \int_F df'\ \vec{n} \cdot \vec{E}_-}
+\int_V \dd^3 r'\ \vabla \cdot \vec{E}(\vec{r}) &= \int_{\partial V} \dd\vec{f}'\ \vec{E}(\vec{r})\\
+&=\custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\textrm{Mantel}} \dd\vec{f}'\ \vec{E}}{\hspace{-23.5pt}0} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_+} \dd\vec{f}'\ \vec{E}(\vec{r})}{\int_F \dd f'\ \vec{n} \cdot \vec{E}_+} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_-} \dd\vec{f}'\ \vec{E}}{- \int_F \dd f'\ \vec{n} \cdot \vec{E}_-}
 \end{align*}
 $ \vec{E}_{\pm} $ ist das Feld auf beiden Seiten der Grenzfläche
 
 % eaualto zwischen Zeile 1 und 2 der equations ...
 \begin{equation*}
-\int_{\partial V} d\vec{f}' \vec{E} \buildrel \Delta z \to 0 \over \longrightarrow \int_{F} df \vec{n} \cdot (\vec{E}_+ - \vec{E}_-) \buildrel F \to 0 \over \longrightarrow F\  \vec{n} \cdot \big(\vec{E}_+(\vec{r}) - \equalto{\vec{E}_-(\vec{r})}{}\big)
+\int_{\partial V} \dd\vec{f}' \vec{E} \buildrel \Delta z \to 0 \over \longrightarrow \int_{F} \dd f \vec{n} \cdot (\vec{E}_+ - \vec{E}_-) \buildrel F \to 0 \over \longrightarrow F\  \vec{n} \cdot \big(\vec{E}_+(\vec{r}) - \equalto{\vec{E}_-(\vec{r})}{}\big)
 \end{equation*}
 \begin{equation*}
-\int_V d^2r' \equalto{\vec{\nabla} \cdot \vec{E}(\vec{r}')}{\frac{1}{\epsilon_0} \rho(\vec{r}')} = \frac{1}{\epsilon_0} \int_V d^3r' \rho(\vec{r}) = \frac{1}{\epsilon_0} \int_F df'  \sigma(\vec{r}') \buildrel F \to 0 \over \longrightarrow \frac{1}{\epsilon_0} F \sigma(\vec{r})
+\int_V \dd^2r' \equalto{\vec{\nabla} \cdot \vec{E}(\vec{r}')}{\frac{1}{\epsilon_0} \rho(\vec{r}')} = \frac{1}{\epsilon_0} \int_V \dd^3r' \rho(\vec{r}) = \frac{1}{\epsilon_0} \int_F \dd f'  \sigma(\vec{r}') \buildrel F \to 0 \over \longrightarrow \frac{1}{\epsilon_0} F \sigma(\vec{r})
 \end{equation*}
 \begin{equation*}
 \Rightarrow \vec{n} \cdot \left(\vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r}) \right) = \frac{1}{\epsilon_0} \sigma(\vec{r})
@@ -1174,7 +1228,9 @@ E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\pe
 %t13: und Tafel vor M4:
 \noindent
 \begin{minipage}{.4\linewidth}
+	
 	\paragraph{Tangentialkomponente $ E\parallel $}
+	
 	Satz von Stokes:
 	\vspace{50pt}
 \end{minipage}%
@@ -1203,7 +1259,7 @@ E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\pe
 	\end{tikzpicture}
 \end{minipage}%
 \begin{equation*}
-0 = \oint_r d\vec{r} \vec{E}(\vec{r}') = \ub{
+0 = \oint_r \dd\vec{r} \vec{E}(\vec{r}') = \ub{
 	\int\limits_{\begin{tikzpicture}[scale=.7]
 		\draw[dashed] (0,0) -- (1,0) -- (1,.7) -- (0,.7) -- (0,0);
 		\draw[thick,->] (1,0) -- (1,.7);
@@ -1223,10 +1279,10 @@ E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\pe
 	\int\limits_{\begin{tikzpicture}[scale=.4]
 		\draw[dashed] (0,0) -- (1,0) -- (1,.7) -- (0,.7) -- (0,0);
 		\draw[thick,->] (1,0) -- (0,0);
-		\end{tikzpicture}} d\vec{r}' (\vec{E}_+ -  \vec{E}_-)}
+		\end{tikzpicture}} \dd\vec{r}' (\vec{E}_+ -  \vec{E}_-)}
 \end{equation*}
 \begin{equation*}
-0 = \oint_\gamma d\vec{r}' \cdot \vec{E} \buildrel \Delta z \to 0 \over \longrightarrow \int_{-\frac{L}{2}}^{-\frac{L}{2}} ds \vec{t} \cdot \left(\vec{E}_+ - \vec{E}_-\right) \buildrel L \to 0 \over \longrightarrow L \vec{t} \cdot \left(\vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r})\right) = 0
+0 = \oint_\gamma \dd\vec{r}' \cdot \vec{E} \buildrel \Delta z \to 0 \over \longrightarrow \int_{-\frac{L}{2}}^{-\frac{L}{2}} ds \vec{t} \cdot \left(\vec{E}_+ - \vec{E}_-\right) \buildrel L \to 0 \over \longrightarrow L \vec{t} \cdot \left(\vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r})\right) = 0
 \end{equation*}
 \begin{equation*}
 \rightarrow \vec{t} \cdot (\vec{E}_+ (\vec{r}) - \vec{E}_- (\vec{r}) = 0
@@ -1242,7 +1298,7 @@ Insgesamt ergibt sich damit:
 \begin{minipage}{.6\linewidth}
 	Das elektrische Potential $ \Phi $ ist damit stetig.
 	\begin{equation*}
-	\ub{\Phi(\vec{r}_b) - \Phi(\vec{r}_a)}_{\Phi_+(\vec{r}) - \Phi_-(\vec{r})} = \int_{\vec{r}_a}^{\vec{r}_b} d\vec{r}' \cdot \vec{E} \quad \buildrel \Delta z \to 0 \over \longrightarrow 0
+	\ub{\Phi(\vec{r}_b) - \Phi(\vec{r}_a)}_{\Phi_+(\vec{r}) - \Phi_-(\vec{r})} = \int_{\vec{r}_a}^{\vec{r}_b} \dd\vec{r}' \cdot \vec{E} \quad \buildrel \Delta z \to 0 \over \longrightarrow 0
 	\end{equation*}
 \end{minipage}%
 \begin{minipage}{.4\linewidth}
@@ -1329,7 +1385,7 @@ Das elektrische Potential: $ \Phi(\vec{r}): \quad \vec{E}(\vec{r}) = - \vec{\nab
 $$ \vec{\Delta} \Phi (\vec{r}) = -\frac{1}{\epsilon_0} \rho(\vec{r})  \qquad \tx{Poisson-Gleichung}$$
 Für eine gegebene lokale Ladungsverteilung $ \rho $ gilt:
 \begin{equation*}
-\Phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int d^3 r' \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
+\Phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 r' \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
 \end{equation*}
 \begin{equation*}
 \rightarrow \Phi(\vec{r}) \buildrel |\vec{r}| \rightarrow 0 \over \longrightarrow 0

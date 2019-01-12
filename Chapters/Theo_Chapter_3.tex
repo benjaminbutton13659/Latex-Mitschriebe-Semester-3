@@ -1493,7 +1493,13 @@ Für $ n_2 > n_1 : $ Grenzfall $ \theta_1 \defeq \theta_g $ bei dem Totalreflexi
 \sin \theta_g = \frac{n_2}{n_1} \sin \frac{\pi}{2} = \frac{n_2}{n_1}
 \end{equation*}
 z.B. Wasser $ \ n_1 \approx 1{,}33 $, Luft $ \ n_2 \approx 1 $ $ \Rightarrow \theta_g \approx 49 ^\circ $
-
+\begin{comment}
+\begin{tikzpicture}
+\draw[->] (-5,0) -- (5,0);
+\draw[->] (0,-5) -- (0,5);
+\draw [domain=-3.75:3.75, samples=500] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
+\end{tikzpicture}
+\end{comment}
 
 
 
