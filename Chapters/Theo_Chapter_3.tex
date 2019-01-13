@@ -1270,7 +1270,7 @@ Physikalisches Feld:
 \end{enumerate}
 \begin{center}
 	%t8:
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=.95]
 		\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ y $};
 		\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$ x $};
 		\draw[thick,->] (0,0) -- (1.2,1.2) node[anchor=south west] {$ \vec{E} $};
@@ -1281,7 +1281,7 @@ Physikalisches Feld:
 		\draw[white] (2,-2) -- ++(0,-.225);
 	\end{tikzpicture}%
 	%t9:
-	\begin{tikzpicture}[scale=.8]
+	\begin{tikzpicture}[scale=.76]
 		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ y $};
 		\draw[->] (-2.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
 		\draw[thick,->] (0,0) -- ({cos(45) * 2}, {sin(45) * 2}) node[anchor=south west] {$ \vec{r}(t) $};
@@ -1295,7 +1295,7 @@ Physikalisches Feld:
 		\node at (3,-2.5) {linkszirkulär};
 	\end{tikzpicture}%
 	%t10:
-	\begin{tikzpicture}[scale=.8]
+	\begin{tikzpicture}[scale=.76]
 		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ y $};
 		\draw[->] (-2.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
 		\draw[rotate=25] (0,0) ellipse (2cm and 1cm);
@@ -1337,21 +1337,40 @@ eine Kugelwelle hat Amplitude $ \rho \propto \frac{1}{r} $
 
 \section{Reflexion und Brechung von EM-Wellen an Grenzflächen}
 
-Wir betrachten eine ebene Grenzfläche ($ x $-$ y $-Ebene) zwischen zwei ungeladenen, nicht leitenden Medien.
-
-%T4
-
-\noindent
-Aus der Skizze:
-\begin{equation*}
-v_1 = \frac{1}{\sqrt{\epsilon_1 \mu_1}} , \ \omega_e = v_1 k_e
-\end{equation*}
-und $ \vec{k}_e $ ohne $ y $-Komponente
-\begin{equation*}
-\vec{k}_e = \begin{pmatrix}
-k_{e_y} \\ 0 \\ k_{e_z}
-\end{pmatrix}
-\end{equation*}
+Wir betrachten eine ebene Grenzfläche ($ x $-$ y $-Ebene) zwischen zwei ungeladenen, nicht leitenden Medien.\\
+\begin{minipage}{.55\linewidth}
+	Aus der Skizze:
+	\begin{equation*}
+	v_1 = \frac{1}{\sqrt{\epsilon_1 \mu_1}} , \ \omega_e = v_1 k_e
+	\end{equation*}
+	und $ \vec{k}_e $ ohne $ y $-Komponente
+	\begin{equation*}
+	\vec{k}_e = \begin{pmatrix}
+	k_{e_y} \\ 0 \\ k_{e_z}
+	\end{pmatrix}
+	\end{equation*}
+	\vspace{5pt}
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+	%t4:
+	\begin{tikzpicture}
+		\draw[->] (-2,0) -- (4,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+		\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01); 
+		\draw[thick,->] (0,0) -- (1.5,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+		\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(40:90:1);
+		\node at (0.3,0.6) {$\theta_2$};
+		\centerarc[](0,0)(234:270:1);
+		\node at (-0.2,-0.7) {$\theta_e$};
+		\centerarc[](0,0)(270:306:1);
+		\node at (0.3,-0.7) {$\theta_r$};
+		\node at (-1.5,.7) {$\epsilon_2 \mu_2$};
+		\node at (-1.5,-.7) {$\epsilon_1 \mu_1$};
+		\draw[->] (3.25,0) -- (3.25,.85) node[anchor=north west] {$\vec{n}=\vec{e}_z$};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Die \textbf{einfallende Welle} sieht folgendermaßen aus:
 \begin{align*}
 \vec{E}_e &= \vec{E}_{e_0} e^{i(\vec{k} \cdot \vec{r} - \omega t)}\\
@@ -1419,7 +1438,8 @@ Aus den vier Stetigkeitsbedingungen ergeben sich folgende Schlussfolgerungen:
 	\vec{k}_2 \cdot \vec{r} - \omega_2 t =  \vec{k}_e \cdot \vec{r} - \omega_e t = \vec{k}_r \cdot \vec{r} - \omega_r t
 	\end{equation*}
 	$ \vec{r} = 0 : $ $ \Rightarrow \ \omega_2 = \omega_e = \omega_r \defeq \omega $\\
-	\lcom{Die gleiche Schlussfolgerung geht für die Wellenvektoren nicht, da wir hier die $ z $-Komponente gar nicht beachten und damit keine Aussagen über die Gleichheit der Vektoren machen können.}\\[5pt]
+	\lcom{Die gleiche Schlussfolgerung geht für die Wellenvektoren nicht, da wir hier die $ z $-Kompo-\\
+	nente gar nicht beachten und damit keine Aussagen über die Gleichheit der Vektoren machen können.}\\[5pt]
 	Für die einfallende und reflektierte Welle im Medium 1 gilt:\\
 	$ v_1 = \frac{\omega_e}{|\vec{k}_e|} = \frac{\omega_r}{|\vec{k}_r|} $
 	\begin{equation*}
@@ -1435,16 +1455,33 @@ Aus den vier Stetigkeitsbedingungen ergeben sich folgende Schlussfolgerungen:
 	$ t=0 : $ $ \Rightarrow \ \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $\\[5pt]
 	$ k_{2_x} x + k_{2_y} y = k_{e_x} x + \ub{k_{e_y} y}_{=0} = k_{r_x} x + k_{r_y} y =   $\\[5pt]
 	$ k_{e_y} = 0 \quad \Rightarrow k_{2_y} = 0 = k_{r_y}$
-	$ \Rightarrow \vec{k}_e, \vec{k}_r, \vec{k}_2 $ liegen in einer Ebene (hier: $ x $-$ y $-Ebene), der Einfallsebene.
-	
-	%T6
-	
-	\begin{align*}
-	\vec{k}_e &= k_e (\sin \theta_e \vec{e}_x + \cos \theta _e \vec{e}_z)\\
-	\vec{k}_r &= k_r (\sin \theta_r \vec{e}_x - \cos \theta _r \vec{e}_z)\\
-	\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta _2 \vec{e}_z)
-	\end{align*}
-	$ k_e = k_r \defeq k_1 $
+	$ \Rightarrow \vec{k}_e, \vec{k}_r, \vec{k}_2 $ liegen in einer Ebene (hier: $ x $-$ y $-Ebene), der Einfallsebene.\\
+	\begin{minipage}{.5\linewidth}
+		\begin{align*}
+		\vec{k}_e &= k_e (\sin \theta_e \vec{e}_x + \cos \theta _e \vec{e}_z)\\
+		\vec{k}_r &= k_r (\sin \theta_r \vec{e}_x - \cos \theta _r \vec{e}_z)\\
+		\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta _2 \vec{e}_z)
+		\end{align*}
+		$ k_e = k_r \defeq k_1 $
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\flushright
+		%t6:
+		\begin{tikzpicture}
+			\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+			\draw[->] (0,-2) -- (0,2) node[right] {$z$}; 
+			\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+			\centerarc[](0,0)(60:90:1.2);
+			\node at (0.2,.85) {$\theta_2$};
+			\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01); 
+			\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+			\centerarc[](0,0)(234:270:1);
+			\node at (-0.2,-0.7) {$\theta_e$};
+			\centerarc[](0,0)(270:306:1);
+			\node at (0.3,-0.7) {$\theta_r$};
+		\end{tikzpicture}
+	\end{minipage}%
+
 \end{enumerate}
 
 \subsubsection{Reflexionsgesetz}
@@ -1482,12 +1519,39 @@ $ n : $ Brechungsindex
 		}
 	\end{minipage}
 \end{center}
-
-%T7
-
-%T8
-
-\noindent
+\begin{center}
+	%t7:
+	\begin{tikzpicture}
+	\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+	\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+	\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+	\centerarc[](0,0)(60:90:1.2);
+	\node at (0.2,.85) {$\theta_2$};
+	\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+	\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+	\centerarc[](0,0)(234:270:1);
+	\node at (-0.2,-0.7) {$\theta_e$};
+	\centerarc[](0,0)(270:306:1);
+	\node at (0.3,-0.7) {$\theta_r$};
+	\node at (-1,1.75) {$n_2>n_1$};
+	\end{tikzpicture}
+	\hspace{1.5cm}
+	%t8:
+	\begin{tikzpicture}
+	\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+	\draw[->] (0,-2) -- (0,2) node[right] {$z$}; 
+	\draw[thick,->] (0,0) -- (1.5,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+	\centerarc[](0,0)(40:90:1);
+	\node at (0.3,0.6) {$\theta_2$};
+	\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01); 
+	\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+	\centerarc[](0,0)(234:270:1);
+	\node at (-0.2,-0.7) {$\theta_e$};
+	\centerarc[](0,0)(270:306:1);
+	\node at (0.3,-0.7) {$\theta_r$};
+	\node at (-1,1.75) {$n_2<n_1$};
+	\end{tikzpicture}
+\end{center}
 Für $ n_2 > n_1 : $ Grenzfall $ \theta_1 \defeq \theta_g $ bei dem Totalreflexion auftritt (d.h. $ \theta_2 = \frac{\pi}{2} $)
 \begin{equation*}
 \sin \theta_g = \frac{n_2}{n_1} \sin \frac{\pi}{2} = \frac{n_2}{n_1}

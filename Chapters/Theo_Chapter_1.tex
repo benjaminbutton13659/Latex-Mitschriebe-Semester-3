@@ -818,20 +818,21 @@ $\vabla \times \vec{A} = 0$\\
 \subsection{Gaußsches Gesetz}
 
 \begin{equation*}
-\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0}
+\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho(\vec{r})
 \end{equation*}
-
-
-%T tikz mit unförmigem volumen und einem V drinnen
-
-
+%
+%
+%
+% I23 T tikz mit unförmigem volumen und einem V drinnen
+%
+%
+%
 \begin{align*}
 \int_{V} \dd^3 r \vec{\nabla} \cdot \vec{E}(\vec{r}) &= \frac{1}{\epsilon_0} \int_{V} \dd^3 r \rho (\vec{r}) = \frac{1}{\epsilon_0} Q_V\\
-&= \int_V \dd\vec{f} \cdot \vec{E}(\vec{r})
+&= \int_{\partial V} \dd\vec{f} \cdot \vec{E}(\vec{r})
 \end{align*}
-
 \begin{equation*}
-\rmbox{\int_{\partial V} \dd \vec{f} \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon} Q_V}
+\rmbox{\int_{\partial V} \dd \vec{f} \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} Q_V}
 \end{equation*}
 
 \subsubsection{Berechnung elektrischer Felder für hochsymmetrische Ladungsverteilungen}
@@ -841,9 +842,13 @@ Homogen geladene Kugel mit Radius $ R $ und Gesamtladung $ Q $. Damit ist die La
 \begin{equation*}
 \rho = \frac{Q}{V} = \frac{Q}{\frac{4}{3} \pi R^3}
 \end{equation*}
-
-%T12
-
+%
+%
+%
+% I24 T12
+%
+%
+%
 \begin{equation*}
 \vec{E}(\vec{r}) = E_r (r) \vec{e}_r
 \end{equation*}
@@ -852,36 +857,35 @@ Homogen geladene Kugel mit Radius $ R $ und Gesamtladung $ Q $. Damit ist die La
 \sin \theta \cos \varphi \\ \sin \theta \sin \varphi \\ \cos \theta
 \end{pmatrix}
 \end{equation*}
-$ \vec{e}_r = \frac{\vec{r}}{r} $
-
+$ \vec{e}_r = \frac{\vec{r}}{r} $\\
 Fluss von $\vec{E}$ durch Oberfläche einer Kugel mit Radius $r$
-
-
-%T13
-
-
-$$\dd \vec{f} = \vec{e}_r r^2 \sin \theta \dd \theta \dd \varphi \Rightarrow \dd \vec{f} \cdot \vec{E} = E_r(r)r^2\sin \theta \dd \theta \dd \varphi $$
-
+%
+%
+%
+% I25 T13
+%
+%
+%
+$$\dd \vec{f} = \vec{e}_r r^2 \sin \theta \dd \theta \dd \varphi \quad \Rightarrow \quad \dd \vec{f} \cdot \vec{E} = E_r(r)r^2\sin \theta \dd \theta \dd \varphi $$
 \begin{align*}
-\int_{\partial K_r (0)} \dd\vec{f}\ \vec{E} &= \int_0^T \dd \theta \ \intt{0}{2 \pi} \dd \varphi E_r (r) r^2 \sin \theta\\
+\int_{\partial K_r (0)} \dd\vec{f}\ \vec{E} &= \int_0^\pi \dd \theta \ \intt{0}{2 \pi} \dd \varphi E_r (r) r^2 \sin \theta\\
 &= E_r (r) r^2 4 \pi\\
 &= \frac{1}{\epsilon_0} Q_{K_r (0)} = \frac{1}{\epsilon_0} \int_{K_r (0)} \dd^3 r\ \rho(\vec{r}) = \frac{1}{\epsilon_0} \left\{ \begin{array}{cc}
 Q & r > R\\
 Q \frac{r^3}{R^3} & r \leq R 		
 \end{array}\right.
 \end{align*}
-
 $$\Rightarrow E_r(r) = \frac{Q}{4 \pi \epsilon_0}\left\{ \begin{array}{cc}
 \frac{1}{r^2} & r > R\\
 \frac{r}{R^3} & r \leq R 		
 \end{array}\right.$$
-
-
-
-
-%T14 
-
-
+%
+%
+%
+%  I26 T14
+%
+%
+%
 \subsection{Satz von Stokes}
 
 \begin{equation*}
@@ -914,72 +918,77 @@ Kraft auf Ladung $ q $:
 Die Arbeit bei Verschiebung der Ladung von $ \vec{a} $ nach $ \vec{b} $
 \begin{align*}
 W &= - \int_{\vec{a}}^{\vec{b}} \dd\vec{r} \cdot \vec{F} = - q \int_{\vec{a}}^{\vec{b}} \dd\vec{r} \cdot \vec{E}(\vec{r})\\
-&= q \int_{\vec{a}}^{\vec{b}} \dd\vec{r} \cdot \vec{\nabla} \Phi = q \ub{( \Phi(\vec{b}) - \Phi(\vec{a})}_{\tx{Potentialdifferenz}}
+&= q \int_{\vec{a}}^{\vec{b}} \dd\vec{r} \cdot \vec{\nabla} \Phi = q \ub{( \Phi(\vec{b}) - \Phi(\vec{a}))}_{\tx{Potentialdifferenz}}
 \end{align*}
 Die Arbeit um $ q $ aus dem unendlichen $ \infty $ nach $ \vec{r} $ zu bringen ist dann:
-
-% tikz T16
+% tikz T16 evtl ursprünglich hier:
 \begin{equation*}
 W = q (\Phi(\vec{r}) - \Phi(\infty))
 \end{equation*}
 Zur Referenz: $ \Phi(\infty) = 0 $\\
-Damit ist die Energie der Ladung $ q $ im äußeren Feld:
-\begin{equation*}
-\Rightarrow W = q (\Phi(\vec{r}))
-\end{equation*}
-\begin{equation*}
-\vec{E} = - \vec{\nabla} \Phi
-\end{equation*}
-
-%29.10.18
-
-%T -1 evtl = T16 checken
-
-\begin{tikzpicture}
-\draw[thick,->] (0,0) -- (1,1) node[below,xshift=-10pt,yshift=-10pt] {$  \vec{r} $};
-\draw[<-] (1.15,1.15) to[out=60,in=120] (3,1) node[right] {$ q $};
-\draw[fill=black] (1.1,1.1)circle(2pt);
-\draw[->] (-.5,.5) to[out=20,in=-90] (.5,1.5);
-\draw[->] (.5,-.5) to[out=70,in=180] (1.5,.5) node[below,yshift=-10pt] {$ \vec{E} $};
-\end{tikzpicture}
-
+\begin{minipage}{.6\linewidth}
+	Damit ist die Energie der Ladung $ q $ im äußeren Feld:
+	\begin{equation*}
+	\Rightarrow \quad \rmbox{W = q \ \Phi(\vec{r})}
+	\end{equation*}
+	\begin{equation*}
+	\vec{E} = - \vec{\nabla} \Phi
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	
+	%29.10.18
+	
+	%T -1 evtl = T16 checken:
+	\flushright
+	\begin{tikzpicture}
+	\draw[thick,->] (0,0) -- (1,1) node[below,xshift=-10pt,yshift=-10pt] {$  \vec{r} $};
+	\draw[<-] (1.15,1.15) to[out=60,in=120] (3,1) node[right] {$ q $};
+	\draw[fill=black] (1.1,1.1)circle(2pt);
+	\draw[->] (-.5,.5) to[out=20,in=-90] (.5,1.5);
+	\draw[->] (.5,-.5) to[out=70,in=180] (1.5,.5) node[below,yshift=-10pt] {$ \vec{E} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 %andrez 1:
 \subsection{Elektrostatische Potentielle Energie}
 
 \paragraph{Energie einer Verteilung von Punktladungen}
 
-$N$ Ladungen $q$: an Orten $\vec{r}_i$\\
-Zunächst: $\underbrace{i - 1}_{\mathclap{\textrm{erzeugen am Ort } \vec{r}_i}}$ Ladungen $q_j$ bei $\vec{r}_j$\\
+\begin{minipage}{.6\linewidth}
+	$N$ Ladungen $q$: an Orten $\vec{r}_i$\\
+	Zunächst: $\underbrace{i - 1}_{\mathclap{\textrm{erzeugen am Ort } \vec{r}_i}}$ Ladungen $q_j$ bei $\vec{r}_j$
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t1:
+	\begin{tikzpicture}
+		\draw[thick,->] (0,0) -- (1,1) node[above] {$ q_1 $};
+		\draw[thick,->] (0,0) -- (2,1) node[right] {$ q_2 $};
+		\draw[thick,->] (0,0) -- (1.8,0) node[right] {$ q_3 $};
+		\node[above,xshift=-5pt] at (.5,.5) {$ \vec{r}_1 $};
+		\node[right,yshift=-5pt] at (1,.5) {$ \vec{r}_2 $};
+		\node[below] at (.9,0) {$ \vec{r}_3 $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Das Potential
 $$\Phi(\vec{r}_i) = \kq \summ{j = 1}{i - 1} \frac{q_i}{|\vec{r}_j - \vec{r}_i|}$$ 
-
-%t1:
-\begin{tikzpicture}
-\draw[thick,->] (0,0) -- (1,1) node[above] {$ q_1 $};
-\draw[thick,->] (0,0) -- (2,1) node[right] {$ q_2 $};
-\draw[thick,->] (0,0) -- (1.8,0) node[right] {$ q_3 $};
-\node[above,xshift=-5pt] at (.5,.5) {$ \vec{r}_1 $};
-\node[right,yshift=-5pt] at (1,.5) {$ \vec{r}_2 $};
-\node[below] at (.9,0) {$ \vec{r}_3 $};
-\end{tikzpicture}
-
 Arbeit um $ i $-te Ladung aus dem unendlichen nach $ \vec{r} $ zu bringen:
 \begin{equation*}
-W_i = q_i \Phi(\vec{r}_i) = \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^{j-1} \frac{q_i q_j}{r_{ij}}
+W_i = q_i \Phi(\vec{r}_i) = \frac{1}{4 \pi \epsilon_0} \sum_{j=1}^{i-1} \frac{q_i q_j}{r_{ij}}
 \end{equation*}
 Somit ergibt sich die gesamte Arbeit für $ N $ Ladungen als:
 \begin{align*}
 W = \sum_{i=2}^{N} W_i &= \frac{1}{4 \pi \epsilon_0} \sum_{i=2}^{N} \sum_{j=1}^{i-1} \frac{q_i q_j}{r_{ij}}\\
-&= \frac{1}{2} \sum_{i=1}^{N} \sum_{i=1}^{N} \frac{q_i q_j}{r_{ij}}
+&= \kq \frac{1}{2} \sum_{i=1}^{N} \sum_{\substack{j=1 \\ j\neq i}}^{N} \frac{q_i q_j}{r_{ij}}
 \end{align*}
-
 \begin{equation*}
 \Rightarrow W = \frac{1}{8 \pi \epsilon_0} \sum_{\substack{i,j\\i\neq j}} \frac{q_i q_j}{r_{ij}}
 \end{equation*}
-
 % andrez 2:
 \begin{align*}
-W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \neq i}} \kq \frac{q_i}{r_{ij}}\bigg)}_{\Phi_{/ \hspace{-3.5pt}i}(\vec{r}_i)}\\
+W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \neq i}} \kq \frac{q_j}{r_{ij}}\bigg)}_{\Phi_{/ \hspace{-3.5pt}i}(\vec{r}_i)}\\
 &= \frac{1}{2} \summ{i = 1}{N} q_i \Phi_{/ \hspace{-4pt}i}(\vec{r}_i)
 \end{align*}
 
@@ -996,7 +1005,7 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 \begin{minipage}{.7\linewidth}
 	\begin{align*}
 	W &= \frac{1}{8 \pi \epsilon_0} \int \dd^3r\ \int \dd^3r'\ \frac{\rho(\vec{r}) \rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}\\
-	&= \frac{1}{2} \int \dd^3r\ \rho(\vec{r}) \kq \underbrace{\int_{\mathbb R^3} \dd^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
+	&= \frac{1}{2} \int \dd^3r\ \rho(\vec{r}) \underbrace{ \kq \int_{\mathbb R^3} \dd^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
 	\end{align*}
 \end{minipage}%
 \\
@@ -1021,23 +1030,22 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 
 \begin{align*}
 \vec\Delta \Phi &= - \frac{1}{\epsilon_0} \rho \quad \Rightarrow \quad W = -\frac{1}{2} \int \dd^3r \epsilon_0 \ub{\vec\Delta \Phi(\vec{r}) \Phi(\vec{r})}_{\vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi) - \equalto{(\vec{\nabla} \Phi)^2}{\vec{E}} }\\
-&= -\frac{\epsilon_0}{2} \ub{\int_{\mathbb{R}^3} \dd^3r \vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi)} + \frac{\epsilon_0}{2} \int \dd^3r \vec{E}(\vec{r})\\[5pt]
+&= -\frac{\epsilon_0}{2} \ub{\int_{\mathbb{R}^3} \dd^3r \vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi)} + \frac{\epsilon_0}{2} \int \dd^3r \vec{E}^2(\vec{r})\\[5pt]
 & \qquad \qquad \lim\limits_{R\to \infty} \int_{K_R(0)} \dd^3r \vec{\nabla} \cdot (\Phi \vec{\nabla} \Phi) = \lim\limits_{R \to \infty} \int_{\partial K_R(0)} \ub{\dd\vec{f} \cdot \ub{(\Phi \vec{\nabla}\Phi)}_{\buildrel {R\to \infty} \over \sim \frac{1}{R^3}}}_{\sim \frac{1}{R}} = 0\\
-&= \frac{\epsilon_0}{2} \int \dd^3r \vec{E}(\vec{r})
+&= \frac{\epsilon_0}{2} \int \dd^3r \vec{E}^2(\vec{r})
 \end{align*}
 Zur Umformung oben wurde benutzt:
 \begin{equation*}
 \Phi \buildrel R\to \infty \over \sim \frac{1}{R} \qquad \vec{\nabla} \Phi \sim \frac{1}{R^2}\qquad \dd\vec{f} = \vec{n} \ub{\dd f}_{\sim R^2}
 \end{equation*}
 Damit ergibt sich für die Energie einer Verteilung von Punktladungen 
-
 % andrez 3:
-$$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int \dd^3 r\ \vec{E}^2(\vec{r})} \qquad \textrm{nicht für Punkladungen}$$
+$$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int \dd^3 r\ \vec{E}^2(\vec{r})} \qquad \textrm{nicht für Punkladungen selbst!!!}$$
 \begin{minipage}{.6\linewidth}
 	Energiedichte des elektrostatischen Feldes
 	$$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
-	\textbf{\emph{Beispiel: }Plattenkondensator}\\
-	Fläche $F$, Ladung $\rightarrow\ r = \frac{q}{F}\ \rightarrow\ \vec{E} = \frac{r}{\epsilon_0} \vec{e}_x$\\[5pt]
+	\emph{Beispiel:} \textbf{Plattenkondensator}\\
+	Fläche $F$, Ladung $\rightarrow\ \sigma = \frac{q}{F}\ \rightarrow\ \vec{E} = \frac{\sigma}{\epsilon_0} \vec{e}_x$\\[5pt]
 	$ \rightarrow $ Die Energiedichte ist: $ w = \frac{\epsilon_0}{2} \vec{E}^2 = \frac{\sigma^2}{2 \epsilon_0} $ (nicht für Punktladungen)\\[5pt]
 	$ \rightarrow $ Die Energie beträgt: $ W = \int \dd^3 r w(\vec{r}) = l \cdot F \cdot \frac{\sigma^2}{2 \epsilon_0} $
 \end{minipage}%
@@ -1072,9 +1080,8 @@ $$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int \dd^3 r\ \vec{E}^2(\vec
 
 \subsubsection{Potentialdifferenz - Spannung}
 \begin{equation*}
-\Phi(\vec{r}) - \Phi(0) = - \int_{0}^{\vec{r}} \dd\vec{r}' \cdot \vec{E} (\vec{r}') = - \int_{0}^{x} \dd x' \frac{\sigma}{\epsilon_0} = - \frac{\sigma}{\epsilon} x
+\Phi(\vec{r}) - \Phi(0) = - \int_{0}^{\vec{r}} \dd\vec{r}' \cdot \vec{E} (\vec{r}') = - \int_{0}^{x} \dd x' \frac{\sigma}{\epsilon_0} = - \frac{\sigma}{\epsilon_0} x
 \end{equation*}
-
 %t6: %t7:
 $$
 \begin{tikzpicture}
@@ -1093,8 +1100,6 @@ $$
 \draw[dashed] (1,-1) -- (1,.2) node[anchor=north west,yshift=-5pt] {$ l $};
 \end{tikzpicture}
 $$
-
-\noindent
 Die Spannung zwischen zwei Kondensatorplatten ist dann:
 \begin{equation*}
 U = \Phi(0) - \Phi(l) = \frac{\sigma}{\epsilon_0} l = \frac{q}{\epsilon_0 F} l
@@ -1103,9 +1108,7 @@ Die Kapazität ist also:
 \begin{equation*}
 C = \frac{q}{U} = \frac{\epsilon_0 F}{l}
 \end{equation*}
-
 % andrez 4:
-\noindent
 \lcom{Was ist die Energie bei einer Verteilung von Punktladungen und bei einer kontinuierlichen Ladungsverteilung. Bei einer kontinuierlichen Ladungsverteilung haben wir herausgefunden:}
 $$W = \frac{1}{8 \pi \epsilon_0} \sum_{\substack{i,j\\ i \neq j}} \frac{q_i q_j}{r_{ij}} \qquad \textrm{ für Punktladungen}$$
 \lcom{Die Energie der Punktladung selbst steckt hier nicht drinnen. Man muss dabei aufpassen, welche Gleichung man für welches Modell benutzt.}
@@ -1113,7 +1116,7 @@ $$\vec{E} = \kq q \frac{\vec{r}}{r^3} \qquad \int \dd^3 r\ \vec{E}^2 = \int \dd^
 
 \section{Verhalten des el. Feldes an Grenzflächen mit Flächenladung}
 $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
-\emph{Beispiel:} Wir betrachten eine homogene Flächenladung.\\[10pt]
+\emph{Beispiel:} Wir betrachten eine\textbf{ homogene Flächenladung}.\\[10pt]
 \begin{minipage}{.4\linewidth}
 	%t8: %t9: %t10: %t11:
 	\begin{tikzpicture}
@@ -1167,7 +1170,8 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\end{tikzpicture}
 	\vspace{5pt}
 \end{minipage}%
-\\
+
+\noindent
 \begin{minipage}{.4\linewidth}
 	%andrez 5:
 	\paragraph{Normalkomponente $\vec{E}_\perp$}
@@ -1206,17 +1210,16 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\end{tikzpicture}
 \end{minipage}%
 \begin{align*}
-\int_V \dd^3 r'\ \vabla \cdot \vec{E}(\vec{r}) &= \int_{\partial V} \dd\vec{f}'\ \vec{E}(\vec{r})\\
+\int_V \dd^3 r'\ \vabla \cdot \vec{E}(\vec{r'}) &= \int_{\partial V} \dd\vec{f}'\ \vec{E}(\vec{r})\\
 &=\custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\textrm{Mantel}} \dd\vec{f}'\ \vec{E}}{\hspace{-23.5pt}0} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_+} \dd\vec{f}'\ \vec{E}(\vec{r})}{\int_F \dd f'\ \vec{n} \cdot \vec{E}_+} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_-} \dd\vec{f}'\ \vec{E}}{- \int_F \dd f'\ \vec{n} \cdot \vec{E}_-}
 \end{align*}
 $ \vec{E}_{\pm} $ ist das Feld auf beiden Seiten der Grenzfläche
-
 % eaualto zwischen Zeile 1 und 2 der equations ...
 \begin{equation*}
-\int_{\partial V} \dd\vec{f}' \vec{E} \buildrel \Delta z \to 0 \over \longrightarrow \int_{F} \dd f \vec{n} \cdot (\vec{E}_+ - \vec{E}_-) \buildrel F \to 0 \over \longrightarrow F\  \vec{n} \cdot \big(\vec{E}_+(\vec{r}) - \equalto{\vec{E}_-(\vec{r})}{}\big)
+\int_{\partial V} \dd\vec{f}' \vec{E} \quad \buildrel \Delta z \to 0 \over \longrightarrow \quad \int_{F} \dd f \vec{n} \cdot (\vec{E}_+ - \vec{E}_-) \quad \buildrel F \to 0 \over \longrightarrow \quad F \ \vec{n} \cdot \big(\vec{E}_+(\vec{r}) - \equalto{\vec{E}_-(\vec{r})}{}\big)
 \end{equation*}
 \begin{equation*}
-\int_V \dd^2r' \equalto{\vec{\nabla} \cdot \vec{E}(\vec{r}')}{\frac{1}{\epsilon_0} \rho(\vec{r}')} = \frac{1}{\epsilon_0} \int_V \dd^3r' \rho(\vec{r}) = \frac{1}{\epsilon_0} \int_F \dd f'  \sigma(\vec{r}') \buildrel F \to 0 \over \longrightarrow \frac{1}{\epsilon_0} F \sigma(\vec{r})
+\int_V \dd^3r' \equalto{\vec{\nabla} \cdot \vec{E}(\vec{r}')}{\frac{1}{\epsilon_0} \rho(\vec{r}')} = \frac{1}{\epsilon_0} \int_V \dd^3r' \rho(\vec{r}) = \frac{1}{\epsilon_0} \int_F \dd f'  \sigma(\vec{r}') \quad \buildrel F \to 0 \over \longrightarrow \quad \frac{1}{\epsilon_0} F \sigma(\vec{r})
 \end{equation*}
 \begin{equation*}
 \Rightarrow \vec{n} \cdot \left(\vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r}) \right) = \frac{1}{\epsilon_0} \sigma(\vec{r})
@@ -1229,7 +1232,7 @@ E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\pe
 \noindent
 \begin{minipage}{.4\linewidth}
 	
-	\paragraph{Tangentialkomponente $ E\parallel $}
+	\paragraph{Tangentialkomponente $ E_\parallel $}
 	
 	Satz von Stokes:
 	\vspace{50pt}
@@ -1282,10 +1285,10 @@ E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\pe
 		\end{tikzpicture}} \dd\vec{r}' (\vec{E}_+ -  \vec{E}_-)}
 \end{equation*}
 \begin{equation*}
-0 = \oint_\gamma \dd\vec{r}' \cdot \vec{E} \buildrel \Delta z \to 0 \over \longrightarrow \int_{-\frac{L}{2}}^{-\frac{L}{2}} ds \vec{t} \cdot \left(\vec{E}_+ - \vec{E}_-\right) \buildrel L \to 0 \over \longrightarrow L \vec{t} \cdot \left(\vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r})\right) = 0
+0 = \oint_\gamma \dd\vec{r}' \cdot \vec{E} \quad \buildrel \Delta z \to 0 \over \longrightarrow \quad \int_{-\frac{L}{2}}^{-\frac{L}{2}} \dd s \vec{t} \cdot \left(\vec{E}_+ - \vec{E}_-\right) \quad \buildrel L \to 0 \over \longrightarrow \quad L \ \vec{t} \cdot \left(\vec{E}_+(\vec{r}) - \vec{E}_-(\vec{r})\right) = 0
 \end{equation*}
 \begin{equation*}
-\rightarrow \vec{t} \cdot (\vec{E}_+ (\vec{r}) - \vec{E}_- (\vec{r}) = 0
+\rightarrow \vec{t} \cdot (\vec{E}_+ (\vec{r}) - \vec{E}_- (\vec{r})) = 0
 \end{equation*}
 $\rightarrow $ Die Tangentialkomponente ist stetig
 \begin{equation*}
@@ -1300,6 +1303,7 @@ Insgesamt ergibt sich damit:
 	\begin{equation*}
 	\ub{\Phi(\vec{r}_b) - \Phi(\vec{r}_a)}_{\Phi_+(\vec{r}) - \Phi_-(\vec{r})} = \int_{\vec{r}_a}^{\vec{r}_b} \dd\vec{r}' \cdot \vec{E} \quad \buildrel \Delta z \to 0 \over \longrightarrow 0
 	\end{equation*}
+	Und hiermit auch auf beiden Seiten der Flächenladung symmetrisch.
 \end{minipage}%
 \begin{minipage}{.4\linewidth}
 	%t14:

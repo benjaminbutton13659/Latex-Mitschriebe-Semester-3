@@ -255,7 +255,42 @@ X-Ray: \lcom{Die Wechselwirkung von Röntgenstrahlung mit Materie ist die mit de
 \folie{zu Reflexion an einer Glasplatte}\\
 \begin{center}
 	\centering
-	\includegraphics[width=0.6\textwidth]{Abbildungen/Glasplatten.png}
+	%\includegraphics[width=0.6\textwidth]{Abbildungen/Glasplatten.png}\\
+	\begin{tikzpicture}[scale=.9]
+	\fill[fill=gray!20] (-3,-1.5) -- (3,-1.5) -- (3,0) -- (-3,0) -- (-3,-1.5);
+	\draw[thick] (-3,-1.5) -- (3,-1.5);
+	\draw[thick] (-3,0) -- (3,0);
+	\draw[dashed] (0,-3.5) -- (0,2);
+	\draw[thick] (-2,2) -- (0,0);
+	\draw[->,thick] (-1.1,1.1) -- (-1,1);
+	\draw[<->,thick] (-2.5,0) -- (-2.5,-1.5);
+	\draw[thick,->] (0,0) -- (2,2);
+	\draw[thick,->] (1,0) -- (2.5,1.5);
+	\draw[dashed] (1,0) -- (0.5,0.5) node[anchor=south east, xshift=3pt] {D};
+	\draw[thick] (0,0) node[anchor=north east] {A} --(0.5,-1.5) node[below] {B} -- (1,0) node[anchor=north west] {C};
+	\node at (-0.25, 0.5) {$\alpha$};
+	\node at (0.2, -1.25) {$\beta$};
+	\node at (-1.5, -0.75) {n};
+	\node at (-2.7, -0.75) {d};
+	\end{tikzpicture}\hspace{2cm}
+	\begin{tikzpicture}[scale=.9]
+	\fill[fill=gray!20] (-3,-1.5) -- (3,-1.5) -- (3,0) -- (-3,0) -- (-3,-1.5);
+	\draw[thick] (-3,-1.5) -- (3,-1.5);
+	\draw[thick] (-3,0) -- (3,0);
+	\draw[dashed] (0,-3.5) -- (0,2);
+	\draw[thick] (-2.75,-3.5) -- (-0.75,-1.5) -- (0,0);
+	\draw[dashed] (-0.75,-3.5) -- (-0.75,-0.75);
+	\draw[->,thick] (-2.75,-3.5) -- (-1.75,-2.5);
+	\draw[<->,thick] (-2.5,0) -- (-2.5,-1.5);
+	\draw[thick,->] (0,0) -- (2,2);
+	\draw[thick,->] (1,0) -- (2.5,1.5);
+	\draw[dashed] (1,0) -- (0.5,0.5) node[anchor=south east, xshift=3pt] {D};
+	\draw[thick] (0,0) node[anchor=north east, xshift=-3pt] {A} --(0.5,-1.5) node[below] {B} -- (1,0) node[anchor=north west] {C};
+	\node at (-1.5, -0.75) {n};
+	\node at (-2.7, -0.75) {d};
+	\node at (0.2, -1.25) {$\beta$};
+	\node at (-1.1, -2.25) {$\alpha$};
+	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Reflexion}
@@ -332,7 +367,38 @@ Wie erwartet da wo die Transmission maximal ist ist die Reflexion minimal und um
 \folie{Vielstrahlinterferenz an Planparallelen Platten}
 \begin{center}
 	\centering
-	\includegraphics[width=0.6\textwidth]{Abbildungen/Glasplatten2.png}
+	%\includegraphics[width=0.6\textwidth]{Abbildungen/Glasplatten2.png}\\
+	\begin{tikzpicture}[scale=1.3]
+	\fill[fill=gray!20] (-2,-1.5) -- (5,-1.5) -- (5,0) -- (-2,0) -- (-2,-1.5);
+	\draw[thick] (-2,-1.5) -- (5,-1.5);
+	\draw[thick] (-2,0) -- (5,0);
+	\node at (-1.7, -0.75) {d};
+	\draw[<->,thick] (-1.5,0) -- (-1.5,-1.5);
+	\draw[dashed] (0,2) -- (0,-1.5);
+	\node at (-0.25, 0.5) {$\alpha$};
+	\pgfsetcolor{red!80!black}
+	\draw[thick] (-1.5,1.5) -- (0,0);
+	\draw[->,thick] (-1.1,1.1) -- (-1,1);
+	%
+	\draw[thick, ->] (0,0) -- (0.5,-1.5) node[anchor=south east,black] {$B_1$} -- (1,0) node[anchor=north east,black] {$C_1$} -- (1.5,-1.5) node[anchor=south east,black] {$B_2$} -- (2,0) node[anchor=north east,black] {$C_2$} -- (2.5,-1.5) node[anchor=south east,black] {$B_3$} -- (3,0) node[anchor=north east,black] {$C_3$} -- (3.5,-1.5) node[anchor=south east,black] {$B_4$} -- (4.5,-2.5) node[anchor=north west,black] {$D_4$};
+	\draw[->,thick] (2.5,-1.5) -- (3.5,-2.5) node[anchor=north west,black] {$D_3$};
+	\draw[->,thick] (1.5,-1.5) -- (2.5,-2.5) node[anchor=north west,black] {$D_2$};
+	\draw[->,thick] (0.5,-1.5) -- (1.5,-2.5) node[anchor=north west,black] {$D_1$};
+	%
+	\draw[->,thick] (3,0) -- (4,1) node[anchor=south west,black] {$A_4$};
+	\draw[->,thick] (2,0) -- (3,1) node[anchor=south west,black] {$A_3$};
+	\draw[->,thick] (1,0) -- (2,1) node[anchor=south west,black] {$A_2$};
+	\draw[->,thick] (0,0) -- (1,1) node[anchor=south west,black] {$A_1$};
+	%
+	\draw[->,thick] (0,0) -- (0.25,-0.75);
+	\draw[->,thick] (1,0) -- (1.25,-0.75);
+	\draw[->,thick] (2,0) -- (2.25,-0.75);
+	\draw[->,thick] (3,0) -- (3.25,-0.75);
+	%
+	\draw[->,thick] (0.5,-1.5) -- (0.75,-0.75);
+	\draw[->,thick] (1.5,-1.5) -- (1.75,-0.75);
+	\draw[->,thick] (2.5,-1.5) -- (2.75,-0.75);
+	\end{tikzpicture}
 \end{center}
 \lcom{Die Interferenz ähnelt der bei einem Gitter. Der große Unterschied liegt darin, dass die Intensität der Teilstrahlen mit zunehmenden Reflexionen abnimmt. }\\
 Reflexion (Transmission aus $ I = I_{\tx{ref}} + I_{\tx{trans}} $)
