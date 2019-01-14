@@ -1395,8 +1395,15 @@ Für eine gegebene lokale Ladungsverteilung $ \rho $ gilt:
 \begin{equation*}
 \Phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 r' \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
 \end{equation*}
+%
+%
+%
+% I28 evtl |r| gegen 0 aber |r| gegen unendlich macht mehr sinn
+%
+%
+%
 \begin{equation*}
-\rightarrow \Phi(\vec{r}) \buildrel |\vec{r}| \rightarrow 0 \over \longrightarrow 0
+\rightarrow \Phi(\vec{r}) \buildrel |\vec{r}| \rightarrow \infty \over \longrightarrow 0
 \end{equation*}
 Typische Problemstellung:\\
 Ladungsverteilung $\rho$ + Werte des Potentials auf Randfläche\\[5pt]
@@ -1439,7 +1446,7 @@ Zwei Fälle:
 \begin{minipage}{.4\linewidth}
 	%t2:
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=.8]
 		\draw[draw=none,pattern=north east lines] (0,0) -- (120:1.5cm) arc (120:-20:1.5cm) -- (0,0);
 		\draw ($ (0,0) + (120:1.5cm)$) arc (120:-20:1.5cm);
 		\draw[thick,->] ($ (50:1.5cm) $) -- ++(50:1cm) node[xshift=-15pt,yshift=-5pt] {$ \vec{n} $};
@@ -1482,12 +1489,12 @@ Zwei Fälle:
 		\draw[thick] ($ (e) + (-.125,0) + (0,-.1) $) -- ++(.25,0);
 		\draw[thick] ($ (e) + (-.0625,0) + (0,-.2) $) -- ++(.125,0);
 		\draw (0,.5) to[out=120,in=10] (-1.2,.8) node[left] {$ \Phi = 0 $};
-		\node at (1.8,1.2) {$ V \ \ \Phi(\vec{r}) = ? $};
+		\node at (1.8,1.2) {$ V \ \ \Phi(\vec{r}) = \ ? $};
 	\end{tikzpicture}
 	\vspace{10pt}
 \end{minipage}%
 \\
-\textbf{Idee:} Ersetze ursprüngliche Problem durch ''Fiktives'' Problem mit zusätzlichen Ladungen außerhalb von $V$, welche die Randbedingungen simulieren.\\[5pt]
+\textbf{Idee:} Ersetze ursprüngliche Problem durch ,,Fiktives`` Problem mit zusätzlichen Ladungen außerhalb von $V$, welche die Randbedingungen simulieren.\\[5pt]
 Potential der Punkladungen in $\vec{r}_0$:
 $$\Phi_q (\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 \noindent
@@ -1514,9 +1521,9 @@ $$\Phi_q (\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 	\end{tikzpicture}
 \end{minipage}%
 \\
-Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
+Schauen wir nun nach, ob dies die Poisson-Gleichung erfüllt:
 \begin{align*}
-\vec{\Delta} \Phi &= \frac{q}{4 \pi \epsilon_0} \Bigg( \ub{\Delta \frac{1}{|\vec{r} - \vec{r}_0|}}_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} - \ub{- \Delta \frac{1}{|\vec{r} + \vec{r}_0|}}_{= - 4 \pi \delta(\vec{r} + \vec{r}_0)}\Bigg)\\
+\vec{\Delta} \Phi &= \frac{q}{4 \pi \epsilon_0} \Bigg( \ub{\Delta \frac{1}{|\vec{r} - \vec{r}_0|}}_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} - \ub{\Delta \frac{1}{|\vec{r} + \vec{r}_0|}}_{= - 4 \pi \delta(\vec{r} + \vec{r}_0)}\Bigg)\\
 &= \underset{\checkmark}{- \frac{q}{\epsilon_0} \delta(\vec{r} - \vec{r}_0)} + \frac{q}{\epsilon_0} \ub{\delta(\vec{r} + \vec{r}_0)}_{\mathclap{\qquad = 0 \ \tx{für} \ \vec{r} \neq - \vec{r}_0 \ \checkmark \quad \forall \vec{r} \in V}}
 \end{align*}
 
@@ -1581,7 +1588,7 @@ Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 	$\vec{r} \in \partial V$:
 	$$\sigma (\vec{r}) = \epsilon_0 \vec{E}_+(\vec{r}) = - \frac{qd}{2 \pi(d^2 + y^2 + z^2)^{\nicefrac{3}{2}}}$$
 	gesamte influenzierte Ladung
-	$$q_i = \int_{\partial V} df\ \sigma(\vec{r}) = \dots = -q$$
+	$$q_i = \int_{\partial V} \dd f\ \sigma(\vec{r}) = \dots = -q$$
 	\item \textbf{Kraft zwischen Punktladungen und Metallplatte}
 	$$\vec{F} = q \vec{\tilde{E}}(\vec{r}_0) = \frac{-q^2}{4 \pi \epsilon_0 (2d)^2}\vec{e}_x$$
 \end{enumerate}
@@ -1612,12 +1619,12 @@ Schauen wir nun nach ob dies die Poisson-GLeichung erfüllt:
 \\
 Annahme: $\Phi_1,\ \Phi_2$ lösen RWP
 \begin{align*}
-\textrm{d.h. }\qquad \Delta\Phi_1(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) = \Delta \Phi_2 (\vec{r}) &\qquad \vec{r} \in V\\
+\textrm{d.h. }\qquad \Delta\Phi_1(\vec{r}) = -\frac{1}{\epsilon_0} \rho(\vec{r}) = \Delta \Phi_2 (\vec{r}) &\qquad \vec{r} \in V\\
 \Phi_1 (\vec{r}) = \Phi_0(\vec{r}) = \Phi_2(\vec{r}) \quad \ &\qquad \vec{r} \in \partial V
 \end{align*}
-Setze :
+Setze:
 \begin{equation*}
-\ (\vec{r}) \defeq \Phi_1(\vec{r}) - \Phi_2(\vec{r})
+\varPsi(\vec{r}) \defeq \Phi_1(\vec{r}) - \Phi_2(\vec{r})
 \end{equation*}
 \begin{equation*}
 \Delta \Phi(\vec{r}) = 0 \quad \vec{r} \in V 
@@ -1629,16 +1636,16 @@ Setze :
 \subsubsection{Greensche Identität:}
 $ g,h $ Funktionen an V:
 \begin{align*}
-&\ \ \ \, \int_V d^3 r \left[\left(\vec{\nabla} (\vec{r})\right) \cdot \left(\vec{\nabla} h(\vec{r}))\right) + g(\vec{r}) \Delta h(\vec{r})\right]\\
-&= \int_{\partial V} d\vec{f} \cdot \left(g(\vec{r}) \vec{\nabla} h(\vec{r}\right)\\
-&= \int_{\partial V} d\vec{f} g(\vec{r}) \ub{\vec{n} \cdot \vec{\nabla} h(\vec{r})}_{= \frac{\partial h}{\partial n} (\vec{r})}
+&\ \ \ \, \int_V \dd^3 r \left[\left(\vec{\nabla} g (\vec{r})\right) \cdot \left(\vec{\nabla} h(\vec{r}))\right) + g(\vec{r}) \Delta h(\vec{r})\right]\\
+&= \int_{\partial V} \dd\vec{f} \cdot \left(g(\vec{r}) \vec{\nabla} h(\vec{r})\right)\\
+&= \int_{\partial V} \dd f g(\vec{r}) \ub{\vec{n} \cdot \vec{\nabla} h(\vec{r})}_{= \frac{\partial h}{\partial n} (\vec{r})}
 \end{align*}
 
 % andrez 6:
 $h = g = \varPsi$
-$$\Rightarrow \quad \int_V d^3 r\ ((\vabla \varPsi)^2 + \varPsi(\vec{r}) \underbrace{\Delta \varPsi(\vec{r})}_{=0}) = \int_{\partial V} df\ \underbrace{\varPsi(\vec{r})}_{=0} \frac{\partial \varPsi(\vec{r})}{\partial n} $$
+$$\Rightarrow \quad \int_V \dd^3 r\ ((\vabla \varPsi)^2 + \varPsi(\vec{r}) \underbrace{\Delta \varPsi(\vec{r})}_{=0}) = \int_{\partial V} \dd f\ \underbrace{\varPsi(\vec{r})}_{=0} \frac{\partial \varPsi(\vec{r})}{\partial n} $$
 \begin{equation*}
-\Rightarrow \int_V d^3 r \left(\vec{\nabla} \varPsi(\vec{r}) \right)^2 = 0 \Rightarrow \vec{\nabla} \varPsi(\vec{r}) = 0 \qquad \vec{r} \in V
+\Rightarrow \int_V \dd^3 r \left(\vec{\nabla} \varPsi(\vec{r}) \right)^2 = 0 \quad \Rightarrow \quad \vec{\nabla} \varPsi(\vec{r}) = 0 \qquad \vec{r} \in V
 \end{equation*}
 \begin{equation*}
 \varPsi(\vec{r}) = \const \qquad \varPsi(\vec{r}) = 0 \ \tx{in} \ V \ \ \Rightarrow \ \ \Phi_1(\vec{r}) = \Phi_2(\vec{r})
@@ -1657,9 +1664,10 @@ Greensche Funktionen der Poisson-Gleichung: $ \gre(\vec{r},\vec{r}') $ mit
 \lcom{Diese Gleichung geht vor einer Punktladung mit $ q=1 $ aus, ist hier aber zunächst einmal eine Definition.}
 
 % andrez 7:
+\noindent
 $\mathcal G$ bekannt 
-$$\rightarrow \pofr = \int d^3 r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r}')$$
-$$\Delta_{\vec{r}} \pofr = \int d^3 r'\ \underbrace{(\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}'))}_{= \frac{1}{\epsilon_0 \delta(\vec{r}-\vec{r}')}} \rho (\vec{r}) = - \frac{1}{\epsilon_0} \rho (\vec{r})\ \checkmark$$
+$$\rightarrow \pofr = \int \dd^3 r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r}')$$
+$$\Delta_{\vec{r}} \pofr = \int \dd^3 r'\ \underbrace{(\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}'))}_{= \frac{1}{\epsilon_0 \delta(\vec{r}-\vec{r}')}} \rho (\vec{r}) = - \frac{1}{\epsilon_0} \rho (\vec{r})\ \checkmark$$
 
 \begin{equation*}
 \Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} = 4 \pi \delta(\vec{r} - \vec{r}')
@@ -1712,22 +1720,22 @@ $$\mathcal G(\vec{r}, \vec{r}') \underset{|\vec{r}| \to \infty} \longrightarrow 
 \textbf{Beiweis:}\\
 Die 2. Greensche Identität lautet: 
 \begin{align*}
-&\ \ \ \, \int_V d^3 r' \left( g(\vec{r}') \Delta_{\vec{r}'} h(\vec{r}')  - h(\vec{r}') \Delta_{\vec{r}'} g(\vec{r}') \right)\\
-&= \int_{\partial V} d\vec{f}' \cdot \left(g(\vec{r}') \vec{\nabla}_{\vec{r}'} h(\vec{r}') - h(\vec{r}') \vec{\nabla} _{\vec{r}'} g(\vec{r}') \right)
+&\ \ \ \, \int_V \dd^3 r' \left( g(\vec{r}') \Delta_{\vec{r}'} h(\vec{r}')  - h(\vec{r}') \Delta_{\vec{r}'} g(\vec{r}') \right)\\
+&= \int_{\partial V} \dd\vec{f}' \cdot \left(g(\vec{r}') \vec{\nabla}_{\vec{r}'} h(\vec{r}') - h(\vec{r}') \vec{\nabla} _{\vec{r}'} g(\vec{r}') \right)
 \end{align*}
 \begin{equation*}
 g(\vec{r}') \defeq \Phi(\vec{r}') \qquad h(\vec{r}') \defeq \gre(\vec{r}',\vec{r})
 \end{equation*}
 \begin{align*}
-\Rightarrow & \ \ \ \, \int_V d^3 r' \Bigg[ \Phi(\vec{r}') \ub{\Delta_{\vec{r}'} \gre(\vec{r}',\vec{r})}_{= -\frac{1}{\epsilon_0} \delta(\vec{r}' - \vec{r})} - \gre(\vec{r}',\vec{r}) \ub{\Delta_{\vec{r}'} \Phi(\vec{r}')}_{= - \frac{1}{\epsilon_0} \rho(\vec{r}')} \Bigg]\\
-&= \int_{\partial V} d\vec{f}' \Bigg[ \ub{\Phi(\vec{r}')}_{= \Phi_0(\vec{r}')} \vec{\nabla}_{\vec{r}'} \gre(\vec{r}',\vec{r}) - \ub{\gre(\vec{r}',\vec{r})}_{= 0} \vec{\nabla}_{\vec{r}'} \Phi(\vec{r}') \Bigg]\\
+\Rightarrow & \ \ \ \, \int_V \dd^3 r' \Bigg[ \Phi(\vec{r}') \ub{\Delta_{\vec{r}'} \gre(\vec{r}',\vec{r})}_{= -\frac{1}{\epsilon_0} \delta(\vec{r}' - \vec{r})} - \gre(\vec{r}',\vec{r}) \ub{\Delta_{\vec{r}'} \Phi(\vec{r}')}_{= - \frac{1}{\epsilon_0} \rho(\vec{r}')} \Bigg]\\
+&= \int_{\partial V} \dd\vec{f}' \Bigg[ \ub{\Phi(\vec{r}')}_{= \Phi_0(\vec{r}')} \vec{\nabla}_{\vec{r}'} \gre(\vec{r}',\vec{r}) - \ub{\gre(\vec{r}',\vec{r})}_{= 0} \vec{\nabla}_{\vec{r}'} \Phi(\vec{r}') \Bigg]\\
 % andrez 9:
-\Rightarrow &= - \frac{1}{\epsilon_0} \pofr + \frac{1}{\epsilon_0} \int_V d^3 r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r})\\
-&= \int_{\partial V} d \vec{f}'\ \Phi_0 (\vec{r}') \vabla_{\vec{r}'} \mathcal G(\vec{r}, \vec{r}')\\
-&= \int_{\partial V} d \vec{f}'\ \Phi_0 (\vec{r}') \prt{\mathcal G}{n'}(\vec{r}, \vec{r}')
+\Rightarrow &= - \frac{1}{\epsilon_0} \pofr + \frac{1}{\epsilon_0} \int_V \dd^3 r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r})\\
+&= \int_{\partial V} \dd \vec{f}'\ \Phi_0 (\vec{r}') \vabla_{\vec{r}'} \mathcal G(\vec{r}, \vec{r}')\\
+&= \int_{\partial V} \dd \vec{f}'\ \Phi_0 (\vec{r}') \prt{\mathcal G}{n'}(\vec{r}, \vec{r}')
 \end{align*}
 \begin{equation*}
-\Rightarrow \pofr = \int_V d^3r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} df'\ \Phi_0 (\vec{r}') \prt{\mathcal G}{n'}(\vec{r}, \vec{r}')
+\Rightarrow \pofr = \int_V \dd^3r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f'\ \Phi_0 (\vec{r}') \prt{\mathcal G}{n'}(\vec{r}, \vec{r}')
 \end{equation*}
 
 Es gilt (HA):
@@ -2148,7 +2156,7 @@ da $ \int_{a}^{b} \dd x' g(x') = g(x) $
 \begin{center}
 	\begin{tabular*}{.9\textwidth}{@{\extracolsep{\fill}}lll}
 		\hline
-		Vectoren & Bezeichnung & Funktionen\\
+		Vektoren & Bezeichnung & Funktionen\\
 		\hline
 		$ \vec{r} $ & Vektor & $ g(x) $ \\
 		$ \{\vec{e}_n\} $ & Basis & $ \{f_n(x)\} $\\

@@ -1253,7 +1253,7 @@ Physikalisches Feld:
 	\item
 	$ \delta = 0 $ oder $ \delta = \pm \pi $
 	\begin{equation*}
-	\Rightarrow \quad \vec{E} = \ub{(|E_{0_x} \vec{e}_x \pm |E_{0_y} \vec{e}_y)}_{\mathclap{\substack{\tx{orts- und} \\ \tx{Zeitunabh.}}}} \cos(kz - \omega t)
+	\Rightarrow \quad \vec{E} = \ub{(|E_{0_x}| \vec{e}_x \pm |E_{0_y}| \vec{e}_y)}_{\mathclap{\substack{\tx{orts- und} \\ \tx{Zeitunabh.}}}} \cos(kz - \omega t)
 	\end{equation*}
 	$ \rightarrow \vec{E} $ schwingt in fester Richtung! Die \textbf{Polarisationsrichtung}
 	$ \rightarrow $ \textbf{linear Polarisiert}
@@ -1305,6 +1305,10 @@ Physikalisches Feld:
 		\draw[white] (2,-2.5) -- ++(0,-0.315);
 	\end{tikzpicture}
 \end{center}
+
+% Vorlesung 10.01.18
+
+\noindent
 \bbb{Wiederholung}{
 \begin{align*}
 \vec{E} &= \vec{E}_0 e^{i(\vec{k} \cdot \vec{r} - \omega t)} \qquad \omega = |\vec{k}| v \\
@@ -1314,26 +1318,49 @@ Physikalisches Feld:
 
 \subsubsection{andere Formen der EM-Wellen}
 
-\begin{equation*}
-\vec{E}(\vec{r},t) = \int \dd^3 k \vec{a}(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega(k) t)}
-\end{equation*}
-Wellenpakete:
-
-%T1
-
-\noindent
-\textbf{Kugelwellen}
-\begin{equation*}
-\vec{E}(\vec{r},t) = \vec{E}_0 \frac{e^{i(\vec{k} \cdot \vec{r} - \omega t)}}{r}
-\end{equation*}
-Flächen gleicher Phase:
-
-%T2
-
-\noindent
-eine Kugelwelle hat Amplitude $ \rho \propto \frac{1}{r} $
-
-%T3
+\begin{minipage}{.45\linewidth}
+	\textbf{Wellenpakete:}
+	\begin{equation*}
+	\vec{E}(\vec{r},t) = \int \dd^3 k \vec{a}(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega(k) t)}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.55\linewidth}
+	\flushright
+	%t1:
+	\begin{tikzpicture}[scale=.8]
+		\draw[thick,fill=black!10!red!12!white, domain=-3.75:3.75, samples=500] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
+		\draw[->] (-5,0) -- (5,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ y $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
+\begin{minipage}{.5\linewidth}
+	\textbf{Kugelwellen}
+	\begin{equation*}
+	\vec{E}(\vec{r},t) = \vec{E}_0 \frac{e^{i(\vec{k} \cdot \vec{r} - \omega t)}}{r}
+	\end{equation*}
+	eine Kugelwelle hat Amplitude $ \rho \propto \frac{1}{r} $\\
+	Flächen gleicher Phase (wie im Bild zu sehen).
+	\begin{center}
+		%t2:
+		\begin{tikzpicture}[scale=.7]
+			\draw (0,0) circle (.4cm);
+			\draw (0,0) circle (1cm);
+			\draw (0,0) circle (1.6cm);
+		\end{tikzpicture}
+	\end{center}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t3:
+	\begin{tikzpicture}[scale=.7]
+		\draw[->] (-1,0) -- (9.5,0) node[anchor=north west] {$ r $};
+		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ |\vec{E}| $};
+		\draw[thick,domain=0.001:9.3, samples=500] plot (\x, {2 * cos(1 / 4 * 15 * (\x * .5) r) * exp(- (\x * .5)^(2) * 0.25 * (1) / (\x * 0.2) });
+		\draw[thick, dashed] (0,2) to[out=-28,in=178] (9.3,.2);
+		\draw (3,1) -- ++(30:1cm) node[anchor=south west] {$ \rho \sim \frac{1}{r} $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \section{Reflexion und Brechung von EM-Wellen an Grenzflächen}
 
@@ -1417,13 +1444,26 @@ Erläuterung zu Punkt ii) und iv):
 \begin{equation*}
 \vabla \times \vec{E} = - \prt{\vec{B}}{t} \quad \rightarrow \quad \vec{t} \cdot (\vec{E}_2 - \vec{E}_1) = 0
 \end{equation*}
-
-%T5
-
-\begin{align*}
-&\int \limits _F \dd \vec{f} \cdot (\vabla \times \vec{E}) = - \int \limits_F \dd \vec{f} \cdot \prt{\vec{B}}{t} = \ub{- \prd{}{t} \int \limits_F \dd \vec{f} \vec{B}}_{\overset{\Delta x \to 0}{\rightarrow} 0} \\
-= & \int \limits_{\partial F} \dd \vec{r} \cdot \vec{E} \qquad \rightarrow \qquad \int \dd s \ \vec{t} \cdot (\vec{E}_2 - \vec{E}_1) = 0
-\end{align*}
+\begin{minipage}{.6\linewidth}
+	\begin{align*}
+	&\int \limits _F \dd \vec{f} \cdot (\vabla \times \vec{E}) = - \int \limits_F \dd \vec{f} \cdot \prt{\vec{B}}{t} = \ub{- \prd{}{t} \int \limits_F \dd \vec{f} \vec{B}}_{\overset{\Delta x \to 0}{\rightarrow} 0} \\
+	= & \int \limits_{\partial F} \dd \vec{r} \cdot \vec{E} \qquad \rightarrow \qquad \int \dd s \ \vec{t} \cdot (\vec{E}_2 - \vec{E}_1) = 0
+	\end{align*}
+	\vspace{5pt}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t5:
+	\begin{tikzpicture}[scale=.7]
+		\draw[->] (-2.2,0) -- (3,0) node[anchor=north west] {$ y $};
+		\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ x $};
+		\draw[thick] (-2,-1) rectangle (2,1);
+		\draw[ultra thick, ->] (0,0) -- (1,0);
+		\draw (.5,-.2) -- ++(-60:1.5cm) node[below=2pt] {$ \vec{E} $};
+		\draw[decorate, decoration={brace,amplitude=10pt,raise=2pt}, thick]  ($ (-2,-1) $) -- node[left, xshift=-15pt] {$\Delta x$}  ($ (-2,1) $);
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Aus den vier Stetigkeitsbedingungen ergeben sich folgende Schlussfolgerungen:
 \begin{enumerate}
 	\item[ii)] \begin{equation*}
@@ -1522,34 +1562,34 @@ $ n : $ Brechungsindex
 \begin{center}
 	%t7:
 	\begin{tikzpicture}
-	\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-	\draw[->] (0,-2) -- (0,2) node[right] {$z$};
-	\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
-	\centerarc[](0,0)(60:90:1.2);
-	\node at (0.2,.85) {$\theta_2$};
-	\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
-	\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
-	\centerarc[](0,0)(234:270:1);
-	\node at (-0.2,-0.7) {$\theta_e$};
-	\centerarc[](0,0)(270:306:1);
-	\node at (0.3,-0.7) {$\theta_r$};
-	\node at (-1,1.75) {$n_2>n_1$};
+		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+		\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(60:90:1.2);
+		\node at (0.2,.85) {$\theta_2$};
+		\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+		\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(234:270:1);
+		\node at (-0.2,-0.7) {$\theta_e$};
+		\centerarc[](0,0)(270:306:1);
+		\node at (0.3,-0.7) {$\theta_r$};
+		\node at (-1,1.75) {$n_2>n_1$};
 	\end{tikzpicture}
 	\hspace{1.5cm}
 	%t8:
 	\begin{tikzpicture}
-	\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-	\draw[->] (0,-2) -- (0,2) node[right] {$z$}; 
-	\draw[thick,->] (0,0) -- (1.5,1.25) node[anchor=south west] {$\vec{k}_2$}; 
-	\centerarc[](0,0)(40:90:1);
-	\node at (0.3,0.6) {$\theta_2$};
-	\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01); 
-	\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
-	\centerarc[](0,0)(234:270:1);
-	\node at (-0.2,-0.7) {$\theta_e$};
-	\centerarc[](0,0)(270:306:1);
-	\node at (0.3,-0.7) {$\theta_r$};
-	\node at (-1,1.75) {$n_2<n_1$};
+		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[right] {$z$}; 
+		\draw[thick,->] (0,0) -- (1.5,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(40:90:1);
+		\node at (0.3,0.6) {$\theta_2$};
+		\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01); 
+		\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(234:270:1);
+		\node at (-0.2,-0.7) {$\theta_e$};
+		\centerarc[](0,0)(270:306:1);
+		\node at (0.3,-0.7) {$\theta_r$};
+		\node at (-1,1.75) {$n_2<n_1$};
 	\end{tikzpicture}
 \end{center}
 Für $ n_2 > n_1 : $ Grenzfall $ \theta_1 \defeq \theta_g $ bei dem Totalreflexion auftritt (d.h. $ \theta_2 = \frac{\pi}{2} $)
@@ -1564,28 +1604,273 @@ z.B. Wasser $ \ n_1 \approx 1{,}33 $, Luft $ \ n_2 \approx 1 $ $ \Rightarrow \th
 \draw [domain=-3.75:3.75, samples=500] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
 \end{tikzpicture}
 \end{comment}
-
-
-
-
-
-
-
-
-
-
-
-
-
+% teyt of tikz plotting:
 %\begin{tikzpicture}
 %\draw [domain=-4:4, samples=500,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25 * cos(\x * 40)});
 %\end{tikzpicture}
 
+%Vorlesung 14.01.18
 
+\subsection{Intensitätsbeziehungen bei Reflexion und Brechung}
 
+\bbb{Wiederholung}{
+%
+%
+%
+%t1:
+\begin{tikzpicture}
+	\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+	\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+	\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+	\centerarc[](0,0)(60:90:1.2);
+	\node at (0.2,.85) {$\theta_2$};
+	\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+	\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+	\centerarc[](0,0)(234:270:1);
+	\node at (-0.2,-0.7) {$\theta_e$};
+	\centerarc[](0,0)(270:306:1);
+	\node at (0.3,-0.7) {$\theta_r$};
+	\node at (-1.75,.6) {$ \epsilon_2, \mu_2, n_2 $};
+	\node at (-1.75,.6) {$ \epsilon_1, \mu_1, n_1 $};
+\end{tikzpicture}
+%
+%
+%
+\begin{equation*}
+\vec{E}_l = \vec{E}_{l_0} e^{i(\vec{k}_l \vec{r} - \omega t)} \qquad l = e, r, 2
+\end{equation*}
+\begin{align*}
+\vec{B}_l &= \frac{1}{\omega} \vec{k}_e \times \vec{E}_l \\
+\vec{E}_1 &= \vec{E}_e + \vec{E}_r
+\end{align*}
+\textbf{Stetigkeitsbedingungen an der Grenzfläche} $ \vec{r} = (x,y,0) $ hier: $ \vec{r} = 0  , \ t = 0 \quad \vec{t} \sim \vec{e}_x , \vec{e}_y $
+\begin{enumerate}[i)]
+	\item
+	\begin{equation*}
+	\vec{n} \cdot (\vec{D}_2 - \vec{D}_1) = 0
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \vec{e}_z \cdot (\epsilon_2 \vec{E}_{2_0} - \epsilon_1 (\vec{E}_{e_0} + \vec{E}_{r_0})) = 0
+	\end{equation*}
+	\item
+	\begin{equation*}
+	\vec{t} \cdot (\vec{E}_2 - \vec{E}_1) = 0
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \vec{t} \cdot (\vec{E}_{2_0} - \vec{E}_{e_0} - \vec{E}_{r_0}) = 0
+	\end{equation*}
+	\item
+	\begin{equation*}
+	\vec{n} \cdot (\vec{B}_2 - \vec{B}_1) = 0
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \vec{e}_z \cdot \bigg[\vec{k}_2 \times \vec{E}_{2_0} - \vec{k}_e \times \vec{E}_{e_0} - \vec{k}_r \times \vec{E}_{r_0}\bigg] = 0
+	\end{equation*}
+	\item
+	\begin{equation*}
+	\vec{t} \cdot (\vec{H}_2 - \vec{H}_1) = 0 \qquad \vec{H}_i = \frac{1}{\mu} \vec{B}_i
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \vec{t} \cdot \bigg[\frac{1}{\mu_2} \vec{k}_2 \times \vec{E}_{2_0} - \frac{1}{\mu_1} \vec{k}_r \times \vec{E}_{r_0} - \frac{1}{\mu_1} \vec{k}_e\ \times \vec{E}_{e_0} \bigg] = 0
+	\end{equation*}
+\end{enumerate}
+}
 
-
-
+\noindent
+Wir zerlegen die Amplitude der einfallenden Welle in Anteile parallel und senkrecht zur Einfallsebene ($ x $-$ z $-Ebene).
+\begin{align*}
+\vec{E}_{e_0} &= \vec{E}_{e_{0_\parallel}} + \vec{E}_{e_{0_\perp}} \\
+\vec{E}_{e_{0_\perp}} &= (\vec{e}_y \cdot \vec{E}_{e_0}) \cdot \vec{e}_y
+\end{align*}
+$ \Rightarrow \quad \vec{E}_e = \vec{E}_{e_\parallel} + \vec{E}_{e_\perp} $\\
+ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
+\lcom{Den einen Fall betrachten wir genauer die anderen sind ähnlich und werden deswegen nicht genauer besprochen.}
+\begin{enumerate}[I)]
+	\item $ \vec{E}_e $ senkrecht zur Einfallsebene polarisiert:
+	$$ \vec{E}_{e_0}  = E_{e_0} \vec{e}_y $$
+	%
+	%
+	%
+	%t2:
+	\begin{tikzpicture}
+		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+		\draw[thick,->] (0,0) -- (60:1.7cm) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(60:90:1.2);
+		\node at (0.2,.85) {$\theta_2$};
+		\draw[thick,->] (-135:1.7cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+		\draw[thick,->] (0,0) -- (-45:1.7cm) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(-135:-90:.9);
+		\node at (-0.2,-0.5) {$\theta_e$};
+		\centerarc[](0,0)(-90:-45:.9);
+		\node at (0.25,-0.5) {$\theta_r$};
+	\end{tikzpicture}
+	%
+	%
+	%
+	Es folgt aus der Skizze:
+	\begin{align*}
+	\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta_2 \vec{e}_z)\\
+	\vec{k}_e &= k_e (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)\\
+	\vec{k}_r &= k_r (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)
+	\end{align*}
+	Aus den Stetigkeitsbedingunen folgt:  % vielleicht muss eins auch i) sein
+	\begin{equation*}
+	\vec{E}_{r_0} = E_{r_0} \vec{e}_y \qquad \vec{E}_{2_0} = E_{2_0} \vec{e}_y
+	\end{equation*}
+	\begin{enumerate}
+		\item[ii)] $ \vec{t} = \vec{e}_y $
+		\begin{equation*}
+		\Rightarrow \quad \rmbox{0 = E_{2_0} - E_{e_0} - E_{r_0}}
+		\end{equation*}
+		\item[iii)] Diese Bedingung liefert im wesentlichen das Brechungsgesetz
+		\item[iv)] $ \vec{t} = \vec{e}_x: $
+		%
+		%
+		%
+		% make me nicer:
+		%
+		%
+		%
+		\begin{equation*}
+		0 = \frac{1}{\mu_2} \ub{\vec{e}_x \cdot (\vec{k}_2 \times \vec{E}_{2_0})}_{\substack{= - \vec{k}_2 \cdot (\vec{e}_x \times \vec{E}_{2_0}) \\ = - \vec{k}_2 \cdot \vec{e}_z E_{2_0} \\ = - E_{2_0} k_2 \cos \theta_2}} - \frac{1}{\mu_1} \ub{\vec{e}_x \cdot (\vec{k}_e \times \vec{E}_{e_0})}_{= - E_{e_0} k_e \cos \theta_1} - \frac{1}{\mu_1} \ub{\vec{e}_x \cdot (\vec{k}_r \times \vec{E}_{r_0})}_{= E_{r_0} k_r \cos \theta_1}
+		\end{equation*}
+		\begin{equation*}
+		\Rightarrow \quad \rmbox{0 = - \frac{k_2}{\mu_2} E_{2_0} \cos \theta_2 + \frac{k_e}{\mu_1} E_{e_0} \cos \theta_1 - \frac{k_r}{\mu_1} E_{r_0} \cos \theta_1}
+		\end{equation*}
+	\end{enumerate}
+	$ E_{r_0} = E_{2_0} - E_{e_0} $\\[5pt]
+	$ k_e = k_r = k_1 = \frac{\omega}{v_1} = \omega \sqrt{\epsilon_1 \mu_1} $\\
+	$ k_2 = \omega \sqrt{\epsilon_2 \mu_2} $
+	\begin{equation*}
+	\Rightarrow \quad 0 = - \omega \sqrt{\frac{\epsilon_2}{\mu_2}} E_{2_0} \cos (\theta_2) + \omega \sqrt{\frac{\epsilon_1}{\mu_1}} E_{e_0} \cos \theta_1 - \omega \sqrt{\frac{\epsilon_1}{\mu_1}} (E_{2_0} - E_{e_0}) \cos \theta_1
+	\end{equation*}
+	Umformen mit Brechungsindex $ n_i = \sqrt{\epsilon_{r_i} \mu_{e_i}} $
+	\begin{equation*}
+	\Rightarrow \quad \left(\frac{E_{2_0}}{E_{e_0}}\right)_{\perp} = \frac{\sqrt{\frac{\epsilon_1}{\mu_1}} \cos \theta_1}{\sqrt{\frac{\epsilon_1}{\mu_1}} \cos \theta_1 + \sqrt{\frac{\epsilon_2}{\mu_2}} \cos \theta_2} = \frac{2 n_1 \cos \theta_1}{n_1 \cos \theta_1 + \frac{\mu_1}{\mu_2} n_2 \cos \theta_2}
+	\end{equation*}
+	Einfalls- und Ausfallswinkel können wir mit dem Brechungsgesetz ineinander umformen: $ \cos \theta_2 = \sqrt{1 - \sin^2 \theta_2} = \sqrt{1 - \frac{n_1^2}{n_2^2} \sin^2 \theta_1} $ und
+	$ E_{r_0} = E_{2_0} - E_{e_0} $\\[5pt]
+	\frbox{Senkrechter Einfall}{
+	\begin{equation*}
+	\Rightarrow \quad \left(\frac{E_{2_0}}{E_{e_0}}\right)_{\perp} = \frac{n_1 \cos \theta_1 - \frac{\mu_1}{\mu_2} n_2 \cos \theta_2}{n_1 \cos \theta_1 + \frac{\mu_1}{\mu_2} n_2 \cos \theta_2}
+	\end{equation*}
+	}
+	\item  $ \vec{E}_e $ parallel zur Einfallsebene
+	%
+	%
+	%
+	% T3
+	%
+	%
+	%
+	\frbox{Paralleler Einfall}{
+	\begin{equation*}
+	\left(\frac{E_{2_0}}{E_{e_0}}\right)_{\parallel} = \frac{2 n_1 \cos \theta_1}{\frac{\mu_1}{\mu_2}n_2 \cos \theta_1 + n_1 \cos \theta_2}
+	\end{equation*}
+	\begin{equation*}
+	\left(\frac{E_{r_0}}{E_{e_0}}\right)_{\parallel} = \frac{\frac{\mu_1}{\mu_2} n_2 \cos \theta_1 - n_1 \cos \theta_2}{\frac{\mu_1}{\mu_2} n_2 \cos \theta_1 + n_1 \cos \theta_2}
+	\end{equation*}
+	}
+\end{enumerate}
+\emph{Bemerkungen:}
+\begin{enumerate}[i)]
+	\item \textbf{Fresnelsche Formeln}: da meist gilt $ \frac{\mu_1}{\mu_2} \approx 1 $
+	\item Sektrechter Eindall:
+	%
+	%
+	%
+	% T4
+	%
+	%
+	%
+	\begin{equation*}
+	\frac{E_{2_0}}{E_{e_0}} = \frac{2n_1}{n_1 + n_2} \qquad \frac{E_{r_0}}{E_{e_0}} = \frac{n_1 - n_2}{n_1 + n_2}
+	\end{equation*}
+	für $ n_1 = n_2 $ erfüllt $ \checkmark $\\
+	für $ n_2 \gg n_1 : \qquad \frac{E_{2_0}}{E_{e_0}} = \frac{2}{1 + \frac{n_2}{n_1}} $ erfüllt $ \checkmark $
+	\item \textbf{Brewster-Winkel:}
+	\begin{equation*}
+	\left(\frac{E_{r_0}}{E_{e_0}}\right)_{\parallel} = \frac{n_2 \cos \theta_1 - n_1 \cos \theta_2}{n_2 \cos \theta_1 + n_1 \cos \theta_2}
+	\end{equation*}
+	Wir wollen für $ \theta_B:  \quad \left(\frac{E_{r_0}}{E_{e_0}}\right)_\parallel = 0 $ also Zähler = 0:
+	\begin{align*}
+	n_2 \cos \theta_1 &= n_1 \cos \theta_2
+	&= n_1 \sqrt{1 - \sin^2 \theta_2}
+	&= n_1 \sqrt{1 - \frac{n_1^2}{n_2^2} \sin^2 \theta_1}
+	\end{align*}
+	\begin{equation*}
+	\frac{n_2}{n_1} = \frac{\sqrt{1 - \frac{n_1^2}{n_2^2} \sin^2 \theta_B}}{\cos \theta_B}
+	\end{equation*}
+	$ \Rightarrow \quad \tan \theta_B = \frac{n_2}{n_1} $\\[5pt]
+	\emph{Beispiel:}\\
+	Luft $ \rightarrow $ Glas $ \frac{n_2}{n_1} \approx 1{,}5 \quad \rightarrow \quad \theta_B \approx 56^\circ $\\[5pt]
+	Es gilt: $ \theta_B + \theta_w = \frac{\pi}{2} $
+	%
+	%
+	%
+	%t5:
+	\begin{tikzpicture}
+		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+		\draw[thick,->] (0,0) -- (60:1.7cm) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(60:90:1.2);
+		\node at (0.2,.85) {$\theta_2$};
+		\draw[thick,->] (-150:1.7cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+		\draw[thick,->] (0,0) -- (-30:1.7cm) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(210:270:1);
+		\node at (-0.3,-0.6) {$\theta_e$};
+		\centerarc[](0,0)(270:330:1);
+		\node at (0.4,-0.6) {$\theta_r$};
+		\centerarc[thick,black!20!red](0,0)(-30:60:.7cm);
+		\node[circle,fill=black!20!red,inner sep=1pt,minimum size=1pt] at (.4,.1) {};
+	\end{tikzpicture}
+	%
+	%
+	%
+\end{enumerate}
+Nun noch eine Erklärung die etwas umständlicher ist:\\
+%
+%
+%
+% T6
+%
+%
+%
+$ \vec{E}_{e_0} = E_{e_0} \vec{e}_y $\\
+$ \vec{E}_{r_0} = E_{r_0} \vec{e}_y \quad \vec{E}_{2_0} = E_{2_0} \vec{e}_y $\\[5pt]
+\begin{enumerate}
+	\item[ii)] $ \vec{t} = \vec{e}_x: $
+	\begin{equation*}
+	0 = \vec{e}_x \cdot (\vec{E}_{2_0} - \vec{E}_{r_0} - \vec{E}_{e_0})
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad E_{2_{0_x}} = E_{r_{0_x}}
+	\end{equation*}
+	\item[i)]
+	\begin{equation*}
+	0 = \vec{e}_z \cdot (\epsilon_2 \vec{E}_{2_0} - \epsilon_1 \vec{E}_{r_0} - \epsilon_1 \vec{E}_{e_0})
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \epsilon_2 E_{2_{0_z}} = \epsilon_1 E_{r_{0_z}}
+	\end{equation*}
+	$ \vec{k}_e, \vec{k}_r, \vec{k}_2 $ in $ x $-$ z $-Ebene
+	\begin{equation*}
+	\vec{k}_r = \begin{pmatrix}
+	k_{r_x} \\ 0 \\ k_{r_z}
+	\end{pmatrix} \qquad \vec{k}_2 = \begin{pmatrix}
+	k_{2_x} \\ 0 \\ k_{2_z}
+	\end{pmatrix}
+	\end{equation*}
+	\begin{align*}
+	0 &= \vec{k}_r \cdot \vec{E}_{r_0} = k_{r_x} E_{r_{0_x}} + k_{r_z} E_{r_{0_z}} \quad \leftarrow \quad 0 = k_{r_x} E_{2_{0_x}} + k_{r_z} \frac{\epsilon_2}{\epsilon_1} E_{2_{0_z}} \\
+	0 &= \vec{k}_2 \cdot \vec{E}_{2_0} = k_{2_x} E_{e_{0_x}} + k_{2_z} E_{2_{0_z}} \quad \rightarrow \quad E_{2_{0_x}} = - \frac{k_{r_z}}{k_{r_x}} \frac{\epsilon_2}{\epsilon_1} E_{2_{0_z}}
+	\end{align*}
+	\begin{equation*}
+	\Rightarrow \quad 0 = \custo{\neq}{\left[- \cancel{k_{z_x}} \frac{k_{r_z}}{\cancel{k_{r_x}}} \frac{\epsilon_2}{\epsilon_1} + k_{2_z}\right]}{0} \equalto{E_{2_{0_z}}}{0}
+	\end{equation*}
+	$ k_{2_x} = k_{r_x} $
+\end{enumerate}
 
 
 
