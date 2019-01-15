@@ -13,3 +13,4 @@
 *.blg
 *.gz
 *.dropbox
+.DS_Store
