@@ -1693,17 +1693,38 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 	%
 	%t2:
 	\begin{tikzpicture}
-		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-		\draw[->] (0,-2) -- (0,2) node[right] {$z$};
-		\draw[thick,->] (0,0) -- (60:1.7cm) node[anchor=south west] {$\vec{k}_2$}; 
-		\centerarc[](0,0)(60:90:1.2);
-		\node at (0.2,.85) {$\theta_2$};
-		\draw[thick,->] (-135:1.7cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
-		\draw[thick,->] (0,0) -- (-45:1.7cm) node[anchor=north west] {$\vec{k}_r$};
-		\centerarc[](0,0)(-135:-90:.9);
+		\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+		\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
+		\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(30:90:.9);
+		\node at (0.3,.5) {$\theta_2$};
+		\draw[thick,->] (-135:2.5cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
 		\node at (-0.2,-0.5) {$\theta_e$};
 		\centerarc[](0,0)(-90:-45:.9);
+		\draw[thick,->] (0,0) -- (-45:2.5cm) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(-135:-90:.9);
 		\node at (0.25,-0.5) {$\theta_r$};
+		%E und B Felder
+		\coordinate (2) at (30:1.5);
+		\draw[black!20!red,thick] (2) circle (.15cm);
+		\draw[black!20!red,thick] ($ (2) + (-135+30:.15) $) -- ++(45+30:.3);
+		\draw[black!20!red,thick] ($ (2) + (135+30:.15) $) -- ++(-45+30:.3);
+		\node[black!20!red,anchor=north west] at (2) {$ \vec{E}_2 $};
+		\draw[black!20!blue,thick,->] (2) -- node[anchor=south west] {$ \vec{B}_2 $} ++(120:1cm);
+		%
+		\coordinate (e) at (-135:1.5);
+		\draw[black!20!red,thick] (e) circle (.15cm);
+		\draw[black!20!red,thick] ($ (e) + (-135+45:.15) $) -- ++(45+45:.3);
+		\draw[black!20!red,thick] ($ (e) + (135+45:.15) $) -- ++(-45+45:.3);
+		\node[black!20!red,anchor=north west] at (e) {$ \vec{E}_e $};
+		\draw[black!20!blue,thick,->] (e) -- node[anchor=north east] {$ \vec{B}_e $} ++(135:1cm);
+		%
+		\coordinate (r) at (-45:1.5);
+		\draw[black!20!red,thick] (r) circle (.15cm);
+		\draw[black!20!red,thick] ($ (r) + (-135+45:.15) $) -- ++(45+45:.3);
+		\draw[black!20!red,thick] ($ (r) + (135+45:.15) $) -- ++(-45+45:.3);
+		\node[black!20!red,anchor=north east] at (r) {$ \vec{E}_r $};
+		\draw[black!20!blue,thick,->] (r) -- node[anchor=north west] {$ \vec{B}_r $} ++(45:1cm);
 	\end{tikzpicture}
 	%
 	%
@@ -1760,7 +1781,29 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 	%
 	%
 	%
-	% T3
+	%t3:
+	\begin{tikzpicture}
+		\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+		\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
+		\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(30:90:.9);
+		\node at (0.3,.5) {$\theta_2$};
+		\draw[thick,->] (-135:2.5cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+		\node at (-0.2,-0.5) {$\theta_e$};
+		\centerarc[](0,0)(-90:-45:.9);
+		\draw[thick,->] (0,0) -- (-45:2.5cm) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(-135:-90:.9);
+		\node at (0.25,-0.5) {$\theta_r$};
+		%E und B Felder
+		\coordinate (2) at (30:1.5);
+		\draw[black!20!red,thick,->] (2) -- node[anchor=south west] {$ \vec{E}_2 $} ++(120:1cm);
+		%
+		\coordinate (e) at (-135:1.5);
+		\draw[black!20!red,thick,->] (e) -- node[anchor=north east] {$ \vec{E}_e $} ++(135:1cm);
+		%
+		\coordinate (r) at (-45:1.5);
+		\draw[black!20!red,thick,->] (r) -- node[anchor=north west] {$ \vec{E}_r $} ++(45:1cm);
+	\end{tikzpicture}
 	%
 	%
 	%
@@ -1780,7 +1823,13 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 	%
 	%
 	%
-	% T4
+	%t4:
+	\begin{tikzpicture}
+	\draw[->] (-2.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
+	\draw[thick,->] (0,0) -- node[right] {$ \vec{k}_2 $} (0,1.5);
+	\draw[thick,->] (-0.1,-1.5) -- node[left] {$ \vec{k}_e $} (-0.1,0);
+	\draw[thick,->] (0.1,0) -- node[right] {$ \vec{k}_r $} (0.1,-1.5);
+	\end{tikzpicture}
 	%
 	%
 	%
@@ -1833,7 +1882,38 @@ Nun noch eine Erklärung die etwas umständlicher ist:\\
 %
 %
 %
-% T6
+%t6:
+\begin{tikzpicture}
+	\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+	\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
+	\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
+	\centerarc[](0,0)(30:90:.9);
+	\node at (0.3,.5) {$\theta_2$};
+	\draw[thick,->] (-135:2.5cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+	\node at (-0.2,-0.5) {$\theta_e$};
+	\centerarc[](0,0)(-90:-45:.9);
+	\draw[thick,->] (0,0) -- (-45:2.5cm) node[anchor=north west] {$\vec{k}_r$};
+	\centerarc[](0,0)(-135:-90:.9);
+	\node at (0.25,-0.5) {$\theta_r$};
+	%E und B Felder
+	\coordinate (2) at (30:1.5);
+	\draw[black!20!red,thick] (2) circle (.15cm);
+	\draw[black!20!red,thick] ($ (2) + (-135+30:.15) $) -- ++(45+30:.3);
+	\draw[black!20!red,thick] ($ (2) + (135+30:.15) $) -- ++(-45+30:.3);
+	\node[black!20!red,anchor=south east] at (2) {$ \vec{E}_2 $};
+	%
+	\coordinate (e) at (-135:1.5);
+	\draw[black!20!red,thick] (e) circle (.15cm);
+	\draw[black!20!red,thick] ($ (e) + (-135+45:.15) $) -- ++(45+45:.3);
+	\draw[black!20!red,thick] ($ (e) + (135+45:.15) $) -- ++(-45+45:.3);
+	\node[black!20!red,anchor=south east] at (e) {$ \vec{E}_e $};
+	%
+	\coordinate (r) at (-45:1.5);
+	\draw[black!20!red,thick] (r) circle (.15cm);
+	\draw[black!20!red,thick] ($ (r) + (-135+45:.15) $) -- ++(45+45:.3);
+	\draw[black!20!red,thick] ($ (r) + (135+45:.15) $) -- ++(-45+45:.3);
+	\node[black!20!red,anchor=south west] at (r) {$ \vec{E}_r $};
+\end{tikzpicture}
 %
 %
 %
