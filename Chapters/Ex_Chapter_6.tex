@@ -1,0 +1,352 @@
+% Vorlesung 1.9.19
+
+\chapter{Grundlagen der Quantenmechanik}
+
+\lcom{Dies ist das letzte Kapitel dieser Vorlesung. Vektor Algebra muss man für dieses Kapitel gut verstanden haben.}
+
+\section{Axiome der Quantenmechanik}
+
+\folie{Die Axiome der Quantenmechanik}
+\begin{enumerate}[I)]
+	\item $\Psi$ = Wellenfunktion\\
+	$\vert\Psi\rangle$ = Zustandsvektor, q.m. Zustand, Zustand
+	\item Impuls $\leftrightarrow$ $\vec{\hat p}$ = $\begin{pmatrix} \hat p_x \\ \hat p_y \\ \hat p_z \end{pmatrix}$\\
+	Ort $\leftrightarrow\ \vec{\hat x}$\\
+	Energie $\leftrightarrow\ \hat H$
+	\item $\langle \hat O \rangle = \langle \Psi \vert \color{black!20!red}\hat O \color{black}\vert \color{black!30!green} \Psi \color{black}\rangle = \sum_n \overbrace{\color{black!30!green}p_n}^{\mathclap{\tx{Wahrscheinlichkeit}}} \underbrace{\color{black!20!red}a_n}_{\mathclap{\tx{Zahlen}}}$\\
+	Wobei das erste $\langle \hat O \rangle$ das statistische Mittelwert bedeutet. \\
+	\lcom{Diese aussage gilt für alle Operatoren, nicht nur Hermitesch}
+	\item Schrödinger $\overbrace{\prt{}{t}}^{\tx{1. ord}}$
+\end{enumerate}
+
+\section{Wellenfunktion, Operatoren, Zustände}
+
+\subsection{Wellenfunktionen}
+
+\subsubsection{Doppelspalt}
+
+\folie{Interferenz/Einzel-Teilchen Experimente}\\
+$$\vec{E}\tx{: relle, vektorielle Funktion um }\vec{r}\tx{ und }t$$
+$$\Psi\tx{: komplexe, skalare Funktion von } \vec{r} \tx{ und }t$$
+
+\subsubsection{Interpretation der Wellenfunktion}
+
+$|\Psi(\vec{r},t)|^2$ ist die Wahrscheinlichkeit dafür ein Teilchen zur Zeit $t$ am Ort $\vec{r}$ zu finden.\\
+
+\subsubsection{$\Rightarrow$ Normierung}
+
+Gesamtwahrscheinlichkeit muß 1 sein. $\Rightarrow\ \int \Psi^*(\vec{r},t) \Psi(\vec{r},t) \dd \vec{r} = 1$ wobei $\Psi^*$ das komplex konjugierte ist.
+
+\subsection{Operatoren}
+
+\lcom{Die mathematische Definition ist fürchterlich einfach.}
+
+\subsubsection{Mathematische Definition}
+
+$$\Psi' = \hat O \Psi \qquad |\Psi'\rangle = \hat O | \Psi \rangle$$
+
+\subsubsection{Anschauliche Definition}
+
+Ein Operator verändert einen Zustand.\\
+\bei
+$$\Psi'(\vec{r},t) = C e^{\frac{i}{\hbar} (\vec{p} \cdot \vec{r} - Et)}$$
+\begin{itemize}
+	\item $\hat O = (5 + 3i) \qquad \Psi'(\vec{r}, t) = (5 + 3i) \Psi(\vec{r},t) = (5 +3i)C e^{\frac{i}{\hbar}(\vec{p}\vec{r}- Et)}$
+	\item $\hat O = \prt{}{t} \qquad \Psi'(\vec{r}, t) = \prt{}{t}\Psi(\vec{r},t) = -C\frac{i}{\hbar}E e^{\frac{i}{\hbar}(\vec{p}\vec{r}- Et)}$
+	\item $\hat O = \prt{}{x} \qquad \Psi'(\vec{r}, t) = \prt{}{x} \Psi(\vec{r},t) = C\frac{i}{\hbar}p_x e^{\frac{i}{\hbar}(\vec{p}\vec{r}- Et)}$
+	\item $\hat O = \tx{Zeitumkehroperator}:\ \hat T \qquad \Psi'(\vec{r}, t) = \hat T \Psi(\vec{r},t) = \Psi(\vec{r},-t)$
+\end{itemize}
+\subsection{Hilbert-Raum (Ultrakompakt)}
+Frage: Was ist der Unterschied bzw. Zusammenhang zwischen $\Psi$ und $|\Psi\rangle$???\\
+Antwort:
+\rbox{$\Psi(\vec{r},t)$ ist die Wellenfunktion des Zustandes $|\Psi(\vec{r},t)\rangle$ in der Ortsdarstellung.}
+\subsubsection{Vektorraum}
+$$\vec{v}(t) = \sum_k c_k (t) \vec{e}_k$$
+$\custo{\rightarrow}{\tx{Vektor}}{\ |\Psi\rangle}$ = $\custo{\rightarrow}{\tx{Koordinaten}}{\ \Psi}$ und $\custo{\rightarrow}{\tx{Basisvektoren}}{\tx{Darstellung}}$ (Koordinatensystem) 
+
+\subsubsection{Reihenentwicklung von Funktionen, Funktionen als Vektorraum}
+
+\begin{equation*}
+f(x) = \sum_{k} c_k g_k(x) \qquad \tx{diskreten}
+\end{equation*}
+\begin{equation*}
+\tx{Funktion } = \tx{ Entwicklungskoeffizienten } \& \tx{ Funktionenbasis}
+\end{equation*}
+\begin{enumerate}[(1)]
+	\item endlich diskret
+	\begin{equation*}
+	f(x) = \sum_{k=0}^{N} c_k g_k(x)
+	\end{equation*}
+	\item unendlich diskret
+	\begin{equation*}
+	f(x) = \sum_{k=0}^{\infty} c_k g_k(x)
+	\end{equation*}
+	\item kontinuierlich
+	\begin{equation*}
+	f(x) = \int c(k) g(k,x) \dd k
+	\end{equation*}
+	\item diskret + kontinuierlich
+	\begin{equation*}
+	f(x) = \sum_{k} c_k g_k(x) + \int c(k) g(k,x) \dd k
+	\end{equation*}
+\end{enumerate}
+\emph{Beispiele:}
+\begin{itemize}
+	\item Fourier-Reihe: unendlich diskret
+	\begin{equation*}
+	f(x) = \frac{a_0}{2} + \sum_k a_n \cos(n \omega_0 t) + b_n \sin(n \omega_0 t)
+	\end{equation*}
+	\item Fourier-Integral/Transformation: kontinuierlich
+	\begin{equation*}
+	f(x) = \int F(\omega) e^{-i \omega t} \dd \omega
+	\end{equation*}
+	$ e^{-i \omega t} : $ Basisfunktionen\\
+	$ F(\omega) : $ Entwicklungskoeffizienten
+	\item Kugelflächenfunktionen:
+	\begin{equation*}
+	f(0,1) = \sum_{l = 0} \sum_{m = -l}^{l} c_{lm} Y_{m}^{l}(0,1)
+	\end{equation*}
+	\item Taylor-Reihe:
+	\begin{equation*}
+	f(x) = \sum_n \frac{1}{n !} f^{(n)} (0) x^n
+	\end{equation*}
+	\item Legendre-Polynome:
+	\begin{equation*}
+	f(x) = \sum_n c_n P_n(x)
+	\end{equation*}
+\end{itemize}
+\lcom{Sehr allgemeines Konzept, es gibt viele Beispiele wie Hermitesche Polynome.}
+
+\subsubsection{Hilbertraum}
+
+Ähnlich wie ein Vektorraum, nur mit Funktionen als Basis.
+\begin{equation*}
+\tx{Funktionsbasis } + \tx{ gewisse Eigenschaften}
+\end{equation*}
+
+\subsubsection{Bracket-Notation}
+
+\begin{equation*}
+|\custo{\leftarrow}{\quad}{\mathclap{\tx{Freiraum}}} \rangle
+\end{equation*}
+\begin{equation*}
+|\Psi\rangle , |\vec{r}, t \rangle , | \Psi, t \rangle , | n \rangle , | E \rangle , | \dots \rangle
+\end{equation*}
+\lcom{die Bracket können vieles bedeuten wie zum Beispiel $f(x)$ kann alle möglichen Funktionen darstellen.}
+
+\subsection{Zustand Darstellung und Wellenfunktion}
+
+\begin{alignat*}{3}
+&|\Psi\rangle = &&\Psi \qquad \tx{und} &&| n\rangle\\
+&\tx{Zustand}\quad &&\tx{Wellenfunktion}\quad &&\tx{Darstellung}\\
+&\vec{v} = &&\tx{Koordinaten} &&\tx{Basisvektoren}
+\end{alignat*}
+
+% hier ein bisschen misst der so gesagt wurde und dann aus dem kontext genommen wurde
+\begin{comment}
+\chapter{Der Liebe Gott}
+\section{Verliebt sein}
+\subsection{wer darf wo rumfumeln}
+rumfumeln ist nicht unabhängig
+\subsection{was gehört zu wem}
+\section{Gender-Theorie}
+es gibt unendliche viele Wahrscheinlichkeiten und Zuordnungen (von Gendern)
+\section{Der Satz von Stinson}
+\end{comment}
+
+% Vorlesung 15.01.18
+
+
+% andrez:
+% 1.15.19
+%
+%\bbb{Wiederholung}{QM}
+%
+\noindent
+Darstellungswechsel: $\widehat =$ Koordinatentransformations/Basiswechsel
+\bei 
+\begin{itemize} 
+	\item Ortsdarstellung: Basis sind die Ortseigenfunktionen $|\vec{r}\rangle$
+	$$\vec{\hat r} | \vec{r} \rangle = \vec{r}| \vec{r}\rangle$$
+	$$\Rightarrow |\Psi, t\rangle =\int \underbrace{\Psi(\vec{r},t)}_{\mathclap{\tx{Wellenfkt. in Ortsdarstellung}}}|\vec{r}\rangle \dif\vec{r}$$
+	\item Impulsdarstellung: Basis und die Impulsdeigenfunktion $|\vec{p}\rangle$
+	$$\vec{\hat p} |\vec{p} \rangle = \vec{p} | \vec{p}\rangle$$
+	$$\Rightarrow |\Psi, t \rangle =\int \underbrace{\Psi(\vec{p},t)}_{\mathclap{\tx{Wellenfkt. in Impulsdarstellung}}}|\vec{p}\rangle$$
+	\item Energie (spektral) Darstellung: Basis sind Energieeignefunktionen $|E_n \rangle$
+	$$\hat \ham| E_n\rangle = E_n|E_n\rangle$$
+	$$\Rightarrow |\Psi,t\rangle =\sum_k \underbrace{C_k (t)}_{\substack{ \\[5pt] \mathclap{\tx{Wellenfkt. in der Energiedarstellung}}}} |E_n\rangle$$
+\end{itemize}
+
+\subsection{Analogie zwischen Vektor- und Hilbertraum}
+$$\vec{v}(t) = \sum_k C_k (t) \vec{e}_k \quad \leftrightarrow \quad |\Psi,t\rangle = \sum_n C_n (t) |n\rangle \quad \tx{oder} \quad |\Psi,t\rangle = \int C(n,t)|n\rangle\dif n$$
+\folie{Analogie zwischen Vektor- und Hilbertraum}
+
+\subsubsection{Vektoroperator}
+$$\vec{p} = \begin{pmatrix} p_x \\ p_y \\ p_z \end{pmatrix} \hat = \mathop{} \vec{\hat p} = \begin{pmatrix}\hat p_x \\ \hat p_y \\ \hat p_z \end{pmatrix}$$
+\lcom{Wir brauchen alle drei Zahlen um die Bewegung des Teilchens zu beschreiben.}
+\section{Nicht relativistische QM und Schrödingergleichung}
+\subsection{Zustand und Bewegung eines Teilchens}
+
+klassisch:
+\begin{description}
+	\item[Zustand] $\vec{v}(t), \vec{p}, t$
+	\item[Meßgrößen] können ausgedrückt werden als Funktionen um $\vec{v}(t), \vec{p}, t, \dots$
+	\item[Bewegung] Hamiltonfunktion $\ham(\vec{r},\vec{p}) = E$
+\end{description}
+QM, in der Sprache der Wellenfunktionen in der Ortsdarstellung
+\begin{description}
+	\item[Zustand] Wellenfunktion $\Psi(\vec{r},t)$
+	\item[Meßgrößen] Eigenwert $a_k$ der Observable $\hat A$ mit einer Wahrscheinlichkeit $p_k = |(\Psi_k, \Psi)|^2$
+	\item[Bewegung] Hamiltonoperator $\hat \ham(\vec{\hat r},\vec{\hat p})$
+	$$i \hbar \prt{}{t} \Psi(\vec{r}, t) = \hat \ham \Psi(\vec{r}, t)$$
+\end{description}
+QM in der Sprache der Zustandsfunktionen
+\begin{description}
+	\item[Zustand] $|\Psi,t\rangle$
+	\item[Meßgrößen] Eigenwert $a_k$ der Observable $\hat A$ mit einer Wahrscheinlichkeit $p_k = |\langle\Psi_k | \Psi\rangle|^2$
+	\item[Bewegung] $$i \hbar \prt{}{t} | \Psi(\vec{r}, t) = \hat \ham |\Psi,t\rangle$$
+\end{description}
+\rbox{$\vec{F} = m \vec{a}$}
+
+\subsubsection{Wichtige Darstellung}
+
+\begin{itemize}
+	\item $t$ ist ein Parameter
+	\item $\vec{r}$ in $\Psi(\vec{r},t)$ hängt nicht implizit selber um $t$ ab.
+	\item $\vec{r}$ in $\Psi(\vec{r},t)$ ist \color{red} NICHT \color{black} der Ort des Teilchens \mau\\
+	Der Ort der Teilchens ergibt sich aus Axiom V
+	$$p(\vec{r}) = |(\Psi_k|\Psi)|^2 = |\Psi(\vec{r},t)|^2$$
+	\item $\Psi(\vec{r},t)$ hängt \color{red} NUR \color{black} von $\vec{r}$ und $t$ ab, \color{red} NICHT \color{black} von z.B. $\vec{p}, E, \dots$\\
+	Der Impuls des Teilchens ergibt sich aus Axiom V
+	$$p(\vec{p}) = |(\Psi_p | \Psi|^2 = \cancel{| \Psi(p,t)|^2}$$
+\end{itemize}
+
+%markus:
+\subsection{,,Herleitung`` der Schrödingergleichung (SGL)}
+
+Wir betrachten ein freies Teilchen $ \widehat{=} $ Ebene Welle $ \quad \Psi(\vec{r},t) = C e^{\frac{i}{\hbar} (\vec{p} \cdot \vec{r} - E t)} $
+
+\subsubsection{Ortsoperator}
+
+\begin{equation*}
+\hat{\vec{r}} \Psi = \vec{r} \Psi \quad \tx{ nach Konstanten}
+\end{equation*}
+
+\subsubsection{Impulsoperator}
+
+\begin{equation*}
+\hat{\vec{p}} \Psi = \vec{p} \Psi
+\end{equation*}
+Beobachte: $ \prt{}{x} \Psi = \frac{i}{\hbar} p_x \Psi \quad \Rightarrow \quad \vabla \Psi = \frac{i}{\hbar} \vec{p} \Psi $
+\begin{equation*}
+\Rightarrow \quad \rmbox{\hat{\vec{p}} = - i \hbar \vabla} \quad \tx{ Impulsoperator in der Ortsdarstellung}
+\end{equation*}
+
+\subsubsection{Schrödinger-Gleichung}
+
+\begin{equation*}
+\hat{E} \Psi = E \Psi
+\end{equation*}
+Beobachte: $ \prt{}{t} \Psi = - \frac{i}{\hbar} E \Psi $
+\begin{equation*}
+\Rightarrow \quad \rmbox{\hat{E} = i \hbar \prt{}{t}}
+\end{equation*}
+Neben klassischer Gleichung $ \ham(\vec{r},\vec{p}) = E $, und ersetzen durch Operatoren
+\begin{equation*}
+\rmbox{i \hbar \prt{}{t} \Psi(\vec{r},t) = \hat{\ham}(\hat{\vec{r}}, \hat{\vec{p}}) \Psi(\vec{r},t)}
+\end{equation*}
+$ \Rightarrow $ Verallgemeinerung: Zeitabhängige Schrödinger-Gleichung
+\frbox{Zeitabhängige Schrödinger-Gleichung}{
+\begin{equation*}
+i \hbar \prt{}{t} |\Psi,t\rangle = \hat{\ham} (\hat{\vec{r}}, \hat{\vec{p}}) |\Psi,t\rangle
+\end{equation*}
+}
+
+\subsection{Freies Teilchen in Ortsdarstellung}
+
+klassisch:
+\begin{equation*}
+\ham (\vec{r}, \vec{p}) = \frac{\vec{p^2}}{2 m}
+\end{equation*}
+quantenmechanisch:
+\begin{equation*}
+\hat{\ham} = \frac{\hat{\vec{p}}^2}{2 m} = - \frac{\hbar^2}{2 m} \vabla^2 \qquad (\vabla^2 = \prt{^2}{x^2} + \prt{^2}{y^2} + \prt{^2}{z^2})
+\end{equation*}
+Schrödingergleichung:
+\begin{equation*}
+i \hbar \prt{}{t} \Psi(\vec{r},t) = - \frac{\hbar^2}{2 m} \vabla^2 \Psi(\vec{r},t)
+\end{equation*}
+\textbf{Lösung:}
+\begin{enumerate}[i)]
+	\item Lösungsansatz:
+	\begin{equation*}
+	\Psi(\vec{r},t) = Ce^{\frac{i}{\hbar} (\vec{p} \cdot \vec{r} - E t)}
+	\end{equation*}
+	\item $ i \hbar \prt{}{t} \Psi = E \Psi $
+	\item $ -\frac{\hbar^2}{2 m} \left(\frac{i}{\hbar} \vec{p}\right)^2 \Psi = \frac{\vec{p}^2}{2 m} \Psi $
+	\begin{equation*}
+	\Rightarrow \quad E \cancel{\Psi} = \frac{\vec{p}^2}{2 m} \cancel{\Psi}
+	\end{equation*}
+	\begin{equation*}
+	\rmbox{E = \frac{\vec{p}^2}{2 m}} \quad \checkmark \qquad \Rightarrow \quad \Psi(\vec{r},t) = C e^{\frac{i}{\hbar} (\vec{p} \cdot \vec{r} - E t)}
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Teilchen im Potential in Ortsdarstellung}
+
+klassisch:
+\begin{equation*}
+\ham(\vec{r},\vec{p}) = \frac{\vec{p}^2}{2 m} + V(\vec{r})
+\end{equation*}
+quantenmechanisch:
+\begin{equation*}
+\hat{\ham} = - \frac{\hbar^2}{2 m} \vabla^2 + V(\vec{r})
+\end{equation*}
+Schrödinger-Gleichung:
+\begin{equation*}
+i \hbar \prt{}{t} \Psi(\vec{r},t) = \left(- \frac{\hbar^2}{2 m} \vabla^2 + V(\vec{r})\right) \Psi(\vec{r},t)
+\end{equation*}
+\emph{Bemerkung:}
+\begin{itemize}
+	\item ebene Wellen sind \textbf{keine Lösung} dieser SGL
+	\begin{equation*}
+	\Psi = \tx{ ebene Welle} \quad \Rightarrow \quad E = \frac{\vec{p}^2}{2 m} + V(\vec{r}) \qquad \tx{weil in Ortsdarstellung gilt: } \quad \hat{\vec{V}} \Psi = \vec{v} \Psi 
+	\end{equation*}
+	\LARGE{\lightning} \normalsize $ E \neq \const \quad E(\vec{r}) $\\
+	Wir wissen aber $ E $ ist nicht vom Ort abhängig sondern eine Konstante.\\
+	Hier ist der Lösungsansatz also Falsch. \LARGE{\lightning} \normalsize
+\end{itemize}
+
+\subsection{Zeitunabhängige SGL}
+
+Für explizit nicht von der Zeit abhängiger Hamiltonoperatoren läßt sich die SGL allgemein lösen:\\[5pt]
+Ansatz:
+\begin{equation*}
+|\Psi,t\rangle = f(t) |\Psi,0\rangle
+\end{equation*}
+$ \Rightarrow $ in zeitabhängige SGL einsetzen $ \Rightarrow $ Gleichung separieren $ \Rightarrow $ zwei Gleichungen für die zwei separierten Bruchstücke
+\begin{enumerate}[(1)]
+	\item $$ f(t) = e^{-\frac{i}{\hbar} Et} $$
+	\item$ \phantom{0} $\\[-30pt]
+	\frbox{Zeitunabhängige Schrödinger-Gleichung}{
+	\begin{equation*}
+	\hat{\ham} |\Psi,0\rangle = E |\Psi,0\rangle
+	\end{equation*}
+	}
+\end{enumerate}
+Feststellung 1:
+\begin{equation*}
+\rmbox{\tx{Das ist eine Eigenwertgleichung zum Hamiltonoperator}}
+\end{equation*}
+\begin{equation*}
+\begin{array}{l|l}
+	\tx{diskret} & \tx{kontinuierlich}\\
+	\hline\\[-5pt]
+	\hat{\ham} |n\rangle = E_n |n\rangle & \hat{\ham} |n\rangle = E(n) |n\rangle\\
+\end{array}
+\end{equation*}
+$ n $ abzählbar\\[5pt]
+Feststellung 2\\
+Die Lösungen sind die stationären Zustände des Quantensystems\\[5pt]
+Feststellung 3\\
+F1 ist äquivalent zu F2
