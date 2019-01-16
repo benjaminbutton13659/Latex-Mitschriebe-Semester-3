@@ -1614,35 +1614,35 @@ z.B. Wasser $ \ n_1 \approx 1{,}33 $, Luft $ \ n_2 \approx 1 $ $ \Rightarrow \th
 \subsection{Intensitätsbeziehungen bei Reflexion und Brechung}
 
 \bbb{Wiederholung}{
-%
-%
-%
-%t1:
-\begin{tikzpicture}
-	\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-	\draw[->] (0,-2) -- (0,2) node[right] {$z$};
-	\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
-	\centerarc[](0,0)(60:90:1.2);
-	\node at (0.2,.85) {$\theta_2$};
-	\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
-	\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
-	\centerarc[](0,0)(234:270:1);
-	\node at (-0.2,-0.7) {$\theta_e$};
-	\centerarc[](0,0)(270:306:1);
-	\node at (0.3,-0.7) {$\theta_r$};
-	\node at (-1.75,.6) {$ \epsilon_2, \mu_2, n_2 $};
-	\node at (-1.75,.6) {$ \epsilon_1, \mu_1, n_1 $};
-\end{tikzpicture}
-%
-%
-%
-\begin{equation*}
-\vec{E}_l = \vec{E}_{l_0} e^{i(\vec{k}_l \vec{r} - \omega t)} \qquad l = e, r, 2
-\end{equation*}
-\begin{align*}
-\vec{B}_l &= \frac{1}{\omega} \vec{k}_e \times \vec{E}_l \\
-\vec{E}_1 &= \vec{E}_e + \vec{E}_r
-\end{align*}
+\begin{minipage}{.6\linewidth}
+	\begin{equation*}
+	\vec{E}_l = \vec{E}_{l_0} e^{i(\vec{k}_l \vec{r} - \omega t)} \qquad l = e, r, 2
+	\end{equation*}
+	\begin{align*}
+	\vec{B}_l &= \frac{1}{\omega} \vec{k}_e \times \vec{E}_l \\
+	\vec{E}_1 &= \vec{E}_e + \vec{E}_r
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	%t1:
+	\begin{tikzpicture}
+		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+		\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(60:90:1.2);
+		\node at (0.2,.85) {$\theta_2$};
+		\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+		\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(234:270:1);
+		\node at (-0.2,-0.7) {$\theta_e$};
+		\centerarc[](0,0)(270:306:1);
+		\node at (0.3,-0.7) {$\theta_r$};
+		\node at (-1.75,.6) {$ \epsilon_2, \mu_2, n_2 $};
+		\node at (-1.75,-.6) {$ \epsilon_1, \mu_1, n_1 $};
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}%
+\\
 \textbf{Stetigkeitsbedingungen an der Grenzfläche} $ \vec{r} = (x,y,0) $ hier: $ \vec{r} = 0  , \ t = 0 \quad \vec{t} \sim \vec{e}_x , \vec{e}_y $
 \begin{enumerate}[i)]
 	\item
@@ -1688,53 +1688,53 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 \begin{enumerate}[I)]
 	\item $ \vec{E}_e $ senkrecht zur Einfallsebene polarisiert:
 	$$ \vec{E}_{e_0}  = E_{e_0} \vec{e}_y $$
-	%
-	%
-	%
-	%t2:
-	\begin{tikzpicture}
-		\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
-		\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
-		\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
-		\centerarc[](0,0)(30:90:.9);
-		\node at (0.3,.5) {$\theta_2$};
-		\draw[thick,->] (-135:2.5cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
-		\node at (-0.2,-0.5) {$\theta_e$};
-		\centerarc[](0,0)(-90:-45:.9);
-		\draw[thick,->] (0,0) -- (-45:2.5cm) node[anchor=north west] {$\vec{k}_r$};
-		\centerarc[](0,0)(-135:-90:.9);
-		\node at (0.25,-0.5) {$\theta_r$};
-		%E und B Felder
-		\coordinate (2) at (30:1.5);
-		\draw[black!20!red,thick] (2) circle (.15cm);
-		\draw[black!20!red,thick] ($ (2) + (-135+30:.15) $) -- ++(45+30:.3);
-		\draw[black!20!red,thick] ($ (2) + (135+30:.15) $) -- ++(-45+30:.3);
-		\node[black!20!red,anchor=north west] at (2) {$ \vec{E}_2 $};
-		\draw[black!20!blue,thick,->] (2) -- node[anchor=south west] {$ \vec{B}_2 $} ++(120:1cm);
-		%
-		\coordinate (e) at (-135:1.5);
-		\draw[black!20!red,thick] (e) circle (.15cm);
-		\draw[black!20!red,thick] ($ (e) + (-135+45:.15) $) -- ++(45+45:.3);
-		\draw[black!20!red,thick] ($ (e) + (135+45:.15) $) -- ++(-45+45:.3);
-		\node[black!20!red,anchor=north west] at (e) {$ \vec{E}_e $};
-		\draw[black!20!blue,thick,->] (e) -- node[anchor=north east] {$ \vec{B}_e $} ++(135:1cm);
-		%
-		\coordinate (r) at (-45:1.5);
-		\draw[black!20!red,thick] (r) circle (.15cm);
-		\draw[black!20!red,thick] ($ (r) + (-135+45:.15) $) -- ++(45+45:.3);
-		\draw[black!20!red,thick] ($ (r) + (135+45:.15) $) -- ++(-45+45:.3);
-		\node[black!20!red,anchor=north east] at (r) {$ \vec{E}_r $};
-		\draw[black!20!blue,thick,->] (r) -- node[anchor=north west] {$ \vec{B}_r $} ++(45:1cm);
-	\end{tikzpicture}
-	%
-	%
-	%
-	Es folgt aus der Skizze:
-	\begin{align*}
-	\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta_2 \vec{e}_z)\\
-	\vec{k}_e &= k_e (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)\\
-	\vec{k}_r &= k_r (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)
-	\end{align*}
+	\begin{minipage}{.6\linewidth}
+		Es folgt aus der Skizze:
+		\begin{align*}
+		\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta_2 \vec{e}_z)\\
+		\vec{k}_e &= k_e (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)\\
+		\vec{k}_r &= k_r (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)
+		\end{align*}
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		%t2:
+		\begin{tikzpicture}
+			\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+			\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
+			\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
+			\centerarc[](0,0)(30:90:.9);
+			\node at (0.3,.5) {$\theta_2$};
+			\draw[thick,->] (-135:2.5cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+			\node at (-0.2,-0.5) {$\theta_e$};
+			\centerarc[](0,0)(-90:-45:.9);
+			\draw[thick,->] (0,0) -- (-45:2.5cm) node[anchor=north west] {$\vec{k}_r$};
+			\centerarc[](0,0)(-135:-90:.9);
+			\node at (0.25,-0.5) {$\theta_r$};
+			%E und B Felder
+			\coordinate (2) at (30:1.5);
+			\draw[black!20!blue,thick,->] (2) -- node[anchor=south west] {$ \vec{B}_2 $} ++(120:1cm);
+			\draw[black!15!red,thick] (2) circle (.15cm);
+			\draw[black!15!red,thick] ($ (2) + (-135+30:.15) $) -- ++(45+30:.3);
+			\draw[black!15!red,thick] ($ (2) + (135+30:.15) $) -- ++(-45+30:.3);
+			\node[black!15!red,anchor=north west] at (2) {$ \vec{E}_2 $};
+			%
+			\coordinate (e) at (-135:1.5);
+			\draw[black!20!blue,thick,->] (e) -- node[anchor=north east] {$ \vec{B}_e $} ++(135:1cm);
+			\draw[black!15!red,thick] (e) circle (.15cm);
+			\draw[black!15!red,thick] ($ (e) + (-135+45:.15) $) -- ++(45+45:.3);
+			\draw[black!15!red,thick] ($ (e) + (135+45:.15) $) -- ++(-45+45:.3);
+			\node[black!15!red,anchor=north west] at (e) {$ \vec{E}_e $};
+			%
+			\coordinate (r) at (-45:1.5);
+			\draw[black!20!blue,thick,->] (r) -- node[anchor=north west] {$ \vec{B}_r $} ++(45:1cm);
+			\draw[black!15!red,thick] (r) circle (.15cm);
+			\draw[black!15!red,thick] ($ (r) + (-135+45:.15) $) -- ++(45+45:.3);
+			\draw[black!15!red,thick] ($ (r) + (135+45:.15) $) -- ++(-45+45:.3);
+			\node[black!15!red,anchor=north east] at (r) {$ \vec{E}_r $};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
 	Aus den Stetigkeitsbedingunen folgt:  % vielleicht muss eins auch i) sein
 	\begin{equation*}
 	\vec{E}_{r_0} = E_{r_0} \vec{e}_y \qquad \vec{E}_{2_0} = E_{2_0} \vec{e}_y
@@ -1777,12 +1777,25 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 	\Rightarrow \quad \left(\frac{E_{2_0}}{E_{e_0}}\right)_{\perp} = \frac{n_1 \cos \theta_1 - \frac{\mu_1}{\mu_2} n_2 \cos \theta_2}{n_1 \cos \theta_1 + \frac{\mu_1}{\mu_2} n_2 \cos \theta_2}
 	\end{equation*}
 	}
-	\item  $ \vec{E}_e $ parallel zur Einfallsebene
 	%
 	%
 	%
-	%t3:
-	\begin{tikzpicture}
+	\pagebreak
+	%
+	%
+	%
+	\item  $ \vec{E}_e $ parallel zur Einfallsebene\\
+	\frbox{Paralleler Einfall}{
+	\begin{equation*}
+	\left(\frac{E_{2_0}}{E_{e_0}}\right)_{\parallel} = \frac{2 n_1 \cos \theta_1}{\frac{\mu_1}{\mu_2}n_2 \cos \theta_1 + n_1 \cos \theta_2}
+	\end{equation*}
+	\begin{equation*}
+	\left(\frac{E_{r_0}}{E_{e_0}}\right)_{\parallel} = \frac{\frac{\mu_1}{\mu_2} n_2 \cos \theta_1 - n_1 \cos \theta_2}{\frac{\mu_1}{\mu_2} n_2 \cos \theta_1 + n_1 \cos \theta_2}
+	\end{equation*}
+	}
+	\begin{center}
+		%t3:
+		\begin{tikzpicture}[scale=.9]
 		\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
 		\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
 		\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
@@ -1803,41 +1816,31 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 		%
 		\coordinate (r) at (-45:1.5);
 		\draw[black!20!red,thick,->] (r) -- node[anchor=north west] {$ \vec{E}_r $} ++(45:1cm);
-	\end{tikzpicture}
-	%
-	%
-	%
-	\frbox{Paralleler Einfall}{
-	\begin{equation*}
-	\left(\frac{E_{2_0}}{E_{e_0}}\right)_{\parallel} = \frac{2 n_1 \cos \theta_1}{\frac{\mu_1}{\mu_2}n_2 \cos \theta_1 + n_1 \cos \theta_2}
-	\end{equation*}
-	\begin{equation*}
-	\left(\frac{E_{r_0}}{E_{e_0}}\right)_{\parallel} = \frac{\frac{\mu_1}{\mu_2} n_2 \cos \theta_1 - n_1 \cos \theta_2}{\frac{\mu_1}{\mu_2} n_2 \cos \theta_1 + n_1 \cos \theta_2}
-	\end{equation*}
-	}
+		\end{tikzpicture}
+	\end{center}
 \end{enumerate}
 \emph{Bemerkungen:}
 \begin{enumerate}[i)]
 	\item \textbf{Fresnelsche Formeln}: da meist gilt $ \frac{\mu_1}{\mu_2} \approx 1 $
-	\item Sektrechter Eindall:
-	%
-	%
-	%
-	%t4:
-	\begin{tikzpicture}
-	\draw[->] (-2.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
-	\draw[thick,->] (0,0) -- node[right] {$ \vec{k}_2 $} (0,1.5);
-	\draw[thick,->] (-0.1,-1.5) -- node[left] {$ \vec{k}_e $} (-0.1,0);
-	\draw[thick,->] (0.1,0) -- node[right] {$ \vec{k}_r $} (0.1,-1.5);
-	\end{tikzpicture}
-	%
-	%
-	%
-	\begin{equation*}
-	\frac{E_{2_0}}{E_{e_0}} = \frac{2n_1}{n_1 + n_2} \qquad \frac{E_{r_0}}{E_{e_0}} = \frac{n_1 - n_2}{n_1 + n_2}
-	\end{equation*}
-	für $ n_1 = n_2 $ erfüllt $ \checkmark $\\
-	für $ n_2 \gg n_1 : \qquad \frac{E_{2_0}}{E_{e_0}} = \frac{2}{1 + \frac{n_2}{n_1}} $ erfüllt $ \checkmark $
+	\item Senkrechter Einfall:\\
+	\begin{minipage}{.6\linewidth}
+		\begin{equation*}
+		\frac{E_{2_0}}{E_{e_0}} = \frac{2n_1}{n_1 + n_2} \qquad \frac{E_{r_0}}{E_{e_0}} = \frac{n_1 - n_2}{n_1 + n_2}
+		\end{equation*}
+		für $ n_1 = n_2 $ erfüllt $ \checkmark $\\[5pt]
+		für $ n_2 \gg n_1 : \qquad \frac{E_{2_0}}{E_{e_0}} = \frac{2}{1 + \frac{n_2}{n_1}} $ erfüllt $ \checkmark $
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		%t4:
+		\begin{tikzpicture}
+			\draw[->] (-2.5,0) -- (2.5,0) node[anchor=north west] {$ x $};
+			\draw[thick,->] (0,0) -- node[right] {$ \vec{k}_2 $} (0,1.5);
+			\draw[thick,->] (-0.1,-1.5) -- node[left] {$ \vec{k}_e $} (-0.1,0);
+			\draw[thick,->] (0.1,0) -- node[right] {$ \vec{k}_r $} (0.1,-1.5);
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
 	\item \textbf{Brewster-Winkel:}
 	\begin{equation*}
 	\left(\frac{E_{r_0}}{E_{e_0}}\right)_{\parallel} = \frac{n_2 \cos \theta_1 - n_1 \cos \theta_2}{n_2 \cos \theta_1 + n_1 \cos \theta_2}
@@ -1852,73 +1855,74 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 	\frac{n_2}{n_1} = \frac{\sqrt{1 - \frac{n_1^2}{n_2^2} \sin^2 \theta_B}}{\cos \theta_B}
 	\end{equation*}
 	$ \Rightarrow \quad \tan \theta_B = \frac{n_2}{n_1} $\\[5pt]
-	\emph{Beispiel:}\\
-	Luft $ \rightarrow $ Glas $ \frac{n_2}{n_1} \approx 1{,}5 \quad \rightarrow \quad \theta_B \approx 56^\circ $\\[5pt]
-	Es gilt: $ \theta_B + \theta_w = \frac{\pi}{2} $
-	%
-	%
-	%
-	%t5:
-	\begin{tikzpicture}
-		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-		\draw[->] (0,-2) -- (0,2) node[right] {$z$};
-		\draw[thick,->] (0,0) -- (60:1.7cm) node[anchor=south west] {$\vec{k}_2$}; 
-		\centerarc[](0,0)(60:90:1.2);
-		\node at (0.2,.85) {$\theta_2$};
-		\draw[thick,->] (-150:1.7cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
-		\draw[thick,->] (0,0) -- (-30:1.7cm) node[anchor=north west] {$\vec{k}_r$};
-		\centerarc[](0,0)(210:270:1);
-		\node at (-0.3,-0.6) {$\theta_e$};
-		\centerarc[](0,0)(270:330:1);
-		\node at (0.4,-0.6) {$\theta_r$};
-		\centerarc[thick,black!20!red](0,0)(-30:60:.7cm);
-		\node[circle,fill=black!20!red,inner sep=1pt,minimum size=1pt] at (.4,.1) {};
-	\end{tikzpicture}
-	%
-	%
-	%
+	\begin{minipage}{.5\linewidth}
+		\emph{Beispiel:}\\
+		Luft $ \rightarrow $ Glas $ \frac{n_2}{n_1} \approx 1{,}5 \quad \rightarrow \quad \theta_B \approx 56^\circ $\\[5pt]
+		Es gilt: $ \theta_B + \theta_w = \frac{\pi}{2} $
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\centering
+		%t5:
+		\begin{tikzpicture}
+			\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+			\draw[->] (0,-2) -- (0,2) node[right] {$z$};
+			\draw[thick,->] (0,0) -- (60:1.7cm) node[anchor=south west] {$\vec{k}_2$}; 
+			\centerarc[](0,0)(60:90:1.2);
+			\node at (0.2,.85) {$\theta_2$};
+			\draw[thick,->] (-150:1.7cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+			\draw[thick,->] (0,0) -- (-30:1.7cm) node[anchor=north west] {$\vec{k}_r$};
+			\centerarc[](0,0)(210:270:1);
+			\node at (-0.3,-0.6) {$\theta_e$};
+			\centerarc[](0,0)(270:330:1);
+			\node at (0.4,-0.6) {$\theta_r$};
+			\centerarc[thick,black!20!red](0,0)(-30:60:.7cm);
+			\node[circle,fill=black!20!red,inner sep=1pt,minimum size=1pt] at (.4,.1) {};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
 \end{enumerate}
-Nun noch eine Erklärung die etwas umständlicher ist:\\
-%
-%
-%
-%t6:
-\begin{tikzpicture}
-	\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
-	\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
-	\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
-	\centerarc[](0,0)(30:90:.9);
-	\node at (0.3,.5) {$\theta_2$};
-	\draw[thick,->] (-135:2.5cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
-	\node at (-0.2,-0.5) {$\theta_e$};
-	\centerarc[](0,0)(-90:-45:.9);
-	\draw[thick,->] (0,0) -- (-45:2.5cm) node[anchor=north west] {$\vec{k}_r$};
-	\centerarc[](0,0)(-135:-90:.9);
-	\node at (0.25,-0.5) {$\theta_r$};
-	%E und B Felder
-	\coordinate (2) at (30:1.5);
-	\draw[black!20!red,thick] (2) circle (.15cm);
-	\draw[black!20!red,thick] ($ (2) + (-135+30:.15) $) -- ++(45+30:.3);
-	\draw[black!20!red,thick] ($ (2) + (135+30:.15) $) -- ++(-45+30:.3);
-	\node[black!20!red,anchor=south east] at (2) {$ \vec{E}_2 $};
-	%
-	\coordinate (e) at (-135:1.5);
-	\draw[black!20!red,thick] (e) circle (.15cm);
-	\draw[black!20!red,thick] ($ (e) + (-135+45:.15) $) -- ++(45+45:.3);
-	\draw[black!20!red,thick] ($ (e) + (135+45:.15) $) -- ++(-45+45:.3);
-	\node[black!20!red,anchor=south east] at (e) {$ \vec{E}_e $};
-	%
-	\coordinate (r) at (-45:1.5);
-	\draw[black!20!red,thick] (r) circle (.15cm);
-	\draw[black!20!red,thick] ($ (r) + (-135+45:.15) $) -- ++(45+45:.3);
-	\draw[black!20!red,thick] ($ (r) + (135+45:.15) $) -- ++(-45+45:.3);
-	\node[black!20!red,anchor=south west] at (r) {$ \vec{E}_r $};
-\end{tikzpicture}
-%
-%
-%
-$ \vec{E}_{e_0} = E_{e_0} \vec{e}_y $\\
-$ \vec{E}_{r_0} = E_{r_0} \vec{e}_y \quad \vec{E}_{2_0} = E_{2_0} \vec{e}_y $\\[5pt]
+\subsubsection{Einschub}
+Nun noch eine Erklärung die etwas umständlicher ist: (Zu senkrechtem Einfall)\\
+\begin{minipage}{.5\linewidth}
+	$ \vec{E}_{e_0} = E_{e_0} \vec{e}_y $\\
+	$ \vec{E}_{r_0} = E_{r_0} \vec{e}_y \quad \vec{E}_{2_0} = E_{2_0} \vec{e}_y $\\[5pt]
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t6:
+	\begin{tikzpicture}[scale=.9]
+		\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+		\draw[->] (0,-2.5) -- (0,2.5) node[right] {$z$};
+		\draw[thick,->] (0,0) -- (30:2.5cm) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(30:90:.9);
+		\node at (0.3,.5) {$\theta_2$};
+		\draw[thick,->] (-135:2.5cm) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01);
+		\node at (-0.2,-0.5) {$\theta_e$};
+		\centerarc[](0,0)(-90:-45:.9);
+		\draw[thick,->] (0,0) -- (-45:2.5cm) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(-135:-90:.9);
+		\node at (0.25,-0.5) {$\theta_r$};
+		%E und B Felder
+		\coordinate (2) at (30:1.5);
+		\draw[black!20!red,thick] (2) circle (.15cm);
+		\draw[black!20!red,thick] ($ (2) + (-135+30:.15) $) -- ++(45+30:.3);
+		\draw[black!20!red,thick] ($ (2) + (135+30:.15) $) -- ++(-45+30:.3);
+		\node[black!20!red,anchor=south east] at (2) {$ \vec{E}_2 $};
+		%
+		\coordinate (e) at (-135:1.5);
+		\draw[black!20!red,thick] (e) circle (.15cm);
+		\draw[black!20!red,thick] ($ (e) + (-135+45:.15) $) -- ++(45+45:.3);
+		\draw[black!20!red,thick] ($ (e) + (135+45:.15) $) -- ++(-45+45:.3);
+		\node[black!20!red,anchor=south east] at (e) {$ \vec{E}_e $};
+		%
+		\coordinate (r) at (-45:1.5);
+		\draw[black!20!red,thick] (r) circle (.15cm);
+		\draw[black!20!red,thick] ($ (r) + (-135+45:.15) $) -- ++(45+45:.3);
+		\draw[black!20!red,thick] ($ (r) + (135+45:.15) $) -- ++(-45+45:.3);
+		\node[black!20!red,anchor=south west] at (r) {$ \vec{E}_r $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{enumerate}
 	\item[ii)] $ \vec{t} = \vec{e}_x: $
 	\begin{equation*}
