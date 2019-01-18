@@ -406,13 +406,7 @@ $\vec{E} = (0,0,E_z)$
 \begin{minipage}{.8\linewidth}
 	\begin{align*}
 	\vec{E}(\vec{r}) &= \kq \int_\gamma \dd s'\ \lambda \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \qquad \gamma: z' \mapsto \vec{r}'(z') = \begin{pmatrix} 0 \\ 0 \\ z' \end{pmatrix}\\
-	%
-	%
-	%
-	% I2 oben 0 0 z oder 0 0 z'
-	%
-	%
-	%
+	% I2:
 	&= \frac{\lambda}{4 \pi \epsilon_0} \intt{-\infty}{\infty}\dd z'\ \frac{\vec{r} - \begin{pmatrix} 0 , 0 , z \end{pmatrix}^\top}{(x^2 + y^2 + (z-z')^2)^{\nicefrac{3}{2}}}
 	\end{align*}
 \end{minipage}%
@@ -437,14 +431,8 @@ $$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\vabla\frac{1}{|\vec{r}-\
 zur Überprüfung hier die $ x $-Komponente berechnet:
 $$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} =  \frac{- \left(-\frac{1}{2}\right) \quad 2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
 Somit erhalten wir für das $ \vec{E} $-Feld:
-$$\Rightarrow \vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \bigg(-\vabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = (-) \vabla_F \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
-%
-%
-%
-% I3 muss das da oben nabla F sein ?
-%
-%
-%
+$$\Rightarrow \vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \bigg(-\vabla_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} \bigg) = (-) \vabla_{\vec{r}} \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}$$
+% I3:
 $\rightarrow$ elektrostatisches Potential
 $$\phi(\vec{r}) = \kq \int \dd^3 r'\ \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} + c$$
 übliche Konvention: $c = 0 \quad (\phi(\vec{r})\buildrel{|\vec{r}| \to \infty}\over{\rightarrow} 0)$\\[5pt]
@@ -625,7 +613,8 @@ $$\lim_{a \to 0} g_a(\vec{r}' - \vec{r}) = \left\{ \begin{array}{cc}
 \infty 	& \vec{r} = 	\vec{r}'
 \end{array} \right.$$
 $$\delta(\vec{r}) = \lim_{a \to 0} \frac{1}{4 \pi} \vabla_{\vec{r}} \cdot \frac{r^2}{(r^2+a^2)^{\nicefrac{3}{2}}}$$
-$$\hspace{3.6cm} \overset{\textrm{formal}}{=} \frac{1}{4 \pi} \vabla \cdot \underbrace{\frac{\vec{r}}{r^3}}_{\mathclap{= - \vabla \frac{1}{r}}} = - \frac{1}{4 \pi} \vabla \cdot \bigg(\vabla \frac{1}{r}\bigg) = \frac{-1}{4 \pi} \Delta \frac{1}{r}$$ $$\Rightarrow \quad \Delta \frac{1}{r} = -4 \pi \delta(\vec{r})$$
+$$\hspace{3.6cm} \overset{\textrm{formal}}{=} \frac{1}{4 \pi} \vabla \cdot \underbrace{\frac{\vec{r}}{r^3}}_{\mathclap{= - \vabla \frac{1}{r}}} = - \frac{1}{4 \pi} \vabla \cdot \bigg(\vabla \frac{1}{r}\bigg) = \frac{-1}{4 \pi} \Delta \frac{1}{r}$$ $$\Rightarrow \quad \rmbox{\Delta \frac{1}{r} = -4 \pi \delta(\vec{r})} \qquad 
+\Rightarrow \quad \rmbox{\Delta \frac{1}{|\vec{r} - \vec{r}_0|} = - 4 \pi \delta(\vec{r} - \vec{r}_0)}$$
 z.B. Potential einer Punktladung $\rho$ q in $\vec{r}_0$:
 $$\phi(\vec{r}) = \kq \frac{q}{|\vec{r} - \vec{r}_0|}$$
 $$\Delta \phi(\vec{r}) = \kq q \underbrace{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}_0|} }_{= - 4 \pi \delta(\vec{r} - \vec{r}_0)} = - \frac{1}{\epsilon_0} \underbrace{q \delta(\vec{r} - \vec{r}_0)}_{= \rho(\vec{r})} = \frac{1}{\epsilon_0} \rho(\vec{r})$$
@@ -737,7 +726,14 @@ $$\int\limits_{\mathclap{\textrm{Linienintegral}\rightarrow\,\partial F \phantom
 %
 %
 $$\dd\vec{f} = \vec{n} \ \dd f$$
-Richtung von $\dd\vec{f}$ und Umlauf sinn von $\partial F$: rechte Hand Regel.\\
+Richtung von $\dd\vec{f}$ und Umlauf sinn von $\partial F$: \textbf{rechte Hand Regel}.\\
+%
+%
+%
+% I30 wie ist das mit der rechten hand regel gemeint ???
+%
+%
+%
 \emph{Beispiel:}
 \begin{equation*}
 \vec{A}(\vec{r}) = \begin{pmatrix}
@@ -988,8 +984,7 @@ W = \sum_{i=2}^{N} W_i &= \frac{1}{4 \pi \epsilon_0} \sum_{i=2}^{N} \sum_{j=1}^{
 \end{equation*}
 % andrez 2:
 \begin{align*}
-W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \neq i}} \kq \frac{q_j}{r_{ij}}\bigg)}_{\Phi_{/ \hspace{-3.5pt}i}(\vec{r}_i)}\\
-&= \frac{1}{2} \summ{i = 1}{N} q_i \Phi_{/ \hspace{-4pt}i}(\vec{r}_i)
+W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \neq i}} \kq \frac{q_j}{r_{ij}}\bigg)}_{\Phi_{/ \hspace{-3.5pt}i}(\vec{r}_i)} = \frac{1}{2} \summ{i = 1}{N} q_i \Phi_{/ \hspace{-4pt}i}(\vec{r}_i)
 \end{align*}
 
 \paragraph{Energie einer kontinuierlichen lokalisierten Ladungsverteilung}
@@ -1008,7 +1003,8 @@ W &= \frac{1}{2} \summ{i = 1}{N} q_i \underbrace{\bigg( \sum_{\substack{j\\ j \n
 	&= \frac{1}{2} \int \dd^3r\ \rho(\vec{r}) \underbrace{ \kq \int_{\mathbb R^3} \dd^3r'\ \frac{\rho(\vec{r}')}{|\vec{r}_j - \vec{r}_i|}}_{\Phi(\vec{r})}
 	\end{align*}
 \end{minipage}%
-\\
+
+\noindent
 \begin{minipage}{.3\linewidth}
 	%t3:
 	\centering
@@ -1044,6 +1040,25 @@ $$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int \dd^3 r\ \vec{E}^2(\vec
 \begin{minipage}{.6\linewidth}
 	Energiedichte des elektrostatischen Feldes
 	$$\rmbox{w(\vec{r}) = \frac{\epsilon_0}{2} \vec{E}^2(\vec{r})}$$
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t4:
+	\begin{tikzpicture}
+		\draw[thick,->] (-1,0) -- (3,0);
+		\draw (-.05,0) rectangle (.05,1.5) node[above] {$ \sigma $};
+		\draw (2-.05,0) rectangle (2+.05,1.5) node[above] {$ -\sigma $};
+		\node[below] at (0,0) {0};
+		\node[below] at (2,0) {$ l $};
+		\draw[thick,->] (.5,.4) -- (1.5,.4);
+		\draw[thick,->] (.5,.8) -- (1.5,.8);
+		\draw[thick,->] (.5,1.2) -- (1.5,1.2);
+		\node at (1,1.8) {$ \vec{E} $};
+	\end{tikzpicture}
+\end{minipage}%
+
+\noindent
+\begin{minipage}{.6\linewidth}
 	\emph{Beispiel:} \textbf{Plattenkondensator}\\
 	Fläche $F$, Ladung $\rightarrow\ \sigma = \frac{q}{F}\ \rightarrow\ \vec{E} = \frac{\sigma}{\epsilon_0} \vec{e}_x$\\[5pt]
 	$ \rightarrow $ Die Energiedichte ist: $ w = \frac{\epsilon_0}{2} \vec{E}^2 = \frac{\sigma^2}{2 \epsilon_0} $ (nicht für Punktladungen)\\[5pt]
@@ -1053,18 +1068,8 @@ $$\Rightarrow \quad \rmbox{W = \frac{\epsilon_0}{2} \int \dd^3 r\ \vec{E}^2(\vec
 	$ \phantom{M} $
 \end{minipage}%
 \begin{minipage}{.3\linewidth}
-	%t4: %t5:
-	\begin{tikzpicture}
-	\draw[thick,->] (-1,0) -- (3,0);
-	\draw (-.05,0) rectangle (.05,1.5) node[above] {$ \sigma $};
-	\draw (2-.05,0) rectangle (2+.05,1.5) node[above] {$ -\sigma $};
-	\node[below] at (0,0) {0};
-	\node[below] at (2,0) {$ l $};
-	\draw[thick,->] (.5,.4) -- (1.5,.4);
-	\draw[thick,->] (.5,.8) -- (1.5,.8);
-	\draw[thick,->] (.5,1.2) -- (1.5,1.2);
-	\node at (1,1.8) {$ \vec{E} $};
-	\end{tikzpicture}
+	\flushright
+	%t5:
 	\begin{tikzpicture}
 	\draw[->] (-1,0) -- (3,0);
 	\node[above] at (0,2)  {$ \phantom{M} $};
@@ -1174,6 +1179,7 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 \noindent
 \begin{minipage}{.4\linewidth}
 	%andrez 5:
+	
 	\paragraph{Normalkomponente $\vec{E}_\perp$}
 	
 	Gaußscher Satz für $V$:
@@ -1636,7 +1642,7 @@ Setze:
 \subsubsection{Greensche Identität:}
 $ g,h $ Funktionen an V:
 \begin{align*}
-&\ \ \ \, \int_V \dd^3 r \left[\left(\vec{\nabla} g (\vec{r})\right) \cdot \left(\vec{\nabla} h(\vec{r}))\right) + g(\vec{r}) \Delta h(\vec{r})\right]\\
+&\ \ \ \, \int_V \dd^3 r \left[(\left(\vec{\nabla} g (\vec{r})\right) \cdot \left(\vec{\nabla} h(\vec{r}))\right) + g(\vec{r}) \Delta h(\vec{r})\right]\\
 &= \int_{\partial V} \dd\vec{f} \cdot \left(g(\vec{r}) \vec{\nabla} h(\vec{r})\right)\\
 &= \int_{\partial V} \dd f g(\vec{r}) \ub{\vec{n} \cdot \vec{\nabla} h(\vec{r})}_{= \frac{\partial h}{\partial n} (\vec{r})}
 \end{align*}
@@ -1667,19 +1673,25 @@ Greensche Funktionen der Poisson-Gleichung: $ \gre(\vec{r},\vec{r}') $ mit
 \noindent
 $\mathcal G$ bekannt 
 $$\rightarrow \pofr = \int \dd^3 r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r}')$$
-$$\Delta_{\vec{r}} \pofr = \int \dd^3 r'\ \underbrace{(\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}'))}_{= \frac{1}{\epsilon_0 \delta(\vec{r}-\vec{r}')}} \rho (\vec{r}) = - \frac{1}{\epsilon_0} \rho (\vec{r})\ \checkmark$$
-
+$$\Delta_{\vec{r}} \pofr = \int \dd^3 r'\ \underbrace{(\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}'))}_{= -\frac{1}{\epsilon_0} \delta(\vec{r}-\vec{r}')} \rho (\vec{r}') = - \frac{1}{\epsilon_0} \rho (\vec{r})\ \checkmark$$
+\begin{center}
+	\begin{minipage}{.45
+			\linewidth}
+		\rbox{
+			\begin{equation*}
+			\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} = - 4 \pi \delta(\vec{r} - \vec{r}')
+			\end{equation*}
+			\begin{equation*}
+			\gre(\vec{r},\vec{r}') = \frac{1}{4 \pi \epsilon_0} \frac{1}{|\vec{r} - \vec{r}'|}
+			\end{equation*}
+			\begin{equation*}
+			\rightarrow \quad \Delta_{\vec{r}} \gre(\vec{r}, \vec{r}') = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') \phantom{\quad \rightarrow}
+			\end{equation*}
+		}
+	\end{minipage}
+\end{center}
 \begin{equation*}
-\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|} = 4 \pi \delta(\vec{r} - \vec{r}')
-\end{equation*}
-\begin{equation*}
-\gre(\vec{r},\vec{r}') = \frac{1}{4 \pi \epsilon_0} \frac{1}{|\vec{r} - \vec{r}'|}
-\end{equation*}
-\begin{equation*}
-\rightarrow \Delta_{\vec{r}} \gre(\vec{r}, \vec{r}') = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
-\end{equation*}
-\begin{equation*}
-\pofr = \frac{1}{4 \pi \epsilon_0} \int d^3 r \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
+\pofr = \frac{1}{4 \pi \epsilon_0} \int \dd^3 r \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
 \end{equation*}
 \begin{equation*}
 \pofr \buildrel |\vec{r}| \to \infty \over \longrightarrow 0
@@ -1713,8 +1725,8 @@ $$\mathcal G(\vec{r}, \vec{r}') \underset{|\vec{r}| \to \infty} \longrightarrow 
 \\
 \textbf{Green'sche Funktionen (GF):}
 \begin{align*}
-\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') &= \ \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') \quad \vec{r},\vec{r}' \in V\\
-\mathcal G(\vec{r}, \vec{r}') &= 0 \qquad \textrm{ für } \qquad \vec{r} \in \partial V \ \  \vec{r}' \in V
+\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') &= - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') & \vec{r},\vec{r}' \in V\\
+\mathcal G(\vec{r}, \vec{r}') &= 0 & \textrm{ für } \qquad \vec{r} \in \partial V \ \  \vec{r}' \in V
 \end{align*}
 \lcom{Hiermit haben wir das Grenzwertproblem auf eine Integration zurückgeführt. Dies werden wir nun Beweisen:}\\[5pt]
 \textbf{Beiweis:}\\
@@ -1732,10 +1744,10 @@ g(\vec{r}') \defeq \Phi(\vec{r}') \qquad h(\vec{r}') \defeq \gre(\vec{r}',\vec{r
 % andrez 9:
 \Rightarrow &= - \frac{1}{\epsilon_0} \pofr + \frac{1}{\epsilon_0} \int_V \dd^3 r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r})\\
 &= \int_{\partial V} \dd \vec{f}'\ \Phi_0 (\vec{r}') \vabla_{\vec{r}'} \mathcal G(\vec{r}, \vec{r}')\\
-&= \int_{\partial V} \dd \vec{f}'\ \Phi_0 (\vec{r}') \prt{\mathcal G}{n'}(\vec{r}, \vec{r}')
+&= \int_{\partial V} \dd f'\ \Phi_0 (\vec{r}') \prt{}{n'} \gre(\vec{r}, \vec{r}')
 \end{align*}
 \begin{equation*}
-\Rightarrow \pofr = \int_V \dd^3r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f'\ \Phi_0 (\vec{r}') \prt{\mathcal G}{n'}(\vec{r}, \vec{r}')
+\Rightarrow \pofr = \int_V \dd^3r'\ \mathcal G(\vec{r}, \vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f'\ \Phi_0 (\vec{r}') \prt{}{n'} \gre (\vec{r}, \vec{r}')
 \end{equation*}
 
 Es gilt (HA):
@@ -1746,18 +1758,17 @@ Es gilt (HA):
 \rightarrow \vec{\nabla}_{\vec{r}'} \gre(\vec{r},\vec{r}') = \vec{\nabla}_{\vec{r}'} \gre(\vec{r}',\vec{r})
 \end{equation*}
 \begin{equation*}
-\Delta_{\vec{r}} \gre(\vec{r},\vec{r}') = \Delta_{\vec{r}'} \gre(\vec{r},\vec{r}')
+\phantom{\rightarrow} \ \ \Delta_{\vec{r}} \gre(\vec{r},\vec{r}') = \Delta_{\vec{r}'} \gre(\vec{r},\vec{r}')
 \end{equation*}
 
+\vspace{10pt}
 \frbox{Potential bei Randwertproblem}{
 \begin{equation}
 \pofr = \int_{V} \dd^3 r' \grr \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}') \prt{}{n'} \grr \tag{1}
 \label{pot}
 \end{equation}}
 
-
-% 8.11.18
-
+% Vorlesung 8.11.18
 
 \bbb{Wiederholung}{
 	\begin{minipage}{.6\linewidth}
@@ -1782,11 +1793,13 @@ Es gilt (HA):
 	\\
 	Green'sche Funktionen:
 	\begin{align*}
-	\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') &= \ \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') \quad \vec{r},\vec{r}' \in V\\
-	\mathcal G(\vec{r}, \vec{r}') &= 0 \qquad \textrm{ für } \qquad \vec{r} \in \partial V \ \  \vec{r}' \in V
+	\Delta_{\vec{r}} \mathcal G(\vec{r}, \vec{r}') &= - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') &\vec{r},\vec{r}' \in V\\
+	\mathcal G(\vec{r}, \vec{r}') &= 0 &\textrm{ für } \qquad \vec{r} \in \partial V \ \  \vec{r}' \in V
 	\end{align*}
 	Wenn die Green'sche Funktion $ \gre $ die Bedingungen erfüllt, können wir das Potential so schreiben wie in Gleichung \eqref{pot}.
 }
+
+\pagebreak
 \noindent
 \emph{Bemerkungen:}
 \begin{enumerate}[i)]
@@ -1795,20 +1808,20 @@ Es gilt (HA):
 		\begin{minipage}{.5\linewidth}
 			\item $ V $ Ladungsfrei ($ \rho(\vec{r}) = 0 $ in $ V $)
 			\begin{equation*}
-			\rightarrow \Phi(\vec{r}) = - \epsilon \int_{\partial V} \dd f' \Phi_0(\vec{r}) \frac{\partial \mathcal{G}}{\partial n'} (\vec{r},\vec{r}')
+			\rightarrow \Phi(\vec{r}) = - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}) \frac{\partial \mathcal{G}}{\partial n'} (\vec{r},\vec{r}')
 			\end{equation*}
 		\end{minipage}%
 		\begin{minipage}{.5\linewidth}
 			%t1:
 			\centering
-			\begin{tikzpicture}[scale=1.5]
+			\begin{tikzpicture}[scale=1.8]
 				\draw[draw=none,pattern=north east lines,rounded corners] ($(-.7,.5) + (-.1,.1)$) rectangle ($(.7,-.5) + (.1,-.1)$);
 				\draw[fill=gray!10] (-.7,.5) rectangle (.7,-.5);
 				\draw (-.7,-.5) -- (.7,-.5) -- (.7,.5) -- (-.7,.5) -- (-.7,-.5);
-				\node[left] at (-.7,0) {$ \Phi_1 $};
-				\node[right] at (.7,0) {$ \Phi_1 $};
-				\node[above] at (0,.5) {$ \Phi_2 $};
-				\node[below] at (0,-.5) {$ \Phi_2 $};
+				\node[left] at (-1,0) {$ \Phi_1 $};
+				\node[right] at (1,0) {$ \Phi_1 $};
+				\node[above] at (0,.7) {$ \Phi_2 $};
+				\node[below] at (0,-.7) {$ \Phi_2 $};
 				\node at (0,0) {$ V $};
 			\end{tikzpicture}
 		\end{minipage}%
@@ -1825,10 +1838,10 @@ Es gilt (HA):
 		\end{minipage}%
 		\begin{minipage}{.6\linewidth}
 			\begin{align*}
-			\Rightarrow \Phi(\vec{r}) &= - \epsilon \Phi_0 \ub{\int_{\partial V} \dd f' \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}') }_{\int \dd f' \vec{n} \cdot \vec{\nabla}_{\vec{r}'} \gre}\\
-			&= - \epsilon \Phi_0 \int \dd \vec{f}' \cdot \vec{\nabla}_{\vec{r}'} \gre \\
-			&\buildrel \mathclap{\tx{S.v.G.}} \over = \int_V \dd^3 \vec{r}' \ub{\vec{\nabla}_{\vec{r}'} \cdot (\vec{\nabla}_{\vec{r}'} \mathcal{G})}_{\Delta_{\vec{r}'} \cdot \mathcal{G} = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')}\\
-			&= - \frac{1}{\epsilon_0}\\
+			\Rightarrow \Phi(\vec{r}) &= - \epsilon_0 \Phi_0 \ub{\int_{\partial V} \dd f' \frac{\partial \gre}{\partial n'} (\vec{r},\vec{r}') }_{\int \dd f' \vec{n} \cdot \vec{\nabla}_{\vec{r}'} \gre}\\
+			&= - \epsilon_0 \Phi_0 \int \dd \vec{f}' \cdot \vec{\nabla}_{\vec{r}'} \gre \\
+			&\buildrel \mathclap{\tx{S.v.G.}} \over = - \epsilon_0 \Phi_0 \int_V \dd^3 \vec{r}' \ub{\vec{\nabla}_{\vec{r}'} \cdot (\vec{\nabla}_{\vec{r}'} \mathcal{G})}_{\Delta_{\vec{r}'} \cdot \mathcal{G} = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')}\\
+			&= - \epsilon_0 \Phi_0 \cdot (- \frac{1}{\epsilon_0})\\
 			\Rightarrow \Phi(\vec{r}) &= \Phi_0
 			\end{align*}
 		\end{minipage}%
@@ -1837,9 +1850,9 @@ Es gilt (HA):
 		\Phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 \vec{r}' \frac{\rho(\vec{r})}{|\vec{r} - \vec{r}'|}
 		\end{equation*}
 		\begin{equation*}
-		\gre(\vec{r},\vec{r}') = \kq \frac{1}{|\vec{r} - \vec{r}'|} \qquad \int_{\partial V} \dots \rightarrow 0
+		\rmbox{ \gre(\vec{r},\vec{r}') = \kq \frac{1}{|\vec{r} - \vec{r}'|}} \qquad \int_{\partial V} \dots \rightarrow 0
 		\end{equation*}
-		eine spezielle Lösung für $ \gre $
+		eine \textbf{spezielle Lösung} für $ \gre $
 	\end{enumerate}
 	\item $ \gre $ ist auch die Lösung einer inhomogenen partiellen DGL
 	\begin{equation*}
@@ -1852,6 +1865,13 @@ Es gilt (HA):
 	\begin{equation*}
 	\gre_j(\vec{r},\vec{r}') = \kq \frac{1}{|\vec{r} - \vec{r}'|} \qquad \tx{Laplace anwenden !}
 	\end{equation*}
+	%
+	%
+	%
+	% I29 gre_ j soll wahrscheinlich gre_s sein
+	%
+	%
+	%
 	\begin{equation*}
 	\gre(\vec{r},\vec{r}') = \ub{\kq \frac{1}{|\vec{r} - \vec{r}'|}}_{\tx{immer zur Lösung}} \quad + \ub{F(\vec{r},\vec{r}')}_{\substack{\tx{so wählen, dass} \\ \tx{Randbedingungen erfüllt}}}
 	\end{equation*}
@@ -1863,16 +1883,16 @@ Es gilt (HA):
 \begin{minipage}{.55\linewidth}
 	\begin{align*}
 	\Delta_{\vec{r}'} \gre(\vec{r},\vec{r}') &= - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}') & \vec{r},\vec{r}' \in V \\
-	\gre(\vec{r},\vec{r}') &= 0 & \vec{r} \in \partial V \, \tx{ \scriptsize{(z=0)}} , \quad \vec{r} \in V
+	\gre(\vec{r},\vec{r}') &= 0 & \vec{r} \in \partial V \, \tx{ \scriptsize{(z=0)}} , \quad \vec{r}' \in V
 	\end{align*}
 	\begin{equation*}
 	V=\{\vec{r} \in \mathbb{R}^3 | z < 0\}
 	\end{equation*}
 \end{minipage}%
 \begin{minipage}{.45\linewidth}
+	\flushright
 	%t3:
-	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=1.1]
 		\draw[draw=none,pattern=north east lines] (-.7,0) -- (2.7,0) -- ++(-1.2,-1.2) -- ++(-3.4,0);
 		\draw[draw=none,fill=white,opacity=.6] (-.7,0) -- (2.7,0) -- ++(-1.2,-1.2) -- ++(-3.4,0);
 		\draw[->] (0,0) -- (0,1.5) node[anchor=south east] {$ z $};
@@ -1896,14 +1916,16 @@ Analog: Punktladung ,,$ q = 1 $`` in $ \vec{r}' $ vor leitender Ebene mit Potent
 \begin{equation*}
 \Phi(\vec{r}) = \frac{q}{4 \pi \epsilon_0} \left(\frac{1}{|\vec{r} - \vec{r}'|} - \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}\right) \qquad \tilde{\vec{r}}' = (x',y',-z')
 \end{equation*}
-\rbox{\begin{equation*}
-\gre(\vec{r},\vec{r}') = \frac{1}{q} \Phi(\vec{r}) = \kq \left(\frac{1}{|\vec{r} - \vec{r}'|} - \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}\right)
-\end{equation*}}
+\begin{equation*}
+\rmbox{ \gre(\vec{r},\vec{r}') = \frac{1}{q} \Phi(\vec{r}) = \kq \left(\frac{1}{|\vec{r} - \vec{r}'|} - \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}\right)}
+\end{equation*}
+
+\noindent
 \emph{Beweis:}
 \begin{equation*}
-\Delta_{\vec{r}} = \kq \bigg(\equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|}}{- 4 \pi \delta(\vec{r} - \vec{r}')} - \equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}}{- 4 \pi \delta(\vec{r} - \tilde{\vec{r}}') = 0 }\bigg) = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
+\Delta_{\vec{r}} \grr = \kq \bigg(\equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \vec{r}'|}}{- 4 \pi \delta(\vec{r} - \vec{r}')} - \equalto{\Delta_{\vec{r}} \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}}{- 4 \pi \delta(\vec{r} - \tilde{\vec{r}}') = 0 }\bigg) = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
 \end{equation*}
-1. Teil: $ \vec{r} \in \partial V \ : \quad z = 0 \ ,\qquad$ 2. Teil = 0: $ \tilde{\vec{r}}' \notin V $.
+1. Teil: $ \vec{r} \in \partial V : \quad z = 0 \ ,\qquad$ 2. Teil = 0: $ \quad \tilde{\vec{r}}' \notin V $ !!!
 \begin{align*}
 \frac{1}{|\vec{r} - \vec{r}'|} &= \frac{1}{\sqrt{(x-x')^2 + (y - y')^2 + (z')^2}} = \frac{1}{\sqrt{(x-x')^2 + (y-y')^2 + (-z)^2}}\\
 &= \frac{1}{|\vec{r} - \tilde{\vec{r}}'|}
@@ -1913,7 +1935,7 @@ $ \gre(\vec{r},\vec{r}') = 0 \quad \vec{r} \in \partial V $\\[5pt]
 \begin{enumerate}[i)]
 	\item $ \hspace{1.5pt} \gre(\vec{r},\vec{r}') = \phantom{-} \kq \frac{1}{|\vec{r} - \vec{r}'|} + F(\vec{r},\vec{r}') $\\
 	$ F(\vec{r},\vec{r}') = - \kq \frac{1}{|\vec{r} - \tilde{\vec{r}}'|} $\\
-	$ \Delta_{\vec{r}} F(\vec{r},\vec{r}') = 0 $
+	$ \Delta_{\vec{r}} F(\vec{r},\vec{r}') = 0 \qquad \qquad $ (da $ \Delta_{\vec{r}'} F(\vec{r},\vec{r}') = - 4 \pi \delta (\vec{r} - \tilde{\vec{r}}') \quad $ und $ \tilde{\vec{r}}' \notin V $ !!!)
 	\item Symmetrie der Greenschen Funktion (Reziprozitätsrelation):
 	\begin{equation*}
 	\gre(\vec{r},\vec{r}') = \gre(\vec{r}',\vec{r})
@@ -1921,8 +1943,15 @@ $ \gre(\vec{r},\vec{r}') = 0 \quad \vec{r} \in \partial V $\\[5pt]
 	$ \rightarrow $ formale Lösung des Randwertproblems für eine beliebige Ladungsverteilung und Randwerte $ \Phi_0(\vec{r}) $ in der Ebene:\\
 	\begin{minipage}{.55\linewidth}
 			\begin{equation*}
-			\Phi(\vec{r}) = \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi(\vec{r}') \prt{\gre}{n'}
+			\Phi(\vec{r}) = \int_V \dd^3 r' \gre(\vec{r},\vec{r}') \rho(\vec{r}') - \epsilon_0 \int_{\partial V} \dd f' \Phi_0(\vec{r}') \prt{\gre}{n'}
 			\end{equation*}
+			%
+			%
+			%
+			% I31 in der zeichnung soll es \rho \equiv 0 sein statt \Phi = 0 weil in der Rechnung wird \rho = 0 benutzt und ein minus fehlt
+			%
+			%
+			%
 			\begin{equation*}
 			\rho \equiv 0 \ \ \ \Rightarrow \ \ \ \Phi(\vec{r}) = \epsilon_0 \hspace{-15pt} \int\limits_{\sqrt{x^2 + y^2} \le R} \hspace{-15pt} \dd y' \dd x' \Phi_0(x',y',0) \prt{\gre}{n'}
 			\end{equation*}
@@ -1949,7 +1978,8 @@ $ \gre(\vec{r},\vec{r}') = 0 \quad \vec{r} \in \partial V $\\[5pt]
 \subsection{Separation der Variablen und Entwicklung nach orthogonalen Funktionen}
 
 \textbf{Eine allgemeine Methode zur Lösung partieller DGL.}\\[5pt]
-Zur Vereinfachung: \textbf{Laplace.Gl $ \boldsymbol{ \Delta \Phi = 0 \ +} $ Randbedingung}\\[5pt]
+Zur Vereinfachung: \textbf{Laplace.Gl $ \boldsymbol{ \Delta \Phi = 0 \ \quad +} \quad $ Randbedingung}\\
+Es soll also immer gelten $ \rho = 0 $\\[5pt]
 Verbindung zur Poisson-Gl: $ \Delta \Phi(\vec{r}) = - \frac{1}{\epsilon_0} \rho(\vec{r}) $
 \begin{equation*}
 \Phi(\vec{r}) = \Phi_s(\vec{r}) + \Phi_{\tx{hom}} \qquad \Phi(\vec{r}) = \kq \int \dd^3 r' \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} + \Phi_{\tx{hom}}
@@ -2052,7 +2082,7 @@ umformen:
 \prd{^2 f}{x^2} = - \alpha^2 f(x) \quad \tx{mit } e^{i\alpha x} \qquad \prd{^2 g}{y^2} = \alpha^2 g(y) \quad \tx{mit } e^{\alpha y}
 \end{equation*}
 \begin{equation*}
-e^{i \alpha x} \Rightarrow f(x) = a \sin(\alpha x) + b cos(\alpha x) \qquad e^{\alpha y} \Rightarrow g(x) = c \sinh(\alpha y) + d \cosh(\alpha y)
+e^{i \alpha x} \Rightarrow f(x) = a \sin(\alpha x) + b \cos(\alpha x) \qquad e^{\alpha y} \Rightarrow g(x) = c \sinh(\alpha y) + d \cosh(\alpha y)
 \end{equation*}
 $ \Phi(x,y) = f(x) \cdot g(y) $\\[5pt]
 \textbf{Randbedingungen:}
@@ -2065,11 +2095,11 @@ $ \Phi(x,y) = f(x) \cdot g(y) $\\[5pt]
 	\item $ 0 = \Phi(l_x,y) = A \sin(\alpha l_x) \sinh(\alpha y) $
 	$ \rightarrow \sin(\alpha l_x) = 0 \quad \Rightarrow \quad \alpha = \frac{n \pi}{l_x} \qquad n \in \mathbb{Z} (\tx{oder } n \in \mathbb{N}) $
 	\begin{equation*}
-	\rightarrow \Phi_n(x,y) = A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_y}\right)
+	\rightarrow \Phi_n(x,y) = A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)
 	\end{equation*}
 	\item $ \Phi(x,l_y) = \Phi_R(x) $
 	\begin{equation*}
-	\Rightarrow \Phi_R(x) \custo{\leftarrow}{=}{} A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi l_y}{l_x}\right) \qquad \forall x \in [0,l_y]
+	\Rightarrow \Phi_R(x) \custo{\leftarrow}{=}{} A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi l_y}{l_x}\right) \qquad \forall x \in [0,l_x]
 	\end{equation*}
 	im allgemeinen ist dies nicht möglich, aber da es sich um eine lineare DGL ($ \Delta \Phi = 0 $) handelt:\\
 	$ \rightarrow $ Linearkombinationen von Lösungen sind auch Lösungen
@@ -2086,7 +2116,7 @@ Der erste Teil des Ausdrucks entspricht der Entwicklung von $ \Phi_R(x) $ nach F
 \textbf{Bestimmung von $ A_n $:}
 Multipliziere mit $ \sin\left(\frac{n \pi x}{l_x}\right) \quad m \in \mathbb{N} $ und danach Integration:
 \begin{align*}
-\int_{0}^{l_x} \dd x \sin\left(\frac{m \pi x}{l_x}\right) \Phi_R (x) &= \sum_{n=1}^{\infty} A_n \sinh\left(\frac{m \pi l_y}{l_x}\right) \int_{0}^{l_x} \dd x \ub{\custoup{\leftarrow}{\sin\left(\frac{m \pi x}{l_x}\right)}{\qquad \qquad \quad \mathclap{\tx{zueinander orthogonale Vektoren}}} \custoup{\leftarrow}{\sin\left(\frac{n \pi x}{l_x}\right)}{}}_{= \frac{l_x}{2} \delta_{nm}}\\
+\int_{0}^{l_x} \dd x \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x) &= \sum_{n=1}^{\infty} A_n \sinh\left(\frac{m \pi l_y}{l_x}\right) \int_{0}^{l_x} \dd x \ub{\custoup{\leftarrow}{\sin\left(\frac{m \pi x}{l_x}\right)}{\qquad \qquad \quad \mathclap{\tx{zueinander orthogonale Vektoren}}} \custoup{\leftarrow}{\sin\left(\frac{n \pi x}{l_x}\right)}{}}_{= \frac{l_x}{2} \delta_{nm}}\\
 &= A_m \frac{l_x}{2} \sinh\left(\frac{n \pi l_y}{l_x}\right)
 \end{align*}
 \begin{equation*}
@@ -2096,7 +2126,7 @@ in $ \Phi(x,y) $ einsetzen\\[5pt]
 
 % 12.11.18
 
-\bbb{Wiederholung}{$$\Delta \Phi(\vec{r}) = 0 + \textrm{Randbedingungen}$$
+\bbb{Wiederholung}{$$\Delta \Phi(\vec{r}) = 0 \quad + \quad \textrm{Randbedingungen}$$
 $$\Phi = \Phi(x,y) = f(x)g(y)$$
 $$\Phi_n(x,y) = A_n \sin\left(\frac{n \pi x}{l_x}\right) \sinh\left(\frac{n \pi y}{l_x}\right)$$
 $$n \in \mathbb N$$
@@ -2106,15 +2136,15 @@ Zu dem Problem gehört die Skizze aus Abschnitt \ref{tikz}: 2-Dim Randwertproble
 
 \subsection{Vollständige Orthonormale Funktionensysteme (VONS)}
 Betrachte Funktionen $g(x),h(x)$ auf $I = [a,b] \subset \mathbb R$
-$$h,g: \quad I \to \mathbb R\ (\mathbb C)$$
-Skalarprodukt: $(g,h) = \int_a^b \textrm{d}x\ g^* (x) h(x)$\\
-$(g,h) = 0$: $g$ und $h$ orthogonal, $(g,g) = 1:\ g$ normiert\\
+$$g,h: \quad I \to \mathbb R\ (\mathbb C)$$
+\textbf{Skalarprodukt}: $(g,h) = \int_a^b \textrm{d}x\ g^* (x) h(x)$\\
+$(g,h) = 0$: $g$ und $h$ \textbf{orthogonal}, $(g,g) = 1:\ g$ \textbf{normiert}\\
 Norm: $||g|| = \sqrt{(g,g)}$
 
 \noindent
 Ein abzählbarer Satz von Funktionen $\{f_n\} = \{f_1, f_2, \dots \}$\\
-Heißt orthonormiert falls: $(f_m,f_n) = \delta_{nm}\ \rightarrow$ \underline{Orthonormalsystem}\\
-\underline{Vollständigkeit:} Ein Satz von Funktionen heißt vollständig (VONS) falls \underline{jede} quadratintegrable\footnote{$\textrm{Falls }\int \textrm{d}x\ |g(x)|^2 \textrm{ existiert}$} Funktion $g: I \to \mathbb R (\mathbb C)$ in der Form $g(x) = \summ{n = 1}{\infty} a_n f_n(x)$ dargestellt werden kann.\\
+Heißt orthonormiert falls: $(f_m,f_n) = \delta_{nm}\ \rightarrow$ \textbf{Orthonormalsystem}\\
+\textbf{Vollständigkeit:} Ein Satz von Funktionen heißt vollständig (VONS) falls \textbf{jede} quadratintegrable\footnote{$\textrm{Falls }\int \textrm{d}x\ |g(x)|^2 \textrm{ existiert}$} Funktion $g: I \to \mathbb R (\mathbb C)$ in der Form $g(x) = \summ{n = 1}{\infty} a_n f_n(x)$ dargestellt werden kann.\\
 Genauer: $\lim\limits_{n \to \infty} \intt{a}{b} \textrm{d}x\ |\ g(x) - \summ{n = 1}{\infty} a_n f_n(x)| = 0$\\[5pt]
 Bestimmung der Koeffizient $ a_n $:
 $$g(x) = \sum_n a_n f_n(x)\ \qquad \left| \int \textrm{d}x\ f_m^*(x) \right.$$
@@ -2134,7 +2164,7 @@ da $ \int_{a}^{b} \dd x' g(x') = g(x) $
 	f_n(x) = \sqrt{\frac{l}{2}} \sin\left(\frac{n \pi x}{l}\right) \qquad I = [0,l] 
 	\end{equation*}Bedeutung der einzelnen Terme
 	$ (f_n,f_m) = \delta_{nm} $\\
-	$ g: \quad I \rightarrow \mathbb{R} \quad g(0) ) 0 = g(l) $
+	$ g: \quad I \rightarrow \mathbb{R} \quad g(0) = 0 = g(l) $
 	\begin{equation*}
 	g(x) = \sum_{n} a_n \sqrt{\frac{l}{2}} \sin \left(\frac{n \pi x}{l}\right)
 	\end{equation*}
@@ -2218,31 +2248,31 @@ $$\Rightarrow \underbrace{- r^2 \sin^2 \theta \frac{1}{U} \frac{\textrm{d}^2 U}{
 für $Q$:
 \begin{enumerate}[i)]
 	\item $$\frac{\textrm{d}^2 Q}{\textrm{d} \varphi^2} + m^2 Q = 0$$ Lösung: $$Q(\varphi) = e^{im\varphi} = \cos(m\varphi) + i\sin(m\varphi)$$
-	 	$$Q(\varphi + 2 \pi) = Q(\varphi) \quad e^{im(\varphi + 2\pi)} = e^{im\varphi} \quad \Rightarrow \quad m = \mathbb Z$$
+	 	$$Q(\varphi + 2 \pi) = Q(\varphi) \quad \tx{da} \quad e^{im(\varphi + 2\pi)} = e^{im\varphi} \quad \Rightarrow \quad m = \mathbb Z$$
 	 	$$\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2} + \frac{1}{P\sin\theta} \frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right) = \frac{m^2}{\sin^2\theta}$$
-	 	$$\ub{\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2}}_{\tx{unabh. von } \theta } = - \ub{\frac{1}{P\sin\theta}\frac{\textrm{d} P}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right)}_{\tx{unabh. von } V} = \const. \defeq \lambda$$
+	 	$$\ub{\frac{r^2}{U} \frac{\textrm{d}^2 U}{\textrm{d} r^2}}_{\tx{unabh. von } \theta } = - \ub{\frac{1}{P\sin\theta}\frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta} \right)}_{\tx{unabh. von } V} = \const \defeq \lambda$$
 	 \item $$\frac{\textrm{d}^2 U}{\textrm{d} r^2} - \frac{\lambda}{r^2} U(r) = 0$$
 	 	$\rightarrow$ Lösung für $\lambda = l(l + 1) \qquad$ (Warum das eine Lösung ist, wird  in iii) erklärt)
 	 	$$U(r) = a_l r^{l + 1} + b_l r^{-l}$$
 	 	$\rightarrow$ \underline{Spezielle Lösung für $m = 0$:}
 	 	$$\Phi(r,\theta) = \frac{U(r)}{r}P_l (\cos\theta) = (a_l r^l + b_l r^{-l - 1}) P_l (\cos\theta)$$
 	 	allg. Lösung: $\Delta\Phi = 0$ für $\prt{\Phi}{\varphi} = 0$
-	 	$$\Phi(r,\theta) = \summ{l = 0}{\infty} (\custo{\to}{a_l}{\mathclap{\hspace{30pt}\textrm{durch Randbedingungen festgelegt}}} r^l + \custo{\to}{b_l}{} r^{-l - 1}) P_l(\cos\theta)$$
+	 	$$\rmbox{ \Phi(r,\theta) = \summ{l = 0}{\infty} (\custo{\to}{a_l}{\mathclap{\hspace{30pt}\textrm{durch Randbedingungen festgelegt}}} r^l + \custo{\to}{b_l}{} r^{-l - 1}) P_l(\cos\theta)}$$
 	 \item $$\frac{1}{\sin\theta} \frac{\textrm{d}}{\textrm{d} \theta}\left( \sin\theta \frac{\textrm{d}P}{\textrm{d}\theta}\right) + \left(\lambda - \frac{m^2}{\sin^2\theta}\right)P(\cos\theta) = 0$$
 	 	$$x \defeq \cos\theta \quad P(x): \textrm{ DGL für } P(x) \quad \frac{\textrm{d}}{\textrm{d} \theta} P(x(\theta)) = \frac{\textrm{d}P}{\textrm{d}x} \frac{\textrm{d}x}{\textrm{d}\theta} = -\sin \theta \frac{\textrm{d}P}{\textrm{d}x}$$
 	 	\begin{equation*}
 	 	\dd x = - \frac{1}{\sin\theta} \prd{}{\theta}
 	 	\end{equation*}
-	 	$$\Rightarrow - \frac{\textrm{d}}{\textrm{d}x} \bigg( - \equalto{\sin^2\theta}{1 - x^2} \frac{\textrm{d}P}{\textrm{d}x} \bigg) + \left(\lambda - \frac{m^2}{1-x^2}\right) P(x) = 0$$
+	 	$$\Rightarrow - \frac{\textrm{d}}{\textrm{d}x} \bigg( \equalto{ - \sin^2\theta}{1 - x^2} \frac{\textrm{d}P}{\textrm{d}x} \bigg) + \left(\lambda - \frac{m^2}{1-x^2}\right) P(x) = 0$$
 \end{enumerate}
 \frbox{Zugeordnete Legendresche DGL}{$$\Rightarrow \frac{\textrm{d}}{\textrm{d}x} \left( (1-x^2) \frac{\textrm{d}P}{\textrm{d}x} \right) + \left( \lambda - \frac{m^2}{1 - x^2} \right) P(x) = 0$$}
-\begin{minipage}{.6\linewidth}
+\begin{minipage}{.7\linewidth}
 	Spezialfall: \textbf{Zylindersymmetrische Probleme}: $\Phi$ unabhängig von $\varphi$\\
 	$\rightarrow$ \textbf{Legendre-Polynome}
 \end{minipage}%
-\begin{minipage}{.4\linewidth}
+\begin{minipage}{.3\linewidth}
 	%t2:
-	\centering
+	\flushright
 	\begin{tikzpicture}[scale=1.25]
 		\draw[->] (-1,0) -- (1,0) node[anchor=north west] {$ x $};
 		\draw[->] (0,-1) -- (0,1) node[anchor=south east] {$ z $};
@@ -2640,7 +2670,7 @@ z.B.: $\vec{p}_1,\vec{p}_2\perp\vec{r}_{12}$
 
 % Vorlesung 22.11.18
 
-\section{Elektrostatik in Materie-Dielektrika}
+\section{Elektrostatik in Materie - Dielektrika}
 
 \textbf{Definition: Dielektrika}\\
 Nichtleitende Substanzen (Gase, Flüssigkeiten, Festkörper). Die Ladungsträger sind also fest gebunden.\\[5pt]

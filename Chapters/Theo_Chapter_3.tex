@@ -1956,6 +1956,255 @@ Nun noch eine Erklärung die etwas umständlicher ist: (Zu senkrechtem Einfall)\
 	$ k_{2_x} = k_{r_x} $
 \end{enumerate}
 
+% Vorlesung 17.01.18
 
+\section{Aspekte der Absorption und Dispersion elektromagnetischer Felder}
 
+bisher galt: freie Ausbreitung der EM-Wellen\\
+in Medien gilt:
+\textbf{Absorption:}
+%
+%
+%
+% T1
+%
+%
+%
+und\\
+\textbf{Dispersion:}
+%
+%
+%
+% T2
+%
+%
+%
 
+\subsection{Elektromagnetische Wellen in elektrischen Leitern}
+
+bisher galt: \textbf{Isolator/Vakuum} freie Ladungen und freie Ströme = 0 $\qquad \rho_f = 0 = \vec{j}_f $\\
+im Leiter gilt: \textbf{Ohmsche Leiter} $ \vec{j} = \sigma \vec{E}  \qquad \rho = 0 \qquad \sigma : $ Leitfähigkeit
+\begin{equation*}
+\vec{D} = \epsilon \vec{E} \qquad \vec{B} = \mu \vec{H}
+\end{equation*}
+Maxwell-Gleichungen:
+\begin{align*}
+\vabla \cdot \vec{E} &= 0 \qquad \qquad \qquad \ \, \vabla \cdot \vec{B} = 0\\
+\vabla \times \vec{E} + \prt{\vec{B}}{t} &= 0 \qquad \vabla \times \vec{B} - \mu \epsilon \prt{\vec{E}}{t} = \mu \vec{j} = \mu \sigma \vec{E}
+\end{align*}
+\emph{Bemerkung:}\\
+$ \vabla \cdot \vec{E} = \frac{1}{\epsilon_0} \rho $\\
+$ \prt{\rho}{t} = - \vabla \vec{j} = - \sigma \vabla \vec{E} = - \frac{\sigma}{\epsilon} \rho $\\
+$ \rho(\vec{r},t) = e^{-\frac{\sigma}{\epsilon} t} \rho(\vec{r},t=0) $\\
+somit ist die Annahme $ \rho = 0 $ gerechtfertigt.\\[15pt]
+\begin{align*}
+0 &= \vabla \times (\vabla \times \vec{E}) + \prt{}{t} (\vabla \times \vec{B}) \\
+&= \vabla (\cancel{\vabla \vec{E}}) - \Delta \vec{E} + \prt{}{t} (\mu \epsilon \prt{\vec{E}}{t} + \mu \sigma \vec{E})
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta \vec{E} - \mu \epsilon \prt{^2 \vec{E}}{t^2} - \mu \sigma \prt{\vec{E}}{t} = 0}
+\end{equation*}
+Analog kann man auch nach $ \Delta \vec{B} $ auflösen:
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta \vec{B} - \mu \epsilon \prt{^2 \vec{B}}{t^2} - \mu \sigma \prt{\vec{B}}{t} = 0}
+\end{equation*}
+Diese Beiden Gleichungen nennt man auch \textbf{Telegraphen-Gleichungen}.\\[5pt]
+Ansatz zur Lösung: monochromatische, ebene Welle $ \qquad \vec{k} = k \vec{e}_z $
+\begin{align*}
+\vec{E}(\vec{r},t) &= \vec{E}_0 e^{i(\vec{k} \cdot \vec{r} - \omega t)} = \vec{E}_0 e^{i(k r - \omega t)}\\
+\vec{B}(\vec{r},t) &= \vec{B}_0 e^{i(k r - \omega t)}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad 0 = - k^2 + \mu \epsilon \omega^2 + i \omega \mu \sigma = - k^2 + \mu \omega^2 \ub{( \epsilon + i \frac{\sigma}{\omega})}_{\eqdef \eta}
+\end{equation*}
+$ \eta : $ \textbf{verallgemeinerte Dielektrizitätskonstante}
+\frbox{Dispersionsrelation im leitenden Medium ($ k(\omega) $)}{
+\begin{equation*}
+\Rightarrow \quad k^2 = \mu \eta \omega^2 = \mu \omega^2 \left(\epsilon + i \frac{\sigma}{\omega}\right)
+\end{equation*}
+}
+Hieraus folgt, dass $ \vec{k} $ komplex ist und einen Imaginärteil haben muss: $ k = k_{R} + i k_{I} $
+\begin{align*}
+\Rightarrow \quad k^2 &= k_R^2 - k_I^2 + 2 i k_R k_I\\
+&\overset{!}{=} \mu \epsilon \omega^2 + i \mu \sigma \omega
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad k_{R/I} = \omega \sqrt{\frac{\epsilon \mu}{2}} \left[\sqrt{1 + \left(\frac{\sigma}{\epsilon \omega}\right)^2} \pm 1\right]^{\frac{1}{2}}
+\end{equation*}
+\begin{align*}
+\vec{E} &= \vec{E}_0 e^{i(k r - \omega t)} \\
+&= \vec{E}_0 e^{i((k_R + i k_I) r - \omega t)} \\
+&= \vec{E}_0 e^{-k_I z} e^{i(k_R r - \omega t)}
+\end{align*}
+%
+%
+%
+% T3
+%
+%
+%
+\textbf{Eindringtiefe:} $ d = \frac{1}{k_I} $\\[10pt]
+typische Werte:\\
+Kupfer: $ \sigma = 5{,}81 \cdot 10^{7} \ \frac{1}{\Omega \tx{m}} $\\
+\begin{tabular}{c|c}
+	$ \nu $ & $ d $ \\
+	\hline
+	1 MHz & 66 $ \mu $m \\
+	$ 6 \cdot 10^{14} $ Hz & 2,7 nm
+\end{tabular}\\[10pt]
+\emph{Bemerkung:}
+\lcom{Man kann Zeigen, dass, anders als im Vakuum, im Medium das $ \vec{B} $-Feld Phasenverschoben zum $ \vec{E} $-Feld ist. Wir werden hierauf aus Zeitgründen nicht genauer eingehen.}
+
+\subsection{Frequenzabhängigkeit der Dielektrizitätskonstanten - Dispersion}
+
+\subsubsection{Modell für $ \epsilon(\omega) $}
+
+Wir betrachten hier nicht magnetisierbare Medien. Es soll gehen $ \mu_r \approx 1 $.
+\begin{equation*}
+\epsilon = \epsilon_0 (1 + \chi_e) \qquad \vec{P} = \epsilon_0 \chi_e \vec{E} = \frac{\tx{Dipole}}{\tx{Volumen}} = N \langle \vec{p} \rangle
+\end{equation*}
+\lcom{Die Polarisation ist die mittlere Dipol-dichte pro Volumen.}\\[5pt]
+Die Verschiebungsolarisation ist:
+\begin{equation*}
+\langle \vec{p} \rangle = \alpha \vec{E}
+\end{equation*}
+$ \alpha : $ atomare Polarisierbarkeit
+\begin{equation*}
+\chi_e = \frac{N \alpha}{\epsilon_0}
+\end{equation*}
+$ \chi_e : $ elektrische Suszeptibilität\\
+All diese Gleichungen würde man für langsam schwingende Felder erhalten also für $ \omega \to 0 $.\\
+\lcom{Bei Tieffrequenten Wellen können die Ladungen den Feldern folgen und schwächen diese dadurch ab. Bei Hochfrequenten Wellen können die Ladungen den Feldern nicht mehr folgen und der Effekt ist ein anderer.}
+
+\subsubsection{Klassisches Oszillatormodell für die Bindung von Elektronen in Atomen}
+
+%
+%
+%
+% T4
+%
+%
+%
+$ \omega_0 : $ Frequenz\\
+$ \gamma : $ Dämpfung\\
+Dies können wir durch einen getriebenen, gedämpften, harmonischen Oszillator darstellen:
+\begin{equation*}
+m(\ddot{\vec{r}} + \gamma \dot{\vec{r}} \omega_0^2 \vec{r}) = q \vec{E}(\vec{r},t)
+\end{equation*}
+$ \rightarrow $ Dipolmoment: $ \vec{p} = q \vec{r} \qquad q = -e $
+\begin{equation*}
+\Rightarrow \quad m(\ddot{\vec{p}} + \gamma \dot{\vec{p}} + \omega_0^2 \vec{p}) = e^2 \vec{E}
+\end{equation*}
+\textbf{statischer Grenzfall:} $ \vec{E}(\vec{r},t) = \vec{E}(\vec{r}) $\\
+$ \Rightarrow \quad \dot{\vec{p}} = 0 = \ddot{\vec{p}} $\\
+\begin{equation*}
+\Rightarrow \quad \vec{p} = \frac{e^2 \vec{E}}{m \omega_0^2} = \alpha \vec{E} \quad \rightarrow \quad \alpha = \frac{e^2}{m \omega_0^2}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \chi_e = \frac{N e^2}{\epsilon_0 m \omega_0^2}
+\end{equation*}
+\textbf{zeitabhängiger Fall:} $ \vec{E} = \vec{E}_0 e^{-i \omega t} \qquad e^{ikz} = e^{i \frac{2 \pi}{\lambda} z} $\\[5pt]
+Mechanik:\\
+$ \Rightarrow \quad \vec{p}(t) : $ erzwungene Schwingung mit Frequenz $ \omega $
+\begin{equation*}
+\vec{p}(t) = \vec{p}_0 e^{- i \omega t}
+\end{equation*}
+\begin{equation*}
+m ( - \omega^2 - i \gamma \omega + \omega_0^2) \vec{p}_0 e^{-i \omega t} = e^2 \vec{E}_0 e^{-i \omega t}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vec{p}_0 = \ub{\frac{e^2}{m} \frac{1}{\omega_0^2 - \omega^2 - i \gamma \omega}}_{\alpha (\omega)} \vec{E}_0
+\end{equation*}
+\begin{align*}
+\Rightarrow \quad \chi_e(\omega) &= \frac{N \alpha(\omega)}{\epsilon_0} \\
+&= \frac{N e^2}{\epsilon_0 m} \frac{1}{\omega_0^2 - \omega^2 - i \gamma \omega}
+\end{align*}
+\begin{align*}
+\Rightarrow \quad \epsilon(\omega) &= \epsilon_0 \epsilon_r(\omega) \\
+&= \epsilon_0 (1 + \chi_e(\omega))
+\end{align*}
+\frbox{Dispersionsrelation im leitenden Medium $ \epsilon_R(\omega) $}{
+\begin{equation*}
+\epsilon_r(\omega) = 1 + \frac{N e^2}{\epsilon_0 m} \frac{1}{\omega_0^2 - \omega^2 - i \gamma \omega}
+\end{equation*}
+}
+Realteil:
+$$ \Re(\epsilon_r(\omega)) = 1 + \frac{Ne^2}{\epsilon_m} \frac{\omega_0^2 - \omega^2}{(\omega_0^2 - \omega^2) + \gamma^2 \omega^2} $$
+Imaginärteil:
+$$ \Im(\epsilon_r(\omega)) = \frac{N e^2}{\epsilon_0 m} \frac{\gamma \omega}{(\omega_0^2 - \omega^2) + \gamma^2 \omega^2} \quad \ \  $$
+%
+%
+%
+% T5
+%
+%
+%
+%
+%
+%
+% T6
+%
+%
+%
+\emph{Bemerkung:} \textbf{Dispersion}\\
+Frequenzabhängigkeit von $ \epsilon = \epsilon (\omega) = \epsilon_R + i \epsilon_I $\\
+Brechungsindex $ n = \sqrt{\epsilon_r \mu_r} = n (\omega) $\\
+normale Dispersion: $ \prd{\epsilon_R}{\omega} > 0 $\\
+anormale Dispersion: $ \prd{\epsilon_R}{\omega} < 0 $\\[5pt]
+\textbf{Verallgemeinert auf U Elektronen im Atom:}\\
+$ f_j : $ Elektronen mit Frequenz $ \omega_j , \gamma_j $
+\begin{equation*}
+\epsilon_r(\omega) 1 + \frac{N e^2}{\epsilon_0 m} \sum_j \frac{f_j}{\omega_j^2 - \omega^2 - i \gamma_j \omega_j}
+\end{equation*}
+%
+%
+%
+% T7
+%
+%
+%
+Quantenmechanik:
+%
+%
+%
+% T8
+%
+%
+%
+
+\subsection{Bedeutung der komplexen/frequenzabhängigen Dielektrizitätskonstante}
+
+Wellengleichung im Medium $ \quad \epsilon = \epsilon(\omega) \quad \mu \approx \mu_0 \quad \sigma = 0 $
+\begin{equation*}
+\Delta \vec{E} - \mu_0 \epsilon \prt{^2 \vec{E}}{t^2} = 0
+\end{equation*}
+\begin{equation*}
+\qquad \qquad \qquad \qquad \qquad \qquad \vec{E} = \vec{E}_0 e^{i(kz - \omega t)} \begin{tikzpicture}[scale=.7]
+\draw[thick, ->] (0,0) -- (1,0) -- (1,1);
+\end{tikzpicture}\qquad \quad \bigg| \quad - k^2 + \mu_0 \epsilon \omega^2 = 0
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad k^2 = \mu_0 \epsilon \omega^2 = \mu_0 (\epsilon_R + i \epsilon_I) \omega^2
+\end{equation*}
+$ k = k_R + i k_I $
+\begin{equation*}
+k_R^2 - k_I^2 + 2 i k_R k_I = \mu_0 \epsilon_R \omega^2 + i \mu_0 \epsilon_I \omega^2
+\end{equation*}
+\begin{equation*}
+k_{R/I} = \omega \sqrt{\frac{\mu_0 \epsilon_R}{2}} \left[\sqrt{1 + \left(\frac{\epsilon_I}{\epsilon_R}\right)^2} \pm 1\right]^{\frac{1}{2}}
+\end{equation*}
+\begin{equation*}
+\epsilon_I \approx 0 \quad k_I \approx 0 \quad k_R \approx \omega \sqrt{\mu_0 \epsilon_R(\omega)}
+\end{equation*}
+\begin{equation*}
+\vec{E}(\vec{r},t) = \vec{E}_0 e^{- k_I z} e^{i(k_R z - \omega t)}
+\end{equation*}
+%
+%
+%
+% T9
+%
+%
+%
+Ausbreitungsgeschwindigkeit:
+$$ v = \frac{\omega}{k_R} = v(\omega) = \frac{c}{n(\omega)} $$
