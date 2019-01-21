@@ -565,7 +565,7 @@ $$\lim_{a \to 0} \int_V \dd^3 r' \rho(\vec{r}) \vabla_{\vec{r}}\cdot \frac{(\vec
 $$\Rightarrow \vabla \cdot \vec{E}(\vec{r}) = \kq \lim_{a \to 0} = \frac{1}{\epsilon_0} \rho(\vec{r})$$
 \begin{center}
 	\begin{minipage}{.5\linewidth}
-		\rbox{$$\vabla \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \quad \vec{r} \in \mathbb R^3$$}
+		\rbox{$$\vabla \cdot \vec{E}(\vec{r}) = \frac{1}{\epsilon_0} \rho(\vec{r}) \quad \vec{r} \in \mathbb R^3$$}
 	\end{minipage}
 \end{center}
 
@@ -2113,14 +2113,26 @@ Der Ansatz erfüllt $ \Delta \Phi = 0 $ und erfüllt die Randbedingungen i), ii)
 \rmbox{\Phi_R(x) \buildrel ! \over = \ub{\sum_{n=1}^{\infty} A_n \sin\left(\frac{n \pi x}{l_x}\right)}_{\tx{Entwicklung}} \ub{\sinh\left(\frac{n \pi l_y}{l_x}\right)}_{\const}}
 \end{equation*}
 Der erste Teil des Ausdrucks entspricht der Entwicklung von $ \Phi_R(x) $ nach Funktionen $ \sin \left(\frac{n \pi x}{l_x}\right) $ also einer Fourier-Reihe.\\[5pt]
+\begin{comment}
 \textbf{Bestimmung von $ A_n $:}
 Multipliziere mit $ \sin\left(\frac{n \pi x}{l_x}\right) \quad m \in \mathbb{N} $ und danach Integration:
 \begin{align*}
-\int_{0}^{l_x} \dd x \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x) &= \sum_{n=1}^{\infty} A_n \sinh\left(\frac{m \pi l_y}{l_x}\right) \int_{0}^{l_x} \dd x \ub{\custoup{\leftarrow}{\sin\left(\frac{m \pi x}{l_x}\right)}{\qquad \qquad \quad \mathclap{\tx{zueinander orthogonale Vektoren}}} \custoup{\leftarrow}{\sin\left(\frac{n \pi x}{l_x}\right)}{}}_{= \frac{l_x}{2} \delta_{nm}}\\
+\int_{0}^{l_x} \dd x \sin\left(\frac{n \pi x}{l_x}\right) \Phi_R (x) &=\right)  \sum_{n=1}^{\infty} A_n \sinh\left(\frac{m \pi l_y}{l_x}\right) \int_{0}^{l_x} \dd x \ub{\custoup{\leftarrow}{\sin\left(\frac{m \pi x}{l_x}\right)}{\qquad \qquad \quad \mathclap{\tx{zueinander orthogonale Vektoren}}} \custoup{\leftarrow}{\sin\left(\frac{n \pi x}{l_x}\right)}{}}_{= \frac{l_x}{2} \delta_{nm}}\\
 &= A_m \frac{l_x}{2} \sinh\left(\frac{n \pi l_y}{l_x}\right)
 \end{align*}
 \begin{equation*}
 A_m = \frac{2}{l_x \sinh\left(\frac{n \pi l_y}{l_x}\right)} \int_{0}^{l_x} \dd x \sin \left(\frac{n \pi x}{l_x}\right) \Phi_R(x)
+\end{equation*}
+in $ \Phi(x,y) $ einsetzen\\[5pt]
+\end{comment}
+\textbf{Bestimmung von $ A_n $:}
+Multipliziere mit $ \sin\left(\frac{m \pi x}{l_x}\right) \quad m \in \mathbb{N} $ und danach Integration:
+\begin{align*}
+\int_{0}^{l_x} \dd x \sin\left(\frac{m \pi x}{l_x}\right) \Phi_R (x) &= \sum_{n=1}^{\infty} A_n \sinh\left(\frac{n \pi l_y}{l_x}\right) \ub{\int_{0}^{l_x} \dd x \ \custoup{\leftarrow}{\sin\left(\frac{m \pi x}{l_x}\right)}{\qquad \qquad \quad \mathclap{\tx{zueinander orthogonale Vektoren}}} \custoup{\leftarrow}{\sin\left(\frac{n \pi x}{l_x}\right)}{}}_{= \frac{l_x}{2} \delta_{nm}}\\
+&= A_m \frac{l_x}{2} \sinh\left(\frac{m \pi l_y}{l_x}\right)
+\end{align*}
+\begin{equation*}
+A_m = \frac{2}{l_x \sinh\left(\frac{m \pi l_y}{l_x}\right)} \int_{0}^{l_x} \dd x \sin \left(\frac{m \pi x}{l_x}\right) \Phi_R(x)
 \end{equation*}
 in $ \Phi(x,y) $ einsetzen\\[5pt]
 
@@ -2174,7 +2186,7 @@ da $ \int_{a}^{b} \dd x' g(x') = g(x) $
 	n \in \mathbb{N}: \qquad \sqrt{\frac{2}{l}} \sin \left(\frac{n \pi x}{l}\right) \ \ ; \qquad \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right) \qquad I = [0,l]
 	\end{equation*}
 	\begin{equation*}
-	g(x) = a_0 \frac{1}{\sqrt{l}} + \sum_{n=1}^{\infty} \left[a_n \sqrt{\frac{2}{l}} \sin \left(\frac{2 \pi x}{l}\right) + b_n \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right)\right]
+	g(x) = a_0 \frac{1}{\sqrt{l}} + \sum_{n=1}^{\infty} \left[a_n \sqrt{\frac{2}{l}} \sin \left(\frac{n \pi x}{l}\right) + b_n \sqrt{\frac{2}{l}} \cos\left(\frac{n \pi x}{l}\right)\right]
 	\end{equation*}
 	\vspace{5pt}
 \end{enumerate}
@@ -2317,14 +2329,14 @@ Potenzreihenansatz: $P(x) = \summ{k = 0}{\infty} a_k x^k$
 	\item \begin{equation*}
 	\frac{1}{\sin \theta} \prd{}{\theta} \left(\sin \theta \prd{P}{\theta} \right) + \left(\lambda - \frac{m^2}{\sin^2 \theta}\right) P(\cos\theta) = 0
 	\end{equation*}
-	\textbf{Zylindersymmetrische Probleme:}
-	$ \prd{\Phi}{\varphi} = 0 \quad \rightarrow \quad m = 0 $\\
-	$ \rightarrow P_l(\cos\theta) : $ Legendre-Polynome\\
-	$ \rightarrow $ allgemeine Lösung:
-	\begin{equation*}
-	\rmbox{\Phi(r,\theta) = \sum_{l=0}^{\infty} \left(a_l r^l + b_l r^{-l-1}\right) P_l(\cos\theta)}
-	\end{equation*}
 \end{enumerate}
+\textbf{Zylindersymmetrische Probleme:}
+$ \prd{\Phi}{\varphi} = 0 \quad \rightarrow \quad m = 0 $\\
+$ \rightarrow P_l(\cos\theta) : $ Legendre-Polynome\\
+$ \rightarrow $ allgemeine Lösung:
+\begin{equation*}
+\rmbox{\Phi(r,\theta) = \sum_{l=0}^{\infty} \left(a_l r^l + b_l r^{-l-1}\right) P_l(\cos\theta)}
+\end{equation*}
 }
 \noindent
 \subsubsection{\emph{Beispiel:} \textbf{Leitende Kugel im homogenen Feld}}
@@ -2378,8 +2390,8 @@ Aufgrund der Zylindersymmetrie des Problems ist $ \Phi $ eine Funktion von $ \th
 	\end{align*}
 	an Beide Seiten Multiplizieren wir$ \int_{-1}^{1} \dd (\cos \theta) P_n (\cos\theta) $ für $ n = 0,1,2,3,\dots $
 	\begin{align*}
-	\sum_{l=0}^{\infty} \left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{nl} \frac{2}{2n+1}} &= \Phi_0 \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{n0} \frac{2}{2n+1} = 2 \delta_{n_0}}\\
-	\Rightarrow \summ{l = 0}{\infty} \frac{2}{2l + 1}\left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \delta_{nl} &= 2 \Phi_0 \delta_{n0} \qquad n = 0, 1, 2,\dots
+	\sum_{l=0}^{\infty} \left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_l(\cos\theta)}_{\delta_{nl} \frac{2}{2n+1}} &= \Phi_0 \ub{\int_{-1}^{1} \dd (\cos\theta) P_n(\cos\theta) P_0(\cos\theta)}_{\delta_{n0} \frac{2}{2n+1} = 2 \delta_{n_0}}\\
+	\Rightarrow \summ{l = 0}{\infty} \frac{2}{2n + 1}\left(a_l R^l + \frac{b_l}{R^{l+1}}\right) \delta_{nl} &= 2 \Phi_0 \delta_{n0} \qquad n = 0, 1, 2,\dots
 	\end{align*}
 	% :andrez 1 teil 2 des aligns:
 	$$\begin{array}{lcl}
@@ -2390,10 +2402,10 @@ Aufgrund der Zylindersymmetrie des Problems ist $ \Phi $ eine Funktion von $ \th
 	\item $ r \to \infty $
 	\begin{align*}
 	\pofr &\rightarrow -E_0 r \cos\theta + \Phi_1\\
-	&= - E_0 r P_1(\cos\theta) + \Phi_1 P_0(\cos\theta) \buildrel r \to \infty \over \longleftarrow \sum_{l=0}^{\infty} \left(a_l r^l + \frac{b_l}{R^{l+1}}\right) P_l(\cos\theta)
+	&= - E_0 r P_1(\cos\theta) + \Phi_1 P_0(\cos\theta) \quad \buildrel r \to \infty \over \longleftarrow \quad \sum_{l=0}^{\infty} \left(a_l r^l + \frac{b_l}{R^{l+1}}\right) P_l(\cos\theta)
 	\end{align*}
 	\begin{equation*}
-	\Rightarrow \sum_{l=0}^{\infty} \left(a_l r^l + \frac{b_l}{R^{l+1}}\right) \delta_{nl} \frac{2}{2n+1} \buildrel r \to \infty \over \longrightarrow 2 \Phi_1 \delta_{n0} - E_0 r \delta_{n1} \frac{2}{2n+1} = 2 \Phi_1 \delta_{n0} - \frac{2}{3} E_0 r \delta_{n1}
+	\Rightarrow \sum_{l=0}^{\infty} \left(a_l r^l + \frac{b_l}{R^{l+1}}\right) \delta_{nl} \frac{2}{2n+1} \quad \buildrel r \to \infty \over \longrightarrow \quad 2 \Phi_1 \delta_{n0} - E_0 r \delta_{n1} \frac{2}{2n+1} = 2 \Phi_1 \delta_{n0} - \frac{2}{3} E_0 r \delta_{n1}
 	\end{equation*}
 	für $ n = 0,1,2,\dots $
 	\begin{align*}
@@ -2423,7 +2435,7 @@ Diskussion der \textbf{Bedeutung der einzelnen Terme}:
 \begin{minipage}{.7\linewidth}
 	Eine Kugel mit Ladung $ Q $ ohne äußeres Feld ($ E_0 = 0 $):
 	\begin{align*}
-	\rightarrow\pofr &= \frac{1}{4 \pi \epsilon} \frac{Q}{r} + \const\\
+	\rightarrow\pofr &= \frac{1}{4 \pi \epsilon_0} \frac{Q}{r} + \const\\
 	&\overset{!}{=} \Phi_1 + (\Phi_0 - \Phi_1) \frac{R}{r}
 	\end{align*}
 	\begin{equation*}
@@ -2460,21 +2472,19 @@ Eine ungeladene Kugel: $ Q = 0 \quad \rightarrow \Phi_1 = \Phi_0 $
 $\rightarrow$ Zugeordnete Legendre-Polynome
 $$P^m_l (x) \qquad x = \cos\theta$$
 $\bullet$ Allgemeine Struktur:
-$$P_l^m \sim (1-x^2)^{|m|/2} \times \textrm{ Polynom } (l-|m|)\textrm{ten Grades}$$
+$$P_l^m \sim (1-x^2)^{|m|/2} \times \textrm{ Polynom } (l-|m|)\textrm{-ten Grades}$$
 Zusammenfassung der Funktionen:
 $$ P, \theta \textrm{ in Produkt: } P_l^m (\cos\theta) Q_m (\varphi)$$
-\subsubsection{$\Rightarrow$ Kugelflächenfunktionen}
+\frbox{$\Rightarrow$ Kugelflächenfunktionen}{
 $$\mathcal Y_{lm} (\theta,\varphi) = \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}} P_l^m (\cos\theta)e^{im\varphi}$$
+}
 $$l = 0,1,2,\dots \qquad m = 0,\pm 1,\pm 2,\dots,\pm l \qquad \theta \in [0,\pi] \qquad \varphi \in [0,2\pi]$$
-
-
-\subsubsection{Allgemeine Lösung der Laplace-Gleichung in Kugelkoordinaten:}
-
+\frbox{Allgemeine Lösung der Laplace-Gleichung in Kugelkoordinaten:}{
 \begin{equation*}
-\rmbox{\Phi(r,\theta,\varphi) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \left(a_{lm} r^l + \frac{b_{lm}}{r^{l+1}}\right) \mathcal{Y}_{lm} (\theta,\varphi)}
+\Phi(r,\theta,\varphi) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \left(a_{lm} r^l + \frac{b_{lm}}{r^{l+1}}\right) \mathcal{Y}_{lm} (\theta,\varphi)
 \end{equation*}
+}
 $ \Delta \Phi = 0 $
-
 
 % Theo Vorlesung 19.11.2018
 
@@ -2524,7 +2534,7 @@ F"ur $r>R:\ |\vec{r}'|<|\vec{r}|\rightarrow$ Taylorentwicklung von $\frac{1}{|\v
 Taylorentwicklung:
 \[f(\vec{r}')=f(x_1',x_2',x_3')=f(0,0,0)+\sum_{i=1}^3x_i'\frac{\partial f}{\partial x_i}(0)+\frac{1}{2}\sum_{i,j=1}^3x_i'x_j'\frac{\partial^2f}{\partial x_i'\partial x_j'}(0)+\ldots\]
 Zuerst berechnen wir die einzelnen Terme:
-\[f(\vec{r}')=\frac{1}{|\vec{r}-\vec{r}'|}:\ f(0)=\frac{1}{r} \qquad \ \ \  \frac{\partial f}{\partial x_i'}=\frac{(x_i-x_i')}{|\vec{r}-\vec{r}'|^3}\bigg|_0=\frac{x_i}{r^3} \qquad \ \ \ \frac{\partial^2f}{\partial x_i'x_j'}(0)=\ldots=\frac{3x_ix_j-r^2 \delta_{ij}}{r^5}\]
+\[f(\vec{r}')=\frac{1}{|\vec{r}-\vec{r}'|}:\ f(0)=\frac{1}{r} \qquad \ \ \  \frac{\partial f}{\partial x_i'}=\frac{(x_i-x_i')}{|\vec{r}-\vec{r}'|^3}\bigg|_0=\frac{x_i}{r^3} \qquad \ \ \ \frac{\partial^2f}{\partial x_i'\partial x_j'}(0)=\ldots=\frac{3x_ix_j-r^2 \delta_{ij}}{r^5}\]
 Für $|\vec{r}|<|\vec{r}'|$:
 \vspace{-15pt} \[\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\int\dd^3r\rho(\vec{r}')\Bigg\{\frac{1}{r}+\sum_{i=1}^3\frac{x_i'x_i}{r^3}+\frac{1}{2}\sum_{i,j}x_i'x_j'\frac{3x_ix_j-\custoup{\rightarrow}{r^2\delta_{ij}}{}}{r^5}+\ldots\Bigg\}\]
 Den letzten (mit einem Pfeil markierten) Term schauen wir uns jetzt noch einmal genauer an.
@@ -2535,9 +2545,9 @@ Das Potential unserer Ladungsverteilung im externen $ \vec{E} $-Feld ergibt sich
 \begingroup\makeatletter\def\f@size{10}\check@mathfonts
 \def\maketag@@@#1{\hbox{\m@th\large\normalfont#1}}
 \begin{equation*}
-\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\Bigg\{\frac{1}{r} \underbrace{\int\dd^3r'\rho(\vec{r}')}_{\mathclap{\substack{ q \textrm{ Gesamtladung} \\  \tx{(Monopol)}}}} +\sum_{i=1}^3\frac{x_i}{r^3} \underbrace{\int\dd^3r'x_i'\rho(\vec{r}')}_{\mathclap{\substack{p_i \textrm{ Dipolmoment} \\ \vec{p}=(p_1,p_2,p_3)}}}  +\frac{1}{2}\sum_{i,j}\frac{x_ix_j}{r^5}\underbrace{\int\dd^3r'\rho(\vec{r}')(3x_i'x_j'-r'^2\delta_{ij})}_{\mathclap{\eqdef\ Q_{ij}\textrm{ Quadrupolmoment}}}+\ldots\Bigg\}
+\rmbox{\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\Bigg\{\frac{1}{r} \underbrace{\int\dd^3r'\rho(\vec{r}')}_{\mathclap{\substack{ q \textrm{ Gesamtladung} \\  \tx{(Monopol)}}}} +\sum_{i=1}^3\frac{x_i}{r^3} \underbrace{\int\dd^3r'x_i'\rho(\vec{r}')}_{\mathclap{\substack{p_i \textrm{ Dipolmoment} \\ \vec{p}=(p_1,p_2,p_3)}}}  +\frac{1}{2}\sum_{i,j}\frac{x_ix_j}{r^5}\underbrace{\int\dd^3r'\rho(\vec{r}')(3x_i'x_j'-r'^2\delta_{ij})}_{\mathclap{\eqdef\ Q_{ij}\textrm{ Quadrupolmoment}}}+\ldots\Bigg\}}
 \end{equation*}\endgroup
-\[\Rightarrow\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\left\{\frac{q}{r}+\frac{\vec{r}\cdot\vec{p}}{r^3}+\frac{1}{2}\sum_{i,j}\frac{x_ix_j}{r^5}Q_{ij}+\ldots\right\}\]
+\[\quad \rmbox{\Rightarrow\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\left\{\frac{q}{r}+\frac{\vec{r}\cdot\vec{p}}{r^3}+\frac{1}{2}\sum_{i,j}\frac{x_ix_j}{r^5}Q_{ij}+\ldots\right\}}\]
 \textbf{Diskussion}:
 \begin{enumerate}[i)]
 	\item \textbf{Monopol} \[\Phi_M(\vec{r})=\frac{1}{4\pi\epsilon_0}\frac{q}{r} \qquad \propto\frac{1}{r}\textrm{ dominiert f"ur }q\neq0\]
@@ -2546,22 +2556,21 @@ Das Potential unserer Ladungsverteilung im externen $ \vec{E} $-Feld ergibt sich
 	Das elektrische Feld:
 	\[\vec{E}_D=-\vec{\nabla}\Phi_D\]
 	\begin{align*}
-	\vec{\nabla}_{\vec{r}} \left(\vec{p}\cdot\frac{\vec{r}}{r^3}\right) : \ \frac{\partial}{\partial x} \left(p_x\frac{x}{r^3}+p_y\frac{y}{r^3}+p_z\frac{z}{r^3}\right) &= \left(\frac{p}{r^3} -3 p_x \frac{xx}{r^5}-3p_y\frac{yx}{r^5} -3p_z \frac{zx}{r^5} \right)\\
+	\vec{\nabla}_{\vec{r}} \left(\vec{p}\cdot\frac{\vec{r}}{r^3}\right) : \ \ \frac{\partial}{\partial x} \left(p_x\frac{x}{r^3}+p_y\frac{y}{r^3}+p_z\frac{z}{r^3}\right) &= \left(\frac{p_x}{r^3} -3 p_x \frac{xx}{r^5}-3p_y\frac{yx}{r^5} -3p_z \frac{zx}{r^5} \right)\\
 	&= \frac{p_x}{r^3} -3 \frac{\vec{p}\cdot\vec{r}}{r^5}x\\
 	\frac{\partial}{\partial y}(\ldots) &= \frac{p_y}{r^3}-3\frac{\vec{p}\cdot\vec{r}}{r^5}y \\
 	\frac{\partial}{\partial z} (\ldots) &= \frac{p_z}{r^3} -3 \frac{\vec{p}\cdot\vec{r}}{r^5} z 
 	\end{align*}
-	\[\Rightarrow\vec{\nabla}_{\vec{r}}\left(\vec{p}\cdot\frac{\vec{r}}{r^5}\right)=\frac{\vec{p}}{r^3}-3\frac{\vec{p}\cdot\vec{r}}{r^5}\vec{r}\]
-	$$\vec{E}_{D} = - \vec{\nabla} \Phi_D= \frac{1}{4\pi\epsilon_0} \left[\frac{3(\vec{p}\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{p}}{r^4}\right] \qquad \propto \frac{1}{r^3} \quad \vec{r}\neq0$$
-	
+	\[\Rightarrow\vec{\nabla}_{\vec{r}}\left(\vec{p}\cdot\frac{\vec{r}}{r^3}\right)=\frac{\vec{p}}{r^3}-3\frac{\vec{p}\cdot\vec{r}}{r^5}\vec{r}\]
+	$$\vec{E}_{D} = - \vec{\nabla} \Phi_D= \frac{1}{4\pi\epsilon_0} \left[\frac{3(\vec{p}\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{p}}{r^3}\right] \qquad \propto \frac{1}{r^3} \quad \vec{r}\neq0$$
 	\begin{minipage}{.5\linewidth}
-		\emph{Beispiel} für die Realisierung eines Dipols:\\
+		\emph{Beispiel:} für die Realisierung eines Dipols\\
 		\textbf{Punktladungen:} $q_0,-q_0$ in $\vec{r}_+,\vec{r}_-$\\
 		Gesamtladung: $q=q_0-q_0=0$
 	\end{minipage}%
 	\begin{minipage}{.5\linewidth}
 		%t3:
-		\centering
+		\flushright
 		\begin{tikzpicture}
 			\node[circle,fill=black,inner sep=1pt,minimum size=1pt] (q1) at (-1,2) {};
 			\node[circle,fill=black,inner sep=1pt,minimum size=1pt] (q2) at (2,1) {};
@@ -2573,17 +2582,17 @@ Das Potential unserer Ladungsverteilung im externen $ \vec{E} $-Feld ergibt sich
 		\end{tikzpicture}
 	\end{minipage}%
 	\[\rightarrow\Phi_M(\vec{r})\equiv0\]
-	\[\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\left(\frac{q_0}{|\vec{r}-\vec{r}_+|}-\frac{q_0}{|\vec{r}-\vec{r}_i|}\right)=\frac{1}{4\pi\epsilon_0}\left(\frac{\vec{r}\cdot\vec{p}}{r^3}+\ldots\right)\]
+	\[\Phi(\vec{r})=\frac{1}{4\pi\epsilon_0}\left(\frac{q_0}{|\vec{r}-\vec{r}_+|}-\frac{q_0}{|\vec{r}-\vec{r}_-|}\right)=\frac{1}{4\pi\epsilon_0}\left(\frac{\vec{r}\cdot\vec{p}}{r^3}+\ldots\right)\]
 	\[\rho(\vec{r}')=q_0\delta(\vec{r}'-\vec{r}_+)-q_0\delta(\vec{r}'-\vec{r}_-)\]
-	\[\rmbox{\vec{p}=\int\dd^3r'\rho(\vec{r}')\vec{r}'=q_0\vec{r}_+-q_0\vec{r}_-=q_0\vec{d}}\]
+	\[\vec{p}=\int\dd^3r'\rho(\vec{r}')\vec{r}'=q_0\vec{r}_+-q_0\vec{r}_-=q_0\vec{d} \qquad \rmbox{\vec{p} = q_0 \vec{d}}\]
 	mehrere Punktladungen $q_i$ in $\vec{r}_i$\\
 	\[\rightarrow\vec{p}=\sum_iq_i\vec{r}_i\]
 	\item \textbf{Quadrupolmoment}
-	\[Q_{ij}=\int\dd^3r'\rho(\vec{r}')(3x_i'x_j'-r'^3\delta_{ij})\]
+	\[Q_{ij}=\int\dd^3r'\rho(\vec{r}')(3x_i'x_j'-r'^2\delta_{ij})\]
 	Quadrupoltensor $Q=\begin{pmatrix}Q_{11}& \color{black!50!green} Q_{12}& \color{black!30!red} Q_{13}\\\color{black!50!green} Q_{21} &Q_{22}& \color{black!30!blue} Q_{23}\\\color{black!30!red} Q_{31} & \color{black!30!blue} Q_{32} & Q_{33}\end{pmatrix}$\\ 
 	\textbf{Eigenschaften}
 	\begin{enumerate}[i)]
-		\item Spurfrei: $\mathrm{tr}(Q)=\sum_iQ_{ij}=0 \quad \Rightarrow $ 2 unabhängige Elemente
+		\item Spurfrei: $\mathrm{tr}(Q)=\sum_iQ_{ii}=0 \quad \Rightarrow $ 2 unabhängige Elemente
 		\item Symmetrisch: $Q_{ij}=Q_{ji} \quad \Rightarrow 3 $ unabhängige Elemente
 	\end{enumerate}
 	$\Rightarrow$ 5 unabhängige Elemente\\[5pt]
@@ -2600,7 +2609,7 @@ Das Potential unserer Ladungsverteilung im externen $ \vec{E} $-Feld ergibt sich
 	W=\int\dd^3r\rho(\vec{r})\Phi(\vec{r})
 	\label{W}
 	\end{equation}
-	Wir stellen uns vor, das $ \vec{E} $-Feld wird von sehr weit entfernten Ladungen erzeugt. Wir machen somit also die Annahme, dass sich $\Phi(\vec{r})$ in dem Gebiet,wo $ \rho(\vec{r}) $ sich nur wenig ändert.
+	Wir stellen uns vor, das $ \vec{E} $-Feld wird von sehr weit entfernten Ladungen erzeugt. Wir machen somit also die Annahme, dass sich $\Phi(\vec{r})$ in dem Gebiet, wo $ \rho(\vec{r}) $ ist, sich nur wenig ändert.
 \end{minipage}%
 \begin{minipage}{.4\linewidth}
 	%t4:
@@ -2634,9 +2643,9 @@ $$\sum_{i,j}r^2\delta_{ij}\frac{\partial E_j}{\partial x_i}(0)=r^2\underbrace{\s
 $ \vec{\nabla} \cdot \vec{E} = 0 $ gilt, da $ \vec{E} $ ein äußeres Feld ist.
 Damit erhalten wir dann für die Energie mit Formel \eqref{W}:
 \begin{align*}
-\rightarrow W &= \Phi(0)\underbrace{\int\dd^3r\rho(\vec{r})}_{=q}-\vec{E}(0)\cdot\underbrace{\int\dd^3r\vec{r}\rho(\vec{r})}_{=\vec{p}}-\frac{1}{6}\sum_{i,j}\frac{\partial E_j}{\partial x_i}(0)\underbrace{\int\dd^3r(3x_ix_j-r^2\delta_{ij})\rho(\vec{r})}_{=Q_{ij}}+\ldots \\
+\rightarrow W &= \Phi(0)\underbrace{\int\dd^3r\rho(\vec{r})}_{=q}-\vec{E}(0)\cdot\underbrace{\int\dd^3r \ \vec{r}\rho(\vec{r})}_{=\vec{p}}-\frac{1}{6}\sum_{i,j}\frac{\partial E_j}{\partial x_i}(0)\underbrace{\int\dd^3r(3x_ix_j-r^2\delta_{ij})\rho(\vec{r})}_{=Q_{ij}}+\ldots \\
 &= \custo{\substack{\vspace{10pt}\\ \nwarrow} }{q}{\mathclap{\tx{Ladung}}\qquad} \custo{\substack{\leftarrow}}{\Phi(0)}{\ \ \mathclap{\tx{Potential}}} \quad - \quad \custo{\substack{\leftarrow}}{\vec{p}}{\ \ \mathclap{\tx{Dipol}}} \cdot \custo{\substack{\swarrow\\ \vspace{5pt}}}{\vec{E}(0)}{\qquad \mathclap{\tx{Feld}}} \quad - \quad \frac{1}{6} \sum_{i,j} 
-\custo{\substack{\vspace{7pt} \\ \nwarrow}}{Q_{ij}}{\mathclap{\substack{\\[5pt]\tx{Quadrupol}}} \quad} \custo{\substack{\swarrow \\ \vspace{5pt}}}{\frac{\partial E_j}{\partial x_i} (0)}{\qquad \quad \mathclap{\tx{Feldgradient}}} + \ldots
+\ \custo{\substack{\vspace{7pt} \\ \nwarrow}}{Q_{ij}}{\mathclap{\substack{\\[5pt]\tx{Quadrupol}}} \quad} \  \custo{\substack{\swarrow \\ \vspace{5pt}}}{\frac{\partial E_j}{\partial x_i} (0)}{\qquad \quad \mathclap{\tx{Feldgradient}}} + \ldots
 \end{align*}
 
 \noindent
@@ -2644,8 +2653,8 @@ Damit erhalten wir dann für die Energie mit Formel \eqref{W}:
 	
 	\subsubsection{Wechselwirkungsenergie zweier Dipole}
 	
-	Betrachte 2 Punktdipole $\vec{p}_1,\vec{p}_2$ in $\vec{r}_1,\vec{r}_2$\\
-	$\vec{p}_2$ erzeugt am Ort $\vec{r}_1$ das "au\ss ere" Feld
+	Betrachte 2 Punktdipole $\vec{p}_1,\vec{p}_2$ in $\vec{r}_1,\vec{r}_2$.\\
+	$\vec{p}_2$ erzeugt am Ort $\vec{r}_1$ das "au\ss ere Feld:
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
 	%t5:
@@ -2675,7 +2684,7 @@ z.B.: $\vec{p}_1,\vec{p}_2\perp\vec{r}_{12}$
 \textbf{Definition: Dielektrika}\\
 Nichtleitende Substanzen (Gase, Flüssigkeiten, Festkörper). Die Ladungsträger sind also fest gebunden.\\[5pt]
 äußere Felder $ \Rightarrow $ Polarisation\\[5pt]
-Mehanismen
+Mechanismen
 \begin{enumerate}[i)]
 	\item \textbf{Verschiebungspolarisation} (Deformationspolarisation)\\
 	neutrales Atom
@@ -2775,8 +2784,8 @@ Plattenkondensator:\\[10pt]
 Ausgangspunkt: allgemeine (mikroskopische) Feldgleichungen
 \begin{equation*}
 \left.\begin{array}{c}
-\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho \\[10pt]
-\vec{\nabla} \times \vec{E} = 0
+\vec{\nabla} \cdot \vec{E} = \frac{1}{\epsilon_0} \rho \ \\[10pt]
+\vec{\nabla} \times \vec{E} = 0 \quad \ \, \: 
 \end{array}\right\} \underset{\substack{\rho \\ \tx{bekannt}}}{\rightarrow} \begin{array}{l}
 \vec{E}(\vec{r}) = \kq \int \dd ^3 r' \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} \\[10pt]
 \, \Phi(\vec{r}) = \kq \int \dd ^3 r' \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|}
@@ -2805,7 +2814,7 @@ $ f : $ legt Bereich fest, über den gemittelt wird
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
 	%t6:
-	\centering
+	\flushright
 	\begin{tikzpicture}
 	\draw[->] (0,-.3) -- (0,2.5) node[anchor=south east] {$ y $};
 	\draw[->] (-3,0) -- (3,0) node[anchor=north west] {$ x $};
@@ -2820,7 +2829,8 @@ $ f : $ legt Bereich fest, über den gemittelt wird
 	\draw (1.855,1.355) to[out=60,in=-170] (3,2) node[right] {$ f(\vec{r}) $};
 	\end{tikzpicture}\\
 	\flushleft
-	mit $ L, \Delta L \gg a $
+	$ \qquad \, $ mit $ L, \Delta L \gg a $
+	\vspace{10pt}
 \end{minipage}%
 \\
 Wir schauen uns nun an wie die Ableitung einer gemittelten Funktion aussieht.
@@ -2890,15 +2900,15 @@ $ \Rightarrow $ gesamte Ladungsdichte
 Mittlung von $ \rho_g $ über einen makroskopisch kleinen aber mikroskopisch großen Bereich:
 \begin{align*}
 \langle \rho_g \rangle (\vec{r}) &= \int \dd^3 r' f(\vec{r}') \rho_g (\vec{r} - \vec{r}') \\
-&= \int \dd^3 r' f(\vec{r}) \sum_{n} \rho_n (\vec{r} - \vec{r}' - \vec{r}_n) \\
+&= \int \dd^3 r' f(\vec{r}') \sum_{n} \rho_n (\vec{r} - \vec{r}' - \vec{r}_n) \\
 &= \sum_{n} \int_{\mathbb{R}^3} \dd^3 r' f(\vec{r}') \rho_n (\vec{r} - \vec{r}' - \vec{r}_n)
 \end{align*}
 Nun Betrachten wir den letzten Term:
 \begin{align*}
 &\int \dd^3 r' f(\vec{r}') \rho_n (\ub{\vec{r} - \vec{r}' - \vec{r}_n}_{= \tilde{\vec{r}}})\\
-=& \int \dd ^3 r' \ub{f(\vec{r} - \vec{r}_n - \tilde{\vec{r}})}_{\substack{\tx{ändert sich} \\ \tx{wenig auf} \\ \tx{mol. Skala}}} \ub{\rho_n(\tilde{\vec{r}})}_{\substack{\tx{lokalisiert auf} \\ \tx{molekularer Skala a} \\ \rho_n(\tilde{\vec{r}})\approx 0 \tx{für} |\tilde{\vec{r}}| \gg a }}\\
+=& \int \dd ^3 r' \ub{f(\vec{r} - \vec{r}_n - \tilde{\vec{r}})}_{\substack{\tx{ändert sich} \\ \tx{wenig auf} \\ \tx{mol. Skala}}} \ub{\rho_n(\tilde{\vec{r}})}_{\substack{\tx{lokalisiert auf} \\ \tx{molekularer Skala a} \\ \rho_n(\tilde{\vec{r}})\approx 0 \tx{ für } |\tilde{\vec{r}}| \gg a }}\\
 \tx{Taylorentwicklung in } \tilde{\vec{r}}: &\quad f(\vec{r} - \vec{r}_n - \tilde{\vec{r}}) = f(\vec{r} - \vec{r}_n) - \tilde{\vec{r}} \cdot \vabla f(\vec{r} - \vec{r}_n) + \dots \\
-=& f(\vec{r} - \vec{r}_n) \ub{\int \dd^3 \tilde{r} \rho_n(\tilde{\vec{r}})}_{= q_n} - \vabla f(\vec{r} - \vec{r}_n) \cdot \ub{\int \dd ^3 r' \tilde{r} \tilde{\vec{r}} \rho_n(\tilde{\vec{r}})}_{= \vec{p}_m \tx{Dipolmoment}} + \dots \\
+=& f(\vec{r} - \vec{r}_n) \ub{\int \dd^3 \tilde{r} \rho_n(\tilde{\vec{r}})}_{= q_n} - \vabla f(\vec{r} - \vec{r}_n) \cdot \ub{\int \dd ^3 r' \tilde{\vec{r}} \rho_n(\tilde{\vec{r}})}_{= \vec{p}_m \tx{Dipolmoment}} + \dots \\
 & \tx{Höhere Terme werden vernachlässigen z.B. das Quadrupolmoment.} \\
 =& f(\vec{r} - \vec{r}_n) q_n - \ub{\vabla f(\vec{r} - \vec{r}_n) \cdot \vec{p}_m}_{= \vabla \cdot (\vec{p}_n f(\vec{r} - \vec{r}_n))} + \dots \\
 =& \int \dd^3r' q_n \delta(\vec{r}' - \vec{r}_n) f(\vec{r} - \vec{r}') - \vabla \cdot \int \dd^3r' \vec{p}_n \delta(\vec{r}' - \vec{r}_n) f(\vec{r} - \vec{r}') + \dots \\
@@ -2946,13 +2956,15 @@ Der \textbf{zweite Term} wird Definiert als das makroskopische Dipolmoment $ \eq
 \\
 $ \rightarrow $ gemittelte (makroskopische) Ladungsdichte:
 \begin{align*}
-\langle \rho \rangle (\vec{r}) &= \langle \rho_f \rangle(\vec{r}) + \ub{\langle \sum_n q_n \delta(\vec{r}' - \vec{r}_n) \rangle(\vec{r})}_{\substack{\tx{Gesamtladung} \\ \tx{oft } = 0}} - \vabla \cdot \vec{P} + \dots
+\langle \rho \rangle (\vec{r}) &= \langle \rho_f \rangle(\vec{r}) + \ub{\langle \sum_n q_n \delta(\vec{r}' - \vec{r}_n) \rangle(\vec{r})}_{\substack{\tx{Gesamtladung} \\ \tx{oft } = 0}} - \vabla \cdot \vec{P}(\vec{r}) + \dots
 \end{align*}
 \frbox{Gemittelte makroskopische Ladungsverteilung}{
 \begin{equation*}
 \langle \rho \rangle (\vec{r}) = \langle \rho_f \rangle (\vec{r}) - \vabla \cdot \vec{P}(\vec{r}) + \dots
 \end{equation*}
 }
+
+\noindent
 Daraus folgt:
 \begin{equation*}
 \rightarrow \quad \vabla \cdot \langle\vec{E} \rangle (\vec{r}) = \frac{1}{\epsilon_0} \langle\rho \rangle (\vec{r}) = \frac{1}{\epsilon_0} \langle \rho_f \rangle (\vec{r}) - \frac{1}{\epsilon_0} \vabla \cdot \vec{P}(\vec{r}) + \dots
@@ -2982,10 +2994,10 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 \noindent
 \begin{minipage}{.6\linewidth}
 	\begin{equation*}
-	\int_{\partial V} d\vec{f} \cdot \vabla \cdot \vec{D} = \int \dd^3 r \rho_f(\vec{r}) = q_{f_V}
+	\oint_{\partial V} \dd\vec{f} \cdot \vec{D} = \int_{V} \dd^3r \vabla \cdot \vec{D} =  \int_{V} \dd^3 r \rho_f(\vec{r}) = q_{f_V}
 	\end{equation*}
 	\begin{equation*}
-	\oint_{\partial F} d\vec{r} \cdot \vabla \times \vec{E} = 0
+	\int_{\partial V} \dd \vec{f} \ \vabla \times \vec{E} = \oint_{\partial F} \dd\vec{r} \ \vec{E} = 0
 	\end{equation*}
 \end{minipage}%
 \begin{minipage}{.4\linewidth}
@@ -3021,7 +3033,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 \lcom{Wir haben hier jetzt zwei Feldgleichungen für zwei Vektorfelder. Dies reicht nicht aus um beide Vektorfelder eindeutig zu bestimmen. Hierfür müssen wir die Wirbel und Quellen beider Felder beschreiben. $ \vec{E} $ und $ \vec{D} $ sind also nicht unabhängig sondern miteinander verknüpft.}
 }
 \noindent
-\textbf{Bem: (Schlussfolgerungen aus den Feldgleichungen der Elektrostatik)}
+\emph{Bemerkung:} \textbf{(Schlussfolgerungen aus den Feldgleichungen der Elektrostatik)}
 \begin{enumerate}[i)]
 	\item \lcom{Es sieht so aus als ob $ \vec{D} $ nur von der freien Ladungsdichte abhängt, dies ist aber nur in manchen fällen so (Plattenkondensator).}
 	
@@ -3031,7 +3043,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 		\textbf{Gegenbeispiel:}
 		homogen polarisierte Kugel:
 		\begin{equation*}
-		\vec{E} = - \frac{1}{\epsilon_0} \vec{P} \qquad \tx{in der Kugel}
+		\vec{E} = - \frac{1}{3 \epsilon_0} \vec{P} \qquad \tx{in der Kugel}
 		\end{equation*}
 		\begin{equation*}
 		\rightarrow \quad \vec{D} = \epsilon_0 \vec{E} + \vec{P} = \frac{2}{3} \vec{P}
@@ -3116,7 +3128,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 	Einfach aber zu viel Zeitaufwand für die Vorlesung
 	\begin{align*}
 	\langle \Phi \rangle &= \kq \int \dd^3  r' \frac{\langle \rho \rangle (\vec{r}')}{|\vec{r} - \vec{r}'|} \\
-	&= \kq \int \dd ^3 r' \frac{1}{|\vec{r} - \vec{r}'|}\left(\rho_f(\vec{r}') - \vabla \cdot \vec{P}(\vec{r}' + \dots \right)
+	&= \kq \int \dd ^3 r' \frac{1}{|\vec{r} - \vec{r}'|}\left(\rho_f(\vec{r}') - \vabla \cdot \vec{P}(\vec{r}') + \dots \right)
 	\end{align*}
 	\item \textbf{Zusammenhang zwischen $ \vec{P} $ und $ \vec{E} $: Suszeptibilität}
 	\begin{equation*}
@@ -3151,6 +3163,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 		\begin{equation*}
 		\rmbox{\vec{D} = \epsilon \vec{E} = \epsilon_0 \epsilon_r \vec{E}}
 		\end{equation*}
+		$ \epsilon_0 $ ist die elektrische Feldkonstante oder auch Permittivität / Dielektrizitätskonstante des Vakuums
 	\end{minipage}%
 	\begin{minipage}{.4\linewidth}
 		\flushleft
@@ -3187,7 +3200,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 \epsilon \vabla \cdot \vec{E} = \rho_f
 \end{equation*}
 \begin{equation*}
-\rightarrow \vabla \cdot \vec{E} = \frac{1}{\epsilon_0 \rho_f} = \ub{\frac{1}{\epsilon_r}}_{\mathclap{\tx{Medium}}} \frac{1}{\epsilon_0} \rho_f
+\rightarrow \vabla \cdot \vec{E} = \frac{1}{\epsilon \rho_f} = \ub{\frac{1}{\epsilon_r}}_{\mathclap{\tx{Medium}}} \frac{1}{\epsilon_0} \rho_f
 \end{equation*}
 \begin{equation*}
 \vabla \times \vec{E} = 0
@@ -3232,7 +3245,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 	&= \frac{1}{\epsilon_r} \ub{\kq q \frac{\vec{r}}{r^3}}_{= \vec{E}_{\tx{vak}}}\\
 	&= \frac{1}{\epsilon_r} \vec{E}_{\tx{vak}} (\vec{r}) < \vec{E}_{\tx{vak}}(\vec{r})\\[10pt]
 	\rightarrow \qquad \ \vec{P} &= \chi_e \epsilon_0 \vec{E} = (\epsilon_r - 1) \epsilon_0 \vec{E}\\
-	&= \frac{(\epsilon_r - 1)}{4 \pi \epsilon_0} q \frac{\vec{r}}{r^3}
+	&= \frac{(\epsilon_r - 1)}{4 \pi \epsilon_r} q \frac{\vec{r}}{r^3}
 	\end{align*}
 	\begin{equation*}
 	\rmbox{\Rightarrow \quad \vec{E} = \vec{E}_{\tx{vak}} - \frac{1}{\epsilon_0} \vec{P}}
@@ -3282,7 +3295,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 		\shadedraw[right color=white!20!blue, left color=white!10!red,draw=black] (-1,0) ellipse (.45cm and .2cm) node[] {$ \color{white} + \ - \color{black} $};
 		\shadedraw[top color=white!20!blue, bottom
 		color=white!10!red,draw=black] (0,-1) ellipse (.2cm and .45cm) 	node[] {$ \substack{ \color{white} - \color{black} \\[5pt] \color{white} + \color{black}} $};
-		\draw[fill=white!10!blue!20!red] (0,0) circle (.25cm) node[] {$\color{white} + \color{black}$};
+		\draw[fill=white!10!blue!15!red] (0,0) circle (.25cm) node[] {$\color{white} + \color{black}$};
 		\node at (0,-2) {$ \substack{\tx{polarisierbares} \\ \tx{Medium}} $};
 		\coordinate (p) at (-.5,1);
 		\coordinate (ep) at (.5,1);
@@ -3393,7 +3406,8 @@ zu \textbf{Randbedingunen für $ \vec{D} $ und $ \vec{E} $ an Grenzflächen mit 
 	\centering
 	%t1:
 	\begin{tikzpicture}
-		\fill[gray!20] (-1.5,-2) rectangle (1.5,2); 
+		%\fill[gray!20] (-1.5,-2) rectangle (1.5,2); 
+		\draw[fill=gray!10] (-1.25,-2) rectangle (1.25,2); 
 		\draw[very thick] (-1.5,-2) -- (-1.5,2) node[above] {$\sigma$};
 		\draw[very thick] (1.5,-2) -- (1.5,2) node[above] {$-\sigma$};
 		\node[above] at (0,1.3) {$\epsilon$};

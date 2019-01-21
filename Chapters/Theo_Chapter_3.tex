@@ -2208,3 +2208,211 @@ k_{R/I} = \omega \sqrt{\frac{\mu_0 \epsilon_R}{2}} \left[\sqrt{1 + \left(\frac{\
 %
 Ausbreitungsgeschwindigkeit:
 $$ v = \frac{\omega}{k_R} = v(\omega) = \frac{c}{n(\omega)} $$
+
+%Vorlesung 21.01. Vertretung von Prof Thoss
+
+\section{Allgemeine Lösung der Maxwell-Gl. - Retardierte Potentialen}
+
+Wir suchen Lösungen der Gleichungen:
+\begin{align*}
+\vabla \cdot \vec{B} &= 0 \qquad \qquad \quad \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0\\
+\vabla \cdot \vec{E} &= \frac{1}{\epsilon_0} \rho \qquad \qquad \vabla \times \vec{B} - \ub{\epsilon_0 \mu_0}_{\frac{1}{c^2}} \prt{\vec{E}}{t} = \mu_0 \vec{j}
+\end{align*}
+gegeben: $ f(\vec{r},t) , \vec{j}(\vec{r},t) $\\
+gesucht: $ \vec{E}(\vec{r},t), \vec{B}(\vec{r},t) $\\[5pt]
+zur formalen Lösung der Gleichungen verwenden wir die Potentiale $ \Phi , \vec{A} $ der Elektrodynamik
+\begin{equation*}
+\vec{B} = \vabla \times \vec{A} \qquad \qquad \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t}
+\end{equation*}
+Lorenzeichung:
+\begin{equation*}
+\vabla \cdot \vec{A} + \frac{1}{c^2} \prt{\Phi}{t} = 0
+\end{equation*}
+Aus den inhomogenen Gleichungen erhalten wir:
+\begin{equation*}
+\Delta \Phi - \frac{1}{c^2} \prt{^2 \Phi}{t^2} = - \frac{1}{\epsilon_0} \rho
+\end{equation*}
+\begin{equation*}
+\Delta \vec{A} - \frac{1}{c^2} \prt{^2 \vec{A}}{t^2} = - \mu \vec{j}
+\end{equation*}
+\emph{Nebenbemerkung:}
+\begin{equation*}
+\Delta \Psi (\vec{r},t) - \frac{1}{c^2} \prt{^2}{t^2} \Psi (\vec{r},t) \eqdef \square \Psi (\vec{r},t)
+\end{equation*}
+mit $ \square : $ \textbf{d'Alambert Operator}
+\begin{equation*}
+\square = \Delta - \frac{1}{c^2} \prt{^2}{t^2}
+\end{equation*}
+Aus der Elektro-/Magnetostatik ist bekannt:
+\begin{equation*}
+\prt{}{t} \Phi = 0 = \prt{}{t} \vec{A}
+\end{equation*}
+\begin{align*}
+\Delta \Phi(\vec{r}) &= - \frac{1}{\epsilon_0} \rho \qquad \tx{ Poisson-Gleichung}\\
+\Delta \vec{A}(\vec{r}) &= - \mu_0 \vec{j}
+\end{align*}
+Die Lösungen waren:
+\begin{equation*}
+\Phi(\vec{r}) = \Phi_{\tx{hom}}(\vec{r}) + \Phi_{\tx{inh}}
+\qquad \qquad
+\tx{mit}
+\qquad 
+\Phi_{\tx{inh}}(\vec{r}) = \kq \int \dd^3 \vec{r}' \frac{\rho(\vec{r}')}{| \vec{r} - \vec{r}' |}
+\end{equation*}
+sowie für das Vektorpotential:
+\begin{equation*}
+\vec{A}(\vec{r}) = \vec{A}_{\tx{hom}} (\vec{r}) + \vec{A}_{\tx{inh}} (\vec{r})
+\qquad \qquad 
+\tx{mit}
+\qquad
+\vec{A}_{\tx{inh}} (\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd ^3 \vec{r}' \frac{\vec{j}(\vec{r})}{| \vec{r} - \vec{r}' |}
+\end{equation*}
+und $ \Delta \vec{A}_{\tx{hom}}(\vec{r}) = 0 $\\[10pt]
+Wir können die Diskussion auf das skalare Potential $ \Phi $ beschränken:
+\begin{equation*}
+\Delta \Phi - \frac{1}{c^2} \prt{^2}{t^2} \Phi = - \frac{1}{\epsilon_0} \rho
+\end{equation*}
+$ \Phi(\vec{t},t) = \Phi_{\tx{hom}} + \Phi_{\tx{inh}} $\\
+wobei:\\
+$ \Phi_{\tx{hom}} : $ allgemeine Lösung der homogenen DGL $ \Delta \Phi_{\tx{hom}} - \frac{1}{c^2} \prt{^2}{t^2} \Phi_{\tx{hom}} = 0 $ \\
+$ \Phi_{\tx{inh}} : $ spezielle Lösung der inhomogenen DGL $ \Delta \Phi_{\tx{inh}} - \frac{1}{c^2} \prt{^2}{t^2} \Phi_{\tx{inh}} = - \frac{1}{\epsilon_0} \rho $\\[5pt]
+Lösung der homogenen Wellengleichung liefert z.B. Kugelwellen oder ebene Wellen:
+\begin{equation*}
+\Phi_{\tx{hom}}(\vec{r},t) = \Re \left\{ a e^{i(\vec{k} \cdot \vec{r} - \omega t)} \right\}
+\end{equation*}
+mit $ \vec{k} \in \mathbb{R}^3 $, $ |\vec{k}| = \frac{\omega}{c} $ bzw.: $ \omega(\vec{k}) = |\vec{k}| c $\\[5pt]
+Die allgemeine Lösung erhalten wir nun durch Linearkombination:
+\begin{equation*}
+\Phi_{\tx{hom}}(\vec{r},t) = \Re \left\{ \int \dd ^3 \vec{k} \ a (\vec{k}) e^{i (\vec{k} \cdot \vec{r} - \omega(\vec{k}) t)} \right\}
+\end{equation*}
+Bestimmung einer speziellen Lösung der inhomogenen Wellengleichung:
+\begin{equation*}
+\Delta \Phi - \frac{1}{c^2} \prt{^2}{t^2} \Phi = - \frac{1}{\epsilon_0} \rho
+\end{equation*}
+zur Lösung der DGL betrachten wir eine Fouriertransformation von $ \Phi (\vec{r},t) $ bezüglich der Variablen $ t $.
+\begin{equation*}
+\tilde{\Phi}(\vec{r},\omega) \defeq \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} \dd t \Phi (\vec{r},t) e^{i \omega t}
+\end{equation*}
+Man kann danach zurücktransformieren:
+\begin{equation*}
+\Phi (\vec{r},t) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \dd \omega \tilde{\Phi} (\vec{r},t) e^{- i \omega t}
+\end{equation*}
+wir können dies nun ineinander einsetzen um zu sehen ob dasselbe wieder herauskommt oder ob wir be der Berechnung etwas verloren haben.
+\begin{align*}
+\Phi(\vec{r},t) &= \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} \dd \omega \left\{ \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} \dd t' \Phi(\vec{r},t) e^{i \omega t}\right\} e^{- i \omega t} \\
+&= \int_{- \infty}^{\infty} \dd t' \Phi(\vec{r},t) \ub{\frac{1}{2 \pi} \int_{-\infty}^{\infty} \dd \omega e^{i \omega (t - t')}}_{= \delta(t - t')}\\
+&= \Phi (\vec{r},t)
+\end{align*}
+Somit haben wir keine Information gewonnen oder erzeugt. Wir haben den Ausdruck lediglich in eine andere Darstellung umgeformt.\\[5pt]
+Wir setzen nun die Fourierdarstellung in die DGL ein:
+\begin{align*}
+\prt{^2}{t^2} \Phi(\vec{r},t) &= \frac{1}{\sqrt{2 \pi}} \int \dd \omega \tilde{\Phi} (\vec{r},t) \ub{\prt{^2}{t^2} e^{- i \omega t}}_{= - \omega^2 e^{- i \omega t}}\\
+&= \frac{1}{\sqrt{2 \pi}} \int \dd \omega (- \omega ^2) \tilde{\Phi} (\vec{r},t) e^{- i \omega t}
+\end{align*}
+Damit gilt:
+\begin{align*}
+& \frac{1}{\sqrt{2 \pi}} \int \dd \omega e^{- i \omega t} \left(\Delta + \frac{\omega^2}{c^2}\right) \tilde{\Phi} (\vec{r},t) = - \frac{1}{\epsilon_0} \rho (\vec{r},t)\\
+\overset{\substack{\tx{Fourriertrafo.} \\ \tx{von } \rho}}{=} & \frac{1}{\sqrt{1 \pi}} \int \dd \omega e^{- i \omega t} \left(- \frac{1}{\epsilon_0}\right) \tilde{\Phi} (\vec{r},\omega)
+\end{align*}
+\frbox{Helmholtz-Gleichung}{
+\begin{equation*}
+\Rightarrow \quad \left(\Delta - \frac{\omega^2}{c^2}\right) \tilde{\Phi} (\vec{r},t) = - \frac{1}{\epsilon_0} \tilde{\Phi} (\vec{r},\omega)
+\tag{*}
+\label{Helmholtz}
+\end{equation*}
+}
+
+\noindent
+Zur Bestimmung der Lösung von \eqref{Helmholtz} betrachten wir zunächst eine Analogie zur Elektrostatik: $ \omega \to 0 \quad (\widehat{=} \ \prt{}{t} = 0) $
+\begin{equation*}
+\Rightarrow \quad \Delta \tilde{\Phi} = - \frac{1}{\epsilon_0} \tilde{\rho} \qquad \tx{Poisson-Gleichung}
+\end{equation*}
+spezielle Lösung (ohne Randbedingungen)
+\begin{equation*}
+\tilde{\Phi} (\vec{r},\omega = 0) = \kq \int \dd^3 r' \frac{\rho(\vec{r}')}{| \vec{r} - \vec{r}' |} = \int \dd^3 r' \grr \rho(\vec{r}')
+\end{equation*}
+mit der Green'schen Funktion:
+\begin{equation*}
+\grr = \kq \frac{1}{| \vec{r} - \vec{r}' |}
+\end{equation*}
+Diese erfüllt die Laplace Gleichung:
+\begin{equation*}
+\Delta_{\vec{r}} \grr = - \frac{1}{\epsilon} \delta(\vec{r} - \vec{r}')
+\end{equation*}
+Wir benötigen eine Verallgemeinerung für $ \omega \neq 0 $:
+\begin{equation*}
+\left(\Delta_{\vec{r}} + \frac{\omega^2}{c^2}\right) \gre_{\omega} (\vec{r}, \vec{r}') = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
+\end{equation*}
+Es zeigt sich, dass gilt:
+\begin{equation*}
+\left(\Delta_{\vec{r}} + \frac{\omega^2}{c^2}\right) \kq \frac{e^{\pm i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} = - 4 \pi \delta(\vec{r} - \vec{r}') = \grr
+\end{equation*}
+Mit $ k = \frac{\omega}{c} $ folgt daraus:
+\begin{equation*}
+\left(\Delta_{\vec{r}} + \frac{\omega^2}{c^2}\right) \kq \frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} = - \frac{1}{\epsilon} \delta(\vec{r} - \vec{r}')
+\end{equation*}
+und somit:
+\begin{equation*}
+\tilde{\Phi} (\vec{r},\omega) = \kq \int \dd^3 r' \ub{\frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|}}_{\gre_{\omega} (\vec{r},\vec{r}')} \tilde{\rho}(\vec{r}',\omega)
+\end{equation*}
+\lcom{Da die Lösung gleich der Green'scen Funktion ($ \gre_{\omega} $) mal der inhomogenität ($ \tilde{\rho} $) ist.}\\[5pt]
+Für das Potential $ \Phi $ erhalten wir nun durch Rücktransformation:
+\begin{align*}
+\Phi (\vec{r},t) &= \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} \dd \omega \tilde{\Phi} (\vec{r},\omega) e^{- i \omega t}\\
+&= \frac{1}{\sqrt{2 \pi}} \int \dd \omega \kq \frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} e^{- i \omega t} \tilde{\rho} (\vec{r}' , \omega)\\
+&= \kq \int \dd^3 r' \frac{1}{|\vec{r} - \vec{r}'|} \ub{\frac{1}{\sqrt{2 \pi}} \int \dd \omega \tilde{\rho} (\vec{r}', \omega) e^{- i \omega (t - \frac{|\vec{r} - \vec{r}'|}{c} )}}_{= \rho(\vec{r}', t - \frac{1}{c} |\vec{r} - \vec{r}'|)}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \Phi(\vec{r},t) = \kq \int\dd^3 r' \frac{\rho(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+wie in der Elektrostatik, aber:
+\begin{equation*}
+t \to \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c}
+\end{equation*}
+\lcom{Die neue Zeit ist also die alte Zeit minus der räumliche Abstand durch die Ausbreitungsgeschwindigkeit also die alte Zeit minus die Zeit in der die Änderung voranschreiten konnte.}\\[5pt]
+physikalische Bedeutung:
+%
+%
+%
+% T1
+%
+%
+%
+Betrachte Änderung der Ladungsverteilung $ \rho $ in $ \vec{r}' $ zur Zeit $ \tilde{t} $.\\
+$ \Rightarrow $ Die Änderung des elektro-magnetischen Feldes (oder $ \Phi $) verbreitet sich mit Lichtgeschwindigkeit $ c $. In der Entfernung $ |\vec{r} - \vec{r}'| $ ändert dich das Feld erst zur späteren Zeit $ t = \tilde{t} + \frac{|\vec{r} - \vec{r}'|}{c} $. Wegen der verzögerten Änderung heißt die Potential-Lösung auch \textbf{retardierendes Potential}.
+\vspace{5pt}
+\frbox{Retardierendes Potential}{
+\begin{equation*}
+\Phi_{\tx{ret}} (\vec{r},t) = \kq \int \dd^3 r' \frac{\rho (\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+}
+\noindent
+Dies ist eine spezielle Lösung der inhomogenen Wellengleichung:
+\begin{equation*}
+\left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \Phi = - \frac{1}{\epsilon_0} \rho(\vec{r},t)
+\end{equation*}
+Die entsprechende Lösung der Gleichung für das Vektorpotential $ \vec{A} $:
+\begin{equation*}
+\left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \vec{A} = - \mu_0 \vec{j}(\vec{r},t)
+\end{equation*}
+ist:
+\vspace{5pt}
+\frbox{Retardierendes Vektorpotential}{
+\begin{equation*}
+\vec{A}_{\tx{ret}} (\vec{r},t) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+}
+\noindent
+Damit haben wir die spezielle oder auch partikuläre Lösung der inhomogene Wellengleichung gefunden.\\[10pt]
+Die Felder erhalten wir gemäß:
+\begin{equation*}
+\vec{B} = \vabla \times \vec{A} \qquad \vec{E} = - \vabla \Phi - \prt{A}{t}
+\end{equation*}
+\vspace{10pt}
+
+\noindent
+\emph{Bemerkung:} Wir haben vorhin nur die Lösung mit $ e^{+ i \frac{\omega}{c} |\vec{r} - \vec{r}'|} $ betrachtet, die uns auf die retardierenden Potentiale geführt hat. Die andere Lösung mit $ e^{- i \frac{\omega}{c} |\vec{r} - \vec{r}'|} $ würde uns auf andere Potentiale führen: \textbf{avancierte Potentiale}
+\begin{equation*}
+\Phi_{\tx{av}} (\vec{r},t) = \kq \int \dd^3 r' \frac{\rho(\vec{r}', t + \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+Diese Lösung der avancierten Potentiale führt uns darauf, dass die Änderung von $ \rho $ für $ \tilde{t} = t + \frac{|\vec{r} - \vec{r}'|}{c} > t $ die Felder zu einem früheren Zeitpunkt $ t $ beeinflusst. Dies \textbf{widerspricht dem Kausalitätsprinzip} und wurde deshalb vorhin von uns ignoriert. Die Lösung ist dennoch hilfreich falls man ein Problem nur mit der allgemeinen Lösung ($ \pm $) Lösen kann (Siehe: Feldtheorie, S-Matrix-Formalismus).
