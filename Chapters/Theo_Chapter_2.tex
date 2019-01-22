@@ -79,7 +79,7 @@ Strom: $ I = \frac{\Delta q}{\Delta t} = q \cdot n \cdot v \cdot F $
 
 \begin{minipage}{.5\linewidth}
 	\begin{equation*}
-	j = \frac{\tx{Strom}}{\tx{Fläche}} = \frac{I}{F}
+	\vec{j} = \frac{\tx{Strom}}{\tx{Fläche}} = \frac{I}{F}
 	\end{equation*}
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
@@ -97,7 +97,7 @@ Strom: $ I = \frac{\Delta q}{\Delta t} = q \cdot n \cdot v \cdot F $
 	\end{tikzpicture}
 \end{minipage}%
 \\
-\emph{Beispiel:} $ j = q \cdot n \cdot v $\\
+\emph{Beispiel:} $ \vec{j} = q \cdot n \cdot v $\\
 \lcom{Die Stromdichte soll eine vektorielle Größe sein um die Richtung des Stromes mit einzubeziehen.}
 \begin{equation*}
 \vec{j}(\vec{r},t)
@@ -118,7 +118,7 @@ Punktladungen $ q_i $ mit Ortsvektoren $ \vec{r}_i $ und Geschwindigkeiten $ \ve
 \rho(\vec{r},t) = \sum_i q_i \delta(\vec{r} - \vec{r}_i(t)) 
 \end{equation*}
 \begin{equation*}
-\vec{j}(\vec{r},t) = \sum_i q_i \vec{r}_i \delta(\vec{r} - \vec{r}_i(t))
+\vec{j}(\vec{r},t) = \sum_i q_i \dot{\vec{r}}_i \delta(\vec{r} - \vec{r}_i(t))
 \end{equation*}
 \begin{minipage}{.6\linewidth}
 	\subsubsection{Linienströme}
@@ -169,7 +169,7 @@ Punktladungen $ q_i $ mit Ortsvektoren $ \vec{r}_i $ und Geschwindigkeiten $ \ve
 
 \noindent
 \begin{align*}
-& \int \dd^3 r \vec{j}(\vec{r},t) j(\vec{r})\\
+& \int \dd^3 r \vec{j}(\vec{r},t) h(\vec{r})\\
 =& \int \dd s \dd f \vec{j}(\vec{r},t) h(\vec{r})\\
 =& \int \dd s \dd \vec{f} \frac{\vec{j}}{|\vec{j}|} \vec{j} h\\
 =& \int_x \ub{\dd s \frac{\vec{j}}{|\vec{j}|}}_{= \dd \vec{r}} h(\vec{r}) \ub{\int \dd \vec{f} \cdot \vec{j}(\vec{r},t)}_{= I(\vec{r},t)}\\
@@ -209,7 +209,7 @@ effektiv gilt also:
 \\
 Strom von Ladungen aus $ V $ (durch $ \partial V $):
 \begin{equation*}
-\int_{\partial V} \dd \vec{f} \cdot \vec{j}(\vec{r},t)
+I = \int_{\partial V} \dd \vec{f} \cdot \vec{j}(\vec{r},t)
 \end{equation*}
 in abgeschlossenen Systemen gilt: Die Ladung ist konstant:\\[10pt]
 \begin{minipage}{.35\linewidth}
@@ -248,10 +248,10 @@ für beliebige $ V $
 \subsection{Magnetostatik}
 
 Stationärer (zeitunabhängigen) Fall
-$$\underline{\rho = \rho(\vec{F}), \quad \vec{j} = \vec{j}(\vec{r})}$$
+$$\underline{\rho = \rho(\vec{r}), \quad \vec{j} = \vec{j}(\vec{r})}$$
 $$\prt{}{t}\rho = 0 \quad \Rightarrow \quad \vabla \cdot \underbrace{\vec{j}(\vec{r})}_{\mathclap{\textrm{Stationäre Ströme}}} = 0$$
 Konsequenz: Durch jeden Querschnitt eines Leiters fließt der selbe Strom.
-$$0 = \int_V \difi{^3 r} \vabla\cdot\vec{j} = \int_{\partial V} \difi{\vec{f}} \cdot \vec{j} = \int_{F_1} \difi{\vec{f}} \cdot \vec{j} + \int_{F_2}\difi{\vec{f}} \cdot \vec{j} = -I_i + I_2$$
+$$0 = \int_V \difi{^3 r} \vabla\cdot\vec{j} = \int_{\partial V} \difi{\vec{f}} \cdot \vec{j} = \int_{F_1} \difi{\vec{f}} \cdot \vec{j} + \int_{F_2}\difi{\vec{f}} \cdot \vec{j} = -I_1 + I_2$$
 $$\Rightarrow I_1 = I_2$$
 
 % Vorlesung 03.12.18 (21 days until christmas)
@@ -280,7 +280,7 @@ stationärer Strom in Leiter $ \rightarrow $ Magnetfeld\\
 		\draw[->] (0,0) -- (-1,-1) node[anchor=north east] {$ x $};
 		\draw[thick, ->] (0,0) -- node[above] {$ \vec{r} $} (1,.7);
 		\draw[thick, ->] (1,.7) -- node[anchor=south west] {$ \dd\vec{B} $} ++(-.7,.7);
-		\draw[thick, ->] (0,0) -- node[anchor=north east] {$ \vec{r}_i $} (.5,-1);
+		\draw[thick, ->] (0,0) -- node[anchor=north east] {$ \vec{r}' $} (.5,-1);
 		\draw[very thick, ->] (.5,-1) -- node[anchor=north west] {$ \dd \vec{l}' $} ++(.5,.5);
 		\draw[thick] (-1,-2) to[out=20,in=-135] (.5,-1) to[out=45,in=-110] (2,1);
 		\draw[->] (-1,-2) to[out=20,in=-145] (-.3,-1.67) node[below=5pt] {$ I $};
@@ -317,7 +317,7 @@ Für eine ausgedehnte Stromdichte $ \vec{j}(\vec{r}) $ gilt:
 \end{equation*}
 Ähnlich in der Elektrostatik:
 \begin{equation*}
-\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 r' \rho(\vec{r}) \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dd^3 r' \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
 \end{equation*}
 Hier ist $ \rho(\vec{r}) $ aber ein Skalarfeld. $ \vec{j}(\vec{r}) $ ist ein Vektorfeld! Deshalb ist die Berechnung von Magnetfeldern komplizierter.\\[5pt]
 \begin{minipage}{.7\linewidth}
@@ -404,7 +404,7 @@ In Zylinderkoordinaten:
 		\draw[->] (.5,\y) -- ++(1.5,0);
 		\node[right] at (2,1.2) {$ \vec{B} $};
 		\coordinate (o) at (1,-1);
-		\draw[thick, ->] (-1,-.5) to[out=-30,in=180] (o) to[out=0,in=-150] (3,-.5) to[out=30,in=-170] (3.5,-.25) node[anchor=north west] {$ I $};
+		\draw[thick, ->] (-1,-.5) to[out=-30,in=180] (o) to[out=0,in=-150] (3,-.5) to[out=30,in=-120] (3.5,0) node[anchor=north west] {$ I $};
 		\draw[blue,thick, ->] ($ (o) + (.5,0.02) $) -- node[left] {$ \dd \vec{F} $} ++(0,.5);
 		\draw[red,thick, ->] ($ (o) + (.5,0.02) $) -- node[below,xshift=10pt] {$ \dd \vec{l} $} ++(1,.1);
 	\end{tikzpicture}
