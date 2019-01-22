@@ -1188,7 +1188,7 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 \begin{minipage}{.6\linewidth}
 	%t12:
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=.8]
 	\coordinate (o) at (0,0);
 	\coordinate (O) at (-4,-2);
 	\draw[fill=gray!7.5] (-3,-1.4) -- (1.5,-1.4) -- (3,1.4) -- (-1.5,1.4) -- (-3,-1.4);
@@ -1204,17 +1204,18 @@ $ \rightarrow $ Diskontinuitäten von $ \vec{E} $\\
 	\draw[red,dashed] (1,-2) -- (1,0);
 	\draw[red,thick,->] (o) -- ++(0,3) node[anchor=west] {$ \vec{n}_+ $};
 	\draw[blue,thick,->] (o) -- ++(0,-3) node[anchor=east] {$ \vec{n}_- $};
-	\draw[thick,->] (O) -- (o) node[xshift=-60pt,yshift=-20pt] {$ \vec{r} $};
+	\draw[thick,->] (O) -- (o) node[xshift=-70pt,yshift=-20pt] {$ \vec{r} $};
 	\node[right] at (o) {$ F $};
 	\node[anchor=north west] at ($ (o) + (0,1.2) $) {$ \partial V_+ $};
 	\node[anchor=north west] at ($ (o) + (0,-.8) $) {$ \partial V_- $};
-	\draw[decorate, decoration={brace,amplitude=10pt,mirror,raise=2pt}, xshift=-4pt,red]  (-1,2) -- node[left=12pt] {$\Delta z$}  (-1,-2);
+	\draw[decorate, decoration={brace,amplitude=10pt,mirror,raise=2pt}, xshift=-10pt,red]  (-1,2) -- node[left=20pt] {$\Delta z$}  (-1,-2);
 	\node at (2.2,1) {$ \sigma(\vec{r}) $};
 	\draw ($ (o) + (.5,.3) $) to[out=30,in=150] (2.7,0) node[right] {$ V = \Delta z \cdot F $};
 	\node[circle,fill=blue,inner sep=1pt,minimum size=1pt] at (0,-2) {};
 	\node[circle,fill=red,inner sep=1pt,minimum size=1pt] at (0,2) {};
 	\end{tikzpicture}
 \end{minipage}%
+\vspace{-10pt}
 \begin{align*}
 \int_V \dd^3 r'\ \vabla \cdot \vec{E}(\vec{r'}) &= \int_{\partial V} \dd\vec{f}'\ \vec{E}(\vec{r})\\
 &=\custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\textrm{Mantel}} \dd\vec{f}'\ \vec{E}}{\hspace{-23.5pt}0} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_+} \dd\vec{f}'\ \vec{E}(\vec{r})}{\int_F \dd f'\ \vec{n} \cdot \vec{E}_+} + \custo{\overset{\rotatebox{90}{$\scriptscriptstyle{\Delta z \to 0}$}}{\longrightarrow}}{\int_{\partial V_-} \dd\vec{f}'\ \vec{E}}{- \int_F \dd f'\ \vec{n} \cdot \vec{E}_-}
@@ -1245,7 +1246,7 @@ E_{\perp_\pm} = \vec{n} \cdot \vec{E}_{\pm} \qquad E_{\perp_+}(\vec{r}) - E_{\pe
 \end{minipage}%
 \begin{minipage}{.6\linewidth}
 	\centering
-	\begin{tikzpicture}[scale=1.25]
+	\begin{tikzpicture}[scale=1.15]
 		\draw (-2,1) to[out=-10,in=135] (0,0) to[out=-45,in=100] (1,-2);
 		%\draw (-.3,1.25) -- (1.25,.3) -- (.3,-1.25) -- (-1.25,-.3) -- (-.3,1.25);
 		\draw[->] ($ (0,0) + (-.25,1.25) + (-45:2cm) + (-135:1.5cm) $) -- ($ (0,0) + (-.25,1.25) + (-45:2cm) + (-135:.6cm) $);
@@ -3366,7 +3367,7 @@ Erinnerung: mikroskopische Feldgleichungen
 \vabla \cdot \vec{E} = \frac{1}{\epsilon_0} \rho \quad \rightarrow \quad \vec{n} \cdot (\vec{E}_1 - \vec{E}_2) = \frac{\sigma}{\epsilon_0}
 \end{equation*}
 \begin{equation*}
-\vabla \times \vec{E} = 0 \quad \Rightarrow \quad \vec{t} (\vec{E}_1 - \vec{E}_2) = 0
+\vabla \times \vec{E} = 0 \quad \Rightarrow \quad \vec{t} \cdot (\vec{E}_1 - \vec{E}_2) = 0
 \end{equation*}
 für makroskopische Feldgleichungen:
 \begin{equation*}
@@ -3445,7 +3446,7 @@ Für den linken Bereich gilt (analog auch rechts):
 \end{equation*}
 Für den mittleren Bereich:
 \begin{equation*}
-\prd{D_x}{x} = \vabla \cdot \vec{D}_m = 0
+\prd{D_x}{x} = \vabla \cdot \vec{D}_M = 0 % das m hier war klein aber alle anderen sind groß ... :
 \end{equation*}
 \begin{equation*}
 \rightarrow \vec{D}_M = \sigma \vec{e}_x
@@ -3496,7 +3497,7 @@ Für den mittleren Bereich:
 \subsubsection{Spannung und Kapazität}
 
 \begin{equation*}
-\vec{E} = \vabla \cdot \Phi \qquad \Phi(x) = - \frac{\sigma}{\epsilon} x
+\vec{E} = - \vabla \cdot \Phi \qquad \Phi(x) = - \frac{\sigma}{\epsilon} x
 \end{equation*}
 \begin{equation*}
 U = \Phi(0) - \Phi(d) = \frac{\sigma d}{\epsilon} = \frac{q}{\epsilon F} d = \frac{1}{\epsilon_r} \ub{\frac{q}{\epsilon_0 F} d}_{U_{\tx{vak}}} \le U_{\tx{vak}}
@@ -3555,7 +3556,7 @@ im Vakuum:
 \begin{equation*}
 W = \frac{\epsilon_0}{2} \int_V \dd^3r \left(\vec{E}(\vec{r})\right)^2
 \end{equation*}
-(Bei komplexem Feld Betragsquadrat nehmen $ |\vec{E}(\vec{r})|^2 $. Dies ist nur ein technischer Trick, das $ \vec{E} $-Felder Reell sind)\\[5pt]
+(Bei komplexem Feld Betragsquadrat nehmen $ |\vec{E}(\vec{r})|^2 $. Dies ist nur ein technischer Trick, da $ \vec{E} $-Felder Reell sind)\\[5pt]
 makroskopisches Feld in Medien:
 \begin{equation*}
 W = \frac{1}{2} \int_V \dd^3r \equalto{\vec{D}}{\epsilon \vec{E}} \cdot \vec{E} = \frac{\epsilon}{2} \int_V \dd^3 r \left(\vec{E}(\vec{r})\right)^2

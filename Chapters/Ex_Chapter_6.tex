@@ -21,7 +21,7 @@
 	\lcom{Diese aussage gilt für alle Operatoren, nicht nur Hermitesche.}
 	\item Die Zeitentwicklung der Zustände bzw. Wellenfunktionen wird durch die Schrödinger-Gleichung beschrieben:\\
 	DGL $\overbrace{\prt{}{t}}^{\tx{1. ord}}$
-	\item Bei Messungen der Observablen $ \hat{A} $ für ein System im Zustand $ |\Psi \rangle $ bzw. der Wellenfunktion $ \Psi $ erhält man mit der Wahrscheinlichkeit $ p_n = |(\Psi_n, \Psi)|^2 $ bzw. $ p_n = |\langle \Psi_n | \Psi \rangle |^2 $ den Eigenwert $ a_n : $ der Zustand des Systems geht in die zugeordnete Eigenfunktion $ \Psi_n $ bzw. $ |\Psi_n\rangle $ über (Messprozess $ \rightarrow $ Kollaps der Wellenfunktion).
+	\item Bei Messungen der Observablen $ \hat{A} $ für ein System im Zustand $ |\Psi \rangle $ bzw. der Wellenfunktion $ \Psi $ erhält man mit der Wahrscheinlichkeit $ p_n = |(\Psi_n, \Psi)|^2 $ bzw. $ p_n = |\langle \Psi_n | \Psi \rangle |^2 $ den Eigenwert $ a_n : $ der Zustand des Systems geht in die zugeordnete Eigenfunktion $ \Psi_n $ bzw. $ |\Psi_n\rangle $ über (Messprozess $ \rightarrow $ Kollaps der Wellenfunktion). \label{Axiom5}
 \end{enumerate}
 Außerdem gilt: Der Erwartungswert $ \langle \hat{A} \rangle $ der Observablen $ \hat{A} $ ist der Mittelwert der Messergebnisse $ a_n $ von sehr vielen (gleichen) Experimenten $ \langle \hat{A} \rangle = \sum_n p_n a_n $.
 
@@ -226,7 +226,7 @@ $ \rmbox{\vec{F} = m \vec{a}} $
 	Der Ort der Teilchens ergibt sich aus Axiom V)
 	$$p(\vec{r}) = |(\Psi_{\vec{r}}|\Psi)|^2 = |\Psi(\vec{r},t)|^2$$
 	\item $\Psi(\vec{r},t)$ hängt \color{red} NUR \color{black} von $\vec{r}$ und $t$ ab, \color{red} NICHT \color{black} von z.B. $\vec{p}, E, \dots$\\
-	Der Impuls des Teilchens ergibt sich aus Axiom V)
+	Der Impuls des Teilchens ergibt sich aus Axiom \ref{Axiom5}
 	$$p(\vec{p}) = |(\Psi_p | \Psi)|^2 = \cancel{| \Psi(p,t)|^2}$$
 \end{itemize}
 
@@ -240,6 +240,7 @@ Wir betrachten ein freies Teilchen $ \widehat{=} $ Ebene Welle $ \quad \Psi(\vec
 \begin{equation*}
 \hat{\vec{r}} \Psi = \vec{r} \Psi \quad \tx{ nach Konst}
 \end{equation*}
+\lcom{Dies geht, da der Ortsoperator auf $ \Psi $ angewendet gleich $ \vec{r} \Psi $ ist.}
 
 \subsubsection{Impulsoperator}
 
@@ -391,7 +392,7 @@ F1 ist äquivalent zu F2\\[10pt]
 \begin{description}
 	\item[Zustand, Wellenfunktion, Darstellung] $|\Psi\rangle = \sum_k \Psi_k|k\rangle$ oder $|\Psi\rangle = \int \Psi(k)|k\rangle \dif k$
 	\item[Operatoren] $\Psi' = \hat O \Psi, \quad |\Psi'\rangle = \hat O| \Psi\rangle$
-	\item[Messung] Axiom V
+	\item[Messung] Axiom \ref{Axiom5}
 	\item[Bewegung] const. $i\hbar \prt{}{t}|\Psi,t\rangle = \hat \ham |\Psi,t\rangle$
 	$$\tx{ plus } \quad \prt{}{t}\hat \ham = 0 \quad E|\Psi\rangle = \hat \ham|\Psi\rangle, \quad |\Psi,t\rangle = e^{\frac{i}{\hbar}Et}|\Psi\rangle$$
 \end{description}
@@ -487,6 +488,8 @@ $ \alpha^2 + \beta^2 = 1 : $ Normierung\\[5pt]
 	\begin{equation*}
 	\alpha = \langle \: \uparrow | \Psi \rangle \qquad \beta = \langle \: \downarrow | \Psi \rangle
 	\end{equation*}
+	%%% (1)
+	Analogie Vektorraum: $ \vec{v} = \alpha \vec{e}_1 + \beta \vec{e}_2 \quad \Rightarrow \alpha = \vec{e}_1^\top \cdot \vec{v} \quad \beta = \vec{e}_2^\top \cdot \vec{v} $ 
 \end{itemize}
 \textbf{Wellenfunktion:}\\[5pt]
 \begin{minipage}{.6\linewidth}
@@ -516,3 +519,197 @@ $ \alpha^2 + \beta^2 = 1 : $ Normierung\\[5pt]
 	\end{tikzpicture}
 \end{minipage}%
 \\
+
+% Vorlesung 22.01.
+
+%%% (1) oben Nachtrag
+
+\noindent
+man kann auch $ \hat{S}_x | \uparrow \rangle = \ ??? $ ausrechnen. (siehe Quantenmechanik 2)
+
+\subsection{Messung des Elektronenspins}
+
+Wahrscheinlichkeitsinterpretation der Wellenfunktion $ \Psi $ und Axiom \ref{Axiom5}.\\[5pt]
+Was ist eine Eigenwertgleichung:\\
+\begin{description}
+	\item[Vektorraum:]
+	$$ \overset{\circ}{A} \vec{v} = \lambda \vec{v} \quad \Rightarrow \quad \lambda_n, \vec{v}_n \qquad \qquad \overset{\circ}{A} \overset{\vec{x}}{\rightarrow} \vec{x}^\top \overset{\circ}{A} \vec{x} = \begin{pmatrix}
+	\lambda_1 \\
+	& \lambda_2 \\
+	& & \lambda_3
+	\end{pmatrix} $$
+	\lcom{Da $ \overset{\circ}{A} $ hermitesch sein muss (Observable) ist die auch diagonalisierbar. Somit gibt es so viele Eigenwerte, wie hoch die Dimension der Matrix ist.}\\[5pt]
+	\item[Funktionenraum:]
+	$$ \left(\prt{^2}{\theta^2} + \frac{\cos \theta}{\sin \theta} \prt{}{\theta} + \frac{1}{\sin ^2 \theta} \prt{^2}{\Psi^2} \right) \mathcal{Y}_{lm}(0,1) = - l ( l + 1 ) \mathcal{Y}_{lm}(0,1) $$
+	\item[Hilberraum:]
+	$$ \hat{O} | \Psi \rangle = \lambda | \Psi \rangle \qquad \Rightarrow \quad \lambda_n, | \Psi_n \rangle $$
+	\item[Spin:] $ S = \frac{1}{2} \qquad \hat{S}_z |\Psi \rangle = S_z |\Psi \rangle $
+	\begin{align*}
+	\Rightarrow \quad \tx{Lösung:} \quad \hat{S}_z |\uparrow \rangle &= + \frac{1}{2} | \uparrow \rangle \qquad \Rightarrow \quad + \frac{1}{2}, | \uparrow \rangle\\
+	\hat{S}_z | \downarrow \rangle &= - \frac{1}{2} | \downarrow \rangle \qquad \Rightarrow \quad - \frac{1}{2} | \downarrow \rangle
+	\end{align*}
+\end{description}
+Übersetzt auf unseren Fall:
+\begin{equation*}
+| \Psi \rangle
+\end{equation*}
+%
+%
+%
+\hfw\\
+%
+%
+%
+$ \Rightarrow $ Wahrscheinlichkeit Wert
+\begin{align*}
+p(+\frac{1}{2}) \quad \tx{ also } \quad + \frac{1}{2} \tx{ zu messen } = \alpha^2 = | \langle \uparrow | \Psi \rangle | ^2\\
+p(-\frac{1}{2}) \quad \tx{ also } \quad - \frac{1}{2} \tx{ zu messen } = \beta^2 = |\langle \downarrow | \Psi \rangle | ^2
+\end{align*}
+Wellenfunktion für Spin $ \frac{1}{2} $ in Spin-Darstellung
+\begin{equation*}
+\Psi (x) = \left\{ \begin{array}{cc}
+\alpha & \tx{für } x = + \frac{1}{2} \\
+\beta & \tx{für } x = - \frac{1}{2} \\
+0 & \tx{sonst}
+\end{array} \right.
+\end{equation*}
+\begin{equation*}
+p(x) = | \Psi(x) |^2
+\end{equation*}
+\emph{Beispiele:}
+\begin{itemize}
+	\item Nehmen wir an: $ e $ befindet sich im Zustand $ | \Psi \rangle = | \uparrow \rangle \qquad \Rightarrow \quad \alpha = 1 \quad \beta = 0 $
+	\begin{align*}
+	p(\frac{1}{2}) &= 1 \\
+	p(-\frac{1}{2}) &= 0
+	\end{align*}
+	\emph{Bemerkung:}\\
+	Es muss gelten $ p(\frac{1}{2}) + p(-\frac{1}{2}) = 0 \tx{ und } \alpha^2 + \beta^2 = 1 $
+	\item $ e $ befindet sich im Zustand $ |\Psi \rangle = | \downarrow \rangle \qquad \Rightarrow \quad \alpha = 0 \quad \beta = 1 $
+	\begin{align*}
+	p(\frac{1}{2}) &= 0 \\
+	p(-\frac{1}{2}) &= 1
+	\end{align*}
+	\item $ e $ befindet sich im Zustand $ |\Psi \rangle = \frac{1}{\sqrt{2}} | \uparrow \rangle + \frac{1}{\sqrt{2}} | \downarrow \rangle \qquad \Rightarrow \quad \alpha = \beta = \frac{1}{\sqrt{2}} $
+	\begin{align*}
+	p(\frac{1}{2}) &= \frac{1}{2} \\
+	p(-\frac{1}{2}) &= \frac{1}{2}
+	\end{align*}
+	\begin{equation*}
+	p_n = | \langle \custo{\rightarrow}{\Psi_n}{\hat{A}} | \custo{\rightarrow}{\Psi_{\phantom{n}}}{|\Psi \rangle} \hspace{-3pt} \rangle | ^2
+	\end{equation*}
+\end{itemize}
+\lcom{Der Spin kann also \textbf{nach} der Messung nur einen von Zwei Zuständen haben.}\\[5pt]
+\textbf{Kollaps der Wellenfunktion}
+\begin{equation*}
+| \Psi \rangle \ \overset{\tx{Messung, Eingerwerte}}{\begin{tikzpicture}
+	\draw[thick,->] (0,0) -- (3,0);
+	\end{tikzpicture}} \ | \Psi_n \rangle
+\end{equation*}
+Die Messung ist nicht deterministisch aber die Schröginger-Gleichung ist deterministisch \Huge{\lightning} \normalsize
+
+\section{Einige einfache Quantensysteme}
+
+\begin{itemize}
+	\item wir benutzen $ \Psi(\vec{r},t) = \langle \vec{r}|\Psi \rangle $
+	\item ein Teilchen der Masse $ m $
+	\item eindimensionale Bewergung
+	\item nur $ t $-unabhängiger Hamiltonian\\
+	$ \Rightarrow $ Zeitunabhängige SGL\\
+	$ \Rightarrow $ stationäre Zustände
+\end{itemize}
+\begin{equation*}
+\rmbox{ E \Psi(x) = \left(-\frac{\hbar^2}{2m} \prt{^2}{x^2} + V(x)\right) \Psi(x) }
+\end{equation*}
+Physikalische Bedingungen an die Lösung:
+\begin{enumerate}[(1)]
+	\item Anschlussbedingungen an unstetigkeiten.\\
+	$ \Psi(x) $ und $ \Psi'(x) $ müssen stetig sein.
+	\item Gebundene Teilchen\\
+	$ \Rightarrow $ Lösungen müssen normierbar sein\\
+	$ \Psi(x \to \pm \infty) = 0 $
+\end{enumerate}
+\lcom{Die Wellenfunktionen von nicht gebundenen Teilchen sind auch normiert, allerdings ist dies nicht einfach so berechenbar. Eine freie EM-Welle im unendlichen Raum hätte folglich überall winzige Aufenthaltswahrscheinlichkeiten, da wir Quasi durch unendlich Teilen. Hierzu müsste man Randbedingungen oder ein endlich großes Universum einführen.}
+
+\subsection{Konstantes Potential \texorpdfstring{$ V(x) = V_0 $}{V(x) = V0}}
+
+Annahme: Teichen läuft von links nach rechts\\
+Ansatz: $ \Psi(x) = C e^{i k x} $\\
+SGL:
+\begin{equation*}
+E \Psi = \left(\frac{\hat{\vec{p}}^2}{2m} + \hat{V}_0\right) \Psi
+\end{equation*}
+$ \hat{V}_0 \Psi = V_0 \Psi \quad V(\hat{\vec{x}}) = V(x) \Psi(x) $\\
+Lösung: $ \hbar k = \sqrt{2 m (E - V_0)} $\\
+\emph{Bemerkung:}
+\begin{itemize}
+	\item $ \Psi(x,t) = e^{\frac{i}{\hbar} Et} \Psi(x) + \{ - k \} = C e^{\frac{i}{\hbar} (\hbar k x - Et)} + \{ - k \} $
+\end{itemize}
+
+\subsection{Potentialstufe}
+
+\begin{center}
+	%t1:
+	\begin{tikzpicture}
+		\draw[thick,blue] (-3,.025) -| (0,2) -- (3,2) node[right] {$ V(x) $};
+		\draw[thick,black!30!green,->] (-2.5,1) -- node[below] {Teilchen} ++(1,0);
+		\draw[->] (-3.25,0) -- (3.25,0) node[anchor=north west] {$ x $};
+		\draw (0,.1) -- ++(0,-.2) node[below] {$ 0 $};
+		\node[draw=black,circle, minimum size=.8cm,red] at (-1.5,-1) {I};
+		\node[draw=black,circle, minimum size=.8cm,red] at (1.5,-1) {II};
+		\draw[<->,blue] (1.5,.1) -- node[right] {$ V_0 $} (1.5,1.9); 
+	\end{tikzpicture}
+\end{center}
+klassisch:
+\begin{itemize}
+	\item $ E > V_0 : $ Teilchen fliegt weiter aber langsamer
+	\item $ E < V_0 : $ Teilchen wird reflektiert (an Wand umkehren)
+	$ \Rightarrow $ kann sich \textbf{nicht} im Bereich II aufhalten
+\end{itemize}
+Quantenmechanik:\\
+\folie{Reflektion und Transmission}
+\begin{itemize}
+	\item $ E > V_0 : $\\
+	Lösung in I:
+	\begin{equation*}
+	\Psi_{I}(x) = e^{i k x} + R e^{- i k x} \qquad \hbar k = \sqrt{2 m E}
+	\end{equation*}
+	Lösung in II:
+	\begin{equation*}
+	\Psi_{II}(x) = T e^{i q x} \qquad \qquad \hbar q = \sqrt{2 m (E - V_0)}
+	\end{equation*}
+	\lcom{Mit dem neuen Wellenvektor $ q $!}\\
+	Anschlussbedingungen: $ \Psi_{I}(0) = \Psi_{II}(0) $ und Ableitungen $ \Psi'_{I}(0) = \Psi'_{II}(0) $
+	\lcom{Hier kommen die Stetigkeitsbedingungen aus der Schrödinger-Gleichung statt wie in der Elektodynamik aus den Maxwell-Gleichungn.}
+	\begin{equation*}
+	\Rightarrow \quad \rmbox{ R = \frac{k - q}{k + q} \qquad T = \frac{2 k}{k + q} }
+	\end{equation*}
+	physikalische Bedeutung der Lösung:\\
+	mit der Wahrscheinlichkeit $ R^2 $ wird die Welle reflektiert \\
+	mit der Wahrscheinlichkeit $ T^2 $ wird die Welle transmittiert (läuft weiter)\\[5pt]
+	\emph{Bemerkung:}\\
+	Wann ist $ R^2 + T^2 \neq 1 $ ?\\
+	\lcom{Aufgrund der veränderten Wellenlänge muss mit eingerechnet werden.}\\
+	$ 1 - R^2 = \frac{q}{k} T^2 $
+	\item $ E < V_0 : $\\
+	gleicher Ansatz: aber Wellenvektor im Bereich II ist imaginär
+	\begin{equation*}
+	\Rightarrow \quad \Psi_{II}(x) = T e^{i q x} \equiv T e^{- \kappa x}
+	\end{equation*}
+	$ \hbar q \rightarrow - i \hbar \kappa $\\
+	$ \Rightarrow $ Welle im Bereich II fällt exponentiell ab\\
+	$ \Rightarrow $ $ q \to i \kappa $
+	\begin{equation*}
+	\Rightarrow \quad \rmbox{ R = \frac{k - i \kappa}{k + i \kappa} \qquad T = \frac{2 k}{k + i \kappa} }
+	\end{equation*}
+	$ |R|^2 = 1 $\\
+	\folie{Tunnel-Effekt}
+\end{itemize}
+\textbf{Fall einer unendlich hohen Potentialstufe} $ V_0 \to \infty $\\
+$ \Rightarrow \quad \gamma \to \infty $\\
+$ \Rightarrow \quad R = - 1 \quad T = 0$\\
+$ \Rightarrow \quad \Psi_{I}(x) = e^{i k x} - e^{- i k x} $\\
+$ \Rightarrow \quad \Psi_{II}(x) = 0 $
+
+
+
