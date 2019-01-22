@@ -928,21 +928,21 @@ $ \Psi_-(x,0) = f(x) \ \leftarrow t = 0 $\\
 \begin{center}
 	%t1:
 	%\begin{tikzpicture}
-	%\draw [domain=-4:4, samples=500,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25});
+	%\draw [domain=-4:4, samples=100,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25});
 	%\end{tikzpicture}
 	\begin{tikzpicture}
 		%rechts
 		%\draw[red,line width=1] (4,0) .. controls (3.2,0.2) and (2.8,1.8) .. (2,2);
 		%\draw[red,line width=1] (0,0) .. controls (0.8,0.2) and (1.2,1.8) .. (2,2);
-		\draw[domain=-5:2, samples=500, blue, thick] plot (\x, {2*exp(-(\x + 2)^(2)*0.8});
+		\draw[domain=-5:2, samples=80, blue, thick] plot (\x, {2*exp(-(\x + 2)^(2)*0.8});
 		%mitte
 		%\draw[line width=1] (-2,0) .. controls (-1.2,0.2) and (-0.8,1.8) .. (0,2);
 		%\draw[line width=1] (2,0) .. controls (1.2,0.2) and (0.8,1.8) .. (0,2);
-		\draw[domain=-5:5, samples=500, thick] plot (\x, {2*exp(-(\x + 0)^(2)*0.8});
+		\draw[domain=-5:5, samples=80, thick] plot (\x, {2*exp(-(\x + 0)^(2)*0.8});
 		%links
 		%\draw[blue,line width=1] (-4,0) .. controls (-3.2,0.2) and (-2.8,1.8) .. (-2,2);
 		%\draw[blue,line width=1] (0,0) .. controls (-0.8,0.2) and (-1.2,1.8) .. (-2,2);
-		\draw[domain=-2:5, samples=500, red, thick] plot (\x, {2*exp(-(\x - 2)^(2)*0.8});
+		\draw[domain=-2:5, samples=80, red, thick] plot (\x, {2*exp(-(\x - 2)^(2)*0.8});
 		%achsen
 		\draw[thick, <-] (5.5,0) node[anchor=north west] {$x$}-- (-5.5,0);
 		\draw[thick, ->] (0,0) node[below] {$0$} -- (0,3); % node[anchor=south east] {$y$};
@@ -969,19 +969,19 @@ Wellengleichungen sind linear $ \Rightarrow $ Linearkombinationen von Lösungen 
 	\begin{tikzpicture}
 		%\draw[line width=1,blue] (-4.5,0) .. controls (-3.3,0.1) and (-3.8,1.8) .. (-3,2);
 		%\draw[line width=1,blue] (-1.5,0) .. controls (-2.7,0.1) and (-2.2,1.8) .. (-3,2);
-		\draw[domain=-5:-1, samples=500, blue, thick] plot (\x, {2*exp(-(\x + 3)^(2)*2});
+		\draw[domain=-5:-1, samples=80, blue, thick] plot (\x, {2*exp(-(\x + 3)^(2)*2});
 		%
 		%\draw[line width=1] (-1.5,0) .. controls (-0.3,0.1) and (-0.8,1.8) .. (0,2);
 		%\draw[line width=1] (1.5,0) .. controls (0.3,0.1) and (0.8,1.8) .. (0,2);
-		\draw[domain=-2:2, samples=500, thick] plot (\x, {2*exp(-(\x + 0)^(2)*2});
+		\draw[domain=-2:2, samples=80, thick] plot (\x, {2*exp(-(\x + 0)^(2)*2});
 		%
 		%\draw[line width=1] (-3.5,0) .. controls (-1.2,0) and (-1.1,0.9) .. (0,1);
 		%\draw[line width=1] (3.5,0) .. controls (1.2,0) and (1.1,0.9) .. (0,1);
-		\draw[domain=-4:4, samples=500, thick] plot (\x, {1*exp(-(\x + 0)^(2)*.4});
+		\draw[domain=-4:4, samples=80, thick] plot (\x, {1*exp(-(\x + 0)^(2)*.4});
 		%
 		%\draw[line width=1,blue] (-1.5,0) .. controls (0.8,0) and (0.9,0.9) .. (2,1);
 		%\draw[line width=1,blue] (5.5,0) .. controls (3.2,0) and (3.1,0.9) .. (2,1);
-		\draw[domain=-3:5, samples=500, blue, thick] plot (\x, {1*exp(-(\x - 2)^(2)*.4});
+		\draw[domain=-3:5, samples=80, blue, thick] plot (\x, {1*exp(-(\x - 2)^(2)*.4});
 		%achsen
 		\draw[thick, <-] (5.5,0) node[anchor=north west] {$x$}-- (-5.5,0);
 		\draw[thick, ->] (0,0) node[below] {$0$} -- (0,3); % node[anchor=south east] {$y$};
@@ -1016,7 +1016,7 @@ falls $ \frac{\omega}{k} = v $\\
 	\begin{tikzpicture}[scale=.7]
 		\draw[<-] (4.5,0) node[anchor=north west] {$x$}-- (-4.5,0);
 		\draw[->] (-pi/2,-2) -- (-pi/2,2); % node[anchor=south east] {$y$};
-		\draw[thick,domain=-4.3:4.3, samples=500] plot (\x, {sin(2*\x r)});
+		\draw[thick,domain=-4.3:4.3, samples=80] plot (\x, {sin(2*\x r)});
 		\draw[dotted] (-2,-0.3) node[left] {$0$};
 		\draw[thick] (pi/2,0.15) -- (pi/2,-0.15) node[below] {$\lambda$};
 	\end{tikzpicture}
@@ -1037,10 +1037,10 @@ Die Kreisfrequenz $ \omega $, Frequenz $ \nu = \frac{\omega}{2 \pi} $, Schwingun
 	\begin{tikzpicture}
 		\draw[<-] (4.5,0) node[right] {$x$}-- (-4.5,0);
 		\draw[->] (-pi/4,-2) -- (-pi/4,2); % node[right] {$y$};
-		\draw[red,thick,domain=-4.5:4.3, samples=500] plot (\x, {sin(2*\x r)});
+		\draw[red,thick,domain=-4.5:4.3, samples=100] plot (\x, {sin(2*\x r)});
 		\draw[dotted] (-.8,-0.3) node[left] {$0$};
 		\draw[thick] (pi/2,0.15) -- (pi/2,-0.15) node[below] {$\lambda$};
-		\draw[thick,domain=-4.5:4.3, samples=500] plot (\x, {-sin(2*\x r)});
+		\draw[thick,domain=-4.5:4.3, samples=100] plot (\x, {-sin(2*\x r)});
 		\draw[dotted] (-0.4,1) node[above] {$v$};
 		\draw[dotted] (-2,1.5) node[above] {$\psi(x,0)$};
 		\draw (-1.2,1) -- (-2,1.5);
@@ -1328,7 +1328,7 @@ Physikalisches Feld:
 	\flushright
 	%t1:
 	\begin{tikzpicture}[scale=.8]
-		\draw[thick,fill=black!10!red!12!white, domain=-3.75:3.75, samples=500] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
+		\draw[thick,fill=black!10!red!12!white, domain=-3.75:3.75, samples=100] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
 		\draw[->] (-5,0) -- (5,0) node[anchor=north west] {$ x $};
 		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ y $};
 	\end{tikzpicture}
@@ -1356,7 +1356,7 @@ Physikalisches Feld:
 	\begin{tikzpicture}[scale=.7]
 		\draw[->] (-1,0) -- (9.5,0) node[anchor=north west] {$ r $};
 		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ |\vec{E}| $};
-		\draw[thick,domain=0.001:9.3, samples=500] plot (\x, {2 * cos(1 / 4 * 15 * (\x * .5) r) * exp(- (\x * .5)^(2) * 0.25 * (1) / (\x * 0.2) });
+		\draw[thick,domain=0.001:9.3, samples=100] plot (\x, {2 * cos(1 / 4 * 15 * (\x * .5) r) * exp(- (\x * .5)^(2) * 0.25 * (1) / (\x * 0.2) });
 		\draw[thick, dashed] (0,2) to[out=-28,in=178] (9.3,.2);
 		\draw (3,1) -- ++(30:1cm) node[anchor=south west] {$ \rho \sim \frac{1}{r} $};
 	\end{tikzpicture}
@@ -1601,12 +1601,12 @@ z.B. Wasser $ \ n_1 \approx 1{,}33 $, Luft $ \ n_2 \approx 1 $ $ \Rightarrow \th
 \begin{tikzpicture}
 \draw[->] (-5,0) -- (5,0);
 \draw[->] (0,-5) -- (0,5);
-\draw [domain=-3.75:3.75, samples=500] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
+\draw [domain=-3.75:3.75, samples=100] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
 \end{tikzpicture}
 \end{comment}
 % teyt of tikz plotting:
 %\begin{tikzpicture}
-%\draw [domain=-4:4, samples=500,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25 * cos(\x * 40)});
+%\draw [domain=-4:4, samples=100,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25 * cos(\x * 40)});
 %\end{tikzpicture}
 
 %Vorlesung 14.01.18
@@ -1961,24 +1961,35 @@ Nun noch eine Erklärung die etwas umständlicher ist: (Zu senkrechtem Einfall)\
 \section{Aspekte der Absorption und Dispersion elektromagnetischer Felder}
 
 bisher galt: freie Ausbreitung der EM-Wellen\\
-in Medien gilt:
-\textbf{Absorption:}
-%
-%
-%
-% T1
-%
-%
-%
-und\\
-\textbf{Dispersion:}
-%
-%
-%
-% T2
-%
-%
-%
+in Medien gilt:\\
+\begin{minipage}{.5\linewidth}
+	\textbf{Absorption:} 
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	$ \ \, $ und \textbf{Dispersion:}
+\end{minipage}%
+\\
+\begin{minipage}{.5\linewidth}
+	\flushleft
+	%t1:
+	\begin{tikzpicture}[xscale=.75,scale=.8]
+		\fill[gray!10!] (0,-1.5) rectangle (6.3,1.5);
+		\fill[pattern=north east lines,pattern color = gray!50!] (0,-1.5) rectangle (6.3,1.5);
+		\draw[thick] (0,-1.5) -- (0,1.5);
+		\draw[domain=-4.725:0, samples=100, thick] plot (\x, {sin((\x * 4) r)});
+		\draw[domain=0:6.3, samples=100, thick] plot (\x, {sin((\x * 4) r) * exp(-\x * 0.4)});
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t2:
+	\begin{tikzpicture}[scale=1.05]
+		\draw[fill=gray!10!] (0,0) -- ++(-60:2cm) -- ++(-180:2cm) -- cycle;
+		\draw[<-, thick] (-120:1cm) -- ++(-160:2cm) node[left] {$ h(\omega) , \epsilon(\omega) $};
+		\foreach \x\a in {.4/5, .5/-7.5, .6/-20}
+		\draw[->, thick] ($ (0,0)!\x!(-60:2cm) $) -- ++(\a:2cm) node[right] {$ \omega_1 $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \subsection{Elektromagnetische Wellen in elektrischen Leitern}
 
@@ -2023,6 +2034,7 @@ $ \eta : $ \textbf{verallgemeinerte Dielektrizitätskonstante}
 \Rightarrow \quad k^2 = \mu \eta \omega^2 = \mu \omega^2 \left(\epsilon + i \frac{\sigma}{\omega}\right)
 \end{equation*}
 }
+\noindent
 Hieraus folgt, dass $ \vec{k} $ komplex ist und einen Imaginärteil haben muss: $ k = k_{R} + i k_{I} $
 \begin{align*}
 \Rightarrow \quad k^2 &= k_R^2 - k_I^2 + 2 i k_R k_I\\
@@ -2036,22 +2048,32 @@ Hieraus folgt, dass $ \vec{k} $ komplex ist und einen Imaginärteil haben muss: 
 &= \vec{E}_0 e^{i((k_R + i k_I) r - \omega t)} \\
 &= \vec{E}_0 e^{-k_I z} e^{i(k_R r - \omega t)}
 \end{align*}
-%
-%
-%
-% T3
-%
-%
-%
-\textbf{Eindringtiefe:} $ d = \frac{1}{k_I} $\\[10pt]
-typische Werte:\\
-Kupfer: $ \sigma = 5{,}81 \cdot 10^{7} \ \frac{1}{\Omega \tx{m}} $\\
-\begin{tabular}{c|c}
-	$ \nu $ & $ d $ \\
-	\hline
-	1 MHz & 66 $ \mu $m \\
-	$ 6 \cdot 10^{14} $ Hz & 2,7 nm
-\end{tabular}\\[10pt]
+\begin{minipage}{.4\linewidth}
+	\textbf{Eindringtiefe:} $ d = \frac{1}{k_I} $\\[10pt]
+	typische Werte:\\
+	Kupfer: $ \sigma = 5{,}81 \cdot 10^{7} \ \frac{1}{\Omega \tx{m}} $\\
+	\begin{tabular}{c|c}
+		$ \nu $ & $ d $ \\
+		\hline
+		1 MHz & 66 $ \mu $m \\
+		$ 6 \cdot 10^{14} $ Hz & 2,7 nm
+	\end{tabular}\\[15pt]
+\end{minipage}%
+\begin{minipage}{.6\linewidth}
+	\flushright
+	%t3:
+	\begin{tikzpicture}[xscale=.8]
+		\fill[gray!10!] (0,-1.5) rectangle (6.3,1.5);
+		\fill[pattern=north east lines,pattern color = gray!50!] (0,-1.5) rectangle (6.3,1.5);
+		\draw[thick,->] (0,-1.7) -- (0,1.7);
+		\draw[thick,->] (-5,0) -- (6.7,0);
+		\draw[domain=-4.725:0, samples=100, thick] plot (\x, {sin((\x * 4) r)});
+		\draw[domain=0:6.3, samples=100, thick] plot (\x, {sin((\x * 4) r) * exp(-\x * 0.5)});
+		\draw[domain=0:6.3, samples=100, thick, dashed] plot (\x, {exp(- \x * 0.5)});
+		\draw (2.5,.5) to[out=40,in=-180] (3.5,1) node[right, fill=white, opacity=.8, rounded corners=5pt] {$ \propto e^{- i k z} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \emph{Bemerkung:}
 \lcom{Man kann Zeigen, dass, anders als im Vakuum, im Medium das $ \vec{B} $-Feld Phasenverschoben zum $ \vec{E} $-Feld ist. Wir werden hierauf aus Zeitgründen nicht genauer eingehen.}
 
@@ -2078,13 +2100,19 @@ All diese Gleichungen würde man für langsam schwingende Felder erhalten also f
 
 \subsubsection{Klassisches Oszillatormodell für die Bindung von Elektronen in Atomen}
 
-%
-%
-%
-% T4
-%
-%
-%
+\begin{center}
+	%t4:
+	\begin{tikzpicture}
+		\draw[domain=-3.15:3.15, samples=250, thick, draw=gray!70!] plot(\x, {1.5 * sin(\x * 8 r)});
+		\node at (2,-.7) {$ \vec{E}(\vec{r},t) $};
+		\coordinate (p) at (-1.5,-.8);
+		\coordinate (m) at (1.5,.8);
+		\draw[decorate,decoration={aspect=.5, segment length=4mm, amplitude=.5cm,coil},thick] ($ (p) + (30:0.15) $) -- ($ (m) + (30:0.15) $);
+		\node[circle,draw=black,fill=black!10!red] at (p) {$ + $};
+		\node[circle,draw=black,fill=black!10!blue] at (m) {$ - $};
+		\draw[thick,->] ($ (p) + (120:.8) $) -- node[above,xshift=2pt] {$ \vec{r} $} ($ (m) + (120:.8) $);
+	\end{tikzpicture}
+\end{center}
 $ \omega_0 : $ Frequenz\\
 $ \gamma : $ Dämpfung\\
 Dies können wir durch einen getriebenen, gedämpften, harmonischen Oszillator darstellen:
@@ -2129,50 +2157,103 @@ m ( - \omega^2 - i \gamma \omega + \omega_0^2) \vec{p}_0 e^{-i \omega t} = e^2 \
 \end{equation*}
 }
 Realteil:
-$$ \Re(\epsilon_r(\omega)) = 1 + \frac{Ne^2}{\epsilon_m} \frac{\omega_0^2 - \omega^2}{(\omega_0^2 - \omega^2) + \gamma^2 \omega^2} $$
+$$ \Re(\epsilon_r(\omega)) = 1 + \frac{Ne^2}{\epsilon_0 m} \frac{\omega_0^2 - \omega^2}{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} $$
 Imaginärteil:
-$$ \Im(\epsilon_r(\omega)) = \frac{N e^2}{\epsilon_0 m} \frac{\gamma \omega}{(\omega_0^2 - \omega^2) + \gamma^2 \omega^2} \quad \ \  $$
-%
-%
-%
-% T5
-%
-%
-%
-%
-%
-%
-% T6
-%
-%
-%
+$$ \Im(\epsilon_r(\omega)) = \frac{N e^2}{\epsilon_0 m} \frac{\gamma \omega}{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} \quad \ \  $$
+\begin{minipage}{.5\linewidth}
+	%t5:
+	\begin{tikzpicture}[scale=.7]
+		\draw[->] (-.1,0) -- (8,0) node[anchor=north west] {$ \omega $};
+		\draw[->] (0,-.1) node[below] {$ 0 $} -- (0,5) node[left] {$ \Re(\epsilon_r(\omega)) $};
+		\coordinate (R) at (0,4);
+		\coordinate (w) at (3,0);
+		\node[left] at (R) {$ \Re(\epsilon_r(0)) $};
+		\node[below] at ($ (w) + (-.1,0) $) {$ \omega_0 $};
+		\draw ($ (R) + (-.1,0) $) -- ++(.2,0);
+		\draw ($ (w) + (0,-.1) $) -- ++(0,.2);
+		\draw (-.1,1.5) node[left] {1} -- ++(.2,0);
+		%\draw[thick,looseness=.8] (R) to[out=0,in=-135] (1.5,2.8) to[out=45,in=-180] (2.5,3.8) to[out=0,in=100] (3,1.75);
+		%\draw[thick,looseness=1] (R) to[out=0,in=-135] (2.2,5) to[out=45,in=100] (2.8,5.8) to[out=-80,in=100] (3.2,0.2);
+		%\draw[domain=0:5, samples=100, thick] plot (\x, {(10 * (\x)) / ((4 - (\x)^2)^2 + 2 * (\x)^2))});
+		\draw[domain=0:8, samples=100, thick] plot (\x, {0.5 + 1 +  10 * (  4 - (\x * 0.668)^2) / ((4 - (\x * 0.668)^2)^2+ 2 * (\x * 0.668)^2)});
+		\draw[thick,dashed] (0,1.5) -- (8,1.5);
+		\draw[thick,dashed] (w) -- ++(0,2);
+		\draw[dashed] (1.7,0) -- ++(0,5);
+		\draw[dashed] (3.7,0) -- ++(0,5);
+		\node at (.9,5.5) {\small normal};
+		\node at (2.7,5.5) {\small anormal};
+		\node at (4.5,5.5) {\small normal};
+		\node at (7,5.4) {\small Dispersion};
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t6:
+	\begin{tikzpicture}[scale=.7]
+		\draw[->] (-.1,0) -- (8,0) node[anchor=north west] {$ \omega $};
+		\draw[->] (0,-.1) node[below] {$ 0 $} -- (0,5) node[anchor=south east] {$ \Im(\epsilon_r(\omega)) $};
+		\coordinate (w) at (3,0);
+		\node[below,yshift=-3pt] at ($ (w) + (-.1,0) $) {$ \omega_0 $};
+		\draw ($ (w) + (0,-.1) $) -- ++(0,.2);
+		%\draw[thick,looseness=.8] (R) to[out=0,in=-135] (1.5,2.8) to[out=45,in=-180] (2.5,3.8) to[out=0,in=100] (3,1.75);
+		%\draw[thick,looseness=1] (R) to[out=0,in=-135] (2.2,5) to[out=45,in=100] (2.8,5.8) to[out=-80,in=100] (3.2,0.2);
+		\draw[domain=0:8, samples=100, thick] plot (\x, {(13 * (\x * 0.63)) / ((4 - (\x * 0.63)^2)^2 + 2 * (\x * 0.63)^2))});
+		%\draw[domain=0:8, samples=100, thick] plot (\x, {0.5 + 1 +  10 * (  4 - (\x * 0.668)^2) / ((4 - (\x * 0.668)^2)^2+ 2 * (\x * 0.668)^2)});
+		\draw[dashed, thick] (w) -- ++(0,4);
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \emph{Bemerkung:} \textbf{Dispersion}\\
 Frequenzabhängigkeit von $ \epsilon = \epsilon (\omega) = \epsilon_R + i \epsilon_I $\\
 Brechungsindex $ n = \sqrt{\epsilon_r \mu_r} = n (\omega) $\\
 normale Dispersion: $ \prd{\epsilon_R}{\omega} > 0 $\\
 anormale Dispersion: $ \prd{\epsilon_R}{\omega} < 0 $\\[5pt]
-\textbf{Verallgemeinert auf U Elektronen im Atom:}\\
-$ f_j : $ Elektronen mit Frequenz $ \omega_j , \gamma_j $
-\begin{equation*}
-\epsilon_r(\omega) 1 + \frac{N e^2}{\epsilon_0 m} \sum_j \frac{f_j}{\omega_j^2 - \omega^2 - i \gamma_j \omega_j}
-\end{equation*}
-%
-%
-%
-% T7
-%
-%
-%
-Quantenmechanik:
-%
-%
-%
-% T8
-%
-%
-%
+\begin{minipage}{.5\linewidth}
+	\textbf{Verallgemeinert auf $ j $ Elektronen}\\
+	\textbf{im Atom:}\\
+	$ f_j : $ Elektronen mit Frequenz $ \omega_j , \gamma_j $
+	\begin{equation*}
+	\epsilon_r(\omega) 1 + \frac{N e^2}{\epsilon_0 m} \sum_j \frac{f_j}{\omega_j^2 - \omega^2 - i \gamma_j \omega_j}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t7:
+	\begin{tikzpicture}[yscale=.7,scale=.7]
+		\draw[->] (-.1,0) -- (10,0) node[anchor=north west] {$ \omega $};
+		\draw[->] (0,-.1) node[below] {$ 0 $} -- (0,8);
+		
+		\draw[domain=0:10, samples=200, thick] plot (\x, {3 + 1 +  10 * (4 - (\x)^2) / ((4 - (\x)^2)^2 + 2 * (\x)^2) +  10 * (25  - (\x)^2) / ((25 - (\x)^2)^2 + 2 * (\x)^2) + 10 * (64 - (\x)^2) / ((64 - (\x)^2)^2 + 2 * (\x)^2});
+		%1 +  10 * (4 - (\x)^2) / ((4 - (\x)^2)^2 + 2 * (\x)^2)
+		%1 +  10 * (4 - (\x)^2) / ((4 - (\x)^2)^2 + 2 * (\x)^2) +  15 * ( 49  - (\x)^2) / ((49 - (\x)^2)^2 + 2 * (\x)^2) + 10 * (144 - (\x)^2) / ((144 - (\x)^2)^2 + 2 * (\x)^2)
+		
+		\draw[domain=0:10, samples=200, thick] plot (\x, {(10 * (\x)) / ((4 - (\x)^2)^2 + 2 * (\x)^2) +  (15 * (\x)) / ((25 - (\x)^2)^2 + 2 * (\x)^2) +  (15 * (\x)) / ((64 - (\x)^2)^2 + 2 * (\x)^2)});
+		%(10 * (\x)) / ((4 - (\x)^2)^2 + 2 * (\x)^2) +  (15 * (\x)) / ((49 - (\x)^2)^2 + 2 * (\x)^2) + (10 * (\x)) / ((144 − (\x)^2)^2 + 2 * (x)^2)
+		%\draw[domain=0:8, samples=500, thick] plot (\x, {0.5 + 1 +  10 * (  4 - (\x * 0.668)^2) / ((4 - (\x * 0.668)^2)^2+ 2 * (\x * 0.668)^2)});
+		
+		\foreach \x in {1.9,5,8}
+		\draw[thick,dashed] (\x,0) -- ++(0,8);
+		\node at (10,1.5) {$ \epsilon_{I} $};
+		\node at (10,4.5) {$ \epsilon_{R} $};
+	\end{tikzpicture}
+	\vspace{10pt}
+\end{minipage}%
+\\
+\begin{minipage}{.5\linewidth}
+	Die Quantenmechanik erklärt diese\\
+	Sprünge durch Energieniveaus:\\
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	%t8:
+	\begin{tikzpicture}[scale=.8]
+		\foreach \y\l in {0/0, 2/1, 3/2}
+		\draw[thick] (0,\y) node[left] {$ E_{\l} $} -- ++(2,0);
+		\draw[->] (1,.1) -- ++(0,1.8);
+		\draw[decorate, decoration={brace,amplitude=5pt,mirror,raise=2pt}, xshift=4pt,black] (2,0) -- node[right,xshift=4pt] {$ \hbar \omega = h f = E_1 - E_0 $} (2,2);
+	\end{tikzpicture}
+\end{minipage}
 
-\subsection{Bedeutung der komplexen/frequenzabhängigen Dielektrizitätskonstante}
+\subsection{Bedeutung der komplexen/frequenzabhängigen Dielektrizitäts- \texorpdfstring{\\}{zeilenumbruch} konstante}
 
 Wellengleichung im Medium $ \quad \epsilon = \epsilon(\omega) \quad \mu \approx \mu_0 \quad \sigma = 0 $
 \begin{equation*}
@@ -2196,22 +2277,29 @@ k_{R/I} = \omega \sqrt{\frac{\mu_0 \epsilon_R}{2}} \left[\sqrt{1 + \left(\frac{\
 \begin{equation*}
 \epsilon_I \approx 0 \quad k_I \approx 0 \quad k_R \approx \omega \sqrt{\mu_0 \epsilon_R(\omega)}
 \end{equation*}
-\begin{equation*}
-\vec{E}(\vec{r},t) = \vec{E}_0 e^{- k_I z} e^{i(k_R z - \omega t)}
-\end{equation*}
-%
-%
-%
-% T9
-%
-%
-%
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	\Rightarrow \quad \vec{E}(\vec{r},t) = \vec{E}_0 e^{- k_I z} e^{i(k_R z - \omega t)}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t9:
+	\begin{tikzpicture}[xscale=.75, scale=.8]
+		\fill[gray!10!] (0,-1.5) rectangle (6.3,1.5);
+		\fill[pattern=north east lines,pattern color = gray!50!] (0,-1.5) rectangle (6.3,1.5);
+		\draw[thick] (0,-1.5) -- (0,1.5);
+		\draw[domain=-4.725:0, samples=100, thick] plot (\x, {sin((\x * 4) r)});
+		\draw[domain=0:6.3, samples=100, thick] plot (\x, {sin((\x * 4) r) * exp(-\x * 0.4)});
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Ausbreitungsgeschwindigkeit:
 $$ v = \frac{\omega}{k_R} = v(\omega) = \frac{c}{n(\omega)} $$
 
 %Vorlesung 21.01. Vertretung von Prof Thoss
 
-\section{Allgemeine Lösung der Maxwell-Gl. - Retardierte Potentialen}
+\section{Allgemeine Lösung der Maxwell-Gl. - Retardierte Potentiale}
 
 Wir suchen Lösungen der Gleichungen:
 \begin{align*}
@@ -2370,15 +2458,28 @@ wie in der Elektrostatik, aber:
 t \to \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c}
 \end{equation*}
 \lcom{Die neue Zeit ist also die alte Zeit minus der räumliche Abstand durch die Ausbreitungsgeschwindigkeit also die alte Zeit minus die Zeit in der die Änderung voranschreiten konnte.}\\[5pt]
-physikalische Bedeutung:
-%
-%
-%
-% T1
-%
-%
-%
-Betrachte Änderung der Ladungsverteilung $ \rho $ in $ \vec{r}' $ zur Zeit $ \tilde{t} $.\\
+\begin{minipage}{.5\linewidth}
+	physikalische Bedeutung:\\[5pt]
+	Betrachte Änderung der Ladungsverteilung $ \rho $ in $ \vec{r}' $ zur Zeit $ \tilde{t} $.
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t1:
+	\begin{tikzpicture}
+		\draw[fill=gray!10, scale=.7] plot [smooth cycle, tension=.8] coordinates { (.5,-1.5) (0,-1) (-.7,-.5) (-.7,.7) (.7,1) (.7,0) (1.2,-.7) };
+		\coordinate (o) at (1,-1.5);
+		\draw[thick,->] (o) -- node[anchor=south west] {$ \vec{r}' $} ($ (0,0) + (-45:.5) $);
+		\coordinate (p) at (5,-.5);
+		%\node[fill=black,circle,minimum size=1pt, inner sep=1pt] (p2) at (5,-.5) {};
+		\draw[thick,->] (o) -- node[anchor=north west] {$ \vec{r} $} (p);
+		\draw[thick,->] ($ (0,0) + (-45:.5) $) -- node[above] {$ | \vec{r} - \vec{r}' | $} (p) node[right] {$ \Phi(\vec{r},t) $};
+		\draw (45:.5) to[out=70,in=-180] (30:1) node[right] {$ \rho(\vec{r},t) $};
+		%\node[circle,minimum size=1cm, draw=black] (a) at (4,4){};
+		%\draw[->] (0,0) -- (a);
+	\end{tikzpicture}
+	\vspace{10pt}
+\end{minipage}%
+\\
 $ \Rightarrow $ Die Änderung des elektro-magnetischen Feldes (oder $ \Phi $) verbreitet sich mit Lichtgeschwindigkeit $ c $. In der Entfernung $ |\vec{r} - \vec{r}'| $ ändert dich das Feld erst zur späteren Zeit $ t = \tilde{t} + \frac{|\vec{r} - \vec{r}'|}{c} $. Wegen der verzögerten Änderung heißt die Potential-Lösung auch \textbf{retardierendes Potential}.
 \vspace{5pt}
 \frbox{Retardierendes Potential}{
