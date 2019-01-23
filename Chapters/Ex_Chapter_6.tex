@@ -701,8 +701,184 @@ Quantenmechanik:\\
 \textbf{Fall einer unendlich hohen Potentialstufe} $ V_0 \to \infty $\\
 $ \Rightarrow \quad \gamma \to \infty $\\
 $ \Rightarrow \quad R = - 1 \quad T = 0$\\
-$ \Rightarrow \quad \Psi_{I}(x) = e^{i k x} - e^{- i k x} $\\
-$ \Rightarrow \quad \Psi_{II}(x) = 0 $
+$ \Rightarrow \quad \Psi_{\tx{I}}(x) = e^{i k x} - e^{- i k x} $\\
+$ \Rightarrow \quad \Psi_{\tx{II}}(x) = 0 $
 
+% Vorlesung 23.01.
 
+\subsection{Potentialbarriere}
 
+\begin{center}
+	\begin{tikzpicture}
+		\draw[thick,blue] (-3.5,.025) -| (-1.5,2) -- (1.5,2) |- (3.5,.025);
+		\draw[thick,black!30!green,->] (-3,1) -- node[below] {Teilchen} ++(1,0);
+		\draw[->] (-3.75,0) -- (3.75,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-0.5) -- (0,2.5) node[anchor=south east] {\color{blue}$ V(x) $};
+		\draw (-1.5,.1) -- ++(0,-.2) node[below] {$ -q $};
+		\draw (1.5,.1) -- ++(0,-.2) node[below] {$ +q $};
+		\node[draw=black,circle, minimum size=.8cm,red] at (-2.5,-1) {I};
+		\node[draw=black,circle, minimum size=.8cm,red] at (0,-1) {II};
+		\node[draw=black,circle, minimum size=.8cm,red] at (2.5,-1) {III};
+		\draw[<->,blue] (.75,.1) -- node[right] {$ V_0 $} ++(0,1.8); 
+	\end{tikzpicture}
+\end{center}
+\folie{Potentialstufe}\\
+klassisch:
+\begin{itemize}
+	\item $ E > V_0 : $ Teilchen fliegt darüber
+	\item $ E < V_0 : $ Teilchen wird am Potential umgekehrt 
+\end{itemize}
+Quantenmechanik:
+\begin{itemize}
+	\item Bereich I:
+	\begin{equation*}
+	\, \Psi_{\tx{I}}(x) = e^{i k x} + R e^{- i k x} \qquad \hbar k = \sqrt{2 m E}
+	\end{equation*}
+	\item Bereich II:
+	\begin{equation*}
+	\qquad \qquad \Psi_{\tx{II}}(x) = B e^{i q x} + C e^{- i q x} \qquad \hbar q = \sqrt{2 m (E - V_0)} \
+	\end{equation*}
+	\item Bereich III:
+	\begin{equation*}
+	\Psi_{\tx{III}}(x) = T e^{i k x} \hspace{4.4cm}
+	\end{equation*}
+\end{itemize}
+$ + $ Anschlussbedingungen
+\begin{itemize}
+	\item Fall $ E < V_0 : $ $ \Rightarrow  q $  ist imaginär $ \qquad \hbar \kappa = - i \hbar q $
+	\begin{equation*}
+	\Rightarrow \qquad \Psi_{\tx{II}}(x) = B e^{- \kappa x} + C e^{\kappa x}
+	\end{equation*}
+	$ \Rightarrow $ Anschlussbedingungen\\
+	\begin{equation*}
+	T = \frac{e^{-ikq}}{\cosh (\kappa a) + i \epsilon \sinh (\kappa a)} \qquad \epsilon = \frac{1}{2} \left(\frac{\kappa}{k} - \frac{k}{\kappa}\right)
+	\end{equation*}
+	\item Fall $ E > V_0 : $ analog dazu
+\end{itemize}
+\folie{Tunneleffekt}\\
+$ \Rightarrow $ \textbf{Tunneleffekt}\\[5pt]
+\textbf{Tunnelwahrscheinlichkeit:}
+\begin{equation*}
+t(E) = T^2 = \left(1 + \frac{V_0^2}{4 E(V_0 - E)} \sinh^2 (\kappa a) \right)^{-1}
+\end{equation*}
+\lcom{Die Tunnelwahrscheinlichkeit hängt also vor allem von dem Potentialunterschied und der ,,Dicke der Wand`` ab.}
+\begin{center}
+	% unnumbered tikz *-*:
+	\begin{tikzpicture}[scale=.7]
+		\draw (-4.5,-1.5) -| (-1.5,1.5) -- (1.5,1.5) |- (4.5,-1.5);
+		\draw[domain=-4.5:-1.5, samples=50, thick] plot (\x, {cos(((\x + 1.5) * 5) r)});
+		\draw[domain=-1.5:1.5, samples=50, thick] plot (\x, {exp(-(\x + 1.5) * 0.5)});
+		% 0,135335283
+		% 0,22313016
+		\draw[domain=1.5:4.5, samples=50, thick] plot (\x, {0.22313016 * cos(((\x - 1.5) * 5) r)});
+		\draw[->] (-5,0) -- (5,0);
+		\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$ V(x) $};
+		\node (E) at (-2.5,2) {$ E $};
+		\node[anchor=south west] (v) at (1.5,1.5) {$ V_0 $};
+	\end{tikzpicture}
+\end{center}
+\textbf{Diskussion:}
+\begin{enumerate}[i)]
+	\item $ \kappa a \gg 1 $ (hohe und breite Barriere)
+	\begin{equation*}
+	\Rightarrow \quad t(E) \cong \tx{exp} \left[- \frac{2 a}{\pi} \sqrt{2 m (V_0 - E)}\right]
+	\end{equation*}
+	\lcom{Die Tunnelwahrscheinlichkeit wird also exponentiell kleiner mit den Faktoren der Höhe und Breite der Barriere.}
+	\item Im Rahmen der WKB-Näherung ergibt sich für allgemeine Potentialbarrieren $ V(x) $
+	\begin{equation*}
+	\Rightarrow \quad t(E) = \tx{exp} \left[- \frac{2}{\hbar} \int_{a}^{b} \sqrt{2m(V(x) - E)} \dd x\right]
+	\end{equation*}
+	$ a,b : $ klassische Umkehrpunkte
+	\folie{WKB-Näherung}\\
+	\lcom{Bei der WKB-Näherung integriert man über verschiedene Potentiale und summiert somit also die exponentiellen Abfälle durch diese infinitesimal dünnen Barrieren.}\\
+\end{enumerate}
+
+\subsection{Beispiele für den Tunneleffekt}
+
+\emph{Beispiel:}
+\begin{enumerate}[1)]
+	\item $ \dd N = - \frac{N}{\tau} \dd t $\\
+	$ \dd N = - N \cdot \tx{ Zerfallswahrscheinlichkeit} \cdot \dd t $
+	\item Zerfallswahrscheinlichkeit $ \frac{1}{\tau} = $ Tunnelwahrscheinlichkeit $ \cdot $ Frequenz der Wandstöße\\
+	\folie{Tunneln und Zerfallswahrscheinlichkeiten}
+	\begin{equation*}
+	t_{\alpha}(E) \cong \tx{exp} \left[-\frac{\sqrt{2 m}}{\hbar} \left(\pi e^2 \frac{Z_1 Z_2}{\sqrt{E}} - 4 e \sqrt{Z_1 Z_2}\right)\right]
+	\end{equation*}
+	$ \Rightarrow $ Kernfusion bevorzugt mit $ Z = $ kleine Kerne\\
+	(Alpha-Zerfall ($ \alpha $-Zerfall)) ist die Umkehrreaktion 
+\end{enumerate}
+\emph{Beispiel:} \textbf{Feldemission}\\[5pt]
+\folie{Metall ohne und mit $ \vec{E} $-Feld}\\
+thermische Energie $ \gg $ Austrittsarbeit (also keine Glühemission)\\
+$ \Rightarrow $ Metall ins starke Feld\\
+$ \Rightarrow $ Potentialbarriere
+\begin{equation*}
+\vec{j}(E) = k_1 \frac{E^2}{W_A} \tx{exp} \left[- \frac{k_2 W_{A}^{\frac{3}{2}}}{|E|}\right]
+\end{equation*}
+$ k1, k2 : $ für uns hier unwichtige konstanten\\
+\versuch{Feldemission}
+\indent Kathode wird bis zur Glut erhitzt, aber anders als eine Glühwendel, nicht zur Emission von Elektronen sondern zur Reinigung der Nadeloberfläche. An der spitzen Kathode bildet sich bei Anlegung von Spannung ein sehr starkes $ \vec{E} $-Feld. Aufgrund dieser großen Potentialdifferenz können mehr Elektronen Tunneln und werden auf den Leuchtschirm beschleunigt.
+
+Mit einer anderen Konstruktion können wir gezielt Barium Atome in die Glaskugel verdampft. Somit könne wir die Nadelspitze gezielt verunreinigen. Durch diese an der Nadel abgesetzten Atome verringert sich auf kleinen Bereichen der Krümmungsradius und damit der Potentialunterschied. Deshalb erhöht sich an diesen Stellen die Tunnelwahrscheinlichkeit.
+
+Bei sauberer Nadel sieht man, in grün, auf dem Leuchtschirm die Struktur der Nadelspitze (Periodisch aufgrund der Kristallstruktur des Metalls).
+
+Bei gezielter Verunreinigung durch Barium Atome Bilden sich einige (wieder periodisch verteilte) dunkle Flecken mit hellen Rändern (höhere Tunnelwahrscheinlichkeit).
+
+Nun wird die Nadelspitze wieder ein wenig aufgeheizt (nicht genug um sie zu Reinigen). Das Bild wird beweglich und Wabert herum wie heiße Luft. Diese Bewegung ist die Thermische Bewegung der Barium Atome auf der Oberfläche (Brown'sche-Bewegung).\\[10pt]
+\emph{Beispiel:} \textbf{kalte Emission}\\[5pt]
+$ \rightarrow $ Rastertunnelmikroskop
+\begin{equation*}
+I(d) \propto \frac{U}{d} \tx{exp} \left[- \frac{2 d}{\hbar} \sqrt{2 m W_A}\right]
+\end{equation*}
+\folie{Tunneln und Potentiale}\\
+\folie{Carbon-Kristallstruktur und Rastertunnelmikrokopaufnahme}\\
+genaue Analyse:
+\begin{equation*}
+I(d) \approx | \Psi_{\tx{Oberfläche}} |^2 e^{- \Lambda d}
+\end{equation*}
+$ \Rightarrow $ \textbf{Quantenkäfige}\\
+\folie{Bilder zu Quantenkäfigen}\\
+Aus Interferenz entstehende Wellenfunktion der gefangenen Elektronen ist im Rastertunnelmikroskop gut Sichtbar. Bei Kreisförmigem Käfig: Sehr Wahrscheinlich in der Mitte. Bei Ellipsenförmigem Käfig sehr Wahrscheinlich in einem der beiden Brennpunkte.\\[10pt]
+\emph{Beispiel:} \textbf{Tunneldiode}\\[5pt]
+\folie{Tunneldiode}\\
+Man kann damit einen Spannungsabhängigen negativen Widerstand herstellen.\\[10pt]
+\emph{Beispiel:} \textbf{Elektrodynamik}\\[5pt]
+\textbf{evaneszente Wellen} \folie{evaneszente Wellen}
+
+\subsection{Harmonischer Oszillator}
+
+$ \Rightarrow \quad V(x) = \frac{1}{2} D x^2 \equiv \frac{m \omega_0^2}{2} x^2 \qquad \omega = \sqrt{\frac{D}{m}} $\\
+$ \Rightarrow $ Hamiltonfunktion:
+$$ \ham(\vec{p}, \vec{x}) = \frac{\vec{p}^2}{2m} + \frac{1}{2} D \vec{x}^2 $$
+$ \Rightarrow $ Hamiltonoperator:\\
+zeitunabhängige SGL
+\begin{equation*}
+\rmbox{ E \Psi(x) = \left(-\frac{\hbar^2}{2m} \prt{^2}{x^2} + \frac{m \omega_0^2}{2} x^2\right) \Psi(x) }
+\end{equation*}
+klassisch:
+\begin{itemize}
+	\item $ E = 0 : $ Teilchen ist in Ruhe bei $ x = 0 $
+	\item $ E > 0 : $ Teilchen schwingt mit Amplitude $ A $
+	\begin{equation*}
+	E = \frac{1}{2} m \omega_0^2 A^2
+	\end{equation*}
+	Die Aufenthaltswahrscheinlichkeit am Ort $ x $\\
+	(im Bereich von $ a $ bis $ b $)
+	\begin{equation*}
+	P(t) \dd t = \frac{1}{T} \dd t = P(x) \dd x
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad P(x) = \left(2 \pi A \sqrt{1 - \left(\frac{x}{A}\right)^2}\right)^{-1} = \frac{\omega_0}{2 \pi V(x)}
+	\end{equation*}
+\end{itemize}
+Quantenmechanisch:\\[5pt]
+Die SGL kann für den harmonischen Oszillator exakt gelöst werden\\
+Zusammenhang mit den sog. Hermitpolynomen $ H_{n}(x) = (-1)^n e^{x^2} \frac{d^n}{a x^n} e^{-x^2} \quad n \in \mathbb{N}_0 $\\[5pt]
+Energie: $ E_n = \hbar \omega_0 (n + \frac{1}{2}) \quad n \in \mathbb{N}_0 $\\
+Grundzustand:
+$$ \Psi_0(x) = \frac{1}{\sqrt{\sqrt{\pi} x_0}} e^{-\frac{1}{2} \left(\frac{x}{x_0}\right)^2} \qquad x_0 = \sqrt{\frac{\hbar}{m \omega_0}} $$
+Anregungszustände:
+\begin{equation*}
+\Psi_{m > 0} (x) = \frac{1}{\sqrt{2^n n! \sqrt{\pi} x_0}} H_n \left(\frac{x}{x_0}\right) e^{-\frac{1}{2} \left(\frac{x}{x_0}\right)^2}
+\end{equation*}

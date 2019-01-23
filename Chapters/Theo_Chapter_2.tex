@@ -124,7 +124,7 @@ Punktladungen $ q_i $ mit Ortsvektoren $ \vec{r}_i $ und Geschwindigkeiten $ \ve
 	\subsubsection{Linienströme}
 	
 	Ströme durch dünne Drähte
-	$$ s \mapsto \vec{r}(s) \qquad \frac{d\vec{r}}{ds} = \frac{\vec{j}}{|\vec{j}|} $$
+	$$ s \mapsto \vec{r}(s) \qquad \frac{\dd\vec{r}}{\dd s} = \frac{\vec{j}}{|\vec{j}|} $$
 	beliebige Funktion $ h(\vec{r}) $.\\
 	Es gilt außerdem:
 	\begin{equation*}
@@ -325,7 +325,7 @@ Hier ist $ \rho(\vec{r}) $ aber ein Skalarfeld. $ \vec{j}(\vec{r}) $ ist ein Vek
 	\begin{equation*}
 	\vec{j}(\vec{r}) = I \delta(x) \delta(y) \vec{e}_z
 	\end{equation*}
-	Setzen wir dies nun ins Biot-Savart-Gesetz ein erhalten wir das $ \vec{B} $-Feld dieses Leiters:
+	Setzen wir dies nun ins Biot-Savart-Gesetz ein, erhalten wir das $ \vec{B} $-Feld dieses Leiters:
 \end{minipage}%
 \begin{minipage}{.3\linewidth}
 	%t2:
@@ -350,7 +350,7 @@ $ \vec{e}_z \times (\vec{r} - \vec{r}') = \begin{pmatrix}
 \begin{align*}
 \qquad \qquad &= \frac{\mu_0 I}{4 \pi} \begin{pmatrix}
 -y \\ x \\ 0
-\end{pmatrix} \int_{-\infty}^{\infty} \dd z' \frac{1}{[x^2 + y^2 + z'^2]^{3/2}}\\
+\end{pmatrix} \int_{-\infty}^{\infty} \dd z' \frac{1}{[x^2 + y^2 + z'^2]^{3/2}} \tag{*} \label{integral}\\
 &= \frac{\mu_0 I}{4 \pi} \frac{2}{x^2 + y^2} \begin{pmatrix}
 -y \\ x \\ 0
 \end{pmatrix}\\
@@ -439,7 +439,7 @@ In Zylinderkoordinaten:
 \\
 Für eine ausgedehnte Stromverteilung gilt dann:
 \begin{equation*}
-\vec{F} = \int \dd ^3 r \vec{j}(\vec{r}) \times \vec{B}(\vec{r})
+\vec{F} = \int \dd ^3 r \ \vec{j}(\vec{r}) \times \vec{B}(\vec{r})
 \end{equation*}
 
 \subsection{Kraft zwischen zwei Stromdurchflossenen Leitern}
@@ -530,7 +530,7 @@ Nebenrechnung:
 	\begin{align*}
 	\rightarrow \quad \dd \vec{F}_{12} = \frac{\mu_0}{4 \pi} I_1 I_2 \dd l_1 \ub{\vec{e}_z \times \begin{pmatrix}
 		0 \\ -a \\ 0
-		\end{pmatrix}}_{= a \vec{e}_x} \ub{\int_{-\infty}^{\infty} \dd z_2 \frac{1}{\left(a^2 + z_2^2\right)^{3/2}}}_{= \frac{2}{a^2}}
+		\end{pmatrix}}_{= a \vec{e}_x} \ub{\int_{-\infty}^{\infty} \dd z_2 \frac{1}{\left(a^2 + z_2^2\right)^{3/2}}}_{\mathclap{\quad \qquad \qquad = \frac{2}{a^2} \ \ \tx{wie oben} (\ref{integral})}}
 	\end{align*}
 \end{minipage}%
 \begin{minipage}{.25\linewidth}
@@ -593,7 +593,7 @@ Mit einer Identität des ersten Übungsblattes:
 \vec{A}(\vec{r}) \rightarrow \vec{A}' = \vec{A} + \vabla \Lambda
 \end{equation*}
 \textbf{Magnetostatik: übliche Wahl:} $ \Lambda \equiv 0 $
-ß\begin{equation*}
+\begin{equation*}
 \Rightarrow \quad \vec{A} = \frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}
 \end{equation*}
 Eine andere Eichung ist die \textbf{Coulomb-Eichung:}
@@ -608,7 +608,7 @@ Eine andere Eichung ist die \textbf{Coulomb-Eichung:}
 &= - \frac{\mu_0}{4 \pi} \lim\limits_{R \to \infty} \int\limits_{K_R(0)} \dd^3 r' \vabla_{\vec{r}'} \cdot \left(\frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}\right)\\
 &= \frac{\mu_0}{4 \pi} \ub{\lim\limits_{R\to \infty} \int\limits_{\partial K_R(0)} \dd \vec{f}' \cdot \frac{\vec{j} (\vec{r}')}{|\vec{r} - \vec{r}'|}}_{=0} = 0
 \end{align*}
-\emph{Beispiel:} homogenes Magnetfeld
+\emph{Beispiel:} \textbf{homogenes Magnetfeld}
 \begin{equation*}
 \vec{B} = \vec{B}_0 \qquad \vec{B} = \vabla \times \vec{A}
 \end{equation*}
@@ -622,6 +622,13 @@ Mit der Identität:
 \begin{equation*}
 \rightarrow \quad \vabla \times \vec{A} = \frac{1}{2} \vabla \times (\vec{B} \times \vec{r}) = \frac{1}{2} \vec{B} \ub{\vabla \cdot \vec{r}}_{= 3} - \frac{1}{2} \ub{(\vec{B} \cdot \vabla) \vec{r}}_{= \vec{N}} = \vec{B}
 \end{equation*}
+%
+%
+%
+% I32 N soll wahrscheinlich B sein + weiter unten fehlt 1/2
+%
+%
+%
 Mit der Identität:
 \begin{equation*}
 \vabla \cdot (\vec{a} \times \vec{b}) = \vec{b} \cdot (\vabla \times \vec{a}) - \vec{a} \cdot (\vabla \times \vec{b})
@@ -660,7 +667,7 @@ In der Elektrostatik gilt:
 Es gibt also keine ,,magnetischen Ladungen`` wie beim elektrischen Feld.\\[5pt]
 integrale Formulierung:
 \begin{equation*}
-0 = \int_V \dd^3 r \vabla \vec{B} = \int_{\partial V} \dd \vec{f} \cdot \vec{B}
+0 = \int_V \dd^3 r \vabla \cdot \vec{B} = \int_{\partial V} \dd \vec{f} \cdot \vec{B}
 \end{equation*}
 
 \subsubsection{Rotation (Wirbel)}
@@ -670,7 +677,7 @@ $ \vec{B} = \vec{\nabla} \times \vec{A} $
 \vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|} + \vabla \Lambda
 \end{equation*}
 \begin{align*}
-\Rightarrow \quad \vabla \times \vec{B} &= \vabla \times (\vabla \times \vec{A}\\
+\Rightarrow \quad \vabla \times \vec{B} &= \vabla \times (\vabla \times \vec{A})\\
 &= \vabla (\vabla \cdot \vec{A}) - \Delta \vec{A}
 \end{align*}
 \begin{equation*}
