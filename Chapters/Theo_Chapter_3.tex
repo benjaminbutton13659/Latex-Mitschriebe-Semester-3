@@ -2312,16 +2312,16 @@ zur formalen Lösung der Gleichungen verwenden wir die Potentiale $ \Phi , \vec{
 \begin{equation*}
 \vec{B} = \vabla \times \vec{A} \qquad \qquad \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t}
 \end{equation*}
-Lorenzeichung:
+\textbf{Lorenzeichung:}
 \begin{equation*}
 \vabla \cdot \vec{A} + \frac{1}{c^2} \prt{\Phi}{t} = 0
 \end{equation*}
-Aus den inhomogenen Gleichungen erhalten wir:
+Aus den inhomogenen Gleichungen erhalten wir die entkoppelten Wellengleichungen der Potentiale:
 \begin{equation*}
 \Delta \Phi - \frac{1}{c^2} \prt{^2 \Phi}{t^2} = - \frac{1}{\epsilon_0} \rho
 \end{equation*}
 \begin{equation*}
-\Delta \vec{A} - \frac{1}{c^2} \prt{^2 \vec{A}}{t^2} = - \mu \vec{j}
+\Delta \vec{A} - \frac{1}{c^2} \prt{^2 \vec{A}}{t^2} = - \mu_0 \vec{j}
 \end{equation*}
 \emph{Nebenbemerkung:}
 \begin{equation*}
@@ -2472,8 +2472,8 @@ t \to \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c}
 		\coordinate (p) at (5,-.5);
 		%\node[fill=black,circle,minimum size=1pt, inner sep=1pt] (p2) at (5,-.5) {};
 		\draw[thick,->] (o) -- node[anchor=north west] {$ \vec{r} $} (p);
-		\draw[thick,->] ($ (0,0) + (-45:.5) $) -- node[above] {$ | \vec{r} - \vec{r}' | $} (p) node[right] {$ \Phi(\vec{r},t) $};
-		\draw (45:.5) to[out=70,in=-180] (30:1) node[right] {$ \rho(\vec{r},t) $};
+		\draw[thick] ($ (0,0) + (-45:.5) $) -- node[above] {$ | \vec{r} - \vec{r}' | $} (p) node[right] {$ \Phi(\vec{r},t) $};
+		\draw (45:.5) to[out=70,in=-180] (30:1) node[right] {$ \rho(\vec{r},\tilde{t}) $};
 		%\node[circle,minimum size=1cm, draw=black] (a) at (4,4){};
 		%\draw[->] (0,0) -- (a);
 	\end{tikzpicture}
@@ -2517,3 +2517,236 @@ Die Felder erhalten wir gemäß:
 \Phi_{\tx{av}} (\vec{r},t) = \kq \int \dd^3 r' \frac{\rho(\vec{r}', t + \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
 \end{equation*}
 Diese Lösung der avancierten Potentiale führt uns darauf, dass die Änderung von $ \rho $ für $ \tilde{t} = t + \frac{|\vec{r} - \vec{r}'|}{c} > t $ die Felder zu einem früheren Zeitpunkt $ t $ beeinflusst. Dies \textbf{widerspricht dem Kausalitätsprinzip} und wurde deshalb vorhin von uns ignoriert. Die Lösung ist dennoch hilfreich falls man ein Problem nur mit der allgemeinen Lösung ($ \pm $) Lösen kann (Siehe: Feldtheorie, S-Matrix-Formalismus).
+
+% Vorlesung 24.01
+
+\bbb{Wiederholung}{ % make me nicer !!!
+Maxwellgleichungen:
+\begin{align*}
+\vabla \cdot \vec{B} &= 0 \qquad \qquad \quad \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0\\
+\vabla \cdot \vec{E} &= \frac{1}{\epsilon_0} \rho \qquad \qquad \vabla \times \vec{B} - \ub{\epsilon_0 \mu_0}_{\frac{1}{c^2}} \prt{\vec{E}}{t} = \mu_0 \vec{j}
+\end{align*}
+Potentiale:
+\begin{equation*}
+\vec{B} = \vabla \times \vec{A} \qquad \qquad \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t}
+\end{equation*}
+\textbf{Lorenzeichung:}
+\begin{equation*}
+\vabla \cdot \vec{A} + \frac{1}{c^2} \prt{\Phi}{t} = 0
+\end{equation*}
+Entkoppelte Wellengleichungen der Potentiale:
+\begin{equation*}
+\Delta \Phi - \frac{1}{c^2} \prt{^2 \Phi}{t^2} = - \frac{1}{\epsilon_0} \rho
+\end{equation*}
+\begin{equation*}
+\Delta \vec{A} - \frac{1}{c^2} \prt{^2 \vec{A}}{t^2} = - \mu_0 \vec{j}
+\end{equation*}
+Retardierendes Potential:
+\begin{equation*}
+\Phi_{\tx{ret}} (\vec{r},t) = \kq \int \dd^3 r' \frac{\rho (\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+Retardierendes Vektorpotential:
+\begin{equation*}
+\vec{A}_{\tx{ret}} (\vec{r},t) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+%
+%
+%
+% T1
+%
+%
+%
+}
+
+\section{Elektromagnetische Potentiale und Felder bewegter Punktladungen}
+
+%
+%
+%
+% T2
+%
+%
+%
+\begin{equation*}
+\rho(\vec{r},t) = q \delta (\vec{r} - \vec{R}(t)) \qquad \vec{j}(\vec{r},t) = q \vec{V}(t) \delta(\vec{r} - \vec{R}(t))
+\end{equation*}
+mit $ \vec{V}(t) = \dot{\vec{R}}(t) $\\
+\begin{equation*}
+\Phi(\vec{r},t) = \kq \int \dd^3 r' \frac{q \delta(\vec{r}' - \vec{R}(\tilde{t}))}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+$ \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c} $\\
+Wir wollen nun das folgende Integral lösen:
+\begin{align*}
+\int \dd^3 r' \frac{q \delta(\vec{r}' - \vec{R}(\tilde{t}))}{|\vec{r} - \vec{r}'|} &= \int \dd^3 r' \int_{-\infty}^{\infty} \dd t' \frac{q \delta(\vec{r}' - \vec{R}(\custoup{\leftrightarrow}{\tilde{t}}{t'}))}{|\vec{r} - \vec{r}'|} \delta(t' - \tilde{t})\\
+&= \int \dd^3 r' \int \dd t' \frac{\delta(\vec{r}' - \vec{R}(t')) \delta(t' - t + \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}\\
+&= \int \dd t' \int \dd^3 r' \frac{\delta(\vec{r}' - \vec{R}(t')) \delta(t' - t + \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}\\
+&= \int \dd t' \frac{\delta(\ob{t' - t + \frac{|\vec{r} - \vec{R}(t')|}{c}}^{= f(t')})}{|\vec{r} - \vec{R}(t')|}\\
+&= \int \dd t' \frac{\delta(f(t'))}{|\vec{r} - \vec{R}(t')|}
+\end{align*}
+Wir benutzen eine Eigenschaft der $ \delta $-Funktion:
+\begin{equation*}
+\delta (f(t')) = \sum_{j} \frac{\delta(t' - t_j)}{\left|\left(\frac{\dd f}{\dd t'}\right)_{t' = t_j}\right|}
+\end{equation*}
+$ t_j : $ Nullstellen von $ f(t') $\\
+$ f(t') $ hat höchstens eine Nullstelle: $ t_j \eqdef t_{\tx{ret}} \qquad t_{\tx{ret}}: \ f(t_{\tx{ret}}) = 0$
+\begin{equation*}
+t_{\tx{ret}} = t - \frac{|\vec{r} - \vec{R}(t_{\tx{ret}}) |}{c}
+\end{equation*}
+gegeben: $ t , \vec{r} \rightarrow t_{\tx{ret}}(\vec{r},t) $\\[5pt]
+Berechnen wir zuerst die Ableitung:
+\begin{align*}
+\prd{f}{t'} &= 1 + \frac{1}{c} \prd{}{t'} |\vec{r} - \vec{R}(t')|\\
+&= 1 - \frac{1}{c} \frac{(\vec{r} - \vec{R}(t')) \cdot \ob{\dot{\vec{R}}(t')}^{=\vec{V}(t')}}{|\vec{r} - \vec{R}(t')|}\\
+&= 1 - \ub{\vec{e}_{\vec{r} - \vec{R}(t')} \cdot \frac{\vec{V}(t')}{c}}_{\le\ |\vec{e} \cdot \frac{\vec{V}}{c}| \ \le \ |\frac{\vec{V}}{c}| \ < \ 1}
+\end{align*}
+%
+%
+%
+% T3
+%
+%
+%
+\begin{align*}
+\int \dd t' \frac{\delta(f(t'))}{|\vec{r} - \vec{R}(t')|} &= \int \dd t' \frac{\delta(t' - t_{\tx{ret}})}{\left|\left(\frac{\dd f}{\dd t'}\right)_{t' = t_{\tx{ret}}}\right|} \cdot \frac{1}{| \vec{r} - \vec{R}(t')|}\\
+&= \int \dd t' \frac{\delta(t' - t_{\tx{ret}})}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}\\
+&= \frac{1}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}
+\end{align*}
+Damit haben wir das integral gelöst und erhalten:
+\frbox{Lienard-Wiechert-Potentiale}{
+\begin{align*}
+\Rightarrow \quad \Phi(\vec{r},t) &= \kq \frac{q}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}\\[5pt]
+\Rightarrow \quad \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \ \ \ \frac{q \vec{V}(t_{\tx{ret}})}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}
+\end{align*}
+}
+\noindent
+\emph{Beispiele:}
+\begin{enumerate}[i)]
+	\item statischer Grenzfall: ruhende Punktladung:\\
+	$ \vec{V} = 0 \quad \vec{R} = \vec{R}_0 \quad \vec{A}(\vec{r},t) = 0 $
+	%
+	%
+	%
+	% T4
+	%
+	%
+	%
+	\begin{equation*}
+	\Phi(\vec{r},t) = \kq \frac{q}{|\vec{r} - \vec{R}_0|}
+	\end{equation*}
+	\item gleichförmig bewegte Punktladung:\\
+	$ \vec{V} = \vec{V}_0 = \const \quad \vec{R}(t) = \vec{R}_0 + \vec{V}_0 \cdot t $\\[5pt]
+	Bestimmung von $ t_{\tx{ret}} $:
+	\begin{equation*}
+	t_{\tx{ret}} = t - \frac{|\vec{r} - \vec{R}(t_{\tx{ret}})|}{c}
+	\end{equation*}
+	\begin{align*}
+	c(t - t_{\tx{ret}}) &= |\vec{r} - \vec{R}(t_{\tx{ret}})|\\
+	&= |\ub{\vec{r} - \vec{R}(t)}_{\eqdef \vec{d}(\vec{r},t)} + \ub{\vec{R}(t) - \vec{R}(t_{\tx{ret}})}_{= \vec{V}_0 (t - t_{\tx{ret}})}|
+	\end{align*}
+	%
+	%
+	%
+	% T5
+	%
+	%
+	%
+	\begin{align*}
+	\Rightarrow \quad c^2(t - t_{\tx{ret}})^2 &= | \vec{d} - \vec{V}_0(t - t_{\tx{ret}})|^2\\
+	&= d^2 + 2 \cdot \ub{\vec{d}^2 \cdot \vec{V}_0^2}_{d V_0 \cos \alpha} (t - t_{\tx{ret}}) + V_0^2 (t-t_{\tx{ret}})^2
+	\end{align*}
+	\begin{align*}
+	\Rightarrow \quad t - t_{\tx{ret}} &= \frac{d V_0 \cos \alpha}{c^2 - V_0^2} + \frac{d}{c^2 - V_0^2} \sqrt{V_0^2 \cos^2 \alpha + c^2 - V_0^2} \\
+	&= \frac{d V_0 \cos \alpha}{c^2 - V_0^2} + \frac{d}{c^2 - V_0^2} \sqrt{- V_0^2 \sin^2 \alpha + c^2}\\
+	&= \frac{|\vec{d}(\vec{r},t)|}{c^2 - V_0^2} \left(V_0 \cos \alpha + \sqrt{c^2 - V_0^2 \sin^2 \alpha}\right)
+	\end{align*}
+	Im Nenner des Retardierenden Potentials steht:
+	\begin{align*}
+	& \ub{|\vec{r} - \vec{R}(t_{\tx{ret}})|}_{c ( t - t_{\tx{ret}})} - \frac{1}{c} (\ub{\vec{r} - \vec{R}(t_{\tx{ret}})}) \cdot \equaltoup{\vec{V}(t_{\tx{ret}})}{\vec{V}_0}\\
+	% }_{\mathclap{\substack{\vec{r} - \vec{R}(t) + \vec{R}(t) - \vec{R}(t_{\tx{ret}}) \\ = \vec{d} + \vec{V}_0 (t - t_{\tx{ret}})}}}
+	& \qquad \qquad \qquad = \vec{r} - \vec{R}(t) + \vec{R}(t) - \vec{R}(t_{\tx{ret}}) \\ & \qquad \qquad \qquad = \vec{d} + \vec{V}_0 (t - t_{\tx{ret}})\\
+	&= c(t - t_{\tx{ret}}) - \frac{1}{c} \vec{V}_0 \cdot (\vec{d} + \vec{V}_0 (t - t_{\tx{ret}}))\\
+	&= \frac{1}{c} (c^2 - V_0^2) (t - t_{\tx{ret}}) - \frac{1}{c} V_0 d \cos \alpha\\
+	&= \frac{1}{c} |\vec{d}| \left(\cancel{ V_0 \cos \alpha} + \sqrt{c^2 - V_0^2 \sin^2 \alpha} - \cancel{ V_0 \cos \alpha}\right)\\
+	&= |\custo{\rightarrow}{\vec{d}}{\mathclap{\vec{r} - \vec{R}(t)}}(\vec{r},t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin^2 \alpha}
+	\end{align*}
+	\begin{align}
+	\Rightarrow \quad \Phi(\vec{r},t) &= \kq \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin \alpha^2}}\\
+	\Rightarrow \quad \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \ \ \ \frac{q \vec{V}_0}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin \alpha^2}}
+	\end{align}
+	für langsame Teilchen gilt: $ \frac{V_0}{c} \ll 1 $ (nichtrelativistisch):
+	\begin{equation*}
+	\rightarrow \quad \Phi(\vec{r},t) = \kq \frac{q}{|\vec{r} - \vec{R}(t)|}
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Felder einer gleichförmigbewegten Punktladung}
+
+\begin{equation*}
+\vec{E} = - \vabla \Phi - \prt{\vec{A}}{t} \qquad \vec{B} = \vabla \times \vec{A}
+\end{equation*}
+Komplikationen $ \alpha = \alpha(\vec{r},t) $
+%
+%
+%
+% T6
+%
+%
+%
+\lcom{Dies wird z.B. im Griffitz genau hergeleitet, ist aber obwohl es nicht zu kompliziert ist, zu langwierig für de Vorlesung.}
+\begin{align*}
+\vec{E} &= \frac{q}{4 \pi \epsilon_0} \frac{1 - \frac{V_0^2}{c^2}}{\left(1 - \frac{V_0^2}{c^2} \sin^2 \alpha^2\right)^{\frac{3}{2}}} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}\\
+\vec{B} &= \frac{1}{c^2} \left(\vec{V}_0 \times \vec{E}\right)
+\end{align*}
+Bei kleinen Geschwindigkeiten gilt:\\
+$ \frac{V_0}{c} \ll 1 : $
+\begin{equation*}
+\rightarrow \quad \vec{E} \approx \frac{q}{4 \pi \epsilon_0} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3} \qquad \vec{B} \approx 0
+\end{equation*}
+$ \frac{V_0}{c} : $ endlich
+%
+%
+%
+% T7
+%
+%
+%
+\begin{enumerate}[1)]
+	\item $ \vec{d} \perp \vec{R} \quad \alpha = \frac{\pi}{2} $
+	\begin{equation*}
+	\Rightarrow \quad \vec{E} = \frac{q}{4 \pi \epsilon_0} \frac{1}{\sqrt{1 - \frac{V_0^2}{c^2}}} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3} \ > \ \frac{q}{4 \pi \epsilon_0} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}
+	\end{equation*}
+	\item $ \vec{d} \parallel \vec{R} \quad \alpha = 0 $
+	\begin{equation*}
+	\vec{E} = \frac{q}{4 \pi \epsilon_0} \left(1 - \frac{V_0^2}{c^2}\right) \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3} \ < \ \frac{q}{4 \pi \epsilon_0} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}
+	\end{equation*}
+\end{enumerate}
+\folie{$ \vec{E} $- und $ \vec{B} $-Felder von Ladungen die sich mit nahezu Lichtgeschwindigkeit bewegen.}
+
+\subsection{Felder einer (allgemein) bewegten Punktladung}
+
+\begin{equation*}
+\vec{E} = - \vabla \Phi - \prt{\vec{A}}{t} \qquad \vec{B} = \vabla \times \vec{A}
+\end{equation*}
+\lcom{Wird ebenfalls nicht in der Vorlesung berechnet da es zu langwierig ist.}\\
+%
+%
+%
+% T8
+%
+%
+%
+$ \vec{d}_{\tx{ret}} \defeq \vec{r} - \vec{R}(t_{\tx{ret}}) \qquad \vec{e}_{\tx{ret}} \defeq \frac{\vec{d}_{\tx{ret}}}{|\vec{d}_{\tx{ret}}|} \qquad \vec{\beta}(t) = \frac{\vec{V}(t)}{c} $
+\begin{align*}
+\vec{E}(\vec{r},t) &= \frac{q}{4 \pi \epsilon_0} \frac{(\vec{e}_{\tx{ret}} - \vec{\beta}(t_{\tx{ret}})) ( 1 - \beta^2 (t_{\tx{ret}}) )}{(1 - \vec{e}_{\tx{ret}} \cdot \vec{\beta}(t_{\tx{ret}}))^3 |\vec{d}_{\tx{ret}}(\vec{r},t)|^2}\\
+&+ \frac{q}{4 \pi \epsilon_0} \frac{\vec{e}_{\tx{ret}} \times \left[\left(\vec{e}_{\tx{ret}} - \vec{\beta}(t_{\tx{ret}}) \times \dot{\vec{\beta}}(t_{\tx{ret}}\right)\right]}{c \ ( 1 - \vec{e}_{\tx{ret}} \cdot \vec{\beta}(t_{\tx{ret}}))^3 |\vec{d}_{\tx{ret}}(\vec{r},t)|}\\[5pt]
+\vec{B}(\vec{r},t) &= \frac{1}{c} \vec{e}_{\tx{ret}} \times \vec{E}(\vec{r},t)
+\end{align*}
+\emph{Bemerkung:}
+\begin{enumerate}[a)]
+	\item Der erste Term des $ \vec{E} $-Feldes:\\
+	$ \sim \frac{1}{d_{\tx{ret}}^2} \overset{r \to \infty}{\longrightarrow} \frac{1}{r^2} $ wie in der Elektrostatik\\
+	unabhängig von der Beschleunigung $ \dot{\vec{\beta}} $
+	\item Der zweite Term des $ \vec{E} $-Feldes:\\
+	$ \sim \frac{1}{d_{\tx{ret}}} \overset{r \to \infty}{\longrightarrow} \frac{1}{r} $ dominiert für $ r \to \infty $\\[5pt]
+	$ \sim \dot{\vec{\beta}} $ verschwindet für eine gleichförmig Bewegte Ladung
+\end{enumerate}

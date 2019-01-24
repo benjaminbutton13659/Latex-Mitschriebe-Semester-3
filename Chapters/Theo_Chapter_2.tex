@@ -562,7 +562,7 @@ Nebenrechnung:
 \section{Feldgleichungen der Magnetostatik und Vektorpotential}
 
 \begin{equation*}
-\vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{j}(\vec{r}) \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
+\vec{B}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{j}(\vec{r}') \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}
 \end{equation*}
 
 \subsection{Vektorpotential}
@@ -620,7 +620,7 @@ Mit der Identität:
 \vabla \times (\vec{a} \times \vec{b}) = \vec{a} (\vabla \cdot \vec{b}) - \vec{b} (\vabla \cdot \vec{a}) + (\vec{b} \cdot \vabla) \vec{a} - (\vec{a} \cdot \vabla) \vec{b}
 \end{equation*}
 \begin{equation*}
-\rightarrow \quad \vabla \times \vec{A} = \frac{1}{2} \vabla \times (\vec{B} \times \vec{r}) = \frac{1}{2} \vec{B} \ub{\vabla \cdot \vec{r}}_{= 3} - \frac{1}{2} \ub{(\vec{B} \cdot \vabla) \vec{r}}_{= \vec{N}} = \vec{B}
+\rightarrow \quad \vabla \times \vec{A} = \frac{1}{2} \vabla \times (\vec{B} \times \vec{r}) = \frac{1}{2} \vec{B} \ub{\vabla \cdot \vec{r}}_{= 3} - \frac{1}{2} \ub{(\vec{B} \cdot \vabla) \vec{r}}_{= \vec{B}} = \vec{B}
 \end{equation*}
 %
 %
@@ -634,7 +634,7 @@ Mit der Identität:
 \vabla \cdot (\vec{a} \times \vec{b}) = \vec{b} \cdot (\vabla \times \vec{a}) - \vec{a} \cdot (\vabla \times \vec{b})
 \end{equation*}
 \begin{equation*}
-\Rightarrow \quad \vabla \cdot \vec{A} = \frac{1}{2} \vabla \cdot \left(\vec{B} \times \vec{r}\right) = - \vec{B} \cdot \ub{\left(\vabla \times \vec{r}\right)}_{= 0} = 0
+\Rightarrow \quad \vabla \cdot \vec{A} = \frac{1}{2} \vabla \cdot \left(\vec{B} \times \vec{r}\right) = - \frac{1}{2} \vec{B} \cdot \ub{\left(\vabla \times \vec{r}\right)}_{= 0} = 0
 \end{equation*}
 andere mögliche Wahl:
 \begin{equation*}
@@ -674,7 +674,7 @@ integrale Formulierung:
 
 $ \vec{B} = \vec{\nabla} \times \vec{A} $
 \begin{equation*}
-\vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|} + \vabla \Lambda
+\vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|} + \vabla \Lambda
 \end{equation*}
 \begin{align*}
 \Rightarrow \quad \vabla \times \vec{B} &= \vabla \times (\vabla \times \vec{A})\\
@@ -684,7 +684,7 @@ $ \vec{B} = \vec{\nabla} \times \vec{A} $
 \vabla \cdot \vec{A} = \ub{\vabla \cdot \left(\frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}\right)}_{=0} + \vabla \cdot (\vabla \Lambda) = \Delta \Lambda 
 \end{equation*}
 \begin{equation*}
-\Delta \vec{A} = \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{j}(\vec{r}) \ub{\Delta \frac{\Lambda}{|\vec{r} - \vec{r}'|}}_{= - 4 \pi \delta(\vec{r} - \vec{r}')} + \Delta \vabla \Lambda = - \mu_0 \vec{j}(\vec{r}) + \Delta (\vabla \Lambda)
+\Delta \vec{A} = \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{j}(\vec{r}') \ub{\Delta \frac{1}{|\vec{r} - \vec{r}'|}}_{= - 4 \pi \delta(\vec{r} - \vec{r}')} + \Delta \vabla \Lambda = - \mu_0 \vec{j}(\vec{r}) + \Delta (\vabla \Lambda)
 \end{equation*}
 mit: $ \Delta \vec{A} = \begin{pmatrix}
 \Delta A_x \\ \Delta A_y \\ \Delta A_z
@@ -717,7 +717,7 @@ Kürzbar, da partielle Ableitungen vertauschbar sind.
 	\end{tikzpicture}
 \end{minipage}%
 \\[5pt]
-\frbox{Amper\`esches Durchflutungsgesetz}{
+\frbox{Amp\`eresches Durchflutungsgesetz}{
 \begin{equation*}
 \Rightarrow \quad \oint_{\partial F} \dd \vec{r}\cdot \vec{B}(\vec{r}) = \mu_0 I_F
 \end{equation*}
@@ -769,7 +769,7 @@ Kürzbar, da partielle Ableitungen vertauschbar sind.
 	Hierauf wenden wir das Amp\`eresche Durchflutungsgesetz an:\\
 	Unter Verwendung von:
 	\begin{equation*}
-	\dd \vec{f}' = \vec{e}_z \dd f = \vec{e}_z = \rho' \dd \rho' \dd \varphi'
+	\dd \vec{f}' = \vec{e}_z \dd f = \vec{e}_z \rho' \dd \rho' \dd \varphi'
 	\end{equation*}
 \end{minipage}%
 \begin{minipage}{.4\linewidth}
@@ -777,7 +777,7 @@ Kürzbar, da partielle Ableitungen vertauschbar sind.
 	\flushright
 	\begin{tikzpicture}[scale=.8]
 		\draw[->] (-3,0) -- (3,0) node[anchor=north west] {$ x $};
-		\draw[->] (0,-3) -- (0,3) node[anchor=south east] {$ z $};
+		\draw[->] (0,-3) -- (0,3) node[anchor=south east] {$ y $};
 		\draw[dashed] (0,0) circle (2cm);
 		\draw[draw=none,pattern=north east lines, pattern color=black!30!white] (0,0) circle (2cm);
 		\draw (0,0) circle (1cm);
@@ -789,7 +789,7 @@ Kürzbar, da partielle Ableitungen vertauschbar sind.
 \\
 \begin{align*}
 \mu_0 \int_F \dd \vec{f} ' \cdot \vec{j}(\vec{r}') &= \int_{\partial F} \dd \vec{r}' \cdot \vec{B}(\vec{r}')\\
-&= \mu_0 \int_{0}^{\rho} \dd\rho' \int_{0}^{2 \pi} \dd \varpi'\rho' \frac{I}{\pi R^2} \theta(R - \rho)\\
+&= \mu_0 \int_{0}^{\rho} \dd\rho' \int_{0}^{2 \pi} \dd \varphi'\rho' \frac{I}{\pi R^2} \theta(R - \rho)\\
 &= \mu_0 \frac{I}{\pi R^2} 2 \pi \ub{\int_{0}^{\rho} \dd \rho' \rho' \theta(R - \rho)}\\
 & \qquad = \left\{\begin{array}{cc}
 \int_{0}^{R} \dots = \frac{1}{2} R^2 & \rho > R \\[5pt]
@@ -800,7 +800,7 @@ Kürzbar, da partielle Ableitungen vertauschbar sind.
 \Rightarrow \quad \mu_0 \int_{F} \dd \vec{f}' \cdot \vec{j}(\vec{r}') = \mu_0 \casess{I}{\rho > R}{\frac{\rho^2}{R^2} I}{\rho \le R}
 \end{equation*}
 \begin{equation*}
-\int_{\partial F}\dd r' \vec{B}(\vec{r}') = \int_{0}^{2 \pi} \dd \varphi \frac{\dd r'}{\dd \varphi} \cdot \vec{B} = \int_{0}^{2 \pi} \dd \varphi \rho B_{\varphi}(\rho) = 2 \pi \rho B_{\varphi}(\rho)
+\int_{\partial F}\dd \vec{r}' \cdot \vec{B}(\vec{r}') = \int_{0}^{2 \pi} \dd \varphi \frac{\dd \vec{r}'}{\dd \varphi} \cdot \vec{B} = \int_{0}^{2 \pi} \dd \varphi \rho B_{\varphi}(\rho) = 2 \pi \rho B_{\varphi}(\rho)
 \end{equation*}
 mit:
 \begin{equation*}
@@ -864,18 +864,18 @@ Dies können wir umstellen in:
 \mu_0 \vec{j} &= \vabla \times \vec{B} = \vabla \times (\vabla \times \vec{A})\\
 &= \vabla(\vabla \cdot \vec{A}) - \Delta \vec{A}
 \end{align*}
-falls $ \vabla\cdot \vec{A} = 0 $ (Coulomb-Gleichung)
+falls $ \vabla\cdot \vec{A} = 0 $ (Coulomb-Eichung)  % (Coulomb-Gleichung)
 \begin{equation*}
-\Rightarrow \quad \rmbox{\Delta \vec{A} = \mu_0 \vec{j}}
+\Rightarrow \quad \rmbox{\Delta \vec{A} = -\mu_0 \vec{j}}
 \end{equation*}
 Wichtig: Die Komponenten sind nicht unabhängig voneinander aufgrund unserer Annahme $ \vabla \cdot \vec{A} = 0 $
-analog:$ \Delta \varphi = - \frac{1}{\epsilon_0} \rho $
+analog:$ \Delta \Phi = - \frac{1}{\epsilon_0} \rho $
 
 \subsection{Feldgleichungen der Magnetostatik}
 
 \begin{minipage}{.5\linewidth}
 	\begin{equation*}
-	\vabla \cdot \vec{B} = 0
+	\vabla \cdot \vec{B} = 0 \ \ 
 	\end{equation*}
 	\vspace{-5pt}
 	\begin{equation*}
@@ -884,7 +884,7 @@ analog:$ \Delta \varphi = - \frac{1}{\epsilon_0} \rho $
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
 	\begin{equation*}
-	\int_{\partial V} \dd \vec{f} \cdot \vec{B} = 0
+	\int_{\partial V} \dd \vec{f} \cdot \vec{B} = 0 \quad \ \ \, \,
 	\end{equation*}
 	\begin{equation*}
 	\int_{\partial F} \dd \vec{r} \cdot \vec{B} = \mu_0 I_F
@@ -901,7 +901,7 @@ Und für das Vektorpotential:
 \begin{equation*}
 \vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|}
 \end{equation*}
-mit $ \vabla \cdot \vec{A} = 0 $\\
+mit $ \vabla \cdot \vec{A} = 0 $ (Coulomb-Eichung)\\
 \begin{minipage}{.5\linewidth}
 	Wir betrachten eine lokalisierte Ladungsverteilung:
 	\begin{equation*}
@@ -955,7 +955,7 @@ Für das Magnetfeld gilt:
 \begin{equation*}
 \Rightarrow \quad \vec{B} = \vabla \times \vec{A} = \frac{\mu_0}{4 \pi} \vabla \times \left(\vec{m} \times \frac{\vec{r}}{r^3}\right)
 \end{equation*}
-Mit der Identität: $ \vabla \times (f \vec{F}) = f \vabla \times \vec{G} - \vec{G} \times \vabla f $
+Mit der Identität: $ \vabla \times (f \vec{G}) = f \vabla \times \vec{G} - \vec{G} \times \vabla f $
 \begin{align*}
 \vabla \times \left(\frac{1}{r^3} (\vec{m} \times \vec{r})\right) &= \frac{1}{r^3} \ub{\vabla \times (\vec{m} \times \vec{r})}_{= 2 \vec{m}} - (\vec{m} \times \vec{r}) \times \ub{\vabla \frac{1}{r^3}}_{= - \frac{3 \vec{r}}{r^5}}\\
 &= \frac{1}{r^3} 2 \vec{m} + \frac{3}{r^5} \ub{(\vec{m} \times \vec{r}) \times \vec{r}}_{(\vec{m} \cdot \vec{r}) \vec{r} - (\vec{r} \cdot \vec{r}) \vec{m}}\\
@@ -1012,7 +1012,7 @@ Nebenrechnung:
 &= \rho \vec{e}_z - z \vec{e}_{\varphi}
 \end{align*}
 \begin{align*}
-\Rightarrow \quad \vec{m} &= \frac{1}{2} I \int_{0}^{\infty} \rho \dd \rho \int_{0}^{2 \pi} \dd \varphi \int_{-\infty}^{\infty} \dd z \delta(\rho - R) \delta(z) (\rho \vec{e}_z - \custo{\rightarrow}{z}{0} \vec{e}_{\varphi})\\
+\Rightarrow \quad \vec{m} &= \frac{1}{2} I \int_{0}^{\infty} \rho \ \dd \rho \int_{0}^{2 \pi} \dd \varphi \int_{-\infty}^{\infty} \dd z \ \delta(\rho - R) \delta(z) (\rho \vec{e}_z - \custo{\rightarrow}{z}{0} \vec{e}_{\varphi})\\
 &= \frac{I}{2} R^2 2 \pi \vec{e}_z
 \end{align*}
 \begin{minipage}{.5\linewidth}
