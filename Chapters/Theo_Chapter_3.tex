@@ -2181,13 +2181,35 @@ $$ \Im(\epsilon_r(\omega)) = \frac{N e^2}{\epsilon_0 m} \frac{\gamma \omega}{(\o
 		\draw[dashed] (1.7,0) -- ++(0,5);
 		\draw[dashed] (3.7,0) -- ++(0,5);
 		\node at (.9,5.5) {\small normal};
-		\node at (2.7,5.5) {\small anormal};
+		\node at (2.7,6) {\small anormal};
 		\node at (4.5,5.5) {\small normal};
-		\node at (7,5.4) {\small Dispersion};
+		\node at (7,5.8) {\small Dispersion};
 	\end{tikzpicture}
+	\begin{comment} % alternative:
+	\begin{tikzpicture}
+		\draw[scale=1.5,red,line width=1,domain=-2:2, samples=500] plot (\x, {((2 * \x) / (\x - 10  * ((\x)^2) - 0.25))});
+		\coordinate (a) at (-3,-1.5);
+		\coordinate (b) at (0,0);
+		% Koordianten Achsen
+		\draw[->] (a) -- ++(6,0) node[right] {$\omega$};
+		\draw[->] (a) -- ++(0,3) node[left] {$Re(\epsilon(\omega)$};
+		\node[left] at ($(a) + (0,1.8)$) {$Re(\epsilon(0)$};
+		%Unterteilung
+		\draw[dashed] ($ (a) + (0,1.36) $) node[left] {$1$} -- ++(6,0);
+		\draw[dashed] (0,-1.6) node[below] {$\omega_0$} -- (0,0);
+		\draw[dashed] ($ (b) + (0.25,-1.8) $)  -- ++(0,3);
+		\draw[dashed] ($ (b) + (-0.25,-1.8) $) -- ++(0,3);
+		%Beschriftung
+		\node at (-2,1) {normal};
+		\node at (2.5,1) {normale Dispersion};
+		\node at (0,1.5) {anormal};
+	\end{tikzpicture}\\
+	\end{comment}
+	\vspace{5pt}
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
 	\flushright
+	\vspace{5pt}
 	%t6:
 	\begin{tikzpicture}[scale=.7]
 		\draw[->] (-.1,0) -- (8,0) node[anchor=north west] {$ \omega $};
@@ -2456,6 +2478,7 @@ Für das Potential $ \Phi $ erhalten wir nun durch Rücktransformation:
 wie in der Elektrostatik, aber:
 \begin{equation*}
 t \to \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c}
+\label{tikzrho} \tag{*}
 \end{equation*}
 \lcom{Die neue Zeit ist also die alte Zeit minus der räumliche Abstand durch die Ausbreitungsgeschwindigkeit also die alte Zeit minus die Zeit in der die Änderung voranschreiten konnte.}\\[5pt]
 \begin{minipage}{.5\linewidth}
@@ -2516,7 +2539,7 @@ Die Felder erhalten wir gemäß:
 \begin{equation*}
 \Phi_{\tx{av}} (\vec{r},t) = \kq \int \dd^3 r' \frac{\rho(\vec{r}', t + \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
 \end{equation*}
-Diese Lösung der avancierten Potentiale führt uns darauf, dass die Änderung von $ \rho $ für $ \tilde{t} = t + \frac{|\vec{r} - \vec{r}'|}{c} > t $ die Felder zu einem früheren Zeitpunkt $ t $ beeinflusst. Dies \textbf{widerspricht dem Kausalitätsprinzip} und wurde deshalb vorhin von uns ignoriert. Die Lösung ist dennoch hilfreich falls man ein Problem nur mit der allgemeinen Lösung ($ \pm $) Lösen kann (Siehe: Feldtheorie, S-Matrix-Formalismus).
+Diese Lösung der avancierten Potentiale führt uns darauf, dass die Änderung von $ \rho $ für $ \tilde{t} = t + \frac{|\vec{r} - \vec{r}'|}{c} > t $ die Felder zu einem früheren Zeitpunkt $ t $ beeinflusst. Dies \textbf{widerspricht dem Kausalitätsprinzip} und wurde deshalb vorhin von uns ignoriert. Die Lösung ist dennoch hilfreich falls man ein Problem nur mit der allgemeinen Lösung ($ \pm $) Lösen kann (Siehe: Feldtheorie, S-Matrix-Formalismus).\\
 
 % Vorlesung 24.01
 
@@ -2536,26 +2559,17 @@ Potentiale:
 \end{equation*}
 Entkoppelte Wellengleichungen der Potentiale:
 \begin{equation*}
-\Delta \Phi - \frac{1}{c^2} \prt{^2 \Phi}{t^2} = - \frac{1}{\epsilon_0} \rho
-\end{equation*}
-\begin{equation*}
+\Delta \Phi - \frac{1}{c^2} \prt{^2 \Phi}{t^2} = - \frac{1}{\epsilon_0} \rho \qquad \qquad 
 \Delta \vec{A} - \frac{1}{c^2} \prt{^2 \vec{A}}{t^2} = - \mu_0 \vec{j}
 \end{equation*}
-Retardierendes Potential:
+Retardierende Potentiale:
 \begin{equation*}
 \Phi_{\tx{ret}} (\vec{r},t) = \kq \int \dd^3 r' \frac{\rho (\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
-\end{equation*}
-Retardierendes Vektorpotential:
-\begin{equation*}
+\qquad \qquad
 \vec{A}_{\tx{ret}} (\vec{r},t) = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
 \end{equation*}
-%
-%
-%
-% T1
-%
-%
-%
+%t1:
+Zum Verständnis des Retardierenden Potentials Skizze (\ref{tikzrho}).
 }
 
 \section{Elektromagnetische Potentiale und Felder bewegter Punktladungen}
