@@ -427,7 +427,7 @@ $$\vec{E}(\vec{r}) = \kq \int \dd^3 r'\ \rho(\vec{r}') \frac{\vec{r} - \vec{r}'}
 
 elektrische Feld ist ein Potentialfeld $\vec{E}(\vec{r}) = - \vabla\phi(\vec{r}) = - \bigg( \vec{e}_x \prt{\phi}{x} + \vec{e}_y \prt{\phi}{y} + \vec{e}_z \prt{\phi}{z}\bigg)$\\
 Nebenrechnung:
-$$\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\vabla\frac{1}{|\vec{r}-\vec{r}'|}$$
+$$\rmbox{\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\vabla\frac{1}{|\vec{r}-\vec{r}'|}}$$
 zur Überprüfung hier die $ x $-Komponente berechnet:
 $$-\prt{}{x} \frac{1}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{1}{2}}} =  \frac{- \left(-\frac{1}{2}\right) \quad 2(x-x')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{\nicefrac{3}{2}}} = \frac{(x-x')}{|\vec{r} - \vec{r}'|^3}$$
 Somit erhalten wir für das $ \vec{E} $-Feld:
@@ -2979,7 +2979,7 @@ $ \vec{D}(\vec{r}) \defeq $ dielektrische Verschiebung.
 \rightarrow \quad \vabla \cdot \vec{D}(\vec{r}) = \langle \rho_f \rangle (\vec{r})
 \end{equation*}
 
-\subsection{Makroskopische Feldgleichungen der Elektrostatik \tiny(Wiederholung)}
+\subsection{Makroskopische Feldgleichungen der Elektrostatik \texorpdfstring{\tiny(Wiederholung)}{Wiederholung}}
 
 \begin{equation*}
 \vabla \cdot \vec{D}(\vec{r}) = \rho_f (\vec{r})
@@ -3029,7 +3029,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 \vabla \cdot \vec{D} (\vec{r}) = \rho_f(\vec{r})
 \end{equation*}
 \begin{equation*}
-\vec{D} = \epsilon_0 \vec{E} + \vec{P}
+\vec{D} = \epsilon_0 \vec{E} + \vec{P} + \dots
 \end{equation*}
 \lcom{Wir haben hier jetzt zwei Feldgleichungen für zwei Vektorfelder. Dies reicht nicht aus um beide Vektorfelder eindeutig zu bestimmen. Hierfür müssen wir die Wirbel und Quellen beider Felder beschreiben. $ \vec{E} $ und $ \vec{D} $ sind also nicht unabhängig sondern miteinander verknüpft.}
 }
@@ -3087,6 +3087,7 @@ Diese Gleichungen können wir nun mit dem Satz von Gauß und dem Satz von Stokes
 		\begin{equation*}
 		\vec{E} = \vec{E}_0 - \frac{1}{\epsilon_0} \vec{P}
 		\end{equation*}
+		mit $ \vec{E}_0 = \frac{1}{\epsilon_0} \vec{D} $
 	\end{minipage}%
 	\begin{minipage}{.5\linewidth}
 		\centering
