@@ -1015,9 +1015,9 @@ Besonders Wichtig:\\
 &= a \cos(k (x \pm \frac{\omega}{k} t))
 \end{align*}
 $ a \in \mathbb{R} \quad \omega, k \in \mathbb{R} \quad \omega, k > 0 $\\
-$ \Psi_\pm $ löst die Wellengleichung:
+$ \Psi_\pm $ löst die Wellengleichung: (siehe später explizit bei §D ebener Welle)
 \begin{equation*}
-\prt{^2}{x^2} \Psi - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = 0
+\prt{^2}{x^2} \Psi - \frac{1}{v^2} \prt{^2}{t^2} \Psi = 0
 \end{equation*}
 falls $ \frac{\omega}{k} = v $\\
 \begin{minipage}{.5\linewidth}
@@ -1036,7 +1036,7 @@ falls $ \frac{\omega}{k} = v $\\
 	\end{tikzpicture}
 \end{minipage}%
 \begin{align*}
-\Psi_{\pm} (x + n \lambda t) &= a \cos(k (x + n \lambda) \pm \omega t)\\
+\Psi_{\pm} (x + n \lambda, t) &= a \cos(k (x + n \lambda) \pm \omega t)\\
 &= a \cos( k x \pm \omega t + k n \lambda)\\
 &= a \cos(kx \pm \omega t) \\
 &= \Psi_{\pm} (x,t)
@@ -1053,7 +1053,7 @@ Die Kreisfrequenz $ \omega $, Frequenz $ \nu = \frac{\omega}{2 \pi} $, Schwingun
 		\draw[->] (-pi/4,-2) -- (-pi/4,2); % node[right] {$y$};
 		\draw[red,thick,domain=-4.5:4.3, samples=100] plot (\x, {sin(2*\x r)});
 		\draw[dotted] (-.8,-0.3) node[left] {$0$};
-		\draw[thick] (pi/2,0.15) -- (pi/2,-0.15) node[below] {$\lambda$};
+		\draw[thick] (3*pi/4,0.15) -- ++(0,-0.3) node[below] {$\lambda$};
 		\draw[thick,domain=-4.5:4.3, samples=100] plot (\x, {-sin(2*\x r)});
 		\draw[dotted] (-0.4,1) node[above] {$v$};
 		\draw[dotted] (-2,1.5) node[above] {$\psi(x,0)$};
@@ -1084,7 +1084,7 @@ Für Physikalische Felder gilt:
 
 \subsection{Ebene Wellen in 3 Raumdimensionen}
 \begin{equation*}
-\Delta \Psi(\vec{r} ,t) - \frac{1}{v^2} \prt{^2 \Psi}{t^2} = 0
+\Delta \Psi(\vec{r} ,t) - \frac{1}{v^2} \prt{^2}{t^2} \Psi(\vec{r},t) = 0
 \end{equation*}
 eben Welle:
 \begin{equation*}
@@ -1143,7 +1143,7 @@ $ k^2 = \frac{\omega^2}{v^2} \qquad \omega = v |\vec{k}| $\\[5pt]
 \end{enumerate}
 \subsubsection{Allgemeine Lösung der Wellengleichung}
 \begin{equation*}
-\Psi(\vec{r},t) = \int \dd^3 k a(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega t)}
+\Psi(\vec{r},t) = \int \dd^3 k \ a(\vec{k}) e^{i(\vec{k} \cdot \vec{r} - \omega t)}
 \end{equation*}
 \begin{equation*}
 \omega(\vec{k}) = v |\vec{k}|
@@ -1165,11 +1165,11 @@ $ \omega = v |\vec{k}| \quad \tilde{\omega} = v |\tilde{\vec{k}}| \quad \vec{k},
 	\begin{equation*}
 	i (\vec{k} \times \vec{E}_0) e^{i(\vec{k} \cdot \vec{r} - \omega t)} = i \tilde{\omega} \vec{B}_0 e^{i(\tilde{\vec{k}} \cdot \vec{r} - \tilde\omega t)} \qquad \forall \vec{r},t
 	\end{equation*}
-	$ \Rightarrow \tilde{\vec{k}} = \vec{k} \quad \tilde{\omega} = \omega $\\
+	$$ \Rightarrow \tilde{\vec{k}} = \vec{k} \quad \tilde{\omega} = \omega $$
 	$ \Rightarrow \vec{k} \times \vec{E}_0 = \omega \vec{B}_0 \ \rightarrow \ \vec{B}_0 = \frac{1}{\omega} \vec{k} \times \vec{E}_0 $
 	$$\vec{B} \perp \vec{k}, \vec{E}$$
 	$$ \Rightarrow \vec{B} = \frac{1}{\omega} \vec{k} \times \vec{E} $$
-	\item $ \vabla \times \vec{E} = 0 $
+	\item $ \vabla \cdot \vec{E} = 0 $
 	\begin{align*}
 	0 &= \vabla \cdot \vec{E}_0 e^{i(\vec{k} \cdot \vec{r} - \omega t)}\\
 	&= i(\vec{k} \cdot \vec{E}_0) e^{i(\vec{k} \cdot \vec{r} - \omega t)}
@@ -1177,11 +1177,12 @@ $ \omega = v |\vec{k}| \quad \tilde{\omega} = v |\tilde{\vec{k}}| \quad \vec{k},
 	$ \Rightarrow \vec{k} \cdot \vec{E}_0 \ \rightarrow \ \vec{k} \cdot \vec{E}_0 = 0 $
 	$$ \vec{k} \perp \vec{E} $$
 	\item $ \vabla \cdot \vec{B} = 0 $\\
-	$ \Rightarrow \vec{k} \cdot \vec{B}_0 = 0 \Rightarrow \vec{k} \cdot \vec{B} = 0 $
+	$ \Rightarrow \vec{k} \cdot \vec{B}_0 = 0 \Rightarrow \vec{k} \cdot \vec{B} = 0 $\\
+	$ \vec{B} \perp \vec{k} $ nichts neues, wissen wir schon aus i)
 	\item $ \vabla \times \vec{B} = \frac{1}{v^2} \prt{\vec{E}}{t} $\\
 	$ \Rightarrow i \vec{k} \times \vec{B}_0 = - i \frac{1}{v^2} \omega \vec{E}_0 $\\
 	$ \Rightarrow \vec{k} \times \vec{B}_0 = - \frac{\omega}{v^2} \vec{E}_0 $\\
-	$ \Rightarrow \vec{E} = -\frac{v^2}{\omega} \vec{k} \times \vec{B} $
+	$$ \Rightarrow \vec{E} = -\frac{v^2}{\omega} \vec{k} \times \vec{B} $$
 \end{enumerate}
 \begin{minipage}{.5\linewidth}
 	$ \vec{E}, \vec{B}, \vec{k} $ orthogonal zueinander\\
@@ -1203,19 +1204,19 @@ $ \omega = v |\vec{k}| \quad \tilde{\omega} = v |\tilde{\vec{k}}| \quad \vec{k},
 \\
 o.B.d.A. $ \quad \vec{k} = k \vec{e}_z $
 \begin{align*}
-\vec{E} &= (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot r - \omega t)} \\
-\vec{B} &= \frac{1}{\omega} \vec{k} \times \vec{E} = \frac{k}{\omega} \vec{e}_z \times (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot r - \omega t)} \\
-&= \frac{1}{v} (- E_{0_y} \vec{e}_x + E_{0_x} \vec{e}_y) e^{i(k \cdot r - \omega t)} 
+\vec{E} &= (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot z - \omega t)} \\
+\vec{B} &= \frac{1}{\omega} \vec{k} \times \vec{E} = \frac{k}{\omega} \vec{e}_z \times (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(k \cdot z - \omega t)} \\
+&= \frac{1}{v} (- E_{0_y} \vec{e}_x + E_{0_x} \vec{e}_y) e^{i(k \cdot z - \omega t)} 
 \end{align*}
 i.A. $ E_{0_x}, E_{0_y} \in \mathbb{C} $
 \begin{equation*}
-\vec{E} = \Re\left(\vec{E}_0 e^{i(k \cdot r - \omega t)} \right)
+\vec{E} = \Re\left(\vec{E}_0 e^{i(k \cdot z - \omega t)} \right)
 \end{equation*}
 \emph{Beispiel:} $ E_{0_y} = 0 \quad E_{0_x} \in \mathbb{R} $
-\begin{align}
+\begin{align*}
 \vec{E} &= E_{0_x} \cos (kz - \omega t) \vec{e}_x \\
 \vec{B} &= \frac{E_{0_x}}{v} \cos(kz - \omega t) \vec{e}_y
-\end{align}
+\end{align*}
 
 %t7: (EM-Welle Tikz): (v in ausbreitungs richtung einzeichnen)
 \begin{center}
@@ -1245,6 +1246,7 @@ i.A. $ E_{0_x}, E_{0_y} \in \mathbb{C} $
 	\draw[->] (0,0) -- (7,0) node[anchor=north west] {$ \vec{z} $};
 	\node (e) at (1.5,2) {\color{red} $ \vec{E} $ \color{black}};
 	\node (b) at (.5,-1.25) {\color{blue} $ \vec{B} $ \color{black}};
+	\draw[thick,->] (5.5,2.5) -- node[above] {$ \vec{v} $} ++(1.5,0);
 	\end{tikzpicture}
 \end{center}
 
@@ -1255,7 +1257,7 @@ Charakterisierung der Schwingungsrichtung $ \vec{k} = k \vec{e}_z $
 \vec{E} = (E_{0_x} \vec{e}_x + E_{0_y} \vec{e}_y) e^{i(kx - \omega t)}
 \end{equation*}
 \begin{equation*}
-E_{0_x} = |E_{0_x} e^{i \varphi} \qquad E_{0_y} = |E_{0_y} e^{i (\varphi + \delta)}
+E_{0_x} = |E_{0_x}| e^{i \varphi} \qquad E_{0_y} = |E_{0_y}| e^{i (\varphi + \delta)}
 \end{equation*}
 Physikalisches Feld:
 \begin{align*}
@@ -1277,7 +1279,7 @@ Physikalisches Feld:
 	\begin{align*}
 	\vec{E} = E\ub{(\vec{e}_x \cos(kz - \omega t + \varphi)) \mp \vec{e}_y \sin(kz - \omega t + \varphi))}_{ = \vec{r} (t)}
 	\end{align*}
-	\lcom{$ |\vec{r}| = 1 $ und $ \vec{r} $ läuft mit $ \omega $ um}
+	\lcom{$ |\vec{r}| = 1 $ und $ \vec{r} $ läuft mit $ \omega $ um die $ z $-Achse}
 	\item
 	$ \delta , |E_{0_x}|, |E_{0_y}| $ beliebig:
 	\textbf{elliptisch Polarisiert}
@@ -1372,7 +1374,7 @@ Physikalisches Feld:
 		\draw[->] (0,-2.5) -- (0,2.5) node[anchor=south east] {$ |\vec{E}| $};
 		\draw[thick,domain=0.001:9.3, samples=100] plot (\x, {2 * cos(1 / 4 * 15 * (\x * .5) r) * exp(- (\x * .5)^(2) * 0.25 * (1) / (\x * 0.2) });
 		\draw[thick, dashed] (0,2) to[out=-28,in=178] (9.3,.2);
-		\draw (3,1) -- ++(30:1cm) node[anchor=south west] {$ \rho \sim \frac{1}{r} $};
+		\draw (3,1) -- ++(30:1cm) node[anchor=south west] {$ \rho \propto \frac{1}{r} $};
 	\end{tikzpicture}
 \end{minipage}%
 
@@ -1387,10 +1389,9 @@ Wir betrachten eine ebene Grenzfläche ($ x $-$ y $-Ebene) zwischen zwei ungelad
 	und $ \vec{k}_e $ ohne $ y $-Komponente
 	\begin{equation*}
 	\vec{k}_e = \begin{pmatrix}
-	k_{e_y} \\ 0 \\ k_{e_z}
+	k_{e_x} \\ 0 \\ k_{e_z}
 	\end{pmatrix}
 	\end{equation*}
-	\vspace{5pt}
 \end{minipage}%
 \begin{minipage}{.45\linewidth}
 	%t4:
@@ -1410,6 +1411,7 @@ Wir betrachten eine ebene Grenzfläche ($ x $-$ y $-Ebene) zwischen zwei ungelad
 		\node at (-1.5,-.7) {$\epsilon_1 \mu_1$};
 		\draw[->] (3.25,0) -- (3.25,.85) node[anchor=north west] {$\vec{n}=\vec{e}_z$};
 	\end{tikzpicture}
+	\vspace{5pt}
 \end{minipage}%
 \\
 Die \textbf{einfallende Welle} sieht folgendermaßen aus:

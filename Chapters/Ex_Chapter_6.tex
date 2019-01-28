@@ -20,7 +20,7 @@
 	Wobei das erste $\langle \hat O \rangle$ das statistische Mittelwert bedeutet. \\
 	\lcom{Diese aussage gilt für alle Operatoren, nicht nur Hermitesche.}
 	\item Die Zeitentwicklung der Zustände bzw. Wellenfunktionen wird durch die Schrödinger-Gleichung beschrieben:\\
-	$i\hbar \frac{\partial}{\partial t}\Psi = \hat{H}\Psi \quad \tx{bzw.} \quad i\hbar \frac{\partial}{\partial t} | \Psi \rangle = \hat{H}|\Psi \rangle$
+	$$ i\hbar \frac{\partial}{\partial t}\Psi = \hat{H}\Psi \quad \tx{bzw.} \quad i\hbar \frac{\partial}{\partial t} | \Psi \rangle = \hat{H}|\Psi \rangle$$
 	\item Bei Messungen der Observablen $ \hat{A} $ für ein System im Zustand $ |\Psi \rangle $ bzw. der Wellenfunktion $ \Psi $ erhält man mit der Wahrscheinlichkeit $ p_n = |(\Psi_n, \Psi)|^2 $ bzw. $ p_n = |\langle \Psi_n | \Psi \rangle |^2 $ den Eigenwert $ a_n : $ der Zustand des Systems geht in die zugeordnete Eigenfunktion $ \Psi_n $ bzw. $ |\Psi_n\rangle $ über (Messprozess $ \rightarrow $ Kollaps der Wellenfunktion). \label{Axiom5}
 \end{enumerate}
 Außerdem gilt: Der Erwartungswert $ \langle \hat{A} \rangle $ der Observablen $ \hat{A} $ ist der Mittelwert der Messergebnisse $ a_n $ von sehr vielen (gleichen) Experimenten $ \langle \hat{A} \rangle = \sum_n p_n a_n $.
@@ -374,7 +374,7 @@ Zeitabhängigkeit von Zeitunabhängigen Erwartungswerten in stationären Zustän
 \begin{equation*}
 \langle \hat{O} \rangle (t) \equiv \langle n | e^{\frac{i}{\hbar} E_n t} \hat{O} e^{-\frac{i}{\hbar} E_n t} |n \rangle = \langle n | \hat{O} | n \rangle = \const
 \end{equation*}
-Damit gilt auch $ \langle n , t | n , t \rangle = \langle e^{\frac{i}{\hbar} E_n t} e^{-\frac{i}{\hbar} E_n t} | n \rangle = \langle n | n \rangle = 1 = \const $. Somit ist der Begriff ,,stationärer Zustand`` gerechtfertigt.\\[5pt]
+Damit gilt auch $ \langle n , t | n , t \rangle = \langle e^{\frac{i}{\hbar} E_n t} e^{-\frac{i}{\hbar} E_n t} | n \rangle = \langle n | n \rangle = 1 = \const $ Somit ist der Begriff ,,stationärer Zustand`` gerechtfertigt.\\[5pt]
 \textbf{Feststellung 3}\\
 F1 ist äquivalent zu F2\\[10pt]
 
@@ -486,10 +486,11 @@ $ \alpha^2 + \beta^2 = 1 : $ Normierung\\[5pt]
 	\end{equation*}
 	\item  Erinnerung:
 	\begin{equation*}
-	\alpha = \langle \: \uparrow | \Psi \rangle \qquad \beta = \langle \: \downarrow | \Psi \rangle
+	|\Psi\rangle = \alpha | \uparrow \: \rangle + \beta | \downarrow \: \rangle \qquad \alpha = \langle \: \uparrow | \Psi \rangle \qquad \beta = \langle \: \downarrow | \Psi \rangle
 	\end{equation*}
 	%%% (1)
-	Analogie Vektorraum: $ \vec{v} = \alpha \vec{e}_1 + \beta \vec{e}_2 \quad \Rightarrow \alpha = \vec{e}_1^\top \cdot \vec{v} \quad \beta = \vec{e}_2^\top \cdot \vec{v} $ 
+	Analogie Vektorraum:
+	$$ \vec{v} = \alpha \vec{e}_1 + \beta \vec{e}_2 \quad \Rightarrow \quad \alpha = \vec{e}_1^\top \cdot \vec{v} \qquad \beta = \vec{e}_2^\top \cdot \vec{v} $$
 \end{itemize}
 \textbf{Wellenfunktion:}\\[5pt]
 \begin{minipage}{.6\linewidth}
@@ -545,18 +546,18 @@ Was ist eine Eigenwertgleichung:\\
 	$$ \hat{O} | \Psi \rangle = \lambda | \Psi \rangle \qquad \Rightarrow \quad \lambda_n, | \Psi_n \rangle $$
 	\item[Spin:] $ S = \frac{1}{2} \qquad \hat{S}_z |\Psi \rangle = S_z |\Psi \rangle $
 	\begin{align*}
-	\Rightarrow \quad \tx{Lösung:} \quad \hat{S}_z |\uparrow \rangle &= + \frac{1}{2} | \uparrow \rangle \qquad \Rightarrow \quad + \frac{1}{2}, | \uparrow \rangle\\
-	\hat{S}_z | \downarrow \rangle &= - \frac{1}{2} | \downarrow \rangle \qquad \Rightarrow \quad - \frac{1}{2} | \downarrow \rangle
+	\Rightarrow \quad \tx{Lösung:} \quad \hat{S}_z |\uparrow \: \rangle &= + \frac{1}{2} | \uparrow \: \rangle \qquad \Rightarrow \quad + \frac{1}{2}, | \uparrow \: \rangle\\
+	\hat{S}_z | \downarrow \: \rangle &= - \frac{1}{2} | \downarrow \: \rangle \qquad \Rightarrow \quad - \frac{1}{2}, | \downarrow \: \rangle
 	\end{align*}
 \end{description}
 \textbf{Übersetzt auf unseren Fall:}
 \begin{equation*}
-| \Psi \rangle = \alpha | \uparrow \rangle + \beta | \downarrow \rangle
+| \Psi \rangle = \alpha | \uparrow \: \rangle + \beta | \downarrow \: \rangle
 \end{equation*}
 $ \Rightarrow $ Wahrscheinlichkeit Wert
 \begin{align*}
-p(+\frac{1}{2}) \quad \tx{ also } \quad + \frac{1}{2} \tx{ zu messen } \quad = \alpha^2 = | \langle \uparrow | \Psi \rangle | ^2\\
-p(-\frac{1}{2}) \quad \tx{ also } \quad - \frac{1}{2} \tx{ zu messen } \quad = \beta^2 = |\langle \downarrow | \Psi \rangle | ^2
+p\left(+\frac{1}{2}\right) \quad \tx{ also } \quad + \frac{1}{2} \tx{ zu messen } \quad = \alpha^2 = | \langle \: \uparrow | \Psi \rangle | ^2\\
+p\left(-\frac{1}{2}\right) \quad \tx{ also } \quad - \frac{1}{2} \tx{ zu messen } \quad = \beta^2 = |\langle \: \downarrow | \Psi \rangle | ^2
 \end{align*}
 Wellenfunktion für Spin $ \frac{1}{2} $ in Spin-Darstellung
 \begin{equation*}
@@ -571,22 +572,22 @@ p(x) = | \Psi(x) |^2
 \end{equation*}
 \emph{Beispiele:}
 \begin{itemize}
-	\item Nehmen wir an: $ e $ befindet sich im Zustand $ | \Psi \rangle = | \uparrow \rangle \qquad \Rightarrow \quad \alpha = 1 \quad \beta = 0 $
+	\item Nehmen wir an: $ e $ befindet sich im Zustand $ | \Psi \rangle = | \uparrow \: \rangle \qquad \Rightarrow \quad \alpha = 1 \quad \beta = 0 $
 	\begin{align*}
-	p(\frac{1}{2}) &= 1 \\
-	p(-\frac{1}{2}) &= 0
+	p\left(\frac{1}{2}\right) &= 1 \\
+	p\left(-\frac{1}{2}\right) &= 0
 	\end{align*}
 	\emph{Bemerkung:}\\
 	Es muss gelten $ p(\frac{1}{2}) + p(-\frac{1}{2}) = 0 \tx{ und } \alpha^2 + \beta^2 = 1 $
-	\item $ e $ befindet sich im Zustand $ |\Psi \rangle = | \downarrow \rangle \qquad \Rightarrow \quad \alpha = 0 \quad \beta = 1 $
+	\item $ e $ befindet sich im Zustand $ |\Psi \rangle = | \downarrow \: \rangle \qquad \Rightarrow \quad \alpha = 0 \quad \beta = 1 $
 	\begin{align*}
-	p(\frac{1}{2}) &= 0 \\
-	p(-\frac{1}{2}) &= 1
+	p\left(\frac{1}{2}\right) &= 0 \\
+	p\left(-\frac{1}{2}\right) &= 1
 	\end{align*}
-	\item $ e $ befindet sich im Zustand $ |\Psi \rangle = \frac{1}{\sqrt{2}} | \uparrow \rangle + \frac{1}{\sqrt{2}} | \downarrow \rangle \qquad \Rightarrow \quad \alpha = \beta = \frac{1}{\sqrt{2}} $
+	\item $ e $ befindet sich im Zustand $ |\Psi \rangle = \frac{1}{\sqrt{2}} | \uparrow \: \rangle + \frac{1}{\sqrt{2}} | \downarrow \: \rangle \qquad \Rightarrow \quad \alpha = \beta = \frac{1}{\sqrt{2}} $
 	\begin{align*}
-	p(\frac{1}{2}) &= \frac{1}{2} \\
-	p(-\frac{1}{2}) &= \frac{1}{2}
+	p\left(\frac{1}{2}\right) &= \frac{1}{2} \\
+	p\left(-\frac{1}{2}\right) &= \frac{1}{2}
 	\end{align*}
 	\begin{equation*}
 	p_n = | \langle \custo{\rightarrow}{\Psi_n}{\hat{A}} | \custo{\rightarrow}{\Psi_{\phantom{n}}}{|\Psi \rangle} \hspace{-3pt} \rangle | ^2
@@ -622,7 +623,7 @@ Physikalische Bedingungen an die Lösung:
 	$ \Rightarrow $ Lösungen müssen normierbar sein\\
 	$ \Psi(x \to \pm \infty) = 0 $
 \end{enumerate}
-\lcom{Die Wellenfunktionen von nicht gebundenen Teilchen sind auch normiert, allerdings ist dies nicht einfach so berechenbar. Eine freie EM-Welle im unendlichen Raum hätte folglich überall winzige Aufenthaltswahrscheinlichkeiten, da wir Quasi durch unendlich Teilen. Hierzu müsste man Randbedingungen oder ein endlich großes Universum einführen.}
+\lcom{Die Wellenfunktionen von nicht gebundenen Teilchen sind auch normiert, allerdings ist dies nicht einfach so berechenbar. Eine freie EM-Welle im unendlichen Raum hätte folglich überall winzige Aufenthaltswahrscheinlichkeiten, da wir quasi durch unendlich Teilen. Hierzu müsste man Randbedingungen oder ein endlich großes Universum einführen.}
 
 \subsection{Konstantes Potential \texorpdfstring{$ V(x) = V_0 $}{V(x) = V0}}
 
@@ -665,7 +666,7 @@ Quantenmechanik:\\
 	\item $ E > V_0 : $\\
 	Lösung in I:
 	\begin{equation*}
-	\Psi_{I}(x) = e^{i k x} + R e^{- i k x} \qquad \hbar k = \sqrt{2 m E}
+	\Psi_{I}(x) = e^{i k x} + R e^{- i k x} \qquad \hbar k = \sqrt{2 m E} \quad \
 	\end{equation*}
 	Lösung in II:
 	\begin{equation*}
@@ -689,7 +690,7 @@ Quantenmechanik:\\
 	\begin{equation*}
 	\Rightarrow \quad \Psi_{II}(x) = T e^{i q x} \equiv T e^{- \kappa x}
 	\end{equation*}
-	$ \hbar q \rightarrow - i \hbar \kappa $\\
+	$ \hbar \kappa \rightarrow - i \hbar q $ bzw. $ \hbar q \rightarrow i \hbar \kappa $\\
 	$ \Rightarrow $ Welle im Bereich II fällt exponentiell ab\\
 	$ \Rightarrow $ $ q \to i \kappa $
 	\begin{equation*}
@@ -714,8 +715,8 @@ $ \Rightarrow \quad \Psi_{\tx{II}}(x) = 0 $
 		\draw[thick,black!30!green,->] (-3,1) -- node[below] {Teilchen} ++(1,0);
 		\draw[->] (-3.75,0) -- (3.75,0) node[anchor=north west] {$ x $};
 		\draw[->] (0,-0.5) -- (0,2.5) node[anchor=south east] {\color{blue}$ V(x) $};
-		\draw (-1.5,.1) -- ++(0,-.2) node[below] {$ -q $};
-		\draw (1.5,.1) -- ++(0,-.2) node[below] {$ +q $};
+		\draw (-1.5,.1) -- ++(0,-.2) node[below] {$ -a $};
+		\draw (1.5,.1) -- ++(0,-.2) node[below] {$ +a $};
 		\node[draw=black,circle, minimum size=.8cm,red] at (-2.5,-1) {I};
 		\node[draw=black,circle, minimum size=.8cm,red] at (0,-1) {II};
 		\node[draw=black,circle, minimum size=.8cm,red] at (2.5,-1) {III};
@@ -777,6 +778,7 @@ t(E) = T^2 = \left(1 + \frac{V_0^2}{4 E(V_0 - E)} \sinh^2 (\kappa a) \right)^{-1
 		\node[anchor=south west] (v) at (1.5,1.5) {$ V_0 $};
 	\end{tikzpicture}
 \end{center}
+\lcom{Die Wahrscheinlichkeit auf der anderen Seite gemessen zu werden ist kleiner aber die Energie ist die selbe \mau}\\[5pt]
 \textbf{Diskussion:}
 \begin{enumerate}[i)]
 	\item $ \kappa a \gg 1 $ (hohe und breite Barriere)
@@ -795,7 +797,7 @@ t(E) = T^2 = \left(1 + \frac{V_0^2}{4 E(V_0 - E)} \sinh^2 (\kappa a) \right)^{-1
 
 \subsection{Beispiele für den Tunneleffekt}
 
-\emph{Beispiel:}
+\emph{Beispiel:} Zerfallswahrscheinlichkeit
 \begin{enumerate}[1)]
 	\item $ \dd N = - \frac{N}{\tau} \dd t $\\
 	$ \dd N = - N \cdot \tx{ Zerfallswahrscheinlichkeit} \cdot \dd t $
@@ -848,7 +850,7 @@ Man kann damit einen Spannungsabhängigen negativen Widerstand herstellen.\\[10p
 
 \subsection{Harmonischer Oszillator}
 
-$ \Rightarrow \quad V(x) = \frac{1}{2} D x^2 \equiv \frac{m \omega_0^2}{2} x^2 \qquad \omega = \sqrt{\frac{D}{m}} $\\
+$ \Rightarrow V(x) = \frac{1}{2} D x^2 \equiv \frac{m \omega_0^2}{2} x^2 \qquad \omega = \sqrt{\frac{D}{m}} $\\
 $ \Rightarrow $ Hamiltonfunktion:
 $$ \ham(\vec{p}, \vec{x}) = \frac{\vec{p}^2}{2m} + \frac{1}{2} D \vec{x}^2 $$
 $ \Rightarrow $ Hamiltonoperator:\\
@@ -866,10 +868,10 @@ klassisch:
 	Die Aufenthaltswahrscheinlichkeit am Ort $ x $\\
 	(im Bereich von $ a $ bis $ b $)
 	\begin{equation*}
-	P(t) \dd t = \frac{1}{T} \dd t = P(x) \dd x
+	p(t) \dd t = \frac{1}{T} \dd t = p(x) \dd x
 	\end{equation*}
 	\begin{equation*}
-	\Rightarrow \quad P(x) = \left(2 \pi A \sqrt{1 - \left(\frac{x}{A}\right)^2}\right)^{-1} = \frac{\omega_0}{2 \pi V(x)}
+	\Rightarrow \quad p(x) = \left(2 \pi A \sqrt{1 - \left(\frac{x}{A}\right)^2}\right)^{-1} = \frac{\omega_0}{2 \pi V(x)}
 	\end{equation*}
 \end{itemize}
 Quantenmechanisch:\\[5pt]
