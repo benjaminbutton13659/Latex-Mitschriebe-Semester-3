@@ -871,7 +871,7 @@ falls $ \vabla\cdot \vec{A} = 0 $ (Coulomb-Eichung)  % (Coulomb-Gleichung)
 Wichtig: Die Komponenten sind nicht unabhängig voneinander aufgrund unserer Annahme $ \vabla \cdot \vec{A} = 0 $
 analog:$ \Delta \Phi = - \frac{1}{\epsilon_0} \rho $
 
-\subsection{Feldgleichungen der Magnetostatik}
+\subsection{Feldgleichungen der Magnetostatik \texorpdfstring{\tiny(Wiederholung)}{Wiederholung}}
 
 \begin{minipage}{.5\linewidth}
 	\begin{equation*}
@@ -1056,7 +1056,7 @@ Nebenrechnung:
 \subsection{Kraft auf eine lokalisierte Stromverteilung in einem äußeren Magnetfeld \texorpdfstring{$ \vec{B} $}{B}}
 
 \begin{minipage}{.6\linewidth}
-	$ \vec{j}(\vec{r}) = 0 \qquad |\vec{r}| > 0 $
+	$ \vec{j}(\vec{r}) = 0 \ \tx{ für } \ |\vec{r}| > 0 $
 	Taylorentwicklung von $ \vec{B}(\vec{r}) $ um $ \vec{r} = 0 $:
 	\begin{equation*}
 	\vec{B}(\vec{r}) = \vec{B}(0) + (\vec{r} \cdot \vabla) \vec{B}(\vec{r}) \bigg|_{\vec{r} = 0} + \dots
@@ -1087,7 +1087,7 @@ Nebenrechnung:
 	\end{tikzpicture}
 \end{minipage}%
 \begin{equation*}
-\vec{F} = \ub{\int\dd^3 r \left(\vec{j}(\vec{r}) \times \vec{B}(0)\right)}_{= \bigg(\ub{\int \dd^3 r \vec{j} (\vec{r})}_{= 0} \bigg) \times \vec{B}(0)} + \int\dd ^3 r \left[ \vec{j}(\vec{r}) \times (\vec{r} \cdot \vabla) \vec{B}(0) \right] + \dots
+\vec{F} = \ub{\int\dd^3 r \left(\vec{j}(\vec{r}) \times \vec{B}(0)\right)}_{= \bigg(\ub{\int \dd^3 r \vec{j} (\vec{r})}_{= 0} \bigg) \times \vec{B}(0)} + \int\dd ^3 r \left[ \vec{j}(\vec{r}) \times (\vec{r} \cdot \vabla) \vec{B}(\vec{r}) \right] + \dots
 \end{equation*}
 \begin{minipage}{.7\linewidth}
 	Der verschwindende Teil ist ein homogenes $ \vec{B} $-Feld ($ \vec{B} = \const $), und übt daher keine Kraft auf Stromverteilung aus.
@@ -1118,7 +1118,7 @@ Damit ergibt sich:
 \end{align*}
 \begin{align*}
 \rightarrow \quad F_i &= \sum_{k,l} \epsilon_{ikl} \ \ub{\int \dd ^3 r \left[(\vabla B_l) \cdot \vec{r}\right] j_k}\\
-&\qquad \qquad = \int \dd^3 r \left( \left[(\vabla B_l) \cdot \vec{r}\right] \vec{j}\right)_k \overset{\tx{Identität}}{=} - \frac{1}{2} \left[\vabla B_l \times \int \dd^3 r \vec{r} \times \vec{j} \right]
+&\qquad \qquad = \int \dd^3 r \left( \left[(\vabla B_l) \cdot \vec{r}\right] \vec{j}\right)_k \overset{\tx{Identität}}{=} - \frac{1}{2} \left[\vabla B_l \times \int \dd^3 r \ \vec{r} \times \vec{j} \right]
 \end{align*}
 Hier die benutzte Identität (aus den Hausaufgaben):
 \begin{equation*}
@@ -1126,8 +1126,8 @@ Hier die benutzte Identität (aus den Hausaufgaben):
 \end{equation*}
 Damit ergibt sich für die Kraft:
 \begin{align*}
-F_i &= - \frac{1}{2} \sum_{k,l} \epsilon_{ikl} \ \left[\vabla B_l \times \ub{\int \dd^3 r \vec{j} \times \vec{j}(\vec{r})}_{=2 \vec{m}}\right]_k \\
-&= - \sum_{k,l} \epsilon_{ikl} \ \ub{\left(\vabla B_l \times \vec{m}\right)}_{- \left[\vec{m} \times \vabla B_l\right]_k = - (\vec{m} \times \vabla)_k B_l}\\
+F_i &= - \frac{1}{2} \sum_{k,l} \epsilon_{ikl} \ \Bigg[\vabla B_l \times \ub{\int \dd^3 r \ \vec{r} \times \vec{j}(\vec{r})}_{=2 \vec{m}}\Bigg]_k \\
+&= - \sum_{k,l} \epsilon_{ikl} \ \ub{\left(\vabla B_l \times \vec{m}\right)}_{\mathclap{ \qquad \qquad - \left[\vec{m} \times \vabla B_l\right]_k = - (\vec{m} \times \vabla)_k B_l}}\\
 &= \sum_{k,l} \epsilon_{ikl} \ (\vec{m} \times \vabla)_k B_l\\
 &= \left[(\vec{m} \times \vabla) \times \vec{B}\right]_i
 \end{align*}
@@ -1160,7 +1160,7 @@ Also: $ \vec{m} \perp \vec{B} \Rightarrow \vec{F} = 0 $\\
 		\draw[->] (0,0) -- (0,2);
 		\draw[->] (0,0) -- (2,0);
 		\node[circle,fill=black,inner sep=1pt,minimum size=1pt] at (0,0) {};
-		\draw[very thick,->] (0,0) -- (0,1.5) node[anchor=north west] {$ \vec{m} $};
+		\draw[very thick,->] (0,0) -- (0,1.5) node[anchor=south west] {$ \vec{m} $};
 		\draw[very thick,->] (2.5,0) -- node[right] {$ \vec{B} $} ++(0,1.5);
 	\end{tikzpicture}
 \end{minipage}%
@@ -1217,12 +1217,12 @@ $ \langle j_g \rangle $\\
 	\draw (\x,0) -- (\x,3);
 	\foreach \y in {.5,1.5,2.5}
 	\draw (0,\y) -- (3,\y);
-	\coordinate (o) at (3.5,-.5);
+	\coordinate (o) at (4.5,0);
 	\draw (o) -- ++(0,.5);
 	\draw (o) -- ++(.5,0);
 	\draw[thick,->] (o) -- node[below=10pt] {$ \vec{r}_n $} (2,1);
 	\node[anchor=south west] at (1.5,.5) {$ n $};
-	\draw (2,1) to[out=30,in=150] ++(1,0) to[out=-30,in=-150] ++(1,0) node[right] {$ \vec{j}_n $};
+	\draw (2,1) to[out=45,in=165] ++(1,.6) to[out=-15,in=-135] ++(1,.6) node[right] {$ \vec{j}_n $};
 	\node[anchor=north east] at (o) {$ 0 $};
 	\end{tikzpicture}
 \end{minipage}%
@@ -1230,7 +1230,7 @@ $ \langle j_g \rangle $\\
 Mittlung:
 \begin{align*}
 \rightarrow \quad \langle \vec{j}_g \rangle &= \vabla \times \ub{\langle \sum_n \vec{m} \delta(\vec{r}' - \vec{r}_n) \rangle}_{\defeq \vec{M}(\vec{r})} (\vec{r}) + \dots \\
-&= \frac{\tx{magnetisches Dipolmoment}}{\tx{Volumen}} = \vabla \times \vec{M}(\vec{r})
+&= \vabla \times \vec{M}(\vec{r})
 \end{align*}
 Mit
 $$ \vec{m}_n = \frac{1}{2} \int \dd^3 r' \vec{r}' \times \vec{j}_n(\vec{r}') $$
@@ -1239,7 +1239,7 @@ Und $ \vec{M} (\vec{r}) : $ makroskopische Magnetisierung
 \left[\vec{M}\right] = \frac{\tx{A}}{\tx{m}^2} \tx{m} = \frac{\tx{A}}{\tx{m}} = \frac{\tx{magnetisches Dipolmoment}}{\tx{Volumen}}
 \end{equation*}
 \begin{equation*}
-\Rightarrow \quad \vabla \times \langle \vec{B} \rangle (\vec{r}) = \mu_0 \langle \vec{j} \rangle (\vec{r}) + \mu_0 \vabla \times \vec{M}(\vec{r}) + \dots
+\Rightarrow \quad \vabla \times \langle \vec{B} \rangle (\vec{r}) = \mu_0 \langle \vec{j} \rangle (\vec{r}) = \mu_0 \langle \vec{j}_f \rangle (\vec{r}) + \mu_0 \vabla \times \vec{M}(\vec{r}) + \dots
 \end{equation*}
 \begin{equation*}
 \Rightarrow \quad \vabla \times \ub{\left(\frac{1}{\mu_0} \langle \vec{B} \rangle (\vec{r})  - \vec{M} (\vec{r}) - \dots \right)}_{\defeq \vec{H}(\vec{r})} = \langle \vec{j}_f \rangle (\vec{r})
@@ -1258,10 +1258,10 @@ Und $ \vec{M} (\vec{r}) : $ makroskopische Magnetisierung
 \end{equation*}
 Integrale Form:
 \begin{equation*}
-\oint_{F} \dd \vec{f} \cdot \vec{B} = 0
+\oint_{\partial V} \dd \vec{f} \cdot \vec{B} = \int_V \dd^3 r \vabla \cdot \vec{B} = 0
 \end{equation*}
 \begin{equation*}
-\int_{\partial F} \dd \vec{r} \cdot \vec{H} = \int_{F} \dd \vec{f} \cdot \vec{j}_f = I_F
+\oint_{\partial F} \dd \vec{r} \cdot \vec{H} = \int_{F} \dd \vec{f} \vabla \times \vec{H} = \int_{F} \dd \vec{f} \cdot \vec{j}_f = I_F
 \end{equation*}
 \begin{center}
 	%t6:
@@ -1290,6 +1290,7 @@ Magnetisierung $ \rightarrow $ Zusatzfeld $ \vec{B}_M $
 \begin{equation*}
 \vec{B} = \vec{B}_0 + \vec{B}_M
 \end{equation*}
+mit $ \vec{B}_0 = \mu_0 \vec{H} $ und $ \vec{B}_M = \mu_0 \vec{M} $
 
 \subsection{Vektorpotential}
 
@@ -1299,24 +1300,19 @@ Magnetisierung $ \rightarrow $ Zusatzfeld $ \vec{B}_M $
 \begin{equation*}
 \vec{A} (\vec{r}) = \frac{\mu_0}{4 \pi} \int \dd ^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|} \qquad (\Lambda = 0 \quad \vabla \cdot \vec{A} = 0)
 \end{equation*}
+Wir benutzen $ \langle \vec{j} \rangle = \langle \vec{j}_f \rangle + \langle \vec{j}_g \rangle $ und $ \langle \vec{j}_g \rangle = \vabla \times \vec{M}(\vec{r}) $
 \begin{align*}
 \Rightarrow \quad \langle \vec{A} \rangle (\vec{r}) &= \frac{\mu_0}{4 \pi} \int \dd^3r' \frac{\langle \vec{j} \rangle (\vec{r}')}{|\vec{r} - \vec{r}'|}\\
-&= \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\langle \vec{j} \rangle (\vec{r}')}{|\vec{r} - \vec{r}'|} + \ub{\frac{\mu_0}{4 \pi} \int\dd^3 r ' \frac{\vabla_{\vec{r}'} \times \vec{M} (\vec{r}')}{|\vec{r} - \vec{r}'|}}\\
+&= \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\langle \vec{j}_f \rangle (\vec{r}')}{|\vec{r} - \vec{r}'|} + \ub{\frac{\mu_0}{4 \pi} \int\dd^3 r ' \frac{\vabla_{\vec{r}'} \times \vec{M} (\vec{r}')}{|\vec{r} - \vec{r}'|}}\\
 & \qquad \qquad \qquad \qquad \quad = \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{M}(\vec{r}') \times \frac{(\vec{r} - \vec{r}')}{|\vec{r} - \vec{r}'|^3}
 \end{align*}
 Erklärung der letzten Umformung:
 \begin{align*}
-\int \dd^3 r' \frac{1}{|\vec{r} - \vec{r}'|} \vabla_{\vec{r}'} \times \vec{M} (\vec{r}') &= \int \dd^3 r' \vabla_{\vec{r}'} \times \left(\frac{1}{|\vec{r} - \vec{r}'|} \vec{M}\right) - \ub{\left(\vabla_{\vec{r}'} \frac{1}{|\vec{r} - \vec{r}'|}\right)}_{= \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}} \times \vec{M}\\
-&= \ub{\int\dd^3 r' \vabla_{\vec{r}'} \times \left(\frac{\vec{M}}{|\vec{r} - \vec{r}'|}\right)} + \int\dd^3r' \vec{M}(\vec{r}')  \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|}\\
-&= \lim\limits_{R \to \infty} \int_{K_R(0)} \dd^3 r' \vabla_{\vec{r}'} \times \left(\frac{\vec{M}}{|\vec{r} - \vec{r}'|}\right)
+\int \dd^3 r' \frac{1}{|\vec{r} - \vec{r}'|} \vabla_{\vec{r}'} \times \vec{M} (\vec{r}') &= \int \dd^3 r' \vabla_{\vec{r}'} \times \left(\frac{1}{|\vec{r} - \vec{r}'|} \vec{M}\right) \ub{- \left(\vabla_{\vec{r}'} \frac{1}{|\vec{r} - \vec{r}'|}\right)}_{= \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}} \times \vec{M}\\
+&= \ub{\int\dd^3 r' \vabla_{\vec{r}'} \times \left(\frac{\vec{M}}{|\vec{r} - \vec{r}'|}\right)} + \int\dd^3r' \vec{M}(\vec{r}')  \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\\
+&= \lim\limits_{R \to \infty} \int_{K_R(0)} \dd^3 r' \vabla_{\vec{r}'} \times \left(\frac{\vec{M}}{|\vec{r} - \vec{r}'|}\right)\\
+&= \int_{\partial K_{R(0)}} \dd \vec{f}' \times \frac{\vec{M}}{|\vec{r} - \vec{r}'|} = 0
 \end{align*}
-%
-%
-%
-% kim
-%
-%
-%
 
 \subsection{Magnetisierung und Suszeptibilität}
 

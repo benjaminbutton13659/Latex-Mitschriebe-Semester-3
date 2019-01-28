@@ -53,8 +53,7 @@ $ \prt{\vec{D}}{t} \ $ ist der Verschiebungsstrom\\
 	\end{tikzpicture}
 \end{center}
 \begin{align*}
-\int_F \dd \vec{f} \cdot (\vec{\nabla} \times \vec{E}) &= - \int \dd \vec{f} \cdot \prt{\vec{B}}{t} \\
-= \ub{\int_{\partial F} \dd \vec{r} \cdot \vec{E}}_{U_{\tx{ind}}} &= - \prd{}{t} \ub{\int_F \dd \vec{f} \cdot \vec{B}}_{\Phi_m (t)}
+\int_F \dd \vec{f} \cdot (\vec{\nabla} \times \vec{E}) &= - \int \dd \vec{f} \cdot \prt{\vec{B}}{t} = \ub{\int_{\partial F} \dd \vec{r} \cdot \vec{E}}_{U_{\tx{ind}}} = - \prd{}{t} \ub{\int_F \dd \vec{f} \cdot \vec{B}}_{\Phi_m (t)}
 \end{align*}
 $ \Phi_m(t) $ ist der Fluss des $ \vec{B} $-Feldes durch F
 \begin{equation*}
@@ -69,7 +68,7 @@ U_{\tx{ind}} = - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B}
 				\coordinate (a) at (0,0);
 				\draw[->] ($ ({cos(45) * -.9},{sin(45) * -.6}) + (a) $) arc[start angle=-135, end angle=225, x radius = .9cm, y radius = .6cm] node[anchor=north east] {$ \partial F $};
 				\draw[->] ($ ({cos(45) * .9},{sin(45) * -.6}) + (a) $) arc[start angle=-45, end angle=315, x radius = .9cm, y radius = .6cm] node[anchor=north west] {$ \vec{j} $};
-				\draw[thick,->] ($ (a) + (.3,-.3) $) -- ++(0,.6);
+				\draw[thick,->] ($ (a) + (.3,-.3) $) -- ++(0,1.2);
 				\draw ($ (a) + (.4,0) $) -- ++(1,.5) node[right] {$ \vec{B}(t_1) = \vec{B}_1 $};
 				\draw[thick,->] ($ (a) + (-.3,.3) $) -- node[left=10pt] {$ \dd \vec{f} $} ++(0,.6);
 				
@@ -108,10 +107,12 @@ U_{\tx{ind}} = - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B}
 			\draw[->,very thick] ({cos(70) * 2cm}, {sin(70) * -1cm}) arc[start angle=-70, end angle=290,x radius = 2cm, y radius = 1cm] node[anchor=north west] {$ \vec{j} $};
 			\draw[->, thick] (1,0) arc[start angle=180,end angle=-180,x radius=1cm, y radius=1.25cm];
 			\node[right] at (3,0) {$ \vec{B}_{\tx{ind}} $};
-			\foreach \x\n in {-1.2/1,0/2}
-			\draw[thick,->] (\x,0) node[below] {$ \vec{B}(t_{\n}) $} -- ++(0,1.5);
+			\foreach \x\n\l in {-1.2/1/1.8,0/2/1.4}
+			\draw[thick,->] (\x,0) node[below] {$ \vec{B}(t_{\n}) $} -- ++(0,\l);
 		\end{tikzpicture}
 	\end{minipage}%
+	\\
+	Hier fällt das äußere $ \vec{B} $-Feld ab, wodurch ein Strom entsteht, der wiederum ein $ \vec{B} $-Feld $ \vec{B}_{\tx{ind}} $ induziert welches gegen den Abfall wirkt, also das äußere $ \vec{B} $-Feld verstärkt.
 	\item $ \Phi_m $ hängt nicht von der speziellen Form der Fläche $ F $ ab, sondern nur vom Rand $ \partial F $.\\
 	\begin{center}
 		%t5:
@@ -119,13 +120,14 @@ U_{\tx{ind}} = - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B}
 			\coordinate (c1) at (0,0);
 			\draw[fill=blue!30!white,->] ($ (c1) + ({sin(45) * 1cm},{cos(45) * -.5cm}) $) arc[start angle=-45, end angle=315, x radius=1cm, y radius=.5cm] node[anchor=north west] {$ \partial F $};
 			\draw[->] ($ (c1) + (.25,.25) $)  -- node[right] {$ \dd\vec{f}_1 $} ++(0,1);
+			\draw ($ (c1) + (-.5,-.25) $) to[out=-130,in=-20] ++(-1,-.2) node[left] {$ F_1 $};
 			
 			\coordinate (c2) at (4,0);
 			\draw[fill=red!30!white,looseness=2] ($ (c2) + (-1,0) $) to[out=-90,in=-90] ($ (c2) + (1,0) $);
 			\draw[fill=red!13!white,->] ($ (c2) + ({sin(45) * 1cm},{cos(45) * -.5cm}) $) arc[start angle=-45, end angle=315, x radius=1cm, y radius=.5cm] node[xshift=.7cm] {$ \partial F $};
 			\draw[->] ($ (c2) + (.25,-.3) $)  -- node[right,yshift=10pt] {$ \dd\vec{f}_2 $} ++(0,1.55);
 			\draw ($ (c2) + (.6,-.8) $) to[out=-50,in=200] ++(1,-.2) node[right] {$ F_2 $};
-			\node at ($ (c2) + (3.5,0) $) {$ \Phi_1 = \Phi_2 $};
+			\node at ($ (c2) + (3.5,0) $) {$ \Phi_{m_1} = \Phi_{m_2} $};
 			
 			\coordinate (c3) at (2,-3);
 			\draw[fill=red!30!white,looseness=2] ($ (c3) + (-1,0) $) to[out=-90,in=-90] ($ (c3) + (1,0) $);
@@ -152,39 +154,38 @@ U_{\tx{ind}} = - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B}
 			\item Veränderung des Magnetfeldes $ \vec{B}(t) $
 			\item Bewegung der Leiterschleife im äußeren Feld
 		\end{itemize}
-		\vspace{40pt}
+		\begin{equation*}
+		\vabla \times \vec{E} = - \prt{\vec{B}}{t}
+		\end{equation*}
+		\vspace{20pt}
 	\end{minipage}%
 	\begin{minipage}{.5\linewidth}
-		\begin{center}
-			%t6:
-			\begin{tikzpicture}[scale=.8]
-				\coordinate (r) at (-2.2,0);
-				\draw[thick,->] ($ ({cos(45) * -.9},{sin(45) * -.6}) + (r) $) arc[start angle=-135, end angle=225, x radius = .9cm, y radius = .6cm];
-				\draw[fill=gray!30!white] (-.3,-.7) rectangle node[] {$ \substack{\tx{\Large{S}} \\[10pt] \tx{\Large{N}}} $} (.3,.7);
-				\draw[thick,->] (0,0) -- (1.1,0) node[right] {$ \vec{v} $};
-				\draw[thick,->] ($ (r) + (-1,0) $) -- ++(-1.1,0);
-				
-				\draw[looseness=2] (.15,.7) to[out=80,in=90] (1.2,0) to[out=-90,in=-80] (.15,-.7);
-				\draw[looseness=2] (.09,.7) to[out=84,in=90] (1.8,0) to[out=-90,in=-84] (.09,-.7);
-				\draw[looseness=2.5] (.03,.7) to[out=88,in=90] (2.6,0) to[out=-90,in=-88] (.03,-.7);
-				
-				\draw[looseness=2] (-.15,.7) to[out=100,in=90] (-1.2,0) to[out=-90,in=-100] (-.15,-.7);
-				\draw[looseness=2] (-.09,.7) to[out=96,in=90] (-1.8,0) to[out=-90,in=-96] (-.09,-.7);
-				\draw[looseness=2.5] (-.03,.7) to[out=92,in=90] (-2.6,0) to[out=-90,in=-92] (-.03,-.7);
-			\end{tikzpicture}
-		\end{center}
+		\flushright
+		%t6:
+		\begin{tikzpicture}[scale=1]
+			\coordinate (r) at (-2.2,0);
+			\draw[thick,->] ($ ({cos(45) * -.9},{sin(45) * -.6}) + (r) $) arc[start angle=-135, end angle=225, x radius = .9cm, y radius = .6cm];
+			\draw[fill=gray!30!white] (-.3,-.7) rectangle node[] {$ \substack{\tx{\Large{S}} \\[8pt] \tx{\Large{N}}} $} (.3,.7);
+			\draw[thick,->] (0,0) -- (1.1,0) node[right] {$ \vec{v} $};
+			\draw[thick,->] ($ (r) + (-1,0) $) -- ++(-1.1,0);
+			
+			\draw[looseness=2] (.15,.7) to[out=80,in=90] (1.2,0) to[out=-90,in=-80] (.15,-.7);
+			\draw[looseness=2] (.09,.7) to[out=84,in=90] (1.8,0) to[out=-90,in=-84] (.09,-.7);
+			\draw[looseness=2.5] (.03,.7) to[out=88,in=90] (2.6,0) to[out=-90,in=-88] (.03,-.7);
+			
+			\draw[looseness=2] (-.15,.7) to[out=100,in=90] (-1.2,0) to[out=-90,in=-100] (-.15,-.7);
+			\draw[looseness=2] (-.09,.7) to[out=96,in=90] (-1.8,0) to[out=-90,in=-96] (-.09,-.7);
+			\draw[looseness=2.5] (-.03,.7) to[out=92,in=90] (-2.6,0) to[out=-90,in=-92] (-.03,-.7);
+		\end{tikzpicture}
 	\end{minipage}%
-\end{enumerate}
-\begin{equation*}
-\vabla \times \vec{E} = - \prt{\vec{B}}{t}
-\end{equation*}
-Ein zeitlich verändertes $ \vec{B} $-Feld erzeugt ein elektrisches Wirbelfeld analog zu:
-\begin{equation*}
-\vabla \times \vec{B} = \mu_0 \vec{j}
-\end{equation*}
-\begin{center}
-	%t7:
-	\begin{tikzpicture}
+	\\
+	Ein zeitlich verändertes $ \vec{B} $-Feld erzeugt ein elektrisches Wirbelfeld analog zu:
+	\begin{equation*}
+	\vabla \times \vec{B} = \mu_0 \vec{j}
+	\end{equation*}
+	\begin{center}
+		%t7:
+		\begin{tikzpicture}
 		\draw[very thick, ->] (0,-1) -- (0,1) node[left] {$ \vec{j} $};
 		\draw[->] ({.5 * sin(45)},-{.25 * cos(45)}) arc[start angle=-45,end angle=315, x radius=.5, y radius=.25];
 		\draw[->] ({1 * sin(45)},-{.5 * cos(45)}) arc[start angle=-45, end angle=315, x radius=1, y radius=.5];
@@ -196,14 +197,15 @@ Ein zeitlich verändertes $ \vec{B} $-Feld erzeugt ein elektrisches Wirbelfeld a
 		\draw[->] ($ (a) + ({.5 * sin(45)},-{.25 * cos(45)}) $) arc[start angle=-45,end angle=315, x radius=.5, y radius=.25];
 		\draw[->] ($ (a) + ({1 * sin(45)},-{.5 * cos(45)}) $) arc[start angle=-45, end angle=315, x radius=1, y radius=.5];
 		\node at ($ (a) + (1,-1) $) {$ \prt{\vec{B}}{t} $};
-	\end{tikzpicture}
-\end{center}
+		\end{tikzpicture}
+	\end{center}
+\end{enumerate}
 
 \subsection{Maxwellscher Verschiebungsstrom}
 
 Magnetostatik:
 \begin{equation*}
-\vabla \times \vec{H} = \vec{j} \qquad \tx{Ampere}
+\vabla \times \vec{H} = \vec{j} \qquad \tx{Amp\`ere}
 \end{equation*}
 Dies kann in der Elektrodynamik nicht gelten, dies zeigen wir indem wir auf beiden Seiten die Divergenz bilden.
 \begin{equation*}
@@ -239,7 +241,7 @@ Damit erhalten wir für die die Stromdichte:
 	\begin{equation*}
 	\vec{D} = \casess{\sigma \vec{e}_x}{\tx{innen}}{0}{\tx{außen}}
 	\end{equation*}
-	$ \sigma = \frac{1}{F} $
+	$ \sigma = \frac{q}{F} $
 	\begin{equation*}
 	\prt{\vec{D}}{t} = \frac{\vec{e}_x}{F} \equalto{\prd{q}{t}}{I} = \frac{I}{F} \vec{e}_x
 	\end{equation*}
@@ -302,8 +304,8 @@ Die Kraft ist:
 \end{equation*}
 \textbf{Intagrale Form der Maxwell-Gleichungen}
 \begin{align*}
-\oint_F \dd \vec{f} \cdot \vec{B} &= 0  \qquad \qquad \qquad \int_{\partial F} \dd \vec{r} \cdot \vec{E} + \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B} = 0 \\
-\int_{\partial V} \dd \vec{f} \cdot \vec{D} &= \int_V \dd^3 r \rho(\vec{r}) \quad \ \ \int_{\partial F} \dd \vec{r} \cdot \vec{H} - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{D} = \int_F \dd \vec{f} \cdot \vec{j}
+\oint_{\partial V} \dd \vec{f} \cdot \vec{B} &= 0  \qquad \qquad \qquad \qquad \: \oint_{\partial F} \dd \vec{r} \cdot \vec{E} + \prd{}{t} \int_F \dd \vec{f} \cdot \vec{B} = 0 \\
+\oint_{\partial V} \dd \vec{f} \cdot \vec{D} &= \int_V \dd^3 r \rho(\vec{r}) = Q \quad \ \ \oint_{\partial F} \dd \vec{r} \cdot \vec{H} - \prd{}{t} \int_F \dd \vec{f} \cdot \vec{D} = \int_F \dd \vec{f} \cdot \vec{j} = I
 \end{align*}
 \textbf{Mikroskopische Maxwell-Gleichungen:}\\
 formal:
@@ -318,7 +320,7 @@ formal:
 \section{Potentiale der Elektrodynamik - Eichtransformation}
 
 \begin{equation*}
-\vabla \cdot \vec{B} = 0 \qquad \vec{B}(\vec{r},t) = \vabla \times \vec{A}(\vec{r},t)
+\vabla \cdot \vec{B} = 0 \qquad \rmbox{\vec{B}(\vec{r},t) = \vabla \times \vec{A}(\vec{r},t)}
 \end{equation*}
 \begin{align*}
 \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0 \qquad 0 &= \vabla \times \vec{E} + \prt{}{t} \vabla \times \vec{A} \\
@@ -329,7 +331,7 @@ formal:
 \end{equation*}
 $ \Phi $ ist ein skalares Potential
 \begin{equation*}
-\Rightarrow \quad \vec{E}(\vec{r},t) = - \vabla \Phi(\vec{r},t) - \prt{\vec{A}(\vec{r},t)}{t}
+\Rightarrow \quad \rmbox{\vec{E}(\vec{r},t) = - \vabla \Phi(\vec{r},t) - \prt{\vec{A}(\vec{r},t)}{t}}
 \end{equation*}
 Damit haben wir die beiden homogenen Gleichungen gelöst. Wir können $ \vec{E} $- und $ \vec{B} $-Felder nun durch die Potentiale $ \Phi $ und $ \vec{A} $ ausdrücken.
 
@@ -339,8 +341,7 @@ Damit haben wir die beiden homogenen Gleichungen gelöst. Wir können $ \vec{E} 
 \vec{D} = \epsilon \vec{E} \qquad \vec{H} = \frac{1}{\mu} \vec{B}
 \end{equation*}
 \begin{align*}
-\rightarrow \quad &\vabla \cdot \vec{E} = \frac{1}{\epsilon} \rho \\
-& \vabla \times \vec{B} - \epsilon \mu \prt{\vec{E}}{t} = \mu \vec{j}
+\rightarrow \quad \vabla \cdot \vec{E} = \frac{1}{\epsilon} \rho
 \end{align*}
 \begin{equation*}
 \frac{1}{\epsilon} \rho = \vabla \cdot \left(- \vabla \Phi - \prt{\vec{A}}{t}\right) = - \Delta \Phi - \prt{}{t} \vabla \cdot \vec{A}
@@ -348,6 +349,9 @@ Damit haben wir die beiden homogenen Gleichungen gelöst. Wir können $ \vec{E} 
 \begin{equation*}
 \rmbox{\Rightarrow \quad \Delta \Phi + \prt{}{t} \vabla \cdot \vec{A} = - \frac{1}{\epsilon} \rho}
 \end{equation*}
+\begin{align*}
+& \vabla \times \vec{B} - \epsilon \mu \prt{\vec{E}}{t} = \mu \vec{j}
+\end{align*}
 \begin{equation*}
 \mu \vec{j} = \ub{\vabla \times (\vabla \times \vec{A})}_{=\vabla \cdot (\vabla \cdot \vec{A}) - \Delta \vec{A}} - \epsilon \mu \prt{}{t} \left(- \vabla \Phi - \prt{\vec{A}}{t}\right)
 \end{equation*}
@@ -368,7 +372,7 @@ nicht eindeutig festgelegt.\\[5pt]
 \Phi'(\vec{r},t) &= \Phi(\vec{r},t) - \prt{\Lambda(\vec{r},t)}{t}
 \end{align*}
 \begin{equation*}
-\vabla \times \vec{A}' = \vabla \times \vec{A} + \ub{ \vabla (\vabla \Lambda)}_{=0} = \vabla \times \vec{A} = \vec{B} \quad \checkmark
+\vabla \times \vec{A}' = \vabla \times \vec{A} + \ub{ \vabla \times (\vabla \Lambda)}_{=0} = \vabla \times \vec{A} = \vec{B} \quad \checkmark
 \end{equation*}
 \begin{equation*}
 - \vabla \Phi' - \prt{\vec{A}'}{t} = - \vabla \Phi + \cancel{\vabla \prt{\Lambda}{t}} - \prt{\vec{A}}{t} - \cancel{\prt{}{t} \vabla \Lambda} = \vec{E} \quad \checkmark 
@@ -417,7 +421,7 @@ $ \rightarrow $ verschiedene Eichungen.
 	System von Punktladungen $ q_i, m_i, \vec{r}_i, \vec{v}_i $ im Volumen $ V $:\\[5pt]
 	Kraft auf Ladungen im elektromagnetischen Feld:
 	\begin{equation*}
-	\vec{F}_i = q_i \left(\vec{E}(\vec{r}_i, t) + \vec{r}_i \times \vec{B}(\vec{r}_i, t) \right)
+	\vec{F}_i = q_i \left(\vec{E}(\vec{r}_i, t) + \vec{v}_i \times \vec{B}(\vec{r}_i, t) \right)
 	\end{equation*}
 \end{minipage}%
 \begin{minipage}{.3\linewidth}
@@ -436,11 +440,11 @@ $ \rightarrow $ verschiedene Eichungen.
 \\
 Zeitliche Änderung der Energie der Punktladungen durch die elektromagnetischen Felder:
 \begin{align*}
-\prd{}{t} W_{\tx{mat}} &= \prd{}{t} \sum_i \frac{m_i}{2} \vec{v}_i^2 = \sum_i \vec{v}_i \cdot \prd{\vec{v}_i}{t} = \sum_i \vec{v}_i \cdot \vec{F}_i\\
+\prd{}{t} W_{\tx{mat}} &= \prd{}{t} \sum_i \frac{m_i}{2} \vec{v}_i^2 = \sum_i \vec{v}_i \cdot m_i \cdot \prd{\vec{v}_i}{t} = \sum_i \vec{v}_i \cdot \vec{F}_i\\
 &= \sum_i q_i \vec{v}_i \cdot \vec{E}(\vec{r}_i, t) + \sum_i q_i \ub{ \vec{v}_i \cdot (\vec{v}_i) \times \vec{B}(\vec{r}_i, t) }_{=0}\\
 &= \sum_i q_i \vec{v}_i \cdot \vec{E}(\vec{r}_i, t)
 \end{align*}
-formale Kontinuierliche Beschreibung: $ \vec{j}(\vec{r},t) = \sum_i q_i \vec{r}_i \delta(\vec{r} - \vec{r}_i(t)) $
+formale Kontinuierliche Beschreibung: $ \vec{j}(\vec{r},t) = \sum_i q_i \dot{\vec{r}}_i \delta(\vec{r} - \vec{r}_i(t)) $
 \begin{equation*}
 \rightarrow \quad \prd{}{t} W_{\tx{mat}} = \int_V \dd^3 r \ \vec{j}(\vec{r},t) \cdot \vec{E}(\vec{r},t)
 \end{equation*}
@@ -471,7 +475,7 @@ Wir wollen nun $ \vec{j} $ ersetzen und nutzen:
 \end{equation*}
 $ \vec{E} $ mal der Rotation von $ \vec{H} $ können wir umformen als:
 \begin{equation*}
-\vabla \cdot (\vec{E} \times \vec{H}) = \vec{H} \cdot \ub{(\vabla \times \vec{E})}_{- \prt{\vec{B}}{t}} - \vec{E} (\vabla \times \vec{H})
+\vabla \cdot (\vec{E} \times \vec{H}) = \vec{H} \cdot \ub{(\vabla \times \vec{E})}_{- \prt{\vec{B}}{t}} - \vec{E} \cdot (\vabla \times \vec{H})
 \end{equation*}
 \begin{equation*}
 \rightarrow \quad  \vec{j} \cdot \vec{E} = - \vec{H} \cdot \prt{\vec{B}}{t} - \vec{E} \cdot \prt{\vec{D}}{t} - \vabla \cdot (\vec{E} \times \vec{H}) = \prt{}{t} w_{\tx{mat}}
@@ -537,11 +541,21 @@ $ \vec{S}: $ \textbf{Energiestromdichte}\\
 \begin{equation*}
 \ub{\prd{}{t} W_{\tx{mat} _V}}_{\mathclap{\substack{\tx{an Ladungen} \\ \tx{in } V \tx{ verrichtete} \\ \tx{Arbeit}}}} \ \ + \ \ \ub{\prd{}{t} W_{\tx{em}_V}}_{\mathclap{\substack{\tx{Änderung der} \\ \tx{EM Feldenergie} \\ \tx{in } V}}} \ = \ \ub{- \int_{\partial V} \dd \vec{f} \cdot \vec{S}}_{\mathclap{\substack{\tx{Fluss der EM} \\ \tx{Feldenergie aus } V}}}
 \end{equation*}
-\emph{Bemerkung:}
+%
+%
+%
+
+\pagebreak
+
+%
+%
+%
+\noindent
+\emph{Bemerkungen:}
 \begin{enumerate}[i)]
 	\item abgeschlossenes System (ohne Energiestromdichte ach außen) z.B. $ \mathbb{R}^3 $
 	\begin{equation*}
-	\int_V \dd \vec{f} \cdot \vec{S} \rightarrow 0
+	\int_{\partial V} \dd \vec{f} \cdot \vec{S} \rightarrow 0
 	\end{equation*}
 	\item Gebiet ohne Ladungen und Ströme $ \rho = \vec{j} = 0 \ \ \tx{in} V $. $ w_{\tx{mat}} = \vec{j} \cdot \vec{E} = 0 $
 	\begin{equation*}
@@ -639,10 +653,10 @@ mit $ c^2 = \frac{1}{\epsilon_0 \mu_0} $\\
 \end{equation*}
 \begin{align*}
 w_{\tx{em}} &= \frac{1}{2} (\vec{E} \cdot \vec{D} + \vec{H} \cdot \vec{B}) = \frac{1}{2} (\epsilon_0 \vec{E}^2 + \frac{1}{\mu_0} \vec{B}^2) \\
-&= \frac{\epsilon_0}{2} (\vec{E}^2 + \frac{1}{c^2} \vec{B}^2) = \epsilon_0 E_0^2 \cos^2(kz - \omega t)
+&= \frac{\epsilon_0}{2} (\vec{E}^2 + c^2 \vec{B}^2) = \epsilon_0 E_0^2 \cos^2(kz - \omega t)
 \end{align*}
 \begin{equation*}
-\prt{}{t} w_{\tx{em}} ) 2 \omega \epsilon_0 E_0^2 \cos(\dots) \sin(\dots)
+\prt{}{t} w_{\tx{em}} = 2 \omega \epsilon_0 E_0^2 \cos(\dots) \sin(\dots)
 \end{equation*}
 \begin{equation*}
 \vabla \cdot \vec{S} = \prt{S}{z} = - 2 \ub{kc}_{= \omega} \epsilon_0 E_0^2 \cos(\dots) \sin(\dots)
@@ -711,7 +725,7 @@ differentiell:
 	\begin{equation*}
 	P_{\tx{em}_V} = \int_V \dd^3 r \ub{(\vec{D} \times \vec{B})}_{=\vec{g}}
 	\end{equation*}
-	$ \vec{g} \defeq $ Impulsdichte
+	$ \vec{g} \defeq $ Impulsdichte\\
 	$ \vec{D} = \epsilon \vec{E} \qquad \vec{B} = \mu \vec{H} $
 	\begin{equation*}
 	\rightarrow \quad \vec{g} = \epsilon \mu \ub{\vec{E} \times \vec{H}}_{=\vec{S}} = \epsilon_r \mu_r \ub{\epsilon_0 \mu_0}_{= \frac{1}{c^2}} \vec{S} = \epsilon_r \mu_r \frac{1}{c^2} \vec{S}
@@ -721,7 +735,7 @@ differentiell:
 	\begin{align*}
 	\vec{E} &= E_0 \cos\left(kz - \omega t\right) \vec{e}_x\\
 	\vec{B} &= \frac{E_0}{c} \cos\left(kz - \omega t\right) \vec{e}_y\\
-	\vec{S} &= \vec{E} \times \vec{H} = x \epsilon_0 E_0^2 \cos^2(kz - \omega t) \vec{e}_z\\
+	\vec{S} &= \vec{E} \times \vec{H} = c \epsilon_0 E_0^2 \cos^2(kz - \omega t) \vec{e}_z\\
 	\vec{g} &= \frac{\epsilon_0}{c} E_0^2 \cos^2(kz - \omega t) \vec{e}_z
 	\end{align*}
 	\item \textbf{Maxwellscher Spannungstensor - Impulsdichte}
@@ -770,82 +784,82 @@ differentiell:
 		\end{tikzpicture}
 	\end{minipage}%
 	\\[10pt]
-	\emph{Beispiel:} \textbf{Plattenkondensator}\\
-	\begin{minipage}{.6\linewidth}
-		\begin{equation*}
-		\vec{E} = \casess{E \vec{e}_x}{\tx{innen}}{0}{\tx{außen}} \qquad \vec{B} = 0
-		\end{equation*}
-	\end{minipage}%
-	\begin{minipage}{.4\linewidth}
-		\flushright
-		%t2:
-		\begin{tikzpicture}
-			\draw[very thick] (-1.3,-2) -- (-1.3,2) node[above] {$ \sigma $};
-			\draw[very thick] (1.3,-2) -- (1.3,2) node[above] {$ - \sigma $};
-			\draw[->] (0,-2.5) -- ++(2,0) node[right] {$ x $};
-			\draw ($ (0,-2.5) + (0,.1) $) -- ($ (0,-2.5) + (0,-.1) $);
-			\foreach \y in {-1.8,-.6,.6,1.8}
-			\draw[->] (-1.1,\y) -- (1.1,\y);
-			\foreach \y in {-1.8,-.6,.6,1.8}
-			%\node at (-1.8,\y) {$ + $};
-			\draw[fill = white!20!red] (-1.6,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
-			\foreach \y in {-1.8,-.6,.6,1.8}
-			%\node at (1.8,\y) {$ - $};
-			\draw[fill = white!20!blue] (1.6,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
-			\node[above] at (0,2) {$ \vec{E} $};
-		\end{tikzpicture}
-	\end{minipage}%
-	\\
-	Krafttensor innen:
-	\begin{equation*}
-	T_{ik} = \ \ub{\epsilon E_i E_k}_{\mathclap{= \epsilon_0 E^2 \delta_{ix} \delta_{kx}}} \ + \ub{\frac{1}{\mu} B_i B_k}_{=0} - \frac{1}{2} \delta_{ik} \bigg(\ub{\epsilon \vec{E}^2}_{\epsilon_0 E^2} + \ub{\frac{1}{\mu} \vec{B^2}}_{= 0}\bigg)
-	\end{equation*}
-	Krafttensor außen:
-	\begin{equation*}
-	T_{ik} = 0
-	\end{equation*}
-	\vspace{5pt}
-	\begin{equation*}
-	T_{xx} = \frac{\epsilon_0}{2} E^2 \qquad T_{yy} = T_{zz} = - \frac{\epsilon_0}{2} E^2 \qquad \tx{sonst } = 0
-	\end{equation*}
-	\begin{equation*}
-	T_{ik} = \frac{\epsilon_0}{2} E^2 \begin{pmatrix}
-	1 & 0 & 0\\
-	0 & -1 & 0\\
-	0 & 0 & -1
-	\end{pmatrix}
-	\end{equation*}
-	Kraft in x-Richtung:
-	\begin{equation*}
-	K_x = \int_{\partial V} \dd\vec{f} \cdot \ub{\vec{T}_x}_{\mathclap{= (T_{xx},T_{xy},T_{xz}) = \frac{\epsilon_0}{2} E^2 \vec{e}_x}} = \int_{\partial V} \dd \vec{f} \cdot \frac{\epsilon_0}{2} E^2 \vec{e}_x
-	\end{equation*}
-	\begin{minipage}{.6\linewidth}
-		$ \dd \vec{f} = \dd y \dd z \vec{e}_x $
-		\begin{equation*}
-		K_x = \int_{F_x} \dd f \frac{\epsilon_0}{2} E^2 = \frac{\epsilon_0}{2} E^2 F_x
-		\end{equation*}
-		$\rightarrow \quad \frac{\tx{Kraft}}{\tx{Fläche}} : \quad \frac{K_x}{F_x} = \frac{\epsilon_0}{2} E^2 = \frac{\sigma^2}{2 \epsilon_0}$
-		\begin{equation*}
-		\vec{K} = (K_x,0,0)
-		\end{equation*}
-	\end{minipage}%
-	\begin{minipage}{.4\linewidth}
-		\flushright
-		%t3:
-		\begin{tikzpicture}
-			\foreach \x\y in {-.1/-.5, -.1/-1.35, -.1/-2.2}
-			\draw[shade, ball color = red] (\x,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
-			\pic at (0,0) {annotated cuboid={width=5,height=30,depth=30}};
-			\draw (0,.2) to[out=90,in=-40] (-.5,1) node[left] {$ V $};
-			\foreach \x\y in {.7/.3, .7/-.55, .7/-1.4}
-			\draw[shade, ball color = red] (\x,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
-			% diagonale besser aber nicht perfekt
-			% \draw (0,0) -- ($ (0,-3) +({sin(45) * 1.65},{cos(45) * 1.65}) $);
-			\draw[thick, ->] (.6,-1) -- ++(1,0) node[right] {$ \dd\vec{f}_x $};
-			\draw (.5,-1.8) -- ++(-30:1cm) node[anchor=north west] {$ \substack{\tx{nur diese Fläche ($F_x$)} \\ \tx{trägt bei}} $};
-		\end{tikzpicture}
-	\end{minipage}%
 \end{enumerate}
+\emph{Beispiel:} \textbf{Plattenkondensator}\\
+\begin{minipage}{.6\linewidth}
+	\begin{equation*}
+	\vec{E} = \casess{E \vec{e}_x}{\tx{innen}}{0}{\tx{außen}} \qquad \vec{B} = 0
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t2:
+	\begin{tikzpicture}
+	\draw[very thick] (-1.3,-2) -- (-1.3,2) node[above] {$ \sigma $};
+	\draw[very thick] (1.3,-2) -- (1.3,2) node[above] {$ - \sigma $};
+	\draw[->] (0,-2.5) -- ++(2,0) node[right] {$ x $};
+	\draw ($ (0,-2.5) + (0,.1) $) -- ($ (0,-2.5) + (0,-.1) $);
+	\foreach \y in {-1.8,-.6,.6,1.8}
+	\draw[->] (-1.1,\y) -- (1.1,\y);
+	\foreach \y in {-1.8,-.6,.6,1.8}
+	%\node at (-1.8,\y) {$ + $};
+	\draw[fill = white!20!red] (-1.6,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+	\foreach \y in {-1.8,-.6,.6,1.8}
+	%\node at (1.8,\y) {$ - $};
+	\draw[fill = white!20!blue] (1.6,\y) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+	\node[above] at (0,2) {$ \vec{E} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
+Krafttensor innen:
+\begin{equation*}
+T_{ik} = \ \ub{\epsilon E_i E_k}_{\mathclap{= \epsilon_0 E^2 \delta_{ix} \delta_{kx}}} \ + \ub{\frac{1}{\mu} B_i B_k}_{=0} - \frac{1}{2} \delta_{ik} \bigg(\ub{\epsilon \vec{E}^2}_{\epsilon_0 E^2} + \ub{\frac{1}{\mu} \vec{B^2}}_{= 0}\bigg)
+\end{equation*}
+Krafttensor außen:
+\begin{equation*}
+T_{ik} = 0
+\end{equation*}
+\vspace{5pt}
+\begin{equation*}
+T_{xx} = \frac{\epsilon_0}{2} E^2 \qquad T_{yy} = T_{zz} = - \frac{\epsilon_0}{2} E^2 \qquad \tx{sonst } = 0
+\end{equation*}
+\begin{equation*}
+T_{ik} = \frac{\epsilon_0}{2} E^2 \begin{pmatrix}
+1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\end{equation*}
+Kraft in x-Richtung:
+\begin{equation*}
+K_x = \int_{\partial V} \dd\vec{f} \cdot \ub{\vec{T}_x}_{\mathclap{= (T_{xx},T_{xy},T_{xz}) = \frac{\epsilon_0}{2} E^2 \vec{e}_x}} = \int_{\partial V} \dd \vec{f} \cdot \frac{\epsilon_0}{2} E^2 \vec{e}_x
+\end{equation*}
+\begin{minipage}{.6\linewidth}
+	$ \dd \vec{f} = \dd y \dd z \vec{e}_x $
+	\begin{equation*}
+	K_x = \int_{F_x} \dd f \frac{\epsilon_0}{2} E^2 = \frac{\epsilon_0}{2} E^2 F_x
+	\end{equation*}
+	$\rightarrow \quad \frac{\tx{Kraft}}{\tx{Fläche}} : \quad \frac{K_x}{F_x} = \frac{\epsilon_0}{2} E^2 = \frac{\sigma^2}{2 \epsilon_0}$
+	\begin{equation*}
+	\vec{K} = (K_x,0,0)
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	%t3:
+	\begin{tikzpicture}
+	\foreach \x\y in {-.1/-.5, -.1/-1.35, -.1/-2.2}
+	\draw[shade, ball color = red] (\x,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+	\pic at (0,0) {annotated cuboid={width=5,height=30,depth=30}};
+	\draw (0,.2) to[out=90,in=-40] (-.5,1) node[left] {$ V $};
+	\foreach \x\y in {.7/.3, .7/-.55, .7/-1.4}
+	\draw[shade, ball color = red] (\x,\y) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+	% diagonale besser aber nicht perfekt
+	% \draw (0,0) -- ($ (0,-3) +({sin(45) * 1.65},{cos(45) * 1.65}) $);
+	\draw[thick, ->] (.6,-1) -- ++(1,0) node[right] {$ \dd\vec{f}_x $};
+	\draw (.5,-1.8) -- ++(-30:1cm) node[anchor=north west] {$ \substack{\tx{nur diese Fläche ($F_x$)} \\ \tx{trägt bei}} $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \section{Elektromagnetische Wellen}
 
@@ -915,7 +929,7 @@ für jede Komponente von $ \vec{E} $ und $ \vec{B} $ gilt:
 \end{equation*}
 Funktionen der Form $ \Psi_{\pm}(x,t) = f(x \pm vt) $ erfüllen die Wellengleichung.\\
 \begin{equation*}
-\prt{^2}{t^2} f(x \pm vt) = f''(x \pm vt)
+\prt{^2}{x^2} f(x \pm vt) = f''(x \pm vt)
 \end{equation*}
 \begin{equation*}
 \prt{^2 f}{t^2} = \prt{}{t} f' (x \pm vt) \cdot (\pm v) = v^2 f'' (x \pm vt)
@@ -2677,7 +2691,8 @@ Damit haben wir das integral gelöst und erhalten:
 	\begin{align*}
 	& \ub{|\vec{r} - \vec{R}(t_{\tx{ret}})|}_{c ( t - t_{\tx{ret}})} - \frac{1}{c} (\ub{\vec{r} - \vec{R}(t_{\tx{ret}})}) \cdot \equaltoup{\vec{V}(t_{\tx{ret}})}{\vec{V}_0}\\
 	% }_{\mathclap{\substack{\vec{r} - \vec{R}(t) + \vec{R}(t) - \vec{R}(t_{\tx{ret}}) \\ = \vec{d} + \vec{V}_0 (t - t_{\tx{ret}})}}}
-	& \qquad \qquad \qquad = \vec{r} - \vec{R}(t) + \vec{R}(t) - \vec{R}(t_{\tx{ret}}) \\ & \qquad \qquad \qquad = \vec{d} + \vec{V}_0 (t - t_{\tx{ret}})\\
+	& \quad \qquad \qquad \qquad = \vec{r} - \vec{R}(t) + \vec{R}(t) - \vec{R}(t_{\tx{ret}}) \\
+	& \quad \qquad \qquad \qquad = \vec{d} + \vec{V}_0 (t - t_{\tx{ret}})\\
 	&= c(t - t_{\tx{ret}}) - \frac{1}{c} \vec{V}_0 \cdot (\vec{d} + \vec{V}_0 (t - t_{\tx{ret}}))\\
 	&= \frac{1}{c} (c^2 - V_0^2) (t - t_{\tx{ret}}) - \frac{1}{c} V_0 d \cos \alpha\\
 	&= \frac{1}{c} |\vec{d}| \left(\cancel{ V_0 \cos \alpha} + \sqrt{c^2 - V_0^2 \sin^2 \alpha} - \cancel{ V_0 \cos \alpha}\right)\\
@@ -2731,7 +2746,7 @@ $ \frac{V_0}{c} : $ endlich
 	\end{equation*}
 	\item $ \vec{d} \parallel \vec{R} \quad \alpha = 0 $
 	\begin{equation*}
-	\vec{E} = \frac{q}{4 \pi \epsilon_0} \left(1 - \frac{V_0^2}{c^2}\right) \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3} \ < \ \frac{q}{4 \pi \epsilon_0} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}
+	\Rightarrow \quad \vec{E} = \frac{q}{4 \pi \epsilon_0} \left(1 - \frac{V_0^2}{c^2}\right) \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3} \ < \ \frac{q}{4 \pi \epsilon_0} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}
 	\end{equation*}
 \end{enumerate}
 \folie{$ \vec{E} $- und $ \vec{B} $-Felder von Ladungen die sich mit nahezu Lichtgeschwindigkeit bewegen.}
@@ -2764,3 +2779,199 @@ $ \vec{d}_{\tx{ret}} \defeq \vec{r} - \vec{R}(t_{\tx{ret}}) \qquad \vec{e}_{\tx{
 	$ \sim \frac{1}{d_{\tx{ret}}} \overset{r \to \infty}{\longrightarrow} \frac{1}{r} $ dominiert für $ r \to \infty $\\[5pt]
 	$ \sim \dot{\vec{\beta}} $ verschwindet für eine gleichförmig Bewegte Ladung
 \end{enumerate}
+
+%Vorlesung 28.01
+
+\section{Elektromagnetische Felder oszillierender Quellen - EM-Strahlung}
+
+oszillierende Ladungs-/Stromverteilung
+\begin{align*}
+\rho(\vec{r},t) &= \rho(\vec{r}) e^{- i \omega t}\\
+\vec{j}(\vec{r},t) &= \vec{j}(\vec{r}) e^{- i \omega t}
+\end{align*}
+\lcom{Aus Einfachheitshalber in der Notation bekommen die Orts- und Zeitabhängigen Funktionen dieselben symbole wie die nur Ortsabhängigen.}
+\emph{Beispiele:}
+%
+%
+%
+% T1
+%
+%
+%
+
+\noindent
+Vektorpotential:
+\begin{align*}
+\vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|} = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|} e^{-i\omega \left(t - \frac{|\vec{r} - \vec{r}'|}{c}\right)} \qquad \quad k = \frac{\omega}{c} \\
+&= e^{-i\omega t} \ub{\frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}') e^{i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|}}_{\eqdef \vec{A}(\vec{r})} = e^{ - i \omega t} \vec{A}(\vec{r})
+\end{align*}
+Wir interessieren uns für zeitabhängige Felder in Raumbereichen außerhalb der Ladung-/Stromverteilung\\[5pt]
+\textbf{Annahmen:}
+\begin{enumerate}[i)]
+	\item zeitabhängige Felder im großen Abstand zur Quelle
+	%
+	%
+	%
+	% T2
+	%
+	%
+	%
+	\begin{equation*}
+	\vec{j} (\vec{r}') = \casess{0}{r' > R_0}{\tx{sonst}}{\tx{beliebig}}
+	\end{equation*}
+	$ \rightarrow $ Betrachtung von $ \vec{A} $ (von $ \vec{A} $ ist Ausreichend)
+	\begin{equation*}
+	\vec{B} = \vabla \times \vec{A} \quad \checkmark
+	\end{equation*}
+	$ \vec{E} = ? $
+	\begin{align*}
+	\vabla \times \vec{B}(\vec{r},t) - \frac{1}{c^2} \prt{\vec{E}(\vec{r},t)}{t} = \mu_0 \vec{j}(\vec{r},t) = 0 \quad \tx{für } |\vec{r}| > R_0
+	\end{align*}
+	\begin{align*}
+	\prt{}{t} \vec{E}(\vec{r},t) &= c^2 \vabla \times \vec{B} = c^2 \vabla \times (\vabla \times \vec{A}(\vec{r},t))\\
+	&= e^{-i\omega t} c^2 \vabla \times (\vabla \times \vec{A}\vec{r})
+	\end{align*}
+	\begin{equation*}
+	\Rightarrow \quad \vec{E}(\vec{r},t) = \frac{i}{\omega} e^{-i\omega t} c^2 \vabla \times (\vabla \times \vec{A}(\vec{r})) + \vec{f}(\vec{r})
+	\end{equation*}
+	$ \omega \neq 0 \quad \vec{f} \equiv 0 $
+	\item Wellenlänge $ \lambda \gg $ Ausdehnung $ R_0 $ (Langwellennäherung)
+	\begin{equation*}
+	\lambda = \frac{2 \pi}{k} = \frac{2 \pi c}{\omega} \gg R_0
+	\end{equation*}
+\end{enumerate}
+i) \& ii) $ R_0 \ll \lambda , r $
+Wir integrieren über
+\begin{equation*}
+\frac{e^{i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|}
+\end{equation*}
+\begin{align*}
+|\vec{r} - \vec{r}'| &= \sqrt{r^2 - 2 \vec{r} \cdot \vec{r}' + r'^2}\\
+&= r \sqrt{1 - e \vec{e}_{\vec{r}} \cdot \frac{\vec{r}'}{r} + \left(\frac{r'}{r}\right)^2}\\
+&\approx r (1 - \vec{e}_{\vec{r}} \cdot \frac{\vec{r}'}{r}) \qquad \qquad \vec{r}' \ll r
+\end{align*}
+\begin{align*}
+e^{i k |\vec{r} - \vec{r}'|} &\approx e^{i k r} \ub{ e ^{ - i k \vec{e}_{\vec{r}} \cdot \vec{r}'}}_{\approx 1 - i k \vec{e}_{\vec{r}} \cdot \vec{r}'}
+\end{align*}
+mit $ k r' = 2 \pi \frac{r'}{\lambda} \ll 1 $, da $ k R_0 \ll 2 \pi $
+\begin{align*}
+\frac{1}{|\vec{r} - \vec{r}'|} \approx \frac{1}{r} ( 1 + \vec{e}_{\vec{r} \cdot \frac{\vec{r}'}{r}})
+\end{align*}
+(aus der Multipolentwicklung)
+\begin{align*}
+\frac{e^{i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} &\approx e^{i k r} (1 - i k \vec{e}_{\vec{r}} \cdot \frac{\vec{r}'}{r}) (1 + \vec{e}_{\vec{r}} \cdot \frac{\vec{r}'}{r})\\
+&= e^{i k r} \Bigg[\frac{1}{r} - i k \vec{e}_{\vec{r}} \cdot \frac{\vec{r}'}{r} + \frac{1}{r} \vec{e}_{\vec{r}} \cdot \frac{\vec{r}'}{r} - i k \custo{\rightarrow}{\cancel{\left(\vec{e}_{\vec{r}} \cdot \frac{\vec{r}'}{r}\right)^2}}{\mathcal{O} \left(\left(\frac{\vec{r}'}{r}\right)^2\right)}\Bigg]\\
+&\approx \frac{e^{i k r}}{r} \left[1 + \vec{e}_{\vec{r}} \cdot \vec{r}' \left(\frac{1}{r} - i k\right)\right]
+\end{align*}
+\begin{align*}
+\vec{A}(\vec{r}) &= \frac{\mu_0}{4 \pi} \int \dd^3 r' \vec{j}(\vec{r}') \frac{e^{i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|}\\
+&= \ub{\frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \int \dd^3 r' \vec{j} (\vec{r}')}_{\mathclap{\substack{\tx{elektrischer Dipolanteil} \\ E1}}} + \ub{\frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \left(\frac{1}{r} - ik\right) \int \dd^3 r' \vec{j}(\vec{r}') (\vec{e}_{\vec{r}} \cdot \vec{r}')}_{\mathclap{\substack{\tx{el. Quadrupolanteil und magnetischer} \\ \tx{Dipolanteil } (E2, M1)}}}
+\end{align*}
+\lcom{Wir betrachten nun den elektrischen Dipolterm, um zu erklären wie eine bewegte Ladung und die damit verbundene Stromdichte einen elektrischen Dipol Darstellen.}
+
+\subsubsection{elektrischen Dipolterm:}
+
+lokalisierte Stromverteilung $ \vec{j}_g $:
+\begin{equation*}
+\int \dd^3 r' \vec{j}(\vec{r}') = - \int \dd^3 r' \vec{r}' \vabla \cdot \vec{j}(\vec{r}')
+\end{equation*}
+\begin{equation*}
+\vabla \cdot ( x \vec{j}(\vec{r}')) = x \vabla \vec{j} + \vec{j} \cdot \ub{\vabla x}_{\vec{e}_x} = x \vabla \vec{j} + j_x
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \int_{\mathbb{R}^3} \dd^3 r' \vec{j}_x(\vec{r}') = \ub{\int_{\mathbb{R}^3} \dd^3 r' \vabla \cdot \left(x' \vec{j}(\vec{r})\right)}_{= 0} - \int_{\mathbb{R}^3} \dd^3 r' x' \vabla \cdot \vec{j}
+\end{equation*}
+\textbf{Kontinuitätsgleichung:}
+\begin{align*}
+0 &= \prt{}{t} \rho(\vec{r},t) + \vabla \cdot \vec{j}(\vec{r},t)\\
+&= \prt{}{t} e^{-i\omega t} \rho(\vec{r}) + \vabla e^{-i\omega t} \vec{j}(\vec{r})\\
+&= - i \omega t \rho(\vec{r},t) + e^{- i \omega t} \vabla \cdot \vec{j}(\vec{r})\\
+\vabla \vec{j}(\vec{r}) &= i \omega t e^{i \omega t} \rho(\vec{r},t) = i \omega \rho(\vec{r})
+\end{align*}
+\begin{align*}
+\Rightarrow \quad \int \dd^3 r' \vec{j}(\vec{r}') &= - i \omega \ub{\int \dd^3 r' \vec{r}' \rho(\vec{r})}_{\mathclap{= \vec{P} \quad \tx{Dipolmoment}}} = - i \omega \vec{P}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \vec{A}_{E1} (\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \vec{P}
+\end{equation*}
+\begin{equation*}
+\vec{A}_{E1} (\vec{r},t) = e^{- i \omega t} \vec{A}_{E_1}(\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \ub{e^{- i \omega t} \vec{P}}_{\int \dd^3 r' \vec{r}' \rho(\vec{r},t) = \vec{P}(t)}
+\end{equation*}
+
+\subsection{Elektrische Dipolstrahlung}
+
+\begin{equation*}
+\vec{A}(\vec{r},t) = e^{- i \omega t} \vec{A}(\vec{r})
+\end{equation*}
+\begin{equation*}
+\vec{A}(\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \vec{P}
+\end{equation*}
+\lcom{Wir wollen nun hieraus die elektrischen und magnetiscchen Felder berechnen.}
+\begin{equation*}
+\vec{B}(\vec{r},t) = \vabla \times \vec{A}(\vec{r},t) = e^{- i \omega t} \vabla \times \vec{A}(\vec{r})
+\end{equation*}
+\begin{align*}
+\vabla \times \vec{A} &= - i \omega \frac{\mu_0}{4 \pi} \ub{\vabla \times \left(\frac{e^{ikr}}{r} \vec{P}\right)}_{ = - \vec{P} \times \ub{\vabla \frac{e^{ikr}}{r}}_{\mathclap{= \vec{e}_{r} \prt{}{t} \frac{e^{ikr}}{r} = i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right)}}}\\
+&= i \omega \frac{\mu_0}{4 \pi} i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{P} \times \vec{e}_{r})\\
+&= \frac{\mu_0}{4 \pi} ck^2 \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{e}_{r} \times \vec{P})
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \vec{B}(\vec{r},t) = \frac{\mu_0}{4 \pi} ck^2 \frac{e^{i(kr - \omega t)}}{r} \left(1 - \frac{1}{ikr}\right) \vec{e}_r \times \vec{P} \qquad \qquad \qquad \vec{B} \perp \vec{e}_r , \vec{r}
+\end{equation*}
+%
+%
+%
+% T3
+%
+%
+%
+\begin{equation*}
+\vec{E}(\vec{r},t) = \frac{i}{\omega} e^{- i \omega t} c^2 \vabla \times (\vabla \times \vec{A}(\vec{r}))
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vec{E}(\vec{r},t) = \kq \frac{e^{i (kr - \omega t)}}{r} \Bigg\{ \, k^2 \, \ub{(\vec{e}_r \times \vec{P}) \times \vec{e}_r}_{\mathclap{\substack{\tx{transversal Komponenten} \\ (\perp \tx{ zu } \vec{e}_r)}}} + \left(\frac{1}{r^2} - \frac{ik}{r}\right) \ub{\left[3 \vec{e}_r (\vec{e}_r \cdot \vec{P}) - \vec{P}\right]}_{\mathclap{\substack{\tx{auch Komponenten} \\ \tx{entlang } \vec{e}_r}}} \Bigg\}
+\end{equation*}
+
+\subsubsection{Grenzfall:}
+
+statischer Dipol $ \quad \omega \to 0 \quad k \to 0 $
+\begin{align*}
+\vec{E}(\vec{r},t) &\rightarrow \kq \frac{3 \vec{e}_r (\vec{e}_r \cdot \vec{P}) - \vec{P}}{r^3}\\
+\vec{B}(\vec{r},t) &\rightarrow 0
+\end{align*}
+\subsubsection{Fernbereich (Strahlungszone)}
+$ kr \gg 1 \quad r \gg \lambda $
+%
+%
+%
+% T4
+%
+%
+%
+$ \frac{1}{kr} \ll 1 \qquad \frac{k^2}{r} = \frac{k^2 r^2}{r^3} \gg \frac{1}{r^3} \qquad \frac{k}{r^2} = \frac{k^2}{kr r} \ll \frac{k^2}{r} $
+\begin{equation*}
+\Rightarrow \quad \vec{E}(\vec{r},t) = \kq e^{i (kr - \omega t)} \Bigg\{ \frac{k^2}{r} (\vec{e}_r \times \vec{P}) \times \vec{e}_r + \left(\cancel{\frac{1}{r^3}} - \cancel{\frac{ik}{r^2}}\right) \left[3 \vec{e}_r (\vec{e}_r \cdot \vec{P}) - \vec{P}\right]\Bigg\}
+\end{equation*}
+da, wie oben gezeigt, diese Terme $ \frac{1}{r^3}, \ \frac{ik}{r^2} $ vernachlässigbar klein im Vergleich zu $ \frac{k^2}{r} $ sind.
+\begin{align*}
+\vec{B}(\vec{r},t) &\approx \frac{\mu_0}{4 \pi} c k^2 \frac{e^{i (kr - \omega t)}}{r} \vec{e}_r \times \vec{P} \\
+\vec{E}(\vec{r},t) &\approx \kq \frac{e^{i(kr - \omega t)}}{r} (\vec{e}_r \times \vec{P}) \times \vec{e}_r\\
+&= c \vec{B}(\vec{r},t) \times \vec{e}_r \qquad \qquad &\vec{E} \perp \vec{B}, \vec{e}_r
+\end{align*}
+\lcom{wir erhalten also sich transversal ausbreitende Kugelwellen.}\\[10pt]
+\emph{Bemerkungen:}
+\begin{enumerate}[i)]
+	\item $ \vec{E},\vec{B},\vec{e}_r $ orthogonal
+	%
+	%
+	%
+	% T5
+	%
+	%
+	%
+	\item $ |\vec{E}| \sim \frac{1}{r} \quad |\vec{B}| \sim \frac{1}{r} $\\
+	\textbf{Strahlungsfelder}\\
+	\folie{Strahlungsfelder}
+\end{enumerate}
+
+
