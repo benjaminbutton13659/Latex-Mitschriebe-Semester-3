@@ -1416,7 +1416,7 @@ Wir betrachten eine ebene Grenzfläche ($ x $-$ y $-Ebene) zwischen zwei ungelad
 \\
 Die \textbf{einfallende Welle} sieht folgendermaßen aus:
 \begin{align*}
-\vec{E}_e &= \vec{E}_{e_0} e^{i(\vec{k} \cdot \vec{r} - \omega t)}\\
+\vec{E}_e &= \vec{E}_{e_0} e^{i(\vec{k}_e \cdot \vec{r} - \omega_e t)}\\
 \vec{B}_e &= \frac{1}{\omega_e} \vec{k}_e \times \vec{E}_e = \frac{1}{v_1} \frac{\vec{k}_e}{k_e} \times \vec{E}_e
 \end{align*}
 \textbf{reflektierte Welle}
@@ -1430,7 +1430,7 @@ gesamtes Feld in Medium 1:
 \end{equation*}
 \textbf{transmittierte Welle}
 \begin{align*}
-\vec{E}_2 &= \vec{E}_{2_0} e^{i(\vec{k} \cdot \vec{r} - \omega t)} \\
+\vec{E}_2 &= \vec{E}_{2_0} e^{i(\vec{k}_2 \cdot \vec{r} - \omega_2 t)} \\
 \vec{B}_2 &= \frac{1}{v_2} \frac{\vec{k}_2}{k_2} \times \vec{E}_2
 \end{align*}
 
@@ -1443,7 +1443,7 @@ Maxwell-Gl. $ \Rightarrow $ Stetigkeitsbedingungen für $ \vec{r} = (x,y,0) $
 	\begin{equation*}
 	\vec{n} \cdot (\vec{D}_2 - \vec{D}_1) = 0 \quad \Rightarrow \quad \epsilon_1 \vec{n} \cdot \vec{E}_1 - \epsilon_2 \vec{n} \cdot \vec{E}_2 = 0
 	\end{equation*}
-	\item mit $ \vabla \times \vec{E} = \prt{\vec{B}}{t} $ und $ \vec{t} \sim \vec{e}_x, \vec{e}_y $
+	\item mit $ \vabla \times \vec{E} = - \prt{\vec{B}}{t} $ und $ \vec{t} \sim \vec{e}_x, \vec{e}_y $
 	\begin{equation*}
 	\vec{t} \cdot (\vec{E}_1 - \vec{E}_2) = 0
 	\end{equation*}
@@ -1480,65 +1480,63 @@ Erläuterung zu Punkt ii) und iv):
 	\end{tikzpicture}
 \end{minipage}%
 \\
-Aus den vier Stetigkeitsbedingungen ergeben sich folgende Schlussfolgerungen:
-\begin{enumerate}
-	\item[ii)] \begin{equation*}
-	\vec{t} \cdot \vec{E}_2 = \vec{t} \cdot \vec{E}_1 = \vec{t} \cdot (\vec{E}_e + \vec{E}_r)
-	\end{equation*}
-	\begin{equation*}
-	\Rightarrow \vec{t} \cdot \vec{E}_{2_0}  e^{i(\vec{k}_2 \cdot \vec{r} - \omega_2 t)} = \vec{t} \cdot \vec{E}_{e_0}  e^{i(\vec{k}_e \cdot \vec{r} - \omega_e t)} + \vec{t} \cdot \vec{E}_{r_0}  e^{i(\vec{k}_r \cdot \vec{r} - \omega_r t)}
-	\end{equation*}
-	$ \forall \vec{r} = (x,y,0) , \forall t $
-	$ \rightarrow $ Die Orts- und Zeitabhängigkeit im Exponenten muss gleich sein!
-	\begin{equation*}
-	\vec{k}_2 \cdot \vec{r} - \omega_2 t =  \vec{k}_e \cdot \vec{r} - \omega_e t = \vec{k}_r \cdot \vec{r} - \omega_r t
-	\end{equation*}
-	$ \vec{r} = 0 : $ $ \Rightarrow \ \omega_2 = \omega_e = \omega_r \defeq \omega $\\
-	\lcom{Die gleiche Schlussfolgerung geht für die Wellenvektoren nicht, da wir hier die $ z $-Kompo-\\
-	nente gar nicht beachten und damit keine Aussagen über die Gleichheit der Vektoren machen können.}\\[5pt]
-	Für die einfallende und reflektierte Welle im Medium 1 gilt:\\
-	$ v_1 = \frac{\omega_e}{|\vec{k}_e|} = \frac{\omega_r}{|\vec{k}_r|} $
-	\begin{equation*}
-	\rightarrow \quad |\vec{k}_e| = |\vec{k}_r| \defeq k_1
-	\end{equation*}
-	Somit sind auch beide Wellenlängen $ \lambda_1 $ gleich!\\[5pt]
-	Für die Welle im Medium 2 gilt:
+Aus den vier Stetigkeitsbedingungen ergeben sich folgende Schlussfolgerungen:\\[5pt]
+ii)
+\begin{equation*}
+\vec{t} \cdot \vec{E}_2 = \vec{t} \cdot \vec{E}_1 = \vec{t} \cdot (\vec{E}_e + \vec{E}_r)
+\end{equation*}
+\begin{equation*}
+\Rightarrow \vec{t} \cdot \vec{E}_{2_0}  e^{i(\vec{k}_2 \cdot \vec{r} - \omega_2 t)} = \vec{t} \cdot \vec{E}_{e_0}  e^{i(\vec{k}_e \cdot \vec{r} - \omega_e t)} + \vec{t} \cdot \vec{E}_{r_0}  e^{i(\vec{k}_r \cdot \vec{r} - \omega_r t)}
+\end{equation*}
+$ \forall \vec{r} = (x,y,0) , \forall t $
+$ \rightarrow $ Die Orts- und Zeitabhängigkeit im Exponenten muss gleich sein!
+\begin{equation*}
+\vec{k}_2 \cdot \vec{r} - \omega_2 t =  \vec{k}_e \cdot \vec{r} - \omega_e t = \vec{k}_r \cdot \vec{r} - \omega_r t
+\end{equation*}
+$ \vec{r} = 0 : $ $ \Rightarrow \ \omega_2 = \omega_e = \omega_r \defeq \omega $\\
+\lcom{Die gleiche Schlussfolgerung geht für die Wellenvektoren nicht, da wir hier die $ z $-Kompo-\\
+nente gar nicht beachten und damit keine Aussagen über die Gleichheit der Vektoren machen können.}\\[5pt]
+Für die einfallende und reflektierte Welle im Medium 1 gilt:\\
+$ v_1 = \frac{\omega_e}{|\vec{k}_e|} = \frac{\omega_r}{|\vec{k}_r|} $
+\begin{equation*}
+\rightarrow \quad |\vec{k}_e| = |\vec{k}_r| \defeq k_1
+\end{equation*}
+Somit sind auch beide Wellenlängen $ \lambda_1 $ gleich!\\[5pt]
+Für die Welle im Medium 2 gilt:
+\begin{align*}
+k_2 &= \frac{\omega_2}{v_2} = \omega \sqrt{\epsilon_2 \mu_2} \\
+&= \omega \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} \sqrt{\epsilon_1 \mu_1} = \ub{\frac{\omega}{v_1}}_{k_1} \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = 	k_1 \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = k_1 \cdot \frac{n_2}{n_1}
+\end{align*}
+weiterhin:
+$ t=0 : $ $ \Rightarrow \ \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $\\[5pt]
+$ k_{2_x} x + k_{2_y} y = k_{e_x} x + \ub{k_{e_y} y}_{=0} = k_{r_x} x + k_{r_y} y =   $\\[5pt]
+$ k_{e_y} = 0 \quad \Rightarrow k_{2_y} = 0 = k_{r_y}$
+$ \Rightarrow \vec{k}_e, \vec{k}_r, \vec{k}_2 $ liegen in einer Ebene (hier: $ x $-$ y $-Ebene), der Einfallsebene.\\
+\begin{minipage}{.5\linewidth}
 	\begin{align*}
-	k_2 &= \frac{\omega_2}{v_2} = \omega \sqrt{\epsilon_2 \mu_2} \\
-	&= \omega \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} \sqrt{\epsilon_1 \mu_1} = \ub{\frac{\omega}{v_1}}_{k_1} \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = 	k_1 \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = k_1 \cdot \frac{n_2}{n_1}
+	\vec{k}_e &= k_e (\sin \theta_e \vec{e}_x + \cos \theta _e \vec{e}_z)\\
+	\vec{k}_r &= k_r (\sin \theta_r \vec{e}_x - \cos \theta _r \vec{e}_z)\\
+	\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta _2 \vec{e}_z)
 	\end{align*}
-	weiterhin:
-	$ t=0 : $ $ \Rightarrow \ \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $\\[5pt]
-	$ k_{2_x} x + k_{2_y} y = k_{e_x} x + \ub{k_{e_y} y}_{=0} = k_{r_x} x + k_{r_y} y =   $\\[5pt]
-	$ k_{e_y} = 0 \quad \Rightarrow k_{2_y} = 0 = k_{r_y}$
-	$ \Rightarrow \vec{k}_e, \vec{k}_r, \vec{k}_2 $ liegen in einer Ebene (hier: $ x $-$ y $-Ebene), der Einfallsebene.\\
-	\begin{minipage}{.5\linewidth}
-		\begin{align*}
-		\vec{k}_e &= k_e (\sin \theta_e \vec{e}_x + \cos \theta _e \vec{e}_z)\\
-		\vec{k}_r &= k_r (\sin \theta_r \vec{e}_x - \cos \theta _r \vec{e}_z)\\
-		\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta _2 \vec{e}_z)
-		\end{align*}
-		$ k_e = k_r \defeq k_1 $
-	\end{minipage}%
-	\begin{minipage}{.5\linewidth}
-		\flushright
-		%t6:
-		\begin{tikzpicture}
-			\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-			\draw[->] (0,-2) -- (0,2) node[right] {$z$}; 
-			\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
-			\centerarc[](0,0)(60:90:1.2);
-			\node at (0.2,.85) {$\theta_2$};
-			\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01); 
-			\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
-			\centerarc[](0,0)(234:270:1);
-			\node at (-0.2,-0.7) {$\theta_e$};
-			\centerarc[](0,0)(270:306:1);
-			\node at (0.3,-0.7) {$\theta_r$};
-		\end{tikzpicture}
-	\end{minipage}%
-
-\end{enumerate}
+	$ k_e = k_r \defeq k_1 $
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	%t6:
+	\begin{tikzpicture}
+		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[right] {$z$}; 
+		\draw[thick,->] (0,0) -- (0.7,1.25) node[anchor=south west] {$\vec{k}_2$}; 
+		\centerarc[](0,0)(60:90:1.2);
+		\node at (0.2,.85) {$\theta_2$};
+		\draw[thick,->] (-1.1,-1.5) node[anchor=north east] {$\vec{k}_e$} -- (-0.01,-0.01); 
+		\draw[thick,->] (0,0) -- (1.1,-1.5) node[anchor=north west] {$\vec{k}_r$};
+		\centerarc[](0,0)(234:270:1);
+		\node at (-0.2,-0.7) {$\theta_e$};
+		\centerarc[](0,0)(270:306:1);
+		\node at (0.3,-0.7) {$\theta_r$};
+	\end{tikzpicture}
+\end{minipage}%
 
 \subsubsection{Reflexionsgesetz}
 
@@ -1563,7 +1561,7 @@ $ \vec{r} = (x,0,0): \quad \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $
 $ \vec{r} = (x,0,0): \quad \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} $
 \begin{align*}
 &k_2 \sin \theta_2 = k_1 \sin \theta_1 \\
-= &k_1 \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = k_1 \frac{n_2}{n_1}
+k_2 = &k_1 \sqrt{\frac{\epsilon_2 \mu_2}{\epsilon_1 \mu_1}} = k_1 \frac{n_2}{n_1}
 \end{align*}
 $ n : $ Brechungsindex
 \begin{center}
@@ -1608,7 +1606,7 @@ $ n : $ Brechungsindex
 		\node at (-1,1.75) {$n_2<n_1$};
 	\end{tikzpicture}
 \end{center}
-Für $ n_2 > n_1 : $ Grenzfall $ \theta_1 \defeq \theta_g $ bei dem Totalreflexion auftritt (d.h. $ \theta_2 = \frac{\pi}{2} $)
+Für $ n_2 > n_1 : $ Grenzfall $ \theta_1 \defeq \theta_g $ bei dem \textbf{Totalreflexion} auftritt (d.h. $ \theta_2 = \frac{\pi}{2} $)
 \begin{equation*}
 \sin \theta_g = \frac{n_2}{n_1} \sin \frac{\pi}{2} = \frac{n_2}{n_1}
 \end{equation*}

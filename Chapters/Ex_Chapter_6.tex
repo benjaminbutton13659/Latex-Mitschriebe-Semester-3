@@ -877,10 +877,108 @@ klassisch:
 Quantenmechanisch:\\[5pt]
 Die SGL kann für den harmonischen Oszillator exakt gelöst werden\\
 Zusammenhang mit den sog. Hermitpolynomen $ H_{n}(x) = (-1)^n e^{x^2} \frac{d^n}{a x^n} e^{-x^2} \quad n \in \mathbb{N}_0 $\\[5pt]
-Energie: $ E_n = \hbar \omega_0 (n + \frac{1}{2}) \quad n \in \mathbb{N}_0 $\\
+Energie:
+$$ E_n = \hbar \omega_0 \left(n + \frac{1}{2}\right) \quad n \in \mathbb{N}_0 $$
 Grundzustand:
 $$ \Psi_0(x) = \frac{1}{\sqrt{\sqrt{\pi} x_0}} e^{-\frac{1}{2} \left(\frac{x}{x_0}\right)^2} \qquad x_0 = \sqrt{\frac{\hbar}{m \omega_0}} $$
 Anregungszustände:
 \begin{equation*}
 \Psi_{m > 0} (x) = \frac{1}{\sqrt{2^n n! \sqrt{\pi} x_0}} H_n \left(\frac{x}{x_0}\right) e^{-\frac{1}{2} \left(\frac{x}{x_0}\right)^2}
 \end{equation*}
+
+% Vorlesung 29.01
+
+%Wiederholugn der letzten Vorlesung (Energie Grunszustand Anregungszustände)
+
+\noindent
+\textbf{Definition:} Erwartungswert eines Operators
+\begin{equation*}
+\langle \hat{O} \rangle_n = \langle \Psi_n | \hat{O} | \Psi_n \rangle = \int \Psi^*_n(x) \hat{O} \Psi_n(x) \ \dd x
+\end{equation*}
+Erwartungswerte
+\begin{align*}
+\langle \hat{x} \rangle_n &= 0\\
+\langle \hat{p} \rangle_n &= 0\\
+\langle \hat{x}^2 \rangle_n &= x_0^2 \left(n + \frac{1}{2}\right)\\
+\langle \hat{p}^2 \rangle_n &= \frac{\hbar^2}{x_0^2} \left(n + \frac{1}{2}\right)
+\end{align*}
+\folie{Wellenfunktionen und Potentiale}
+
+\subsection{Beispiele für den quantenmechanischen Oszillator (QHO)}
+
+\emph{Beispiel:} Schwingungszustände in mehratomigen Molekülen und Festkörpern\\
+\folie{Molekülschwingungen und Bindungspotential der Atomen im Molekül oder Festkörper}\\
+\folie{Federmodel für Molekül und Festkörperschwingungen}\\
+\lcom{Wo sieht man diese Schwingungen? Zum Beispiel wenn wir Schall durch einen Festkörper jagen bewegen sich die Kerne (nicht die elektronen) in dieser Harmonischen schwingungn mit und klingen dann in ihren Eigenfrequenzen (siehe Stimmgabel).}\\[5pt]
+\emph{Beispiel:} EM-Strahlung
+\begin{equation*}
+E_n = \hbar \omega_0 n \qquad \tx{Planck}
+\end{equation*}
+\vspace{3pt}
+\begin{equation*}
+% t1:
+\begin{tikzpicture}[scale=.5]
+	\foreach \y in {0, 1, 2}
+	\draw (0,\y) -- ++(1,0);
+	\node[left] at (0,.5) {$ \hbar \omega_0 $};
+	\draw[thick,red,->] (.5,0) -- (.5,1);
+\end{tikzpicture}
+\qquad 
+\begin{array}{c}
+\tx{\color{red} Photon \color{black} $ \quad $ Einstein}\\[5pt]
+\phantom{0}
+\end{array}
+\end{equation*}
+
+\subsection{Unschärferelation und QM-klassischer Übergang}
+
+\textbf{Definition:} Schwankung/Unschärfe
+\begin{equation*}
+\left(\Delta O\right)^2 = \left\langle \left(\hat{O} - \langle \hat{O} \rangle ^2\right) \right\rangle = \langle \hat{O}^2 \rangle - \langle \hat{O} \rangle^2
+\end{equation*}
+\emph{Bemerkung:}
+\begin{equation*}
+\langle \hat{O}^n \rangle = \int \Psi* \hat{O}^2 \Psi \ \dd x
+\end{equation*}
+
+\subsubsection{Nullpunktschwingung}
+
+Grundzustand $ E_0 = \frac{1}{2} \hbar \omega_0 $
+\begin{equation*}
+\Rightarrow \quad \tx{Der QM Oszillator kann \textbf{NICHT} zur Ruhe kommen}
+\end{equation*}
+\lcom{Anders als ein Pendel, das KANN man einfach anhalten \mau}
+\begin{align*}
+\Delta x^2 &\equiv \langle \hat{x}^2 \rangle = x_0^2 \left(n + \frac{1}{2}\right) \overset{n = 0}{\longrightarrow} \frac{1}{2} x_0^2\\
+\Delta p^2 &\equiv \langle \hat{p}^2 \rangle = \frac{\hbar^2}{x_0^2} \left(n + \frac{1}{2}\right) \overset{n = 0}{\longrightarrow} \frac{\hbar^2}{2 x_0^2}
+\end{align*}
+
+\subsubsection{Unschärferelation}
+
+Pärchen von Operatoren $ \hat{A}, \hat{B} $
+\begin{equation*}
+\left[\hat{A}, \hat{B}\right] \defeq \hat{A} \hat{B} - \hat{B} \hat{A} = \casess{0}{\tx{komutieren}}{\neq 0}{\tx{komutieren nicht}}
+\end{equation*}
+\begin{equation*}
+\left[\hat{A}, \hat{B}\right] \Psi = \hat{A} \hat{B} \Psi - \hat{B} \hat{A} \Psi = \casess{= 0}{\tx{komutieren}}{\neq 0}{\tx{komutieren nicht}}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \Delta A \cdot \Delta B \ge \frac{1}{2} \left|\left\langle \left[\hat{A}, \hat{B}\right] \right\rangle\right|
+\end{equation*}
+z.B. der Orts- und Impulsoperator
+\begin{equation*}
+\left[\hat{x}, \hat{p}\right] = i \hbar
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \rmbox{\Delta x \Delta p \ge \frac{1}{2} \hbar}
+\end{equation*}
+$ \Rightarrow $ QHO:
+\begin{equation*}
+\Delta x \Delta p = \hbar \left(n + \frac{1}{2}\right) \overset{n = 0}{\longrightarrow} \frac{1}{2} \hbar
+\end{equation*}
+\lcom{Der QHM hat die Unschärferelation also so gut wie möglich ausgenutzt \mau}
+\begin{equation*}
+\Rightarrow \quad \tx{Nullpunktschwingung ist eine Konsequenz der Unschärfereltaion \mau}
+\end{equation*}
+
+
