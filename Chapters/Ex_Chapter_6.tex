@@ -930,7 +930,7 @@ E_n = \hbar \omega_0 n \qquad \tx{Planck}
 \end{array}
 \end{equation*}
 
-\subsection{Unschärferelation und QM-klassischer Übergang}
+\subsection{Unschärferelation und Quanten- klassischer Übergang}
 
 \textbf{Definition:} Schwankung/Unschärfe
 \begin{equation*}
@@ -981,4 +981,277 @@ $ \Rightarrow $ QHO:
 \Rightarrow \quad \tx{Nullpunktschwingung ist eine Konsequenz der Unschärfereltaion \mau}
 \end{equation*}
 
+\subsubsection{Quanten- klassischer Übergang}
 
+Aufenthaltswahrscheinlichkeit:\\
+\begin{minipage}{.5\linewidth}
+	klassisch:
+	\begin{equation*}
+	p(x) = \frac{\omega_0}{2 \pi V(x)}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	Quantenmechanik:
+	\begin{equation*}
+	\left|\Psi_n(x)\right|^2
+	\end{equation*}
+\end{minipage}%
+\\
+\folie{Wellenfunktion und Aufenthaltswahrscheinlichkeit}\\
+für größere $ n $ nähern sich $ p(x) $ und $ \left|\Psi_n(x)\right|^2 $ an.\\[5pt]
+$ \Rightarrow \quad $ je größer der Oszillator angeregt ist, um so klassischer wird er \mau\\[5pt]
+,,Amplitude`` der Schwingung\\
+\lcom{Das Wort Amplitude ist hier mit Vorsicht zu behandeln, da wir hier die Zeitunabhängige SGL betrachtet haben \mau Deshalb erhalten wir auch keine Schwingenden Erwartungswerte: Die Erwartungswerte von Stationären Zustände sind ebenfalls Stationär. Es geht hier also um Aufenthaltswahrscheinlichkeiten und nicht um das Tatsächliche verfolgen eines Schwingenden Objekts (Es gibt solche zeitabhängigen, schwingenden Zustände, diese sind jedoch komplizierter und werden in den folgenden Vorlesungen Behandelt).}\\[5pt]
+Varianz: $ \Delta x^2 \equiv \langle \hat{x^2} \rangle - \langle \hat{x} \rangle^2 \propto A^2 $
+\begin{center}
+	\begin{tabular}{l|l|l}
+		& klassisch & Quantenmechanik\\
+		\hline
+		& & \\[-5pt]
+		%
+		Energie & $ E = \frac{1}{2} m \omega_0^2 A^2 = \hbar \omega_0 \frac{m \omega_0}{2 \hbar} A^2 $ & $ E_n = \hbar \omega_0 \left(n + \frac{1}{2}\right) $\\[7pt]
+		\hline
+		& & \\[-5pt]
+		Schwingung & $ \Delta x^2 = \langle x^2 \rangle = \frac{1}{2} A^2 $ & $ \Delta x^2 = \langle \hat{x^2} \rangle = x_0^2 \left(n + \frac{1}{2}\right) $\\[7pt]
+	\end{tabular}
+\end{center}
+\begin{equation*}
+\frac{1}{2} A^2 \quad \longleftrightarrow \quad x_0^2 \left(n + \frac{1}{2}\right)
+\end{equation*}
+$ \Rightarrow $ je höher der Oszillator angeregt ist, desto größer ist seine ,,Amplitude``
+\begin{center}
+	% t2:
+	\begin{tikzpicture}
+		\node (1) at (0,0) {$ \substack{\tx{\normalsize höher} \\ \tx{\normalsize angeregt}} $};
+		\node (2) at (0,-2.5) {,,A`` größer};
+		\node (3) at (3.5,0) {$ \substack{\tx{\normalsize Energie} \\ \tx{\normalsize höher}} $};
+		\node (4) at ($ (2) + (3) $) {klassischer};
+		\foreach \a\b in {1/2,1/3,2/4,3/4,1/4,2/3}
+		\draw[line width=1.1,<->] (\a) -- (\b);
+	\end{tikzpicture}
+\end{center}
+\lcom{Zur Unschärferelation: statistische Mechanik: bei häufigem Würfeln geht die Schwankung nicht gegen 0 sonder fehlt mit $ \sqrt{n} $ ab. Der relative Fehler ist somit mit $ \frac{\sqrt{n}}{n} $ gegeben. Der Messwert wird also trotz steigendem Fehler immer Genauer. In der Quantenmechanik können wir z.B. den QHM sehr hoch anregen (hohes $ n $) und damit $ \Delta x $ und auch $ \Delta p $ sehr scharf festlegen. Hier sieht man wieder bei einer hohen Anregung (Quanten- klassischer Übergang), dass die Unschärferelation weniger gut gilt und man wieder von scharfem Impuls und Ort reden (gleichzeitig Messbar, anders als in der QM).}
+
+\section{Elektron im Coulomb-Feld einer Zentralladung}
+
+Elektron: $ q = -e $\\
+positive Zentralladung $ Q = + Z e $\\[5pt]
+Coulomb-Potential
+\begin{equation*}
+V(\vec{r}) = - \frac{Ze^2}{4 \pi \epsilon r}
+\end{equation*}
+\lcom{Alles was mit Planetenbahnen zu tun hat wir im Folgenden als bekannt vorrausgesetzt.\\
+Lenz'scher Vektor: konstante die geschlossene Ellipsenbahnen begründet. Mit Relativistischen Effekten, wie bei Merkur, ergeben sich Rosettenbahnen.}\\[5pt]
+
+\subsubsection{Zeitunabhängige SGL (Ortsdarstellung)}
+
+\begin{equation*}
+E \Psi(\vec{r}) = \left[- \frac{\hbar^2}{2m} \left(\prd{^2}{x^2} + \prd{^2}{y^2} + \prd{^2}{z^2}\right) - \frac{Z e^2}{4 \pi \epsilon_0 r}\right] \Psi (\vec{r})
+\end{equation*}
+\lcom{Dies genügt hier, da wir und wie bei der Planetenbewegung auf den Massenmittelpunkt beziehen, d.h. alle anderen Abstände gelten relativ zwischen den beiden Körpern.}
+
+\subsubsection{Wichtige Eigenschaften}
+
+\begin{enumerate}[(1)]
+	\item 3-dimensionales Problem
+	\item hat eine hohe Symmetrie
+	\begin{itemize}
+		\item Coulomb Potential $ \rightarrow $ 
+		\item hat den spezielle $ \frac{1}{r} $ Verlauf
+	\end{itemize}
+\end{enumerate}
+$ \Rightarrow \quad $ siehe Kepler-Problem
+
+\subsubsection{Ideen zur Lösung der SGL}
+
+\lcom{Dies wird eigentlich zu kompliziert und involviert Mathematik, die wir noch nicht beherrschen.\\
+Im folgenden die grobe Idee:}
+\begin{enumerate}[(1)]
+	\item Einschränkung der Lösung auf gebundene Zustände
+	$ E < 0 : $\\
+	$ \Rightarrow $ Normierbarkeit der Wellenfunktionen
+	\begin{equation*}
+	\lim\limits_{r \to \infty} \left|\Psi(\vec{r})\right|^2 \to 0
+	\end{equation*}
+	muss gegeben sein (es muss nicht nur gegen 0 gehen sondern auch schnell genug abfallen!)
+	\item Zentralsymmetrisches Problem $ \rightarrow $ Kugelkoordinaten $ r, \theta, \varphi $
+	\begin{equation*}
+	\vec{r} = r \begin{pmatrix}
+	\cos \varphi \sin \theta \\ \sin \varphi \sin\theta \\ \cos \theta
+	\end{pmatrix}
+	\end{equation*}
+	\item Separationsansatz für die Wellenfunktion
+	\begin{equation*}
+	\Rightarrow \quad \Psi(r,\theta,\varphi) = R(r) \mathcal{Y}(\theta,\varphi)
+	\end{equation*}
+\end{enumerate}
+\emph{Bemerkung:}\\
+\lcom{Kugelkoordinaten: wenn wir Kugelkoordinaten wählen machen wir eine implizite Wahl. Somit brechen wir die Symmetrie. Wir müssen nun also Rechnen (Koordinatentransformation) um die Kugelsymmetrie wieder Sichtbar zu machen.\\
+Ein Problem, dass sich hier ergibt ist, dass wir eine $ z $-Achse wählen und $ \theta $ und $ \varphi $ davon abhängig machen. Somit werden die Ergebnisse in jedem Fall Rotationssymmetrisch. Für eine gut sichtbare Kugelsymmetrie muss noch weiter gerechnet werden. Diese $ z $-Achse nennt man in der Quantenmechanik die Quantisierungsachse.}
+%\begin{itemize}
+%	\item 
+%\end{itemize}
+
+% Vorlesung 30.01.
+
+\subsection{Lösung der SGL}
+
+5 Schritte
+\begin{enumerate}[(1)]
+	\item Transformation auf Kugelkoordinaten $ \vec{r} \to r, \theta, \varphi $
+	\begin{equation*}
+	\Rightarrow \quad \prd{^2}{x^2} + \prd{^2}{y^2} + \prd{^2}{z^2} \to \frac{1}{r^2} \prt{}{r} \left(r^2 \prt{}{r}\right) + \frac{1}{r^2 \sin \theta} \prt{}{\theta} \left(\sin \theta \prt{}{\theta}\right) + \frac{1}{r^2 \sin^2 \theta} \prt{^2}{\varphi^2}
+	\end{equation*}
+	%
+	% make me smaller or a bit bigger:
+	%
+	\begin{footnotesize}
+		\begin{equation*}
+		\Rightarrow \quad E \Psi(r,\theta,\varphi) = \left[-\frac{\hbar^2}{2m} \left(\frac{1}{r^2} \prt{}{r} \left(r^2 \prt{}{r}\right) + \frac{1}{r^2 \sin \theta} \prt{}{\theta} \left(\sin \theta \prt{}{\theta}\right) + \frac{1}{r^2 \sin^2 \theta} \prt{^2}{\varphi^2}\right) - \frac{Ze^2}{4 \pi \epsilon r} \right] \Psi(r,\theta,\varphi)
+		\end{equation*}
+	\end{footnotesize}
+	\emph{Bemerkung}
+	\begin{itemize}
+		\item $ x(r,\theta,\varphi), y(r,\theta,\varphi), z(r,\theta,\varphi) $
+	\end{itemize}
+	\item Vereinfachung mit Drehimpuls
+	\begin{equation*}
+	\tx{klassisch: } \quad \vec{L} = \vec{r} \times \vec{p} \qquad \tx{QM: } \quad \hat{\vec{L}} = \hat{\vec{r}} \times \hat{\vec{p}}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \hat{\vec{p}}^2 = - \hbar^2 \frac{1}{r^2} \prt{}{r} \left(r^2 \prt{}{r}\right) + \frac{1}{r^2} \hat{\vec{L}}^2
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad E \Psi(r,\theta,\varphi) = \left[-\frac{\hbar^2}{2mr^2} \prt{}{r} \left(r^2 \prt{}{r}\right) + \ub{\frac{\hat{\vec{L}}^2}{2mr^2} - \frac{Ze^2}{4 \pi \epsilon_0 r}}_{\mathclap{\tx{effektieves Potential}}}\right] \Psi(r,\theta,\varphi)
+	\end{equation*}
+	Das Effektive Potential berechnet sich aus der Fliehkraft minus der Coulomb Kraft.
+	\item Seperation in $ R(r) $ und $ \mathcal{Y}(\theta,\varphi) $\\
+	Der Hamiltonoperator hat diese Struktur:
+	\begin{equation*}
+	\hat{\ham} = \hat{\ham}_{R}(r) + f(r) \hat{\ham}_{\mathcal{Y}}(\hat{\vec{L}})
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \Psi(r,\theta,\varphi) = R(r) \mathcal{Y}(\theta,\varphi)
+	\end{equation*}
+	\begin{align*}
+	\Rightarrow \tx{Gl. \#1} & \quad \hat{\vec{L}}^2 \mathcal{Y}(\theta,\varphi) = \color{red} c \color{black} \ \mathcal{Y}(\theta,\varphi) \label{1} \tag{\#1}\\
+	\tx{Gl. \#2} & \quad \left[-\frac{\hbar^2}{2m} \prt{}{r} \left(r^2 \prt{}{r}\right) + \frac{\color{red} c \color{black}}{2 m r^2} - \frac{Ze^2}{4 \pi \epsilon_0 r}\right] R(r) = E R(r) \label{2} \tag{\#2}
+	\end{align*}
+	\lcom{Das c ist eine Konstante die aus dem Seperationsansatz kommt. Genau wie das E bei der Herleitung zur Zeitunabhängigen SGL.}\\[5pt]
+	\emph{Bemerkung:}
+	\begin{equation*}
+	E R(r) \mathcal{Y}(\theta,\varphi) = \left[\hat{\ham}_{R}(r) + f(r) \hat{\ham}_{\mathcal{Y}}(\hat{\vec{L}})\right] R(r) \mathcal{Y}(\theta,\varphi)
+	\end{equation*}
+	\begin{equation*}
+	\left[E - \hat{\ham}_{R}(r)\right] R(r) \mathcal{Y}(\theta,\varphi) = f(r) \hat{\ham}_{\mathcal{Y}}(\hat{\vec{L}}) R(r) \mathcal{Y}(\theta,\varphi) = f(r) R(r) \hat{\ham}_{\mathcal{Y}}(\hat{\vec{L}}) \mathcal{Y}(\theta,\varphi)
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \frac{\left[E - \hat{\ham}_{R}(r)\right] R(r)}{f(r) R(r)} = c = \frac{\hat{\ham}_{\mathcal{Y}}(\hat{\vec{L}}) \mathcal{Y}(\theta,\varphi)}{\mathcal{(\theta,\varphi)}}
+	\end{equation*}
+	\begin{align*}
+	\Rightarrow \quad \tx{\# 1: } & \quad \hat{\ham}_{\mathcal{Y}}(\hat{\vec{L}}) \mathcal{Y}(\theta,\varphi) = c \mathcal{Y}(\theta,\varphi) \\
+	\tx{\# 2: } &  \quad \left[E - \hat{\ham}_{R}(r)\right] R(r) = c f(r) R(r)
+	\end{align*}
+	\begin{flushright}
+		$ \square $
+	\end{flushright}
+	\item Lösung von Gleichung \eqref{1}\\[5pt]
+	Drehimpuls Eingenwertgleichung\\
+	$ \Rightarrow $ Lösungen sind die Kugelflächenfunktionen $ \mathcal{Y}_{lm}(\theta,\varphi) $
+	\begin{equation*}
+	\hat{\vec{L}}^2 \mathcal{Y}(\theta,\varphi) = c \mathcal{Y} (\theta,\varphi)
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \rmbox{\hat{\vec{L}}^2 \mathcal{Y}_{lm}(\theta,\varphi) = \hbar^2 l(l+1) \mathcal{Y}_{lm}(\theta,\varphi)}
+	\end{equation*}
+	\begin{equation*}
+	\mathcal{Y}_{lm}(\theta,\varphi) = C_{lm} P_{lm} (\cos \theta) e^{i m \varphi} \qquad l \in \mathbb{N}_0 \quad |m| \le l
+	\end{equation*}
+	\begin{align*}
+	\Rightarrow \quad l = 0 & \to m = 0\\
+	l = 1 & \to m = -1, 0, 1\\
+	l=2 & \to m = -2, -1, 0, 1, 2 \qquad \qquad (2l + 1) \ m \tx{-Werte pro } l
+	\end{align*}
+	\folie{Kugelflächenfunktionen für verschiedene $ l, m $}\\[5pt]
+	\emph{Bemerkungen:}
+	\begin{itemize}
+		\item $ \mathcal{Y}(\theta,\varphi) $ lassen sich in Polynome von $ x, y, z $ umschreiben
+		\begin{align*}
+		\mathcal{Y}_{0,0} &\propto 1\\
+		\mathcal{Y}_{1,0} &\propto z\\
+		\mathcal{Y}_{1,1} &\propto x + i y\\
+		\mathcal{Y}_{1,-1} &\propto x - i y\\
+		\mathcal{Y}_{2,0} &\propto (ez^2 - 1)
+		\end{align*}
+		\begin{equation*}
+		\tx{Die Ordnung des Polynoms ist gegeben durch } l
+		\end{equation*}
+		\item Kugelflächenfunktionen $ \rightarrow $ \textbf{Orbitale}
+		\begin{equation*}
+		\tx{Orbital } \widehat{=} \ |\mathcal{Y}_{l,m} \pm \mathcal{Y}_{l,-m}|
+		\end{equation*}
+		\begin{align*}
+		&s \tx{-Orbital: } l = 0 : \qquad \quad \mathcal{Y}_{0,0} \propto 1\\
+		&p_x \tx{- } \qquad \qquad \qquad \qquad \quad p_x \propto \mathcal{Y}_{1,1} + \mathcal{Y}_{1,-1} \propto x\\
+		&p_y \tx{-Orbitale: } l = 1 :  \qquad \, p_y \propto \mathcal{Y}_{1,1} - \mathcal{Y}_{1,-1} \propto y\\
+		&p_z \tx{- } \qquad \qquad \qquad \qquad \quad p_z \propto \mathcal{Y}_{1,0} \propto z
+		\end{align*}
+		% already in align:
+		%$ s $-Orbital: $ l = 0 : \qquad \mathcal{Y}_{0,0} \propto 1 $\\
+		%$ p_x \qquad \qquad \qquad p_x \propto \mathcal{Y}_{1,1} + \mathcal{Y}_{1,-1} \propto x $\\
+		%$ p_y $-Orbitale: $ l = 1 : \qquad \mathcal{Y}_{1,1} - \mathcal{Y}_{1,-1} \propto y $\\
+		%$ p_z \qquad \qquad \qquad p_z \propto \mathcal{Y}_{1,0} \propto z $
+		\item Notation:
+		\begin{equation*}
+		l = \qquad 0 \qquad 1 \qquad 2 \qquad 3 \qquad 4 \qquad 5 \qquad 6
+		\end{equation*}
+		\begin{equation*}
+		\qquad \qquad s \qquad p \qquad d \qquad f \qquad g \qquad h \qquad k \
+		\end{equation*}
+		\folie{Orbitale}
+		\item $ \hat{\vec{L}}^2 $ Eingenwertgleichung $ \quad \Rightarrow \quad $ Eingenwert $ l(l+1) $\\[5pt]
+		$ \Rightarrow $ Länge des Drehimpulses $ \widehat{=} \ \sqrt{l(l+1)} $\\
+		\lcom{In der QM spricht man von Drehimpulsen $ 1, 2, 3 \dots $ also den jeweiligen $ l $-Werten der Orbitale.}\\[5pt]
+		$ \hat{L}_z $ Eigenwertgleichung $ \quad \Rightarrow \quad $ Eigenwert $ m $:
+		\begin{equation*}
+		\hat{L}_z \mathcal{Y}_{lm}(\theta,\varphi) = \hbar m \mathcal{Y}_{lm}(\theta,\varphi)
+		\end{equation*}
+		$ \Rightarrow $ Komponente entlang $ z \ \widehat{=} \ m $
+	\end{itemize}
+	\item Lösung von Gleichung \eqref{2}
+	\begin{equation*}
+	\Rightarrow \quad c = \hbar^2 l(l+1)
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \left[-\frac{\hbar^2}{2mr^2} \prt{}{r} \left(r^2 \prt{}{r}\right) + \frac{\hbar^2 l(l+1)}{2mr^2} - \frac{Ze^2}{4 \pi \epsilon_0 r}\right] R_{ml} (r) = E_n R_{ml} (r)
+	\end{equation*}
+	\lcom{Warum hängt die Energie $ E_n $ nicht von $ l $ ab. Das hat mit der Kugelsymmetrie und der Drehimpulserhaltung zu tun \mau \ Hier taucht also zum ersten mal auf warum wir Kugelkoordinaten und Drehimpuls benutzen.}
+	\begin{equation*}
+	\Rightarrow \quad R_{ml}(r) = \tilde{r}^l e^{-\tilde{r}} L_{ml}(2 \tilde{r}) \qquad \tilde{r} = \frac{Z}{n a_B} r
+	\end{equation*}
+	$ L_{ml} : $ Lagere Polynome\\
+	$ a_B : $ Bohr'scher Atomradius $ \approx 0{,}5 \AA $\\[5pt]
+	$ n = l+1, l+2, l+3, \dots $
+	\begin{equation*}
+	\rmbox{E_n = - R_{\mathcal{Y}} \frac{Z^2}{n^2}}
+	\end{equation*}
+	$ R_{\mathcal{Y}} : $ \textbf{Rydberg Konstante}: $ 13{,}6 \, \tx{eV} $\\
+	\folie{Radialfunktionen}\\[5pt]
+	Grundzustand: $ n=1, l=0 \qquad E_0 = - R_{\mathcal{Y}} Z^2 $\\
+	\lcom{Da die Radialfunktionen exponentiell abfallen (gebundene Zustände) wodurch sie normierbar sind, wie wir es gefordert haben.}\\[5pt]
+	erster Angeregter Zustand:
+	$ n = 2, \quad \left. \begin{array}{ccc}
+	l=0 & s & \ \ \: m=0 \\
+	l=1 & p & \left\{ \begin{array}{c}
+	\phantom{-}m=-1\\
+	m=0\\
+	m=1
+	\end{array} \right.
+	\end{array} \right\} \ \ \substack{\tx{4 Zustände} \\ \tx{energetisch} \\ \tx{entartet}} $\\[5pt]
+	zweiter angeregter Zustand
+	$ n = 3 \left. \right\} \ \ \left. \begin{array}{ccl}
+	l=0 & s & m=0 \\
+	l=1 & p & m=-1,0,1 \\
+	l=2 & d & m=-2,-1,0,1,2
+	\end{array} \right\} \ \ \substack{\tx{9 Zustände} \\ \tx{entartet}} $
+\end{enumerate}

@@ -1441,7 +1441,7 @@ Maxwell-Gl. $ \Rightarrow $ Stetigkeitsbedingungen für $ \vec{r} = (x,y,0) $
 \begin{enumerate}[i)]
 	\item mit $ \vabla \cdot \vec{D} = 0 $
 	\begin{equation*}
-	\vec{n} \cdot (\vec{D}_2 - \vec{D}_1) = 0 \quad \Rightarrow \quad \epsilon_1 \vec{n} \cdot \vec{E}_1 - \epsilon_2 \vec{n} \cdot \vec{E}_2 = 0
+	\vec{n} \cdot (\vec{D}_1 - \vec{D}_2) = 0 \quad \Rightarrow \quad \epsilon_1 \vec{n} \cdot \vec{E}_1 - \epsilon_2 \vec{n} \cdot \vec{E}_2 = 0
 	\end{equation*}
 	\item mit $ \vabla \times \vec{E} = - \prt{\vec{B}}{t} $ und $ \vec{t} \sim \vec{e}_x, \vec{e}_y $
 	\begin{equation*}
@@ -1511,7 +1511,7 @@ weiterhin:
 $ t=0 : $ $ \Rightarrow \ \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $\\[5pt]
 $ k_{2_x} x + k_{2_y} y = k_{e_x} x + \ub{k_{e_y} y}_{=0} = k_{r_x} x + k_{r_y} y =   $\\[5pt]
 $ k_{e_y} = 0 \quad \Rightarrow k_{2_y} = 0 = k_{r_y}$
-$ \Rightarrow \vec{k}_e, \vec{k}_r, \vec{k}_2 $ liegen in einer Ebene (hier: $ x $-$ y $-Ebene), der Einfallsebene.\\
+$ \Rightarrow \vec{k}_e, \vec{k}_r, \vec{k}_2 $ liegen in einer Ebene (hier: $ x $-$ z $-Ebene), der Einfallsebene.\\
 \begin{minipage}{.5\linewidth}
 	\begin{align*}
 	\vec{k}_e &= k_e (\sin \theta_e \vec{e}_x + \cos \theta _e \vec{e}_z)\\
@@ -1778,11 +1778,11 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 	$ k_e = k_r = k_1 = \frac{\omega}{v_1} = \omega \sqrt{\epsilon_1 \mu_1} $\\
 	$ k_2 = \omega \sqrt{\epsilon_2 \mu_2} $
 	\begin{equation*}
-	\Rightarrow \quad 0 = - \omega \sqrt{\frac{\epsilon_2}{\mu_2}} E_{2_0} \cos (\theta_2) + \omega \sqrt{\frac{\epsilon_1}{\mu_1}} E_{e_0} \cos \theta_1 - \omega \sqrt{\frac{\epsilon_1}{\mu_1}} (E_{2_0} - E_{e_0}) \cos \theta_1
+	\Rightarrow \quad 0 = - \omega \sqrt{\frac{\epsilon_2}{\mu_2}} E_{2_0} \cos \theta_2 + \omega \sqrt{\frac{\epsilon_1}{\mu_1}} E_{e_0} \cos \theta_1 - \omega \sqrt{\frac{\epsilon_1}{\mu_1}} (E_{2_0} - E_{e_0}) \cos \theta_1
 	\end{equation*}
 	Umformen mit Brechungsindex $ n_i = \sqrt{\epsilon_{r_i} \mu_{e_i}} $
 	\begin{equation*}
-	\Rightarrow \quad \left(\frac{E_{2_0}}{E_{e_0}}\right)_{\perp} = \frac{\sqrt{\frac{\epsilon_1}{\mu_1}} \cos \theta_1}{\sqrt{\frac{\epsilon_1}{\mu_1}} \cos \theta_1 + \sqrt{\frac{\epsilon_2}{\mu_2}} \cos \theta_2} = \frac{2 n_1 \cos \theta_1}{n_1 \cos \theta_1 + \frac{\mu_1}{\mu_2} n_2 \cos \theta_2}
+	\Rightarrow \quad \left(\frac{E_{2_0}}{E_{e_0}}\right)_{\perp} = \frac{2\sqrt{\frac{\epsilon_1}{\mu_1}} \cos \theta_1}{\sqrt{\frac{\epsilon_1}{\mu_1}} \cos \theta_1 + \sqrt{\frac{\epsilon_2}{\mu_2}} \cos \theta_2} = \frac{2 n_1 \cos \theta_1}{n_1 \cos \theta_1 + \frac{\mu_1}{\mu_2} n_2 \cos \theta_2}
 	\end{equation*}
 	Einfalls- und Ausfallswinkel können wir mit dem Brechungsgesetz ineinander umformen: $ \cos \theta_2 = \sqrt{1 - \sin^2 \theta_2} = \sqrt{1 - \frac{n_1^2}{n_2^2} \sin^2 \theta_1} $ und
 	$ E_{r_0} = E_{2_0} - E_{e_0} $\\[5pt]
@@ -1895,7 +1895,9 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 	\end{minipage}%
 	\\
 \end{enumerate}
+
 \subsubsection{Einschub}
+
 Nun noch eine Erklärung die etwas umständlicher ist: (Zu senkrechtem Einfall)\\
 \begin{minipage}{.5\linewidth}
 	$ \vec{E}_{e_0} = E_{e_0} \vec{e}_y $\\
@@ -2000,8 +2002,8 @@ in Medien gilt:\\[5pt]
 	\begin{tikzpicture}[scale=1.05]
 		\draw[fill=gray!10!] (0,0) -- ++(-60:2cm) -- ++(-180:2cm) -- cycle;
 		\draw[<-, thick] (-120:1cm) -- ++(-160:2cm) node[left] {$ h(\omega) , \epsilon(\omega) $};
-		\foreach \x\a in {.4/5, .5/-7.5, .6/-20}
-		\draw[->, thick] ($ (0,0)!\x!(-60:2cm) $) -- ++(\a:2cm) node[right] {$ \omega_1 $};
+		\foreach \x\a\l in {.4/5/1, .5/-7.5/2, .6/-20/3}
+		\draw[->, thick] ($ (0,0)!\x!(-60:2cm) $) -- ++(\a:2cm) node[right] {$ \omega_{\l} $};
 	\end{tikzpicture}
 \end{minipage}%
 
@@ -2058,9 +2060,9 @@ Hieraus folgt, dass $ \vec{k} $ komplex ist und einen Imaginärteil haben muss: 
 \Rightarrow \quad k_{R/I} = \omega \sqrt{\frac{\epsilon \mu}{2}} \left[\sqrt{1 + \left(\frac{\sigma}{\epsilon \omega}\right)^2} \pm 1\right]^{\frac{1}{2}}
 \end{equation*}
 \begin{align*}
-\vec{E} &= \vec{E}_0 e^{i(k r - \omega t)} \\
-&= \vec{E}_0 e^{i((k_R + i k_I) r - \omega t)} \\
-&= \vec{E}_0 e^{-k_I z} e^{i(k_R r - \omega t)}
+\vec{E} &= \vec{E}_0 e^{i(k z - \omega t)} \\
+&= \vec{E}_0 e^{i((k_R + i k_I) z - \omega t)} \\
+&= \vec{E}_0 e^{-k_I z} e^{i(k_R z - \omega t)}
 \end{align*}
 \begin{minipage}{.4\linewidth}
 	\textbf{Eindringtiefe:} $ d = \frac{1}{k_I} $\\[10pt]
@@ -2131,7 +2133,7 @@ $ \omega_0 : $ Frequenz\\
 $ \gamma : $ Dämpfung\\
 Dies können wir durch einen getriebenen, gedämpften, harmonischen Oszillator darstellen:
 \begin{equation*}
-m(\ddot{\vec{r}} + \gamma \dot{\vec{r}} \omega_0^2 \vec{r}) = q \vec{E}(\vec{r},t)
+m(\ddot{\vec{r}} + \gamma \dot{\vec{r}} + \omega_0^2 \vec{r}) = q \vec{E}(\vec{r},t)
 \end{equation*}
 $ \rightarrow $ Dipolmoment: $ \vec{p} = q \vec{r} \qquad q = -e $
 \begin{equation*}
@@ -2165,11 +2167,12 @@ m ( - \omega^2 - i \gamma \omega + \omega_0^2) \vec{p}_0 e^{-i \omega t} = e^2 \
 \Rightarrow \quad \epsilon(\omega) &= \epsilon_0 \epsilon_r(\omega) \\
 &= \epsilon_0 (1 + \chi_e(\omega))
 \end{align*}
-\frbox{Dispersionsrelation im leitenden Medium $ \epsilon_R(\omega) $}{
+\frbox{Dispersionsrelation im leitenden Medium $ \epsilon_r(\omega) $}{
 \begin{equation*}
 \epsilon_r(\omega) = 1 + \frac{N e^2}{\epsilon_0 m} \frac{1}{\omega_0^2 - \omega^2 - i \gamma \omega}
 \end{equation*}
 }
+\noindent
 Realteil:
 $$ \Re(\epsilon_r(\omega)) = 1 + \frac{Ne^2}{\epsilon_0 m} \frac{\omega_0^2 - \omega^2}{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} $$
 Imaginärteil:
@@ -2249,7 +2252,7 @@ anormale Dispersion: $ \prd{\epsilon_R}{\omega} < 0 $\\[5pt]
 	\textbf{im Atom:}\\
 	$ f_j : $ Elektronen mit Frequenz $ \omega_j , \gamma_j $
 	\begin{equation*}
-	\epsilon_r(\omega) 1 + \frac{N e^2}{\epsilon_0 m} \sum_j \frac{f_j}{\omega_j^2 - \omega^2 - i \gamma_j \omega_j}
+	\epsilon_r(\omega) = 1 + \frac{N e^2}{\epsilon_0 m} \sum_j \frac{f_j}{\omega_j^2 - \omega^2 - i \gamma_j \omega_j}
 	\end{equation*}
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
@@ -2298,7 +2301,7 @@ Wellengleichung im Medium $ \quad \epsilon = \epsilon(\omega) \quad \mu \approx 
 \begin{equation*}
 \qquad \qquad \qquad \qquad \qquad \qquad \vec{E} = \vec{E}_0 e^{i(kz - \omega t)} \begin{tikzpicture}[scale=.7]
 \draw[thick, ->] (0,0) -- (1,0) -- (1,1);
-\end{tikzpicture}\qquad \quad \bigg| \quad - k^2 + \mu_0 \epsilon \omega^2 = 0
+\end{tikzpicture}\qquad \quad \Big| \quad - k^2 + \mu_0 \epsilon \omega^2 = 0 \ \
 \end{equation*}
 \begin{equation*}
 \Rightarrow \quad k^2 = \mu_0 \epsilon \omega^2 = \mu_0 (\epsilon_R + i \epsilon_I) \omega^2
@@ -2363,7 +2366,7 @@ Aus den inhomogenen Gleichungen erhalten wir die entkoppelten Wellengleichungen 
 \begin{equation*}
 \Delta \Psi (\vec{r},t) - \frac{1}{c^2} \prt{^2}{t^2} \Psi (\vec{r},t) \eqdef \square \Psi (\vec{r},t)
 \end{equation*}
-mit $ \square : $ \textbf{d'Alambert Operator}
+mit $ \square : $ \textbf{d'Alembert Operator}
 \begin{equation*}
 \square = \Delta - \frac{1}{c^2} \prt{^2}{t^2}
 \end{equation*}
@@ -2377,7 +2380,7 @@ Aus der Elektro-/Magnetostatik ist bekannt:
 \end{align*}
 Die Lösungen waren:
 \begin{equation*}
-\Phi(\vec{r}) = \Phi_{\tx{hom}}(\vec{r}) + \Phi_{\tx{inh}}
+\Phi(\vec{r}) = \Phi_{\tx{hom}}(\vec{r}) + \Phi_{\tx{inh}}(\vec{r})
 \qquad \qquad
 \tx{mit}
 \qquad 
@@ -2396,10 +2399,10 @@ Wir können die Diskussion auf das skalare Potential $ \Phi $ beschränken:
 \begin{equation*}
 \Delta \Phi - \frac{1}{c^2} \prt{^2}{t^2} \Phi = - \frac{1}{\epsilon_0} \rho
 \end{equation*}
-$ \Phi(\vec{t},t) = \Phi_{\tx{hom}} + \Phi_{\tx{inh}} $\\
+$ \Phi(\vec{r},t) = \Phi_{\tx{hom}} + \Phi_{\tx{inh}} $\\
 wobei:\\
 $ \Phi_{\tx{hom}} : $ allgemeine Lösung der homogenen DGL $ \Delta \Phi_{\tx{hom}} - \frac{1}{c^2} \prt{^2}{t^2} \Phi_{\tx{hom}} = 0 $ \\
-$ \Phi_{\tx{inh}} : $ spezielle Lösung der inhomogenen DGL $ \Delta \Phi_{\tx{inh}} - \frac{1}{c^2} \prt{^2}{t^2} \Phi_{\tx{inh}} = - \frac{1}{\epsilon_0} \rho $\\[5pt]
+$ \Phi_{\tx{inh}} : $ \ \, spezielle Lösung der inhomogenen DGL $ \Delta \Phi_{\tx{inh}} - \frac{1}{c^2} \prt{^2}{t^2} \Phi_{\tx{inh}} = - \frac{1}{\epsilon_0} \rho $\\[5pt]
 Lösung der homogenen Wellengleichung liefert z.B. Kugelwellen oder ebene Wellen:
 \begin{equation*}
 \Phi_{\tx{hom}}(\vec{r},t) = \Re \left\{ a e^{i(\vec{k} \cdot \vec{r} - \omega t)} \right\}
@@ -2421,7 +2424,7 @@ Man kann danach zurücktransformieren:
 \begin{equation*}
 \Phi (\vec{r},t) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \dd \omega \tilde{\Phi} (\vec{r},t) e^{- i \omega t}
 \end{equation*}
-wir können dies nun ineinander einsetzen um zu sehen ob dasselbe wieder herauskommt oder ob wir be der Berechnung etwas verloren haben.
+wir können dies nun ineinander einsetzen um zu sehen ob dasselbe wieder herauskommt oder ob wir bei der Berechnung etwas verloren haben.
 \begin{align*}
 \Phi(\vec{r},t) &= \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} \dd \omega \left\{ \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} \dd t' \Phi(\vec{r},t) e^{i \omega t}\right\} e^{- i \omega t} \\
 &= \int_{- \infty}^{\infty} \dd t' \Phi(\vec{r},t) \ub{\frac{1}{2 \pi} \int_{-\infty}^{\infty} \dd \omega e^{i \omega (t - t')}}_{= \delta(t - t')}\\
@@ -2430,17 +2433,17 @@ wir können dies nun ineinander einsetzen um zu sehen ob dasselbe wieder herausk
 Somit haben wir keine Information gewonnen oder erzeugt. Wir haben den Ausdruck lediglich in eine andere Darstellung umgeformt.\\[5pt]
 Wir setzen nun die Fourierdarstellung in die DGL ein:
 \begin{align*}
-\prt{^2}{t^2} \Phi(\vec{r},t) &= \frac{1}{\sqrt{2 \pi}} \int \dd \omega \tilde{\Phi} (\vec{r},t) \ub{\prt{^2}{t^2} e^{- i \omega t}}_{= - \omega^2 e^{- i \omega t}}\\
+\prt{^2}{t^2} \Phi(\vec{r},t) &= \frac{1}{\sqrt{2 \pi}} \int \dd \omega \ \tilde{\Phi} (\vec{r},t) \ub{\prt{^2}{t^2} e^{- i \omega t}}_{= - \omega^2 e^{- i \omega t}}\\
 &= \frac{1}{\sqrt{2 \pi}} \int \dd \omega (- \omega ^2) \tilde{\Phi} (\vec{r},t) e^{- i \omega t}
 \end{align*}
 Damit gilt:
 \begin{align*}
 & \frac{1}{\sqrt{2 \pi}} \int \dd \omega e^{- i \omega t} \left(\Delta + \frac{\omega^2}{c^2}\right) \tilde{\Phi} (\vec{r},t) = - \frac{1}{\epsilon_0} \rho (\vec{r},t)\\
-\overset{\substack{\tx{Fouriertrafo.} \\ \tx{von } \rho}}{=} & \frac{1}{\sqrt{1 \pi}} \int \dd \omega e^{- i \omega t} \left(- \frac{1}{\epsilon_0}\right) \tilde{\Phi} (\vec{r},\omega)
+\overset{\substack{\tx{Fouriertrafo.} \\ \tx{von } \rho}}{=} & \frac{1}{\sqrt{2 \pi}} \int \dd \omega e^{- i \omega t} \left(- \frac{1}{\epsilon_0}\right) \tilde{\rho} (\vec{r},\omega)
 \end{align*}
 \frbox{Helmholtz-Gleichung}{
 \begin{equation*}
-\Rightarrow \quad \left(\Delta - \frac{\omega^2}{c^2}\right) \tilde{\Phi} (\vec{r},t) = - \frac{1}{\epsilon_0} \tilde{\Phi} (\vec{r},\omega)
+\Rightarrow \quad \left(\Delta + \frac{\omega^2}{c^2}\right) \tilde{\Phi} (\vec{r},t) = - \frac{1}{\epsilon_0} \tilde{\rho} (\vec{r},\omega)
 \tag{*}
 \label{Helmholtz}
 \end{equation*}
@@ -2461,7 +2464,7 @@ mit der Green'schen Funktion:
 \end{equation*}
 Diese erfüllt die Laplace Gleichung:
 \begin{equation*}
-\Delta_{\vec{r}} \grr = - \frac{1}{\epsilon} \delta(\vec{r} - \vec{r}')
+\Delta_{\vec{r}} \grr = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
 \end{equation*}
 Wir benötigen eine Verallgemeinerung für $ \omega \neq 0 $:
 \begin{equation*}
@@ -2471,20 +2474,27 @@ Es zeigt sich, dass gilt:
 \begin{equation*}
 \left(\Delta_{\vec{r}} + \frac{\omega^2}{c^2}\right) \kq \frac{e^{\pm i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} = - 4 \pi \delta(\vec{r} - \vec{r}') = \grr
 \end{equation*}
+%
+%
+%
+% oben stand Grr = - 4 \pi \delta (shit) aber es sollte glaub ich sein Grr = - 1/\epsilon_0 \delta(shit)
+%
+%
+%
 Mit $ k = \frac{\omega}{c} $ folgt daraus:
 \begin{equation*}
-\left(\Delta_{\vec{r}} + \frac{\omega^2}{c^2}\right) \kq \frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} = - \frac{1}{\epsilon} \delta(\vec{r} - \vec{r}')
+\left(\Delta_{\vec{r}} + \frac{\omega^2}{c^2}\right) \kq \frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} = - \frac{1}{\epsilon_0} \delta(\vec{r} - \vec{r}')
 \end{equation*}
 und somit:
 \begin{equation*}
 \tilde{\Phi} (\vec{r},\omega) = \kq \int \dd^3 r' \ub{\frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|}}_{\gre_{\omega} (\vec{r},\vec{r}')} \tilde{\rho}(\vec{r}',\omega)
 \end{equation*}
-\lcom{Da die Lösung gleich der Green'scen Funktion ($ \gre_{\omega} $) mal der inhomogenität ($ \tilde{\rho} $) ist.}\\[5pt]
+\lcom{Da die Lösung gleich der Green'schen Funktion ($ \gre_{\omega} $) mal der inhomogenität ($ \tilde{\rho} $) ist.}\\[5pt]
 Für das Potential $ \Phi $ erhalten wir nun durch Rücktransformation:
 \begin{align*}
 \Phi (\vec{r},t) &= \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} \dd \omega \tilde{\Phi} (\vec{r},\omega) e^{- i \omega t}\\
-&= \frac{1}{\sqrt{2 \pi}} \int \dd \omega \kq \frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} e^{- i \omega t} \tilde{\rho} (\vec{r}' , \omega)\\
-&= \kq \int \dd^3 r' \frac{1}{|\vec{r} - \vec{r}'|} \ub{\frac{1}{\sqrt{2 \pi}} \int \dd \omega \tilde{\rho} (\vec{r}', \omega) e^{- i \omega (t - \frac{|\vec{r} - \vec{r}'|}{c} )}}_{= \rho(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}
+&= \frac{1}{\sqrt{2 \pi}} \int \dd \omega \kq \int \dd^3 r' \frac{e^{\pm i \frac{\omega}{c} |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|} e^{- i \omega t} \tilde{\rho} (\vec{r}' , \omega)\\
+&= \kq \int \dd^3 r' \frac{1}{|\vec{r} - \vec{r}'|} \ub{\frac{1}{\sqrt{2 \pi}} \int \dd \omega \ \tilde{\rho} (\vec{r}', \omega) e^{- i \omega (t - \frac{|\vec{r} - \vec{r}'|}{c} )}}_{= \rho(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}
 \end{align*}
 \begin{equation*}
 \Rightarrow \quad \Phi(\vec{r},t) = \kq \int\dd^3 r' \frac{\rho(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|}
@@ -2508,8 +2518,9 @@ t \to \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c}
 		\draw[thick,->] (o) -- node[anchor=south west] {$ \vec{r}' $} ($ (0,0) + (-45:.5) $);
 		\coordinate (p) at (5,-.5);
 		%\node[fill=black,circle,minimum size=1pt, inner sep=1pt] (p2) at (5,-.5) {};
-		\draw[thick,->] (o) -- node[anchor=north west] {$ \vec{r} $} (p);
+		\draw[thick] (o) -- node[anchor=north west] {$ \vec{r} $} (p);
 		\draw[thick] ($ (0,0) + (-45:.5) $) -- node[above] {$ | \vec{r} - \vec{r}' | $} (p) node[right] {$ \Phi(\vec{r},t) $};
+		\draw[thick,->] ($ (p) + (-0.05,0) $) -- ++(10:.1);
 		\draw (45:.5) to[out=70,in=-180] (30:1) node[right] {$ \rho(\vec{r},\tilde{t}) $};
 		%\node[circle,minimum size=1cm, draw=black] (a) at (4,4){};
 		%\draw[->] (0,0) -- (a);
@@ -2517,7 +2528,7 @@ t \to \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c}
 	\vspace{10pt}
 \end{minipage}%
 \\
-$ \Rightarrow $ Die Änderung des elektro-magnetischen Feldes (oder $ \Phi $) verbreitet sich mit Lichtgeschwindigkeit $ c $. In der Entfernung $ |\vec{r} - \vec{r}'| $ ändert dich das Feld erst zur späteren Zeit $ t = \tilde{t} + \frac{|\vec{r} - \vec{r}'|}{c} $. Wegen der verzögerten Änderung heißt die Potential-Lösung auch \textbf{retardierendes Potential}.
+$ \Rightarrow $ Die Änderung des elektro-magnetischen Feldes (oder $ \Phi $) verbreitet sich mit Lichtgeschwindigkeit $ c $. In der Entfernung $ |\vec{r} - \vec{r}'| $ ändert sich das Feld erst zur späteren Zeit $ t = \tilde{t} + \frac{|\vec{r} - \vec{r}'|}{c} $. Wegen der verzögerten Änderung heißt die Potential-Lösung auch \textbf{retardierendes Potential}.
 \vspace{5pt}
 \frbox{Retardierendes Potential}{
 \begin{equation*}
@@ -2669,7 +2680,7 @@ Damit haben wir das integral gelöst und erhalten:
 	\end{equation*}
 	\begin{align*}
 	c(t - t_{\tx{ret}}) &= |\vec{r} - \vec{R}(t_{\tx{ret}})|\\
-	&= |\ub{\vec{r} - \vec{R}(t)}_{\eqdef \vec{d}(\vec{r},t)} + \ub{\vec{R}(t) - \vec{R}(t_{\tx{ret}})}_{= \vec{V}_0 (t - t_{\tx{ret}})}|
+	&= |\ub{\vec{r} - \vec{R}(t)}_{\eqdef \vec{d}(\vec{r},t)} + \ub{\vec{R}(t) - \vec{R}(t_{\tx{ret}})}_{= \vec{V}_0 \cdot (t - t_{\tx{ret}})}|
 	\end{align*}
 	%
 	%
@@ -2679,8 +2690,8 @@ Damit haben wir das integral gelöst und erhalten:
 	%
 	%
 	\begin{align*}
-	\Rightarrow \quad c^2(t - t_{\tx{ret}})^2 &= | \vec{d} - \vec{V}_0(t - t_{\tx{ret}})|^2\\
-	&= d^2 + 2 \cdot \ub{\vec{d}^2 \cdot \vec{V}_0^2}_{d V_0 \cos \alpha} (t - t_{\tx{ret}}) + V_0^2 (t-t_{\tx{ret}})^2
+	\Rightarrow \quad c^2(t - t_{\tx{ret}})^2 &= | \vec{d} - \vec{V}_0 \cdot (t - t_{\tx{ret}})|^2\\
+	&= d^2 + 2 \cdot \ub{\vec{d} \cdot \vec{V}_0}_{d V_0 \cos \alpha} \cdot (t - t_{\tx{ret}}) + V_0^2 \cdot (t-t_{\tx{ret}})^2
 	\end{align*}
 	\begin{align*}
 	\Rightarrow \quad t - t_{\tx{ret}} &= \frac{d V_0 \cos \alpha}{c^2 - V_0^2} + \frac{d}{c^2 - V_0^2} \sqrt{V_0^2 \cos^2 \alpha + c^2 - V_0^2} \\
@@ -2689,26 +2700,26 @@ Damit haben wir das integral gelöst und erhalten:
 	\end{align*}
 	Im Nenner des Retardierenden Potentials steht:
 	\begin{align*}
-	& \ub{|\vec{r} - \vec{R}(t_{\tx{ret}})|}_{c ( t - t_{\tx{ret}})} - \frac{1}{c} (\ub{\vec{r} - \vec{R}(t_{\tx{ret}})}) \cdot \equaltoup{\vec{V}(t_{\tx{ret}})}{\vec{V}_0}\\
+	& \ub{|\vec{r} - \vec{R}(t_{\tx{ret}})|}_{c \cdot ( t - t_{\tx{ret}})} - \frac{1}{c} (\ub{\vec{r} - \vec{R}(t_{\tx{ret}})}) \cdot \equaltoup{\vec{V}(t_{\tx{ret}})}{\vec{V}_0}\\
 	% }_{\mathclap{\substack{\vec{r} - \vec{R}(t) + \vec{R}(t) - \vec{R}(t_{\tx{ret}}) \\ = \vec{d} + \vec{V}_0 (t - t_{\tx{ret}})}}}
 	& \quad \qquad \qquad \qquad = \vec{r} - \vec{R}(t) + \vec{R}(t) - \vec{R}(t_{\tx{ret}}) \\
-	& \quad \qquad \qquad \qquad = \vec{d} + \vec{V}_0 (t - t_{\tx{ret}})\\
-	&= c(t - t_{\tx{ret}}) - \frac{1}{c} \vec{V}_0 \cdot (\vec{d} + \vec{V}_0 (t - t_{\tx{ret}}))\\
+	& \quad \qquad \qquad \qquad = \vec{d} + \vec{V}_0 \cdot (t - t_{\tx{ret}})\\
+	&= c \cdot (t - t_{\tx{ret}}) - \frac{1}{c} \vec{V}_0 \cdot (\vec{d} + \vec{V}_0 (t - t_{\tx{ret}}))\\
 	&= \frac{1}{c} (c^2 - V_0^2) (t - t_{\tx{ret}}) - \frac{1}{c} V_0 d \cos \alpha\\
 	&= \frac{1}{c} |\vec{d}| \left(\cancel{ V_0 \cos \alpha} + \sqrt{c^2 - V_0^2 \sin^2 \alpha} - \cancel{ V_0 \cos \alpha}\right)\\
 	&= |\custo{\rightarrow}{\vec{d}}{\mathclap{\vec{r} - \vec{R}(t)}}(\vec{r},t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin^2 \alpha}
 	\end{align*}
-	\begin{align}
+	\begin{align*}
 	\Rightarrow \quad \Phi(\vec{r},t) &= \kq \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin \alpha^2}}\\
 	\Rightarrow \quad \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \ \ \ \frac{q \vec{V}_0}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin \alpha^2}}
-	\end{align}
+	\end{align*}
 	für langsame Teilchen gilt: $ \frac{V_0}{c} \ll 1 $ (nichtrelativistisch):
 	\begin{equation*}
 	\rightarrow \quad \Phi(\vec{r},t) = \kq \frac{q}{|\vec{r} - \vec{R}(t)|}
 	\end{equation*}
 \end{enumerate}
 
-\subsection{Felder einer gleichförmigbewegten Punktladung}
+\subsection{Felder einer gleichförmig-bewegten Punktladung}
 
 \begin{equation*}
 \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t} \qquad \vec{B} = \vabla \times \vec{A}
@@ -2726,6 +2737,13 @@ Komplikationen $ \alpha = \alpha(\vec{r},t) $
 \vec{E} &= \frac{q}{4 \pi \epsilon_0} \frac{1 - \frac{V_0^2}{c^2}}{\left(1 - \frac{V_0^2}{c^2} \sin^2 \alpha^2\right)^{\frac{3}{2}}} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}\\
 \vec{B} &= \frac{1}{c^2} \left(\vec{V}_0 \times \vec{E}\right)
 \end{align*}
+%
+%
+%
+% I33 (l.2743) oben steht sin^2 \alpha^2 aber ich glaube dass 2. ^2 ist zuviel
+%
+%
+%
 Bei kleinen Geschwindigkeiten gilt:\\
 $ \frac{V_0}{c} \ll 1 : $
 \begin{equation*}
@@ -2756,7 +2774,7 @@ $ \frac{V_0}{c} : $ endlich
 \begin{equation*}
 \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t} \qquad \vec{B} = \vabla \times \vec{A}
 \end{equation*}
-\lcom{Wird ebenfalls nicht in der Vorlesung berechnet da es zu langwierig ist.}\\
+\lcom{Wird ebenfalls nicht in der Vorlesung berechnet da es zu langwierig ist.}\\[5pt]
 %
 %
 %
@@ -2782,14 +2800,14 @@ $ \vec{d}_{\tx{ret}} \defeq \vec{r} - \vec{R}(t_{\tx{ret}}) \qquad \vec{e}_{\tx{
 
 %Vorlesung 28.01
 
-\section{Elektromagnetische Felder oszillierender Quellen - EM-Strahlung}
+\section{Elektromagnetische Felder oszillierender Quellen - \texorpdfstring{\\}{newline} EM-Strahlung}
 
 oszillierende Ladungs-/Stromverteilung
 \begin{align*}
 \rho(\vec{r},t) &= \rho(\vec{r}) e^{- i \omega t}\\
 \vec{j}(\vec{r},t) &= \vec{j}(\vec{r}) e^{- i \omega t}
 \end{align*}
-\lcom{Aus Einfachheitshalber in der Notation bekommen die Orts- und Zeitabhängigen Funktionen dieselben symbole wie die nur Ortsabhängigen.}
+\lcom{Aus Einfachheitshalber in der Notation bekommen die Orts- und Zeitabhängigen Funktionen dieselben symbole wie die nur Ortsabhängigen.}\\
 \emph{Beispiele:}
 %
 %
@@ -2805,7 +2823,7 @@ Vektorpotential:
 \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|} = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|} e^{-i\omega \left(t - \frac{|\vec{r} - \vec{r}'|}{c}\right)} \qquad \quad k = \frac{\omega}{c} \\
 &= e^{-i\omega t} \ub{\frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}') e^{i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|}}_{\eqdef \vec{A}(\vec{r})} = e^{ - i \omega t} \vec{A}(\vec{r})
 \end{align*}
-Wir interessieren uns für zeitabhängige Felder in Raumbereichen außerhalb der Ladung-/Stromverteilung\\[5pt]
+Wir interessieren uns für zeitabhängige Felder in Raumbereichen außerhalb der Ladung-/Strom\-verteilung\\[5pt]
 \textbf{Annahmen:}
 \begin{enumerate}[i)]
 	\item zeitabhängige Felder im großen Abstand zur Quelle
@@ -2829,7 +2847,7 @@ Wir interessieren uns für zeitabhängige Felder in Raumbereichen außerhalb der
 	\end{align*}
 	\begin{align*}
 	\prt{}{t} \vec{E}(\vec{r},t) &= c^2 \vabla \times \vec{B} = c^2 \vabla \times (\vabla \times \vec{A}(\vec{r},t))\\
-	&= e^{-i\omega t} c^2 \vabla \times (\vabla \times \vec{A}\vec{r})
+	&= e^{-i\omega t} c^2 \vabla \times (\vabla \times \vec{A}(\vec{r}))
 	\end{align*}
 	\begin{equation*}
 	\Rightarrow \quad \vec{E}(\vec{r},t) = \frac{i}{\omega} e^{-i\omega t} c^2 \vabla \times (\vabla \times \vec{A}(\vec{r})) + \vec{f}(\vec{r})
@@ -2889,13 +2907,13 @@ lokalisierte Stromverteilung $ \vec{j}_g $:
 \vabla \vec{j}(\vec{r}) &= i \omega t e^{i \omega t} \rho(\vec{r},t) = i \omega \rho(\vec{r})
 \end{align*}
 \begin{align*}
-\Rightarrow \quad \int \dd^3 r' \vec{j}(\vec{r}') &= - i \omega \ub{\int \dd^3 r' \vec{r}' \rho(\vec{r})}_{\mathclap{= \vec{P} \quad \tx{Dipolmoment}}} = - i \omega \vec{P}
+\Rightarrow \quad \int \dd^3 r' \vec{j}(\vec{r}') &= - i \omega \ub{\int \dd^3 r' \vec{r}' \rho(\vec{r})}_{\mathclap{= \vec{p} \quad \tx{Dipolmoment}}} = - i \omega \vec{p}
 \end{align*}
 \begin{equation*}
-\Rightarrow \quad \vec{A}_{E1} (\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \vec{P}
+\Rightarrow \quad \vec{A}_{E1} (\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \vec{p}
 \end{equation*}
 \begin{equation*}
-\vec{A}_{E1} (\vec{r},t) = e^{- i \omega t} \vec{A}_{E_1}(\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \ub{e^{- i \omega t} \vec{P}}_{\int \dd^3 r' \vec{r}' \rho(\vec{r},t) = \vec{P}(t)}
+\vec{A}_{E1} (\vec{r},t) = e^{- i \omega t} \vec{A}_{E_1}(\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \ub{e^{- i \omega t} \vec{p}}_{\int \dd^3 r' \vec{r}' \rho(\vec{r},t) = \vec{p}(t)}
 \end{equation*}
 
 \subsection{Elektrische Dipolstrahlung}
@@ -2904,19 +2922,19 @@ lokalisierte Stromverteilung $ \vec{j}_g $:
 \vec{A}(\vec{r},t) = e^{- i \omega t} \vec{A}(\vec{r})
 \end{equation*}
 \begin{equation*}
-\vec{A}(\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \vec{P}
+\vec{A}(\vec{r}) = - i \omega \frac{\mu_0}{4 \pi} \frac{e^{i k r}}{r} \vec{p}
 \end{equation*}
-\lcom{Wir wollen nun hieraus die elektrischen und magnetiscchen Felder berechnen.}
+\lcom{Wir wollen nun hieraus die elektrischen und magnetischen Felder berechnen.}
 \begin{equation*}
 \vec{B}(\vec{r},t) = \vabla \times \vec{A}(\vec{r},t) = e^{- i \omega t} \vabla \times \vec{A}(\vec{r})
 \end{equation*}
 \begin{align*}
-\vabla \times \vec{A} &= - i \omega \frac{\mu_0}{4 \pi} \ub{\vabla \times \left(\frac{e^{ikr}}{r} \vec{P}\right)}_{ = - \vec{P} \times \ub{\vabla \frac{e^{ikr}}{r}}_{\mathclap{= \vec{e}_{r} \prt{}{t} \frac{e^{ikr}}{r} = i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right)}}}\\
-&= i \omega \frac{\mu_0}{4 \pi} i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{P} \times \vec{e}_{r})\\
-&= \frac{\mu_0}{4 \pi} ck^2 \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{e}_{r} \times \vec{P})
+\vabla \times \vec{A} &= - i \omega \frac{\mu_0}{4 \pi} \ub{\vabla \times \left(\frac{e^{ikr}}{r} \vec{p}\right)}_{ = - \vec{p} \times \ub{\vabla \frac{e^{ikr}}{r}}_{\mathclap{= \vec{e}_{r} \prt{}{t} \frac{e^{ikr}}{r} = i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right)}}}\\
+&= i \omega \frac{\mu_0}{4 \pi} i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{p} \times \vec{e}_{r})\\
+&= \frac{\mu_0}{4 \pi} ck^2 \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{e}_{r} \times \vec{p})
 \end{align*}
 \begin{equation*}
-\Rightarrow \quad \vec{B}(\vec{r},t) = \frac{\mu_0}{4 \pi} ck^2 \frac{e^{i(kr - \omega t)}}{r} \left(1 - \frac{1}{ikr}\right) \vec{e}_r \times \vec{P} \qquad \qquad \qquad \vec{B} \perp \vec{e}_r , \vec{r}
+\Rightarrow \quad \vec{B}(\vec{r},t) = \frac{\mu_0}{4 \pi} ck^2 \frac{e^{i(kr - \omega t)}}{r} \left(1 - \frac{1}{ikr}\right) \vec{e}_r \times \vec{p} \qquad \qquad \qquad \vec{B} \perp \vec{e}_r , \vec{r}
 \end{equation*}
 %
 %
@@ -2929,14 +2947,14 @@ lokalisierte Stromverteilung $ \vec{j}_g $:
 \vec{E}(\vec{r},t) = \frac{i}{\omega} e^{- i \omega t} c^2 \vabla \times (\vabla \times \vec{A}(\vec{r}))
 \end{equation*}
 \begin{equation*}
-\Rightarrow \quad \vec{E}(\vec{r},t) = \kq \frac{e^{i (kr - \omega t)}}{r} \Bigg\{ \, k^2 \, \ub{(\vec{e}_r \times \vec{P}) \times \vec{e}_r}_{\mathclap{\substack{\tx{transversal Komponenten} \\ (\perp \tx{ zu } \vec{e}_r)}}} + \left(\frac{1}{r^2} - \frac{ik}{r}\right) \ub{\left[3 \vec{e}_r (\vec{e}_r \cdot \vec{P}) - \vec{P}\right]}_{\mathclap{\substack{\tx{auch Komponenten} \\ \tx{entlang } \vec{e}_r}}} \Bigg\}
+\Rightarrow \quad \vec{E}(\vec{r},t) = \kq \frac{e^{i (kr - \omega t)}}{r} \Bigg\{ \, k^2 \, \ub{(\vec{e}_r \times \vec{p}) \times \vec{e}_r}_{\mathclap{\substack{\tx{transversal Komponenten} \\ (\perp \tx{ zu } \vec{e}_r)}}} + \left(\frac{1}{r^2} - \frac{ik}{r}\right) \ub{\left[3 \vec{e}_r (\vec{e}_r \cdot \vec{p}) - \vec{p}\right]}_{\mathclap{\substack{\tx{auch Komponenten} \\ \tx{entlang } \vec{e}_r}}} \Bigg\}
 \end{equation*}
 
 \subsubsection{Grenzfall:}
 
 statischer Dipol $ \quad \omega \to 0 \quad k \to 0 $
 \begin{align*}
-\vec{E}(\vec{r},t) &\rightarrow \kq \frac{3 \vec{e}_r (\vec{e}_r \cdot \vec{P}) - \vec{P}}{r^3}\\
+\vec{E}(\vec{r},t) &\rightarrow \kq \frac{3 \vec{e}_r (\vec{e}_r \cdot \vec{p}) - \vec{p}}{r^3}\\
 \vec{B}(\vec{r},t) &\rightarrow 0
 \end{align*}
 \subsubsection{Fernbereich (Strahlungszone)}
@@ -2950,14 +2968,21 @@ $ kr \gg 1 \quad r \gg \lambda $
 %
 $ \frac{1}{kr} \ll 1 \qquad \frac{k^2}{r} = \frac{k^2 r^2}{r^3} \gg \frac{1}{r^3} \qquad \frac{k}{r^2} = \frac{k^2}{kr r} \ll \frac{k^2}{r} $
 \begin{equation*}
-\Rightarrow \quad \vec{E}(\vec{r},t) = \kq e^{i (kr - \omega t)} \Bigg\{ \frac{k^2}{r} (\vec{e}_r \times \vec{P}) \times \vec{e}_r + \left(\cancel{\frac{1}{r^3}} - \cancel{\frac{ik}{r^2}}\right) \left[3 \vec{e}_r (\vec{e}_r \cdot \vec{P}) - \vec{P}\right]\Bigg\}
+\Rightarrow \quad \vec{E}(\vec{r},t) = \kq e^{i (kr - \omega t)} \Bigg\{ \frac{k^2}{r} (\vec{e}_r \times \vec{p}) \times \vec{e}_r + \left(\cancel{\frac{1}{r^3}} - \cancel{\frac{ik}{r^2}}\right) \left[3 \vec{e}_r (\vec{e}_r \cdot \vec{p}) - \vec{p}\right]\Bigg\}
 \end{equation*}
 da, wie oben gezeigt, diese Terme $ \frac{1}{r^3}, \ \frac{ik}{r^2} $ vernachlässigbar klein im Vergleich zu $ \frac{k^2}{r} $ sind.
 \begin{align*}
-\vec{B}(\vec{r},t) &\approx \frac{\mu_0}{4 \pi} c k^2 \frac{e^{i (kr - \omega t)}}{r} \vec{e}_r \times \vec{P} \\
-\vec{E}(\vec{r},t) &\approx \kq \frac{e^{i(kr - \omega t)}}{r} (\vec{e}_r \times \vec{P}) \times \vec{e}_r\\
+\vec{B}(\vec{r},t) &\approx \frac{\mu_0}{4 \pi} c k^2 \frac{e^{i (kr - \omega t)}}{r} \vec{e}_r \times \vec{p} \\
+\vec{E}(\vec{r},t) &\approx \kq k^2 \frac{e^{i(kr - \omega t)}}{r} (\vec{e}_r \times \vec{p}) \times \vec{e}_r\\
 &= c \vec{B}(\vec{r},t) \times \vec{e}_r \qquad \qquad &\vec{E} \perp \vec{B}, \vec{e}_r
 \end{align*}
+%
+%
+%
+% glaube oben muss ein k^2 bei E hin aber da stand keins
+%
+%
+%
 \lcom{wir erhalten also sich transversal ausbreitende Kugelwellen.}\\[10pt]
 \emph{Bemerkungen:}
 \begin{enumerate}[i)]
@@ -2974,4 +2999,84 @@ da, wie oben gezeigt, diese Terme $ \frac{1}{r^3}, \ \frac{ik}{r^2} $ vernachlä
 	\folie{Strahlungsfelder}
 \end{enumerate}
 
+% Vorlesung 31.01
 
+\bbb{Widerholung}{
+%
+%
+%
+% T1: T2 der letzten Vorlesung mit <-> R_0 aus T4
+%
+%
+%
+$ R_0 \ll \lambda \ll r $
+\begin{align*}
+\vec{B}(\vec{r},t) &\approx \frac{\mu_0}{4 \pi} c k^2 \frac{e^{i (kr - \omega t)}}{r} \vec{e}_r \times \vec{p} \\
+\vec{E}(\vec{r},t) &\approx \kq k^2 \frac{e^{i(kr - \omega t)}}{r} (\vec{e}_r \times \vec{p}) \times \vec{e}_r\\
+&= c \vec{B}(\vec{r},t) \times \vec{e}_r \qquad \qquad &\vec{E} \perp \vec{B}, \vec{e}_r
+\end{align*}
+mit $ \vec{p} = \int \dd^3 r' \vec{r}' \rho(\vec{r}') $
+}
+
+\subsection{Energiestromdichte}
+
+\begin{align*}
+\vec{S} &= \vec{E} \times \vec{H} = \frac{1}{\mu_0} \vec{E} \times \vec{B}\\
+&= \frac{c}{\mu_0} \ub{(\vec{B} \times \vec{e}_r) \times \vec{B}}_{\vec{e}_r \vec{B}^2 + \vec{B} (\equalto{\vec{e}\cdot \vec{B}}{0})}\\
+\Rightarrow \quad \vec{S} &= \frac{c}{\mu_0} \vec{B}^2 \vec{e}_r
+\end{align*}
+\begin{align*}
+\vec{B} &= \Re \left\{ \frac{\mu_0}{4 \pi} c k^2 \frac{e^{i(kr-\omega t)}}{r} \vec{e}_r \times \vec{p} \right\}\\
+&= \frac{\mu_0}{4 \pi} ck^2 \vec{e}_r \times \vec{p} \frac{\cos(kr - \omega t)}{r}
+\end{align*}
+\begin{align*}
+\Rightarrow \quad \vec{S}(\vec{r},t) &= \frac{c}{\mu_0} \left(\frac{\mu_0}{4 \pi} ck^2\right)^2 (\equalto{\vec{e}_r \times \vec{p}}{p^2 \sin^2 \theta} )^2 \vec{e}_r \frac{\cos^2(kr - \omega t)}{r}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \vec{S} = \frac{c}{16 \pi^2 \epsilon_0} \frac{k^4 p^2}{r^2} \sin^2 \theta \cos^2(k t - \omega t) \vec{e}_r
+\end{equation*}
+gemittelt über Periode $ T = \frac{2 \pi}{\omega} $
+\begin{align*}
+\langle \vec{S} \rangle &= \frac{1}{T} \int_{0}^{T} \dd t \vec{S}(\vec{r},t)\\
+&= \frac{c}{32 \pi^2 \epsilon_0} \frac{k^4 p^2}{r^2} \sin^2 \theta \vec{e}_r & k = \frac{\omega}{c}
+\end{align*}
+\begin{equation*}
+\rmbox{\langle \vec{S} \rangle = \frac{1}{32 \pi^2 \epsilon_0} \frac{\omega^4 p^2}{c^3 r^2} \sin^2 \theta \vec{e}_r}
+\end{equation*}
+\begin{enumerate}[i)]
+	\item Abstrahlung $ \propto \vec{e}_r $
+	\item Energieflussdichte $ \propto \frac{1}{r^2} $
+	\item in Raumwinkelelementen $ \dd \Omega $ abgestrahlte Leistung
+	\begin{equation*}
+	\dd P = \langle \vec{S} \rangle \cdot \dd \vec{f}
+	\end{equation*}
+ 	mit $ \dd \vec{f} = \vec{e}_r r^2 \dd \Omega $
+	%
+	%
+	%
+	% T3
+	%
+	%
+	%
+	\begin{equation*}
+	\Rightarrow \quad \dd P = \frac{\omega^4 p^2}{32 \pi^2 \epsilon_0 c^3 r^2} r^2 \sin^2 \theta \dd \Omega
+	\end{equation*}
+	\begin{equation*}
+	\prt{P}{\Omega} = \frac{\omega^4 p^2}{32 \pi^2 \epsilon_0 c^3} \sin^2 \theta
+	\end{equation*}
+	\item Winkelabhängigkeit: $ \propto \sin^2 \theta $
+	%
+	%
+	%
+	% T4
+	%
+	%
+	%
+	\item \textbf{gesamte abgestrahlte Leistung}
+	\begin{align*}
+	P = \int_{4\pi} \dd \Omega \frac{\dd P}{\dd \Omega} \quad \overset{\mathclap{\substack{ \int \dd \Omega \sin^2 \theta \\ = \frac{8 \pi}{3} \\ \phantom{0} }}}{=} \quad \frac{1}{12 \pi \epsilon_0 c^3} \omega	^4 p^2
+	\end{align*}
+	\begin{equation*}
+	\rmbox{P = \int_{4\pi} \dd \Omega \frac{\dd P}{\dd \Omega} = \frac{1}{12 \pi \epsilon_0 c^3} \omega^4 p^2}
+	\end{equation*}
+\end{enumerate}
