@@ -1,0 +1,225 @@
+\chapter{Relativitätstheorie und Elektrodynamik}
+
+Ziel dieses Kapitels ist es, die Maxwellgleichungen relativistisch-kovariant darstellen zu können. Hierzu benötigen wir aber zunächst eine kurze Wiederholung der Formalismen der Relativitätstheorie.
+
+\section{Spezielle Relativitätstheorie (Wiederholung)}
+
+\subsubsection{Inertialsysteme:}
+
+Bezugssysteme, in denen sich ein Kräftefreier Körper geradlinig und gleichförmig bewegt.
+
+\subsection{Newtonsche Mechanik und Galileitransformation (Exkurs)}
+
+\subsubsection{Newtonsche Mechanik}
+
+in der \textbf{Newtonschen Mechanik} gilt das Galileische Relativitätsprinzip:\\
+Alle IS sind gleichwertig, d.h. physikalische Gesetze haben in allen IS die gleiche Form.\\[5pt]
+Der Übergang zwischen IS verläuft mittels der \textbf{Galileitransformation}:
+%
+%
+%
+% T5
+%
+%
+%
+$ \vec{v} = v \vec{e}_x \qquad \vec{r}' = \vec{r} - \vec{v}t $\\
+Transformationskoordinaten:
+\begin{align*}
+x' = x - vt \quad y' = y \quad z' = z \quad t' = t
+\end{align*}
+Transformation von Geschwindigkeiten
+%
+%
+%
+% T6
+%
+%
+%
+\begin{equation*}
+u' \defeq \frac{x'}{t'} = \frac{x - vt}{t} = \frac{x}{t} - v = u - v
+\end{equation*}
+\begin{equation*}
+u = u' + v
+\end{equation*}
+Geschwindigkeitsaddition ist also linear.\\[5pt]
+\textbf{Exp:} Lichtgeschwindigkeit $ c $ ist in allen Systemen gleich \LARGE \lightning \normalsize
+
+\subsubsection{Einsteinsches Relativitätsprinzip}
+
+Grundlagen:
+\begin{enumerate}[1)]
+	\item Alle IS sind gleichwertig
+	\item Die Lichtgeschwindigkeit $ c $ ist in allen IS gleich
+\end{enumerate}
+
+\subsection{Lorentztransformation und relativistische Notation}
+
+%
+%
+%
+% T7
+%
+%
+%
+Ereignis in $ S $ bei $ t, x, y, z $ hat in $ S' $ die Koordinaten $ t', x', y', z' $\\
+Der Zusammenhang ist gegeben durch die Lorentztransformation.
+
+\subsubsection{Lorentransformation}
+
+\begin{equation*}
+t' = \gamma \left( - \frac{\beta}{c} x + t\right) \quad x' = \gamma \left(x - vt\right) \quad y' = y \quad z' = z
+\end{equation*}
+\begin{equation*}
+\beta = \frac{v}{c} \qquad \gamma = \frac{1}{\sqrt{1 - \beta^2}}
+\end{equation*}
+Grenzfall: $ \left| \frac{v}{c} \right| \ll 1 : \quad \beta \to 0 , \gamma \to 1 $\\
+$ \Rightarrow \quad t' = t \quad x' = c - vt \quad y' = y \quad z' = z $
+
+\subsubsection{relativistische Notation}
+
+$ t, x, y, z : $ Ereignis im \textbf{Minkoswki-Raum}\\[5pt]
+\textbf{Vierervektor}
+\begin{equation*}
+\left(x^\mu\right): \quad x^\mu \quad \mu = 0, 1, 2, 3
+\end{equation*}
+\begin{equation*}
+x^0 = ct \quad x^1 = x \quad x^2 = y \quad x^3 = z \qquad (x^\mu) = \begin{pmatrix}
+ct \\ x \\ y \\ z
+\end{pmatrix}
+\end{equation*}
+Darstellung: Raum-Zeit-Diagramme oder auch Minkowski-Diagramme:
+%
+%
+%
+% T8
+%
+%
+%
+Abstand zweier Ereignisse
+\begin{equation*}
+(x_A^\mu) = (x_A^0 , x_A^1, x_A^2, x_A^3) = (ct_A, x_A, y_A, z_A)
+\end{equation*}
+\begin{equation*}
+(x_B^\mu) = (x_B^0 , x_B^1, x_B^2, x_B^3) = (ct_B, x_B, y_B, z_B)
+\end{equation*}
+Abstand:
+\begin{align*}
+(\Delta s)^2 &\defeq (x_A^0 - a_B^0)^2 - (x_A^1 - x_B^1)^2 - (x_A^2 - x_B^2)^2 - (x_A^3 - x_B^3)^2\\
+&= c^2 (t_A - t_B)^2 - (x_A - x_B)^2 - (y_A - y_B)^2 - (z_A - z_B)^2
+\end{align*}
+Wegelement $ \dd s $:
+\begin{align*}
+(\dd s)^2 &= c^2 \dd t^2 - \dd x^2 - \dd y ^2 - \dd z^2\\
+&= (\dd x^0)^2 - (\dd x^1)^2 - (\dd x^2)^2 - (\dd x^3)^2\\
+&= \sum_{\mu \nu} g_{\mu \nu} \dd x^\mu \dd x^\nu
+\end{align*}
+mit $ g_{\mu \nu} $ dem metrischen Tensor: $ g_{\mu \nu} = \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{pmatrix} $
+Lorentztransformation: $ S \to S' $
+\begin{equation*}
+x^\mu \to x'^{\mu} \to \begin{pmatrix}
+ct' \\ x' \\ y' \\ z'
+\end{pmatrix} = \ob{\begin{pmatrix}
+\gamma & - \beta \gamma & 0 & 0 \\
+- \beta \gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}}^{\eqdef \Lambda^{\mu}_{\ \nu}} \begin{pmatrix}
+ct \\ x \\ y \\ z
+\end{pmatrix}
+\end{equation*}
+\textbf{Einsteinsche Summen-Konvention}
+\begin{equation*}
+x'^{\mu} = \sum_{\nu} \Lambda^{\mu}_{\ \nu} x^{\nu} \defeq \Lambda^{\mu}_{\ \nu} x^{\nu}
+\end{equation*}
+\lcom{Bei gleichen Indices, einer oben, einer unten, wird die Summe weggelassen es wird dann über diesen Index aufsummiert.}
+
+\subsection{Skalare, Vektoren, Matrizen, Tensoren in der vierdimansionalen Raum-Zeit}
+
+\subsubsection{Skalare}
+
+Größen, die invariant sind unter Lorentztransformation (LT)\\[5pt]
+\emph{Beispiele:}
+\begin{enumerate}[i)]
+	\item Abstand: $ \Delta s, \dd s $
+	\item Eigenzeit: $ \dd \tau = \sqrt{1 - \left(\frac{\vec{v}(t)}{c}\right)^2} \dd t $ 
+	\item $ c, m_0, q $
+\end{enumerate}
+
+\subsubsection{Vierervektoren}
+
+Ortsvektor: $ x'^{\mu} = \Lambda^{\mu}_{\nu} x^{\nu} $\\[5pt]
+Ein Vierervektor $ b $ ist eine vierkomponentige Größe $ (b^{\mu}) $, welche sich bei LT wie die Komponenten des Ortsvektors transformiert:
+\begin{equation*}
+b'^{\mu} = \Lambda^{\mu}_{\ \nu} b^{\nu}
+\end{equation*}
+\emph{Beispiele:}
+\begin{enumerate}[i)]
+	\item Ortsvektor
+	\item Vierergeschwindigkeit $ u = (u^{\mu}) $\\
+	\lcom{Wurde eingeführt, da sich die normale Geschwindigkeit nicht wie der Ortsvektor transformiert.}
+	\begin{equation*}
+	u^{\mu} \defeq \prt{x^{\mu}}{\tau}
+	\end{equation*}
+	\begin{align*}
+	\dd x^{\mu} &= (\dd x^0, \dd x^1, \dd x^2, \dd x^3)\\
+	&= (c \dd t, \dd x, \dd y, \dd z)
+	\end{align*}
+	$ \dd \tau' = \dd \tau $
+	\begin{equation*}
+	\dd x'^{\mu} = \Lambda^{\mu}_{\nu} \dd x^{\nu} \qquad u'^{\mu} = \prt{x'^{\mu}}{\tau'} = \Lambda^{\mu}_{\nu} u^{\nu}
+	\end{equation*}
+	\begin{equation*}
+	u^{0} = \prd{x^{0}}{\tau} = \gamma \prd{}{t} ct = \gamma c
+	\end{equation*}
+	\begin{equation*}
+	u^{1} = \prd{x^1}{\tau} = \gamma \prd{x}{t} = \gamma v_x
+	\end{equation*}
+	\begin{equation*}
+	(u^{\mu}) = \gamma \begin{pmatrix}
+	c \\ \vec{v}
+	\end{pmatrix}
+	\end{equation*}
+	\begin{equation*}
+	x'^{\mu} = \Lambda^{\mu}_{\ \nu} x^{\nu} \qquad x'_{\mu} = \ol{\Lambda}_{\mu}^{\ \nu} x_\nu 
+	\end{equation*}
+\end{enumerate}
+,,Skalarprodukt`` zweier Vierervektoren
+\begin{equation*}
+(a^{\mu}), (b^{\mu}) : \quad a \cdot b \defeq a^0 b^0 - a^1 b^1 - a^2 b^2 - a^3 b^3
+\end{equation*}
+\begin{equation*}
+\rightarrow \quad (\Delta s)^2 = (x_A - x_B) \cdot (x_A - x_B)
+\end{equation*}
+
+\subsubsection{Kovariante und Kontravariante Vektorkomponenten}
+
+\begin{equation*}
+(a^{\mu}) = (a^0, a^1, a^2, a^3)
+\end{equation*}
+\begin{equation*}
+(a_{\mu}) \defeq (a^0, -a^1, -a^2, -a^3)
+\end{equation*}
+$ a^{\mu} : $ Kontravariante Komponenten\\
+$ a_{\mu} : $ Kovariante Komponenten
+\begin{equation*}
+a \cdot b = \sum_{\mu} a^{\mu} b_{\mu} = a^{\mu} b_{\mu}
+\end{equation*}
+$$ g_{\mu \nu} : \qquad x_{\mu} = g_{\mu \nu} x^{\nu} \qquad x^{\mu} = g^{\mu \nu} x_{\nu} $$
+Dies nennt man auch das Herauf- oder Herunterziehen der Indizes.
+\begin{align*}
+x_1 &= g_{1 \nu} x^\nu\\
+&= \cancel{g_{10}}x^0 + g_{11} x^2 + \cancel{g_{12}}x^2 + \cancel{g_{13}}x^3\\
+&= - x^1
+\end{align*}
+
+\subsubsection{Tensoren}
+
+Größe mit oberen und/oder unteren Indizes, wobei sich jeder obere Index Kontravariant und jeder untere Index Kovariant transformiert.\\[5pt]
+\emph{Beispiel:} Tensor 3. Stufe
+$$ T^{\alpha \beta}_{\ \ \gamma} : \quad T'^{\alpha \beta}_{\ \ \gamma} = \Lambda^{\alpha}_{\mu} \Lambda^{\beta}_{\nu} \ol{\Lambda}_{\gamma} ^{\ \sigma} T^{\mu \nu}_{\ \ \ \sigma} \Lambda^{\alpha \beta}  _{\sigma} $$
+metrischer Tensor: $ g_{\mu \nu} $, Feldstärketensor $ F^{\mu \nu} $
