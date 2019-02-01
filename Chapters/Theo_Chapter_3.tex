@@ -2602,7 +2602,20 @@ Zum Verständnis des Retardierenden Potentials Skizze (\ref{tikzrho}).
 %
 %
 %
-% T2
+% t2:
+\begin{tikzpicture}
+	% coordinate system
+	\coordinate (o) at (0,0);
+	\draw[->] (o) -- ++(0,.5);
+	\draw[->] (o) -- ++(.5,0);
+	\draw[->] (o) -- ++(-.3,-.3);
+	% vec R
+	\coordinate (q) at (1.3,2);
+	\draw[fill=black] (q) circle (.05cm) node[anchor=south west] {$ q $};
+	\draw[thick,->] (o) -- node[anchor=north west] {$ \vec{R}(t) $} (q);
+	% line
+	\draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
+\end{tikzpicture}
 %
 %
 %
@@ -2641,7 +2654,30 @@ Berechnen wir zuerst die Ableitung:
 %
 %
 %
-% T3
+% t3:
+\begin{tikzpicture}
+	% coordinate system
+	\coordinate (o) at (-.5,-.5);
+	\draw[->] (o) -- ++(0,.5);
+	\draw[->] (o) -- ++(.5,0);
+	\draw[->] (o) -- ++(-.3,-.3);
+	% vec R
+	\coordinate (q) at (1.3,2);
+	\draw[fill=black] (q) circle (.05cm) node[below] {$ q $};
+	\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R}(t) $};
+	% line
+	\draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
+	% Rret
+	\coordinate (ret) at ($ (q) + (-1,.5) $);
+	\draw[fill=black] (ret) circle (0.05cm);
+	\draw[thick,->] (o) -- (ret) node[anchor=south west] {$ \vec{R}(t_{\tx{ret}}) $};
+	% vec r
+	\coordinate (r) at (2,.25);
+	\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
+	% r - R ret
+	\draw[thick,->] (ret) -- ($ (r) + (-0.02,.03) $);
+	\draw ($ (ret)!.8!(r) $) to[out=20,in=150] ($ (r) + (1,.2) $) node[right] {$ | \vec{r} - \vec{R}(t_{\tx{ret}}) | $};
+\end{tikzpicture}
 %
 %
 %
@@ -2654,7 +2690,7 @@ Damit haben wir das integral gelöst und erhalten:
 \frbox{Lienard-Wiechert-Potentiale}{
 \begin{align*}
 \Rightarrow \quad \Phi(\vec{r},t) &= \kq \frac{q}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}\\[5pt]
-\Rightarrow \quad \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \ \ \ \frac{q \vec{V}(t_{\tx{ret}})}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}
+\Rightarrow \quad \vec{A}(\vec{r},t) &= \ \frac{\mu_0}{4 \pi} \ \ \frac{q \vec{V}(t_{\tx{ret}})}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}
 \end{align*}
 }
 \noindent
@@ -2665,7 +2701,18 @@ Damit haben wir das integral gelöst und erhalten:
 	%
 	%
 	%
-	% T4
+	% t4:
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (0,0);
+		\draw[->] (o) -- ++(0,.5);
+		\draw[->] (o) -- ++(.5,0);
+		\draw[->] (o) -- ++(-.3,-.3);
+		% vec R0
+		\coordinate (q) at (1.3,2);
+		%\draw[fill=black] (q) circle (.05cm) node[below] {$ q $};
+		\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R_0} $};
+	\end{tikzpicture}
 	%
 	%
 	%
@@ -2685,7 +2732,30 @@ Damit haben wir das integral gelöst und erhalten:
 	%
 	%
 	%
-	% T5
+	% t5:
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (-.5,-.5);
+		\draw[->] (o) -- ++(0,.5);
+		\draw[->] (o) -- ++(.5,0);
+		\draw[->] (o) -- ++(-.3,-.3);
+		% vec R
+		\coordinate (q) at (1.3,2);
+		\draw[fill=black] (q) circle (.05cm) node[below] {$ q $};
+		\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R}(t) $};
+		% line
+		\draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
+		% Rret
+		\coordinate (ret) at ($ (q) + (-1,.5) $);
+		\draw[fill=black] (ret) circle (0.05cm);
+		\draw[thick,->] (o) -- (ret) node[anchor=south west] {$ \vec{R}(t_{\tx{ret}}) $};
+		% vec r
+		\coordinate (r) at (2,.25);
+		\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
+		% r - R ret
+		\draw[thick,->] (ret) -- ($ (r) + (-0.02,.03) $);
+		\draw ($ (ret)!.8!(r) $) to[out=20,in=150] ($ (r) + (1,.2) $) node[right] {$ | \vec{r} - \vec{R}(t_{\tx{ret}}) | $};
+	\end{tikzpicture}
 	%
 	%
 	%
@@ -2710,8 +2780,8 @@ Damit haben wir das integral gelöst und erhalten:
 	&= |\custo{\rightarrow}{\vec{d}}{\mathclap{\vec{r} - \vec{R}(t)}}(\vec{r},t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin^2 \alpha}
 	\end{align*}
 	\begin{align*}
-	\Rightarrow \quad \Phi(\vec{r},t) &= \kq \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin \alpha^2}}\\
-	\Rightarrow \quad \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \ \ \ \frac{q \vec{V}_0}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin \alpha^2}}
+	\Rightarrow \quad \Phi(\vec{r},t) &= \kq \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin^2 \alpha}}\\
+	\Rightarrow \quad \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \ \ \ \frac{q \vec{V}_0}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{V_0^2}{c^2} \sin^2 \alpha}}
 	\end{align*}
 	für langsame Teilchen gilt: $ \frac{V_0}{c} \ll 1 $ (nichtrelativistisch):
 	\begin{equation*}
@@ -2734,16 +2804,9 @@ Komplikationen $ \alpha = \alpha(\vec{r},t) $
 %
 \lcom{Dies wird z.B. im Griffitz genau hergeleitet, ist aber obwohl es nicht zu kompliziert ist, zu langwierig für de Vorlesung.}
 \begin{align*}
-\vec{E} &= \frac{q}{4 \pi \epsilon_0} \frac{1 - \frac{V_0^2}{c^2}}{\left(1 - \frac{V_0^2}{c^2} \sin^2 \alpha^2\right)^{\frac{3}{2}}} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}\\
+\vec{E} &= \frac{q}{4 \pi \epsilon_0} \frac{1 - \frac{V_0^2}{c^2}}{\left(1 - \frac{V_0^2}{c^2} \sin^2 \alpha\right)^{\frac{3}{2}}} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}\\
 \vec{B} &= \frac{1}{c^2} \left(\vec{V}_0 \times \vec{E}\right)
 \end{align*}
-%
-%
-%
-% I33 (l.2743) oben steht sin^2 \alpha^2 aber ich glaube dass 2. ^2 ist zuviel
-%
-%
-%
 Bei kleinen Geschwindigkeiten gilt:\\
 $ \frac{V_0}{c} \ll 1 : $
 \begin{equation*}
@@ -2929,7 +2992,7 @@ lokalisierte Stromverteilung $ \vec{j}_g $:
 \vec{B}(\vec{r},t) = \vabla \times \vec{A}(\vec{r},t) = e^{- i \omega t} \vabla \times \vec{A}(\vec{r})
 \end{equation*}
 \begin{align*}
-\vabla \times \vec{A} &= - i \omega \frac{\mu_0}{4 \pi} \ub{\vabla \times \left(\frac{e^{ikr}}{r} \vec{p}\right)}_{ = - \vec{p} \times \ub{\vabla \frac{e^{ikr}}{r}}_{\mathclap{= \vec{e}_{r} \prt{}{t} \frac{e^{ikr}}{r} = i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right)}}}\\
+\vabla \times \vec{A} &= - i \omega \frac{\mu_0}{4 \pi} \ub{\vabla \times \left(\frac{e^{ikr}}{r} \vec{p}\right)}_{ \displaystyle = - \vec{p} \times \ub{\vabla \frac{e^{ikr}}{r}}_{\mathclap{\qquad \quad \ \ \, \, \displaystyle = \vec{e}_{r} \prt{}{t} \frac{e^{ikr}}{r} = i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right)}}}\\
 &= i \omega \frac{\mu_0}{4 \pi} i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{p} \times \vec{e}_{r})\\
 &= \frac{\mu_0}{4 \pi} ck^2 \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{e}_{r} \times \vec{p})
 \end{align*}
@@ -3062,7 +3125,7 @@ gemittelt über Periode $ T = \frac{2 \pi}{\omega} $
 	\Rightarrow \quad \dd P = \frac{\omega^4 p^2}{32 \pi^2 \epsilon_0 c^3 r^2} r^2 \sin^2 \theta \dd \Omega
 	\end{equation*}
 	\begin{equation*}
-	\prt{P}{\Omega} = \frac{\omega^4 p^2}{32 \pi^2 \epsilon_0 c^3} \sin^2 \theta
+	\prd{P}{\Omega} = \frac{\omega^4 p^2}{32 \pi^2 \epsilon_0 c^3} \sin^2 \theta
 	\end{equation*}
 	\item Winkelabhängigkeit: $ \propto \sin^2 \theta $
 	%
