@@ -1255,3 +1255,199 @@ Ein Problem, dass sich hier ergibt ist, dass wir eine $ z $-Achse wählen und $ 
 	l=2 & d & m=-2,-1,0,1,2
 	\end{array} \right\} \ \ \substack{\tx{9 Zustände} \\ \tx{entartet}} $
 \end{enumerate}
+
+% Vorlesung 5.02.18
+
+\subsection{Zusammenfassung}
+
+\begin{enumerate}[1)]
+	\item Zustände können in drei Quantenzahlen klassifiziert werden.\\[5pt]
+	Hauptquantenzahl $ \leftrightarrow $ Schale $\quad \ \ n \in \mathbb{N} \setminus 0 $\\
+	Nebenquantenzahl $ \leftrightarrow $ Orbitale $ \quad l \in \mathbb{N}_0 , l < n $\\
+	magnetische Quantenzahl $ \leftrightarrow $ $ \quad \ \ m \in \mathbb{Z} , |m| \le l \quad $ ($ 2l + 1 $ Stück)
+	\item Wellenfunktion
+	\begin{equation*}
+	\Psi_{n,l,m}(r,\theta,\varphi) = R_{ml}(r) \mathcal{Y}_{lm}(\theta,\varphi)
+	\end{equation*}
+	\item Energie
+	\begin{equation*}
+	E_n = - R_{\mathcal{Y}}\frac{Z^2}{n^2}
+	\end{equation*}
+	\begin{enumerate}[$ \Rightarrow $]
+		\item hängt nur von $ n $ ab, nicht von $ l $ und $ m $
+		\item Entartung
+	\end{enumerate}
+	\item Symmetrie des Problems erkennt man an den Entartungen
+	$ \Rightarrow $ Energien hängen nur von $ n $ ab
+	\begin{itemize}
+		\item Kugelsymmetrie $ \leftrightarrow $ Drehimpulserhaltung $ \Rightarrow $ Entartung in $ m $\\[5pt]
+		Für ein gegebenes $ l $ sind alle Zustände mit  $ m = -l, \dots, l $ entartet.
+		\begin{equation*}
+		\sum_{m=-l}^{l} |\mathcal{Y}_{lm}(\theta,\varphi)|^2 = \const
+		\end{equation*}
+		Entartung
+		\begin{equation*}
+		\sum_{m=-l}^{l} = 2l + 1
+		\end{equation*}
+		\item $ \frac{1}{r} $ Potential $ \leftrightarrow $ Lenz Vektor $ \Rightarrow $ Entartung in $ l $\\[5pt]
+		Entartung
+		$$ \sum_{l=0}^{n-1} (2l+1) = n^2 $$
+	\end{itemize}
+	\lcom{Die Entartung aufgrund der $ m $-Quantenzahlen bleiben weiterhin, da sie eine Konsequenz der Drehimpulserhaltung und der Kugelsymmetrie sind. Die Entartungen der $ l $-Quantenzahlen kommt aus dem $ \frac{1}{r} $ Potential und damit aus der Bedingung mit dem Lenz'schen Vektor. Diese müssen nicht zwingend fortbestehen und können gegebenenfalls losgeworden werden.}\\
+	\lcom{Aufgrund des Spins der Elektronen erhöht sich die wirkliche Lösung auf das Doppelte der jetzigen Anzahl.}
+\end{enumerate}
+
+\subsubsection{Zur Notation der Zustände}
+
+Haupt-QZ, Schalen
+\begin{equation*}
+n = \qquad 1 \ \qquad 2 \ \, \qquad 3 \ \qquad 4 \ \, \qquad 5 \ \qquad 6 \
+\end{equation*}
+\begin{equation*}
+\qquad \qquad K \qquad L \qquad M \qquad N \qquad O \qquad P \, \,
+\end{equation*}
+Neben-QZ, Orbitale
+\begin{equation*}
+l = \qquad 0 \qquad 1 \qquad 2 \qquad 3 \qquad 4 \qquad 5 \qquad 6
+\end{equation*}
+\begin{equation*}
+\qquad \qquad s \qquad p \qquad d \qquad f \qquad g \qquad h \qquad k \
+\end{equation*}
+
+\subsubsection{Struktur}
+
+\folie{Elektronen in verschiedenen Schalen}\\
+K-Schale
+\begin{equation*}
+n = 1 \rightarrow \ \tx{ Entartung } = n^2 = 1 \quad (\tx{mit Spin } 2n^2 = 2)
+\end{equation*}
+\begin{equation*}
+l = 0 \rightarrow m = 0 \qquad \Rightarrow \qquad \tx{ ein } 1s \tx{ Orbital } \qquad 2 \cdot 0 + 1 = 1
+\end{equation*}
+L-Schale
+\begin{equation*}
+n = 2 \rightarrow \ \tx{ Entartung } = n^2 = 4 \quad (\tx{mit Spin } 2n^2 = 8)
+\end{equation*}
+\begin{equation*}
+l = 0, m = 0 \qquad \Rightarrow \tx{ ein } 2s \tx{ Orbital } \tx{1-fach entartet}
+\end{equation*}
+\begin{equation*}
+l = 1, m = -1,0,1 \qquad \Rightarrow \tx{ drei } 2p \tx{ Orbitale } \tx{3-fach entartet}
+\end{equation*}
+M-Schale
+\begin{equation*}
+n = 3 \rightarrow \ \tx{ Entartung } = n^2 = 0 \quad (\tx{mit Spin } 2 n^2 = 18)
+\end{equation*}
+\begin{equation*}
+l = 0, m = 0 \qquad \Rightarrow \tx{ ein } 3s \tx{ Orbitale } \tx{1-fach entartet}
+\end{equation*}
+\begin{equation*}
+l = 1, m = -1,0,1 \qquad \Rightarrow \tx{ drei } 3p \tx{ Orbitale } \tx{3-fach entartet}
+\end{equation*}
+\begin{equation*}
+l = 2, m = -2,-1,0,1,2 \qquad \Rightarrow \tx{ fünf } 3d \tx{ Orbitale } \tx{5-fach entartet}
+\end{equation*}
+
+\subsubsection{Spektren}
+
+\folie{Anregungsenergie Spektrum (mit Serien (Lynman, Baimer, Paschen, Bracket, Pfund))}
+\begin{equation*}
+E_{mn} = E_{m}- E_{n} = Z^2 R_{\mathcal{Y}}\left(\frac{1}{n^2} - \frac{1}{m^2}\right)
+\end{equation*}
+
+\section{Das Wasserstoffatom}
+
+Einfaches reales Beispiel für Teilchen im $ \frac{1}{r} $ Potential
+\begin{equation*}
+\tx{1H Atom:} \qquad p + l
+\end{equation*}
+\begin{equation*}
+\Psi_{n,l,m}(r,\theta,\varphi) = R_{ml}(r) \mathcal{Y}_{lm}(\theta,\varphi)
+\end{equation*}
+\begin{align*}
+E_N = - R_{\mathcal{Y}}\frac{1}{n^2} \qquad n, l, m
+\end{align*}
+Es fehlt
+\begin{enumerate}[$ \rightarrow $]
+	\item Elektronenspin
+	\item relativistische Effekte
+	\item Quantenelektrodynamik (QED)
+	\item Spin des Kerns (Kernspin)
+\end{enumerate}
+
+\noindent
+\lcom{Standartbeispiel für Energien oder Intensitäten:}\\
+\lcom{Neutrino: andere WW mit Material als Elektron oder Strahlung $ \dots $}\\[5pt]
+\lcom{Die Übergangswahrscheinlichkeit zwischen Übergängen ist mit dem Quadrat des Matrixelements gegeben. Also das Quadrat der Wellenfunktion des niedrigeren Energieniveaus angewendet mit dem WW-Operator auf die Wellenfunktion des höheren Energieniveaus.}\\[10pt]
+\lcom{\textbf{Elektronenspin:} Beim Potential ist noch unklar ob es gleich bleibt oder sich verändert. Die Drehimpulserhaltung (allgemein gilt: der Gesamtdrehimpuls ist erhalten, vorhin hatten wir angenommen Gesamtdrehimpuls $ \widehat{=} $ Bahndrehimpuls) wird nun zur Erhaltung von Bahndrehimpuls des Elektrons und dem Drehimpuls des Kerns (hier Proton). Es gibt also nun keinen Grund mehr für die Entartungen die sich auf den Bahndrehimpuls beziehen ($ m $-Entartungen). Es gibt dann neue Entartungen des Gesamtdrehimpulses.}\\[5pt]
+\lcom{\textbf{Relativistische Effekte:} Das Potential verändert sich, der Drehimpuls und die Kugelsymmetrie bleiben erhalten, da relativistische Effekte nur von $ v $ abhängen und damit vom Bahnradius $ r $. Die $ m $-Entartung wird also verändert, die $ l $-Entartung bleibt erhalten.}\\[5pt]
+\lcom{\textbf{QED:} Fügt nur eine Offset in die Gleichungen hinzu.}\\[5pt]
+\lcom{\textbf{Spin des Kerns:} Zerstören ebenfalls die $ m $-Entartungen.}\\[5pt]
+
+\subsection{Feinstruktur}
+
+feine Aufspaltung der diskreten Spektrallinien
+\begin{enumerate}[$ \Rightarrow $]
+	\item Entartungen im kleinen Coulomb Potential werden (teilweise) aufgehoben
+	\item ergeben dich aus der relativistischen Quantenmechanik
+	\begin{enumerate}[$ \rightarrow $]
+		\item SGL ist intrinsisch nicht relativistisch
+		\item Dirac-Gleichung, berücksichtigt nicht QED
+	\end{enumerate}
+\end{enumerate}
+\lcom{Alle Feinkorrekturen stammen aus der relativistischen Quantenmechanik, dennoch sind nur einige mit dem Namen: ,,relativistische Korrekturen`` bezeichnet.}
+\begin{enumerate}[1)]
+	\item \textbf{Relativistische Korrekturen}\\
+	bisher:
+	\begin{equation*}
+	E_{lm} = \frac{\vec{p}^2}{2m}
+	\end{equation*}
+	relativistisch:
+	\begin{equation*}
+	E = c \sqrt{\vec{p}^2 + m_0^2 c^2} \approx m_0 c^2 + \frac{\vec{p}^2}{2m} - \frac{1}{8} \frac{\vec{p}^4}{m_0^3 c^2} + \dots
+	\end{equation*}
+	\begin{enumerate}[$ \Rightarrow $]
+		\item Zustände erfahren einen kleinen Energieshift
+		\item Entartung in $ l $ wird teilweise aufgehoben
+	\end{enumerate}
+	\item \textbf{Darwin Term}\\
+	$ \delta \vec{r} : $ Zitterbewegung, charakterisiert durch die Compton-Wellenlänge
+	\begin{align*}
+	\langle \vec{r} + \delta \vec{r} \rangle &= \langle \vec{r} \rangle \\
+	\langle 1 | (\vec{r} + \delta \vec{r}) \rangle &\neq \langle \frac{1}{r} \rangle
+	\end{align*}
+	\begin{enumerate}[$ \Rightarrow $]
+		\item Zustände erfahren einen kleinen Energieshift
+		\item Entartung in $ l $ wird teilweise aufgehoben
+	\end{enumerate}
+	\item \textbf{Elektronen-Spin}\\
+	klassisch:
+	\begin{equation*}
+	\vec{\mu} = \frac{q}{2m} \vec{L}
+	\end{equation*}
+	%
+	%
+	%
+	% T1
+	%
+	%
+	%
+	Quantenmechanik:
+	\begin{equation*}
+	\hat{\vec{\mu}} = - g_e \ub{\frac{e \hbar}{2m}}_{\mu_{B}} \ub{\frac{1}{\hbar} \hat{\vec{S}}}_{\mathclap{ \qquad \ \ \tx{dimensionslos}}}
+	\end{equation*}
+	mit $ \mu_B : $ dem Bohr'schen Magneton\\
+	und $ g_e \approx 2{,}0023 \dots $\\
+	(Dirac: $ g = 2 $, QED: $ g = 2{,}0023 \dots $)\\[5pt]
+	Eigenwerte, Eigenzustände
+	\begin{align*}
+	\hat{\vec{S}}^2 \epsilon_{s \, m_s} &= \hbar^2 S (S + 1) \epsilon_{s \, m_s} \qquad \Rightarrow \quad \tx{zwei reine Q.Z.} \quad s, m_s\\
+	\hat{S}_z \epsilon_{s \, m_s} &= \hbar m_s \epsilon_{s \, m_s} \qquad (\tx{siehe Kapitel V})
+	\end{align*}
+	\begin{equation*}
+	\Rightarrow \quad \rmbox{ S = \frac{1}{2} \quad m_s = - \frac{1}{2}, + \frac{1}{2} }
+	\end{equation*}
+\end{enumerate}
+
+
+

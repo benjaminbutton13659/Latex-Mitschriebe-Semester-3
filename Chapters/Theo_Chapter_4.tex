@@ -223,3 +223,259 @@ Größe mit oberen und/oder unteren Indizes, wobei sich jeder obere Index Kontra
 \emph{Beispiel:} Tensor 3. Stufe
 $$ T^{\alpha \beta}_{\ \ \ \gamma} : \quad T'^{\alpha \beta}_{\ \ \ \: \gamma} = \Lambda^{\alpha}_{\mu} \Lambda^{\beta}_{\nu} \ol{\Lambda}_{\gamma} ^{\ \sigma} T^{\mu \nu}_{\ \ \ \sigma} $$
 metrischer Tensor: $ g_{\mu \nu} $, Feldstärketensor $ F^{\mu \nu} $
+%
+%
+%
+% check wecher index zuerst kommt
+%
+%
+%
+
+% Vorlesung 4.2.
+
+\subsubsection{Vierervektoren}
+
+\begin{equation*}
+(a^{\mu}): \quad a'^{\mu} = \Lambda^{\mu}_{\ \nu} a^{\nu} \qquad \tx{kontravariant}
+\end{equation*}
+$ \mu, \nu = 0, 1, 2, 3 $
+%
+%
+%
+% T1
+%
+%
+%
+Boosts:
+\begin{equation*}
+\Lambda^{\mu}_{\ \nu} = \begin{pmatrix}
+\gamma & - \beta \gamma & 0 & 0 \\
+- \beta \gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \qquad \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \qquad \beta = \frac{v}{c}
+\end{equation*}
+\begin{equation*}
+(x^{\mu}) = \left(ct, x, y, z\right)
+\end{equation*}
+\begin{equation*}
+(a_{\mu}) : \quad \tx{kovariant} \qquad a_{\mu} = g_{\mu \nu} a ^{\nu}
+\end{equation*}
+\begin{equation*}
+g_{\mu \nu} = \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{pmatrix} = g^{\mu \nu}
+\end{equation*}
+\begin{equation*}
+(x_{\mu}) = (ct, -x, -y, -z)
+\end{equation*}
+\begin{align*}
+a'_{\mu} &= g_{\mu \nu} a'^{\nu} = g_{\mu \nu} \Lambda^{\nu} _{\ \alpha} a ^{\alpha}\\
+&= \ub{g_{\mu \nu} \Lambda^{\nu}_{\ \alpha} g^{\alpha \beta}}_{\ol{\Lambda}_{\mu} ^{\ \beta}} a_{\beta}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad a'^{\mu} = \ol{\Lambda}_{mu}^{\ \beta} a_{\beta}
+\end{equation*}
+\begin{equation*}
+\ol{\Lambda} = \left(\Lambda^{-1}\right)^{\top}
+\end{equation*}
+Boosts: $ \Lambda(\vec{v}) $:
+\begin{align*}
+\left(\Lambda(\vec{v})\right)^{-1} &= \Lambda(-\vec{v}) \qquad \Lambda^{\top} = \Lambda
+\end{align*}
+\begin{equation*}
+\ol{\Lambda} = \Lambda(- \vec{v})
+\end{equation*}
+\emph{Beispiel:} partielle Ableitung (Gradienten);
+\begin{equation*}
+\partial_{\mu} \defeq = \prt{}{x^{\mu}} \qquad \tx{transformiert sich wie kovariante Komponente}
+\end{equation*}
+\begin{align*}
+x'^{\mu} &= \Lambda ^{\mu} _{\ \nu} x^{\nu} \\
+\Rightarrow \quad x^{\nu} &= \ub{\left(\Lambda^{-1}\right)^{\nu}_{\ \mu}}_{\ol{\Lambda}_{\mu} ^{\ \nu}} x'^{\mu} = \ol{\Lambda}_{\mu} ^{\ \nu} x'^{\mu}
+\end{align*}
+\begin{equation*}
+\Rightarrow \quad \prt{x^{\nu}}{x'^{\mu}} = \ol{\Lambda} _{\mu} ^{ \ \nu}
+\end{equation*}
+\begin{align*}
+\partial '_{\mu} &= \prt{}{x'^{\mu}} = \sum_{\nu} \prt{x^{\nu}}{x'^{\mu}} \prt{}{x^{\nu}} \\
+&= \sum_{\nu} \Lambda_{\mu}^{\ \nu} \prt{}{x^{\nu}} = \ol{\Lambda}_{\mu}^{\ \nu} \partial_{\nu}
+\end{align*}
+\begin{equation*}
+\partial ^{\mu} \defeq \prt{}{x_{\mu}} \qquad \partial '^{\mu} = \Lambda^{\mu} _{\ \nu} \partial ^{\nu}
+\end{equation*}
+
+\section{Relativistisch kovariante Forulierung der Elektrodynamik}
+
+\begin{enumerate}[1)]
+	\item \textbf{Ladungs- und Stromdichte} $ \rho, \vec{j} $
+	\begin{equation*}
+	\rho , \vec{j} \to \tx{ Vierervektor}: \quad (j^{\mu}) \defeq ( c \rho, \vec{j}) = ( c \rho, j_x, j_y, j_z) 
+	\end{equation*}
+	Ladung $ q $: \textbf{Lorentz-Skalar}: $ \quad q' = q $\\
+	\textbf{Ladungserhaltung}: \textbf{Kontinuitätsgleichung} gilt: $ \prt{\rho}{t} + \vabla \cdot \vec{j} = 0 $
+	\begin{align*}
+	0 &= \prt{\rho}{t} + \vabla \cdot \vec{j} = \ub{\prt{}{(ct)} (c \rho)}_{= \prt{}{x^{0}} j^{0}} + \sum_{\mu=1}^{3} \prt{}{x^{\mu}} j^{\mu} \qquad (x^{\mu}) = (ct, x, y, z)\\
+	&= \sum_{\mu=1}^{3} \prt{}{x^{\mu}} j^{\mu} = \partial_{\mu} j^{\mu}
+	\end{align*}
+	Kontinuitätsgleichung in relativistischer Schreibweise
+	\begin{equation*}
+	\rmbox{\partial _{\mu} j^{\mu} = 0}
+	\end{equation*}
+	\begin{equation*}
+	\partial_{\mu} j^{\mu} = 0 = \partial'_{\mu} j'^{\mu}
+	\end{equation*}
+	es wird also über $ \mu $ aufsummiert: $ a_{\mu} b_{\mu} $\\[10pt]
+	Lorentztransformation: $ S \to S' $\\
+	$ j'^{\mu} = \Lambda^{\mu}_{\ \nu} j^{\nu} $\\
+	\emph{Beispiel:}
+	%
+	%
+	%
+	% T2
+	%
+	%
+	%
+	\begin{equation*}
+	\left(\Lambda ^{\mu}_{\ \nu}\right) = \begin{pmatrix}
+	\gamma & - \beta \gamma & 0 & 0 \\
+	- \beta \gamma & \gamma & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1
+	\end{pmatrix}
+	\end{equation*}
+	\begin{align*}
+	j'^{0} &= c\rho ' = \gamma c \rho - \beta \gamma j_x \\
+	j'^{1} &= j'_{x} = - \beta \gamma c \rho + \gamma j_x \\
+	j'^{2} &= j'_{y} = j_y \\
+	j'^{3} &= j'_{z} = j_z \\
+	\end{align*}
+	Annahme: in $ S $ ruhende Ladung $ q $ im Volumen $ \Delta V: $ $ \rho = \frac{q}{\Delta V} , \vec{j} = 0 $\\[5pt]
+	in $ S' $:
+	\begin{equation*}
+	\rho' = \gamma \rho = \gamma \frac{q}{\Delta V} = \frac{q}{\frac{\Delta V}{\gamma}} = \frac{q}{\Delta V'} \ge \rho
+	\end{equation*}
+	Das Volumen $ \Delta V' $ ist kleiner (Längenkontraktion), daher ist die Ladungsdichte in $ S' $ größer als in $ S $.\\
+	Längenkontraktion: $ \Delta V' = \frac{\Delta V}{\gamma} $
+	\begin{align*}
+	j'_x &= - \beta \gamma c \rho = - \beta c \rho'\\
+	&= - v \rho'
+	\end{align*}
+	\lcom{Die $ y $- und $ z $-Komponenten sind gleich null, da sich $ S' $ nur in $ x $-Richtung von $ S $ wegbewegt.}
+	\item \textbf{Viererpotential}
+	\begin{equation*}
+	\Phi, \vec{A} \to (A^{\mu}) = (\frac{1}{c} \Phi, A_x, A_y, A_z)
+	\end{equation*}
+	\lcom{Das $ \frac{1}{c} $ kommt aus dem SI-Einheitensystem, sodass die Einheiten der Vektorkomponenten übereinstimmen. (Im CGS-System gibt es diesen Faktor nicht)}\\[5pt]
+	\textbf{Lorenzeichung:} $ \vabla \cdot \vec{A} + \frac{1}{c^2} \prt{\Phi}{t} = 0 $
+	\begin{align*}
+	\rightarrow \quad 0 &= \prt{}{(ct)} \left(\frac{1}{c} \Phi\right) + \vabla \cdot \vec{A} = \sum_{\mu} \prt{}{x^{\mu}} A^{\mu} = \partial _{\mu} A^{\mu}\\[5pt]
+	0 &= \partial_{\mu} A_{\mu}
+	\end{align*}
+	\lcom{Da Skalarprodukte in der Relativitätstheorie Lorentzinvariant sind, sieht man hier, dass auch die Lorenzeichugn in der Relativitätstheorie Lorentzinvariant ist.\\
+	Dies gilt nicht für die Coulomb-Eichung.}\\[5pt]
+	Coulomb-Eichung: $ \vabla \cdot \vec{A} = 0 $
+\end{enumerate}
+Die Maxwell-Geichungen führen aus den Potential-Gleichungen auf:
+\begin{align*}
+\Rightarrow \quad \left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \Phi &= - \frac{1}{\epsilon_0} \rho \\
+\left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \vec{A} &= - \mu \vec{j}
+\end{align*}
+Viererlaplaceoperator:
+\begin{equation*}
+\partial_{\nu} \partial^{\nu} = \sum_{\nu} \prt{}{x^{\nu}} \prt{}{x_{\nu}} = \frac{1}{c^2} \prt{^2}{t^2} - \prt{^2}{x^2} - \prt{^2}{y^2} - \prt{^2}{z^2} \eqdef \square \quad \tx{\textbf{d' Alambert Operator}}
+\end{equation*}
+\begin{equation*}
+\square A^{\nu} = \mu_0 j^{\nu} \qquad \nu = 0, 1, 2, 3
+\end{equation*}
+$ \nu = 0 $: $ A^{0} = \frac{1}{c} \Phi \quad j^{0} = c \rho $
+\begin{equation*}
+\square \frac{1}{c} \Phi = \mu_0 c \rho
+\end{equation*}
+\begin{equation*}
+\square \Phi = \mu_0 c^2 \rho = \frac{1}{\epsilon_0} \rho
+\end{equation*}
+\emph{Beispiel:} Potentiale einer gleichförmig bewegten Ladung $ q $
+%
+%
+%
+% T3
+%
+%
+%
+$ q $ ruhe um Ursprung von $ S' $\\[5pt]
+Potentiale in $ S' $:
+\begin{equation*}
+\Phi'(\vec{r}') = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r}|} \quad \vec{A}'(\vec{r}') = 0
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \left(A'^{\nu} (x')\right) = \left(\frac{1}{c} \Phi', \vec{A}'\right) = \left(\frac{1}{c} \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r}'|}, 0, 0, 0\right)
+\end{equation*}
+Transformation von $ S' $  ins Laborsystem $ S $ (LT mit $ - \vec{v} $):\\[5pt]
+LT: $ \vec{v} = -v \vec{e}_x $
+\begin{equation*}
+\Lambda = \begin{pmatrix}
+\gamma & \beta \gamma & 0 & 0 \\
+\beta \gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+A^{\nu} (x) = \Lambda^{\nu}_{\ \alpha} A'^{\alpha} (x')
+\end{equation*}
+\begin{align*}
+A^{0} &= \gamma A'^{0} + \beta \gamma A'^{1} = \frac{\gamma}{c} \frac{1}{4 \pi \epsilon_0} \frac{q}{\vec{r}'}\\
+&= \frac{1}{c} \Phi
+\end{align*}
+\begin{equation*}
+\rightarrow \quad \rmbox{\Phi (\vec{r}) = \frac{\gamma q}{4 \pi \epsilon_0 r'}}
+\end{equation*}
+\begin{align*}
+A^{1} &= \beta \gamma A'^{0} + \gamma A'^{1}\\
+&= \frac{\beta \gamma}{c} \frac{q}{4 \pi \epsilon_0 r'} = A_x\\
+A_{x }&=  \frac{\beta \gamma}{c} \frac{q}{4 \pi \epsilon_0 r'}
+\end{align*}
+\begin{align}
+A^{2} &= A'^{2} = 0\\
+A^{3} &= A'^{3} = 0
+\end{align}
+mit $ \beta = \frac{v}{c} $
+\begin{equation*}
+\Rightarrow \quad \rmbox{\vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \frac{v \gamma q}{r'} \vec{e}x}
+\end{equation*}
+Umrechnung: $ x' \to x $
+\begin{equation*}
+\Lambda^{-1} = \begin{pmatrix}
+\gamma & - \beta \gamma & 0 & 0 \\
+- \beta \gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+(x'^{\nu}) = ( ct', x', y', z') = (\gamma x^{0} - \beta \gamma x^{1}, - \beta \gamma x^{0} + \gamma x^{1}, x^{2}, x^{3})
+\end{equation*}
+\begin{align*}
+r'^{2} &= x'^2 + y'^2 + z'^2\\
+&= (\gamma x - \beta \gamma ct)^2 + y^2 + z^2\\
+&= \gamma^2 (x - vt)^2 + y^2 + z^2
+\end{align*}
+\begin{align*}
+\Phi(\vec{r}) &= \frac{1}{4 \pi \epsilon_0}\frac{q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}} \\
+\vec{A}(\vec{r}) &= \ \frac{\mu_0}{4 \pi} \ \: \frac{v q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}}
+\end{align*}
+Zuvor: gleiches Ergebnis in anderer Schreibweise:
+\begin{equation*}
+\Phi(\vec{r}) = = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{v^2}{c^2} \sin^2 \alpha}}
+\end{equation*}
+%
+%
+%
+% T4
+%
+%
+%
