@@ -1262,9 +1262,9 @@ Ein Problem, dass sich hier ergibt ist, dass wir eine $ z $-Achse wählen und $ 
 
 \begin{enumerate}[1)]
 	\item Zustände können in drei Quantenzahlen klassifiziert werden.\\[5pt]
-	Hauptquantenzahl $ \leftrightarrow $ Schale $\quad \ \ n \in \mathbb{N} \setminus 0 $\\
-	Nebenquantenzahl $ \leftrightarrow $ Orbitale $ \quad l \in \mathbb{N}_0 , l < n $\\
-	magnetische Quantenzahl $ \leftrightarrow $ $ \quad \ \ m \in \mathbb{Z} , |m| \le l \quad $ ($ 2l + 1 $ Stück)
+	\textbf{Hauptquantenzahl} $ \leftrightarrow $ Schale $\quad \ \ \ n \in \mathbb{N} \setminus 0 $\\[5pt]
+	\textbf{Nebenquantenzahl} $ \leftrightarrow $ Orbitale $ \quad \: l \in \mathbb{N}_0 , l < n $\\[5pt]
+	\textbf{magnetische Quantenzahl} $ \leftrightarrow $ $ \quad \ \ m \in \mathbb{Z} , |m| \le l \quad $ ($ 2l + 1 $ Stück)
 	\item Wellenfunktion
 	\begin{equation*}
 	\Psi_{n,l,m}(r,\theta,\varphi) = R_{ml}(r) \mathcal{Y}_{lm}(\theta,\varphi)
@@ -1447,7 +1447,84 @@ feine Aufspaltung der diskreten Spektrallinien
 	\begin{equation*}
 	\Rightarrow \quad \rmbox{ S = \frac{1}{2} \quad m_s = - \frac{1}{2}, + \frac{1}{2} }
 	\end{equation*}
+	%
+	% Vorlesung 6.2.18
+	%
+	\noindent
+	$ \Rightarrow $ eine vierte Quantenzahl:\\[5pt]
+	Bahndrehimpuls: $ l, m $\\
+	Elektronenspin: $ s, m_s $\\
+	Da $ S $ konstant ist wird es nicht als Quantenzahl mitgezählt
+	\begin{equation*}
+	\Rightarrow \quad n, l, m, m_s
+	\end{equation*}
+	\item \textbf{Spin-Bahn-Kopplung}
+	\lcom{Wechselwirkung zwischen dem Elektronen-Spin-Drehimpuls (oder Eigendrehimpuls) und dem Bahndrehimpuls des Elektrons.}
+	\begin{align*}
+	\vec{S} &\to \tx{ magnetisches Moment } \quad \vec{\mu}_{S} = - g_e \mu_{B} \frac{\vec{S}}{\hbar}\\
+	\vec{L} &\to \tx{ magnetisches Moment } \quad \vec{\mu}_{L} = - \mu_{B} \frac{\vec{L}}{\hbar}
+	\end{align*}
+	\begin{equation*}
+	\Rightarrow \quad \tx{ Gesamtdrehimpuls } \quad \vec{J} = \vec{L} + \vec{S} \qquad \qquad \vec{L} \tx{ ist erhalten \mau}
+	\end{equation*}
+	$ \Rightarrow $ neue Quantenzahlen $ j, m_j $\\
+	$ \Rightarrow $ Satz von Quantenzahlen
+	\begin{equation*}
+	\Rightarrow \quad n, l, (s), j, m_j
+	\end{equation*}
+	Die Entartung in $ m_j $ stammen aus der Erhaltung des Gesamtdrehimpulses $ \vec{J} $ \mau
 \end{enumerate}
 
+\subsubsection{Zusammenfassung}
 
+\begin{equation*}
+\hat{\ham}_{1 H} = \hat{\ham}_{\tx{kin}} + \hat{\ham}_{\tx{Coulomb}} + \ub{\hat{\ham}_{\tx{rel}} + \hat{\ham}_{\tx{Darwin}} + \hat{\ham}_{\tx{SpinBahn}}}_{\hat{\ham}_{\tx{Feinstruktur}}}
+\end{equation*}
+%
+%
+%
+% E_{\eta} ? was ist das im index
+%
+%
+%
+\begin{equation*}
+E_{n \color{red} j \color{black}} = E_n + \ob{\Delta E_{m, \ub{l, s}_{\color{red} j \color{black}}}}^{\tx{Feinstruktur}} = E_n \Bigg[1 + \frac{\alpha^2}{n^2} \bigg(\frac{n}{(\ub{l \pm s}_{\color{red} j \color{black}}) + \frac{1}{2}} - \frac{3}{4}\bigg)\Bigg]
+\end{equation*}
+$ \alpha : $ Feinstrukturkonstante $ \approx \frac{1}{137} $
+\begin{equation*}
+\Rightarrow \qquad j = l \pm s
+\end{equation*}
+\emph{Bemerkung:}
+\begin{itemize}
+	\item $ 1 \tx{ eV } \approx 242 \tx{ THz } \approx \frac{1}{4} \tx{ PHz } $
+\end{itemize}
+\folie{Entartungen der Quantenzustände}\\
+\folie{mehr Entartungen von QZ mit Zahlen}\\
+\folie{Alkali Metalle}\\
+\lcom{Raumtemperatur hat eine Energie von $ \frac{1}{40} \tx{ eV } $}
 
+\subsection{QED Korrekturen: Lamb-Shift}
+
+\folie{mehr Entartungen von QZ mit Zahlen}\\
+,,Anschaulich``\,: Energie-Unschärferelation $ \Delta E \ \Delta t \ge \hbar $\\
+\lcom{Die bisherigen QM Unschärferelationen stammen aus nicht kommutierenden Operatoren, wodurch eine Größe ,,Unscharf`` wird. Diese Unschärferelation stammt direkt aus der Unschärfe der Fouriertransformation (Bei der Ortsunschärfe gilt beides: Operatoren kommutieren nicht und Fouriertransformation).}
+\begin{enumerate}[$ \Rightarrow $]
+	\item virtuelle Teilchen
+	\item WW mit $ e^- \ \Rightarrow $ Energieverschiebung
+	\item $ s $-Orbitale werden am stärksten beeinflusst
+\end{enumerate}
+
+\subsection{Hyperfeinstruktur}
+
+\begin{enumerate}[$ \Rightarrow $]
+	\item Kern trägt einen Eigendrehimpuls: Kernspin $ \vec{I} \ \Rightarrow $ magnetisches Moment $ \vec{\mu}_{K} $
+	\item Gesamtdrehimpuls $ \ \vec{F} = \vec{J} + \vec{I} = \vec{L} + \vec{S} + \vec{I} $
+	\item WW zwischen $ \vec{\mu}_{e} $ und $ \vec{\mu}_k $
+	\item neue Quantenzahlen $ f, m_f $
+\end{enumerate}
+\emph{Beispiel:} 21\,cm-Linie, Astronomie\\
+Hyperaufspaltung des $ ^1 H $ des $ 2 S_{\frac{1}{2}} $ Zustands $ \Rightarrow \ 21{,}1\, \tx{cm} $
+\vspace{100pt}
+\begin{center}
+	\scalebox{10}[10]{$ \mathcal{FIN} $}
+\end{center}

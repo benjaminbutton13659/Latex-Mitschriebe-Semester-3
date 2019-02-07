@@ -308,7 +308,7 @@ x'^{\mu} &= \Lambda ^{\mu} _{\ \nu} x^{\nu} \\
 \partial ^{\mu} \defeq \prt{}{x_{\mu}} \qquad \partial '^{\mu} = \Lambda^{\mu} _{\ \nu} \partial ^{\nu}
 \end{equation*}
 
-\section{Relativistisch kovariante Forulierung der Elektrodynamik}
+\section{Relativistisch kovariante Formulierung der Elektrodynamik}
 
 \begin{enumerate}[1)]
 	\item \textbf{Ladungs- und Stromdichte} $ \rho, \vec{j} $
@@ -372,84 +372,275 @@ x'^{\mu} &= \Lambda ^{\mu} _{\ \nu} x^{\nu} \\
 	\lcom{Das $ \frac{1}{c} $ kommt aus dem SI-Einheitensystem, sodass die Einheiten der Vektorkomponenten übereinstimmen. (Im CGS-System gibt es diesen Faktor nicht)}\\[5pt]
 	\textbf{Lorenzeichung:} $ \vabla \cdot \vec{A} + \frac{1}{c^2} \prt{\Phi}{t} = 0 $
 	\begin{align*}
-	\rightarrow \quad 0 &= \prt{}{(ct)} \left(\frac{1}{c} \Phi\right) + \vabla \cdot \vec{A} = \sum_{\mu} \prt{}{x^{\mu}} A^{\mu} = \partial _{\mu} A^{\mu}\\[5pt]
-	0 &= \partial_{\mu} A_{\mu}
+	\rightarrow \quad 0 &= \prt{}{(ct)} \left(\frac{1}{c} \Phi\right) + \vabla \cdot \vec{A} = \sum_{\mu} \prt{}{x^{\mu}} A^{\mu} = \partial _{\mu} A^{\mu}
 	\end{align*}
+	\begin{equation*}
+	\rmbox{\partial_{\mu} A_{\mu} = 0}
+	\end{equation*}
 	\lcom{Da Skalarprodukte in der Relativitätstheorie Lorentzinvariant sind, sieht man hier, dass auch die Lorenzeichugn in der Relativitätstheorie Lorentzinvariant ist.\\
 	Dies gilt nicht für die Coulomb-Eichung.}\\[5pt]
-	Coulomb-Eichung: $ \vabla \cdot \vec{A} = 0 $
+	Coulomb-Eichung: $ \vabla \cdot \vec{A} = 0 $\\[10pt]
+	Die Maxwell-Geichungen führen aus den Potential-Gleichungen auf:
+	\begin{align*}
+	\Rightarrow \quad \left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \Phi &= - \frac{1}{\epsilon_0} \rho \\
+	\left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \vec{A} &= - \mu \vec{j}
+	\end{align*}
+	Viererlaplaceoperator:
+	\begin{equation*}
+	\partial_{\nu} \partial^{\nu} = \sum_{\nu} \prt{}{x^{\nu}} \prt{}{x_{\nu}} = \frac{1}{c^2} \prt{^2}{t^2} - \prt{^2}{x^2} - \prt{^2}{y^2} - \prt{^2}{z^2} \eqdef \square \quad \tx{\textbf{d' Alambert Operator}}
+	\end{equation*}
+	\begin{equation*}
+	\square A^{\nu} = \mu_0 j^{\nu} \qquad \nu = 0, 1, 2, 3
+	\end{equation*}
+	$ \nu = 0 $: $ A^{0} = \frac{1}{c} \Phi \quad j^{0} = c \rho $
+	\begin{equation*}
+	\square \frac{1}{c} \Phi = \mu_0 c \rho
+	\end{equation*}
+	\begin{equation*}
+	\square \Phi = \mu_0 c^2 \rho = \frac{1}{\epsilon_0} \rho
+	\end{equation*}
+	\emph{Beispiel:} Potentiale einer gleichförmig bewegten Ladung $ q $
+	%
+	%
+	%
+	% T3
+	%
+	%
+	%
+	$ q $ ruhe um Ursprung von $ S' $\\[5pt]
+	Potentiale in $ S' $:
+	\begin{equation*}
+	\Phi'(\vec{r}') = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r}|} \quad \vec{A}'(\vec{r}') = 0
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad \left(A'^{\nu} (x')\right) = \left(\frac{1}{c} \Phi', \vec{A}'\right) = \left(\frac{1}{c} \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r}'|}, 0, 0, 0\right)
+	\end{equation*}
+	Transformation von $ S' $  ins Laborsystem $ S $ (LT mit $ - \vec{v} $):\\[5pt]
+	LT: $ \vec{v} = -v \vec{e}_x $
+	\begin{equation*}
+	\Lambda = \begin{pmatrix}
+	\gamma & \beta \gamma & 0 & 0 \\
+	\beta \gamma & \gamma & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1
+	\end{pmatrix}
+	\end{equation*}
+	\begin{equation*}
+	A^{\nu} (x) = \Lambda^{\nu}_{\ \alpha} A'^{\alpha} (x')
+	\end{equation*}
+	\begin{align*}
+	A^{0} &= \gamma A'^{0} + \beta \gamma A'^{1} = \frac{\gamma}{c} \frac{1}{4 \pi \epsilon_0} \frac{q}{\vec{r}'}\\
+	&= \frac{1}{c} \Phi
+	\end{align*}
+	\begin{equation*}
+	\rightarrow \quad \rmbox{\Phi (\vec{r}) = \frac{\gamma q}{4 \pi \epsilon_0 r'}}
+	\end{equation*}
+	\begin{align*}
+	A^{1} &= \beta \gamma A'^{0} + \gamma A'^{1}\\
+	&= \frac{\beta \gamma}{c} \frac{q}{4 \pi \epsilon_0 r'} = A_x\\
+	A_{x }&=  \frac{\beta \gamma}{c} \frac{q}{4 \pi \epsilon_0 r'}
+	\end{align*}
+	\begin{align*}
+	A^{2} &= A'^{2} = 0\\
+	A^{3} &= A'^{3} = 0
+	\end{align*}
+	mit $ \beta = \frac{v}{c} $
+	\begin{equation*}
+	\Rightarrow \quad \rmbox{\vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \frac{v \gamma q}{r'} \vec{e}x}
+	\end{equation*}
+	Umrechnung: $ x' \to x $
+	\begin{equation*}
+	\Lambda^{-1} = \begin{pmatrix}
+	\gamma & - \beta \gamma & 0 & 0 \\
+	- \beta \gamma & \gamma & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1
+	\end{pmatrix}
+	\end{equation*}
+	\begin{equation*}
+	(x'^{\nu}) = ( ct', x', y', z') = (\gamma x^{0} - \beta \gamma x^{1}, - \beta \gamma x^{0} + \gamma x^{1}, x^{2}, x^{3})
+	\end{equation*}
+	\begin{align*}
+	r'^{2} &= x'^2 + y'^2 + z'^2\\
+	&= (\gamma x - \beta \gamma ct)^2 + y^2 + z^2\\
+	&= \gamma^2 (x - vt)^2 + y^2 + z^2
+	\end{align*}
+	\begin{align*}
+	\Phi(\vec{r}) &= \frac{1}{4 \pi \epsilon_0}\frac{q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}} \\
+	\vec{A}(\vec{r}) &= \ \frac{\mu_0}{4 \pi} \ \: \frac{v q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}}
+	\end{align*}
+	Zuvor: gleiches Ergebnis in anderer Schreibweise:
+	\begin{equation*}
+	\Phi(\vec{r}) = = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{v^2}{c^2} \sin^2 \alpha}}
+	\end{equation*}
+	%
+	%
+	%
+	% T4
+	%
+	%
+	%
+	
+	%Vorlesung 7.2.18
+	
+	\item \textbf{Elektromagnetischer Feldtensor}
+	\begin{equation*}
+	\vec{E} = - \vabla \Phi - \prt{\vec{A}}{t} \qquad \vec{B} = \vabla \times \vec{A}
+	\end{equation*}
+	\textbf{Feldstärketensor}
+	\begin{align*}
+	F^{\mu \nu} &\defeq \partial^{\mu} A^{\nu} - \partial^{\nu} A^{\mu}\\
+	&= \prt{}{x_{\mu}} A^{\nu} - \prt{}{x_{\nu}} A^{\mu}
+	\end{align*}
+	$ \mu, \nu = 0, 1, 2, 3 $ ($ F $ ist also ein Tensor 2. Stufe oder hier eine $ 4 \times 4 $-Matrix)
+	\begin{equation*}
+	F^{\mu \nu} = - F^{\nu \mu}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad F^{\mu \mu} = 0 \qquad \mu = 0, 1, 2, 3
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow \quad 6 \tx{ unabhängige Elemente}
+	\end{equation*}
+	\begin{align*}
+	F^{01} &= \prt{A^{1}}{x_0} - \prt{A^0}{x_1} = \frac{1}{c} \prt{A_x}{t} + \frac{1}{c} \prt{\Phi}{x}\\
+	&= - \frac{1}{c} E_x = - F^{10}\\[5pt]
+	F^{02} &= - \frac{1}{c} E_y = - F^{20} \qquad \quad F^{03} = - \frac{1}{c} E_z = - F^{30} \\[5pt]
+	F^{12} &= \prt{A^2}{x_1} - \prt{A^1}{x_2} = - \prt{A_y}{x} + \prt{A_x}{y}\\
+	&= - (\vabla \times \vec{A})_z = - B_z = - F^{21}\\[5pt]
+	F^{13} &= B_y = - F^{31} \qquad \qquad \ \: F^{23} = - B_x = - F^{32}
+	\end{align*}
+	Hiermit und mit $ F_{\mu \nu} = g_{\mu \alpha} g_{\nu \beta} F^{\alpha \beta} $ erhalten wir:
+	\begin{equation*}
+	(F^{\mu \nu}) = \begin{pmatrix}
+	0 & - \frac{1}{c} E_x & - \frac{1}{c} E_y & - \frac{1}{c} E_z \\[10pt]
+	\frac{1}{c} E_x & 0 & - B_z & B_y \\[10pt]
+	\frac{1}{c} E_y & B_z & 0 & - B_x \\[10pt]
+	\frac{1}{c} E_z & - B_y & B_x & 0
+	\end{pmatrix} \qquad \qquad
+	(F_{\mu \nu}) = \begin{pmatrix}
+	0 & \frac{1}{c} E_x & \frac{1}{c} E_y & \frac{1}{c} E_z \\[10pt]
+	- \frac{1}{c} E_x & 0 & - B_z & B_y \\[10pt]
+	- \frac{1}{c} E_y & B_z & 0 & - B_x \\[10pt]
+	- \frac{1}{c} E_z & - B_y & B_x & 0
+	\end{pmatrix}
+	\end{equation*}
 \end{enumerate}
-Die Maxwell-Geichungen führen aus den Potential-Gleichungen auf:
+
+\subsection{Kovariante Form der Maxwell-Gleichungen}
+
+\frbox{Inhomogene Maxwell-Gleichungen}{\begin{equation*}
+\partial_{\alpha} F^{\alpha \beta} = \mu_0 j^{\beta} \qquad \beta = 0, 1, 2, 3
+\end{equation*}
+}
+\noindent
+\textbf{$ \beta = 0 $ :}
+\begin{equation*}
+\mu_0 j^0 = \mu_0 c \rho = \sum_{\alpha} \prt{}{x^\alpha} F^{\alpha 0} = \frac{1}{c} \vabla \cdot \vec{E}
+\end{equation*}
+\begin{equation*}
+\Rightarrow \quad \vabla \cdot \vec{E} = \mu_0 c^2 \rho = \frac{1}{\epsilon_0} \rho \quad \checkmark
+\end{equation*}
+\textbf{$ \beta = 1 $ :}
+\begin{equation*}
+\mu_0 j^1 = \mu_0 j_x = \sum_{\alpha} \prt{}{x^\alpha} F^{\alpha 1} = \frac{1}{c} \prt{}{t} \left(- \frac{1}{c} E_x\right) + \prt{B_z}{y} - \prt{B_y}{z} = - \frac{1}{c^2} \prt{E_x}{t} + (\vabla \times \vec{B})_x
+\end{equation*}
+Mit $ \beta = 2, 3 $ für $ y $- und $ z $-Komponenten ebenso:
+\begin{equation*}
+\Rightarrow \quad \vabla \times \vec{B} - \frac{1}{c^2} \prt{\vec{E}}{t} = \mu_0 \vec{j} \quad \checkmark
+\end{equation*}
+\textbf{Homogene Maxwell-Gleichungen}
+\begin{equation*}
+\rmbox{ \partial_{\lambda} F_{\mu \nu} + \partial_{\mu} F_{\nu \lambda} + \partial F_{\lambda \mu} = 0} \qquad \lambda, \mu, \nu = 0, 1, 2, 3
+\end{equation*}
+\noindent
+Indizes zyklisch vertauscht!
+\begin{equation*}
+\vabla \cdot \vec{B} = 0 \qquad \vabla \times \vec{E} + \prt{\vec{B}}{t} = 0
+\end{equation*}
+Wegen der Antisymmetrie von $ F $ gibt es nur 4 unabhängige Gleichungen:
+\begin{equation*}
+\lambda, \mu, \nu \in \left\{ 123,\, 012,\, 013,\, 023 \right\}
+\end{equation*}
+und alle zyklischen Vertauschungen dieser Werte.\\[5pt]
+\textbf{$ \lambda = \mu \neq \nu $}
+\begin{equation*}
+0 = \partial_{\lambda} F_{\lambda \nu} + \partial_{\lambda} \equalto{F_{\nu \lambda}}{- F_{\lambda \nu}} + \partial _{\nu} \equalto{F_{\lambda \lambda}}{0}
+\end{equation*}
+\begin{equation*}
+\frac{1}{2} \epsilon^{\alpha \lambda \mu \nu} \partial_{\lambda} F_{\mu \nu} = 0 \qquad \alpha = 0, 1, 2, 3
+\end{equation*}
+\begin{equation*}
+\epsilon^{\alpha \lambda \mu \nu} = \left\{ \begin{array}{r c}
++1 & \tx{ gerade Perm. von } 0123\\
+-1 & \tx{ ungerade Perm. von } 0123\\
+0 & \tx{ sonst }
+\end{array} \right.
+\end{equation*}
+\textbf{$ \alpha = 0 $ :}
 \begin{align*}
-\Rightarrow \quad \left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \Phi &= - \frac{1}{\epsilon_0} \rho \\
-\left(\Delta - \frac{1}{c^2} \prt{^2}{t^2}\right) \vec{A} &= - \mu \vec{j}
+0 &= \frac{1}{2} \epsilon^{0 \lambda \mu \nu} \partial_{\lambda} F_{\mu \nu}\\
+&= \frac{1}{2} \bigg(\equalto{\epsilon}{0}^{0123} \partial_1 F_{23} + \equalto{\epsilon}{-1}^{0132} \partial_{1} \equalto{F_{32}}{- F_{32}} + \equalto{\epsilon}{-1}^{0213} \partial_{2} \equalto{F_{13}}{- F_{31}} + \equalto{\epsilon}{1}^{0231} \partial_{2} F_{21} + \equalto{\epsilon}{-1}^{0312} \partial_{3} F_{12} + \equalto{\epsilon}{1}^{0321} \partial_{3} F_{21} \bigg)\\
+&= \partial_1 F_{23} + \partial_2 F_{31} + \partial_3 F_{12}
 \end{align*}
-Viererlaplaceoperator:
+Definition \textbf{dualer Feldstärketensor}
 \begin{equation*}
-\partial_{\nu} \partial^{\nu} = \sum_{\nu} \prt{}{x^{\nu}} \prt{}{x_{\nu}} = \frac{1}{c^2} \prt{^2}{t^2} - \prt{^2}{x^2} - \prt{^2}{y^2} - \prt{^2}{z^2} \eqdef \square \quad \tx{\textbf{d' Alambert Operator}}
+\tilde{F}^{\alpha \lambda} \defeq \frac{1}{2} \epsilon^{\alpha \lambda \mu \nu} F_{\mu \nu}
 \end{equation*}
+\frbox{Homogene Maxwell-Gleichungen}{
 \begin{equation*}
-\square A^{\nu} = \mu_0 j^{\nu} \qquad \nu = 0, 1, 2, 3
+\partial _{\lambda} \tilde{F}^{\alpha \lambda} = 0 \qquad \alpha = 0, 1, 2, 3
 \end{equation*}
-$ \nu = 0 $: $ A^{0} = \frac{1}{c} \Phi \quad j^{0} = c \rho $
+}
+\noindent
+\begin{align*}
+\tilde{F}^{\alpha \alpha} &= \frac{1}{2} \epsilon^{\alpha \alpha \mu \nu} F_{\mu \nu} = 0\\[5pt]
+\tilde{F}^{0 1} &= \frac{1}{2} \epsilon^{0 1 \mu \nu} F_{\mu \nu} \\
+&= \frac{1}{2} \bigg( \equalto{\epsilon}{1}^{0123} F_{23} + \equalto{\epsilon}{-1}^{0132} \equalto{F_{32}}{- F_{23}} \bigg)\\
+&= F_{23} = - B_x\\[5pt]
+& \dots
+\end{align*}
 \begin{equation*}
-\square \frac{1}{c} \Phi = \mu_0 c \rho
-\end{equation*}
-\begin{equation*}
-\square \Phi = \mu_0 c^2 \rho = \frac{1}{\epsilon_0} \rho
-\end{equation*}
-\emph{Beispiel:} Potentiale einer gleichförmig bewegten Ladung $ q $
-%
-%
-%
-% T3
-%
-%
-%
-$ q $ ruhe um Ursprung von $ S' $\\[5pt]
-Potentiale in $ S' $:
-\begin{equation*}
-\Phi'(\vec{r}') = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r}|} \quad \vec{A}'(\vec{r}') = 0
-\end{equation*}
-\begin{equation*}
-\Rightarrow \quad \left(A'^{\nu} (x')\right) = \left(\frac{1}{c} \Phi', \vec{A}'\right) = \left(\frac{1}{c} \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r}'|}, 0, 0, 0\right)
-\end{equation*}
-Transformation von $ S' $  ins Laborsystem $ S $ (LT mit $ - \vec{v} $):\\[5pt]
-LT: $ \vec{v} = -v \vec{e}_x $
-\begin{equation*}
-\Lambda = \begin{pmatrix}
-\gamma & \beta \gamma & 0 & 0 \\
-\beta \gamma & \gamma & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1
+(\tilde{F}^{\alpha \lambda}) = \begin{pmatrix}
+0 & -B_x & - B_y & - B_z \\[10pt]
+B_x & 0 & \frac{1}{c} E_z & -\frac{1}{c} E_y \\[10pt]
+B_y & - \frac{1}{c} E_z & 0 & \frac{1}{c} E_x \\[10pt]
+B_z & \frac{1}{c} E_y & - \frac{1}{c} E_x & 0
 \end{pmatrix}
 \end{equation*}
-\begin{equation*}
-A^{\nu} (x) = \Lambda^{\nu}_{\ \alpha} A'^{\alpha} (x')
-\end{equation*}
+\textbf{$ \alpha = 0 $ :}
 \begin{align*}
-A^{0} &= \gamma A'^{0} + \beta \gamma A'^{1} = \frac{\gamma}{c} \frac{1}{4 \pi \epsilon_0} \frac{q}{\vec{r}'}\\
-&= \frac{1}{c} \Phi
+0 &= \partial _{\lambda} \tilde{F}^{\alpha \lambda} = \sum_{\lambda} \prt{}{x^{\lambda}} \tilde{F}^{0 \lambda} \\
+&= - \prt{B_x}{x} - \prt{B_y}{y} - \prt{B_z}{z} = - \vabla \cdot \vec{B}\\[5pt]
+\vabla \cdot \vec{B} &= 0 \quad \checkmark
 \end{align*}
-\begin{equation*}
-\rightarrow \quad \rmbox{\Phi (\vec{r}) = \frac{\gamma q}{4 \pi \epsilon_0 r'}}
-\end{equation*}
+\textbf{$ \alpha = 1 $ :}
 \begin{align*}
-A^{1} &= \beta \gamma A'^{0} + \gamma A'^{1}\\
-&= \frac{\beta \gamma}{c} \frac{q}{4 \pi \epsilon_0 r'} = A_x\\
-A_{x }&=  \frac{\beta \gamma}{c} \frac{q}{4 \pi \epsilon_0 r'}
+0 &= \sum_{\lambda} \prt{}{x^{\lambda}} \tilde{F}^{1 \lambda} \\
+&= \frac{1}{c} \prt{}{t} B_x + \frac{1}{c} \prt{E_z}{y} - \frac{1}{c} \prt{E_y}{z} \\
+&= \frac{1}{c} \left(\prt{B_x}{t} + (\vabla \times \vec{E})_x \right)\\
 \end{align*}
-\begin{align}
-A^{2} &= A'^{2} = 0\\
-A^{3} &= A'^{3} = 0
-\end{align}
-mit $ \beta = \frac{v}{c} $
+mit $ \alpha = 2, 3 $ also die $ y $- und $ z $-Komponenten erhalten wir:
 \begin{equation*}
-\Rightarrow \quad \rmbox{\vec{A}(\vec{r}) = \frac{\mu_0}{4 \pi} \frac{v \gamma q}{r'} \vec{e}x}
+\vabla \times \vec{E} + \prt{\vec{B}}{t} = 0 \quad \checkmark
 \end{equation*}
-Umrechnung: $ x' \to x $
+
+\subsection{Lorentztransformation des Feldes}
+
+$ S \to S' $
+\begin{align*}
+{F'}^{\mu \nu} &= \Lambda^{\mu}_{\ \alpha} \Lambda^{\nu}_{\ \beta} F^{\alpha \beta}\\
+\tilde{F}^{\mu \nu} &= \Lambda^{\mu}_{\ \alpha} \Lambda^{\nu}_{\ \beta} \tilde{F}^{\alpha \beta}
+\end{align*}
+%
+%
+%
+% T1
+%
+%
+%
 \begin{equation*}
-\Lambda^{-1} = \begin{pmatrix}
+(\Lambda^{\mu}_{\ \alpha}) = \begin{pmatrix}
 \gamma & - \beta \gamma & 0 & 0 \\
 - \beta \gamma & \gamma & 0 & 0 \\
 0 & 0 & 1 & 0 \\
@@ -457,25 +648,71 @@ Umrechnung: $ x' \to x $
 \end{pmatrix}
 \end{equation*}
 \begin{equation*}
-(x'^{\nu}) = ( ct', x', y', z') = (\gamma x^{0} - \beta \gamma x^{1}, - \beta \gamma x^{0} + \gamma x^{1}, x^{2}, x^{3})
+F' = \Lambda F \Lambda
 \end{equation*}
-\begin{align*}
-r'^{2} &= x'^2 + y'^2 + z'^2\\
-&= (\gamma x - \beta \gamma ct)^2 + y^2 + z^2\\
-&= \gamma^2 (x - vt)^2 + y^2 + z^2
-\end{align*}
-\begin{align*}
-\Phi(\vec{r}) &= \frac{1}{4 \pi \epsilon_0}\frac{q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}} \\
-\vec{A}(\vec{r}) &= \ \frac{\mu_0}{4 \pi} \ \: \frac{v q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}}
-\end{align*}
-Zuvor: gleiches Ergebnis in anderer Schreibweise:
 \begin{equation*}
-\Phi(\vec{r}) = = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{v^2}{c^2} \sin^2 \alpha}}
+\Rightarrow \quad (F'^{\mu \nu}) = \begin{pmatrix}
+0 & - \frac{1}{c} E_x & \gamma (- \frac{1}{c} E_y + \beta B_z) & - \gamma (\frac{1}{c} E_z + \beta B_y) \\[10pt]
+\frac{1}{c} E_x & 0 & \gamma (\frac{\beta}{1} E_y - B_z) & \gamma (\frac{\beta}{c} E_z + B_y) \\[10pt]
+ - \gamma ( - \frac{1}{c} E_z + \beta B_z) & - \gamma (\frac{\beta}{c} E_y - B_y) & 0 & - B_x \\[10pt]
+\gamma (\frac{1}{c} E_z + \beta B_y)  & - \gamma (\frac{\beta}{c} E_z + B_y) & B_x & 0
+\end{pmatrix}
 \end{equation*}
+(zur Umformung benutzt: $ \frac{\gamma^2}{c} (\beta^2 - 1) = - \frac{1}{c} $)
+\begin{equation*}
+\Rightarrow \quad (F'_{\mu \nu}) = \begin{pmatrix}
+0 & - \frac{1}{c} E'_x & - \frac{1}{c} E'_y & - \frac{1}{c} E'_z \\[10pt]
+\frac{1}{c} E'_x & 0 & - B'_z & B'_y \\[10pt]
+\frac{1}{c} E'_y & B'_z & 0 & - B'_x \\[10pt]
+\frac{1}{c} E'_z & - B'_y & B'_x & 0
+\end{pmatrix}
+\end{equation*}
+\begin{align*}
+\Rightarrow \quad E'_x &= E_x \\[5pt]
+E'_y &= - c \gamma (- \frac{1}{c} E_y + \beta B_z) \\
+&= \gamma (E_y - v B_y) \\[5pt]
+E'_z &= \gamma (E_z + v B_y) \\[10pt]
+B'_x &= B_x \\
+B'_y &= \gamma (B_y + \frac{v}{c^2} E_z) \\
+B'_z &= \gamma (B_z - \frac{v}{c^2} E_y)
+\end{align*}
+Dies gilt nur für eine Geschwindigkeit $ v $ in $ x $-Richtung. Für eine allgemeine Geschwindigkeit gilt:
+\begin{align*}
+\vec{E}' &= \gamma (\vec{E} + \vec{v} \times \vec{B}) + (1 - \gamma) \frac{(\vec{E} \cdot \vec{v}) \vec{v}}{v^2} \\
+\vec{B}' &= \gamma (\vec{B} - \frac{1}{c^2} \vec{v} \times \vec{E}) + (1 - \gamma) \frac{(\vec{B} \cdot \vec{v}) \vec{v}}{v^2}
+\end{align*}
+\emph{Beispiel:} Feld einer gleichförmig bewegten Punktladung\\[5pt]
+Ladung: $ q $, Geschwindigkeit: $ \vec{v} = v \vec{e}_x $
 %
 %
 %
-% T4
+% T2
 %
 %
 %
+\textbf{in $ S' $ :}
+\begin{equation*}
+\vec{E}' = \frac{q}{4 \pi \epsilon_0} \frac{\vec{r}'}{r'^3} \qquad \vec{B}' = 0
+\end{equation*}
+Das entspricht: $ S' \to S $ und einer Lorentztransformation (LT) $ - \vec{v} $:\\
+\lcom{D.h. wir müssen in den zuvor hergeleiteten Gleichungen das gestrichene System vertauschen.}
+\begin{align*}
+E_x &= E_x' = \frac{q}{4 \pi \epsilon_0} \frac{x'}{r'^3} \\
+E_y &= \gamma E_y' = \gamma \frac{q}{4 \pi \epsilon_0} \frac{y'}{r'^3} \\
+E_z &= \gamma E_z' = \gamma \frac{q}{4 \pi \epsilon_0} \frac{z'}{r'^3} \\[5pt]
+B_x &= B_x' = 0 \\
+B_y &= - \gamma \frac{v}{c^2} E_z' = - \gamma \frac{v}{c^2} \frac{q}{4 \pi \epsilon_0} \frac{z'}{r'^3} \\
+B_z &= \gamma \frac{v}{c^2} E_y' = \gamma \frac{v}{c^2} \frac{q}{4 \pi \epsilon_0} \frac{y'}{r'^3}
+\end{align*}
+\lcom{Dies sind die Felder im System $ S $ ausgedrückt in Koordinaten von $ S' $. Diese müssen wir nun noch Transformieren.}\\[5pt]
+$ x', y', z' \to x, y, z, t $\\
+$ x' = \gamma (x - vt) \quad y' = y \quad z' = z $\\
+$ r'^3 = \left[\gamma^2 (x-vt)^2 + y^2 + z^2\right]^{\frac{3}{2}} $
+\begin{equation*}
+E_x = \frac{q}{4 \pi \epsilon_0} \frac{\gamma (x - vt)}{\left[ \dots \right]^{\frac{3}{2}}} \qquad \dots
+\end{equation*}
+Die Gleichungen haben also eine ähnliche Form.
+\vspace{100pt}
+\begin{center}
+	\scalebox{10}[10]{$ \mathcal{FIN} $}
+\end{center}
