@@ -14,34 +14,58 @@ Bezugssysteme, in denen sich ein Kräftefreier Körper geradlinig und gleichför
 
 in der \textbf{Newtonschen Mechanik} gilt das Galileische Relativitätsprinzip:\\
 Alle IS sind gleichwertig, d.h. physikalische Gesetze haben in allen IS die gleiche Form.\\[5pt]
-Der Übergang zwischen IS verläuft mittels der \textbf{Galileitransformation}:
-%
-%
-%
-% T5
-%
-%
-%
-$ \vec{v} = v \vec{e}_x \qquad \vec{r}' = \vec{r} - \vec{v}t $\\
-Transformationskoordinaten:
-\begin{align*}
-x' = x - vt \quad y' = y \quad z' = z \quad t' = t
-\end{align*}
-Transformation von Geschwindigkeiten
-%
-%
-%
-% T6
-%
-%
-%
-\begin{equation*}
-u' \defeq \frac{x'}{t'} = \frac{x - vt}{t} = \frac{x}{t} - v = u - v
-\end{equation*}
-\begin{equation*}
-u = u' + v
-\end{equation*}
-Geschwindigkeitsaddition ist also linear.\\[5pt]
+Der Übergang zwischen IS verläuft mittels der \textbf{Galileitransformation}:\\
+\begin{minipage}{.55\linewidth}
+	$ \vec{v} = v \vec{e}_x \qquad \vec{r}' = \vec{r} - \vec{v}t $\\
+	Transformationskoordinaten:
+	\begin{align*}
+	x' = x - vt \quad y' = y \quad z' = z \quad t' = t
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+	\flushright
+	% t5:
+	\begin{tikzpicture}[scale=0.8]
+		\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+		\coordinate (o) at (4.5,0);
+		\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+		\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+		%
+		\coordinate (p) at ($ (o) + (1.5,2) $);
+		\draw[->] (0,0) -- node[above] {$ \vec{r} $} (p);
+		\draw[->] (o) -- node[right] {$ \vec{r}' $} (p);
+		\draw[->] (3.2,0.1) -- node[above] {$ vt $} ($ (o) + (-0.2,0.1) $);
+	\end{tikzpicture}
+\end{minipage}%
+\\
+Transformation von Geschwindigkeiten\\
+\begin{minipage}{.55\linewidth}
+	\begin{equation*}
+	u' \defeq \frac{x'}{t'} = \frac{x - vt}{t} = \frac{x}{t} - v = u - v
+	\end{equation*}
+	\begin{equation*}
+	u = u' + v
+	\end{equation*}
+	Geschwindigkeitsaddition ist also linear.\\[5pt]
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+	\flushright
+	% t6:
+	\begin{tikzpicture}[scale=0.8]
+		\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+		\coordinate (o) at (4.5,0);
+		\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+		\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+		%
+		\coordinate (p) at ($ (o) + (1.5,1.5) $);
+		\draw (0,1.5) -- node[above] {$ u t $} (p);
+		\draw[thick, ->] ($ (o) + (0,1.525) $) -- node[above] {$ u' t $} ($ (p) + (0,.025) $);
+		\draw[->] (3.2,0.1) -- node[above] {$ vt $} ($ (o) + (-0.2,0.1) $);
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \textbf{Exp:} Lichtgeschwindigkeit $ c $ ist in allen Systemen gleich \LARGE \lightning \normalsize
 
 \subsubsection{Einsteinsches Relativitätsprinzip}
@@ -54,15 +78,27 @@ Grundlagen:
 
 \subsection{Lorentztransformation und relativistische Notation}
 
-%
-%
-%
-% T7
-%
-%
-%
-Ereignis in $ S $ bei $ t, x, y, z $ hat in $ S' $ die Koordinaten $ t', x', y', z' $\\
-Der Zusammenhang ist gegeben durch die Lorentztransformation.
+\begin{minipage}{.55\linewidth}
+	Ereignis in $ S $ bei $ t, x, y, z $ hat in $ S' $ die Koordinaten $ t', x', y', z' $\\
+	Der Zusammenhang ist gegeben durch die Lorentztransformation.
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+	\flushright
+	% t7:
+	\begin{tikzpicture}[scale=0.8]
+		\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+		\coordinate (o) at (4.5,0);
+		\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+		\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+		%
+		\coordinate (p) at ($ (o) + (1.5,1.5) $);
+		\draw (0,1.5) -- node[above] {$ v t $} (p);
+		\draw[thick, ->] ($ (o) + (0,1.525) $) -- node[above] {$ \vec{v} $} ($ (p) + (0,.025) $);
+		\node at (1.5,3.5) {$ S $};
+		\node at ($ (o) + (1.5,3.5) $) {$ S' $};
+	\end{tikzpicture}
+\end{minipage}%
 
 \subsubsection{Lorentransformation}
 
@@ -87,21 +123,28 @@ x^0 = ct \quad x^1 = x \quad x^2 = y \quad x^3 = z \qquad (x^\mu) = \begin{pmatr
 ct \\ x \\ y \\ z
 \end{pmatrix}
 \end{equation*}
-Darstellung: Raum-Zeit-Diagramme oder auch Minkowski-Diagramme:
-%
-%
-%
-% T8
-%
-%
-%
-Abstand zweier Ereignisse
-\begin{equation*}
-(x_A^\mu) = (x_A^0 , x_A^1, x_A^2, x_A^3) = (ct_A, x_A, y_A, z_A)
-\end{equation*}
-\begin{equation*}
-(x_B^\mu) = (x_B^0 , x_B^1, x_B^2, x_B^3) = (ct_B, x_B, y_B, z_B)
-\end{equation*}
+\begin{minipage}{.7\linewidth}
+	Darstellung: Raum-Zeit-Diagramme oder auch Minkowski-Diagramme:\\[10pt]
+	Abstand zweier Ereignisse
+	\begin{equation*}
+	(x_A^\mu) = (x_A^0 , x_A^1, x_A^2, x_A^3) = (ct_A, x_A, y_A, z_A)
+	\end{equation*}
+	\begin{equation*}
+	(x_B^\mu) = (x_B^0 , x_B^1, x_B^2, x_B^3) = (ct_B, x_B, y_B, z_B)
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	\flushright
+	% t8:
+	\begin{tikzpicture}
+		\draw[->] (0,-1) -- (0,3) node[anchor=south east] {$ ct $};
+		\draw[->] (-1,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[very thick] (0,0) -- (1.5,1.5) to[out=45,in=-135] (2,2.5) -- ++(45:1cm);
+		\draw[fill=black] (1.75,2) circle (0.1cm) node[right=5pt] {Ereigniss};
+		\draw ($ (0.9,0.9) + (0.2,0) $) -- ++(0.8,-0.2) node[right] {Weltlinie};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Abstand:
 \begin{align*}
 (\Delta s)^2 &\defeq (x_A^0 - a_B^0)^2 - (x_A^1 - x_B^1)^2 - (x_A^2 - x_B^2)^2 - (x_A^3 - x_B^3)^2\\
@@ -235,17 +278,29 @@ metrischer Tensor: $ g_{\mu \nu} $, Feldstärketensor $ F^{\mu \nu} $
 
 \subsubsection{Vierervektoren}
 
-\begin{equation*}
-(a^{\mu}): \quad a'^{\mu} = \Lambda^{\mu}_{\ \nu} a^{\nu} \qquad \tx{kontravariant}
-\end{equation*}
-$ \mu, \nu = 0, 1, 2, 3 $
-%
-%
-%
-% T1
-%
-%
-%
+\begin{minipage}{.5\linewidth}
+	\begin{equation*}
+	(a^{\mu}): \quad a'^{\mu} = \Lambda^{\mu}_{\ \nu} a^{\nu} \qquad \tx{kontravariant}
+	\end{equation*}
+	$ \mu, \nu = 0, 1, 2, 3 $
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	% t1:
+	\begin{tikzpicture}[scale=0.6]
+		\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+		\coordinate (o) at (4.5,0);
+		\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+		\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+		%
+		\coordinate (p) at ($ (o) + (1.5,1.5) $);
+		\draw[->] (0,1.5) -- node[above] {$ v t $} ($ (o) + (0,1.5) $);
+		\node at (1.5,3.5) {$ S $};
+		\node at ($ (o) + (1.5,3.5) $) {$ S' $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 Boosts:
 \begin{equation*}
 \Lambda^{\mu}_{\ \nu} = \begin{pmatrix}
@@ -331,28 +386,45 @@ x'^{\mu} &= \Lambda ^{\mu} _{\ \nu} x^{\nu} \\
 	es wird also über $ \mu $ aufsummiert: $ a_{\mu} b_{\mu} $\\[10pt]
 	Lorentztransformation: $ S \to S' $\\
 	$ j'^{\mu} = \Lambda^{\mu}_{\ \nu} j^{\nu} $\\
-	\emph{Beispiel:}
-	%
-	%
-	%
-	% T2
-	%
-	%
-	%
-	\begin{equation*}
-	\left(\Lambda ^{\mu}_{\ \nu}\right) = \begin{pmatrix}
-	\gamma & - \beta \gamma & 0 & 0 \\
-	- \beta \gamma & \gamma & 0 & 0 \\
-	0 & 0 & 1 & 0 \\
-	0 & 0 & 0 & 1
-	\end{pmatrix}
-	\end{equation*}
-	\begin{align*}
-	j'^{0} &= c\rho ' = \gamma c \rho - \beta \gamma j_x \\
-	j'^{1} &= j'_{x} = - \beta \gamma c \rho + \gamma j_x \\
-	j'^{2} &= j'_{y} = j_y \\
-	j'^{3} &= j'_{z} = j_z \\
-	\end{align*}
+	\emph{Beispiel:}\\
+	\begin{minipage}{.5\linewidth}
+		\begin{equation*}
+		\left(\Lambda ^{\mu}_{\ \nu}\right) = \begin{pmatrix}
+		\gamma & - \beta \gamma & 0 & 0 \\
+		- \beta \gamma & \gamma & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+		\end{pmatrix}
+		\end{equation*}
+		\begin{align*}
+		j'^{0} &= c\rho ' = \gamma c \rho - \beta \gamma j_x \\
+		j'^{1} &= j'_{x} = - \beta \gamma c \rho + \gamma j_x \\
+		j'^{2} &= j'_{y} = j_y \\
+		j'^{3} &= j'_{z} = j_z \\
+		\end{align*}
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\flushright
+		% t2:
+		\begin{tikzpicture}[scale=0.6]
+			\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+			\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+			\coordinate (o) at (4.5,0);
+			\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+			\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+			%
+			\coordinate (p) at ($ (o) + (1.5,1.5) $);
+			\draw[->] (0,1.5) -- node[above] {$ v t $} ($ (o) + (0,1.5) $);
+			\node at (1.5,3.5) {$ S $};
+			\node at ($ (o) + (1.5,3.5) $) {$ S' $};
+			%
+			\draw[fill=white!80!blue] (0,.6) -| (.6,0) -- (0,0) -- cycle;
+			\node at (0.3,0.3) {q};
+			\draw (0.05,0.3) to[out=150,in=30] (-0.6,0.3) node[left] {$ \Delta V $};
+			\node at ($ (o) + (2,2) $) {$ \vec{v} = v \vec{e}_x $};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
 	Annahme: in $ S $ ruhende Ladung $ q $ im Volumen $ \Delta V: $ $ \rho = \frac{q}{\Delta V} , \vec{j} = 0 $\\[5pt]
 	in $ S' $:
 	\begin{equation*}
@@ -399,14 +471,25 @@ x'^{\mu} &= \Lambda ^{\mu} _{\ \nu} x^{\nu} \\
 	\begin{equation*}
 	\square \Phi = \mu_0 c^2 \rho = \frac{1}{\epsilon_0} \rho
 	\end{equation*}
-	\emph{Beispiel:} Potentiale einer gleichförmig bewegten Ladung $ q $
-	%
-	%
-	%
-	% T3
-	%
-	%
-	%
+	\emph{Beispiel:} \textbf{Potentiale einer gleichförmig bewegten Ladung $ q $}
+	\begin{center}
+		% t3:
+		\begin{tikzpicture}[scale=0.6]
+			\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+			\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+			\coordinate (o) at (4.5,0);
+			\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+			\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+			%
+			\coordinate (p) at ($ (o) + (1.5,1.5) $);
+			\draw[->] (0,1.5) -- node[above] {$ v t $} ($ (o) + (0,1.5) $);
+			\node at (1.5,3.5) {$ S $};
+			\node at ($ (o) + (1.5,3.5) $) {$ S' $};
+			%
+			\node at ($ (o) + (2,2) $) {$ \vec{v} = v \vec{e}_x $};
+			\draw[fill=blue!80!white,draw=none] (o) circle (3pt) node[anchor=south west] {$ \color{blue!80!white} q \color{black} $};
+		\end{tikzpicture}
+	\end{center}
 	$ q $ ruhe um Ursprung von $ S' $\\[5pt]
 	Potentiale in $ S' $:
 	\begin{equation*}
@@ -469,17 +552,38 @@ x'^{\mu} &= \Lambda ^{\mu} _{\ \nu} x^{\nu} \\
 	\Phi(\vec{r}) &= \frac{1}{4 \pi \epsilon_0}\frac{q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}} \\
 	\vec{A}(\vec{r}) &= \ \frac{\mu_0}{4 \pi} \ \: \frac{v q}{\sqrt{(x - vt)^2 + (1 - \frac{v^2}{c^2})(y^2 + z^2)}}
 	\end{align*}
-	Zuvor: gleiches Ergebnis in anderer Schreibweise:
-	\begin{equation*}
-	\Phi(\vec{r}) = = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{v^2}{c^2} \sin^2 \alpha}}
-	\end{equation*}
-	%
-	%
-	%
-	% T4
-	%
-	%
-	%
+	\begin{minipage}{.6\linewidth}
+		Zuvor: gleiches Ergebnis in anderer Schreibweise:
+		\begin{equation*}
+		\Phi(\vec{r}) = = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\vec{r} - \vec{R}(t)| \sqrt{1 - \frac{v^2}{c^2} \sin^2 \alpha}}
+		\end{equation*}
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		% t4:
+		\begin{tikzpicture}
+			% coordinate system
+			\coordinate (o) at (0,0);
+			\draw[->] ($ (o) + (-1,0) $) -- (4,0) node[anchor=north west] {$ x $};
+			\draw[->] ($ (o) + (0,-2) $) -- (0,1.5) node[anchor=south east] {$ y $};
+			% q
+			\coordinate (q) at (2.5,0);
+			% vec r
+			\coordinate (r) at (2,-1.5);
+			\draw[thick,->] (o) -- node[below,yshift=-3pt] {$ \vec{r} $} (r);
+			% d
+			\draw[thick,->] (q) -- (r);
+			\node[right] at ($ (q)!0.7!(r) $) {$ \vec{d} $};
+			% vec V
+			\draw[thick,->] (q) -- node[above] {$ \vec{V} $} ++(1,0);
+			% angle
+			\centerarc[](q)(0:-108:0.8cm);
+			\node[anchor=north west,xshift=4pt,yshift=-4pt] at (q) {$ \alpha $};
+			% vec R
+			\draw[thick,->] (o) -- node[above,yshift=5pt] {$ \vec{R}(t) $} ($ (q) + (-0.05,0) $);
+			\draw[fill=white!20!blue] (q) circle (2pt) node[above] {$ \color{white!20!blue} q \color{black} $};
+		\end{tikzpicture}
+	\end{minipage}%
 	
 	%Vorlesung 7.2.18
 	
@@ -627,18 +731,30 @@ mit $ \alpha = 2, 3 $ also die $ y $- und $ z $-Komponenten erhalten wir:
 
 \subsection{Lorentztransformation des Feldes}
 
-$ S \to S' $
-\begin{align*}
-{F'}^{\mu \nu} &= \Lambda^{\mu}_{\ \alpha} \Lambda^{\nu}_{\ \beta} F^{\alpha \beta}\\
-\tilde{F}^{\mu \nu} &= \Lambda^{\mu}_{\ \alpha} \Lambda^{\nu}_{\ \beta} \tilde{F}^{\alpha \beta}
-\end{align*}
-%
-%
-%
-% T1
-%
-%
-%
+\begin{minipage}{.6\linewidth}
+	$ S \to S' $
+	\begin{align*}
+	{F'}^{\mu \nu} &= \Lambda^{\mu}_{\ \alpha} \Lambda^{\nu}_{\ \beta} F^{\alpha \beta}\\
+	\tilde{F}^{\mu \nu} &= \Lambda^{\mu}_{\ \alpha} \Lambda^{\nu}_{\ \beta} \tilde{F}^{\alpha \beta}
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	% t1:
+	\begin{tikzpicture}[scale=0.6]
+		\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+		\coordinate (o) at (4.5,0);
+		\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+		\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+		%
+		\coordinate (p) at ($ (o) + (1.5,1.5) $);
+		\draw[->] (0,1.5) -- node[above] {$ v t $} ($ (o) + (0,1.5) $);
+		\node at (1.5,3.5) {$ S $};
+		\node at ($ (o) + (1.5,3.5) $) {$ S' $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{equation*}
 (\Lambda^{\mu}_{\ \alpha}) = \begin{pmatrix}
 \gamma & - \beta \gamma & 0 & 0 \\
@@ -681,15 +797,35 @@ Dies gilt nur für eine Geschwindigkeit $ v $ in $ x $-Richtung. Für eine allge
 \vec{E}' &= \gamma (\vec{E} + \vec{v} \times \vec{B}) + (1 - \gamma) \frac{(\vec{E} \cdot \vec{v}) \vec{v}}{v^2} \\
 \vec{B}' &= \gamma (\vec{B} - \frac{1}{c^2} \vec{v} \times \vec{E}) + (1 - \gamma) \frac{(\vec{B} \cdot \vec{v}) \vec{v}}{v^2}
 \end{align*}
-\emph{Beispiel:} Feld einer gleichförmig bewegten Punktladung\\[5pt]
+%
+%
+%
+%
+
+\pagebreak
+\noindent
+%
+%
+%
+\emph{Beispiel:} \textbf{Feld einer gleichförmig bewegten Punktladung}\\[5pt]
 Ladung: $ q $, Geschwindigkeit: $ \vec{v} = v \vec{e}_x $
-%
-%
-%
-% T2
-%
-%
-%
+\begin{center}
+	% t2:
+	\begin{tikzpicture}[scale=0.6]
+		\draw[->] (-.1,0) -- (3,0) node[anchor=north west] {$ x $};
+		\draw[->] (0,-.1) -- (0,3) node[anchor=south east] {$ y $};
+		\coordinate (o) at (4.5,0);
+		\draw[->] ($ (o) + (-.1,0) $) -- ++(3,0) node[anchor=north west] {$ x' $};
+		\draw[->] ($ (o) + (0,-.1) $) -- ++(0,3) node[anchor=south east] {$ y' $};
+		%
+		\coordinate (p) at ($ (o) + (1.5,1.5) $);
+		\draw[->] (0,1.5) -- node[above] {$ v t $} ($ (o) + (0,1.5) $);
+		\node at (1.5,3.5) {$ S $};
+		\node at ($ (o) + (1.5,3.5) $) {$ S' $};
+		%
+		\draw[fill=blue!80!white,draw=none] (o) circle (3pt) node[anchor=south west] {$ \color{blue!80!white} q \color{black} $};
+	\end{tikzpicture}
+\end{center}
 \textbf{in $ S' $ :}
 \begin{equation*}
 \vec{E}' = \frac{q}{4 \pi \epsilon_0} \frac{\vec{r}'}{r'^3} \qquad \vec{B}' = 0

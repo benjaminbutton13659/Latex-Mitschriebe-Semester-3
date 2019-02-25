@@ -1421,21 +1421,27 @@ feine Aufspaltung der diskreten Spektrallinien
 		\item Entartung in $ l $ wird teilweise aufgehoben
 	\end{enumerate}
 	\item \textbf{Elektronen-Spin}\\
-	klassisch:
-	\begin{equation*}
-	\vec{\mu} = \frac{q}{2m} \vec{L}
-	\end{equation*}
-	%
-	%
-	%
-	% T1
-	%
-	%
-	%
-	Quantenmechanik:
-	\begin{equation*}
-	\hat{\vec{\mu}} = - g_e \ub{\frac{e \hbar}{2m}}_{\mu_{B}} \ub{\frac{1}{\hbar} \hat{\vec{S}}}_{\mathclap{ \qquad \ \ \tx{dimensionslos}}}
-	\end{equation*}
+	\begin{minipage}{.8\linewidth}
+		klassisch:
+		\begin{equation*}
+		\vec{\mu} = \frac{q}{2m} \vec{L}
+		\end{equation*}
+		Quantenmechanik:
+		\begin{equation*}
+		\hat{\vec{\mu}} = - g_e \ub{\frac{e \hbar}{2m}}_{\mu_{B}} \ub{\frac{1}{\hbar} \hat{\vec{S}}}_{\mathclap{ \qquad \ \ \tx{dimensionslos}}}
+		\end{equation*}
+	\end{minipage}%
+	\begin{minipage}{.2\linewidth}
+		\flushright
+		% t1:
+		\begin{tikzpicture}
+			\draw[pattern=north east lines] (0,0) circle (.3cm);
+			\draw[thick,->] (0,-1.5) -- (0,1.5) node[anchor=south east] {$ \vec{\mu} $};
+			\draw[->] ($ ({cos(45) * -1},{sin(45) * .7}) $) arc[start angle=-225, end angle=10, x radius = 1cm, y radius = .7cm] node[anchor=south west] {$ q $};
+			\draw[dashed] ($ ({cos(45) * -1},{sin(45) * .7}) $) arc[start angle=135, end angle=10, x radius = 1cm, y radius = .7cm];
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
 	mit $ \mu_B : $ dem Bohr'schen Magneton\\
 	und $ g_e \approx 2{,}0023 \dots $\\
 	(Dirac: $ g = 2 $, QED: $ g = 2{,}0023 \dots $)\\[5pt]

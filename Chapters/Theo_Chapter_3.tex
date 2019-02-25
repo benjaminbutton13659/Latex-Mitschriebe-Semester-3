@@ -544,9 +544,7 @@ $ \vec{S}: $ \textbf{Energiestromdichte}\\
 %
 %
 %
-
 \pagebreak
-
 %
 %
 %
@@ -1555,7 +1553,6 @@ $ \vec{r} = (x,0,0): \quad \vec{k}_e \cdot \vec{r} = \vec{k}_r \cdot \vec{r} $
 	\end{minipage}
 \end{center}
 
-
 \subsubsection{Brechungsgesetz}
 
 $ \vec{r} = (x,0,0): \quad \vec{k}_2 \cdot \vec{r} = \vec{k}_e \cdot \vec{r} $
@@ -1618,7 +1615,7 @@ z.B. Wasser $ \ n_1 \approx 1{,}33 $, Luft $ \ n_2 \approx 1 $ $ \Rightarrow \th
 \draw [domain=-3.75:3.75, samples=100] plot (\x, {2 * cos(1 / 4 * 15 * \x r) * exp(- (\x)^(2) * 0.25});
 \end{tikzpicture}
 \end{comment}
-% teyt of tikz plotting:
+% test of tikz plotting:
 %\begin{tikzpicture}
 %\draw [domain=-4:4, samples=100,scale=.3] plot (\x, {5*exp(-(\x)^(2)*0.25 * cos(\x * 40)});
 %\end{tikzpicture}
@@ -1707,7 +1704,7 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 		\begin{align*}
 		\vec{k}_2 &= k_2 (\sin \theta_2 \vec{e}_x + \cos \theta_2 \vec{e}_z)\\
 		\vec{k}_e &= k_e (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)\\
-		\vec{k}_r &= k_r (\sin \theta_1 \vec{e}_x + \cos \theta_1 \vec{e}_z)
+		\vec{k}_r &= k_r (\sin \theta_1 \vec{e}_x - \cos \theta_1 \vec{e}_z)
 		\end{align*}
 	\end{minipage}%
 	\begin{minipage}{.4\linewidth}
@@ -1749,7 +1746,7 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 		\end{tikzpicture}
 	\end{minipage}%
 	\\
-	Aus den Stetigkeitsbedingunen folgt:  % vielleicht muss eins auch i) sein
+	Aus den Stetigkeitsbedingunen folgt:  % vielleicht muss eins auch i) sein -- nein muss es nicht:
 	\begin{equation*}
 	\vec{E}_{r_0} = E_{r_0} \vec{e}_y \qquad \vec{E}_{2_0} = E_{2_0} \vec{e}_y
 	\end{equation*}
@@ -1760,15 +1757,9 @@ ebenso für $ \vec{E}_r $ und $ \vec{E}_2 $\\[10pt]
 		\end{equation*}
 		\item[iii)] Diese Bedingung liefert im wesentlichen das Brechungsgesetz
 		\item[iv)] $ \vec{t} = \vec{e}_x: $
-		%
-		%
-		%
 		% make me nicer:
-		%
-		%
-		%
 		\begin{equation*}
-		0 = \frac{1}{\mu_2} \ub{\vec{e}_x \cdot (\vec{k}_2 \times \vec{E}_{2_0})}_{\substack{= - \vec{k}_2 \cdot (\vec{e}_x \times \vec{E}_{2_0}) \\ = - \vec{k}_2 \cdot \vec{e}_z E_{2_0} \\ = - E_{2_0} k_2 \cos \theta_2}} - \frac{1}{\mu_1} \ub{\vec{e}_x \cdot (\vec{k}_e \times \vec{E}_{e_0})}_{= - E_{e_0} k_e \cos \theta_1} - \frac{1}{\mu_1} \ub{\vec{e}_x \cdot (\vec{k}_r \times \vec{E}_{r_0})}_{= E_{r_0} k_r \cos \theta_1}
+		0 = \frac{1}{\mu_2} \ub{\vec{e}_x \cdot (\vec{k}_2 \times \vec{E}_{2_0})}_{\substack{= - \vec{k}_2 \cdot (\vec{e}_x \times \vec{E}_{2_0}) \\ = - \vec{k}_2 \cdot \vec{e}_z E_{2_0} \ \ \ \ \\ = - E_{2_0} k_2 \cos \theta_2 \ }} - \frac{1}{\mu_1} \ub{\vec{e}_x \cdot (\vec{k}_e \times \vec{E}_{e_0})}_{= - E_{e_0} k_e \cos \theta_1} - \frac{1}{\mu_1} \ub{\vec{e}_x \cdot (\vec{k}_r \times \vec{E}_{r_0})}_{= E_{r_0} k_r \cos \theta_1}
 		\end{equation*}
 		\begin{equation*}
 		\Rightarrow \quad \rmbox{0 = - \frac{k_2}{\mu_2} E_{2_0} \cos \theta_2 + \frac{k_e}{\mu_1} E_{e_0} \cos \theta_1 - \frac{k_r}{\mu_1} E_{r_0} \cos \theta_1}
@@ -2599,33 +2590,33 @@ Zum Verständnis des Retardierenden Potentials Skizze (\ref{tikzrho}).
 
 \section{Elektromagnetische Potentiale und Felder bewegter Punktladungen}
 
-%
-%
-%
-% t2:
-\begin{tikzpicture}
-	% coordinate system
-	\coordinate (o) at (0,0);
-	\draw[->] (o) -- ++(0,.5);
-	\draw[->] (o) -- ++(.5,0);
-	\draw[->] (o) -- ++(-.3,-.3);
-	% vec R
-	\coordinate (q) at (1.3,2);
-	\draw[fill=black] (q) circle (.05cm) node[anchor=south west] {$ q $};
-	\draw[thick,->] (o) -- node[anchor=north west] {$ \vec{R}(t) $} (q);
-	% line
-	\draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
-\end{tikzpicture}
-%
-%
-%
-\begin{equation*}
-\rho(\vec{r},t) = q \delta (\vec{r} - \vec{R}(t)) \qquad \vec{j}(\vec{r},t) = q \vec{V}(t) \delta(\vec{r} - \vec{R}(t))
-\end{equation*}
-mit $ \vec{V}(t) = \dot{\vec{R}}(t) $\\
-\begin{equation*}
-\Phi(\vec{r},t) = \kq \int \dd^3 r' \frac{q \delta(\vec{r}' - \vec{R}(\tilde{t}))}{|\vec{r} - \vec{r}'|}
-\end{equation*}
+\begin{minipage}{.7\linewidth}
+	\begin{equation*}
+	\rho(\vec{r},t) = q \delta (\vec{r} - \vec{R}(t)) \qquad \vec{j}(\vec{r},t) = q \vec{V}(t) \delta(\vec{r} - \vec{R}(t))
+	\end{equation*}
+	mit $ \vec{V}(t) = \dot{\vec{R}}(t) $\\
+	\begin{equation*}
+	\Phi(\vec{r},t) = \kq \int \dd^3 r' \frac{q \delta(\vec{r}' - \vec{R}(\tilde{t}))}{|\vec{r} - \vec{r}'|}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	\flushright
+	% t2:
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (0,0);
+		\draw[->] (o) -- ++(0,.5);
+		\draw[->] (o) -- ++(.5,0);
+		\draw[->] (o) -- ++(-.3,-.3);
+		% vec R
+		\coordinate (q) at (1.3,2);
+		\draw[fill=black] (q) circle (.05cm) node[anchor=south west] {$ q $};
+		\draw[thick,->] (o) -- node[anchor=north west] {$ \vec{R}(t) $} (q);
+		% line
+		\draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
+	\end{tikzpicture}
+\end{minipage}%
+\\
 $ \tilde{t} = t - \frac{|\vec{r} - \vec{r}'|}{c} $\\
 Wir wollen nun das folgende Integral lösen:
 \begin{align*}
@@ -2645,42 +2636,42 @@ $ f(t') $ hat höchstens eine Nullstelle: $ t_j \eqdef t_{\tx{ret}} \qquad t_{\t
 t_{\tx{ret}} = t - \frac{|\vec{r} - \vec{R}(t_{\tx{ret}}) |}{c}
 \end{equation*}
 gegeben: $ t , \vec{r} \rightarrow t_{\tx{ret}}(\vec{r},t) $\\[5pt]
-Berechnen wir zuerst die Ableitung:
-\begin{align*}
-\prd{f}{t'} &= 1 + \frac{1}{c} \prd{}{t'} |\vec{r} - \vec{R}(t')|\\
-&= 1 - \frac{1}{c} \frac{(\vec{r} - \vec{R}(t')) \cdot \ob{\dot{\vec{R}}(t')}^{=\vec{V}(t')}}{|\vec{r} - \vec{R}(t')|}\\
-&= 1 - \ub{\vec{e}_{\vec{r} - \vec{R}(t')} \cdot \frac{\vec{V}(t')}{c}}_{\le\ |\vec{e} \cdot \frac{\vec{V}}{c}| \ \le \ |\frac{\vec{V}}{c}| \ < \ 1}
-\end{align*}
-%
-%
-%
-% t3:
-\begin{tikzpicture}
-	% coordinate system
-	\coordinate (o) at (-.5,-.5);
-	\draw[->] (o) -- ++(0,.5);
-	\draw[->] (o) -- ++(.5,0);
-	\draw[->] (o) -- ++(-.3,-.3);
-	% vec R
-	\coordinate (q) at (1.3,2);
-	\draw[fill=black] (q) circle (.05cm) node[below] {$ q $};
-	\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R}(t) $};
-	% line
-	\draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
-	% Rret
-	\coordinate (ret) at ($ (q) + (-1,.5) $);
-	\draw[fill=black] (ret) circle (0.05cm);
-	\draw[thick,->] (o) -- (ret) node[anchor=south west] {$ \vec{R}(t_{\tx{ret}}) $};
-	% vec r
-	\coordinate (r) at (2,.25);
-	\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
-	% r - R ret
-	\draw[thick,->] (ret) -- ($ (r) + (-0.02,.03) $);
-	\draw ($ (ret)!.8!(r) $) to[out=20,in=150] ($ (r) + (1,.2) $) node[right] {$ | \vec{r} - \vec{R}(t_{\tx{ret}}) | $};
-\end{tikzpicture}
-%
-%
-%
+Berechnen wir zuerst die Ableitung:\\
+\begin{minipage}{.55\linewidth}
+	\begin{align*}
+	\prd{f}{t'} &= 1 + \frac{1}{c} \prd{}{t'} |\vec{r} - \vec{R}(t')|\\
+	&= 1 - \frac{1}{c} \frac{(\vec{r} - \vec{R}(t')) \cdot \ob{\dot{\vec{R}}(t')}^{=\vec{V}(t')}}{|\vec{r} - \vec{R}(t')|}\\
+	&= 1 - \ub{\vec{e}_{\vec{r} - \vec{R}(t')} \cdot \frac{\vec{V}(t')}{c}}_{\le\ |\vec{e} \cdot \frac{\vec{V}}{c}| \ \le \ |\frac{\vec{V}}{c}| \ < \ 1}
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+	\flushright
+	% t3:
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (-.5,-.5);
+		\draw[->] (o) -- ++(0,.5);
+		\draw[->] (o) -- ++(.5,0);
+		\draw[->] (o) -- ++(-.3,-.3);
+		% vec R
+		\coordinate (q) at (1.3,2);
+		\draw[fill=black] (q) circle (.05cm) node[below] {$ q $};
+		\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R}(t) $};
+		% line
+		\draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
+		% Rret
+		\coordinate (ret) at ($ (q) + (-1,.5) $);
+		\draw[fill=black] (ret) circle (0.05cm);
+		\draw[thick,->] (o) -- (ret) node[anchor=south west] {$ \vec{R}(t_{\tx{ret}}) $};
+		% vec r
+		\coordinate (r) at (2,.25);
+		\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
+		% r - R ret
+		\draw[thick,->] (ret) -- ($ (r) + (-0.02,.03) $);
+		\draw ($ (ret)!.8!(r) $) to[out=20,in=150] ($ (r) + (1,.2) $) node[right] {$ | \vec{r} - \vec{R}(t_{\tx{ret}}) | $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{align*}
 \int \dd t' \frac{\delta(f(t'))}{|\vec{r} - \vec{R}(t')|} &= \int \dd t' \frac{\delta(t' - t_{\tx{ret}})}{\left|\left(\frac{\dd f}{\dd t'}\right)_{t' = t_{\tx{ret}}}\right|} \cdot \frac{1}{| \vec{r} - \vec{R}(t')|}\\
 &= \int \dd t' \frac{\delta(t' - t_{\tx{ret}})}{|\vec{r} - \vec{R}(t_{\tx{ret}})| - \frac{1}{c} (\vec{r} - \vec{R}(t_{\tx{ret}})) \cdot \vec{V}(t_{\tx{ret}})}\\
@@ -2697,66 +2688,66 @@ Damit haben wir das integral gelöst und erhalten:
 \emph{Beispiele:}
 \begin{enumerate}[i)]
 	\item statischer Grenzfall: ruhende Punktladung:\\
-	$ \vec{V} = 0 \quad \vec{R} = \vec{R}_0 \quad \vec{A}(\vec{r},t) = 0 $
-	%
-	%
-	%
-	% t4:
-	\begin{tikzpicture}
-		% coordinate system
-		\coordinate (o) at (0,0);
-		\draw[->] (o) -- ++(0,.5);
-		\draw[->] (o) -- ++(.5,0);
-		\draw[->] (o) -- ++(-.3,-.3);
-		% vec R0
-		\coordinate (q) at (1.3,2);
-		%\draw[fill=black] (q) circle (.05cm) node[below] {$ q $};
-		\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R_0} $};
-	\end{tikzpicture}
-	%
-	%
-	%
-	\begin{equation*}
-	\Phi(\vec{r},t) = \kq \frac{q}{|\vec{r} - \vec{R}_0|}
-	\end{equation*}
+	\begin{minipage}{.8\linewidth}
+		$ \vec{V} = 0 \quad \vec{R} = \vec{R}_0 \quad \vec{A}(\vec{r},t) = 0 $
+		\begin{equation*}
+		\Phi(\vec{r},t) = \kq \frac{q}{|\vec{r} - \vec{R}_0|}
+		\end{equation*}
+	\end{minipage}%
+	\begin{minipage}{.2\linewidth}
+		\flushright
+		% t4:
+		\begin{tikzpicture}
+			% coordinate system
+			\coordinate (o) at (0,0);
+			\draw[->] (o) -- ++(0,.5);
+			\draw[->] (o) -- ++(.5,0);
+			\draw[->] (o) -- ++(-.3,-.3);
+			% vec R0
+			\coordinate (q) at (1,1.6);
+			%\draw[fill=black] (q) circle (.05cm) node[below] {$ q $};
+			\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R_0} $};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\
 	\item gleichförmig bewegte Punktladung:\\
 	$ \vec{V} = \vec{V}_0 = \const \quad \vec{R}(t) = \vec{R}_0 + \vec{V}_0 \cdot t $\\[5pt]
-	Bestimmung von $ t_{\tx{ret}} $:
-	\begin{equation*}
-	t_{\tx{ret}} = t - \frac{|\vec{r} - \vec{R}(t_{\tx{ret}})|}{c}
-	\end{equation*}
-	\begin{align*}
-	c(t - t_{\tx{ret}}) &= |\vec{r} - \vec{R}(t_{\tx{ret}})|\\
-	&= |\ub{\vec{r} - \vec{R}(t)}_{\eqdef \vec{d}(\vec{r},t)} + \ub{\vec{R}(t) - \vec{R}(t_{\tx{ret}})}_{= \vec{V}_0 \cdot (t - t_{\tx{ret}})}|
-	\end{align*}
-	%
-	%
-	%
-	% t5:
-	\begin{tikzpicture}
-		% coordinate system
-		\coordinate (o) at (-.5,-.2);
-		\draw[->] (o) -- ++(0,.5);
-		\draw[->] (o) -- ++(.5,0);
-		\draw[->] (o) -- ++(-.3,-.3);
-		% vec R
-		\coordinate (q) at (1.3,2);
-		\draw[fill=black] (q) circle (.05cm) node[anchor=south east] {$ q $};
-		\draw[thick,->] (o) -- node[left] {$ \vec{R}(t) $} (q);
-		% vec r
-		\coordinate (r) at (2,.25);
-		\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
-		% d
-		\draw[thick,->] (q) -- node[right] {$ \vec{d} = \vec{r} - \vec{R}(t) $} (r);
-		\draw[thick] ($ (q) + (-160:3cm) $) -- ($ (q) + (20:3cm) $);
-		% Vec V
-		\draw[ultra thick, ->] (q) -- node[above] {$ \vec{V}_0 $} ($ (q) + (20:1cm) $);
-		% phi
-		\node[anchor=north west] at (r) {$ \Phi(\vec{r},t) $};
-	\end{tikzpicture}
-	%
-	%
-	%
+	Bestimmung von $ t_{\tx{ret}} $:\\
+	\begin{minipage}{.6\linewidth}
+		\begin{equation*}
+		t_{\tx{ret}} = t - \frac{|\vec{r} - \vec{R}(t_{\tx{ret}})|}{c}
+		\end{equation*}
+		\begin{align*}
+		c(t - t_{\tx{ret}}) &= |\vec{r} - \vec{R}(t_{\tx{ret}})|\\
+		&= |\ub{\vec{r} - \vec{R}(t)}_{\eqdef \vec{d}(\vec{r},t)} + \ub{\vec{R}(t) - \vec{R}(t_{\tx{ret}})}_{= \vec{V}_0 \cdot (t - t_{\tx{ret}})}|
+		\end{align*}
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		% t5:
+		\begin{tikzpicture}
+			% coordinate system
+			\coordinate (o) at (-.5,-.2);
+			\draw[->] (o) -- ++(0,.5);
+			\draw[->] (o) -- ++(.5,0);
+			\draw[->] (o) -- ++(-.3,-.3);
+			% vec R
+			\coordinate (q) at (1.3,2);
+			\draw[fill=black] (q) circle (.05cm) node[anchor=south east] {$ q $};
+			\draw[thick,->] (o) -- node[left] {$ \vec{R}(t) $} (q);
+			% vec r
+			\coordinate (r) at (2,.25);
+			\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
+			% d
+			\draw[thick,->] (q) -- node[right] {$ \vec{d} = \vec{r} - \vec{R}(t) $} (r);
+			\draw[thick] ($ (q) + (-160:3cm) $) -- ($ (q) + (20:3cm) $);
+			% Vec V
+			\draw[ultra thick, ->] (q) -- node[above] {$ \vec{V}_0 $} ($ (q) + (20:1cm) $);
+			% phi
+			\node[anchor=north west] at (r) {$ \Phi(\vec{r},t) $};
+		\end{tikzpicture}
+	\end{minipage}%
+	\\[5pt]
 	\begin{align*}
 	\Rightarrow \quad c^2(t - t_{\tx{ret}})^2 &= | \vec{d} - \vec{V}_0 \cdot (t - t_{\tx{ret}})|^2\\
 	&= d^2 + 2 \cdot \ub{\vec{d} \cdot \vec{V}_0}_{d V_0 \cos \alpha} \cdot (t - t_{\tx{ret}}) + V_0^2 \cdot (t-t_{\tx{ret}})^2
@@ -2792,76 +2783,76 @@ Damit haben wir das integral gelöst und erhalten:
 \begin{equation*}
 \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t} \qquad \vec{B} = \vabla \times \vec{A}
 \end{equation*}
-Komplikationen $ \alpha = \alpha(\vec{r},t) $
-%
-%
-%
-% t6:
-\begin{tikzpicture}
-	% coordinate system
-	\coordinate (o) at (-.5,-.2);
-	\draw[->] (o) -- ++(0,.5);
-	\draw[->] (o) -- ++(.5,0);
-	\draw[->] (o) -- ++(-.3,-.3);
-	% vec R
-	\coordinate (q) at (1.3,2);
-	\draw[fill=black] (q) circle (.05cm) node[anchor=south east] {$ q $};
-	\draw[thick,->] (o) -- node[left] {$ \vec{R}(t) $} (q);
-	% vec r
-	\coordinate (r) at (2,.25);
-	\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
-	% d
-	\draw[thick,->] (q) -- (r);
-	\node[right] at ($ (q)!0.7!(r) $) {$ \vec{d} $};
-	\draw[thick] ($ (q) + (-160:3cm) $) -- ($ (q) + (20:3cm) $);
-	% Vec V
-	\draw[ultra thick, ->] (q) -- node[above] {$ \vec{V}_0 $} ($ (q) + (20:1.5cm) $);
-	% angle
-	\centerarc[](q)(20:-69:1cm);
-	\node[anchor=north west,xshift=8pt,yshift=-1pt] at (q) {$ \alpha $};
-\end{tikzpicture}\\
-%
-%
-%
-\lcom{Dies wird z.B. im Griffitz genau hergeleitet, ist aber obwohl es nicht zu kompliziert ist, zu langwierig für de Vorlesung.}
+\begin{minipage}{.5\linewidth}
+	Komplikationen $ \alpha = \alpha(\vec{r},t) $\\
+	\lcom{Dies wird z.B. im Griffitz genau hergeleitet, ist aber obwohl es nicht zu kompliziert ist, zu langwierig für die Vorlesung.}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	% t6:
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (-.5,-.2);
+		\draw[->] (o) -- ++(0,.5);
+		\draw[->] (o) -- ++(.5,0);
+		\draw[->] (o) -- ++(-.3,-.3);
+		% vec R
+		\coordinate (q) at (1.3,2);
+		\draw[fill=black] (q) circle (.05cm) node[anchor=south east] {$ q $};
+		\draw[thick,->] (o) -- node[left] {$ \vec{R}(t) $} (q);
+		% vec r
+		\coordinate (r) at (2,.25);
+		\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
+		% d
+		\draw[thick,->] (q) -- (r);
+		\node[right] at ($ (q)!0.7!(r) $) {$ \vec{d} $};
+		\draw[thick] ($ (q) + (-160:3cm) $) -- ($ (q) + (20:3cm) $);
+		% Vec V
+		\draw[ultra thick, ->] (q) -- node[above] {$ \vec{V}_0 $} ($ (q) + (20:1.5cm) $);
+		% angle
+		\centerarc[](q)(20:-69:1cm);
+		\node[anchor=north west,xshift=8pt,yshift=-1pt] at (q) {$ \alpha $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{align*}
 \vec{E} &= \frac{q}{4 \pi \epsilon_0} \frac{1 - \frac{V_0^2}{c^2}}{\left(1 - \frac{V_0^2}{c^2} \sin^2 \alpha\right)^{\frac{3}{2}}} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3}\\
 \vec{B} &= \frac{1}{c^2} \left(\vec{V}_0 \times \vec{E}\right)
 \end{align*}
-Bei kleinen Geschwindigkeiten gilt:\\
-$ \frac{V_0}{c} \ll 1 : $
-\begin{equation*}
-\rightarrow \quad \vec{E} \approx \frac{q}{4 \pi \epsilon_0} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3} \qquad \vec{B} \approx 0
-\end{equation*}
-$ \frac{V_0}{c} : $ endlich
-%
-%
-%
-% t7:
-\begin{tikzpicture}
-	% coordinate system
-	\coordinate (o) at (0,0);
-	\draw[->] ($ (o) + (-1,0) $) -- (4,0) node[anchor=north west] {$ x $};
-	\draw[->] ($ (o) + (0,-2.5) $) -- (0,2) node[anchor=south east] {$ y $};
-	% vec R
-	\coordinate (q) at (2,0);
-	\draw[fill=black] (q) circle (.05cm) node[anchor=south west] {$ q $};
-	\draw[thick,->] (o) -- node[above,yshift=5pt] {$ \vec{R}(t) $} (q);
-	% vec r
-	\coordinate (r) at (2,-2);
-	\draw[thick,->] (o) -- node[below,yshift=-3pt] {$ \vec{r}_1 $} (r);
-	% ver r 2
-	\draw[thick,->] (o) -- node[above] {$ \vec{r}_2 $} ($ (o)!.5!(q) $);
-	% d
-	\draw[thick,->] (q) -- (r);
-	\node[right] at ($ (q)!0.7!(r) $) {$ \vec{d} = \vec{r} - \vec{R}(t) $};
-	% angle
-	\centerarc[](q)(0:-90:1cm);
-	\node[anchor=north west,xshift=8pt,yshift=-5pt] at (q) {$ \alpha $};
-\end{tikzpicture}
-%
-%
-%
+\begin{minipage}{.6\linewidth}
+	Bei kleinen Geschwindigkeiten gilt:\\
+	$ \frac{V_0}{c} \ll 1 : $
+	\begin{equation*}
+	\rightarrow \quad \vec{E} \approx \frac{q}{4 \pi \epsilon_0} \frac{\vec{r} - \vec{R}(t)}{|\vec{r} - \vec{R}(t)|^3} \qquad \vec{B} \approx 0
+	\end{equation*}
+	$ \frac{V_0}{c} : $ endlich
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	% t7:
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (0,0);
+		\draw[->] ($ (o) + (-1,0) $) -- (4,0) node[anchor=north west] {$ x $};
+		\draw[->] ($ (o) + (0,-2.5) $) -- (0,2) node[anchor=south east] {$ y $};
+		% vec R
+		\coordinate (q) at (2,0);
+		\draw[fill=black] (q) circle (.05cm) node[anchor=south west] {$ q $};
+		\draw[thick,->] (o) -- node[above,yshift=5pt] {$ \vec{R}(t) $} (q);
+		% vec r
+		\coordinate (r) at (2,-2);
+		\draw[thick,->] (o) -- node[below,yshift=-3pt] {$ \vec{r}_1 $} (r);
+		% ver r 2
+		\draw[thick,->] (o) -- node[above] {$ \vec{r}_2 $} ($ (o)!.5!(q) $);
+		% d
+		\draw[thick,->] (q) -- (r);
+		\node[right] at ($ (q)!0.7!(r) $) {$ \vec{d} = \vec{r} - \vec{R}(t) $};
+		% angle
+		\centerarc[](q)(0:-90:1cm);
+		\node[anchor=north west,xshift=8pt,yshift=-5pt] at (q) {$ \alpha $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{enumerate}[1)]
 	\item $ \vec{d} \perp \vec{R} \quad \alpha = \frac{\pi}{2} $
 	\begin{equation*}
@@ -2880,41 +2871,42 @@ $ \frac{V_0}{c} : $ endlich
 \vec{E} = - \vabla \Phi - \prt{\vec{A}}{t} \qquad \vec{B} = \vabla \times \vec{A}
 \end{equation*}
 \lcom{Wird ebenfalls nicht in der Vorlesung berechnet da es zu langwierig ist.}\\[5pt]
-%
-%
-%
-% t8:
-\begin{tikzpicture}
-	% coordinate system
-	\coordinate (o) at (-.5,-.5);
-	\draw[->] (o) -- ++(0,.5);
-	\draw[->] (o) -- ++(.5,0);
-	\draw[->] (o) -- ++(-.3,-.3);
-	% vec R
-	\coordinate (q) at (1.3,2.5);
-	\draw[fill=black] (q) circle (.05cm) node[below,yshift=-3pt] {$ q $};
-	\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R}(t) $};
-	% line
-	% \draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
-	% Rret
-	\coordinate (ret) at ($ (q) + (-1,.3) $);
-	\draw[fill=black] (ret) circle (0.05cm);
-	\draw[thick,->] (o) -- (ret) node[anchor=south east] {$ \vec{R}(t_{\tx{ret}}) $};
-	% vec r
-	\coordinate (r) at (2,.25);
-	\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
-	% r - R ret
-	\draw[thick,->] (ret) -- ($ (r) + (-0.02,.03) $);
-	\draw ($ (ret)!.8!(r) $) to[out=20,in=120] ($ (r) + (1,0) $) node[below] {$ \vec{d}_{\tx{ret}} $};
-	% arc
-	\centerarc[]($ (q) + (-110:6cm) $)(90:30:6cm);
-	% vec V
-	\draw[ultra thick,->] (q) -- ++(-24:1.5cm) node[above] {$ \vec{V}(t) $};
-\end{tikzpicture}
-%
-%
-%
-$ \vec{d}_{\tx{ret}} \defeq \vec{r} - \vec{R}(t_{\tx{ret}}) \qquad \vec{e}_{\tx{ret}} \defeq \frac{\vec{d}_{\tx{ret}}}{|\vec{d}_{\tx{ret}}|} \qquad \vec{\beta}(t) = \frac{\vec{V}(t)}{c} $
+\begin{minipage}{.5\linewidth}
+	$$ \vec{d}_{\tx{ret}} \defeq \vec{r} - \vec{R}(t_{\tx{ret}}) \qquad \vec{e}_{\tx{ret}} \defeq \frac{\vec{d}_{\tx{ret}}}{|\vec{d}_{\tx{ret}}|} $$
+	$$ \vec{\beta}(t) = \frac{\vec{V}(t)}{c} $$
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	% t8:
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (-.5,-.5);
+		\draw[->] (o) -- ++(0,.5);
+		\draw[->] (o) -- ++(.5,0);
+		\draw[->] (o) -- ++(-.3,-.3);
+		% vec R
+		\coordinate (q) at (1.3,2.5);
+		\draw[fill=black] (q) circle (.05cm) node[below,yshift=-3pt] {$ q $};
+		\draw[thick,->] (o) -- (q) node[anchor=south west] {$ \vec{R}(t) $};
+		% line
+		% \draw ($ (q) + (-2,.25) $) to[out=45,in=150] (q) to[out=-30,in=-135] ($ (q) + (2,-.25) $);
+		% Rret
+		\coordinate (ret) at ($ (q) + (-1,.3) $);
+		\draw[fill=black] (ret) circle (0.05cm);
+		\draw[thick,->] (o) -- (ret) node[anchor=south east] {$ \vec{R}(t_{\tx{ret}}) $};
+		% vec r
+		\coordinate (r) at (2,.25);
+		\draw[thick,->] (o) -- node[below] {$ \vec{r} $} (r);
+		% r - R ret
+		\draw[thick,->] (ret) -- ($ (r) + (-0.02,.03) $);
+		\draw ($ (ret)!.8!(r) $) to[out=20,in=120] ($ (r) + (1,0) $) node[below] {$ \vec{d}_{\tx{ret}} $};
+		% arc
+		\centerarc[]($ (q) + (-110:6cm) $)(90:30:6cm);
+		% vec V
+		\draw[ultra thick,->] (q) -- ++(-24:1.5cm) node[above] {$ \vec{V}(t) $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \begin{align*}
 \vec{E}(\vec{r},t) &= \frac{q}{4 \pi \epsilon_0} \frac{(\vec{e}_{\tx{ret}} - \vec{\beta}(t_{\tx{ret}})) ( 1 - \beta^2 (t_{\tx{ret}}) )}{(1 - \vec{e}_{\tx{ret}} \cdot \vec{\beta}(t_{\tx{ret}}))^3 |\vec{d}_{\tx{ret}}(\vec{r},t)|^2}\\
 &+ \frac{q}{4 \pi \epsilon_0} \frac{\vec{e}_{\tx{ret}} \times \left[\left(\vec{e}_{\tx{ret}} - \vec{\beta}(t_{\tx{ret}}) \times \dot{\vec{\beta}}(t_{\tx{ret}}\right)\right]}{c \ ( 1 - \vec{e}_{\tx{ret}} \cdot \vec{\beta}(t_{\tx{ret}}))^3 |\vec{d}_{\tx{ret}}(\vec{r},t)|}\\[5pt]
@@ -2941,31 +2933,49 @@ oszillierende Ladungs-/Stromverteilung
 \end{align*}
 \lcom{Aus Einfachheitshalber in der Notation bekommen die Orts- und Zeitabhängigen Funktionen dieselben symbole wie die nur Ortsabhängigen.}\\
 \emph{Beispiele:}
-%
-%
-%
-% T1
-%
-%
-%
-
-\noindent
+\begin{center}
+	% t1:
+	\begin{tikzpicture}[scale=0.8]
+		\draw[rounded corners=5pt, thick] (0.15,0) -- ++(0,.5) -- ++(2.5,0);
+		\draw[rounded corners=5pt, thick] (-0.15,0) -- ++(0,.5) -- ++(-2.5,0);
+		\node[below] at (0,0) {$ \tilde{U} $};
+		\coordinate (a) at (2,0);
+		\draw[<->] ($ (0,.8) - (a) $) -- node[above] {$ e^- $} ($ (0,.8) + (a) $);
+	\end{tikzpicture}
+	\hspace{2.5cm}
+	\begin{tikzpicture}[scale=0.8]
+		\draw[fill = white!20!red] (0,0) circle (.2cm) node[] {$ \color{white} + \color{white} $};
+		\draw (0,0) circle (1.1cm);
+		\draw[fill = white!20!blue] (45:1.1cm) circle (.2cm) node[] {$ \color{white} - \color{white} $};
+	\end{tikzpicture}
+\end{center}
 Vektorpotential:
 \begin{align*}
 \vec{A}(\vec{r},t) &= \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}', t - \frac{|\vec{r} - \vec{r}'|}{c})}{|\vec{r} - \vec{r}'|} = \frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}')}{|\vec{r} - \vec{r}'|} e^{-i\omega \left(t - \frac{|\vec{r} - \vec{r}'|}{c}\right)} \qquad \quad k = \frac{\omega}{c} \\
 &= e^{-i\omega t} \ub{\frac{\mu_0}{4 \pi} \int \dd^3 r' \frac{\vec{j}(\vec{r}') e^{i k |\vec{r} - \vec{r}'|}}{|\vec{r} - \vec{r}'|}}_{\eqdef \vec{A}(\vec{r})} = e^{ - i \omega t} \vec{A}(\vec{r})
 \end{align*}
-Wir interessieren uns für zeitabhängige Felder in Raumbereichen außerhalb der Ladung-/Strom\-verteilung\\[5pt]
+\begin{minipage}{.6\linewidth}
+	Wir interessieren uns für zeitabhängige Felder in Raumbereichen außerhalb der Ladung-/Strom\-verteilung.
+\end{minipage}%
+\begin{minipage}{.4\linewidth}
+	\flushright
+	% t2:
+	\begin{tikzpicture}
+		\draw[fill=gray!10, scale=.7] plot [smooth cycle, tension=.8] coordinates { (.5,-1.5) (0,-1) (-.7,-.5) (-.7,.7) (.7,1) (.7,0) (1.2,-.7) };
+		\draw[->] (0,0) -- (2,0);
+		\draw[->] (0,0) -- (0,2);
+		\draw[dashed] (0,0) circle (1.5cm);
+		\draw[thick, ->] (0,0) -- node[above] {$ R_0 $} (150:1.5cm);
+		\draw[thick, ->] (0,0) -- (40:2cm) node[anchor=south west] {$ \vec{r} $};
+		\draw[thick, ->] (0,0) -- (70:0.7cm) node[above] {$ \vec{r}' $};
+		\node at (-.25,-.3) {$ \rho $};
+		\node at (.4,-.7) {$ \vec{j} $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 \textbf{Annahmen:}
 \begin{enumerate}[i)]
 	\item zeitabhängige Felder im großen Abstand zur Quelle
-	%
-	%
-	%
-	% T2
-	%
-	%
-	%
 	\begin{equation*}
 	\vec{j} (\vec{r}') = \casess{0}{r' > R_0}{\tx{sonst}}{\tx{beliebig}}
 	\end{equation*}
@@ -3065,21 +3075,28 @@ lokalisierte Stromverteilung $ \vec{j}_g $:
 &= i \omega \frac{\mu_0}{4 \pi} i k \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{p} \times \vec{e}_{r})\\
 &= \frac{\mu_0}{4 \pi} ck^2 \frac{e^{ikr}}{r} \left(1 - \frac{1}{ikr}\right) (\vec{e}_{r} \times \vec{p})
 \end{align*}
-\begin{equation*}
-\Rightarrow \quad \vec{B}(\vec{r},t) = \frac{\mu_0}{4 \pi} ck^2 \frac{e^{i(kr - \omega t)}}{r} \left(1 - \frac{1}{ikr}\right) \vec{e}_r \times \vec{p} \qquad \qquad \qquad \vec{B} \perp \vec{e}_r , \vec{r}
-\end{equation*}
-%
-%
-%
-% T3
-%
-%
-%
+\begin{minipage}{.8\linewidth}
+	\begin{equation*}
+	\Rightarrow \quad \vec{B}(\vec{r},t) = \frac{\mu_0}{4 \pi} ck^2 \frac{e^{i(kr - \omega t)}}{r} \left(1 - \frac{1}{ikr}\right) \vec{e}_r \times \vec{p} \qquad \qquad \vec{B} \perp \vec{e}_r , \vec{r}
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.2\linewidth}
+	\flushright
+	% t3:
+	\begin{tikzpicture}[scale=0.8]
+		\draw[very thick, ->] (0,-1) -- (0,1) node[left] {$ \vec{p} $};
+		\draw[->] ({0.8 * sin(45)},-{.4 * cos(45)}) arc[start angle=-45, end angle=315, x radius=0.8, y radius=.4];
+		\draw[->] ({1.5 * sin(45)}, -{.75 * cos(45)}) arc[start angle=-45, end angle=315, x radius=1.5, y radius=.75];
+		\node at (1,-1) {$ \vec{B} $};
+	\end{tikzpicture}
+	\vspace{5pt}
+\end{minipage}%
+\\
 \begin{equation*}
 \vec{E}(\vec{r},t) = \frac{i}{\omega} e^{- i \omega t} c^2 \vabla \times (\vabla \times \vec{A}(\vec{r}))
 \end{equation*}
 \begin{equation*}
-\Rightarrow \quad \vec{E}(\vec{r},t) = \kq \frac{e^{i (kr - \omega t)}}{r} \Bigg\{ \, k^2 \, \ub{(\vec{e}_r \times \vec{p}) \times \vec{e}_r}_{\mathclap{\substack{\tx{transversal Komponenten} \\ (\perp \tx{ zu } \vec{e}_r)}}} + \left(\frac{1}{r^2} - \frac{ik}{r}\right) \ub{\left[3 \vec{e}_r (\vec{e}_r \cdot \vec{p}) - \vec{p}\right]}_{\mathclap{\substack{\tx{auch Komponenten} \\ \tx{entlang } \vec{e}_r}}} \Bigg\}
+\Rightarrow \quad \vec{E}(\vec{r},t) = \kq \frac{e^{i (kr - \omega t)}}{r} \Bigg\{ \, k^2 \, \ub{(\vec{e}_r \times \vec{p}) \times \vec{e}_r}_{\mathclap{\substack{\tx{transversal Komponenten} \\ (\perp \tx{ zu } \vec{e}_r)}}} + \left(\frac{1}{r^2} - \frac{ik}{r}\right) \ub{\left[3 \vec{e}_r (\vec{e}_r \cdot \vec{p}) - \vec{p}\right]}_{\mathclap{\substack{\tx{auch Komponenten} \\ \tx{entlang } \vec{e}_r}}} \Bigg\} \qquad \ \
 \end{equation*}
 
 \subsubsection{Grenzfall:}
@@ -3089,16 +3106,33 @@ statischer Dipol $ \quad \omega \to 0 \quad k \to 0 $
 \vec{E}(\vec{r},t) &\rightarrow \kq \frac{3 \vec{e}_r (\vec{e}_r \cdot \vec{p}) - \vec{p}}{r^3}\\
 \vec{B}(\vec{r},t) &\rightarrow 0
 \end{align*}
+
 \subsubsection{Fernbereich (Strahlungszone)}
-$ kr \gg 1 \quad r \gg \lambda $
-%
-%
-%
-% T4
-%
-%
-%
-$ \frac{1}{kr} \ll 1 \qquad \frac{k^2}{r} = \frac{k^2 r^2}{r^3} \gg \frac{1}{r^3} \qquad \frac{k}{r^2} = \frac{k^2}{kr r} \ll \frac{k^2}{r} $
+
+\begin{minipage}{.5\linewidth}
+	Für den Fernbereich gilt:\\
+	$ kr \gg 1 \quad r \gg \lambda $\\
+	Damit erhalten wir die Näherungen\\
+	$ \frac{1}{kr} \ll 1 $\\[5pt]
+	$ \frac{k^2}{r} = \frac{k^2 r^2}{r^3} \gg \frac{1}{r^3} $\\[5pt]
+	$ \frac{k}{r^2} = \frac{k^2}{kr r} \ll \frac{k^2}{r} $
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\flushright
+	% t4:
+	\begin{tikzpicture}[scale=.8]
+		\draw[fill=gray!10, scale=.7] plot [smooth cycle, tension=.8] coordinates { (.5,-1.5) (0,-1) (-.7,-.5) (-.7,.7) (.7,1) (.7,0) (1.2,-.7) };
+		\draw[->] (0,0) -- (2,0);
+		\draw[->] (0,0) -- (0,2);
+		\draw[dashed] (0,0) circle (1.5cm);
+		\draw[thick, ->] (0,0) -- node[above] {$ R_0 $} (150:1.5cm);
+		\node at (-.25,-.3) {$ \rho $};
+		\node at (.4,-.7) {$ \vec{j} $};
+		\draw[<->] (0,-2) -- node[below] {$ R_0 $} ++(1.5,0);
+		\draw[<->] (0,-2.75) -- node[below] {$ \lambda $} ++(3,0);
+		\draw[<->] (0,-3.5) -- node[below] {$ \vec{r} $} ++(6,0);
+	\end{tikzpicture}
+\end{minipage}%
 \begin{equation*}
 \Rightarrow \quad \vec{E}(\vec{r},t) = \kq e^{i (kr - \omega t)} \Bigg\{ \frac{k^2}{r} (\vec{e}_r \times \vec{p}) \times \vec{e}_r + \left(\cancel{\frac{1}{r^3}} - \cancel{\frac{ik}{r^2}}\right) \left[3 \vec{e}_r (\vec{e}_r \cdot \vec{p}) - \vec{p}\right]\Bigg\}
 \end{equation*}
@@ -3111,43 +3145,64 @@ da, wie oben gezeigt, diese Terme $ \frac{1}{r^3}, \ \frac{ik}{r^2} $ vernachlä
 %
 %
 %
-% glaube oben muss ein k^2 bei E hin aber da stand keins
+% I33 glaube oben muss ein k^2 bei E hin aber da stand keins ?
 %
 %
 %
 \lcom{wir erhalten also sich transversal ausbreitende Kugelwellen.}\\[10pt]
-\emph{Bemerkungen:}
-\begin{enumerate}[i)]
-	\item $ \vec{E},\vec{B},\vec{e}_r $ orthogonal
-	%
-	%
-	%
-	% T5
-	%
-	%
-	%
-	\item $ |\vec{E}| \sim \frac{1}{r} \quad |\vec{B}| \sim \frac{1}{r} $\\
-	\textbf{Strahlungsfelder}\\
-	\folie{Strahlungsfelder}
-\end{enumerate}
+\begin{minipage}{.4\linewidth}
+	\emph{Bemerkungen:}
+	\begin{enumerate}[i)]
+		\item $ \vec{E},\vec{B},\vec{e}_r $ orthogonal
+		\item $ |\vec{E}| \sim \frac{1}{r} \quad |\vec{B}| \sim \frac{1}{r} $\\
+		\textbf{Strahlungsfelder}\\
+		\folie{Strahlungsfelder}
+	\end{enumerate}
+\end{minipage}%
+\begin{minipage}{.6\linewidth}
+	\flushright
+	% t5:
+	\begin{tikzpicture}
+		\foreach \x in {1, 2, 3, 4, 5, 6, 7}
+		\centerarc[thick, draw=lightgray](0,0)(25:-25:\x);
+		\draw[->] (0,0) -- (0,2) node[anchor=south east] {$ z $};
+		\draw[->] (0,0) -- (1.5,1.5) node[anchor=south east] {$ y $};
+		\draw[->] (0,0) -- (8,0) node[anchor=north west] {$ x $};
+		\draw[very thick, ->] (0,0) -- node[left] {$ \vec{p} $} (0,1);	\coordinate (o) at (3.5,0);
+		\draw[very thick, ->] (0,0) -- node[below] {$ \vec{r} $} (o);
+		\draw[very thick, ->] (o) -- ++(0,1) node[anchor=south east] {$ \vec{E} $};
+		\draw[very thick, ->] (o) -- ++(-0.75,-0.75) node[anchor=south east] {$ \vec{B} $};
+		\draw[very thick, ->] (o) -- ++(1,0) node[anchor=north west] {$ \vec{e}_r $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 
 % Vorlesung 31.01
 
-\bbb{Widerholung}{
-%
-%
-%
-% T1: T2 der letzten Vorlesung mit <-> R_0 aus T4
-%
-%
-%
-$ R_0 \ll \lambda \ll r $
-\begin{align*}
-\vec{B}(\vec{r},t) &\approx \frac{\mu_0}{4 \pi} c k^2 \frac{e^{i (kr - \omega t)}}{r} \vec{e}_r \times \vec{p} \\
-\vec{E}(\vec{r},t) &\approx \kq k^2 \frac{e^{i(kr - \omega t)}}{r} (\vec{e}_r \times \vec{p}) \times \vec{e}_r\\
-&= c \vec{B}(\vec{r},t) \times \vec{e}_r \qquad \qquad &\vec{E} \perp \vec{B}, \vec{e}_r
-\end{align*}
-mit $ \vec{p} = \int \dd^3 r' \vec{r}' \rho(\vec{r}') $
+\bbb{Wiederholung}{
+\begin{minipage}{.7\linewidth}
+	$ R_0 \ll \lambda \ll r $
+	\begin{align*}
+	\vec{B}(\vec{r},t) &\approx \frac{\mu_0}{4 \pi} c k^2 \frac{e^{i (kr - \omega t)}}{r} \vec{e}_r \times \vec{p} \\
+	\vec{E}(\vec{r},t) &\approx \kq k^2 \frac{e^{i(kr - \omega t)}}{r} (\vec{e}_r \times \vec{p}) \times \vec{e}_r\\
+	&= c \vec{B}(\vec{r},t) \times \vec{e}_r \qquad \qquad &\vec{E} \perp \vec{B}, \vec{e}_r
+	\end{align*}
+	mit $ \vec{p} = \int \dd^3 r' \vec{r}' \rho(\vec{r}') $
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	\flushright
+	% t1: t2 der letzten Vorlesung mit <-> R_0 aus t4:
+	\begin{tikzpicture}
+		\draw[fill=gray!10, scale=.7] plot [smooth cycle, tension=.8] coordinates { (.5,-1.5) (0,-1) (-.7,-.5) (-.7,.7) (.7,1) (.7,0) (1.2,-.7) };
+		\draw[->] (0,0) -- (2,0);
+		\draw[->] (0,0) -- (0,2);
+		\draw[dashed] (0,0) circle (1.5cm);
+		\node at (-.25,-.3) {$ \rho $};
+		\node at (.4,-.7) {$ \vec{j} $};
+		\draw[<->] (0,-2) -- node[below] {$ R_0 $} ++(1.5,0);
+		\draw[thick, ->] (0,0) -- (40:2cm) node[anchor=south west] {$ \vec{r} $};
+	\end{tikzpicture}
+\end{minipage}%
 }
 
 \subsection{Energiestromdichte}
@@ -3164,9 +3219,22 @@ mit $ \vec{p} = \int \dd^3 r' \vec{r}' \rho(\vec{r}') $
 \begin{align*}
 \Rightarrow \quad \vec{S}(\vec{r},t) &= \frac{c}{\mu_0} \left(\frac{\mu_0}{4 \pi} ck^2\right)^2 (\equalto{\vec{e}_r \times \vec{p}}{p^2 \sin^2 \theta} )^2 \vec{e}_r \frac{\cos^2(kr - \omega t)}{r}
 \end{align*}
-\begin{equation*}
-\Rightarrow \quad \vec{S} = \frac{c}{16 \pi^2 \epsilon_0} \frac{k^4 p^2}{r^2} \sin^2 \theta \cos^2(k t - \omega t) \vec{e}_r
-\end{equation*}
+\begin{minipage}{.7\linewidth}
+	\begin{equation*}
+	\Rightarrow \quad \vec{S} = \frac{c}{16 \pi^2 \epsilon_0} \frac{k^4 p^2}{r^2} \sin^2 \theta \cos^2(k t - \omega t) \vec{e}_r
+	\end{equation*}
+\end{minipage}%
+\begin{minipage}{.3\linewidth}
+	\flushright
+	% t2:
+	\begin{tikzpicture}
+		\draw[thick, ->] (0,0) -- node[left] {$ \vec{p} $} ++(0,2);
+		\draw[thick, ->] (0,0) -- node[below] {$ \vec{r} $} ++(30:2);
+		\centerarc[](0,0)(30:90:1.2);
+		\node at (60:0.8) {$ \theta $};
+	\end{tikzpicture}
+\end{minipage}%
+\\
 gemittelt über Periode $ T = \frac{2 \pi}{\omega} $
 \begin{align*}
 \langle \vec{S} \rangle &= \frac{1}{T} \int_{0}^{T} \dd t \vec{S}(\vec{r},t)\\
@@ -3178,18 +3246,31 @@ gemittelt über Periode $ T = \frac{2 \pi}{\omega} $
 \begin{enumerate}[i)]
 	\item Abstrahlung $ \propto \vec{e}_r $
 	\item Energieflussdichte $ \propto \frac{1}{r^2} $
-	\item in Raumwinkelelementen $ \dd \Omega $ abgestrahlte Leistung
-	\begin{equation*}
-	\dd P = \langle \vec{S} \rangle \cdot \dd \vec{f}
-	\end{equation*}
- 	mit $ \dd \vec{f} = \vec{e}_r r^2 \dd \Omega $
-	%
-	%
-	%
-	% T3
-	%
-	%
-	%
+	\item 
+	\begin{minipage}{.6\linewidth}
+			in Raumwinkelelementen $ \dd \Omega $ abgestrahlte Leistung
+			\begin{equation*}
+			\dd P = \langle \vec{S} \rangle \cdot \dd \vec{f}
+			\end{equation*}
+			mit $ \dd \vec{f} = \vec{e}_r r^2 \dd \Omega $
+	\end{minipage}%
+	\begin{minipage}{.4\linewidth}
+		\flushright
+		% t3:
+		\begin{tikzpicture}
+			\draw[thick, ->] (0,0) -- node[left] {$ \vec{p} $} ++(0,2);
+			\draw[thick, ->] (0,0) -- node[below] {$ \vec{r} $} ++(30:2);
+			\centerarc[](0,0)(30:90:1.2);
+			\node at (60:0.8) {$ \theta $};
+			\draw[rotate around={-20:(30:2)}] ($ (30:2) + (-.5,-.5) $) -- ++(0,1) -- ++(1,0) -- ++(0,-1) -- cycle;
+			\draw[shift=(30:2), rotate=-20, pattern = north east lines] (-.5,-.5) -- ++(0,1) -- ++(1,0) -- ++(0,-1) -- cycle;
+			% rotate around={45:(0,0)}
+			% shift=(30:2), rotate=-20
+			\draw (25:2) -- ++(0.5,0) node[right] {$ \dd \vec{f} = \vec{e}_r  r^2 \dd \Omega $};
+		\end{tikzpicture}
+		\vspace{5pt}
+	\end{minipage}%
+	\\
 	\begin{equation*}
 	\Rightarrow \quad \dd P = \frac{\omega^4 p^2}{32 \pi^2 \epsilon_0 c^3 r^2} r^2 \sin^2 \theta \dd \Omega
 	\end{equation*}
@@ -3197,13 +3278,17 @@ gemittelt über Periode $ T = \frac{2 \pi}{\omega} $
 	\prd{P}{\Omega} = \frac{\omega^4 p^2}{32 \pi^2 \epsilon_0 c^3} \sin^2 \theta
 	\end{equation*}
 	\item Winkelabhängigkeit: $ \propto \sin^2 \theta $
-	%
-	%
-	%
-	% T4
-	%
-	%
-	%
+	\begin{center}
+		% t4:
+		\begin{tikzpicture}[scale=.8]
+			\draw[looseness=1, ultra thick, draw=black!30!white] (0,0) to[out=55,in=180] (1.5,1.25) to[out=0,in=90] (2.5,0) to[out=-90,in=0] (1.5,-1.25) to[out=180,in=-55] (0,0);
+			\draw[looseness=1,rotate=180, ultra thick, draw=black!30!white] (0,0) to[out=55,in=180] (1.5,1.25) to[out=0,in=90] (2.5,0) to[out=-90,in=0] (1.5,-1.25) to[out=180,in=-55] (0,0);
+			\draw[->] (-3,0) -- (3,0);
+			\draw[->] (0,-2) -- (0,2);
+			\draw[very thick, ->] (0,0) -- node[left] {$ \vec{p} $} (0,1.5);
+			\draw[->] (0,0) -- (2.75,1.5) node[anchor=south east] {$ \vec{r} $};
+		\end{tikzpicture}
+	\end{center}
 	\item \textbf{gesamte abgestrahlte Leistung}
 	\begin{align*}
 	P = \int_{4\pi} \dd \Omega \frac{\dd P}{\dd \Omega} \quad \overset{\mathclap{\substack{ \int \dd \Omega \sin^2 \theta \\ = \frac{8 \pi}{3} \\ \phantom{0} }}}{=} \quad \frac{1}{12 \pi \epsilon_0 c^3} \omega	^4 p^2
